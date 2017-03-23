@@ -1,0 +1,316 @@
+---
+title: Key Capacity Scaling Indicators
+owner: PCF Metrics Platform Monitoring
+---
+
+This topic describes key capacity scaling indicators that operators monitor to determine when
+they need to scale their Pivotal Cloud Foundry (PCF) deployments.
+
+Pivotal provides these indicators to operators as general guidance for capacity scaling. 
+Each indicator is based on platform metrics from different components. 
+This guidance is applicable to most PCF v1.10 deployments.
+Pivotal recommends that operators fine-tune the suggested alert thresholds 
+by observing historical trends for their deployments. 
+
+## <a id="doppler-server"></a> Doppler Server Scaling Indicator
+
+Currently, there is only one key capacity scaling indicator recommended for the Doppler server.
+It measures the fraction of messages dropped by the Doppler. 
+
+### <a id="firehose-loss-rate"></a> Firehose Loss Rate
+
+<table>
+  <tr>
+      <th colspan="2" style="text-align: center;">((DopplerServer.TruncatingBuffer.totalDroppedMessages + 
+          DopplerServer.doppler.shedEnvelopes) / DopplerServer.listeners.totalReceivedMessageCount)</th>
+  </tr>
+   <tr>
+      <th width="25">Description</th>
+      <td>
+       This derived metric is the fraction of messages intentionally dropped during the lifetime
+       of the Doppler VM.
+       </td>
+   </tr>
+   <tr>
+      <th>Purpose</th>
+      <td>If there are too many dropped messages, the Dopplers may not be processing 
+          messages fast enough. 
+   </tr>
+   <tr>
+      <th>Recommended thresholds</th>
+      <td><strong>Scale indicator</strong>: &ge; 0.1</br>
+      If alerting:<br>
+      <strong>Yellow warning</strong>: &ge; 0.05<br>
+      <strong>Red critical</strong>: &ge; 0.1</td>
+   </tr>
+   <tr>
+      <th>How to scale up</th>
+      <td>Consider scaling up Doppler/Loggregator instances. 
+      </td>
+   </tr>
+   <tr>
+      <th>Additional Details</th>
+      <td> <strong>Origin</strong>: Doppler/Firehose<br>
+           <strong>Type</strong>: Gauge (float)<br>
+           <strong>Frequency</strong>: Base metrics are emitted every 5 s<br>
+           <strong>Applies to</strong>: cf:doppler<br>
+      </td>
+   </tr>
+</table>
+
+Q: When we talk about scaling, what do we mean by "Loggregator" instances? For doppler, we know we can increase the instance 
+count in Ops Man.
+
+## <a id="bosh"></a> System (BOSH) Scaling Indicators
+
+Currently, there are three key capacity scaling indicators recommended for the the BOSH system:
+
++ [Router VM CPU Utilization](#system.cpu.user) is a measure of Gorouter performance
++ [Diego Cell Compute Capacity](#derivedsystemload)
+
+### <a id="system.cpu.user"></a> Gorouter Latency and Throughput
+
+(Q: WHAT exactly is "System (BOSH)"? This term is not used anywhere else in the PCF doc set.)
+
+###<a id="system.cpu.user"></a>Router VM CPU Utilization
+
+<table>
+  <tr>
+      <th colspan="2" style="text-align: center;">system.cpu.user</th>
+  </tr>
+  <tr>
+      <th>Description</th>
+      <td>CPU usage of the Gorouter VM</td>
+  </tr>
+  <tr>
+      <th>Purpose</th>
+      <td>High CPU usage in the router VMs can increase latency and cause throughput, or requests per second, to level off.
+          In performance and load testing, Pivotal has observed on its Pivotal Web Services deployment that an inflection
+          point for decreasing performance is approximately 60% CPU utilization. 
+          </td>
+   </tr>
+   <tr>
+      <th>Recommended thresholds</th>
+      <td><strong>Scale indicator</strong>: &ge; 60%<br>
+      If alerting:<br>
+      <strong>Yellow warning</strong>: &ge; 60%<br>
+      <strong>Red critical</strong>: &ge; 70%<br>
+      </td>
+   </tr>
+   <tr>
+      <th>How to scale up</th>
+      <td>If the maximum CPU utilization is over 70%, scale the Gorouters horizontally or vertically.
+      </td>
+   </tr>
+   <tr>
+      <th>Additional Details</th>
+      <td> <strong>Origin</strong>: JMX Bridge or BOSH HM Forwarder<br>
+           <strong>Type</strong>: Gauge (float)<br>
+           <strong>Frequency</strong>: Emitted every 60 s<br>
+           <strong>Applies to</strong>: cf:router<br>
+      </td>
+   </tr>
+</table>
+
+
+### <a id="derivedsystemload"></a>Diego Cell Compute Capacity
+
+<table>
+  <tr>
+      <th colspan="2" style="text-align: center;">system.load.1m</code>/CPU-count-of-cells</th>
+  </tr>
+   <tr>
+      <th width="25">Description</th>
+      <td> The one-minute average system load divided by the CPU count of cells. 
+           You can access the CPU count through the Ops Manager API.<br><br>
+          (Q: How is the load calculated? Is it the number of processes running or waiting to run on all Diego cells
+          </td></tr>
+   <tr>
+      <th>Purpose</th>
+      <td>
+      CPU Loads trending lower than or higher than 1 for extended periods of time indicate too many or too few CPU resources respectively.
+      </td>
+   </tr>
+   <tr>
+      <th>Recommended thresholds</th>
+      <td>avg(1)</br></td>
+   </tr>
+   <tr>
+      <th>How to scale</th>
+      <td>	
+      Choose a Diego Cell VM type with more or less CPU.
+      </td>
+   </tr>
+   <tr>
+      <th>Additional Details</th>
+      <td> <strong>Origin</strong>: JMX Bridge or BOSH HM Forwarder<br>
+           <strong>Type</strong>: Gauge (float)<br>
+           <strong>Frequency</strong>: Emitted every 60 s<br>
+           <strong>Applies to</strong>: cf:diego_cells<br>
+      </td>
+   </tr>
+</table>
+          
+###<a id="systemdiskpersist"></a>NFS Backed Blobstore
+
+<p class="note"><strong>Note</strong>: Only monitor this indicator if your deployment uses an external S3 repository for storage.</p>
+
+<table>
+   <tr><th colspan="2" style="text-align: center;"><br>system.disk.persistent.percent<br><br></th></tr>
+   <tr>
+      <th width="25%">Description</th>
+      <td><em>If applicable</em> Percentage of persistent disk used on the VM for the NFS Server job.
+   </tr>
+   <tr>
+       <th>Purpose</th>
+       <td>NEEDS RATIONALE</td>
+   </tr>
+   <tr>
+      <th>Recommended thresholds</th>
+      <td>&gt; 75%</td>
+   </tr>
+   <tr>
+      <th>How to scale</th>
+      <td>
+      Give your NFS Server additional persistent disk resources.  
+      </td>
+   </tr>
+    <tr>
+      <th>Additional Details</th>
+      <td> <strong>Origin</strong>: JMX Bridge or BOSH HM Forwarder<br>
+           <strong>Type</strong>: Gauge (%)<br>
+           <strong>Applies to</strong>: cf:nfs_server<br>
+      </td>
+   </tr>  
+</table>
+
+##<a id="cell"></a>Diego Cell Capacity Scaling Indicators
+
+###<a id="derivedrepcap"></a>Diego Cell Container Capacity
+
+<table>
+   <tr><th colspan="2" style="text-align: center;"><br>rep.CapacityRemainingContainers / 
+       rep.CapacityTotalContainers<br><br></th></tr>
+   <tr>
+      <th width="25%">Description</th>
+      <td> Total number of containers this cell can host assuming adequate resources.</td>
+   <tr>
+      <th>Purpose</th>
+      <td>Best practice deployment of Cloud Foundry recommends 3 Availability zones.  
+          For these types of deployments it is suggested to have enough capacity to suffer failure of a complete availability Zone.
+      </td>
+   </tr>
+   <tr>
+      <th>Recommended thresholds</th>
+      <td>&lt; avg(30%)</td>
+   </tr>
+   <tr>
+      <th>How to scale</th>
+      <td>
+      Add more Diego cell VMs or give more resources to your existing VMs. (GUESS. NEED AMBER TO CONFIRM)
+     </td>
+   </tr>
+    <tr>
+      <th>Additional Details</th>
+      <td> <strong>Origin</strong>: Doppler/Firehose
+           <strong>Type</strong>: Gauge (%)<br>
+           <strong>Frequency</strong>: Emitted every 30 s<br>
+           <strong>Applies to</strong>: cf:diego_cells
+      </td>
+   </tr>
+</table>
+
+###<a id="drivedrepcaprem">Diego Cell Disk Capacity
+
+<table>
+   <tr><th colspan="2" style="text-align: center;"><br>derived=(rep.CapacityRemainingDisk/rep.CapacityTotalDisk)<br><br></th></tr>
+   <tr>
+      <th width="25%">Description</th>
+      <td> Total amount in MiB of disk available for this cell to allocate to containers. Emitted every 30 seconds.<br><br>
+
+      <br><br>
+      <strong>Use</strong>: Best Practice deployment of Cloud Foundry recommends 3 Availability zones.
+              For these types of deployments it is suggested to have enough capacity to suffer failure of a complete availability Zone.
+
+      <br><br>
+   
+      <strong>Use</strong>: 
+   
+      <br><br>
+      <strong>Origin</strong>: <br>
+      <strong>Type</strong>: Gauge (%)<br>
+      <strong>Frequency</strong>: <br>
+   </tr>
+   <tr>
+      <th>Recommended measurement</th>
+      <td> Changeme </td>
+   </tr>
+   <tr>
+      <th>Recommended thresholds</th>
+      <td><strong>Yellow warning</strong>: changeme<br>
+      <strong>Red critical</strong>: changeme</td>
+   </tr>
+   <tr>
+      <th>Recommended response</th>
+      <td>
+      Do the following:<br><br>
+         <ol>
+            <li>Thing.</li> 
+            <li>Thing.</li> 
+         </ol>
+      </td>
+   </tr>
+    <tr>
+      <th>Additional Details</th>
+      <td> <strong>Origin</strong>: JMX Bridge or BOSH HM Forwarder<br>
+           <strong>Type</strong>: Gauge (%)<br>
+           <strong>Applies to</strong>: cf:nfs_server<br>
+      </td>
+   </tr>
+</table>
+
+###<a id="derivedremmem"></a>Diego Cell Memory Capacity
+
+<table>
+   <tr><th colspan="2" style="text-align: center;"><br>derived=(rep.CapacityRemainingMemory/rep.CapacityTotalMemory)<br><br></th></tr>
+   <tr>
+      <th width="25%">Description</th>
+      <td> Total amount in MiB of memory available for this cell to allocate to containers. Emitted every 30 seconds.</br><br>
+
+      <br><br>
+   
+      <strong>Use</strong>: Best Practice deployment of Cloud Foundry recommends 3 Availability zones.  
+              For these types of deployments it is suggested to have enough capacity to suffer failure of a complete availability Zone.
+   
+      <br><br>
+      <strong>Origin</strong>: <br>
+      <strong>Type</strong>: Gauge (%)<br>
+      <strong>Frequency</strong>: <br>
+   </tr>
+   <tr>
+      <th>Recommended measurement</th>
+      <td> Changeme </td>
+   </tr>
+   <tr>
+      <th>Recommended thresholds</th>
+      <td><strong>Yellow warning</strong>: changeme<br>
+      <strong>Red critical</strong>: changeme</td>
+   </tr>
+   <tr>
+      <th>Recommended response</th>
+      <td>
+      Do the following:<br><br>
+         <ol>
+            <li>Thing.</li> 
+            <li>Thing.</li> 
+         </ol>
+      </td>
+   </tr>
+    <tr>
+      <th>Additional Details</th>
+      <td> <strong>Origin</strong>: JMX Bridge or BOSH HM Forwarder<br>
+           <strong>Type</strong>: Gauge (%)<br>
+           <strong>Applies to</strong>: cf:nfs_server<br>
+      </td>
+   </tr>
+</table>
