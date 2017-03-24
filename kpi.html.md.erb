@@ -1053,8 +1053,8 @@ When observing a lot of container churn, do the following:<br><br>
         <tr>
                 <th>Recommended response</th>
                 <td>
-                        Scale up the Firehose log receiver and Dopplers.<br>
-                        Do not scale down these components because spikes in throughput can cause log loss.
+                        Scale up the Firehose log receiver and Dopplers on consistent upward trends.<br>
+                        It is not advised to scale down these components on flat or downward delta trends because unexpected spikes in throughput can cause log loss if not scaled appropriately.
                     </ol>
                     </td>
         </tr>
