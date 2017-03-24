@@ -781,7 +781,7 @@ When observing a lot of container churn, do the following:<br><br>
           <br><br>
           <strong>Use</strong>: Provides insight into the overall traffic flow through a deployment. 
           For performance and capacity management, consider this metric a measure of router throughput 
-          and convert it to requests-per-second, by deriving <code>per_second(sum:gorouter.total_requests{*})</code>.
+          and convert it to requests-per-second, by looking at the delta value of `gorouter.total_requests` and deriving back to 1s, or <code>sum_over_all_indexes(gorouter.total_requests.delta)/5</code>.
           This helps you see trends in the throughput rate that indicate a need to scale the Gorouter.
           Use the trends you observe to tune the threshold alerts for this metric. 
           <br><br>
@@ -791,7 +791,7 @@ When observing a lot of container churn, do the following:<br><br>
    </tr>
    <tr>
       <th>Recommended measurement</th>
-      <td>Average over the last 5 minutes of the per second calculation of <code>gorouter.total_requests</code></td>
+      <td>Average over the last 5 minutes of the derived per second calculation</td>
    </tr>
    <tr>
       <th>Recommended alert thresholds</th>
