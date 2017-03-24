@@ -1067,7 +1067,7 @@ When observing a lot of container churn, do the following:<br><br>
         <tr>
                 <th width="25%">Description</th>
                 <td>The lifetime total number of messages 
-                    intentionally dropped by Doppler from all of its sinks due to back pressure.<br><br>
+                    intentionally dropped by Doppler due to back pressure.<br><br>
                     In PCF v1.10, Pivotal recommends combining both of these metrics to present a full picture of dropped messages.
                     However, the metric <code>DopplerServer.TruncatingBuffer.totalDroppedMessages</code> is 
                     being transitioned to <code>DopplerServer.doppler.shedEnvelopes</code>.  
