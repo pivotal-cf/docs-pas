@@ -3,18 +3,139 @@ title: Key Capacity Scaling Indicators
 owner: PCF Metrics Platform Monitoring
 ---
 
-This topic describes key capacity scaling indicators that operators may want to monitor to determine when
-they need to scale their Pivotal Cloud Foundry (PCF) deployment.
+This topic describes key capacity scaling indicators that operators monitor to determine when
+they need to scale their Pivotal Cloud Foundry (PCF) deployments.
 
 Pivotal provides these indicators to operators as general guidance for capacity scaling. 
-This guidance is applicable to most PCF v1.10 deployment.
+Each indicator is based on platform metrics from different components. 
+This guidance is applicable to most PCF v1.10 deployments.
 Pivotal recommends that operators fine-tune the suggested alert thresholds 
 by observing historical trends for their deployments. 
 
-## <a id="doppler-server"></a> Doppler Server Scaling Indicator
+##<a id="cell"></a>Diego Cell Capacity Scaling Indicators
 
-Currently, there is only one key capacity scaling indicator recommended for the Doppler server.
-It measures the fraction of messages dropped by the Doppler. 
+Currently, there are three key capacity scaling indicators recommended for Diego cell:
+
++ [Diego Cell Memory Capacity](#cell-memory) is a measure of the percentage of remaining memory capacity
++ [Diego Cell Disk Capacity](#cell-disk) is a measure of the percentage of remaining disk capacity
++ [Diego Cell Container Capacity](#cell-container) is a measure of the percentage of remaining container capacity
+
+###<a id="cell-memory"></a>Diego Cell Memory Capacity
+
+<table>
+   <tr><th colspan="2" style="text-align: center;"><br>rep.CapacityRemainingMemory / rep.CapacityTotalMemory<br><br></th></tr>
+   <tr>
+      <th width="25%">Description</th>
+     <td> Percentage of remaining memory capacity for a given cell. Should be looked at holistically across all cells in a deployment.
+<br><br>
+      Derived by dividing `rep.CapacityRemainingMemory` (remaining amount in MiB of memory available for this cell to allocate to containers) by `rep.CapacityTotalMemory` (total amount in MiB of memory available for this cell to allocate to containers).</td>
+ </tr>
+   <tr>
+      <th>Purpose</th>
+      <td>Best practice deployment of Cloud Foundry recommends 3 Availability zones.  
+          For these types of deployments it is suggested to have enough capacity to suffer failure of a complete availability Zone.
+          <br><br>
+          Recommended threshold is based on this 3 Availability Zone configuration. The threshold percentage should be altered if more or less Availability Zones. 
+      </td>
+   </tr>
+   <tr>
+      <th>Recommended thresholds</th>
+      <td>&lt; avg(30%)</td>
+   </tr>
+   <tr>
+      <th>How to scale</th>
+      <td>      
+      Scale up your Diego Cells 
+      </td>
+   </tr>
+    <tr>
+      <th>Additional Details</th>
+      <td> <strong>Origin</strong>: Doppler/Firehose<br>
+           <strong>Type</strong>: Gauge (%)<br>
+           <strong>Frequency</strong>: Emitted every 30 s<br>
+           <strong>Applies to</strong>: cf:diego_cells
+      </td>
+   </tr>
+</table>
+
+###<a id="cell-disk"></a>Diego Cell Disk Capacity
+
+<table>
+   <tr><th colspan="2" style="text-align: center;"><br>rep.CapacityRemainingDisk / rep.CapacityTotalDisk<br><br></th></tr>
+   <tr>
+      <th width="25%">Description</th>
+      <td> Percentage of remaining disk capacity for a given cell. Should be looked at holistically across all cells in a deployment.
+<br><br>
+      Derived by dividing `rep.CapacityRemainingDisk` (remaining amount in MiB of disk available for this cell to allocate to containers) by `rep.CapacityTotalDisk`(total amount in MiB of disk available for this cell to allocate to containers).</td>
+ </tr>
+   <tr>
+       <th>Purpose</th>
+      <td>Best practice deployment of Cloud Foundry recommends 3 Availability zones.  
+          For these types of deployments it is suggested to have enough capacity to suffer failure of a complete availability Zone.
+          <br><br>
+          Recommended threshold is based on this 3 Availability Zone configuration. The threshold percentage should be altered if more or less Availability Zones. 
+      </td>
+   </tr>
+   <tr>
+      <th>Recommended thresholds</th>
+      <td>&lt; avg(30%)</td>
+   </tr>
+   <tr>
+      <th>How to Scale</th>
+      <td>      
+      Scale up your Diego Cells 
+      </td>
+   </tr>
+    <tr>
+      <th>Additional Details</th>
+      <td> <strong>Origin</strong>: Doppler/Firehose<br>
+           <strong>Type</strong>: Gauge (%)<br>
+           <strong>Frequency</strong>: Emitted every 30 s<br>
+           <strong>Applies to</strong>: cf:diego_cells
+      </td>
+   </tr>
+</table>
+
+###<a id="cell-container"></a>Diego Cell Container Capacity
+
+<table>
+   <tr><th colspan="2" style="text-align: center;"><br>rep.CapacityRemainingContainers / 
+       rep.CapacityTotalContainers<br><br></th></tr>
+   <tr>
+      <th width="25%">Description</th>
+      <td> Percentage of remaining container capacity for a given cell. Should be looked at holistically across all cells in a deployment.
+      <br><br>
+      Derived by dividing `rep.CapacityRemainingContainers` (remaining number of containers this cell can host) by `rep.CapacityTotalContainer`(total number of containers this cell can host).</td>
+   <tr>
+      <th>Purpose</th>
+      <td>Best practice deployment of Cloud Foundry recommends 3 Availability zones.  
+          For these types of deployments it is suggested to have enough capacity to suffer failure of a complete availability Zone.
+          <br><br>
+          Recommended threshold is based on this 3 Availability Zone configuration. The threshold percentage should be altered if more or less Availability Zones. 
+      </td>
+   </tr>
+   <tr>
+      <th>Recommended thresholds</th>
+      <td>&lt; avg(30%)</td>
+   </tr>
+   <tr>
+      <th>How to scale</th>
+      <td>
+      Scale up your Diego Cells 
+     </td>
+   </tr>
+    <tr>
+      <th>Additional Details</th>
+      <td> <strong>Origin</strong>: Doppler/Firehose<br>
+           <strong>Type</strong>: Gauge (%)<br>
+           <strong>Frequency</strong>: Emitted every 30 s<br>
+           <strong>Applies to</strong>: cf:diego_cells
+      </td>
+   </tr>
+</table>
+
+## <a id="doppler-server"></a> Firehose Performance Scaling Indicator
+Currently, there is one key capacity scaling indicator recommended for Firehose performance. 
 
 ### <a id="firehose-loss-rate"></a> Firehose Loss Rate
 
@@ -25,15 +146,14 @@ It measures the fraction of messages dropped by the Doppler.
   </tr>
    <tr>
       <th width="25">Description</th>
-      <td>
-       This derived metric is the fraction of messages intentionally dropped during the lifetime
-       of the Doppler VM.
+      <td> This derived value represents the firehose loss rate, or the total messages dropped as a % of the total message throughput
        </td>
    </tr>
    <tr>
       <th>Purpose</th>
-      <td>If there are too many dropped messages, the Dopplers may not be processing 
-          messages fast enough. 
+      <td>Excessive dropped messages can indicate the Dopplers are not processing messages fast enough 
+        <br><br>
+        Recommended scaling indicator is to look at the total dropped as a % of the total throughput. Then scale if this derived loss rate value grows greater than 0.1
    </tr>
    <tr>
       <th>Recommended thresholds</th>
@@ -44,7 +164,7 @@ It measures the fraction of messages dropped by the Doppler.
    </tr>
    <tr>
       <th>How to scale up</th>
-      <td>Consider scaling up Doppler/Loggregator instances. 
+      <td>Scale up the Firehose log receiver and Dopplers. 
       </td>
    </tr>
    <tr>
@@ -57,33 +177,26 @@ It measures the fraction of messages dropped by the Doppler.
    </tr>
 </table>
 
-Amber: When we talk about scaling, what do we mean by "Loggregator" instances? For doppler, we know we can increase the instance 
-count in Ops Man.
+(Amber) We have a known issue with the Dropped Messages metric that is impacting the ability to publish this derived value suggestion. Working with Loggregator team to resolve
 
-## <a id="bosh"></a> System (BOSH) Scaling Indicators
-
-Currently, there are two key capacity scaling indicators recommended for the the BOSH system:
-
-+ [Router VM CPU Utilization](#system.cpu.user) is a measure of Gorouter performance
-+ [NFS Backed Blobstore](#systemdiskpersist)
-
-Amber: What exactly is "System (BOSH)"? This term is not used anywhere else in the PCF doc set.
+## <a id="Router"></a> Router Performance Scaling Indicator
+Currently, there is one key capacity scaling indicator recommended for Router performance. 
 
 ###<a id="system.cpu.user"></a>Router VM CPU Utilization
 
 <table>
   <tr>
-      <th colspan="2" style="text-align: center;">system.cpu.user</th>
+      <th colspan="2" style="text-align: center;">system.cpu.user of Gorouter VM(s)</th>
   </tr>
   <tr>
       <th>Description</th>
-      <td>CPU usage of the Gorouter VM</td>
+      <td>CPU utilization of the Gorouter VM(s)</td>
   </tr>
   <tr>
       <th>Purpose</th>
-      <td>High CPU usage in the Gorouter VMs can increase latency and cause throughput, or requests per second, to level off.
-          In performance and load testing, Pivotal has observed on its Pivotal Web Services deployment that an inflection
-          point for decreasing performance is approximately 60% CPU utilization. 
+      <td>High CPU utilization of the Gorouter VMs can cause an increase in latency, as well as a leveling-off of throughput (requests per/second). Pivotal recommends keeping the CPU utilization within a maximum 60-70% range for best Gorouter performance. 
+      <br><br>
+      For operators wishing to increase throughput capabilities while also keeping latency low, it is recommended to scale the Gorouter while continuing to ensure the maximum recommended CPU utilization range is not exceeded. 
           </td>
    </tr>
    <tr>
@@ -95,8 +208,8 @@ Amber: What exactly is "System (BOSH)"? This term is not used anywhere else in t
       </td>
    </tr>
    <tr>
-      <th>How to scale up</th>
-      <td>If the maximum CPU utilization is over 70%, scale the Gorouters horizontally or vertically (the <b>Router</b> VM in the <b>Resource Config</b> pane of the Elastic Runtime tile). 
+      <th>How to scale</th>
+      <td>Resolve high utilization by scaling the Gorouters horizontally or vertically (the <b>Router</b> VM in the <b>Resource Config</b> pane of the Elastic Runtime tile). 
       </td>
    </tr>
    <tr>
@@ -110,23 +223,27 @@ Amber: What exactly is "System (BOSH)"? This term is not used anywhere else in t
 </table>
           
 Amber: What does it mean for throughput "to level off" ?
-###<a id="systemdiskpersist"></a>NFS Backed Blobstore
 
-<p class="note"><strong>Note</strong>: Only monitor this indicator if your deployment uses an external S3 repository for storage.</p>
+##<a id="systemdiskpersist"></a>NFS/WebDAV Backed Blobstore
+
+<p class="note"><strong>Note</strong>: Relevant when not leveraging an external S3 repository for external storage with no capacity constraints</p>
 
 <table>
-   <tr><th colspan="2" style="text-align: center;"><br>system.disk.persistent.percent<br><br></th></tr>
+   <tr><th colspan="2" style="text-align: center;"><br>system.disk.persistent.percent of NFS server VM(s)<br><br></th></tr>
    <tr>
       <th width="25%">Description</th>
-      <td><em>If applicable</em>: Percentage of persistent disk used on the VM for the NFS Server job.
-   </tr>
+      <td><em>If applicable</em>: Monitor the percentage of persistent disk used on the VM for the NFS Server job.
+           </tr>
    <tr>
        <th>Purpose</th>
-       <td>Amber: needs rationale</td>
+       <td>When not leveraging an external S3 repository for external storage with no capacity constraints, the object store for Cloud Foundry must be monitored to push new applications and buildpacks.
+     <br><br>
+     When leveraging an internal NFS/WebDAV backed blobstore, consider scaling the persistent disk when 75% capacity is reached.
+     </td>
    </tr>
    <tr>
       <th>Recommended thresholds</th>
-      <td>&gt; 75%</td>
+      <td>&ge; 75%</td>
    </tr>
    <tr>
       <th>How to scale</th>
@@ -141,116 +258,4 @@ Amber: What does it mean for throughput "to level off" ?
            <strong>Applies to</strong>: cf:nfs_server<br>
       </td>
    </tr>  
-</table>
-
-##<a id="cell"></a>Diego Cell Capacity Scaling Indicators
-
-Currently, there are three key capacity scaling indicators recommended for Diego cell:
-
-+ [Diego Cell Container Capacity](#cell-container) is a measure of Gorouter performance
-+ [Diego Cell Disk Capacity](#cell-disk) is a measure of Gorouter performance
-+ [Diego Cell Memory Capacity](#cell-memory) is a measure of Gorouter performance
-
-
-###<a id="cell-container"></a>Diego Cell Container Capacity
-
-<table>
-   <tr><th colspan="2" style="text-align: center;"><br>rep.CapacityRemainingContainers / 
-       rep.CapacityTotalContainers<br><br></th></tr>
-   <tr>
-      <th width="25%">Description</th>
-      <td> Total number of containers this cell can host assuming adequate resources.
-      <br><br>
-      Amber: We say "total number", but I was confused while reading because doesn't this give us a percentage?.</td>
-   <tr>
-      <th>Purpose</th>
-      <td>Best practice deployment of Cloud Foundry recommends 3 Availability zones.  
-          For these types of deployments it is suggested to have enough capacity to suffer failure of a complete availability Zone.
-          <br><br>
-              Amber: When we read this, we were confused about why AZs were relevant. Is it because you want your cells in one AZ to be able to handle all the apps from another AZ at any given time?
-      </td>
-   </tr>
-   <tr>
-      <th>Recommended thresholds</th>
-      <td>&lt; avg(30%)</td>
-   </tr>
-   <tr>
-      <th>How to scale</th>
-      <td>
-      Add more Diego cell VMs or give more resources to your existing VMs. 
-      Amber: We guessed on this guidance. Please confirm. 
-     </td>
-   </tr>
-    <tr>
-      <th>Additional Details</th>
-      <td> <strong>Origin</strong>: Doppler/Firehose<br>
-           <strong>Type</strong>: Gauge (%)<br>
-           <strong>Frequency</strong>: Emitted every 30 s<br>
-           <strong>Applies to</strong>: cf:diego_cells
-      </td>
-   </tr>
-</table>
-
-Amber: Should the next two tables say "percentage of MiB" instead of "total amount in MiB"? Also, will put in **purpose** and **How to scale** once clear from above questions. 
-
-###<a id="cell-disk"></a>Diego Cell Disk Capacity
-
-<table>
-   <tr><th colspan="2" style="text-align: center;"><br>rep.CapacityRemainingDisk / rep.CapacityTotalDisk<br><br></th></tr>
-   <tr>
-      <th width="25%">Description</th>
-      <td> Total amount in MiB of disk available for this cell to allocate to containers.
-   </tr>
-   <tr>
-      <th>Purpose</th>
-      <td>  </td>
-   </tr>
-   <tr>
-      <th>Recommended thresholds</th>
-      <td>< avg(30%)</td>
-   </tr>
-   <tr>
-      <th>How to Scale</th>
-      <td>
-      </td>
-   </tr>
-    <tr>
-      <th>Additional Details</th>
-      <td> <strong>Origin</strong>: Doppler/Firehose<br>
-           <strong>Type</strong>: Gauge (%)<br>
-           <strong>Frequency</strong>: Emitted every 30 s<br>
-           <strong>Applies to</strong>: cf:diego_cells
-      </td>
-   </tr>
-</table>
-
-###<a id="cell-memory"></a>Diego Cell Memory Capacity
-
-<table>
-   <tr><th colspan="2" style="text-align: center;"><br>rep.CapacityRemainingMemory / rep.CapacityTotalMemory<br><br></th></tr>
-   <tr>
-      <th width="25%">Description</th>
-      <td> Total amount in MiB of memory available for this cell to allocate to containers. Emitted every 30 seconds.</br><br>
-   </tr>
-   <tr>
-      <th>Purpose</th>
-      <td>  </td>
-   </tr>
-   <tr>
-      <th>Recommended thresholds</th>
-      <td>< avg(30%)</td>
-   </tr>
-   <tr>
-      <th>How to scale</th>
-      <td>
-      </td>
-   </tr>
-    <tr>
-      <th>Additional Details</th>
-      <td> <strong>Origin</strong>: Doppler/Firehose<br>
-           <strong>Type</strong>: Gauge (%)<br>
-           <strong>Frequency</strong>: Emitted every 30 s<br>
-           <strong>Applies to</strong>: cf:diego_cells
-      </td>
-   </tr>
 </table>
