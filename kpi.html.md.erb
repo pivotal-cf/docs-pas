@@ -47,10 +47,11 @@ metrics, thresholds, and alerts based on learning from their deployments.
       <th>Recommended response</th>
       <td>
          <ol>
+	    <li>In order to best determine the root cause, examine the Auctioneer logs. Depending on the specific error and/or resource constraint, a failure reason may also be visible in the Cloud Controller (CC) API.</li> 
             <li>Investigate the health of your Diego cells to determine if they
             are the resource type causing the problem.</li> 
             <li>Consider scaling additional cells using Ops Manager.</li>
-            <li>If scaling cells does not solve the problem, pull Diego brain logs and BBS logs
+            <li>If scaling cells does not solve the problem, pull Diego brain logs and BBS node logs
              and contact Pivotal Support telling them that LRP auctions are failing.</li>
          </ol>
       </td>
