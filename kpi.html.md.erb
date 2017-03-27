@@ -548,12 +548,11 @@ When observing a lot of container churn, do the following:<br><br>
                 <th width="25%">Description</th>
                 <td>Remaining amount of disk in MiB available for this Diego cell to allocate to containers.
                     <br><br>
-                    <strong>Use</strong>: Low disk capacity can prevent app scaling and new deployments.
-                Similar to <code>rep.CapacityRemainingMemory</code>, it is helpful to assess 
-                how many chunks of free disk space are above a given threshold. 
-                Because Diego staging Tasks can fail without at least 4&nbsp;GB free, 
+                    <strong>Use</strong>: Low disk capacity can prevent app scaling and new deployments. Because Diego staging Tasks can fail without at least 4&nbsp;GB free, 
                 the recommended red threshold is based on the minimum disk capacity across the deployment
                 falling below 4&nbsp;GB in the previous 5 minutes.
+		<br><br>
+		It can also be meaningful to assess how many chunks of free disk space are above a given threshold, similar to <code>rep.CapacityRemainingMemory</code>.
                  <br><br>
                  <strong>Origin</strong>: Doppler/Firehose<br>
                  <strong>Type</strong>: Gauge (Integer in bytes)<br>
