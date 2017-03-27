@@ -799,7 +799,7 @@ When observing extended periods of high or low activity trends, scale up or down
    <tr>
       <th>Recommended response</th>
       <td>For optimizing the Gorouter, consider the requests-per-second
-          derived metric in the context of router latency and Gorouter VM CPU utilization. From performance and load testing of the gorouter, Pivotal has been observed that at approximately 2500 requests per second, latency can begin to increase. 
+          derived metric in the context of router latency and Gorouter VM CPU utilization. From performance and load testing of the gorouter, Pivotal has observed that at approximately 2500 requests per second, latency can begin to increase. 
           <br><br>
           To increase throughput and maintain low latency, 
           scale the Gorouters either horizontally or vertically 
@@ -842,7 +842,7 @@ When observing extended periods of high or low activity trends, scale up or down
                     <ol>
                         <li>First inspect logs for network issues and indications of misbehaving apps.</li>
                         <li>If it appears that the Gorouter needs to scale due to ongoing traffic congestion, 
-                            do not scale on the latency metric alone. You should also look at the CPU utilization of the Gorouter VMs, keep CPU utilization within a maximum 60-70% range.</li>
+                            do not scale on the latency metric alone. You should also look at the CPU utilization of the Gorouter VMs and keep it within a maximum 60-70% range.</li>
                         <li>Resolve high utilization by scaling the Gorouter.</li>
                     </ol>
                     </td>
@@ -975,7 +975,7 @@ When observing extended periods of high or low activity trends, scale up or down
                     <strong>Use</strong>: Indicates uptake and gives a picture of the overall 
                     growth of the environment for capacity planning.
 			<br><br>
-		Also recommended to alert on this metric if the number of routes falls outside of the normal
+		Pivotal also recommends alerting on this metric if the number of routes falls outside of the normal
                     range for your deployment. For example, dramatic increases in the total routes outside of expected business 
                     events might point to a denial-of-service attack. 
                     Or, dramatic decreases in this metric volume might indicate a problem with 
