@@ -125,8 +125,12 @@ metrics, thresholds, and alerts based on learning from their deployments.
 <td>
 When observing a lot of container churn, do the following:<br><br>
     <ol>
-    <li>Look to eliminate explainable causes of temporary churn, such as a deployment or a lot of developer activity</li>
-    <li>For extended periods of high or low activity, consider scaling up or down CF components as necessary.</li>
+    <li>Look to eliminate explainable causes of temporary churn, such as a deployment or a lot of developer activity.</li>
+    <li>If container churn appears to continue over an extended period, pull logs from the Diego Brain and BBS node before contacting Pivotal support.</li>
+    </ol>	    
+When observing extended periods of high or low activity trends, do the following:<br><br>	    
+    <ol>	    
+    <li>Scale up or down CF components as needed.</li>
     </ol>
     </td>
 </tr>
