@@ -264,13 +264,12 @@ When observing extended periods of high or low activity trends, scale up or down
    <tr><th colspan="2" style="text-align: center;"><br>bbs.Domain.cf-apps<br><br></th></tr>
    <tr>
       <th width="25%">Description</th>
-      <td>Indicates if the ‘cf-apps’ Domain is up-to-date, meaning that CF App requests from Cloud Controller are synchronized to Diego desired AIs (<code>bbs.LRPsDesired</code>) for execution. 
+      <td>Indicates if the <code>cf-apps</code> Domain is up-to-date, meaning that CF App requests from Cloud Controller are synchronized to Diego desired AIs (<code>bbs.LRPsDesired</code>) for execution. 
             <ul>
-              <li><code>1</code> means ‘cf-apps’ Domain is up-to-date</li>
-              <li><code>0</code> means ‘cf-apps’ Domain is not up-to-date</li>
+              <li><code>1</code> means <code>cf-apps</code> Domain is up-to-date</li>
+              <li><code>0</code> means <code>cf-apps</code> Domain is not up-to-date</li>
             </ul>
-          <br><br>
-          <strong>Use</strong>: If ‘cf-apps’ Domain does not stay up-to-date, changes requested in Cloud Controller are not guaranteed to propagate throughout the system. If Cloud Controller and Diego are out of sync, then applications running could vary from those desired.
+          <strong>Use</strong>: If the <code>cf-apps</code> Domain does not stay up-to-date, changes requested in the Cloud Controller are not guaranteed to propagate throughout the system. If the Cloud Controller and Diego are out of sync, then apps running could vary from those desired.
           <br><br>
           <strong>Origin</strong>: Doppler/Firehose<br>
           <strong>Type</strong>: Gauge (Float 0 or 1)<br>
@@ -291,7 +290,7 @@ When observing extended periods of high or low activity trends, scale up or down
           <ol>
               <li>Check the nysnc bulker logs and BBS logs.</li>
               <li>If the problem continues, pull Diego brain logs and BBS logs 
-                  and contact Pivotal Support to say that cf-apps domain is not being kept fresh.</li>
+                  and contact Pivotal Support to say that the <code>cf-apps</code> domain is not being kept fresh.</li>
           </ol>
       </td>
    </tr>
