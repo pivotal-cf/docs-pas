@@ -25,8 +25,8 @@ metrics, thresholds, and alerts based on learning from their deployments.
       <th width="25%">Description</th>
       <td>The number of Long Running Process (LRP) instances that the auctioneer failed to place on Diego cells. This metric is cumulative over the lifetime of the auctioneer job.<br><br>
    
-      <strong>Use</strong>: This metric can indicate that PCF is out of container space or that there is a lack of resources within your environment.
-   
+      <strong>Use</strong>: This metric can indicate that PCF is out of container space or that there is a lack of resources within your environment. This indicator also increases when the LRP is requesting an isolation segment, volume drivers, or a stack that is unavailable, either not deployed or lacking in sufficient resources to accept the work. 
+  <br><br> 
       This error is most common due to capacity issues, for example, if cells do not have 
       enough resources or if cells are going back and forth between a healthy and unhealthy state.
       <br><br>
@@ -126,8 +126,12 @@ metrics, thresholds, and alerts based on learning from their deployments.
 <td>
 When observing a lot of container churn, do the following:<br><br>
     <ol>
-    <li>Look to eliminate explainable causes of temporary churn, such as a deployment or a lot of developer activity</li>
-    <li>For extended periods of high or low activity, consider scaling up or down CF components as necessary.</li>
+    <li>Look to eliminate explainable causes of temporary churn, such as a deployment or a lot of developer activity.</li>
+    <li>If container churn appears to continue over an extended period, pull logs from the Diego Brain and BBS node before contacting Pivotal support.</li>
+    </ol>	    
+When observing extended periods of high or low activity trends, do the following:<br><br>	    
+    <ol>	    
+    <li>Scale up or down CF components as needed.</li>
     </ol>
     </td>
 </tr>
