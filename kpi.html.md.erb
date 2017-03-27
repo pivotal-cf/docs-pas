@@ -301,10 +301,10 @@ When observing a lot of container churn, do the following:<br><br>
                 <th width="25%">Description</th>
                 <td>Total number of LRP instances that are no longer desired but still have a BBS record. 
                     When Diego wants to add more apps, the BBS sends a request to the auctioneer 
-                    to spin up additional LRPs. 
+                    to spin up additional LRPs. LRPsExtra is the total number of LRP instances that are no longer desired but still have a BBS record. 
                         <br><br>
                 <strong>Use</strong>: If Diego has more LRP running than expected, 
-                        there may be problems with the BBS.<br>
+                        there may be problems with the BBS.<br><br>
                         Deleting an app with many instances can temporarily spike this metric.  
                         However, a sustained spike in <code>bbs.LRPsExtra</code> is unusual and should be investigated.
                  <br><br>
@@ -338,15 +338,11 @@ When observing a lot of container churn, do the following:<br><br>
      <tr><th colspan="2" style="text-align: center;"><br>bbs.LRPsMissing<br><br></th></tr>
         <tr>
                 <th width="25%">Description</th>
-                <td>Total number of LRP instances that are desired but have no record in the BBS.
+                <td>Total number of LRP instances that are desired but have no record in the BBS. When Diego wants to add more apps, the BBS sends a request to the auctioneer 
+                        to spin up additional LRPs. LRPsMissing is the total number of LRP instances that are desired but have no BBS record. 
                         <br><br>
-                <strong>Use</strong>: Diego has less LRP running than expected. 
-                        When Diego wants to add more apps, the BBS sends a request to the auctioneer 
-                        to spin up additional LRPs. 
-                        LRPsMissing is the total number of LRP instances that are desired but have no BBS record. 
-                        This can indicate issues with the BBS.<br> 
-                        An app push with many instances can temporarily spike this metric. 
-                        However, a sustained spike in <code>bbs.LRPsMissing</code> is unusual and should be investigated.
+                <strong>Use</strong>: If Diego has less LRP running than expected, there may be problems with the BBS.<br><br> 
+                        An app push with many instances can temporarily spike this metric. However, a sustained spike in <code>bbs.LRPsMissing</code> is unusual and should be investigated.
                  <br><br>
                  <strong>Origin</strong>: Doppler/Firehose<br>
                  <strong>Type</strong>: Gauge (Float)<br>
