@@ -26,16 +26,17 @@ Currently, there are three key capacity scaling indicators recommended for Diego
    <tr><th colspan="2" style="text-align: center;"><br>rep.CapacityRemainingMemory / rep.CapacityTotalMemory<br><br></th></tr>
    <tr>
       <th width="25%">Description</th>
-     <td> Percentage of remaining memory capacity for a given cell. Should be looked at holistically across all cells in a deployment.
+     <td> Percentage of remaining memory capacity for a given cell. Monitor this derived metric across all cells in a deployment.
 <br><br>
-      Derived by dividing `rep.CapacityRemainingMemory` (remaining amount in MiB of memory available for this cell to allocate to containers) by `rep.CapacityTotalMemory` (total amount in MiB of memory available for this cell to allocate to containers).</td>
+      The metric <code>rep.CapacityRemainingMemory</code> indicates the remaining amount in MiB of memory available for this cell to allocate to containers.<br>
+      The metric <code>rep.CapacityTotalMemory</code> indicates the total amount in MiB of memory available for this cell to allocate to containers.</td>
  </tr>
    <tr>
       <th>Purpose</th>
-      <td>Best practice deployment of Cloud Foundry recommends 3 Availability zones.  
-          For these types of deployments it is suggested to have enough capacity to suffer failure of a complete availability Zone.
+      <td>A best practice deployment of Cloud Foundry includes three availability zones (AZs).  
+          For these types of deployments, Pivotal recommends that you have enough capacity to suffer failure of an entire AZ.
           <br><br>
-          Recommended threshold is based on this 3 Availability Zone configuration. The threshold percentage should be altered if more or less Availability Zones. 
+          The <em>Recommended threshold</em> assumes a three AZ configuration. Adjust the threshold percentage if you have more or less AZs. 
       </td>
    </tr>
    <tr>
@@ -64,16 +65,17 @@ Currently, there are three key capacity scaling indicators recommended for Diego
    <tr><th colspan="2" style="text-align: center;"><br>rep.CapacityRemainingDisk / rep.CapacityTotalDisk<br><br></th></tr>
    <tr>
       <th width="25%">Description</th>
-      <td> Percentage of remaining disk capacity for a given cell. Should be looked at holistically across all cells in a deployment.
+      <td> Percentage of remaining disk capacity for a given cell. Monitor this derived metric across all cells in a deployment.
 <br><br>
-      Derived by dividing `rep.CapacityRemainingDisk` (remaining amount in MiB of disk available for this cell to allocate to containers) by `rep.CapacityTotalDisk`(total amount in MiB of disk available for this cell to allocate to containers).</td>
+      The metric <code>rep.CapacityRemainingDisk</code> indicates the remaining amount in MiB of disk available for this cell to allocate to containers.<br> 
+      The metric <code>rep.CapacityTotalDisk</code> indicates the total amount in MiB of disk available for this cell to allocate to containers.</td>
  </tr>
    <tr>
        <th>Purpose</th>
-      <td>Best practice deployment of Cloud Foundry recommends 3 Availability zones.  
-          For these types of deployments it is suggested to have enough capacity to suffer failure of a complete availability Zone.
+      <td>A best practice deployment of Cloud Foundry includes three availability zones (AZs).  
+          For these types of deployments, Pivotal recommends that you have enough capacity to suffer failure of an entire AZ.
           <br><br>
-          Recommended threshold is based on this 3 Availability Zone configuration. The threshold percentage should be altered if more or less Availability Zones. 
+          The <em>Recommended threshold</em> assumes a three AZ configuration. Adjust the threshold percentage if you have more or less AZs.
       </td>
    </tr>
    <tr>
@@ -103,15 +105,16 @@ Currently, there are three key capacity scaling indicators recommended for Diego
        rep.CapacityTotalContainers<br><br></th></tr>
    <tr>
       <th width="25%">Description</th>
-      <td> Percentage of remaining container capacity for a given cell. Should be looked at holistically across all cells in a deployment.
+      <td> Percentage of remaining container capacity for a given cell. Monitor this derived metric across all cells in a deployment.
       <br><br>
-      Derived by dividing `rep.CapacityRemainingContainers` (remaining number of containers this cell can host) by `rep.CapacityTotalContainer`(total number of containers this cell can host).</td>
+      The metric <code>rep.CapacityRemainingContainers</code> indicates the remaining number of containers this cell can host.<br>
+      The metric  by <code>rep.CapacityTotalContainer</code> indicates the total number of containers this cell can host.</td>
    <tr>
       <th>Purpose</th>
-      <td>Best practice deployment of Cloud Foundry recommends 3 Availability zones.  
-          For these types of deployments it is suggested to have enough capacity to suffer failure of a complete availability Zone.
+      <td>A best practice deployment of Cloud Foundry includes three availability zones (AZs).  
+          For these types of deployments, Pivotal recommends that you have enough capacity to suffer failure of an entire AZ.
           <br><br>
-          Recommended threshold is based on this 3 Availability Zone configuration. The threshold percentage should be altered if more or less Availability Zones. 
+          The <em>Recommended threshold</em> assumes a three AZ configuration. Adjust the threshold percentage if you have more or less AZs.
       </td>
    </tr>
    <tr>
@@ -146,14 +149,14 @@ Currently, there is one key capacity scaling indicator recommended for Firehose 
   </tr>
    <tr>
       <th width="25">Description</th>
-      <td> This derived value represents the firehose loss rate, or the total messages dropped as a % of the total message throughput
+      <td> This derived value represents the firehose loss rate, or the total messages dropped as a percentage of the total message throughput
        </td>
    </tr>
    <tr>
       <th>Purpose</th>
-      <td>Excessive dropped messages can indicate the Dopplers are not processing messages fast enough 
+      <td>Excessive dropped messages can indicate the Dopplers are not processing messages fast enough.
         <br><br>
-        Recommended scaling indicator is to look at the total dropped as a % of the total throughput. Then scale if this derived loss rate value grows greater than 0.1
+        The recommended scaling indicator is to look at the total dropped as a percentage of the total throughput and scale if the derived loss rate value grows greater than <code>0.1</code>.
    </tr>
    <tr>
       <th>Recommended thresholds</th>
@@ -194,9 +197,9 @@ Currently, there is one key capacity scaling indicator recommended for Router pe
   </tr>
   <tr>
       <th>Purpose</th>
-      <td>High CPU utilization of the Gorouter VMs can cause an increase in latency, as well as a leveling-off of throughput (requests per/second). Pivotal recommends keeping the CPU utilization within a maximum 60-70% range for best Gorouter performance. 
+      <td>High CPU utilization of the Gorouter VMs can increase latency and cause throughput, or requests per/second, to level-off. Pivotal recommends keeping the CPU utilization within a maximum range of 60-70%  for best Gorouter performance. 
       <br><br>
-      For operators wishing to increase throughput capabilities while also keeping latency low, it is recommended to scale the Gorouter while continuing to ensure the maximum recommended CPU utilization range is not exceeded. 
+      If you want to increase throughput capabilities while also keeping latency low, Pivotal recommends scaling the Gorouter while continuing to ensure that CPU utilization does not exceed the maximum recommended  range. 
           </td>
    </tr>
    <tr>
@@ -221,12 +224,10 @@ Currently, there is one key capacity scaling indicator recommended for Router pe
       </td>
    </tr>
 </table>
-          
-Amber: What does it mean for throughput "to level off" ?
 
 ##<a id="systemdiskpersist"></a>NFS/WebDAV Backed Blobstore
 
-<p class="note"><strong>Note</strong>: Relevant when not leveraging an external S3 repository for external storage with no capacity constraints</p>
+<p class="note"><strong>Note</strong>: This metric is only relevant if your deployment does not use an external S3 repository for external storage with no capacity constraints</p>
 
 <table>
    <tr><th colspan="2" style="text-align: center;"><br>system.disk.persistent.percent of NFS server VM(s)<br><br></th></tr>
@@ -236,9 +237,9 @@ Amber: What does it mean for throughput "to level off" ?
            </tr>
    <tr>
        <th>Purpose</th>
-       <td>When not leveraging an external S3 repository for external storage with no capacity constraints, the object store for Cloud Foundry must be monitored to push new applications and buildpacks.
+       <td>If you do not use an external S3 repository for external storage with no capacity constraints, you must monitor the PCF object store to push new app and buildpacks.
      <br><br>
-     When leveraging an internal NFS/WebDAV backed blobstore, consider scaling the persistent disk when 75% capacity is reached.
+     If you use an internal NFS/WebDAV backed blobstore, consider scaling the persistent disk when it reaches 75% capacity.
      </td>
    </tr>
    <tr>
