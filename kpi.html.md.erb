@@ -494,9 +494,10 @@ When observing extended periods of high or low activity trends, scale up or down
           <li>Compare recorded values to your minimum capacity threshold, and count the number of cells that have equal or greater than the desired amount of <em>free chunk</em> space.</li>    
 	       </ol>
 	 <li> Determine a desired scaling threshold based on the minimum amount of <em>free chunks</em> that are acceptable in this deployment given historical trends.</li>
-	      <li> Set an alert to indicate the need to scale cell memory capacity when the value falls below the desired threshold number.</li>
-	<b>For informational purposes</b>:<br>
-	   Looking at this metric (rep.CapacityRemainingMemory) as a minimum value across all cells has more informational value than alerting value. It can be an interesting heatmap visualization, showing average variance and/or density over time.   
+	 <li> Set an alert to indicate the need to scale cell memory capacity when the value falls below the desired threshold number.</li>
+	      </ol> 
+	<b>For visualization purposes</b>:<br>
+	      Looking at this metric (<code>rep.CapacityRemainingMemory</code>) as a minimum value per cell has more informational value than alerting value. It can be an interesting heatmap visualization, showing average variance and/or density over time.   
 </td>
   </tr>
   <tr>
