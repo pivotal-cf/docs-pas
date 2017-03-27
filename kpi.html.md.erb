@@ -1109,6 +1109,8 @@ When observing a lot of container churn, do the following:<br><br>
                 <strong>Use</strong>: This is the most important BOSH metric to monitor. 
                  It indicates if the VM emitting the metric is healthy.
                  Review this metric for all VMs to estimate the overall health of the system.
+			<br><br>
+			Multiple unhealthy VMs signals problems with the underlying IAAS layer.
                  <br><br>
                  <strong>Origin</strong>: JMX Bridge or BOSH HM Forwarder<br>
                  <strong>Type</strong>: Gauge (Float, 0-1)<br>
@@ -1126,8 +1128,7 @@ When observing a lot of container churn, do the following:<br><br>
         <tr>
                 <th>Recommended response</th>
                 <td>
-                        Investigate CF logs for the unhealthy component(s).<br>
-                        Multiple unhealthy VMs signals problems with the underlying IAAS layer.
+                        Investigate CF logs for the unhealthy component(s).
                     </td>
         </tr>
 </table>
@@ -1158,7 +1159,7 @@ When observing a lot of container churn, do the following:<br><br>
         <tr>
                 <th>Recommended response</th>
                 <td>
-                    The response depends on the job.
+                    The response depends on the job the metric is associated with. If appropriate scale affected jobs out and monitor for improvement.
                 </td>
         </tr>
 </table>
@@ -1189,8 +1190,8 @@ When observing a lot of container churn, do the following:<br><br>
                 <th>Recommended response</th>
                 <td>
                     Investigate what is filling the jobs system partition. <br>
-                    This partition should not fill because BOSH deploys jobs to use ephemeral and persistent disks.</li>
-                    </td>
+                    This partition should not typically fill because BOSH deploys jobs to use ephemeral and persistent disks.
+                    </td> 
         </tr>
 </table>
 
@@ -1223,7 +1224,7 @@ When observing a lot of container churn, do the following:<br><br>
                 <td>
                     <ol>
                         <li>Run <code>bosh vms --details</code> to view jobs on affected deployments.</li>
-                        <li>Determine cause of the disk usage, and, if appropriate, 
+                        <li>Determine cause of the data consumption, and, if appropriate, 
                             increase disk space or scale out the affected jobs.</li>
                     </ol>
                     </td>
@@ -1274,7 +1275,7 @@ When observing a lot of container churn, do the following:<br><br>
                 <td>CPU utilization — The percentage of CPU spent in user processes
                 <br><br>
                 <strong>Use</strong>: Set an alert and investigate further if the CPU utilitization is
-                too high for a job.<br>
+                too high for a job.<br><br>
                 For monitoring Gorouter performance, CPU utilization of the Gorouter VM is 
                 the recommended key capacity scaling indicator.
                 For more information, see <a href="./key-cap-scaling.html#system.cpu.user">Gorouter Latency and Throughput</a>.
