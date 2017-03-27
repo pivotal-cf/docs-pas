@@ -146,7 +146,9 @@ When observing extended periods of high or low activity trends, scale up or down
                         within your environment and that you likely need to scale. 
                         This indicator also increases when the Task is requesting an isolation segment, volume drivers, 
                         or a stack that is unavailable, either not deployed or lacking in sufficient resources to accept the work.
-                 <br><br>
+                <br><br>
+			This error is most common due to capacity issues, for example, if cells do not have enough resources or if cells are going back and forth between a healthy and unhealthy state. 
+			<br><br>
                  <strong>Origin</strong>: Doppler/Firehose<br>
                  <strong>Type</strong>: Counter (Float)<br>
                  <strong>Frequency</strong>: During event, during each auction<br>
@@ -164,6 +166,7 @@ When observing extended periods of high or low activity trends, scale up or down
 <th>Recommended response</th>
 <td>
     <ol>
+	    <li>In order to best determine the root cause, examine the Auctioneer logs. Depending on the specific error and/or resource constraint, a failure reason may also be visible in the CC API.</li>
     <li>Investigate the health of Diego cells.</li>
     <li>Consider scaling additional cells using Ops Manager.</li>
     <li>If scaling cells does not solve the problem, 
