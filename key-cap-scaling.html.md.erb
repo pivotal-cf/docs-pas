@@ -14,9 +14,6 @@ owner: PCF Metrics Platform Monitoring
      }
 </style>
 
-
-<p class="note warning"><strong>INTERNAL NOTE</strong>: The following metrics still have some pieces of information confirmation outstanding and will likely need to be updated before final publication: Firehose Loss Rate (stated Dropped Message metric has issues, new in-progress metric info from team is needed).</p>
-
 This topic describes key capacity scaling indicators that operators monitor to determine when
 they need to scale their Pivotal Cloud Foundry (PCF) deployments.
 
@@ -158,8 +155,8 @@ Currently, there is one key capacity scaling indicator recommended for Firehose 
 
 <table>
   <tr>
-      <th colspan="2" style="text-align: center;">((DopplerServer.TruncatingBuffer.totalDroppedMessages + 
-          DopplerServer.doppler.shedEnvelopes) / DopplerServer.listeners.totalReceivedMessageCount)</th>
+      <th colspan="2" style="text-align: center;">(DopplerServer.TruncatingBuffer.totalDroppedMessages + 
+          DopplerServer.doppler.shedEnvelopes) / DopplerServer.listeners.totalReceivedMessageCount</th>
   </tr>
    <tr>
       <th width="25">Description</th>
@@ -193,8 +190,6 @@ Currently, there is one key capacity scaling indicator recommended for Firehose 
       </td>
    </tr>
 </table>
-
-(Amber) We have a known issue with the Dropped Messages metric that is impacting the ability to publish this derived value suggestion. Working with Loggregator team to resolve
 
 ## <a id="Router"></a> Router Performance Scaling Indicator
 Currently, there is one key capacity scaling indicator recommended for Router performance. 
