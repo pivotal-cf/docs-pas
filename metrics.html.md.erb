@@ -34,8 +34,8 @@ You can configure PCF to direct metrics from all Elastic Runtime component VMs, 
 The Firehose metrics come from two sources: 
 
 * **BOSH Health Monitor**: The BOSH layer that underlies PCF generates `healthmonitor` metrics for all VMs in the deployment. 
-    * These metrics are not in the firehose by default. You must install the Open-Source [HM Forwarder](https://github.com/cloudfoundry/bosh-hm-forwarder) to send VM metrics through the firehose. 
-    * BOSH health metrics can also be retrieved outside the firehose using the [JMX Bridge](https://docs.pivotal.io/jmx-bridge/1-8/index.html).
+    * These metrics are not in the Firehose by default. You must install the Open-Source [HM Forwarder](https://github.com/cloudfoundry/bosh-hm-forwarder) to send VM metrics through the Firehose. 
+    * You can also retrieve BOSH health metrics outside of the Firehose with the [JMX Bridge](https://docs.pivotal.io/jmx-bridge/1-8/index.html) for PCF tile.
 * **Cloud Foundry components**: Cloud Foundry component VMs for executive control, hosting, routing, traffic control, authentication, and other internal functions generate metrics.
 
 <p class="note"><b>Note</b>: PCF components specific to your IaaS also generate key metrics for health monitoring.</p>
