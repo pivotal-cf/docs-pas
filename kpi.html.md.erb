@@ -28,7 +28,7 @@ metrics, thresholds, and alerts based on learning from their deployments.
 
 ## <a id="auctioneer"></a> Diego Auctioneer Metrics
  
-###<a id="AuctioneerLRPAuctionsFailed"></a>Auctioneer AI Placement Failures
+###<a id="AuctioneerLRPAuctionsFailed"></a>Auctioneer App Instance (AI) Placement Failures
 
 <table>
    <tr><th colspan="2" style="text-align: center;"><br> auctioneer.AuctioneerLRPAuctionsFailed<br><br></th></tr>
@@ -42,7 +42,7 @@ metrics, thresholds, and alerts based on learning from their deployments.
       enough resources or if cells are going back and forth between a healthy and unhealthy state.
       <br><br>
       <strong>Origin</strong>: Doppler/Firehose<br>
-      <strong>Type</strong>: Counter, integer<br>
+      <strong>Type</strong>: Counter (Integer)<br>
       <strong>Frequency</strong>: During each auction<br>
    </tr>
    <tr>
@@ -208,7 +208,7 @@ When observing extended periods of high or low activity trends, scale up or down
    </tr>
    <tr>
       <th>Recommended measurement</th>
-      <td>15-minute maximum divided by 1,000,000,000</td>
+      <td>Maximum over the last 15 minutes divided by 1,000,000,000</td>
    </tr>
       <tr>
       <th>Recommended alert thresholds</th>
@@ -238,7 +238,7 @@ When observing extended periods of high or low activity trends, scale up or down
       <td>Time in ns that the BBS took to handle requests, aggregated across all its API endpoints. 
           <br><br>
           <strong>Use</strong>: If this metric rises, the PCF API is slowing. 
-          Response to certain <code>cf</code> commands is slow if request latency is high.
+          Response to certain cf CLI commands is slow if request latency is high.
           <br><br>
           <strong>Origin</strong>: Doppler/Firehose<br>
           <strong>Type</strong>: Gauge (Integer in ns)<br>
@@ -247,7 +247,7 @@ When observing extended periods of high or low activity trends, scale up or down
     </tr>
     <tr>
       <th>Recommended measurement</th>
-      <td>15 minute maximum divided by 1,000,000,000</td>
+      <td>Maximum over the last 15 minutes  divided by 1,000,000,000</td>
     </tr>
     <tr>
       <th>Recommended alert thresholds</th>
@@ -275,7 +275,7 @@ When observing extended periods of high or low activity trends, scale up or down
    <tr><th colspan="2" style="text-align: center;"><br>bbs.Domain.cf-apps<br><br></th></tr>
    <tr>
       <th width="25%">Description</th>
-      <td>Indicates if the <code>cf-apps</code> Domain is up-to-date, meaning that CF App requests from Cloud Controller are synchronized to Diego desired AIs (<code>bbs.LRPsDesired</code>) for execution. 
+      <td>Indicates if the <code>cf-apps</code> Domain is up-to-date, meaning that CF App requests from Cloud Controller are synchronized to <code>bbs.LRPsDesired</code> (Diego-desired AIs) for execution. 
             <ul>
               <li><code>1</code> means <code>cf-apps</code> Domain is up-to-date</li>
               <li>No data received means <code>cf-apps</code> Domain is not up-to-date</li>
@@ -404,7 +404,7 @@ When observing extended periods of high or low activity trends, scale up or down
         </tr>
         <tr>
                 <th>Recommended measurement</th>
-                <td>Average over last 5 minutes</td>
+                <td>Average over the last 5 minutes</td>
         </tr>
         <tr>
                 <th>Recommended alert thresholds</th>
@@ -534,7 +534,7 @@ When observing extended periods of high or low activity trends, scale up or down
    </tr>
    <tr>
       <th>Recommended measurement</th>
-      <td>5 minute sum across all cells divided by 0.000001024</td>
+      <td>5-minute sum across all cells divided by 0.000001024</td>
   </tr>
   <tr>
       <th>Recommended alert thresholds</th>
@@ -811,7 +811,7 @@ When observing extended periods of high or low activity trends, scale up or down
    <tr>
       <th>Recommended response</th>
       <td>For optimizing the Gorouter, consider the requests-per-second
-          derived metric in the context of router latency and Gorouter VM CPU utilization. From performance and load testing of the gorouter, Pivotal has observed that at approximately 2500 requests per second, latency can begin to increase. 
+          derived metric in the context of router latency and Gorouter VM CPU utilization. From performance and load testing of the Gorouter, Pivotal has observed that at approximately 2500 requests per second, latency can begin to increase. 
           <br><br>
           To increase throughput and maintain low latency, 
           scale the Gorouters either horizontally or vertically 
@@ -1280,7 +1280,7 @@ When observing extended periods of high or low activity trends, scale up or down
                 <th width="25%">Description</th>
                 <td>CPU utilization — The percentage of CPU spent in user processes
                 <br><br>
-                <strong>Use</strong>: Set an alert and investigate further if the CPU utilitization is
+                <strong>Use</strong>: Set an alert and investigate further if the CPU utilization is
                 too high for a job.<br><br>
                 For monitoring Gorouter performance, CPU utilization of the Gorouter VM is 
                 the recommended key capacity scaling indicator.

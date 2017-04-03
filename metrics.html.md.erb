@@ -15,7 +15,7 @@ Pivotal recommends that operators experiment with different combinations of metr
 
 ## <a id='overview'></a>Overview
 
-As a prerequisite to PCF monitoring, you need an account with a monitoring platform such as [Datadog](https://www.datadoghq.com/), [OpenTDSB](http://opentsdb.net/), [New Relic](https://newrelic.com/), [vRealize Operations (vROPS)](http://www.vmware.com/products/vrealize-operations.html), [AppDynamics](https://www.appdynamics.com), or another tool of choice.
+As a prerequisite to PCF monitoring, you need an account with a monitoring platform such as [Datadog](https://www.datadoghq.com/), [OpenTDSB](http://opentsdb.net/), [New Relic](https://newrelic.com/), [vRealize Operations (vROPS)](http://www.vmware.com/products/vrealize-operations.html), [AppDynamics](https://www.appdynamics.com), or another tool.
 
 To set up PCF monitoring, you then configure PCF and your monitoring platform as follows:
 
@@ -114,17 +114,17 @@ In Datadog, for example, you can define a `screen_template` query that watches t
 
 You create alerts by defining boolean conditions based on operations over one or more metrics, and an action that the platform takes when an alert triggers. The booleans typically check whether metric values exceed or fall below thresholds, or compare metric values against each other.
 
-[In Datadog, for example,](https://github.com/pivotal-cf-experimental/datadog-config-oss/blob/master/alert_templates/shared/diego/LRPs_auction_failure_per_min_too_high.json.erb) you can define an `alert_template` condition that triggers when the `auctioneer.AuctioneerLRPAuctionsFailed` metric indicates an average of more than one failed auction per minute for the past 15 minutes:
+[In Datadog](https://github.com/pivotal-cf-experimental/datadog-config-oss/),for example, you can [define an `alert_template` condition](https://github.com/pivotal-cf-experimental/datadog-config-oss/blob/master/alert_templates/shared/diego/LRPs_auction_failure_per_min_too_high.json.erb) that triggers when the `auctioneer.AuctioneerLRPAuctionsFailed` metric indicates an average of more than one failed auction per minute for the past 15 minutes:
 
-<pre><code>
-	{
-		"query": "min(last_15m):per_minute(avg:datadog.nozzle.auctioneer.AuctioneerLRPAuctionsFailed{deployment:&lt;%= metron_agent_diego_deployment %>}) > 1",
-		"message": "##Description:\nDiego internal metrics \n\n## Escalation Path:\nDiego \n\n## Possible Causes:\nThose alerts were a pretty strong signal for us to look at the BBS, which was locked up\n\n## Potential Solutions:\nEscalate to Diego team\n>&lt;%= cloudops_pagerduty %> &lt;%= diego_oncall %>",
-		"name": "&lt;%= environment %> Diego: LRP Auction Failure per min is too high",
-		"no_data_timeframe": 30,
-		"notify_no_data": false
-    }
-</code></pre>
+<pre>
+{
+  "query": "min(last_15m):per_minute(avg:datadog.nozzle.auctioneer.AuctioneerLRPAuctionsFailed{deployment:&lt;%= metron_agent_diego_deployment %>}) > 1",
+  "message": "##Description:\nDiego internal metrics \n\n## Escalation Path:\nDiego \n\n## Possible Causes:\nThose alerts were a pretty strong signal for us to look at the BBS, which was locked up\n\n## Potential Solutions:\nEscalate to Diego team\n>&lt;%= cloudops_pagerduty %> &lt;%= diego_oncall %>",
+  "name": "&lt;%= environment %> Diego: LRP Auction Failure per min is too high",
+  "no_data_timeframe": 30,
+  "notify_no_data": false
+}
+</pre>
 
 Actions that an alert triggers can include sending a pager or SMS message, sending an email, generating a support ticket, or passing the alert to a alerting system such as [PagerDuty](https://www.pagerduty.com/).
 
