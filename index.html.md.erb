@@ -5,7 +5,7 @@ owner: PCF Metrics Platform Monitoring
 
 This guide describes how Pivotal Cloud Foundry (PCF) operators can monitor their deployments. 
 
-## In This Guide
+##<a id="guide"></a> In This Guide
 
 This guide includes the following topics: 
 
@@ -13,9 +13,56 @@ This guide includes the following topics:
 * <a class="subnav" href="./key-cap-scaling.html">Key Capacity Scaling Indicators</a>: A list of capacity scaling indicators that operators may want to  monitor to determine when they need to scale their PCF deployments.
 * <a class="subnav" href="./metrics.html">Configuring a Monitoring System</a>: Guidance for setting up PCF with third-party monitoring platforms to continuously monitor system metrics and trigger health alerts.
 
-## Additional Resources
+##<a id="new"></a> KPI Changes from PCF v1.10 to v1.11
 
-See the following topics for information about logging and metrics in PCF: 
+This table highlights new and changed KPIs in PCF v1.11.
+
+<table>
+  <tr>
+    <th>Change</th>
+    <th>Which KPI and why?</th>
+    <th>See&hellip;</th>
+  </tr>
+  <tr>
+    <td><em>New</em></td>
+    <td>KPI: <strong>scalablesyslog.adapter.dropped</strong><br><br>
+    This metric and KPI was added because of new component functionality in the Firehose system.</td>
+    <td><a href="https://docs-pcf-staging.cfapps.io/pivotalcf/1-11/monitoring/key-cap-scaling.html">Link</a></td>
+  </tr>
+  <tr>
+    <td><em>New</em></td>
+    <td>KPI: <strong><code>scalablesyslog.scheduler.drains</code></strong><br><br>
+    This metric and KPI was added because of new component functionality in the Firehose system.</td>
+    <td><a href="https://docs-pcf-staging.cfapps.io/pivotalcf/1-11/monitoring/key-cap-scaling.html">Link</a></td>
+  </tr>
+  <tr>
+    <td><em>Modified</em></td>
+    <td>KPI: <strong><code>NAME-OF-MODIFIED-KPI</code></strong><br><br>
+         The recommended thresholds for this KPI have changed.</td>
+    <td><a href="https://docs-pcf-staging.cfapps.io/pivotalcf/1-11/monitoring/key-cap-scaling.html">Link</a></td>
+  </tr>
+  <tr>
+    <td><em>Replaced</em></td>
+    <td>KPI: <strong><code>NAME-OF-OBSOLETE-KPI</code></strong><br><br>
+    This KPI has been replaced by <code>NAME-OF-NEW-KPI</code></td>
+    <td><a href="https://docs-pcf-staging.cfapps.io/pivotalcf/1-11/monitoring/key-cap-scaling.html">Link</a></td>
+  </tr>
+  <tr>
+    <td><em>Deleted</em></td>
+    <td>KPI: <strong><code>NAME-OF-OBSOLETE-KPI</code></strong><br><br>
+         This metric is no longer needed because...</td>
+    <td><em>n/a</em></td>
+  </tr>
+</table> 
+
+##<a id="resources"></a> Additional Resources
+
+For information about logging and metrics in PCF, see the following topics:
 
 * [Configuring System Logging in Elastic Runtime](../opsguide/logging-config-opsman.html): This topic explains how to configure the PCF Loggregator system to scale its maximum throughput, and to forward logs to an external aggregator service.
 * [Logging and Metrics](../loggregator/index.html): A guide to Loggregator, the next generation system for aggregating and streaming logs and metrics from all of the user apps and system components in Elastic Runtime.
+
+For information about KPIs and metrics for PCF services, see the following topics:
+
+* **RabbitMQ for PCF (on-demand)**: [Monitoring and KPIs for On-Demand RabbitMQ for PCF](https://docs.pivotal.io/rabbitmq-cf/monitor.html)
+* **RabbitMQ for PCF (pre-provisioned)**: [Monitoring and KPIs for Pre-Provisioned RabbitMQ for PCF](https://docs.pivotal.io/rabbitmq-cf/monitor-pp.html)
