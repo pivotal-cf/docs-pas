@@ -92,8 +92,8 @@ metrics, thresholds, and alerts based on learning from their deployments.
    </tr>
    <tr>
          <th>Recommended alert thresholds</th>
-         <td><strong>Yellow warning</strong>: &ge; 5 s<br>
-         <strong>Red critical</strong>: &ge; 10 s</td>
+         <td><strong>Yellow warning</strong>: &ge; 2 s<br>
+         <strong>Red critical</strong>: &ge; 5 s</td>
    </tr>
    <tr>
       <th>Recommended response</th>
@@ -609,8 +609,8 @@ When observing extended periods of high or low activity trends, scale up or down
         </tr>
         <tr>
                 <th>Recommended alert thresholds</th>
-                <td><strong>Yellow warning</strong>: &ge; 10 s<br>
-                <strong>Red critical</strong>: &ge; 20 s </td>
+                <td><strong>Yellow warning</strong>: &ge; 5 s<br>
+                <strong>Red critical</strong>: &ge; 10 s </td>
         </tr>
         <tr>
                 <th>Recommended response</th>
@@ -713,8 +713,8 @@ When observing extended periods of high or low activity trends, scale up or down
                     <strong>Use</strong>: Increases in this metric indicate that the route emitter may have 
                     trouble maintaining an accurate routing table to broadcast to the Gorouters. 
                     Tune alerting values to your deployment based on historical data and adjust based on observations over time. 
-                    The suggested starting point is &ge; 10 for the yellow threshold and &ge; 20 for the critical threshold. 
-                    Pivotal has observed on its Pivotal Web Services deployment that above 20 s, the BBS may be failing.
+                    The suggested starting point is &ge; 5 for the yellow threshold and &ge; 10 for the critical threshold. 
+                    Pivotal has observed on its Pivotal Web Services deployment that above 10 s, the BBS may be failing.
                  <br><br>
                  <strong>Origin</strong>: Doppler/Firehose<br>
                  <strong>Type</strong>: Gauge (Float in ns)<br>
