@@ -25,21 +25,27 @@ This table highlights new and changed KPIs in PCF v1.11.
   </tr>
   <tr>
     <td><em>New</em></td>
-    <td>KPI: <strong>scalablesyslog.adapter.dropped</strong><br><br>
-    This metric and KPI was added because of new component functionality in the Firehose system.</td>
+    <td>KPI: <strong>NAME-OF-NEW-KPI</strong><br><br>
+    This metric was added because...</td>
     <td><a href="./key-cap-scaling.html">Link</a></td>
   </tr>
-  <tr>
-    <td><em>New</em></td>
-    <td>KPI: <strong><code>scalablesyslog.scheduler.drains</code></strong><br><br>
-    This metric and KPI was added because of new component functionality in the Firehose system.</td>
-    <td><a href="./key-cap-scaling.html">Link</a></td>
+   <tr>
+    <td><em>Modified</em></td>
+    <td>KPI: <strong><code>auctioneer.AuctioneerFetchStatesDuration</code></strong><br><br>
+         Continued improvements in underlying architecture led to the recommendation to tighten these thresholds. Yellow is now 2s (formerly 5s) and Red is now 5s (formerly 10s).</td>
+    <td><a href="./kpi.html#AuctioneerFetchStatesDuration">Link</a></td>
+  </tr>
+     <tr>
+    <td><em>Modified</em></td>
+    <td>KPI: <strong><code>rep.RepBulkSyncDuration</code></strong><br><br>
+         Continued improvements to the router emitter led to the recommendation to tighten the suggested starting threshold on this dynamic metric. Yellow is now 5s (formerly 10s) and Red is now 10s (formerly 20s).</td>
+    <td><a href="./kpi.html#RepBulkSyncDuration">Link</a></td>
   </tr>
   <tr>
     <td><em>Modified</em></td>
-    <td>KPI: <strong><code>NAME-OF-MODIFIED-KPI</code></strong><br><br>
-         The recommended thresholds for this KPI have changed.</td>
-    <td><a href="./key-cap-scaling.html">Link</a></td>
+    <td>KPI: <strong><code>route_emitter.RouteEmitterSyncDuration</code></strong><br><br>
+         Continued improvements in underlying architecture led to the recommendation to tighten these thresholds. Yellow is now 5s (formerly 10s) and Red is now 10s (formerly 20s).</td>
+    <td><a href="./kpi.html#RouteEmitterSyncDuration">Link</a></td>
   </tr>
   <tr>
     <td><em>Replaced</em></td>
