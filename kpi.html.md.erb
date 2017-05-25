@@ -709,42 +709,6 @@ When observing extended periods of high or low activity trends, scale up or down
         </tr>
 </table>
 
-###<a id="ConsulDownMode"></a>Consul Up or Down
-<table>
-     <tr><th colspan="2" style="text-align: center;"><br>route_emitter.ConsulDownMode<br><br></th></tr>
-        <tr>
-                <th width="25%">Description</th>
-                <td>Consul emits its health status periodically. <code>0</code> means the system is healthy, and <code>1</code> means that 
-                    route emitter detects that Consul is down.
-                    <br><br>
-                    <strong>Use</strong>: During an upgrade, this can indicate that Consul is down.
-                    Loss of the Consul cluster results in apps becoming unavailable 
-                    because their routes were pruned from the routing table.
-                 <br><br>
-                 <strong>Origin</strong>: Doppler/Firehose<br>
-                 <strong>Type</strong>: Gauge (Float, 0-1)<br>
-                 <strong>Frequency</strong>: Periodically, emission should be constant on a running, Diego-based, PCF deployment<br>
-        </tr>
-        <tr>
-                <th>Recommended measurement</th>
-                <td>Average over the last 5 minutes</td>
-        </tr>
-        <tr>
-                <th>Recommended alert thresholds</th>
-                <td><strong>Yellow warning</strong>: <em>N/A</em><br>
-                <strong>Red critical</strong>: Not equal to 0 </td>
-        </tr>
-        <tr>
-                <th>Recommended response</th>
-                <td>
-                    <ol>
-                        <li>During upgrade, reduce the Consul server nodes to 1 and then upgrade.</li>
-                        <li>Outside of an upgrade, consider disaster recovery for Consul.</li>
-                    </ol>
-                    </td>
-        </tr>
-</table>
-
 ## <a id="gorouter"></a> Gorouter Metrics
 
 ###<a id="total_requests"></a>Router Throughput
