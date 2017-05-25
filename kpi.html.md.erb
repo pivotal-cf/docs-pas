@@ -666,7 +666,7 @@ When observing extended periods of high or low activity trends, scale up or down
         </tr>
 </table>
 
-##<a id="route_emitter"></a>Diego router-emitter Metrics
+##<a id="route_emitter"></a>Diego Route Emitter Metrics
 
 ###<a id="RouteEmitterSyncDuration"></a>Route Emitter Time to Sync
 <table>
@@ -1032,6 +1032,47 @@ When observing extended periods of high or low activity trends, scale up or down
         </tr>
 </table>
 
+## <a id="scalable-syslog"></a> Scalable Syslog Metrics
+
+<p class="note"><strong>Note</strong>: These scalable syslog metrics are only relevant if your deployment contains apps using the syslog drain binding feature (new in PCF v1.11).</p>
+
+###<a id="scalable-syslog-loss-rate"></a>Scalable Syslog Loss Rate
+<table>
+     <tr><th colspan="2" style="text-align: center;"><br>scalablesyslog.adapter.dropped 
+                       / scalablesyslog.adapter.ingress
+<br><br></th></tr>
+        <tr>
+                <th width="25%">Description</th>
+                <td>This derived value represents the loss rate of the scalable syslog adapters, or the total messages dropped as a percentage of the total traffic coming through the scalable syslog adapters.
+                    <br><br>
+			This loss rate is specific to the scalable syslog adapters, and does not impact the firehose loss rate. For example, you can suffer lossiness in syslog while not suffering any lossiness in the firehose.
+		    <br><br>
+                    <strong>Use</strong>: Indicates that the syslog drains are not keeping up with the number of logs that a syslog drain bound app is producing, which likely means that the syslog drain consumer is failing to keep up with the incoming log volume.
+                 <br><br>
+                 <strong>Origin</strong>: Doppler/Firehose<br>
+                 <strong>Type</strong>: Counter (Integer)<br>
+                 <strong>Frequency</strong>: 60 s<br>
+        </tr>
+        <tr>
+                <th>Recommended measurement</th>
+                <td>Maximum per minute loss rate
+                    over a 5-minute window</td>
+        </tr>
+        <tr>
+                <th>Recommended alert thresholds</th>
+                <td><strong>Yellow warning</strong>:&ge; 1%<br>
+                <strong>Red critical</strong>:&ge; 10%</td>
+        </tr>
+        <tr>
+                <th>Recommended response</th>
+                <td>
+        As this metric is highly indicative of a slow consumer, it is recommended to performance test your syslog server, reviewing the logs of the syslog consuming system for any possible intake or other performance issues.                
+	</ol>
+                    </td>
+        </tr>
+</table>
+
+
 ## <a id="bosh"></a> System (BOSH) Metrics
 
 ###<a id="healthy"></a>VM Health
@@ -1088,7 +1129,7 @@ When observing extended periods of high or low activity trends, scale up or down
         </tr>
         <tr>
                 <th>Recommended alert thresholds</th>
-                <td><strong>Yellow warning</strong>: &ge; 80%<br>
+                <td><strong>Yellow warning</strong>:&ge; 80%<br>
                 <strong>Red critical</strong>:&ge; 90%</td>
         </tr>
         <tr>
