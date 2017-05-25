@@ -38,7 +38,7 @@ This table highlights new and changed KPIs in PCF v1.11.
      <tr>
     <td><em>Modified</em></td>
     <td>KPI: <strong><code>rep.RepBulkSyncDuration</code></strong><br><br>
-         Continued improvements to the router emitter led to the recommendation to tighten the suggested starting threshold on this dynamic metric. Yellow is now 5s (formerly 10s) and Red is now 10s (formerly 20s).</td>
+         Continued improvements to the route emitter led to the recommendation to tighten the suggested starting threshold on this dynamic metric. Yellow is now 5s (formerly 10s) and Red is now 10s (formerly 20s).</td>
     <td><a href="./kpi.html#RepBulkSyncDuration">Link</a></td>
   </tr>
   <tr>
@@ -52,6 +52,12 @@ This table highlights new and changed KPIs in PCF v1.11.
     <td>KPI: <strong><code>NAME-OF-OBSOLETE-KPI</code></strong><br><br>
     This KPI has been replaced by <code>NAME-OF-NEW-KPI</code></td>
     <td><a href="./key-cap-scaling.html">Link</a></td>
+  </tr>
+  <tr>
+    <td><em>Deleted</em></td>
+    <td>KPI: <strong><code>route_emitter.ConsulDownMode</code></strong><br><br>
+         This KPI was highly specific to monitoring for negative consul impacts that could result in application routes becoming unavailable. Continued improvements to the route emitter have now removed the consul dependency; there is no longer communication between route emitter and consul.</td>
+    <td><em>n/a</em></td>
   </tr>
   <tr>
     <td><em>Deleted</em></td>
