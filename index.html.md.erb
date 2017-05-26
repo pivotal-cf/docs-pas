@@ -38,19 +38,34 @@ This table highlights new and changed KPIs in PCF v1.11.
    <tr>
     <td><em>Modified</em></td>
     <td>KPI: <strong><code>auctioneer.AuctioneerFetchStatesDuration</code></strong><br><br>
-         Continued improvements in underlying architecture led to the recommendation to tighten these thresholds. Yellow is now 2s (formerly 5s) and Red is now 5s (formerly 10s).</td>
+         Due to improvements in the underlying architecture, recommended thresholds are now:
+         <ul>
+         <li>Yellow 2&nbsp;s (formerly 5&nbsp;s)</li>
+         <li>Red 5&nbsp;s (formerly 10&nbsp;s)</li>
+         </ul>
+    </td>
     <td><a href="./kpi.html#AuctioneerFetchStatesDuration">Link</a></td>
   </tr>
      <tr>
     <td><em>Modified</em></td>
     <td>KPI: <strong><code>rep.RepBulkSyncDuration</code></strong><br><br>
-         Continued improvements to the route emitter led to the recommendation to tighten the suggested starting threshold on this dynamic metric. Yellow is now 5s (formerly 10s) and Red is now 10s (formerly 20s).</td>
+         Due to improvements in the route emitter, recommended starting thresholds on this dynamic metric are now:
+         <ul>
+         <li>Yellow 5&nbsp;s (formerly 10&nbsp;s)</li>
+         <li>Red 10&nbsp;s (formerly 20&nbsp;s)</li>
+         </ul>
+    </td>
     <td><a href="./kpi.html#RepBulkSyncDuration">Link</a></td>
   </tr>
   <tr>
     <td><em>Modified</em></td>
     <td>KPI: <strong><code>route_emitter.RouteEmitterSyncDuration</code></strong><br><br>
-         Continued improvements in underlying architecture led to the recommendation to tighten these thresholds. Yellow is now 5s (formerly 10s) and Red is now 10s (formerly 20s).</td>
+         Due to improvements in the underlying architecture, recommended thresholds are now:
+         <ul>
+         <li>Yellow 5&nbsp;s (formerly 10&nbsp;s)</li>
+         <li>Red 10&nbsp;s (formerly 20&nbsp;s)</li>
+         </ul>
+    </td>
     <td><a href="./kpi.html#RouteEmitterSyncDuration">Link</a></td>
   </tr>
   <tr>
@@ -68,7 +83,7 @@ This table highlights new and changed KPIs in PCF v1.11.
   <tr>
     <td><em>Deleted</em></td>
     <td>KPI: <strong><code>nsync_bulker.DesiredLRPSyncDuration</code></strong><br><br>
-         This metric is no longer relevant with the related architectural changes to secure Cloud Controller to Diego communication. There is not yet an equivalent metric within the new architecture, but additional monitoring metrics for this modified architecture will be added in upcoming releases.</td>
+         This metric is no longer relevant with the related architectural changes to secure Cloud Controller to Diego communication.</td>
     <td><em>n/a</em></td>
   </tr>
 </table> 
