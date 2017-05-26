@@ -177,7 +177,7 @@ Currently, there is one key capacity scaling indicator recommended for Firehose 
       <strong>Red critical</strong>: &ge; 0.1</td>
    </tr>
    <tr>
-      <th>How to scale up</th>
+      <th>How to scale</th>
       <td>Scale up the Firehose log receiver and Dopplers. 
       </td>
    </tr>
@@ -190,6 +190,48 @@ Currently, there is one key capacity scaling indicator recommended for Firehose 
       </td>
    </tr>
 </table>
+
+## <a id="scalable-syslog"></a> Scalable Syslog Scaling Indicator
+Currently, there is one key capacity scaling indicator recommended for the scalable syslog feature. 
+
+<p class="note"><strong>Note</strong>: This scalable syslog scaling indicator is only relevant if your deployment contains apps using the scalable syslog drain binding feature (new in PCF v1.11).</p>
+
+### <a id="scalable-syslog-ksi"></a> Scalable Syslog Drain Bindings Count
+
+<table>
+  <tr>
+      <th colspan="2" style="text-align: center;">scalablesyslog.scheduler.drains</th>
+  </tr>
+   <tr>
+      <th width="25">Description</th>
+       <td>The metric <code>scalablesyslog.scheduler.drains</code> indicates the number of scalable syslog drain bindings (new feature in PCF v1.11).
+       </td>
+   </tr>
+   <tr>
+      <th>Purpose</th>
+      <td>Each scalable syslog adapter can handle approximately 500 drain bindings each. The recommended initial configuration is a minimum of 2 scalable syslog adapters. A new adapter instance should then be added for each 500 additional drain bindings.
+        <br><br>
+        The recommended initial scaling indicator is 1500 (as a max value over 1 hr), as this indicates the need to move up to 3 adapters from the initial 2-adapter configuration. This alerting measure should be considered dynamic and adjusted to the PCF foundation as adoption of scalable syslog increases or decreases. As a general rule the scaling recipe for scalable syslog adapters is: 2 at minimum (approximately 1,000 drain bindings), then 1 additional for each 500 drain bindings.
+   </tr>
+   <tr>
+      <th>Recommended thresholds</th>
+      <td>&ge; 1500</td>
+   </tr>
+   <tr>
+      <th>How to scale</th>
+      <td>Within the Elastic Runtime tile, increase the count of Scalable Syslog Adapter vms. 
+      </td>
+   </tr>
+   <tr>
+      <th>Additional Details</th>
+      <td> <strong>Origin</strong>: Doppler/Firehose<br>
+           <strong>Type</strong>: Gauge (float)<br>
+           <strong>Frequency</strong>: Emitted every 60 s<br>
+           <strong>Applies to</strong>: cf:scalablesyslog<br>
+      </td>
+   </tr>
+</table>
+
 
 ## <a id="Router"></a> Router Performance Scaling Indicator
 Currently, there is one key capacity scaling indicator recommended for Router performance. 
