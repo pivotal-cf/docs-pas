@@ -36,6 +36,12 @@ This table highlights new and changed KPIs in PCF v1.11.
     <td><a href="./kpi.html#scalable-syslog-loss-rate">Link</a></td>
   </tr>
    <tr>
+    <td><em>New</em></td>
+    <td>KPI: <strong><code>scalablesyslog.scheduler.drains</code></strong><br><br>
+    New component functionality within the Firehose system adds the need for additional performance monitoring considerations.</td>
+    <td><a href="./key-cap-scaling.html#scalable-syslog-ksi">Link</a></td>
+  </tr>
+   <tr>
     <td><em>Modified</em></td>
     <td>KPI: <strong><code>auctioneer.AuctioneerFetchStatesDuration</code></strong><br><br>
          Due to improvements in the underlying architecture, recommended thresholds are now:
@@ -68,13 +74,7 @@ This table highlights new and changed KPIs in PCF v1.11.
     </td>
     <td><a href="./kpi.html#RouteEmitterSyncDuration">Link</a></td>
   </tr>
-  <tr>
-    <td><em>Replaced</em></td>
-    <td>KPI: <strong><code>NAME-OF-OBSOLETE-KPI</code></strong><br><br>
-    This KPI has been replaced by <code>NAME-OF-NEW-KPI</code></td>
-    <td><a href="./key-cap-scaling.html">Link</a></td>
-  </tr>
-  <tr>
+   <tr>
     <td><em>Deleted</em></td>
     <td>KPI: <strong><code>route_emitter.ConsulDownMode</code></strong><br><br>
          This KPI was highly specific to monitoring for negative consul impacts that could result in application routes becoming unavailable. Continued improvements to the route emitter have now removed the consul dependency; there is no longer communication between route emitter and consul.</td>
