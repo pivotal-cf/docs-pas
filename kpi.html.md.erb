@@ -3,17 +3,6 @@ title: Key Performance Indicators
 owner: PCF Metrics Platform Monitoring
 ---
 
-<style>
-    .note.warning {
-        background-color: #fdd;
-        border-color: #fbb
-    }
-
-    .note.warning:before {
-        color: #f99;
-     }
-</style>
-
 This topic describes Key Performance Indicators (KPIs) that operators may want to monitor with their Pivotal Cloud Foundry (PCF) deployment to help ensure it is in a good operational state.
 
 The following PCF v1.10 KPIs are provided for operators to give general guidance on monitoring a PCF deployment using platform component and system (BOSH) metrics. 
@@ -299,7 +288,7 @@ When observing extended periods of high or low activity trends, scale up or down
       <th>Recommended response</th>
       <td>
           <ol>
-              <li>Check the nysnc bulker logs and BBS logs.</li>
+              <li>Check the BBS logs.</li>
               <li>If the problem continues, pull Diego brain logs and BBS logs 
                   and contact Pivotal Support to say that the <code>cf-apps</code> domain is not being kept fresh.</li>
           </ol>
