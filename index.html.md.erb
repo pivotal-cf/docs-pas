@@ -25,23 +25,19 @@ This table highlights new and changed KPIs in PCF v1.11.
   </tr>
   <tr>
     <td><em>New</em></td>
-    <td>KPI: <strong><code>scalablesyslog.adapter.dropped</code></strong><br><br>
-    New component functionality within the Firehose system adds the need for additional performance monitoring considerations. Derived into a Loss Rate along with new metric <code>scalablesyslog.adapter.ingress</code></td>
+    <td>KPI: <strong><code>Scalable Syslog Loss Rate</code></strong><br><br>
+    A new component and new functionality within the Firehose system requires additional performance monitoring.
+    The loss rate of the scalable syslog adapters is derived from two new metrics: <code>scalablesyslog.adapter.dropped</code> and 
+    <code>scalablesyslog.adapter.ingress</code>.</td>
     <td><a href="./kpi.html#scalable-syslog-loss-rate">Link</a></td>
   </tr>
-    <tr>
-    <td><em>New</em></td>
-    <td>KPI: <strong><code>scalablesyslog.adapter.ingress</code></strong><br><br>
-    New component functionality within the Firehose system adds the need for additional performance monitoring considerations. Derived into a Loss Rate along with new metric <code>scalablesyslog.adapter.dropped</code></td>
-    <td><a href="./kpi.html#scalable-syslog-loss-rate">Link</a></td>
-  </tr>
-   <tr>
+  <tr>
     <td><em>New</em></td>
     <td>KPI: <strong><code>scalablesyslog.scheduler.drains</code></strong><br><br>
     New component functionality within the Firehose system adds the need for additional performance monitoring considerations.</td>
     <td><a href="./key-cap-scaling.html#scalable-syslog-ksi">Link</a></td>
   </tr>
-   <tr>
+  <tr>
     <td><em>Modified</em></td>
     <td>KPI: <strong><code>auctioneer.AuctioneerFetchStatesDuration</code></strong><br><br>
          Due to improvements in the underlying architecture, recommended thresholds are now:
@@ -52,7 +48,7 @@ This table highlights new and changed KPIs in PCF v1.11.
     </td>
     <td><a href="./kpi.html#AuctioneerFetchStatesDuration">Link</a></td>
   </tr>
-     <tr>
+  <tr>
     <td><em>Modified</em></td>
     <td>KPI: <strong><code>rep.RepBulkSyncDuration</code></strong><br><br>
          Due to improvements in the route emitter, recommended starting thresholds on this dynamic metric are now:
