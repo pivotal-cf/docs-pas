@@ -198,7 +198,7 @@ Currently, there is one key capacity scaling indicator recommended for the scala
    </tr>
    <tr>
       <th>Purpose</th>
-      <td>Each scalable syslog adapter can handle approximately 500 drain bindings each. The recommended initial configuration is a minimum of two scalable syslog adapters (to handle approximately 1000 drain bindings). 
+      <td>Each scalable syslog adapter can handle approximately 500 drain bindings. The recommended initial configuration is a minimum of two scalable syslog adapters (to handle approximately 1000 drain bindings). 
          A new adapter instance should then be added for each 500 additional drain bindings.
         <br><br>
         Therefore, the recommended initial scaling indicator is 1500 (as a max value over 1 hr). This indicates the need to move up to three adapters from the initial two-adapter configuration. 
@@ -207,7 +207,7 @@ Currently, there is one key capacity scaling indicator recommended for the scala
    <tr>
       <th>Recommended thresholds</th>
       <td>&ge; 1500. <br>
-         You should consider this alert threshold to be dynamic and adjust it to the PCF deployment as adoption of scalable syslog increases or decreases.</td>
+         You should consider this threshold to be dynamic and adjust it to the PCF deployment as adoption of scalable syslog increases or decreases.</td>
    </tr>
    <tr>
       <th>How to scale</th>
