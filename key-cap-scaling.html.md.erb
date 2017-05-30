@@ -14,7 +14,7 @@ by observing historical trends for their deployments.
 
 ##<a id="cell"></a>Diego Cell Capacity Scaling Indicators
 
-Currently, there are three key capacity scaling indicators recommended for Diego cell:
+There are three key capacity scaling indicators recommended for Diego cell:
 
 + [Diego Cell Memory Capacity](#cell-memory) is a measure of the percentage of remaining memory capacity
 + [Diego Cell Disk Capacity](#cell-disk) is a measure of the percentage of remaining disk capacity
@@ -138,7 +138,8 @@ Currently, there are three key capacity scaling indicators recommended for Diego
 </table>
 
 ## <a id="doppler-server"></a> Firehose Performance Scaling Indicator
-Currently, there is one key capacity scaling indicator recommended for Firehose performance. 
+
+There is one key capacity scaling indicator recommended for Firehose performance. 
 
 ### <a id="firehose-loss-rate"></a> Firehose Loss Rate
 
@@ -156,7 +157,8 @@ Currently, there is one key capacity scaling indicator recommended for Firehose 
       <th>Purpose</th>
       <td>Excessive dropped messages can indicate the Dopplers are not processing messages fast enough.
         <br><br>
-        The recommended scaling indicator is to look at the total dropped as a percentage of the total throughput and scale if the derived loss rate value grows greater than <code>0.1</code>.
+        The recommended scaling indicator is to look at the total dropped as a percentage of the total throughput
+        and scale if the derived loss rate value grows greater than <code>0.1</code>.
    </tr>
    <tr>
       <th>Recommended thresholds</th>
@@ -181,9 +183,10 @@ Currently, there is one key capacity scaling indicator recommended for Firehose 
 </table>
 
 ## <a id="scalable-syslog"></a> Scalable Syslog Scaling Indicator
-Currently, there is one key capacity scaling indicator recommended for the scalable syslog feature. 
+There is one key capacity scaling indicator recommended for the scalable syslog feature. 
 
-<p class="note"><strong>Note</strong>: This scalable syslog scaling indicator is only relevant if your deployment contains apps using the scalable syslog drain binding feature (new in PCF v1.11).</p>
+<p class="note"><strong>Note</strong>: This scalable syslog scaling indicator is only relevant
+  if your deployment contains apps using the scalable syslog drain binding feature (new in PCF v1.11).</p>
 
 ### <a id="scalable-syslog-ksi"></a> Scalable Syslog Drain Bindings Count
 
@@ -193,25 +196,30 @@ Currently, there is one key capacity scaling indicator recommended for the scala
   </tr>
    <tr>
       <th width="25">Description</th>
-       <td>The metric <code>scalablesyslog.scheduler.drains</code> indicates the number of scalable syslog drain bindings (new feature in PCF v1.11).
+       <td>The number of scalable syslog drain bindings.<br>
+           This metric was added in PCF v1.11.
        </td>
    </tr>
    <tr>
       <th>Purpose</th>
-      <td>Each scalable syslog adapter can handle approximately 500 drain bindings. The recommended initial configuration is a minimum of two scalable syslog adapters (to handle approximately 1000 drain bindings). 
-         A new adapter instance should then be added for each 500 additional drain bindings.
+      <td>Each scalable syslog adapter can handle approximately 500 drain bindings. 
+          The recommended initial configuration is a minimum of two scalable syslog adapters
+          (to handle approximately 1000 drain bindings). 
+          A new adapter instance should be added for each 500 additional drain bindings.
         <br><br>
-        Therefore, the recommended initial scaling indicator is 1500 (as a max value over 1 hr). This indicates the need to move up to three adapters from the initial two-adapter configuration. 
+        Therefore, the recommended initial scaling indicator is 1500 (as a maximum value over a 1-hr window).
+        This indicates the need to scale up to three adapters from the initial two-adapter configuration. 
          
    </tr>
    <tr>
       <th>Recommended thresholds</th>
-      <td>&ge; 1500. <br>
-         You should consider this threshold to be dynamic and adjust it to the PCF deployment as adoption of scalable syslog increases or decreases.</td>
+      <td><strong>Scale indicator</strong>: &ge; 1500<br>
+         Consider this threshold to be dynamic.
+         Adjust the threshold to the PCF deployment as adoption of scalable syslog increases or decreases.</td>
    </tr>
    <tr>
       <th>How to scale</th>
-      <td>Within the Elastic Runtime tile, increase the count of Scalable Syslog Adapter VMs. 
+      <td>Increase the number of Scalable Syslog Adapter VMs in the <strong>Resource Config</strong> pane of the Elastic Runtime tile.
       </td>
    </tr>
    <tr>
@@ -226,7 +234,7 @@ Currently, there is one key capacity scaling indicator recommended for the scala
 
 
 ## <a id="Router"></a> Router Performance Scaling Indicator
-Currently, there is one key capacity scaling indicator recommended for Router performance. 
+There is one key capacity scaling indicator recommended for Router performance. 
 
 ###<a id="system.cpu.user"></a>Router VM CPU Utilization
 
@@ -240,9 +248,11 @@ Currently, there is one key capacity scaling indicator recommended for Router pe
   </tr>
   <tr>
       <th>Purpose</th>
-      <td>High CPU utilization of the Gorouter VMs can increase latency and cause throughput, or requests per/second, to level-off. Pivotal recommends keeping the CPU utilization within a maximum range of 60-70%  for best Gorouter performance. 
+      <td>High CPU utilization of the Gorouter VMs can increase latency and cause throughput, or requests per/second, to level-off.
+          Pivotal recommends keeping the CPU utilization within a maximum range of 60-70%  for best Gorouter performance. 
       <br><br>
-      If you want to increase throughput capabilities while also keeping latency low, Pivotal recommends scaling the Gorouter while continuing to ensure that CPU utilization does not exceed the maximum recommended  range. 
+      If you want to increase throughput capabilities while also keeping latency low, Pivotal recommends scaling the Gorouter 
+      while continuing to ensure that CPU utilization does not exceed the maximum recommended  range. 
           </td>
    </tr>
    <tr>
@@ -255,7 +265,8 @@ Currently, there is one key capacity scaling indicator recommended for Router pe
    </tr>
    <tr>
       <th>How to scale</th>
-      <td>Resolve high utilization by scaling the Gorouters horizontally or vertically (the <b>Router</b> VM in the <b>Resource Config</b> pane of the Elastic Runtime tile). 
+      <td>Resolve high utilization by scaling the Gorouters horizontally or vertically 
+          by editing the <b>Router</b> VM in the <b>Resource Config</b> pane of the Elastic Runtime tile. 
       </td>
    </tr>
    <tr>
@@ -270,7 +281,10 @@ Currently, there is one key capacity scaling indicator recommended for Router pe
 
 ##<a id="systemdiskpersist"></a>NFS/WebDAV Backed Blobstore
 
-<p class="note"><strong>Note</strong>: This metric is only relevant if your deployment does not use an external S3 repository for external storage with no capacity constraints</p>
+There is one key capacity scaling indicator for external S3 external storage.
+
+<p class="note"><strong>Note</strong>: This metric is only relevant if your deployment does not use 
+                        an external S3 repository for external storage with no capacity constraints.</p>
 
 <table>
    <tr><th colspan="2" style="text-align: center;"><br>system.disk.persistent.percent of NFS server VM(s)<br><br></th></tr>
@@ -280,7 +294,8 @@ Currently, there is one key capacity scaling indicator recommended for Router pe
            </tr>
    <tr>
        <th>Purpose</th>
-       <td>If you do not use an external S3 repository for external storage with no capacity constraints, you must monitor the PCF object store to push new app and buildpacks.
+       <td>If you do not use an external S3 repository for external storage with no capacity constraints,
+           you must monitor the PCF object store to push new app and buildpacks.
      <br><br>
      If you use an internal NFS/WebDAV backed blobstore, consider scaling the persistent disk when it reaches 75% capacity.
      </td>
