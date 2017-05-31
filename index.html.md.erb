@@ -77,6 +77,13 @@ This table highlights new and changed KPIs in PCF v1.11.
    </td>
     <td><a href="./kpi.html#deriveddopplerserver.doppler">Link</a></td>
   </tr>
+      <tr>
+    <td><em>Modified</em></td>
+    <td>KPI: <strong><code>Firehose Loss Rate</code></strong><br><br>
+         In PCF v1.11, it is no longer necessary to add <code>DopplerServer.doppler.shedEnvelopes</code> with <code>DopplerServer.TruncatingBuffer.totalDroppedMessages</code> to calculate Firehose Dropped Messages. The formula to calculate Loss Rate has been updated accordingly.
+   </td>
+    <td><a href="./key-cap-scaling.html#firehose-loss-rate">Link</a></td>
+  </tr>
    <tr>
     <td><em>Deleted</em></td>
     <td>KPI: <strong><code>route_emitter.ConsulDownMode</code></strong><br><br>
