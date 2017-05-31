@@ -985,16 +985,12 @@ When observing extended periods of high or low activity trends, scale up or down
 ###<a id="deriveddopplerserver.doppler"></a>Firehose Dropped Messages
 <table>
      <tr><th colspan="2" style="text-align: center;"><br>DopplerServer.doppler.shedEnvelopes 
-                       + DopplerServer.TruncatingBuffer.totalDroppedMessages<br><br></th></tr>
+     <br><br></th></tr>
         <tr>
                 <th width="25%">Description</th>
                 <td>The lifetime total number of messages 
-                    intentionally dropped by Doppler due to back pressure.<br><br>
-                    In PCF v1.10, Pivotal recommends combining both of these metrics to present a full picture of dropped messages.
-                    However, the metric <code>DopplerServer.TruncatingBuffer.totalDroppedMessages</code> is 
-                    being transitioned to <code>DopplerServer.doppler.shedEnvelopes</code>.  
-                    In PCF v1.10, truncating buffer usage is approximately 5% of all possible traffic, primarily syslog drains.
-                    <br><br>
+                    intentionally dropped by Doppler due to back pressure.<br><br>	
+		<br><br>
                     <strong>Use</strong>: This metric is an important indicator of consistent logging. Set an alert to indicate if there is too much traffic coming in to the Dopplers 
                      or if the Firehose consumers are not keeping pace. 
                      Both issues result in dropped messages. 
