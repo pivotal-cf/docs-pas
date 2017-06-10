@@ -149,7 +149,8 @@ There is one key capacity scaling indicator recommended for Firehose performance
   </tr>
    <tr>
       <th width="25">Description</th>
-      <td> This derived value represents the firehose loss rate, or the total messages dropped as a percentage of the total message throughput. Total messages include the combined stream of logs from all apps, and the metrics data from Cloud Foundry components.
+      <td> This derived value represents the firehose loss rate, or the total messages dropped as a percentage of the total message throughput.
+           Total messages include the combined stream of logs from all apps and the metrics data from Cloud Foundry components.
        </td>
    </tr>
    <tr>
@@ -185,7 +186,7 @@ There is one key capacity scaling indicator recommended for Firehose performance
 There are three key capacity scaling indicators recommended for Scalable Syslog performance. 
 
 <p class="note"><strong>Note</strong>: These scalable syslog scaling indicators are only relevant
-  if your deployment contains apps using the scalable syslog drain binding feature (new in PCF v1.11).</p>
+  if your deployment contains apps using the scalable syslog drain binding feature, new in PCF v1.11.</p>
 
 ### <a id="syslog-adapter-ksi"></a> Adapter Loss Rate
 
@@ -196,7 +197,9 @@ There are three key capacity scaling indicators recommended for Scalable Syslog 
   </tr>
    <tr>
       <th width="25">Description</th>
-       <td>The loss rate of the scalable syslog adapters, that is, the total messages dropped as a percentage of the total traffic coming through the [scalable syslog adapters](../loggregator/architecture.html). Total messages include only logs for bound applications.
+       <td>The loss rate of the scalable syslog adapters, that is, the total messages dropped 
+          as a percentage of the total traffic coming through the <a href="../loggregator/architecture.html">scalable syslog adapters</a>.
+          Total messages include only logs for bound applications.
        <br><br>
 			This loss rate is specific to the scalable syslog adapters and does not impact the Firehose loss rate.
                         For example, you can suffer lossiness in syslog while not suffering any lossiness in the Firehose.
@@ -219,7 +222,8 @@ There are three key capacity scaling indicators recommended for Scalable Syslog 
    </tr>
    <tr>
       <th>How to scale</th>
-      <td>Performance test your syslog server, reviewing the logs of the syslog consuming system for intake and other performance issues that may indicate a need to scale the consuming system.
+      <td>Performance test your syslog server, review the logs of the syslog consuming system for intake
+          and other performance issues that indicate a need to scale the consuming system.
       </td>
    </tr>
    <tr>
@@ -240,7 +244,9 @@ There are three key capacity scaling indicators recommended for Scalable Syslog 
   </tr>
    <tr>
       <th width="25">Description</th>
-       <td>The loss rate of the reverse log proxies (RLP), that is, the total messages dropped as a percentage of the total traffic coming through the [reverse log proxy](../loggregator/architecture.html). Total messages include only logs for bound applications.
+       <td>The loss rate of the reverse log proxies (RLP), that is, the total messages dropped 
+           as a percentage of the total traffic coming through the <a href="../loggregator/architecture.html">reverse log proxy</a>.
+           Total messages include only logs for bound applications.
        <br><br>
 			This loss rate is specific to the scalable syslog RLP and does not impact the Firehose loss rate.
                         For example, you can suffer lossiness in syslog while not suffering any lossiness in the Firehose.
@@ -250,7 +256,8 @@ There are three key capacity scaling indicators recommended for Scalable Syslog 
       <th>Purpose</th>
       <td>Excessive dropped messages can indicate that the RLP is overloaded and that the Traffic Controllers need to be scaled.
          <br><br>
-        The recommended scaling indicator is to look at the maximum per minute loss rate over a 5-minute window and scale if the derived loss rate value grows greater than <code>0.1</code>.
+        The recommended scaling indicator is to look at the maximum per minute loss rate over a 5-minute window 
+        and scale if the derived loss rate value grows greater than <code>0.1</code>.
    </tr>
    <tr>
       <th>Recommended thresholds</th>
