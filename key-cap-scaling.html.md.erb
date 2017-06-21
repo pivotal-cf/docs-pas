@@ -299,13 +299,13 @@ There are three key capacity scaling indicators recommended for Scalable Syslog 
           (to handle approximately 400 drain bindings). 
           A new adapter instance should be added for each 200 additional drain bindings.
         <br><br>
-        Therefore, the recommended initial scaling indicator is 550 (as a maximum value over a 1-hr window).
+        Therefore, the recommended initial scaling indicator is 350 (as a maximum value over a 1-hr window).
         This indicates the need to scale up to three adapters from the initial two-adapter configuration. 
          
    </tr>
    <tr>
       <th>Recommended thresholds</th>
-      <td><strong>Scale indicator</strong>: &ge; 550<br>
+      <td><strong>Scale indicator</strong>: &ge; 350<br>
          Consider this threshold to be dynamic.
          Adjust the threshold to the PCF deployment as adoption of scalable syslog increases or decreases.</td>
    </tr>
