@@ -102,6 +102,14 @@ Some monitoring solutions offer both in one package. Others require putting the 
 
 See the [Datadog Config repository](https://github.com/pivotal-cf-experimental/datadog-config-oss/blob/master/cloud-ops-example-doc.md) for an example of how to configure a dashboard and alerts for Cloud Foundry in Datadog.
 
+### <a id='thresholds'></a>Determine Warning and Critical Thresholds
+
+To properly configure your monitoring dashboard and alerts, you need to establish what thresholds should drive alerting and red/yellow/green dashboard behavior. PCF users can refer to these recommended [Key Performance Indicators](kpi.html) and [Key Capacity Scaling Indicators](key-cap-scaling.html).
+
+Some key metrics of operational value have more fixed thresholds, and recommended threshold numbers for them are generally the same values across different foundations and use cases. These metrics tend to revolve around the health and performance of key components that can impact the performance of the entire system.
+
+Other key metrics of operational value are more dynamic in nature. This means that you must establish a baseline and yellow/red thresholds suitable for your system and its use cases. Initially, baselines can be established by watching values of key metrics over time and noting what seems to be a good starting threshold level between acceptable and unacceptable system performance and health. The initial baselines should continue to be refined as you determine the appropriate balance between early detection and reducing unnecessary alert fatigue. These types of more dynamic measures should be revisited on occasion to ensure they are still appropriate to the current system configuration and its usage patterns.
+
 ### <a id='dashboard'></a>Customize Your Dashboard
 
 You customize a dashboard by defining elements on the screen that show values derived from one or more metrics. These dashboard elements typically use simple formulas, such as averaging metric values over the past 60 seconds or summing them up over related instances. They are also often normalized to display with 3 or fewer digits for easy reading and color-coded red, yellow, or green to indicate health conditions.
