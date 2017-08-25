@@ -145,7 +145,7 @@ There is one key capacity scaling indicator recommended for Firehose performance
 
 <table>
   <tr>
-      <th colspan="2" style="text-align: center;">DopplerServer.doppler.shedEnvelopes / DopplerServer.listeners.totalReceivedMessageCount</th>
+      <th colspan="2" style="text-align: center;">(DopplerServer.doppler.shedEnvelopes +  loggregator.doppler.dropped) / (DopplerServer.listeners.totalReceivedMessageCount + loggregator.doppler.ingress)</th>
   </tr>
    <tr>
       <th width="25">Description</th>
@@ -155,7 +155,7 @@ There is one key capacity scaling indicator recommended for Firehose performance
    </tr>
    <tr>
       <th>Purpose</th>
-      <td>Excessive dropped messages can indicate the Dopplers are not processing messages fast enough.
+      <td>Excessive dropped messages can indicate the Dopplers and/or Traffic Controllers are not processing messages fast enough.
         <br><br>
         The recommended scaling indicator is to look at the total dropped as a percentage of the total throughput
         and scale if the derived loss rate value grows greater than <code>0.1</code>.
@@ -169,7 +169,7 @@ There is one key capacity scaling indicator recommended for Firehose performance
    </tr>
    <tr>
       <th>How to scale</th>
-      <td>Scale up the Firehose log receiver and Dopplers. 
+      <td>Scale up the Firehose Traffic Controllers and Dopplers. 
       </td>
    </tr>
    <tr>
@@ -294,18 +294,18 @@ There are three key capacity scaling indicators recommended for Scalable Syslog 
    </tr>
    <tr>
       <th>Purpose</th>
-      <td>Each scalable syslog adapter can handle approximately 200 drain bindings. 
+      <td>Each scalable syslog adapter can handle approximately 500 drain bindings. 
           The recommended initial configuration is a minimum of two scalable syslog adapters
-          (to handle approximately 400 drain bindings). 
-          A new adapter instance should be added for each 200 additional drain bindings.
+          (to handle approximately 1000 drain bindings). 
+          A new adapter instance should be added for each 500 additional drain bindings.
         <br><br>
-        Therefore, the recommended initial scaling indicator is 350 (as a maximum value over a 1-hr window).
+        Therefore, the recommended initial scaling indicator is 900 (as a maximum value over a 1-hr window).
         This indicates the need to scale up to three adapters from the initial two-adapter configuration. 
          
    </tr>
    <tr>
       <th>Recommended thresholds</th>
-      <td><strong>Scale indicator</strong>: &ge; 350<br>
+      <td><strong>Scale indicator</strong>: &ge; 900<br>
          Consider this threshold to be dynamic.
          Adjust the threshold to the PCF deployment as adoption of scalable syslog increases or decreases.</td>
    </tr>
