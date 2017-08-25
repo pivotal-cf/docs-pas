@@ -5,8 +5,8 @@ owner: PCF Metrics Platform Monitoring
 
 This topic describes Key Performance Indicators (KPIs) that operators may want to monitor with their Pivotal Cloud Foundry (PCF) deployment to help ensure it is in a good operational state.
 
-The following PCF v1.11 KPIs are provided for operators to give general guidance on monitoring a PCF deployment using platform component and system (BOSH) metrics. 
-Although many metrics are emitted from the platform, the following PCF v1.11 KPIs are 
+The following PCF v1.12 KPIs are provided for operators to give general guidance on monitoring a PCF deployment using platform component and system (BOSH) metrics. 
+Although many metrics are emitted from the platform, the following PCF v1.12 KPIs are 
 high-signal-value metrics that can indicate emerging platform issues. 
 
 This alerting and response guidance has been shown to apply to most deployments. 
@@ -226,19 +226,19 @@ When observing extended periods of high or low activity trends, scale up or down
    <tr><th colspan="2" style="text-align: center;"><br>bbs.RequestLatency<br><br></th></tr>
    <tr>
       <th width="25%">Description</th>
-      <td>Time in ns that the BBS took to handle requests, aggregated across all its API endpoints. 
+      <td>The maximum observed latency time over the past 60 seconds that the BBS took to handle requests across all its API endpoints.<br><br>
+	      As of PCF v1.12, Diego is now aggregating this metric in order to emit, every 60 seconds, the max value observed over 60 seconds.
           <br><br>
           <strong>Use</strong>: If this metric rises, the PCF API is slowing. 
           Response to certain cf CLI commands is slow if request latency is high.
           <br><br>
           <strong>Origin</strong>: Firehose<br>
           <strong>Type</strong>: Gauge (Integer in ns)<br>
-          <strong>Frequency</strong>: During event, when the BBS API handles requests, 
-                  emission should be near-constant on a running deployment<br>
+          <strong>Frequency</strong>: 60 s<br>
     </tr>
     <tr>
       <th>Recommended measurement</th>
-      <td>Maximum over the last 15 minutes  divided by 1,000,000,000</td>
+      <td>Average over the last 15 minutes divided by 1,000,000,000</td>
     </tr>
     <tr>
       <th>Recommended alert thresholds</th>
@@ -665,9 +665,9 @@ When observing extended periods of high or low activity trends, scale up or down
    <tr>
       <th width="25%">Description</th>
       <td>Total count of how many locks the system components are holding.
-          As of PCF v1.11, the BBS, Auctioneer, TPS Watcher, and Routing API components have migrated to Locket from Consul lock. 
+          In PCF v1.12, the BBS, Auctioneer, TPS Watcher, and Routing API components utilize Locket. 
           <br><br>
-          <strong>Use</strong>: If the Active Lock count is greater than the expected maximum, there is likely a problem with Diego.
+          <strong>Use</strong>: If the Active Lock count is not equal to the expected value, there is likely a problem with Diego.
           <br><br>
           <strong>Origin</strong>: Firehose<br>
           <strong>Type</strong>: Gauge<br>
@@ -680,7 +680,7 @@ When observing extended periods of high or low activity trends, scale up or down
       <tr>
       <th>Recommended alert thresholds</th>
       <td><strong>Yellow warning</strong>: <em>N/A</em> <br>
-          <strong>Red critical</strong>: &gt; 4</td>
+          <strong>Red critical</strong>: &ne; 4</td>
    </tr>
    <tr>
       <th>Recommended response</th>
@@ -779,7 +779,7 @@ When observing extended periods of high or low activity trends, scale up or down
         </tr>
         <tr>
                 <th>Recommended measurement</th>
-                <td>Maximum over the last 15 minutes divided by 1,000,000,000</td>
+                <td>Maximum, per job, over the last 15 minutes divided by 1,000,000,000</td>
         </tr>
         <tr>
                 <th>Recommended alert thresholds</th>
@@ -788,7 +788,7 @@ When observing extended periods of high or low activity trends, scale up or down
         </tr>
         <tr>
                 <th>Recommended response</th>
-                <td>
+                <td>If all or many jobs showing as impacted, there is likely an issue with Diego.
                         <ol>
                         <li>
                         Investigate the route_emitter and Diego BBS logs for errors.
@@ -797,6 +797,7 @@ When observing extended periods of high or low activity trends, scale up or down
                         Verify that app routes are functional by making a request to an app, pushing an app and pinging it, or if applicable, checking that your smoke tests have passed.
                         </li>
                         </ol>
+		If one or a few jobs showing as impacted, there is likely a connectivity issue and the impacted job should be investigated further. 
                 </td>
         </tr>
 </table>
