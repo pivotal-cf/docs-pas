@@ -15,110 +15,43 @@ This guide includes the following topics:
 
 For information about logging and metrics in PCF and about monitoring of services for PCF, see <a href="#resources">Additional Resources</a> below.
 
-##<a id="new"></a> KPI Changes from PCF v1.10 to v1.11
+##<a id="new"></a> KPI Changes from PCF v1.11 to v1.12
 
-This table highlights new and changed KPIs in PCF v1.11.
+This table highlights new and changed KPIs in PCF v1.12.
 
 <table>
-  <tr>
+<tr>
     <th>Change</th>
     <th>Which KPI and why?</th>
     <th>See&hellip;</th>
   </tr>
-  <tr>
-    <td><em>New</em></td>
-    <td>KPI: <strong><code>Scalable Syslog Adapter Loss Rate</code></strong><br><br>
-    A new component and new functionality in the Loggregator system requires additional monitoring.
-    The loss rate of the scalable syslog adapters is derived from two new metrics: <code>scalablesyslog.adapter.dropped</code> and 
-    <code>scalablesyslog.adapter.ingress</code>.</td>
-    <td><a href="./key-cap-scaling.html#syslog-adapter-ksi">Link</a></td>
-  </tr>
-    <tr>
-    <td><em>New</em></td>
-    <td>KPI: <strong><code>Scalable Syslog Reverse Log Proxy Loss Rate</code></strong><br><br>
-    A new component and new functionality in the Loggregator system requires additional monitoring.
-    The loss rate of the scalable syslog RLP is derived from two new metrics: <code>loggregator.rlp.dropped</code> and 
-    <code>loggregator.rlp.ingress</code>.</td>
-    <td><a href="./key-cap-scaling.html#syslog-rlp-ksi">Link</a></td>
-  </tr>
-  <tr>
-    <td><em>New</em></td>
-    <td>KPI: <strong><code>scalablesyslog.scheduler.drains</code></strong><br><br>
-    New component functionality in the Loggregator system needs monitoring.</td>
-    <td><a href="./key-cap-scaling.html#scalable-syslog-ksi">Link</a></td>
-  </tr>
-    <tr>
-    <td><em>New</em></td>
-    <td>KPI: <strong><code>locket.ActiveLocks</code></strong><br><br>
-    New component functionality in the Diego system needs monitoring.</td>
-    <td><a href="./kpi.html#ActiveLocks">Link</a></td>
-  </tr>
-    <tr>
-    <td><em>New</em></td>
-    <td>KPI: <strong><code>locket.ActivePresences</code></strong><br><br>
-    New component functionality in the Diego system needs monitoring.</td>
-    <td><a href="./kpi.html#ActivePresences">Link</a></td>
-  </tr>
-  <tr>
-    <td><em>Modified</em></td>
-    <td>KPI: <strong><code>auctioneer.AuctioneerFetchStatesDuration</code></strong><br><br>
-         Due to improvements in the underlying architecture, recommended thresholds are now:
-         <ul>
-         <li>Yellow 2&nbsp;s (formerly 5&nbsp;s)</li>
-         <li>Red 5&nbsp;s (formerly 10&nbsp;s)</li>
-         </ul>
-    </td>
-    <td><a href="./kpi.html#AuctioneerFetchStatesDuration">Link</a></td>
-  </tr>
-  <tr>
-    <td><em>Modified</em></td>
-    <td>KPI: <strong><code>rep.RepBulkSyncDuration</code></strong><br><br>
-         Due to improvements in the route emitter, recommended starting thresholds on this dynamic metric are now:
-         <ul>
-         <li>Yellow 5&nbsp;s (formerly 10&nbsp;s)</li>
-         <li>Red 10&nbsp;s (formerly 20&nbsp;s)</li>
-         </ul>
-    </td>
-    <td><a href="./kpi.html#RepBulkSyncDuration">Link</a></td>
-  </tr>
-  <tr>
-    <td><em>Modified</em></td>
-    <td>KPI: <strong><code>route_emitter.RouteEmitterSyncDuration</code></strong><br><br>
-         Due to improvements in the underlying architecture, recommended thresholds are now:
-         <ul>
-         <li>Yellow 5&nbsp;s (formerly 10&nbsp;s)</li>
-         <li>Red 10&nbsp;s (formerly 20&nbsp;s)</li>
-         </ul>
-    </td>
-    <td><a href="./kpi.html#RouteEmitterSyncDuration">Link</a></td>
-  </tr>
     <tr>
     <td><em>Modified</em></td>
-    <td>KPI: <strong><code>Firehose Dropped Messages</code></strong><br><br>
-         Monitoring Firehose dropped messages is now done with <code>DopplerServer.doppler.shedEnvelopes</code> alone.<br><br> 
-         <code>DopplerServer.TruncatingBuffer.totalDroppedMessages</code> is deprecated in PCF v1.11 so no longer needs to be added
-         to <code>DopplerServer.doppler.shedEnvelopes</code> to get the total number of dropped messages.
-   </td>
+    <td>KPI: <strong><code>Firehose Droppped Messages</code></strong><br><br>
+      It is now necessary to add <code>loggregator.doppler.dropped</code> to <code>DopplerServer.doppler.shedEnvelopes</code> in order to properly measure Dropped Messages.
+ </td>
     <td><a href="./kpi.html#deriveddopplerserver.doppler">Link</a></td>
   </tr>
-      <tr>
+  <tr>
+    <td><em>Modified</em></td>
+    <td>KPI: <strong><code>Firehose Throughput</code></strong><br><br>
+      It is now necessary to add <code>loggregator.doppler.ingress</code> to <code>DopplerServer.listeners.totalReceivedMessageCount</code> in order to properly measure Firehose Throughput.
+ </td>
+    <td><a href="./kpi.html#listeners.receivedEnvelopes">Link</a></td>
+  </tr>
+ <tr>
     <td><em>Modified</em></td>
     <td>KPI: <strong><code>Firehose Loss Rate</code></strong><br><br>
-         In PCF v1.11, it is no longer necessary to add <code>DopplerServer.doppler.shedEnvelopes</code> with <code>DopplerServer.TruncatingBuffer.totalDroppedMessages</code> to calculate Firehose Dropped Messages. The formula to calculate Loss Rate has been updated accordingly.
-   </td>
+         Due to calculation changes in Firehose Dropped Messages and Firehose Throughput, the formula to calculate the Firehose Loss Rate has been modified.
+</td>
     <td><a href="./key-cap-scaling.html#firehose-loss-rate">Link</a></td>
   </tr>
-   <tr>
-    <td><em>Deleted</em></td>
-    <td>KPI: <strong><code>route_emitter.ConsulDownMode</code></strong><br><br>
-         This KPI was highly specific to monitoring for negative consul impacts that could result in application routes becoming unavailable. Continued improvements to the route emitter have now removed the consul dependency; there is no longer communication between route emitter and consul.</td>
-    <td><em>n/a</em></td>
-  </tr>
   <tr>
-    <td><em>Deleted</em></td>
-    <td>KPI: <strong><code>nsync_bulker.DesiredLRPSyncDuration</code></strong><br><br>
-         This metric is no longer relevant with the related architectural changes to secure Cloud Controller to Diego communication.</td>
-    <td><em>n/a</em></td>
+    <td><em>Modified</em></td>
+    <td>KPI: <strong><code>Scalable Syslog Drain Bindings Count</code></strong><br><br>
+      Due to improvements in the underlying Adapter memory utilization, the amount of adapters handled per drain has increased. This allows the recommened threshold scaling indicator to be increased accordingly. 
+</td>
+    <td><a href="./key-cap-scaling.html#scalable-syslog-ksi">Link</a></td>
   </tr>
 </table> 
 
