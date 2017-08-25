@@ -53,6 +53,15 @@ This table highlights new and changed KPIs in PCF v1.12.
 </td>
     <td><a href="./key-cap-scaling.html#scalable-syslog-ksi">Link</a></td>
   </tr>
+    
+<tr>
+    <td><em>Modified</em></td>
+    <td>KPI: <strong><code>BBS Time to Handle Requests</code></strong><br><br>
+     As of PCF v1.12, Diego is now aggregating this metric in order to emit, every 60 seconds, the max value observed over 60 seconds. This updates the expected frequency of this metric. It also alters the recommended alerting measurement. 
+</td>
+    <td><a href="./kpi.html#RequestLatency">Link</a></td>
+  </tr>
+    
 </table> 
 
 ##<a id="resources"></a> Additional Resources
