@@ -227,7 +227,7 @@ When observing extended periods of high or low activity trends, scale up or down
    <tr>
       <th width="25%">Description</th>
       <td>The maximum observed latency time over the past 60 seconds that the BBS took to handle requests across all its API endpoints.<br><br>
-	      As of PCF v1.12, Diego is now aggregating this metric in order to emit, every 60 seconds, the max value observed over 60 seconds.
+	      Diego is now aggregating this metric to emit the max value observed over 60 seconds.
           <br><br>
           <strong>Use</strong>: If this metric rises, the PCF API is slowing. 
           Response to certain cf CLI commands is slow if request latency is high.
@@ -665,7 +665,6 @@ When observing extended periods of high or low activity trends, scale up or down
    <tr>
       <th width="25%">Description</th>
       <td>Total count of how many locks the system components are holding.
-          In PCF v1.12, the BBS, Auctioneer, TPS Watcher, and Routing API components utilize Locket. 
           <br><br>
           <strong>Use</strong>: If the Active Lock count is not equal to the expected value, there is likely a problem with Diego.
           <br><br>
@@ -687,7 +686,7 @@ When observing extended periods of high or low activity trends, scale up or down
       <td>
           <ol>
              <li>Run <code>monit status</code> to inspect for failing processes.</li>
-             <li>If there are no failing processes, then review the logs for the components using the locket service: 
+             <li>If there are no failing processes, then review the logs for the components using the Locket service: 
                       BBS, Auctioneer, TPS Watcher, and Routing API. Look for indications that only one of each component is active at a time.</li>
               <li>Focus triage on the BBS first:
                  <ul>
@@ -698,7 +697,7 @@ When observing extended periods of high or low activity trends, scale up or down
                        Recent logs for Auctioneer should show all but one are currently waiting on locks,
                        and the active Auctioneer should show a record of when it last attempted to execute work. This attempt to execute should correspond to app dev activity, such as a cf push. The TPS Watcher is primarily only active when application instances crash, so if the TPS Watcher is suspected, review the most recent logs.</li>
               <li>If unable to resolve on-going excessive active locks, pull logs from the Diego BBS and Auctioneer VMs,
-                  which will include the locket service component logs, and contact Pivotal Support.</li>
+                  which will include the Locket service component logs, and contact Pivotal Support.</li>
           </ol>
           </td>
    </tr>
@@ -741,7 +740,7 @@ When observing extended periods of high or low activity trends, scale up or down
 	      <li>Ensure that the variance is not the result of an active rolling deploy.
                   Also ensure that the alert threshold is appropriate to the number of cells in the current deployment.</li>
 	      <li>Run <code>monit status</code> to inspect for failing processes.</li>
-              <li>If there are no failing processes, then review the logs for the components using the locket service: BBS, Auctioneer, TPS Watcher, and Routing API.</li>
+              <li>If there are no failing processes, then review the logs for the components using the Locket service: BBS, Auctioneer, TPS Watcher, and Routing API.</li>
               <li>Focus triage on the BBS first:
                   <ul>
                     <li>A healthy BBS shows obvious activity around starting or claiming LRPs.</li>
@@ -752,7 +751,7 @@ When observing extended periods of high or low activity trends, scale up or down
                   This attempt should correspond to app dev activity, such as a cf push.
                   The TPS Watcher is primarily only active when application instances crash, so if the TPS Watcher is suspected, review the most recent logs.</li>
 	      <li>If you are unable to resolve the problem, pull the logs from the Diego BBS and Auctioneer VMs,
-                  which include the locket service component logs, and contact Pivotal Support.</li>
+                  which include the Locket service component logs, and contact Pivotal Support.</li>
 	  </ol>
           </td>
    </tr>
