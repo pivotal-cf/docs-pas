@@ -20,48 +20,47 @@ For information about logging and metrics in PCF and about monitoring of service
 This table highlights new and changed KPIs in PCF v1.12.
 
 <table>
-<tr>
+  <tr>
     <th>Change</th>
     <th>Which KPI and why?</th>
     <th>See&hellip;</th>
   </tr>
-    <tr>
+  <tr>
     <td><em>Modified</em></td>
     <td>KPI: <strong><code>Firehose Droppped Messages</code></strong><br><br>
-      It is now necessary to add <code>loggregator.doppler.dropped</code> to <code>DopplerServer.doppler.shedEnvelopes</code> in order to properly measure Dropped Messages.
- </td>
+      It is now necessary to add <code>loggregator.doppler.dropped</code> to <code>DopplerServer.doppler.shedEnvelopes</code> to properly measure Dropped Messages.
+    </td>
     <td><a href="./kpi.html#deriveddopplerserver.doppler">Link</a></td>
   </tr>
   <tr>
     <td><em>Modified</em></td>
     <td>KPI: <strong><code>Firehose Throughput</code></strong><br><br>
-      It is now necessary to add <code>loggregator.doppler.ingress</code> to <code>DopplerServer.listeners.totalReceivedMessageCount</code> in order to properly measure Firehose Throughput.
- </td>
+      It is now necessary to add <code>loggregator.doppler.ingress</code> to <code>DopplerServer.listeners.totalReceivedMessageCount</code> to properly measure Firehose Throughput.
+    </td>
     <td><a href="./kpi.html#listeners.receivedEnvelopes">Link</a></td>
   </tr>
- <tr>
+  <tr>
     <td><em>Modified</em></td>
     <td>KPI: <strong><code>Firehose Loss Rate</code></strong><br><br>
          Due to calculation changes in Firehose Dropped Messages and Firehose Throughput, the formula to calculate the Firehose Loss Rate has been modified.
-</td>
+    </td>
     <td><a href="./key-cap-scaling.html#firehose-loss-rate">Link</a></td>
   </tr>
   <tr>
     <td><em>Modified</em></td>
     <td>KPI: <strong><code>Scalable Syslog Drain Bindings Count</code></strong><br><br>
-      Due to improvements in the underlying Adapter memory utilization, the amount of adapters handled per drain has increased. This allows the recommened threshold scaling indicator to be increased accordingly. 
-</td>
+      Due to improvements in the underlying Adapter memory utilization, the number of adapters handled per drain has increased. This allows the recommended threshold scaling indicator to be increased accordingly. 
+    </td>
     <td><a href="./key-cap-scaling.html#scalable-syslog-ksi">Link</a></td>
   </tr>
     
-<tr>
+  <tr>
     <td><em>Modified</em></td>
     <td>KPI: <strong><code>BBS Time to Handle Requests</code></strong><br><br>
-     As of PCF v1.12, Diego is now aggregating this metric in order to emit, every 60 seconds, the max value observed over 60 seconds. This updates the expected frequency of this metric. It also alters the recommended alerting measurement. 
-</td>
+     Diego is now aggregating this metric to emit, every 60 seconds, the max value observed over 60 seconds. This updates the expected frequency of the metric. It also alters the recommended alerting measurement. 
+    </td>
     <td><a href="./kpi.html#RequestLatency">Link</a></td>
-  </tr>
-    
+  </tr>  
 </table> 
 
 ##<a id="resources"></a> Additional Resources
