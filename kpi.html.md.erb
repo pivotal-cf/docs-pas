@@ -801,7 +801,7 @@ When observing extended periods of high or low activity trends, scale up or down
         </tr>
 </table>
 
-## <a id="mysql"></a>Elastic Runtime MySQL KPIs and Metrics
+## <a id="mysql"></a>Elastic Runtime MySQL KPIs
 
 When Elastic Runtime uses an internal MySQL database, as configured in the Elastic Runtime tile **Settings** tab > **Databases** pane, the database cluster generates KPIs and metrics as described below.
 
@@ -874,74 +874,6 @@ When Elastic Runtime uses an internal MySQL database, as configured in the Elast
 | **Recommended measurement** | Average over last 2 minutes |
 | **Recommended alert thresholds** | **Yellow warning:** > 80%<br> **Red critical:** > 90% |
 | **Recommended response** | If this metric meets or exceeds the recommended thresholds for extended periods of time, run `SHOW PROCESSLIST` and identify which queries or apps are using so much CPU. Optionally redeploy the MySQL jobs using VMs with more CPU capacity. |
-
-### <a id="mysql-metrics"></a>MySQL-Specific Metrics
-
-[//]: # (partial '../mysql/mysql_metrics' contents pasted below)
-[//]: # (calling partial causes header format problems)
-[//]: # (keep below and docs-mysql/_mysql_metrics.html.md.erb in sync)
-
-| **Data Source** | **Description** | **Metric Unit** |
-| --- | --- | --- |
-| `<%= vars.mysql_metrics_origin %>/available` | Indicates if the local database server is available and responding. | boolean |
-| `<%= vars.mysql_metrics_origin %>/innodb/buffer_pool_free` | The number of free pages in the InnoDB Buffer Pool. | pages |
-| `<%= vars.mysql_metrics_origin %>/innodb/buffer_pool_total` | The total number of pages in the InnoDB Buffer Pool. | pages |
-| `<%= vars.mysql_metrics_origin %>/innodb/buffer_pool_used` | The number of used pages in the InnoDB Buffer Pool. | pages |
-| `<%= vars.mysql_metrics_origin %>/innodb/buffer_pool_utilization` | The utilization of the InnoDB Buffer Pool. | fraction |
-| `<%= vars.mysql_metrics_origin %>/innodb/current_row_locks` | The number of current row locks. | locks |
-| `<%= vars.mysql_metrics_origin %>/innodb/data_reads` | The rate of data reads. | reads/second |
-| `<%= vars.mysql_metrics_origin %>/innodb/data_writes` | The rate of data writes. | writes/second |
-| `<%= vars.mysql_metrics_origin %>/innodb/mutex_os_waits` | The rate of mutex OS waits. | events/second |
-| `<%= vars.mysql_metrics_origin %>/innodb/mutex_spin_rounds` | The rate of mutex spin rounds. | events/second |
-| `<%= vars.mysql_metrics_origin %>/innodb/mutex_spin_waits` | The rate of mutex spin waits. | events/second |
-| `<%= vars.mysql_metrics_origin %>/innodb/os_log_fsyncs` | The rate of fsync writes to the log file. | writes/second |
-| `<%= vars.mysql_metrics_origin %>/innodb/row_lock_time` | Time spent in acquiring row locks. | milliseconds |
-| `<%= vars.mysql_metrics_origin %>/innodb/row_lock_waits` | The number of times per second a row lock had to be waited for. | events/second |
-| `<%= vars.mysql_metrics_origin %>/net/connections` | The rate of connections to the server. | connection/second |
-| `<%= vars.mysql_metrics_origin %>/net/max_connections` | The maximum number of connections that have been in use simultaneously since the server started. | connections |
-| `<%= vars.mysql_metrics_origin %>/performance/com_delete` | The rate of delete statements. | queries/second |
-| `<%= vars.mysql_metrics_origin %>/performance/com_delete_multi` | The rate of delete-multi statements. | queries/second |
-| `<%= vars.mysql_metrics_origin %>/performance/com_insert` | The rate of insert statements. | query/second |
-| `<%= vars.mysql_metrics_origin %>/performance/com_insert_select` | The rate of insert-select statements. | queries/second |
-| `<%= vars.mysql_metrics_origin %>/performance/com_replace_select` | The rate of replace-select statements. | queries/second |
-| `<%= vars.mysql_metrics_origin %>/performance/com_select` | The rate of select statements. | queries/second |
-| `<%= vars.mysql_metrics_origin %>/performance/com_update` | The rate of update statements. | queries/second |
-| `<%= vars.mysql_metrics_origin %>/performance/com_update_multi` | The rate of update-multi. | queries/second |
-| `<%= vars.mysql_metrics_origin %>/performance/created_tmp_disk_tables` | The rate of internal on-disk temporary tables created by second by the server while executing statements. | table/second |
-| `<%= vars.mysql_metrics_origin %>/performance/created_tmp_files` | The rate of temporary files created by second. | files/second |
-| `<%= vars.mysql_metrics_origin %>/performance/created_tmp_tables` | The rate of internal temporary tables created by second by the server while executing statements. | tables/second |
-| `<%= vars.mysql_metrics_origin %>/performance/kernel_time` | Percentage of CPU time spent in kernel space by MySQL. | percent |
-| `<%= vars.mysql_metrics_origin %>/performance/key_cache_utilization` | The key cache utilization ratio. | fraction |
-| `<%= vars.mysql_metrics_origin %>/performance/open_files` | The number of open files. | files |
-| `<%= vars.mysql_metrics_origin %>/performance/open_tables` | The number of of tables that are open. | tables |
-| `<%= vars.mysql_metrics_origin %>/performance/qcache_hits` | The rate of query cache hits. | hits/second |
-| `<%= vars.mysql_metrics_origin %>/performance/questions` | The rate of statements executed by the server. | queries/second |
-| `<%= vars.mysql_metrics_origin %>/performance/slow_queries` | The rate of slow queries. | queries/second |
-| `<%= vars.mysql_metrics_origin %>/performance/table_locks_waited` | The total number of times that a request for a table lock could not be granted immediately and a wait was needed. | number |
-| `<%= vars.mysql_metrics_origin %>/performance/threads_connected` | The number of currently open connections. | connections |
-| `<%= vars.mysql_metrics_origin %>/performance/threads_running` | The number of threads that are not sleeping. | threads |
-| `<%= vars.mysql_metrics_origin %>/performance/busy_time` | Percentage of CPU time spent in user space by MySQL. | percent |
-| `<%= vars.mysql_metrics_origin %>/performance/max_connections` | The maximum permitted number of simultaneous client connections. | integer |
-| `<%= vars.mysql_metrics_origin %>/performance/open_files_limit` | The number of files that the operating system permits [ **mysqld** ](https://dev.mysql.com/doc/refman/5.6/en/mysqld.html "4.3.1 mysqld — The MySQL Server") to open. | integer |
-| `<%= vars.mysql_metrics_origin %>/performance/open_tables` | The number of tables that are open. | integer |
-| `<%= vars.mysql_metrics_origin %>/performance/opened_tables` | The number of tables that have been opened. | integer |
-| `<%= vars.mysql_metrics_origin %>/performance/opened_table_definitions` | The number of `.frm` files that have been cached. | integer |
-
-### <a id="galera-metrics"></a>Galera-Specific Metrics
-
-[//]: # (partial '../mysql/galera-metrics' contents pasted below)
-[//]: # (calling partial causes header format problems)
-[//]: # (edit below and docs-mysql/_galera-metrics.html.md.erb in sync)
-
-| **Data Source** | **Description** | **Metric Unit** |
-| --- | --- | --- |
-| `<%= vars.mysql_metrics_origin %>/galera/wsrep_ready` | Shows whether the node can accept queries. | boolean |
-| `<%= vars.mysql_metrics_origin %>/galera/wsrep_cluster_size` | The current number of nodes in the Galera cluster. | node |
-| `<%= vars.mysql_metrics_origin %>/galera/wsrep_cluster_status` | Shows the primary status of the cluster component that the node is in. | State ID.<br /> Values are Primary = 1, Non-primary = 0, Disconnected = -1 (See: [https://mariadb.com/kb/en/mariadb/galera-cluster-status-variables/)](https://mariadb.com/kb/en/mariadb/galera-cluster-status-variables/ ) |
-| `<%= vars.mysql_metrics_origin %>/galera/wsrep_local_recv_queue_avg` | Shows the average size of the local received queue since the last status query. | float |
-| `<%= vars.mysql_metrics_origin %>/galera/wsrep_local_send_queue_avg` | Shows the average size of the local sent queue since the last status query. | float |
-| `<%= vars.mysql_metrics_origin %>/galera/wsrep_local_index` | This node index in the cluster (base 0). | int |
-| `<%= vars.mysql_metrics_origin %>/galera/wsrep_local_state` | This is the node's local state | int |
 
 ##<a id="gorouter"></a>Gorouter Metrics
 
