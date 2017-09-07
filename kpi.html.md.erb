@@ -801,17 +801,15 @@ When observing extended periods of high or low activity trends, scale up or down
         </tr>
 </table>
 
-## <a id="mysql"></a>Elastic Runtime MySQL KPIs
+## <a id="kpi4MySQL"></a>Elastic Runtime MySQL KPIs
 
 When Elastic Runtime uses an internal MySQL database, as configured in the Elastic Runtime tile **Settings** tab > **Databases** pane, the database cluster generates KPIs as described below.
-
-### <a id="kpi4MySQL"></a>MySQL KPIs
 
 [//]: # (partial '../mysql/mysql_kpis' contents pasted below)
 [//]: # (calling partial causes header format problems)
 [//]: # (keep below and docs-mysql/_mysql_kpis.html.md.erb in sync)
 
-#### <a id="server-heartbeat"></a> Server Availability
+### <a id="server-heartbeat"></a> Server Availability
 
 || **<%= vars.mysql_metrics_origin %>/available** |
 | --- | --- |
@@ -820,7 +818,7 @@ When Elastic Runtime uses an internal MySQL database, as configured in the Elast
 | **Recommended alert thresholds** | **Yellow warning:** N/A<br> **Red critical:** < 1  |
 | **Recommended response** | Run `mysql-diag` and check the MySQL Server logs for errors.  |
 
-#### <a id="wsrep-ready"></a> Galera WSREP Ready
+### <a id="wsrep-ready"></a> Galera WSREP Ready
 
 || **<%= vars.mysql_metrics_origin %>/galera/wsrep_ready** |
 | --- | --- |
@@ -829,7 +827,7 @@ When Elastic Runtime uses an internal MySQL database, as configured in the Elast
 | **Recommended alert thresholds** | **Yellow warning:** < 1.0<br> **Red critical:** 0 (cluster is down)  |
 | **Recommended response** | - Run `mysql-diag` and check the MySQL Server logs for errors.<br> - Make sure there has been no infrastructure event that affects intra-cluster communication.<br>- Ensure that `wsrep_ready` has not been set to off by using the query:<br>```SHOW STATUS LIKE 'wsrep_ready';``` |
 
-#### <a id="wsrep-cluster-size"></a> Galera WSREP Cluster Size
+### <a id="wsrep-cluster-size"></a> Galera WSREP Cluster Size
 
 || **<%= vars.mysql_metrics_origin %>/galera/wsrep\_cluster\_size** |
 | --- | --- |
@@ -838,7 +836,7 @@ When Elastic Runtime uses an internal MySQL database, as configured in the Elast
 | **Recommended alert thresholds** | **Yellow warning:** < 3.0 (availability compromised)<br> **Red critical:** < 1.0 (cluster unavailable) |
 | **Recommended response** | Run `mysql-diag` and check the MySQL Server logs for errors.  |
 
-#### <a id="wsrep-cluster-status"></a> Galera WSREP Cluster Status
+### <a id="wsrep-cluster-status"></a> Galera WSREP Cluster Status
 
 || **<%= vars.mysql_metrics_origin %>/galera/wsrep\_cluster\_status** |
 | --- | --- |
@@ -847,7 +845,7 @@ When Elastic Runtime uses an internal MySQL database, as configured in the Elast
 | **Recommended alert thresholds** | **Yellow warning:** < 3 <br> **Red critical:** < 1  |
 | **Recommended response** | - Check node status to ensure that they are all in working order and able to receive write-sets.<br> - Run `mysql-diag` and check the MySQL Server logs for errors.  |
 
-#### <a id="connections"></a> Connections
+### <a id="connections"></a> Connections
 
 || **<%= vars.mysql_metrics_origin %>/net/connections** |
 | --- | --- |
@@ -856,7 +854,7 @@ When Elastic Runtime uses an internal MySQL database, as configured in the Elast
 | **Recommended alert thresholds** | **Yellow warning:** > 80%<br> **Red critical:** > 90% |
 | **Recommended response** | When approaching 100% of max connections, Apps may be experiencing times when they cannot connect to the database. The connections per second for the cluster vary based on application instances and app utilization. If this threshold is met or exceeded for an extended period of time, monitor app usage to ensure everything is behaving as expected. |
 
-#### <a id="open-files"></a> Questions
+### <a id="open-files"></a> Questions
 
 || **<%= vars.mysql_metrics_origin %>/performance/questions** |
 | --- | --- |
@@ -865,7 +863,7 @@ When Elastic Runtime uses an internal MySQL database, as configured in the Elast
 | **Recommended alert thresholds** | **Yellow warning:** 0 for 90 s <br>**Red critical:** 0 for 120 s|
 | **Recommended response** | If the rate is ever zero for an extended time, run `mysql-diag` and investigate the MySQL server logs to understand why query rate changed and determine appropriate action. |
 
-#### <a id="busy-time"></a> Busy Time
+### <a id="busy-time"></a> Busy Time
 
 || **<%= vars.mysql_metrics_origin %>/performance/busy_time** |
 | --- | --- |
