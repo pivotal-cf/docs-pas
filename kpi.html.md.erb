@@ -803,6 +803,48 @@ When observing extended periods of high or low activity trends, scale up or down
 
 ##<a id="gorouter"></a>Gorouter Metrics
 
+###<a id="file_descriptors"></a>Router File Descriptors
+<table>
+   <tr><th colspan="2" style="text-align: center;"><br>gorouter.file_descriptors<br><br></th></tr>
+   <tr>
+      <th width="25%">Description</th>
+      <td>The number of file descriptors currently used by the GoRouter job 
+          <br><br>
+          <strong>Use</strong>: Provides an indication of an impending issue with the GoRouter. 
+          Without the proper mitigations, it could be possible for an unresponsive application to eventually exhaust the file descriptors in GoRouter, starving routes from other applications running on PCF. Under heavy load, this unmitigated situation could also result in GoRouter losing its connection to NATS, resulting in all routes being pruned. Where a drop in `gorouter.total_routes` or an increase in `gorouter.ms_since_last_registry_update`
+can help surface that the issue may already occurring, alerting on `gorouter.file_descriptors` will indicate such an issue is impending. 
+          <br><br>
+	  The GoRouter has a fixed limit at 100,000 file descriptors per job. Once met, the GoRouter will be unable to establish any new connections. 
+	  <br><br>
+	  To reduce the risk of DDoS, it is advised to implement two possible mitigations:
+	      * Within ERT, set the "Max Connections Per Backend", which manages how many requests can be routed to any particular app instance. This will prevent a single app from using all possible GoRouter connections. The value set here should be determined by the operator based on the use cases for that foundation. As a reference, Pivotal sets this value at 500 for Pivotal Web Services.
+	      * Add rate limiting at the load balancer level.
+	  <br><br>
+          <strong>Origin</strong>: Firehose<br>
+          <strong>Type</strong>: Gauge<br>
+          <strong>Frequency</strong>: 5 s<br>
+   </tr>
+   <tr>
+      <th>Recommended measurement</th>
+      <td>Maximum, per GoRouter job, over the last 5 minutes</td>
+   </tr>
+   <tr>
+      <th>Recommended alert thresholds</th>
+      <td><strong>Yellow warning</strong>: 50,000 (per job)<br>
+          <strong>Red critical</strong>: 60,000 (per job)</td>
+   </tr>
+   <tr>
+      <th>Recommended response</th>
+      <td>
+	      <ol>
+              <li>Identify which app(s) are requesting excessive connections and resolve the impacting issues with these applications.</li>
+              <li>If above recommended mitigations have not already been taken, do so.</li>
+              <li>Consider adding more GoRouter VM resources to increase available file descriptors.</li>
+           </ol>
+           </td>
+        </tr>
+</table>
+
 ###<a id="total_requests"></a>Router Throughput
 
 <table>
