@@ -813,7 +813,7 @@ When observing extended periods of high or low activity trends, scale up or down
         <strong>Use</strong>: Indicates an impending issue with the Gorouter.
         Without proper mitigation, it is possible for an unresponsive app to eventually exhaust available Gorouter file descriptors and cause route starvation for other apps running on PCF. Under heavy load, this unmitigated situation can also result in the Gorouter losing its connection to NATS and all routes being pruned.
         <br><br>
-        While a drop in <code>gorouter.total_routes</code> or an increase in <code>gorouter.ms_since_last_registry_update</code> helps to surface that the issue may already be occurring, alerting on <code>gorouter.file_descriptors</code> indicates such an issue is impending.
+        While a drop in <code>gorouter.total_routes</code> or an increase in <code>gorouter.ms_since_last_registry_update</code> helps to surface that the issue may already be occurring, alerting on <code>gorouter.file_descriptors</code> indicates that such an issue is impending.
         <br><br>
 	      The Gorouter limits the number of file descriptors to 100,000 per job. Once the limit is met, the Gorouter is unable to establish any new connections.
 	      <br><br>
