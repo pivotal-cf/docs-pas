@@ -19,6 +19,9 @@ For information about logging and metrics in PCF and about monitoring of service
 
 This table highlights new and changed KPIs in PCF v1.12.
 
+
+he internal MySQL job included in Elastic Runtime now emits metrics. See the [Elastic Runtime MySQL KPIs](../monitoring/kpi.html#kpi4MySQL).
+
 <table>
   <tr>
     <th>Change</th>
@@ -29,6 +32,13 @@ This table highlights new and changed KPIs in PCF v1.12.
     <td><em>New</em></td>
     <td>KPI: <strong><code>gorouter.file_descriptors</code></strong><br><br>
     New component functionality in the Gorouter system needs monitoring.
+    </td>
+    <td><a href="./kpi.html#file_descriptors">Link</a></td>
+  </tr>
+  <tr>
+    <td><em>New</em></td>
+    <td><strong>Elastic Runtime MySQL KPIs</strong><br><br>
+    Elastic Runtime's internal MySQL database now emits metrics. See <a href="./kpi.html#kpi4MySQL">Elastic Runtime MySQL KPIs</a> for KPIs based on these metrics. PCF v1.10.25+ and v1.11.11+ patch releases also include this change.
     </td>
     <td><a href="./kpi.html#file_descriptors">Link</a></td>
   </tr>
