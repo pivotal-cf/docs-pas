@@ -929,7 +929,7 @@ When Elastic Runtime uses an internal MySQL database, as configured in the Elast
       <th width="25%">Description</th>
       <td>The lifetime number of requests completed by the Gorouter VM, emitted per Gorouter instance 
           <br><br>
-          <strong>Use</strong>: The aggregation of these values across all GoRouters provide insight into the overall traffic flow of a deployment. Unusually high spikes, if not known to be associated with an expected increase in demand, could indicate a DDoS risk. For performance and capacity management, consider this metric a measure of router throughput per job, converting it to requests-per-second, by looking at the delta value of <code>gorouter.total_requests</code> and deriving back to 1s, or <code>gorouter.total_requests.delta)/5<code>(per gorouter instance). This helps you see trends in the throughput rate that indicate a need to scale the Gorouter instances. Use the trends you observe to tune the threshold alerts for this metric. 
+          <strong>Use</strong>: The aggregation of these values across all Gorouters provide insight into the overall traffic flow of a deployment. Unusually high spikes, if not known to be associated with an expected increase in demand, could indicate a DDoS risk. For performance and capacity management, consider this metric a measure of router throughput per job, converting it to requests-per-second, by looking at the delta value of <code>gorouter.total_requests</code> and deriving back to 1s, or <code>gorouter.total_requests.delta)/5<code>(per gorouter instance). This helps you see trends in the throughput rate that indicate a need to scale the Gorouter instances. Use the trends you observe to tune the threshold alerts for this metric. 
           <br><br>
           <strong>Origin</strong>: Firehose<br>
           <strong>Type</strong>: Counter (Integer)<br>
@@ -1120,7 +1120,7 @@ When Elastic Runtime uses an internal MySQL database, as configured in the Elast
                 <th width="25%">Description</th>
                 <td>The current total number of routes registered with the Gorouter, emitted per Gorouter instance
                     <br><br>
-                    <strong>Use</strong>: The aggregation of these values across all GoRouters indicates uptake and gives a picture of the overall growth of the environment for capacity planning.
+                    <strong>Use</strong>: The aggregation of these values across all Gorouters indicates uptake and gives a picture of the overall growth of the environment for capacity planning.
 			<br><br>
 		Pivotal also recommends alerting on this metric if the number of routes falls outside of the normal range for your deployment. Dramatic decreases in this metric volume may indicate a problem with the route registration process, such as an app outage or that something in the route register management plane has failed.
 			<br><br>
