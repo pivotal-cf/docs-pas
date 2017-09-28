@@ -927,13 +927,9 @@ When Elastic Runtime uses an internal MySQL database, as configured in the Elast
    <tr><th colspan="2" style="text-align: center;"><br>gorouter.total_requests<br><br></th></tr>
    <tr>
       <th width="25%">Description</th>
-      <td>The lifetime number of requests completed by the Gorouter VM 
+      <td>The lifetime number of requests completed by the Gorouter VM, emitted per Gorouter instance 
           <br><br>
-          <strong>Use</strong>: Provides insight into the overall traffic flow through a deployment. 
-          For performance and capacity management, consider this metric a measure of router throughput 
-          and convert it to requests-per-second, by looking at the delta value of `gorouter.total_requests` and deriving back to 1s, or <code>sum_over_all_indexes(gorouter.total_requests.delta)/5</code>.
-          This helps you see trends in the throughput rate that indicate a need to scale the Gorouter.
-          Use the trends you observe to tune the threshold alerts for this metric. 
+          <strong>Use</strong>: The aggregation of these values across all GoRouters provide insight into the overall traffic flow of a deployment. Unusually high spikes, if not known to be associated with an expected increase in demand, could indicate a DDoS risk. For performance and capacity management, consider this metric a measure of router throughput per job, converting it to requests-per-second, by looking at the delta value of <code>gorouter.total_requests</code> and deriving back to 1s, or <code>gorouter.total_requests.delta)/5<code>(per gorouter instance). This helps you see trends in the throughput rate that indicate a need to scale the Gorouter instances. Use the trends you observe to tune the threshold alerts for this metric. 
           <br><br>
           <strong>Origin</strong>: Firehose<br>
           <strong>Type</strong>: Counter (Integer)<br>
@@ -1006,7 +1002,7 @@ When Elastic Runtime uses an internal MySQL database, as configured in the Elast
      <tr><th colspan="2" style="text-align: center;"><br>gorouter.ms_since_last_registry_update<br><br></th></tr>
         <tr>
                 <th width="25%">Description</th>
-                <td>Time in milliseconds since the last route register was received.
+                <td>Time in milliseconds since the last route register was received, emitted per Gorouter instance
                         <br><br>
                 <strong>Use</strong>: Indicates if routes are not being registered to apps correctly. 
                  <br><br>
@@ -1045,7 +1041,7 @@ When Elastic Runtime uses an internal MySQL database, as configured in the Elast
      <tr><th colspan="2" style="text-align: center;"><br>gorouter.bad_gateways<br><br></th></tr>
      <tr>
          <th width="25%">Description</th>
-            <td>The lifetime number of bad gateways, or 502 responses, from Gorouter itself.<br>
+            <td>The lifetime number of bad gateways, or 502 responses, from Gorouter itself, emitted per Gorouter instance.<br>
                 The Gorouter emits a 502 bad gateway error when it has a route in the routing table 
                 and, in attempting to make a connection to the backend, finds that the backend does not exist.
                     <br><br>
@@ -1087,7 +1083,7 @@ When Elastic Runtime uses an internal MySQL database, as configured in the Elast
      <tr><th colspan="2" style="text-align: center;"><br>gorouter.responses.5xx<br><br></th></tr>
         <tr>
                 <th width="25%">Description</th>
-                <td>The lifetime number of requests completed by the Gorouter VM for HTTP status family 5xx, server errors.
+                <td>The lifetime number of requests completed by the Gorouter VM for HTTP status family 5xx, server errors, emitted per Gorouter instance.
                     <br><br>
                     <strong>Use</strong>: A repeatedly crashing app is often the cause of a big increase in 5xx responses.
                     However, response issues from apps can also cause an increase in 5xx responses.
@@ -1122,17 +1118,11 @@ When Elastic Runtime uses an internal MySQL database, as configured in the Elast
      <tr><th colspan="2" style="text-align: center;"><br>gorouter.total_routes<br><br></th></tr>
         <tr>
                 <th width="25%">Description</th>
-                <td>The current total number of routes registered with the Gorouter
+                <td>The current total number of routes registered with the Gorouter, emitted per Gorouter instance
                     <br><br>
-                    <strong>Use</strong>: Indicates uptake and gives a picture of the overall 
-                    growth of the environment for capacity planning.
+                    <strong>Use</strong>: The aggregation of these values across all GoRouters indicates uptake and gives a picture of the overall growth of the environment for capacity planning.
 			<br><br>
-		Pivotal also recommends alerting on this metric if the number of routes falls outside of the normal
-                    range for your deployment. For example, dramatic increases in the total routes outside of expected business 
-                    events might point to a denial-of-service attack. 
-                    Or, dramatic decreases in this metric volume might indicate a problem with 
-                    the route registration process, such as an
-                    app outage or that something in the route register management plane has failed.
+		Pivotal also recommends alerting on this metric if the number of routes falls outside of the normal range for your deployment. Dramatic decreases in this metric volume may indicate a problem with the route registration process, such as an app outage or that something in the route register management plane has failed.
 			<br><br>
 			If visualizing these metrics on a dashboard, <code>gorouter.total_routes</code> can be helpful by visualizing dramatic drops. However, for alerting purposes, the metric <code>gorouter.ms_since_last_registry_update</code> is more valuable for quicker identification of Gorouter issues. Alerting thresholds for <code>gorouter.total_routes</code> should focus on dramatic increases/decreases out of expected range.   
                  <br><br>
