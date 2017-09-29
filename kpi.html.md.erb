@@ -27,10 +27,10 @@ metrics, thresholds, and alerts based on learning from their deployments.
       <th width="25%">Description</th>
       <td>The number of Long Running Process (LRP) instances that the auctioneer failed to place on Diego cells. This metric is cumulative over the lifetime of the auctioneer job.<br><br>
    
-      <strong>Use</strong>: This metric can indicate that PCF is out of container space or that there is a lack of resources within your environment. This indicator also increases when the LRP is requesting an isolation segment, volume drivers, or a stack that is unavailable, either not deployed or lacking in sufficient resources to accept the work. 
+      <strong>Use</strong>: This metric can indicate that PCF is out of container space or that there is a lack of resources within your environment. This indicator also increases when the LRP is requesting an isolation segment, volume drivers, or a stack that is unavailable, either not deployed or lacking sufficient resources to accept the work. 
   <br><br> 
       This error is most common due to capacity issues, for example, if cells do not have 
-      enough resources or if cells are going back and forth between a healthy and unhealthy state.
+      enough resources, or if cells are going back and forth between a healthy and unhealthy state.
       <br><br>
       <strong>Origin</strong>: Firehose<br>
       <strong>Type</strong>: Counter (Integer)<br>
@@ -49,7 +49,7 @@ metrics, thresholds, and alerts based on learning from their deployments.
       <th>Recommended response</th>
       <td>
          <ol>
-	    <li>In order to best determine the root cause, examine the Auctioneer logs. Depending on the specific error and/or resource constraint, you may also find a failure reason in the Cloud Controller (CC) API.</li> 
+	    <li>To best determine the root cause, examine the Auctioneer logs. Depending on the specific error and resource constraint, you may also find a failure reason in the Cloud Controller (CC) API.</li> 
             <li>Investigate the health of your Diego cells to determine if they
             are the resource type causing the problem.</li> 
             <li>Consider scaling additional cells using Ops Manager.</li>
@@ -147,9 +147,9 @@ When observing extended periods of high or low activity trends, scale up or down
                 <strong>Use</strong>: Failing Task auctions indicate a lack of resources 
                         within your environment and that you likely need to scale. 
                         This indicator also increases when the Task is requesting an isolation segment, volume drivers, 
-                        or a stack that is unavailable, either not deployed or lacking in sufficient resources to accept the work.
+                        or a stack that is unavailable, either not deployed or lacking sufficient resources to accept the work.
                 <br><br>
-			This error is most common due to capacity issues, for example, if cells do not have enough resources or if cells are going back and forth between a healthy and unhealthy state. 
+			This error is most common due to capacity issues, for example, if cells do not have enough resources, or if cells are going back and forth between a healthy and unhealthy state. 
 			<br><br>
                  <strong>Origin</strong>: Firehose<br>
                  <strong>Type</strong>: Counter (Float)<br>
@@ -168,12 +168,10 @@ When observing extended periods of high or low activity trends, scale up or down
 <th>Recommended response</th>
 <td>
     <ol>
-	    <li>In order to best determine the root cause, examine the Auctioneer logs. Depending on the specific error and/or resource constraint, you may also find a failure reason in the CC API.</li>
+	    <li>In order to best determine the root cause, examine the Auctioneer logs. Depending on the specific error or resource constraint, you may also find a failure reason in the CC API.</li>
     <li>Investigate the health of Diego cells.</li>
     <li>Consider scaling additional cells using Ops Manager.</li>
-    <li>If scaling cells does not solve the problem, 
-                        then pull Diego brain logs and BBS logs for troubleshooting, 
-                        and contact Pivotal Support telling them that Task auctions are failing.</li>
+    <li>If scaling cells does not solve the problem, pull Diego brain logs and BBS logs for troubleshooting and contact Pivotal Support for additional troubleshooting. Inform Pivotal Support that Task auctions are failing.</li>
     </ol>
     </td>
 </tr>
@@ -212,9 +210,8 @@ When observing extended periods of high or low activity trends, scale up or down
           <ol>
               <li>Check BBS logs for errors.</li>
               <li>Try vertically scaling the BBS VM resources up. 
-              For example, add more CPUs/memory depending on its <code>system.cpu</code>/<code>system.memory</code> metrics.</li>
-              <li>If that does not solve the issue, pull the BBS logs and contact Pivotal Support 
-                  for additional troubleshooting.
+              For example, add more CPUs or memory depending on its <code>system.cpu</code>/<code>system.memory</code> metrics.</li>
+              <li>If that does not solve the issue, pull the BBS logs and contact Pivotal Support for additional troubleshooting.
           </ol>
           </td>
    </tr>
@@ -253,8 +250,7 @@ When observing extended periods of high or low activity trends, scale up or down
               <li>Check BBS logs for faults and errors that can indicate issues with BBS.</li>
               <li>Try scaling the BBS VM resources up. For example, add more CPUs/memory 
                   depending on its <code>system.cpu</code>/<code>system.memory</code> metrics.</li>
-              <li>If the above steps do not solve the issue, then collect a sample of the cell logs 
-                  from the BBS VMs and contact Pivotal Support to troubleshoot further.
+              <li>If the above steps do not solve the issue, collect a sample of the cell logs from the BBS VMs and contact Pivotal Support to troubleshoot further.
           </ol>
           </td>
     </tr>
@@ -486,7 +482,7 @@ When observing extended periods of high or low activity trends, scale up or down
 	 <li> Set an alert to indicate the need to scale cell memory capacity when the value falls below the desired threshold number.</li>
 	      </ol> 
 	<b>For visualization purposes</b>:<br>
-	      Looking at this metric (<code>rep.CapacityRemainingMemory</code>) as a minimum value per cell has more informational value than alerting value. It can be an interesting heatmap visualization, showing average variance and/or density over time.   
+	      Looking at this metric (<code>rep.CapacityRemainingMemory</code>) as a minimum value per cell has more informational value than alerting value. It can be an interesting heatmap visualization, showing average variance and density over time.   
 </td>
   </tr>
   <tr>
@@ -964,7 +960,7 @@ When Elastic Runtime uses an internal MySQL database, as configured in the Elast
       <th width="25%">Description</th>
       <td>The lifetime number of requests completed by the Gorouter VM, emitted per Gorouter instance 
           <br><br>
-          <strong>Use</strong>: The aggregation of these values across all Gorouters provide insight into the overall traffic flow of a deployment. Unusually high spikes, if not known to be associated with an expected increase in demand, could indicate a DDoS risk. For performance and capacity management, consider this metric a measure of router throughput per job, converting it to requests-per-second, by looking at the delta value of <code>gorouter.total_requests</code> and deriving back to 1s, or <code>gorouter.total_requests.delta)/5</code> (per gorouter instance). This helps you see trends in the throughput rate that indicate a need to scale the Gorouter instances. Use the trends you observe to tune the threshold alerts for this metric. 
+          <strong>Use</strong>: The aggregation of these values across all Gorouters provide insight into the overall traffic flow of a deployment. Unusually high spikes, if not known to be associated with an expected increase in demand, could indicate a DDoS risk. For performance and capacity management, consider this metric a measure of router throughput per job, converting it to requests-per-second, by looking at the delta value of <code>gorouter.total_requests</code> and deriving back to 1s, or <code>gorouter.total_requests.delta)/5</code>, per Gorouter instance. This helps you see trends in the throughput rate that indicate a need to scale the Gorouter instances. Use the trends you observe to tune the threshold alerts for this metric. 
           <br><br>
           <strong>Origin</strong>: Firehose<br>
           <strong>Type</strong>: Counter (Integer)<br>
@@ -1183,7 +1179,7 @@ When Elastic Runtime uses an internal MySQL database, as configured in the Elast
                            <a href="#mssincelastregistryupdate"> <code>gorouter.ms_since_last_registry_update</code></a>
                             metric value for additional context.</li>
                         <li>Look at the Gorouter and route_emitter logs to look for connection issues to NATS.</li>
-                        <li>Check the BOSH logs to see if the NATS, Gorouter or route_emitter VMs are failing.</li>
+                        <li>Check the BOSH logs to see if the NATS, Gorouter, or route_emitter VMs are failing.</li>
                         <li>Look broadly at the health of all VMs, particularly Diego-related VMs.</li>
                         <li>If problems persist, pull the Gorouter and route_emitter logs and contact Pivotal Support.</li>
                     </ol>
