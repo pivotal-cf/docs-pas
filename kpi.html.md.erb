@@ -921,6 +921,41 @@ When Elastic Runtime uses an internal MySQL database, as configured in the Elast
     </tr>
 </table>
 
+###<a id="exhausted_connections"></a>Router Exhausted Connections
+<table>
+  <tr><th colspan="2" style="text-align: center;"><br>gorouter.backend_exhausted_conns<br><br></th></tr>
+  <tr>
+    <th width="25%">Description</th>
+      <td>The lifetime number of requests that have been rejected by the Gorouter VM due to the `Max Connections Per Backend` limit (how many concurrent TCP connections to any particular app instance; configured within Elastic Runtime) being reached across all backends tried. 
+        <br><br>
+        <strong>Use</strong>: Indicates that PCF is mitigating risk to other applications by self-protecting the platform against one or more unresponsive applications. Increases in this metric indicate the need to investigate and resolve issues with potentially unresponsive applications. A rapid rate of change upward is concerning and should be assessed further. 
+	      <br><br>
+        <strong>Origin</strong>: Firehose<br>
+        <strong>Type</strong>: Counter (Integer) <br>
+        <strong>Frequency</strong>: 5 s<br>
+      </td>
+    </tr>
+    <tr>
+      <th>Recommended measurement</th>
+      <td>MMaximum delta per minute, per Gorouter job, over a 5-minute window</td>
+    </tr>
+    <tr>
+      <th>Recommended alert thresholds</th>
+      <td><strong>Yellow warning</strong>: Dynamic<br>
+          <strong>Red critical</strong>: Dynamic</td>
+    </tr>
+    <tr>
+      <th>Recommended response</th>
+      <td>
+	      <ol>
+            <li>If `gorouter.backend_exhausted_conns` spikes, first look to the Router Throughput metric `gorouter.total_requests` to determine if this measure is high or low in relation to normal bounds for this deployment.</li>
+            <li>If Router Throughput appears within normal bounds, it is likely that `gorouter.backend_exhausted_conns` is spiking due to an unresponsive application (possibly due to application code issues or underlying application dependency issues). To help determine the problematic application, look in access logs for repeated calls to one application. Then proceed to troubleshoot this application accordingly.</li>
+            <li>If Router Throughput also shows unusual spikes, the cause of the increase in `gorouter.backend_exhausted_conns` spikes is likely external to the platform. Unusual increases in load may be due to expected business events driving additional traffic to applications. Unexpected increases in load may indicate a DDoS attack risk.</li>
+        </ol>
+      </td>
+    </tr>
+</table>
+
 ###<a id="total_requests"></a>Router Throughput
 
 <table>
