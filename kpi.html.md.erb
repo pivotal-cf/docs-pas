@@ -863,8 +863,7 @@ When Elastic Runtime uses an internal MySQL database, as configured in the Elast
 
 || **<%= vars.mysql_metrics_origin %>/performance/busy_time** |
 | --- | --- |
-| **Description** |  |
-| **Recommended measurement** | Percentage of CPU time spent by MySQL on user activity, executing user code, as opposed to kernel activity processing system calls.<br><br> **Use:** This closely reflects the amount of server activity dedicated to app queries.<br><br>**Origin:** Firehose<br> **Envelope Type:** Gauge<br> **Unit:** percentage<br> **Frequency:** 30 s (default) |
+| **Description** | Percentage of CPU time spent by MySQL on user activity, executing user code, as opposed to kernel activity processing system calls.<br><br> **Use:** This closely reflects the amount of server activity dedicated to app queries.<br><br>**Origin:** Firehose<br> **Envelope Type:** Gauge<br> **Unit:** percentage<br> **Frequency:** 30 s (default) |
 | **Recommended measurement** | Average over last 2 minutes |
 | **Recommended alert thresholds** | **Yellow warning:** > 80%<br> **Red critical:** > 90% |
 | **Recommended response** | - If this metric meets or exceeds the recommended thresholds for extended periods of time, run `SHOW PROCESSLIST` and identify which queries or apps are using so much CPU. Optionally redeploy the MySQL jobs using VMs with more CPU capacity.<br> - Run [`mysql-diag`](http://docs.pivotal.io/p-mysql/1-9/mysql-diag.html) and check the MySQL Server logs for errors. |
