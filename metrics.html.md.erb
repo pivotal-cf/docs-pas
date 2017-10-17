@@ -31,11 +31,9 @@ To set up PCF monitoring, you then configure PCF and your monitoring platform as
 
 You can configure PCF to direct metrics from all Elastic Runtime component VMs, including system components and hosts, to a monitoring platform. To do this, you configure component logs and metrics to stream from the Loggregator [Firehose](../loggregator/architecture.html#firehose) endpoint and install a [nozzle](../loggregator/architecture.html#nozzles) that filters out the logs and directs the metrics to the monitoring platform.
 
-The Firehose metrics come from two sources: 
+The Firehose metrics come from two sources:
 
-* **BOSH Health Monitor**: The BOSH layer that underlies PCF generates `healthmonitor` metrics for all VMs in the deployment. 
-    * These metrics are not in the Firehose by default. You must install the Open-Source [HM Forwarder](https://github.com/cloudfoundry/bosh-hm-forwarder) to send VM metrics through the Firehose. 
-    * You can also retrieve BOSH health metrics outside of the Firehose with the [JMX Bridge](https://docs.pivotal.io/jmx-bridge/1-8/index.html) for PCF tile.
+* **BOSH Health Monitor**: The BOSH director, that underlies PCF, generates health monitoring metrics for all VMs in the deployment.
 * **Cloud Foundry components**: Cloud Foundry component VMs for executive control, hosting, routing, traffic control, authentication, and other internal functions generate metrics.
 
 <p class="note"><b>Note</b>: PCF components specific to your IaaS also generate key metrics for health monitoring.</p>
@@ -61,21 +59,17 @@ Operators can also generate other custom system metrics based on multi-component
 
 ## <a id='process'></a>PCF Monitoring Setup
 
-Perform the following steps to set up PCF monitoring: 
+Perform the following steps to set up PCF monitoring:
 
 1. Install a [nozzle](../loggregator/architecture.html#nozzles) that extracts BOSH and CF metrics from the Loggregator Firehose and sends them to the monitoring platform.
 
-2. If you are not using the JMX Bridge nozzle, install the [HM Forwarder](https://github.com/cloudfoundry/bosh-hm-forwarder) process to run on the BOSH Health Monitor VM. This process routes health metrics to the local Metron agent, and it does not install automatically as part of PCF. You do not need the HM Forwarder with the JMX Bridge nozzle, which queries the Health Monitor directly.
+2. Install a custom app to generate smoke test or other custom system metrics.
 
-3. Install a custom app to generate smoke test or other custom system metrics.
-
-4. Customize your monitoring platform dashboard and alerts.
+3. Customize your monitoring platform dashboard and alerts.
 
 ### <a id='nozzle'></a>Install a Nozzle
 
 To monitor BOSH and CF component metrics, you install a [nozzle](../loggregator/architecture.html#nozzles) that directs the metrics from the Firehose to your monitoring platform. The nozzle process takes the Firehose output, ignores the logs, and sends the metrics.
-
-If you do not use the [JMX Bridge](http://docs.pivotal.io/jmx-bridge) OpenTSDB Firehose Nozzle, you must install a BOSH HM Forwarder job on the VM that runs the BOSH Health Monitor and its Metron agent.
 
 You can see an example nozzle for sending metrics to Datadog in the  [datadog-firehose-nozzle](https://github.com/cloudfoundry-incubator/datadog-firehose-nozzle) GitHub repository. You configure the Datadog account credentials, API location, and other fields and options in the `config/datadog-firehose-nozzle.json` file.
 
