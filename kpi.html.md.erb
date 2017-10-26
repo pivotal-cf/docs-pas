@@ -714,7 +714,7 @@ When observing extended periods of high or low activity trends, scale up or down
                   Increase the threshold as more cells are deployed.
                   During a rolling deploy, this metric shows variance during the BOSH lifecycle when cells are evacuated and restarted. 
                   Tolerable variance is within the bounds of the max inflight range,
-                  <code>Max Inflight Container Starts</code> established in Elastic Runtime. 
+                  <code>Max Inflight Container Starts</code> established in Pivotal Application Service (PAS).
           <br><br>
           <strong>Origin</strong>: Firehose<br>
           <strong>Type</strong>: Gauge<br>
@@ -797,9 +797,9 @@ When observing extended periods of high or low activity trends, scale up or down
         </tr>
 </table>
 
-## <a id="kpi4MySQL"></a>Elastic Runtime MySQL KPIs
+## <a id="kpi4MySQL"></a>PAS MySQL KPIs
 
-When Elastic Runtime uses an internal MySQL database, as configured in the Elastic Runtime tile **Settings** tab > **Databases** pane, the database cluster generates KPIs as described below.
+When PAS uses an internal MySQL database, as configured in the PAS tile **Settings** tab > **Databases** pane, the database cluster generates KPIs as described below.
 
 [//]: # (partial '../mysql/mysql_kpis' contents pasted below)
 [//]: # (calling partial causes header format problems)
@@ -887,7 +887,7 @@ When Elastic Runtime uses an internal MySQL database, as configured in the Elast
 	      To reduce the risk of DDoS attacks, Pivotal recommends doing one or both of the following:
         <br><br>
           <ul>
-            <li>Within Elastic Runtime, set <strong>Max Connections Per Backend</strong> to define how many requests can be routed to any particular app instance. This prevents a single app from using all Gorouter connections. The value specified should be determined by the operator based on the use cases for that foundation. For example, Pivotal sets the number of connections to 500 for Pivotal Web Services.</li>
+            <li>Within PAS, set <strong>Max Connections Per Backend</strong> to define how many requests can be routed to any particular app instance. This prevents a single app from using all Gorouter connections. The value specified should be determined by the operator based on the use cases for that foundation. For example, Pivotal sets the number of connections to 500 for Pivotal Web Services.</li>
 	          <li>Add rate limiting at the load balancer level.</li>
           </ul>
         <strong>Origin</strong>: Firehose<br>
@@ -921,7 +921,7 @@ When Elastic Runtime uses an internal MySQL database, as configured in the Elast
   <tr><th colspan="2" style="text-align: center;"><br>gorouter.backend_exhausted_conns<br><br></th></tr>
   <tr>
     <th width="25%">Description</th>
-      <td>The lifetime number of requests that have been rejected by the Gorouter VM due to the <code>Max Connections Per Backend</code> limit being reached across all tried backends. The limit controls the number of concurrent TCP connections to any particular app instance and is configured within Elastic Runtime. 
+      <td>The lifetime number of requests that have been rejected by the Gorouter VM due to the <code>Max Connections Per Backend</code> limit being reached across all tried backends. The limit controls the number of concurrent TCP connections to any particular app instance and is configured within PAS. 
         <br><br>
         <strong>Use</strong>: Indicates that PCF is mitigating risk to other applications by self-protecting the platform against one or more unresponsive applications. Increases in this metric indicate the need to investigate and resolve issues with potentially unresponsive applications. A rapid rate of change upward is concerning and should be assessed further. 
 	      <br><br>

@@ -29,7 +29,7 @@ To set up PCF monitoring, you then configure PCF and your monitoring platform as
 
 ## <a id='bosh-cf'></a>BOSH Health Monitor and CF Component Metrics
 
-You can configure PCF to direct metrics from all Elastic Runtime component VMs, including system components and hosts, to a monitoring platform. To do this, you configure component logs and metrics to stream from the Loggregator [Firehose](../loggregator/architecture.html#firehose) endpoint and install a [nozzle](../loggregator/architecture.html#nozzles) that filters out the logs and directs the metrics to the monitoring platform.
+You can configure PCF to direct metrics from all Pivotal Application Service (PAS) component VMs, including system components and hosts, to a monitoring platform. To do this, you configure component logs and metrics to stream from the Loggregator [Firehose](../loggregator/architecture.html#firehose) endpoint and install a [nozzle](../loggregator/architecture.html#nozzles) that filters out the logs and directs the metrics to the monitoring platform.
 
 The Loggregator Firehose metrics come from two sources:
 
@@ -54,7 +54,7 @@ The Traffic Controller aggregates both metrics and log messages system-wide from
 
 ## <a id='smoke-tests'></a> Smoke Tests and Custom System Metrics
 
-PCF includes [smoke tests](https://github.com/pivotal-cloudops/cf-smoke-tests/tree/Dockerfile), which are functional unit and integration tests on all major system components. By default, whenever an operator upgrades to a new version of Elastic Runtime, these smoke tests run as a post-deploy errand.
+PCF includes [smoke tests](https://github.com/pivotal-cloudops/cf-smoke-tests/tree/Dockerfile), which are functional unit and integration tests on all major system components. By default, whenever an operator upgrades to a new version of PAS, these smoke tests run as a post-deploy errand.
 
 Production systems typically also have an app that runs smoke tests periodically, for example every five minutes, and generate "pass/fail" metrics from the results. For example smoke tests, see the Pivotal Cloud Ops [CF Smoke Tests](https://github.com/pivotal-cloudops/cf-smoke-tests/tree/Dockerfile) repo.
 
