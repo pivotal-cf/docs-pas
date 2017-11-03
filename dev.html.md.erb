@@ -1,0 +1,163 @@
+---
+breadcrumb: Pivotal Cloud Foundry Documentation
+title: PAS Developer Guide
+owner: PCF Documentation
+---
+
+##<a id='who'></a>For PAS Developers
+
+This guide shows you how to develop, run, and manage apps on Pivotal Application Service (PAS). Doing this may include:
+
+* Deploying and scaling apps with diverse languages, frameworks, and dependencies
+* Finding software services in the services marketplace, such as databases, email, or message servers
+* Creating your own Cloud Foundry service based on an external server
+* Creating service instances and binding them to your apps
+* Streaming app logs to an external log management service
+* Troubleshooting app deployment and health
+
+If you do these things, you are a PAS **Developer**, and the contents of this guide are for you.
+
+##<a id='contents'></a>Guide Contents
+
+* <a href="/pivotalcf/2-0/devguide/index.html">Deploying Applications</a> - Deploying and managing apps on Linux or Windows cells or Docker containers.
+
+  - <a href="/pivotalcf/2-0/devguide/deploy-apps/prepare-to-deploy.html">Considerations for Designing and Running an Application in the Cloud</a>
+
+  - <a href="/pivotalcf/2-0/devguide/deploy-apps/deploy-app.html">Deploy an Application</a>
+
+  - <a href="/pivotalcf/2-0/windows2012r2/push-windows-apps.html">Deploying .NET Apps to Windows Cells</a>
+
+  - <a href="/pivotalcf/2-0/devguide/deploy-apps/large-app-deploy.html">Deploy a Large Application</a>
+
+  - <a href="/pivotalcf/2-0/devguide/deploy-apps/push-docker.html">Deploy an App with Docker</a>
+
+  - <a href="/pivotalcf/2-0/devguide/deploy-apps/start-restart-restage.html">Starting, Restarting, and Restaging Applications</a>
+
+  - <a href="/pivotalcf/2-0/devguide/deploy-apps/app-lifecycle.html">Application Container Lifecycle</a>
+
+  - <a href="/pivotalcf/2-0/devguide/deploy-apps/manifest.html">Deploying with Application Manifests</a>
+
+  - <a href="/pivotalcf/2-0/devguide/deploy-apps/cf-scale.html">Scaling an Application Using cf scale</a>
+
+  - <a href="/pivotalcf/2-0/devguide/using-tasks.html">Running Tasks</a>
+
+  - <a href="/pivotalcf/2-0/devguide/deploy-apps/blue-green.html">Using Blue-Green Deployment to Reduce Downtime and Risk</a>
+
+  - <a href="/pivotalcf/2-0/devguide/deploy-apps/routes-domains.html">Routes and Domains</a>
+
+  - <a href="/pivotalcf/2-0/devguide/deploy-apps/stacks.html">Changing Stacks</a>
+
+  - <a href="/pivotalcf/2-0/devguide/deploy-apps/environment-variable.html">Cloud Foundry Environment Variables</a>
+
+  - <a href="/pivotalcf/2-0/devguide/deploy-apps/trusted-system-certificates.html">Trusted System Certificates</a>
+
+* <a href="/pivotalcf/2-0/services/index.html">Services</a> - Using software services from your apps. 
+
+  - <a href="/pivotalcf/2-0/devguide/services/managing-services.html">Managing Service Instances</a>
+
+  - <a href="/pivotalcf/2-0/devguide/services/service-keys.html">Managing Service Keys</a>
+
+  - <a href="/pivotalcf/2-0/devguide/services/user-provided.html">User-Provided Service Instances</a>
+
+  - <a href="/pivotalcf/2-0/devguide/services/route-binding.html">Manage Application Requests with Route Services</a>
+
+  - <a href="/pivotalcf/2-0/services/binding-credentials.html">Binding Credentials</a>
+
+  - <a href="/pivotalcf/2-0/devguide/services/play-service-bindings.html">Configuring Play Framework Service Connections</a>
+
+  - <a href="/pivotalcf/2-0/devguide/services/application-binding.html">Delivering Service Credentials to an Application</a>
+
+  - <a href="/pivotalcf/2-0/devguide/services/using-vol-services.html">Using an External Filesystem (Volume Services)</a>
+
+  - <a href="/pivotalcf/2-0/devguide/services/migrate-db.html">Migrating a Database in Cloud Foundry</a>
+
+* <a href="/pivotalcf/2-0/console/index.html">Using Apps Manager</a> - A dashboard for managing apps, services, and PAS user accounts.
+
+  - <a href="/pivotalcf/2-0/console/dev-console.html">Getting Started with Apps Manager</a>
+
+  - <a href="/pivotalcf/2-0/console/manage-spaces.html">Managing Orgs and Spaces Using Apps Manager</a>
+
+  - <a href="/pivotalcf/2-0/console/console-roles.html">Managing User Roles with Apps Manager</a>
+
+  - <a href="/pivotalcf/2-0/console/manage-apps.html">Managing Apps and Service Instances Using Apps Manager</a>
+
+  - <a href="/pivotalcf/2-0/console/space-asgs.html">Viewing ASGs in Apps Manager</a>
+
+  - <a href="/pivotalcf/2-0/console/spring-boot-actuators.html">Configuring Spring Boot Actuator Endpoints for Apps Manager</a>
+
+  - <a href="/pivotalcf/2-0/console/using-actuators.html">Using Spring Boot Actuator Endpoints with Apps Manager</a>
+
+* <a href="./deploy-apps/streaming-logs.html">Application Logging in Cloud Foundry</a> - Outputting and processing app logs.
+
+  - <a href="/pivotalcf/2-0/loggregator/architecture.html">Overview of the Loggregator System</a>
+
+  - <a href="/pivotalcf/2-0/services/app-log-streaming.html">Application Log Streaming</a>
+
+  - <a href="/pivotalcf/2-0/devguide/services/log-management.html">Streaming Application Logs to Log Management Services</a>
+
+  - <a href="/pivotalcf/2-0/devguide/services/log-management-thirdparty-svc.html">Service-Specific Instructions for Streaming Application Logs</a>
+
+  - <a href="/pivotalcf/2-0/devguide/services/integrate-splunk.html">Streaming Application Logs to Splunk</a>
+
+  - <a href="/pivotalcf/2-0/devguide/services/fluentd.html">Streaming Application Logs with Fluentd</a>
+
+  - <a href="/pivotalcf/2-0/devguide/services/oms-nozzle.html">Streaming Application Logs to Azure OMS Log Analytics</a>
+
+  - <a href="/pivotalcf/2-0/loggregator/cli-plugin.html">Installing the Loggregator Plugin for cf CLI</a>
+
+* <a href="/pivotalcf/2-0/buildpacks/index.html">Buildpacks</a> - Language-specific packaging that compiles and builds apps and all dependencies to run in the cloud.
+
+  - <a href="/pivotalcf/2-0/buildpacks/using-buildpacks.html">About Buildpacks</a>
+
+  - <a href="/pivotalcf/2-0/buildpacks/binary/index.html">Binary</a>
+
+  - <a href="/pivotalcf/2-0/buildpacks/go/index.html">Go</a>
+
+  - <a href="/pivotalcf/2-0/buildpacks/java/index.html">Java</a>
+
+  - <a href="/pivotalcf/2-0/buildpacks/dotnet-core/index.html">.NET Core</a>
+
+  - <a href="/pivotalcf/2-0/buildpacks/node/index.html">Node.js</a>
+
+  - <a href="/pivotalcf/2-0/buildpacks/php/index.html">PHP</a>
+
+  - <a href="/pivotalcf/2-0/buildpacks/python/index.html">Python</a>
+
+  - <a href="/pivotalcf/2-0/buildpacks/ruby/index.html">Ruby</a>
+
+  - <a href="/pivotalcf/2-0/buildpacks/staticfile/index.html">Staticfile</a>
+
+  - <a href="/pivotalcf/2-0/buildpacks/developing-buildpacks.html">Customizing and Developing Buildpacks</a>
+
+* <a href="/pivotalcf/2-0/devguide/deploy-apps/troubleshoot-app-health.html">Troubleshooting Application Deployment and Health</a> - Tools and techniques for monitoring app health and logging into apps and service instances.
+
+  - <a href="/pivotalcf/2-0/devguide/deploy-apps/healthchecks.html">Using Application Health Checks</a>
+
+  - <a href="/pivotalcf/2-0/devguide/deploy-apps/app-ssh-overview.html">Application SSH Overview</a>
+
+  - <a href="/pivotalcf/2-0/devguide/deploy-apps/ssh-apps.html">Accessing Apps with SSH</a>
+
+  - <a href="/pivotalcf/2-0/devguide/deploy-apps/ssh-services.html">Accessing Services with SSH</a>
+
+* <a href="/pcf-dev/index.html">PCF Dev</a> - A lightweight PAS that runs on your workstation, for developing apps locally. 
+
+* <a href="/pivotalcf/2-0/devguide/capi/client-libraries.html">Cloud Controller API Client Libraries</a> - Libraries for calling the Cloud Controller, the executive component of PAS, programmatically.
+
+* <a href="/pivotalcf/2-0/cf-cli/index.html">Cloud Foundry Command Line Interface (cf CLI)</a> - A CLI for calling the Cloud Controller, the executive component of PAS, interactively.
+
+  - <a href="/pivotalcf/2-0/cf-cli/install-go-cli.html">Installing the cf CLI</a>
+
+  - <a href="/pivotalcf/2-0/cf-cli/getting-started.html">Getting Started with the cf CLI</a>
+
+  - <a href="/pivotalcf/2-0/opsguide/api-endpoint.html">Identifying the API Endpoint for your PAS Instance</a>
+
+  - <a href="/pivotalcf/2-0/cf-cli/http-proxy.html">Using the cf CLI with an HTTP Proxy Server</a>
+
+  - <a href="/pivotalcf/2-0/cf-cli/self-signed.html">Using the cf CLI with a Self-Signed Certificate</a>
+
+  - <a href="/pivotalcf/2-0/cf-cli/use-cli-plugins.html">Using cf CLI Plugins</a>
+
+  - <a href="/pivotalcf/2-0/devguide/v3-commands.html">Using Experimental cf CLI Commands</a>
+
+  - <a href="/pivotalcf/2-0/cf-cli/cf-help.html">Cloud Foundry CLI Reference Guide</a>
+
