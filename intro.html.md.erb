@@ -1,0 +1,78 @@
+---
+breadcrumb: Pivotal Cloud Foundry Documentation
+title: Introduction to PCF
+owner: PCF Documentation
+---
+
+##<a id='who'></a>For the PCF-Curious
+
+This guide gives a high-level conceptual overview and introduction to the Pivotal Cloud Foundry (PCF) platform. It is designed to:
+
+* Introduce the platform to people who are unfamiliar with it.
+
+* Provide context and explanations that support the how-to information in the PCF Documentation's role-based guides.
+
+* Explain how you can try running apps on PCF in two ways:
+
+  - Install and run <a href="/pcf-dev/index.html">PCF Dev</a>, a free, lightweight version of PCF that enables you to develop and run Pivotal Application Service (PAS) apps on your local workstation.
+
+  - Subscribe to <a href="http://docs.run.pivotal.io/starting/index.html">Pivotal Web Services</a> (PWS), a full PCF platform hosted by Pivotal.
+
+If you want to learn about how the PCF platform works or how to try it out, this guide is for you.
+
+##<a id='contents'></a>Guide Contents
+
+* <a href="/pivotalcf/2-0/concepts/overview.html">Cloud Foundry Overview</a> - A general introduction to [Cloud Foundry Application Runtime](https://www.cloudfoundry.org/application-runtime/), the open-source software that underlies PCF and PAS. Read this first.  
+
+  - <a href="/pivotalcf/2-0/opsguide/er_network.html">Understanding the PAS Network Architecture</a>
+
+  - <a href="/pivotalcf/2-0/concepts/diego/diego-architecture.html">How the Diego Auction Balances Jobs</a>
+
+  - <a href="/pivotalcf/2-0/concepts/diego/diego-auction.html">How the Diego Auction Balances App Processes</a>
+
+  - <a href="/pivotalcf/2-0/concepts/how-applications-are-staged.html">How Applications are Staged</a>
+
+  - <a href="/pivotalcf/2-0/devguide/deploy-apps/app-ssh-overview.html">Application SSH Overview</a>
+
+  - <a href="/pivotalcf/2-0/concepts/high-availability.html">High Availability in Cloud Foundry</a>
+
+
+* <a href="/pivotalcf/2-0/customizing/user-types.html">Understanding Pivotal Cloud Foundry User Types</a> - Explains the main categories of PCF users: the operators who run the platform, the runtime users who develop and manage apps and containers on the platform, and the end users who use the cloud-based apps that the platform hosts.
+
+  - <a href="/pivotalcf/2-0/concepts/roles.html">Orgs, Spaces, Roles, and Permissions</a>
+
+* <a href="/pivotalcf/2-0/concepts/architecture/index.html">PAS Components</a> - Describes the internal components of PAS, and how these specialized processes work together to support, maintain, and provide control over hosted apps.  Each component performs a different function within the platform.
+
+  - <a href="/pivotalcf/2-0/concepts/architecture/cloud-controller.html">Component: Cloud Controller</a>
+
+  - <a href="/pivotalcf/2-0/concepts/architecture/messaging-nats.html">Component: Messaging (NATS)</a>
+
+  - <a href="/pivotalcf/2-0/concepts/architecture/router.html">Component: Gorouter</a>
+
+  - <a href="/pivotalcf/2-0/concepts/architecture/uaa.html">Component: User Account and Authentication (UAA) Server</a>
+
+  - <a href="/pivotalcf/2-0/concepts/architecture/garden.html">Component: Garden</a>
+
+  - <a href="/pivotalcf/2-0/concepts/http-routing.html">Component: HTTP Routing</a>
+
+  - <a href="/pivotalcf/2-0/concepts/diego/ssh-conceptual.html">Application SSH Components and Processes</a>
+
+* <a href="/pivotalcf/2-0/concepts/security.html">Understanding Cloud Foundry Security</a> - An overview of how PCF and PAS protect their internal components and hosted apps from security threats.
+
+  - <a href="/pivotalcf/2-0/security/concepts/index.html">Security Concepts</a>
+
+  - <a href="/pivotalcf/2-0/security/process/index.html">PCF Security Processes</a>
+
+  - <a href="/pivotalcf/2-0/security/process/pcf-security.html">Pivotal Cloud Foundry Security Overview and Policy</a>
+
+  - <a href="/pivotalcf/2-0/security/process/security-lifecycle.html">PCF Testing, Release, and Security Lifecycle</a>
+
+  - <a href="/pivotalcf/2-0/concepts/container-security.html">Understanding Container Security</a>
+
+  - <a href="/pivotalcf/2-0/concepts/understand-cf-networking.html">Understanding Container-to-Container Networking</a>
+
+* <a href="/pcf-dev/index.html">PCF Dev</a> - A lightweight PAS that runs on your workstation, for developing apps locally. 
+
+* <a href="http://docs.run.pivotal.io/starting/index.html">Pivotal Web Services</a> - A subscription PCF installation operated by Pivotal.
+
+
