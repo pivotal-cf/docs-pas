@@ -182,26 +182,26 @@ There is one key capacity scaling indicator recommended for Firehose performance
    </tr>
 </table>
 
-## <a id="scalable-syslog"></a> Scalable Syslog Performance Scaling Indicators
-There are three key capacity scaling indicators recommended for Scalable Syslog performance. 
+## <a id="scalable-syslog"></a> CF-Syslog Performance Scaling Indicators
+There are three key capacity scaling indicators recommended for CF-Syslog performance. 
 
-<p class="note"><strong>Note</strong>: These scalable syslog scaling indicators are only relevant
-  if your deployment contains apps using the scalable syslog drain binding feature.</p>
+<p class="note"><strong>Note</strong>: These cf-syslog scaling indicators are only relevant
+  if your deployment contains apps using the cf-syslog drain binding feature.</p>
 
 ### <a id="syslog-adapter-ksi"></a> Adapter Loss Rate
 
 <table>
   <tr>
-      <th colspan="2" style="text-align: center;">scalablesyslog.adapter.dropped 
-                       / scalablesyslog.adapter.ingress</th>
+      <th colspan="2" style="text-align: center;">cf-syslog-drain.adapter.dropped 
+                       / cf-syslog-drain.adapter.ingress</th>
   </tr>
    <tr>
       <th width="25">Description</th>
-       <td>The loss rate of the scalable syslog adapters, that is, the total messages dropped 
-          as a percentage of the total traffic coming through the <a href="../loggregator/architecture.html">scalable syslog adapters</a>.
+       <td>The loss rate of the cf-syslog adapters, that is, the total messages dropped 
+          as a percentage of the total traffic coming through the <a href="../loggregator/architecture.html">cf-syslog adapters</a>.
           Total messages include only logs for bound applications.
        <br><br>
-			This loss rate is specific to the scalable syslog adapters and does not impact the Firehose loss rate.
+			This loss rate is specific to the cf-syslog adapters and does not impact the Firehose loss rate.
                         For example, you can suffer lossiness in syslog while not suffering any lossiness in the Firehose.
       </td>
    </tr>
@@ -231,7 +231,7 @@ There are three key capacity scaling indicators recommended for Scalable Syslog 
       <td> <strong>Origin</strong>: Firehose<br>
            <strong>Type</strong>: Counter (Integer)<br>
            <strong>Frequency</strong>: Emitted every 60 s<br>
-           <strong>Applies to</strong>: cf:scalablesyslog<br>
+           <strong>Applies to</strong>: cf:cf-syslog<br>
       </td>
    </tr>
 </table>
@@ -276,26 +276,26 @@ There are three key capacity scaling indicators recommended for Scalable Syslog 
       <td> <strong>Origin</strong>: Firehose<br>
            <strong>Type</strong>: Counter (Integer)<br>
            <strong>Frequency</strong>: Emitted every 60 s<br>
-           <strong>Applies to</strong>: cf:scalablesyslog<br>
+           <strong>Applies to</strong>: cf:cf-syslog<br>
       </td>
    </tr>
 </table>
 
-### <a id="scalable-syslog-ksi"></a> Scalable Syslog Drain Bindings Count
+### <a id="scalable-syslog-ksi"></a> CF-Syslog Drain Bindings Count
 
 <table>
   <tr>
-      <th colspan="2" style="text-align: center;">scalablesyslog.scheduler.drains</th>
+      <th colspan="2" style="text-align: center;">cf-syslog-drain.scheduler.drains</th>
   </tr>
    <tr>
       <th width="25">Description</th>
-       <td>The number of scalable syslog drain bindings.<br>
+       <td>The number of cf-syslog drain bindings.<br>
        </td>
    </tr>
    <tr>
       <th>Purpose</th>
-      <td>Each scalable syslog adapter can handle approximately 500 drain bindings. 
-          The recommended initial configuration is a minimum of two scalable syslog adapters
+      <td>Each cf-syslog adapter can handle approximately 500 drain bindings. 
+          The recommended initial configuration is a minimum of two cf-syslog adapters
           (to handle approximately 1000 drain bindings). 
           A new adapter instance should be added for each 500 additional drain bindings.
         <br><br>
@@ -307,11 +307,11 @@ There are three key capacity scaling indicators recommended for Scalable Syslog 
       <th>Recommended thresholds</th>
       <td><strong>Scale indicator</strong>: &ge; 900<br>
          Consider this threshold to be dynamic.
-         Adjust the threshold to the PCF deployment as adoption of scalable syslog increases or decreases.</td>
+         Adjust the threshold to the PCF deployment as adoption of cf-syslog increases or decreases.</td>
    </tr>
    <tr>
       <th>How to scale</th>
-      <td>Increase the number of Scalable Syslog Adapter VMs in the <strong>Resource Config</strong> pane of the Pivotal Application Service (PAS) tile.
+      <td>Increase the number of CF-Syslog Adapter VMs in the <strong>Resource Config</strong> pane of the Pivotal Application Service (PAS) tile.
       </td>
    </tr>
    <tr>
@@ -319,7 +319,7 @@ There are three key capacity scaling indicators recommended for Scalable Syslog 
       <td> <strong>Origin</strong>: Firehose<br>
            <strong>Type</strong>: Gauge (float)<br>
            <strong>Frequency</strong>: Emitted every 60 s<br>
-           <strong>Applies to</strong>: cf:scalablesyslog<br>
+           <strong>Applies to</strong>: cf:cf-syslog<br>
       </td>
    </tr>
 </table>
