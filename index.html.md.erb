@@ -15,76 +15,25 @@ This guide includes the following topics:
 
 For information about logging and metrics in PCF and about monitoring of services for PCF, see <a href="#resources">Additional Resources</a> below.
 
-##<a id="new"></a> KPI Changes from PCF v1.11 to v1.12
+##<a id="new"></a> KPI Changes from PCF v1.12 to v2.0
 
-This table highlights new and changed KPIs in PCF v1.12.
-
-
-The internal MySQL job included in Pivotal Application Service (PAS) now emits metrics. See the [PAS MySQL KPIs](../monitoring/kpi.html#kpi4MySQL).
+This table highlights new and changed KPIs in PCF v2.0.
 
 <table>
-  <tr>
-    <th>Change</th>
-    <th>Which KPI and why?</th>
-    <th>See&hellip;</th>
-  </tr>
-  <tr>
-    <td><em>New</em></td>
-    <td>KPI: <strong><code>gorouter.file_descriptors</code></strong><br><br>
-    New component functionality in the Gorouter system needs monitoring.
+<tr>
+    <td><em>Modified</em></td>
+    <td>KPI: <strong><code>Adapter Loss Rate</code></strong><br><br>
+      The origin name of these metrics has changed from <code>scalablesyslog</code> to <code>cf-syslog-drain</code>.
     </td>
-    <td><a href="./kpi.html#file_descriptors">Link</a></td>
-  </tr>
-  <tr>
-    <td><em>New</em></td>
-    <td>KPI: <strong><code>gorouter.backend_exhausted_conns</code></strong><br><br>
-    New component functionality in the Gorouter system needs monitoring.
-    </td>
-    <td><a href="./kpi.html#exhausted_connections">Link</a></td>
-  </tr>
-  <tr>
-    <td><em>New</em></td>
-    <td><strong>PAS MySQL KPIs</strong><br><br>
-    PAS's internal MySQL database now emits metrics. See <a href="./kpi.html#kpi4MySQL">PAS MySQL KPIs</a> for KPIs based on these metrics. PCF v1.10.25+ and v1.11.11+ patch releases also include this change.
-    </td>
-    <td><a href="./kpi.html#file_descriptors">Link</a></td>
+    <td><a href="./key-cap-scaling.html#syslog-adapter-ksi">Link</a></td>
   </tr>
   <tr>
     <td><em>Modified</em></td>
-    <td>KPI: <strong><code>Firehose Dropped Messages</code></strong><br><br>
-      It is now necessary to add <code>loggregator.doppler.dropped</code> to <code>DopplerServer.doppler.shedEnvelopes</code> to properly measure Dropped Messages.
-    </td>
-    <td><a href="./kpi.html#deriveddopplerserver.doppler">Link</a></td>
-  </tr>
-  <tr>
-    <td><em>Modified</em></td>
-    <td>KPI: <strong><code>Firehose Throughput</code></strong><br><br>
-      It is now necessary to add <code>loggregator.doppler.ingress</code> to <code>DopplerServer.listeners.totalReceivedMessageCount</code> to properly measure Firehose Throughput.
-    </td>
-    <td><a href="./kpi.html#listeners.receivedEnvelopes">Link</a></td>
-  </tr>
-  <tr>
-    <td><em>Modified</em></td>
-    <td>KPI: <strong><code>Firehose Loss Rate</code></strong><br><br>
-         Due to calculation changes in Firehose Dropped Messages and Firehose Throughput, the formula to calculate the Firehose Loss Rate has been modified.
-    </td>
-    <td><a href="./key-cap-scaling.html#firehose-loss-rate">Link</a></td>
-  </tr>
-  <tr>
-    <td><em>Modified</em></td>
-    <td>KPI: <strong><code>Scalable Syslog Drain Bindings Count</code></strong><br><br>
-      Due to improvements in the underlying Adapter memory utilization, the number of adapters handled per drain has increased. This allows the recommended threshold scaling indicator to be increased accordingly. 
+    <td>KPI: <strong><code>Syslog Drain Bindings Count</code></strong><br><br>
+      The origin name of this metric has changed from <code>scalablesyslog</code> to <code>cf-syslog-drain</code>.
     </td>
     <td><a href="./key-cap-scaling.html#scalable-syslog-ksi">Link</a></td>
-  </tr>
-    
-  <tr>
-    <td><em>Modified</em></td>
-    <td>KPI: <strong><code>BBS Time to Handle Requests</code></strong><br><br>
-     Diego is now aggregating this metric to emit, every 60 seconds, the max value observed over 60 seconds. This updates the expected frequency of the metric. It also alters the recommended alerting measurement. 
-    </td>
-    <td><a href="./kpi.html#RequestLatency">Link</a></td>
-  </tr>  
+  </tr> 
 </table> 
 
 ##<a id="resources"></a> Additional Resources
