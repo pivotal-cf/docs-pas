@@ -185,8 +185,8 @@ There is one key capacity scaling indicator recommended for Firehose performance
 ## <a id="scalable-syslog"></a> CF-Syslog Performance Scaling Indicators
 There are three key capacity scaling indicators recommended for CF-Syslog performance. 
 
-<p class="note"><strong>Note</strong>: These cf-syslog scaling indicators are only relevant
-  if your deployment contains apps using the cf-syslog drain binding feature.</p>
+<p class="note"><strong>Note</strong>: These CF-Syslog scaling indicators are only relevant
+  if your deployment contains apps using the CF-Syslog drain binding feature.</p>
 
 ### <a id="syslog-adapter-ksi"></a> Adapter Loss Rate
 
@@ -197,11 +197,11 @@ There are three key capacity scaling indicators recommended for CF-Syslog perfor
   </tr>
    <tr>
       <th width="25">Description</th>
-       <td>The loss rate of the cf-syslog adapters, that is, the total messages dropped 
-          as a percentage of the total traffic coming through the <a href="../loggregator/architecture.html">cf-syslog adapters</a>.
+       <td>The loss rate of the CF-Syslog Adapters, that is, the total messages dropped 
+          as a percentage of the total traffic coming through the <a href="../loggregator/architecture.html">CF-Syslog Adapters</a>.
           Total messages include only logs for bound applications.
        <br><br>
-			This loss rate is specific to the cf-syslog adapters and does not impact the Firehose loss rate.
+			This loss rate is specific to the CF-Syslog Adapters and does not impact the Firehose loss rate.
                         For example, you can suffer lossiness in syslog while not suffering any lossiness in the Firehose.
       </td>
    </tr>
@@ -289,25 +289,25 @@ There are three key capacity scaling indicators recommended for CF-Syslog perfor
   </tr>
    <tr>
       <th width="25">Description</th>
-       <td>The number of cf-syslog drain bindings.<br>
+       <td>The number of CF-Syslog drain bindings.<br>
        </td>
    </tr>
    <tr>
       <th>Purpose</th>
-      <td>Each cf-syslog adapter can handle approximately 500 drain bindings. 
-          The recommended initial configuration is a minimum of two cf-syslog adapters
+      <td>Each CF-Syslog Adapter can handle approximately 500 drain bindings.
+          The recommended initial configuration is a minimum of two CF-Syslog Adapters
           (to handle approximately 1000 drain bindings). 
-          A new adapter instance should be added for each 500 additional drain bindings.
+          A new Adapter instance should be added for each 500 additional drain bindings.
         <br><br>
         Therefore, the recommended initial scaling indicator is 900 (as a maximum value over a 1-hr window).
-        This indicates the need to scale up to three adapters from the initial two-adapter configuration. 
+        This indicates the need to scale up to three Adapters from the initial two-Adapter configuration.
          
    </tr>
    <tr>
       <th>Recommended thresholds</th>
       <td><strong>Scale indicator</strong>: &ge; 900<br>
          Consider this threshold to be dynamic.
-         Adjust the threshold to the PCF deployment as adoption of cf-syslog increases or decreases.</td>
+         Adjust the threshold to the PCF deployment as adoption of CF-Syslog increases or decreases.</td>
    </tr>
    <tr>
       <th>How to scale</th>
