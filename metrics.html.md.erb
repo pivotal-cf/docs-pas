@@ -33,9 +33,9 @@ You can configure PCF to direct metrics from all Pivotal Application Service (PA
 
 The Loggregator Firehose metrics come from two sources:
 
-* **BOSH Health Monitor**: The BOSH Director generates health monitoring metrics for all VMs in the deployment.
+* **The BOSH Health Monitor**: The BOSH Health Monitor receives health monitoring metrics from BOSH Agents for all VMs in a deployment.
 
-	<p class="note"><b>Note</b>: Starting from PCF v2.0, BOSH health metrics are available in the Loggregator Firehose by default. If your monitoring tool is set up to consume metrics from both the Loggregator Firehose and the <a href="http://docs.pivotal.io/jmx-bridge/index.html">PCF JMX Bridge</a> tile, you may see duplicate BOSH health metrics. To avoid this, you must either scale down the BOSH System Metric Forwarder instances or uninstall the PCF JMX Bridge tile.</p>
+	<p class="note"><b>Note</b>: BOSH-reported system metrics are now available in the Loggregator Firehose by default. If your monitoring tool is set up to consume metrics from both the Loggregator Firehose and the PCF JMX Bridge tile, you may see duplicate BOSH system metrics. To prevent this, you can either uninstall the PCF JMX Bridge tile or stop retrieving BOSH system metrics outside of the Firehose with the PCF JMX Bridge tile. For more information, see <a href="http://docs.pivotal.io/jmx-bridge/1-9/installing.html#get-ip">Deploying JMX Bridge</a>.</p>
 
 * **Cloud Foundry components**: Cloud Foundry component VMs for executive control, hosting, routing, traffic control, authentication, and other internal functions generate metrics.
 
