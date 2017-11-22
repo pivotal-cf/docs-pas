@@ -1186,27 +1186,29 @@ When PAS uses an internal MySQL database, as configured in the PAS tile **Settin
         </tr>
 </table>
 
+###<a id="route-registration"></a>Number of Route Registration Messages Sent and Received
+
 <table>
      <tr><th colspan="2" style="text-align: center;"><br>gorouter.registry_message.route_emitter<br>route_emitter.MessagesEmitted<br><br></th></tr>
         <tr>
                 <th width="25%">Description</th>
                 <td>
-			The number of route registration messages sent by Router Emitter and received by Gorouter.
+			The number of route registration messages sent by the Route-Emitter component and received by the Gorouter.
                 	<br><br>
-                	<strong>Use</strong>: A difference in the rate of change of these metrics gives an indication of an issue in the control plane. 
+                  <strong>Use</strong>: A difference in the rate of change of these metrics is an indication of an issue in the control plane responsible for updating the routers with changes to the routing table.
 			<br><br>
-			Pivotal recommends alerting when the number of messages received per second for a given router instance falls below the sum of messages emitted per second across all Route Emitters. The metric <code>route_emitter.MessagesEmitted</code> provides the total lifetime messages for routing table updates sent for a given Route Emitter; operators should calculate the change in these metrics per second. This is an indication that there may be a issue with the control plane responsible for updating the routers with changes to the routing table. 
+			Pivotal recommends alerting when the number of messages received per second for a given router instance falls below the sum of messages emitted per second across all Route-Emitters. The <code>route_emitter.MessagesEmitted</code> metric provides the total lifetime number of messages for routing table updates sent by a given Route-Emitter.
 			<br><br>
-			If visualizing these metrics on a dashboard, look for increases in the difference between the rate of messages received and sent. For example, if the number of messages received by a Gorouter instance drops below the sum of messages sent by the Route Emitters, this is an indication of a problem in the control plane.    
+			If visualizing these metrics on a dashboard, look for increases in the difference between the rate of messages received and sent. For example, if the number of messages received by a Gorouter instance drops below the sum of messages sent by the Route-Emitters, this is an indication of a problem in the control plane.
                  	<br><br>
                  	<strong>Origin</strong>: Firehose<br>
                  	<strong>Type</strong>: Counter<br>
-                 	<strong>Frequency</strong>: with each event<br>
+                  <strong>Frequency</strong>: With each event<br>
 		</td>
         </tr>
         <tr>
                 <th>Recommended measurement</th>
-                <td>Difference of 5-minute average of the per second deltas for <code>gorouter.registry_message.route_emitter</code> and sum of <code>route_emitter.MessagesEmitted</code> for all Route Emitters</td>
+                <td>Difference of 5-minute average of the per second deltas for <code>gorouter.registry_message.route_emitter</code> and sum of <code>route_emitter.MessagesEmitted</code> for all Route-Emitters</td>
         </tr>
         <tr>
                 <th>Recommended alert thresholds</th>
@@ -1217,15 +1219,14 @@ When PAS uses an internal MySQL database, as configured in the PAS tile **Settin
                 <th>Recommended response</th>
                 <td>
                     <ol>
-                        <li>Look at the Gorouter and route_emitter logs to look for connection issues to NATS.</li>
-                        <li>Check the BOSH logs to see if the NATS, Gorouter, or route_emitter VMs are failing.</li>
+                        <li>Check the Gorouter and Route-Emitter logs to see if they are experiencing issues when connecting to NATS.</li>
+                        <li>Check the BOSH logs to see if the NATS, Gorouter, or Route-Emitter VMs are failing.</li>
                         <li>Look broadly at the health of all VMs, particularly Diego-related VMs.</li>
-                        <li>If problems persist, pull the Gorouter and route_emitter logs and contact Pivotal Support.</li>
+                        <li>If problems persist, pull the Gorouter and Route-Emitter logs and contact Pivotal Support.</li>
                     </ol>
                     </td>
         </tr>
 </table>
-
 
 ## <a id="doppler-server"></a> Firehose Metrics
 
