@@ -753,17 +753,17 @@ When observing extended periods of high or low activity trends, scale up or down
    </tr>
 </table>
 
-##<a id="route_emitter"></a>Diego Route Emitter Metrics
+##<a id="route_emitter"></a>Diego Route-Emitter Metrics
 
-###<a id="RouteEmitterSyncDuration"></a>Route Emitter Time to Sync
+###<a id="RouteEmitterSyncDuration"></a>Route-Emitter Time to Sync
 <table>
      <tr><th colspan="2" style="text-align: center;"><br>route_emitter.RouteEmitterSyncDuration<br><br></th></tr>
         <tr>
                 <th width="25%">Description</th>
-                <td>Time in ns that the active route-emitter took to perform its synchronization pass. 
+                <td>Time in ns that the active Route-Emitter took to perform its synchronization pass.
                     <br><br>
-                    <strong>Use</strong>: Increases in this metric indicate that the route emitter may have 
-                    trouble maintaining an accurate routing table to broadcast to the Gorouters. 
+                    <strong>Use</strong>: Increases in this metric indicate that the Route-Emitter may have
+                    trouble maintaining an accurate routing table to broadcast to the Gorouters.
                     Tune alerting values to your deployment based on historical data and adjust based on observations over time. 
                     The suggested starting point is &ge; 5 for the yellow threshold and &ge; 10 for the critical threshold. 
                     Pivotal has observed on its Pivotal Web Services deployment that above 10 s, the BBS may be failing.
@@ -786,7 +786,7 @@ When observing extended periods of high or low activity trends, scale up or down
                 <td>If all or many jobs showing as impacted, there is likely an issue with Diego.
                         <ol>
                         <li>
-                        Investigate the route_emitter and Diego BBS logs for errors.
+                        Investigate the Route-Emitter and Diego BBS logs for errors.
                         </li>
                         <li>
                         Verify that app routes are functional by making a request to an app, pushing an app and pinging it, or if applicable, checking that your smoke tests have passed.
@@ -1055,10 +1055,10 @@ When PAS uses an internal MySQL database, as configured in the PAS tile **Settin
                 <th>Recommended response</th>
                 <td>
                     <ol>
-                        <li>Search the Gorouter and route_emitter logs for connection issues to NATS.</li>
-                        <li>Check the BOSH logs to see if the NATS, Gorouter, or route_emitter VMs are failing.</li>
+                        <li>Search the Gorouter and Route-Emitter logs for connection issues to NATS.</li>
+                        <li>Check the BOSH logs to see if the NATS, Gorouter, or Route-Emitter VMs are failing.</li>
                         <li>Look more broadly at the health of all VMs, particularly Diego-related VMs.</li>
-                        <li>If problems persist, pull the Gorouter and route_emitter logs and contact 
+                        <li>If problems persist, pull the Gorouter and Route-Emitter logs and contact 
                             Pivotal Support to say there are consistently long delays in route registry.</li>
                     </ol>
                     </td>
@@ -1098,10 +1098,10 @@ When PAS uses an internal MySQL database, as configured in the PAS tile **Settin
                 <th>Recommended response</th>
                 <td>
                     <ol>
-                        <li>Look in the Gorouter and route_emitter logs for connection issues to NATS.</li>
-                        <li>Check the BOSH logs to see if the NATS, Gorouter, or route_emitter VMs are failing.</li>
+                        <li>Check the Gorouter and Route-Emitter logs to see if they are experiencing issues when connecting to NATS.</li>
+                        <li>Check the BOSH logs to see if the NATS, Gorouter, or Route-Emitter VMs are failing.</li>
                         <li>Look broadly at the health of all VMs, particularly Diego-related VMs.</li>
-                        <li>If problems persist, pull Gorouter and route_emitter logs and contact 
+                        <li>If problems persist, pull Gorouter and Route-Emitter logs and contact 
                             Pivotal Support to say there has been an unusual increase in Gorouter bad gateway responses.</li>
                     </ol>
                     </td>
@@ -1152,9 +1152,9 @@ When PAS uses an internal MySQL database, as configured in the PAS tile **Settin
                     <br><br>
                     <strong>Use</strong>: The aggregation of these values across all Gorouters indicates uptake and gives a picture of the overall growth of the environment for capacity planning.
 			<br><br>
-		Pivotal also recommends alerting on this metric if the number of routes falls outside of the normal range for your deployment. Dramatic decreases in this metric volume may indicate a problem with the route registration process, such as an app outage or that something in the route register management plane has failed.
+		Pivotal also recommends alerting on this metric if the number of routes falls outside of the normal range for your deployment. Dramatic decreases in this metric volume may indicate a problem with the route registration process, such as an app outage, or that something in the route register management plane has failed.
 			<br><br>
-			If visualizing these metrics on a dashboard, <code>gorouter.total_routes</code> can be helpful by visualizing dramatic drops. However, for alerting purposes, the metric <code>gorouter.ms_since_last_registry_update</code> is more valuable for quicker identification of Gorouter issues. Alerting thresholds for <code>gorouter.total_routes</code> should focus on dramatic increases/decreases out of expected range.   
+			If visualizing these metrics on a dashboard, <code>gorouter.total_routes</code> can be helpful for visualizing dramatic drops. However, for alerting purposes, the <code>gorouter.ms_since_last_registry_update</code> metric is more valuable for quicker identification of Gorouter issues. Alerting thresholds for <code>gorouter.total_routes</code> should focus on dramatic increases or decreases out of expected range.   
                  <br><br>
                  <strong>Origin</strong>: Firehose<br>
                  <strong>Type</strong>: Gauge (Float)<br>
@@ -1177,10 +1177,10 @@ When PAS uses an internal MySQL database, as configured in the PAS tile **Settin
                         <li>For significant drops in current total routes, see the 
                            <a href="#mssincelastregistryupdate"> <code>gorouter.ms_since_last_registry_update</code></a>
                             metric value for additional context.</li>
-                        <li>Look at the Gorouter and route_emitter logs to look for connection issues to NATS.</li>
-                        <li>Check the BOSH logs to see if the NATS, Gorouter, or route_emitter VMs are failing.</li>
+                        <li>Check the Gorouter and Route-Emitter logs to see if they are experiencing issues when connecting to NATS.</li>
+                        <li>Check the BOSH logs to see if the NATS, Gorouter, or Route-Emitter VMs are failing.</li>
                         <li>Look broadly at the health of all VMs, particularly Diego-related VMs.</li>
-                        <li>If problems persist, pull the Gorouter and route_emitter logs and contact Pivotal Support.</li>
+                        <li>If problems persist, pull the Gorouter and Route-Emitter logs and contact Pivotal Support.</li>
                     </ol>
                     </td>
         </tr>
