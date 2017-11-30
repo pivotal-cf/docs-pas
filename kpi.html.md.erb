@@ -688,13 +688,13 @@ When observing extended periods of high or low activity trends, scale up or down
                  <ul>
                    <li>A healthy BBS shows obvious activity around starting or claiming LRPs.</li>
                    <li>An unhealthy BBS leads to the Auctioneer showing minimal or no activity. The BBS sends work to the Auctioneer.</li>
-		   <li>Reference the BBS level locket metric [BBS Held Locks](kpi.html#BBSActiveLocks). A value of 0 indicates locket issues at the BBS level.</li> 
+		   <li>Reference the BBS level locket metric <a href="kpi.html#BBSActiveLocks">BBS Held Locks</a>. A value of 0 indicates locket issues at the BBS level.</li> 
                  </ul>
                <li>If the BBS appears healthy, then check the Auctioneer to ensure it is processing auction payloads.</li>
 	         <ul>
                    <li>Recent logs for Auctioneer should show all but one are currently waiting on locks,
-                       and the active Auctioneer should show a record of when it last attempted to execute work. This attempt to execute should correspond to app dev activity, such as a cf push.</li>
-                   <li>Reference the Auctioneer level locket metric [Auctioneer Held Locks](kpi.html#AuctioneerActiveLocks). A value of 0 indicates locket issues at the Auctioneer level.</li> 
+                       and the active Auctioneer should show a record of when it last attempted to execute work. This attempt to execute should correspond to app dev activity, such as a <code>cf push</code>.</li>
+                   <li>Reference the Auctioneer level locket metric <a href="kpi.html#AuctioneerActiveLocks">Auctioneer Held Locks</a>. A value of 0 indicates locket issues at the Auctioneer level.</li> 
                  </ul>	  
 	      <li>The TPS Watcher is primarily only active when application instances crash, so if the TPS Watcher is suspected, review the most recent logs.</li>
               <li>If unable to resolve on-going excessive active locks, pull logs from the Diego BBS and Auctioneer VMs,
@@ -711,7 +711,7 @@ When observing extended periods of high or low activity trends, scale up or down
       <th width="25%">Description</th>
       <td>Whether a BBS instance holds the expected BBS lock (in locket). 1 means the lock is held by the active BBS server, and 0 means the lock was lost.
           <br><br>
-          <strong>Use</strong>: This metric is complimentary to [Active Locks](kpi.html#ActiveLocks) by offering a BBS component level version of the locket metrics. Although it is emitted per BBS instance, only 1 active lock is held by BBS, therefore the expected value is 1. Although the metric may occasionally be 0 when the BBS instances are performing a leader transition, a prolonged value of 0 indicates an issue with BBS. 
+          <strong>Use</strong>: This metric is complimentary to <a href="kpi.html#ActiveLocks">Active Locks</a> by offering a BBS component level version of the locket metrics. Although it is emitted per BBS instance, only 1 active lock is held by BBS, therefore the expected value is 1. Although the metric may occasionally be 0 when the BBS instances are performing a leader transition, a prolonged value of 0 indicates an issue with BBS. 
           <br><br>
           <strong>Origin</strong>: Firehose<br>
           <strong>Type</strong>: Gauge<br>
@@ -750,7 +750,7 @@ When observing extended periods of high or low activity trends, scale up or down
       <th width="25%">Description</th>
       <td>Whether an Auctioneer instance holds the expected Auctioneer lock (in locket). 1 means the lock is held by the active Auctioneer, and 0 means the lock was lost.
           <br><br>
-          <strong>Use</strong>: This metric is complimentary to [Active Locks](kpi.html#ActiveLocks) by offering an Auctioneer component level version of the locket metrics. Although it is emitted per Auctioneer instance, only 1 active lock is held by Auctioneer, therefore the expected value is 1. Although the metric may occasionally be 0 when the Auctioneer instances are performing a leader transition, a prolonged value of 0 indicates an issue with Auctioneer. 
+          <strong>Use</strong>: This metric is complimentary to <a href="kpi.html#ActiveLocks">Active Locks</a> by offering an Auctioneer component level version of the locket metrics. Although it is emitted per Auctioneer instance, only 1 active lock is held by Auctioneer, therefore the expected value is 1. Although the metric may occasionally be 0 when the Auctioneer instances are performing a leader transition, a prolonged value of 0 indicates an issue with Auctioneer. 
           <br><br>
           <strong>Origin</strong>: Firehose<br>
           <strong>Type</strong>: Gauge<br>
