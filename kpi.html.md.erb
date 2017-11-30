@@ -1275,7 +1275,7 @@ When PAS uses an internal MySQL database, as configured in the PAS tile **Settin
         <tr>
                 <th width="25%">Description</th>
                 <td>
-			The number of route registration messages sent by the Route-Emitter component and received by the Gorouter.
+			Dynamic configuration that enables Gorouter to route HTTP requests to applications is published by Route Emitters colocated on each Diego Cell to the NATS clustered message bus. All Gorouter instances subscribe to this message bus receive the same configuration (Gorouter instances that belong to an isolation segment only receive configuration for Cells in the same Isolation Segment). As Gorouters prune application instances from the route when a TTL expires, each Route Emitter periodically publishes the routing configuration for the application instances on the same Cell. The aggregate number of route registration messages published by all the Route Emitters should be equal to the number of messages received by each Gorouter.
                 	<br><br>
                   <strong>Use</strong>: A difference in the rate of change of these metrics is an indication of an issue in the control plane responsible for updating the routers with changes to the routing table.
 			<br><br>
