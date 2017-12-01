@@ -56,7 +56,7 @@ The Traffic Controller aggregates both metrics and log messages system-wide from
 
 PCF includes [smoke tests](https://github.com/pivotal-cloudops/cf-smoke-tests/tree/Dockerfile), which are functional unit and integration tests on all major system components. By default, whenever an operator upgrades to a new version of PAS, these smoke tests run as a post-deploy errand.
 
-Production systems typically also have an app that runs smoke tests periodically, for example every five minutes, and generate "pass/fail" metrics from the results. For example smoke tests, see the Pivotal Cloud Ops [CF Smoke Tests](https://github.com/pivotal-cloudops/cf-smoke-tests/tree/Dockerfile) repo.
+Production systems typically also have an app that runs smoke tests periodically, for example every five minutes, and generate "pass/fail" metrics from the results. For example smoke tests, see the Pivotal Cloud Ops [CF Smoke Tests](https://github.com/pivotal-cloudops/cf-smoke-tests/tree/Dockerfile) repository.
 
 Operators can also generate other custom system metrics based on multi-component tests. An example is average outbound latency between components.
 
