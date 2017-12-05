@@ -1275,7 +1275,7 @@ When PAS uses an internal MySQL database, as configured in the PAS tile **Settin
         <tr>
                 <th width="25%">Description</th>
                 <td>
-      The <code>route_emitter.MessagesEmitted</code> metric reports the number of route registration messages sent by a given Route Emitter, and the <code>gorouter.registry_message.route-emitter</code> metric reports the number of messages received by a given Gorouter instance.
+      The <code>route_emitter.MessagesEmitted</code> metric reports the lifetime number of route registration messages sent by a given Route Emitter, and the <code>gorouter.registry_message.route-emitter</code> metric reports the lifetime number of messages received by a given Gorouter instance.
 
       <br><br>
       Dynamic configuration that enables the Gorouter to route HTTP requests to apps is published by the Route Emitter component colocated on each Diego cell to the NATS clustered message bus.
@@ -1286,7 +1286,7 @@ When PAS uses an internal MySQL database, as configured in the PAS tile **Settin
                 	<br><br>
                   <strong>Use</strong>: A difference in the rate of change of these metrics is an indication of an issue in the control plane responsible for updating the routers with changes to the routing table.
 			<br><br>
-			Pivotal recommends alerting when the number of messages received per second for a given router instance falls below the sum of messages emitted per second across all Route Emitters. The <code>route_emitter.MessagesEmitted</code> metric provides the total lifetime number of messages for routing table updates sent by a given Route Emitter.
+			Pivotal recommends alerting when the number of messages received per second for a given router instance falls below the sum of messages emitted per second across all Route Emitters.
 			<br><br>
 			If visualizing these metrics on a dashboard, look for increases in the difference between the rate of messages received and sent. If the number of messages received by a Gorouter instance drops below the sum of messages sent by the Route Emitters, this is an indication of a problem in the control plane.
                  	<br><br>
