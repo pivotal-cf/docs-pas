@@ -1275,10 +1275,10 @@ When PAS uses an internal MySQL database, as configured in the PAS tile **Settin
         <tr>
                 <th width="25%">Description</th>
                 <td>
-      The <code>route_emitter.MessagesEmitted</code> metric reports the number of route registration messages published by a Route Emitter, and the <code>gorouter.registry_message.route-emitter</code> metric reports the number of messages received by a Gorouter instance.
+      The <code>route_emitter.MessagesEmitted</code> metric reports the number of route registration messages sent by a given Route Emitter, and the <code>gorouter.registry_message.route-emitter</code> metric reports the number of messages received by a given Gorouter instance.
 
       <br><br>
-      Dynamic configuration that enables the Gorouter to route HTTP requests to apps is published by Route Emitters colocated on each Diego cell to the NATS clustered message bus.
+      Dynamic configuration that enables the Gorouter to route HTTP requests to apps is published by the Route Emitter component colocated on each Diego cell to the NATS clustered message bus.
       All router instances subscribed to this message bus receive the same configuration. (Router instances that belong to an isolation segment receive configuration only for cells in the same isolation segment.)<br>
       As Gorouters prune app instances from the route when a TTL expires, each Route Emitter periodically publishes the routing configuration for the app instances on the same cell.
       <br><br>
