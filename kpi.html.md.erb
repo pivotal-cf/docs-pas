@@ -835,16 +835,16 @@ When observing extended periods of high or low activity trends, scale up or down
    </tr>
 </table>
 
-##<a id="route_emitter"></a>Diego Route-Emitter Metrics
+##<a id="route_emitter"></a>Diego Route Emitter Metrics
 
-###<a id="RouteEmitterSyncDuration"></a>Route-Emitter Time to Sync
+###<a id="RouteEmitterSyncDuration"></a>Route Emitter Time to Sync
 <table>
      <tr><th colspan="2" style="text-align: center;"><br>route_emitter.RouteEmitterSyncDuration<br><br></th></tr>
         <tr>
                 <th width="25%">Description</th>
-                <td>Time in ns that the active Route-Emitter took to perform its synchronization pass.
+                <td>Time in ns that the active Route Emitter took to perform its synchronization pass.
                     <br><br>
-                    <strong>Use</strong>: Increases in this metric indicate that the Route-Emitter may have
+                    <strong>Use</strong>: Increases in this metric indicate that the Route Emitter may have
                     trouble maintaining an accurate routing table to broadcast to the Gorouters.
                     Tune alerting values to your deployment based on historical data and adjust based on observations over time. 
                     The suggested starting point is &ge; 5 for the yellow threshold and &ge; 10 for the critical threshold. 
@@ -868,7 +868,7 @@ When observing extended periods of high or low activity trends, scale up or down
                 <td>If all or many jobs showing as impacted, there is likely an issue with Diego.
                         <ol>
                         <li>
-                        Investigate the Route-Emitter and Diego BBS logs for errors.
+                        Investigate the Route Emitter and Diego BBS logs for errors.
                         </li>
                         <li>
                         Verify that app routes are functional by making a request to an app, pushing an app and pinging it, or if applicable, checking that your smoke tests have passed.
@@ -1137,10 +1137,10 @@ When PAS uses an internal MySQL database, as configured in the PAS tile **Settin
                 <th>Recommended response</th>
                 <td>
                     <ol>
-                        <li>Search the Gorouter and Route-Emitter logs for connection issues to NATS.</li>
-                        <li>Check the BOSH logs to see if the NATS, Gorouter, or Route-Emitter VMs are failing.</li>
+                        <li>Search the Gorouter and Route Emitter logs for connection issues to NATS.</li>
+                        <li>Check the BOSH logs to see if the NATS, Gorouter, or Route Emitter VMs are failing.</li>
                         <li>Look more broadly at the health of all VMs, particularly Diego-related VMs.</li>
-                        <li>If problems persist, pull the Gorouter and Route-Emitter logs and contact 
+                        <li>If problems persist, pull the Gorouter and Route Emitter logs and contact 
                             Pivotal Support to say there are consistently long delays in route registry.</li>
                     </ol>
                     </td>
@@ -1180,10 +1180,10 @@ When PAS uses an internal MySQL database, as configured in the PAS tile **Settin
                 <th>Recommended response</th>
                 <td>
                     <ol>
-                        <li>Check the Gorouter and Route-Emitter logs to see if they are experiencing issues when connecting to NATS.</li>
-                        <li>Check the BOSH logs to see if the NATS, Gorouter, or Route-Emitter VMs are failing.</li>
+                        <li>Check the Gorouter and Route Emitter logs to see if they are experiencing issues when connecting to NATS.</li>
+                        <li>Check the BOSH logs to see if the NATS, Gorouter, or Route Emitter VMs are failing.</li>
                         <li>Look broadly at the health of all VMs, particularly Diego-related VMs.</li>
-                        <li>If problems persist, pull Gorouter and Route-Emitter logs and contact 
+                        <li>If problems persist, pull Gorouter and Route Emitter logs and contact 
                             Pivotal Support to say there has been an unusual increase in Gorouter bad gateway responses.</li>
                     </ol>
                     </td>
@@ -1259,10 +1259,10 @@ When PAS uses an internal MySQL database, as configured in the PAS tile **Settin
                         <li>For significant drops in current total routes, see the 
                            <a href="#mssincelastregistryupdate"> <code>gorouter.ms_since_last_registry_update</code></a>
                             metric value for additional context.</li>
-                        <li>Check the Gorouter and Route-Emitter logs to see if they are experiencing issues when connecting to NATS.</li>
-                        <li>Check the BOSH logs to see if the NATS, Gorouter, or Route-Emitter VMs are failing.</li>
+                        <li>Check the Gorouter and Route Emitter logs to see if they are experiencing issues when connecting to NATS.</li>
+                        <li>Check the BOSH logs to see if the NATS, Gorouter, or Route Emitter VMs are failing.</li>
                         <li>Look broadly at the health of all VMs, particularly Diego-related VMs.</li>
-                        <li>If problems persist, pull the Gorouter and Route-Emitter logs and contact Pivotal Support.</li>
+                        <li>If problems persist, pull the Gorouter and Route Emitter logs and contact Pivotal Support.</li>
                     </ol>
                     </td>
         </tr>
@@ -1275,13 +1275,20 @@ When PAS uses an internal MySQL database, as configured in the PAS tile **Settin
         <tr>
                 <th width="25%">Description</th>
                 <td>
-			Dynamic configuration that enables Gorouter to route HTTP requests to applications is published by Route Emitters colocated on each Diego Cell to the NATS clustered message bus. All Gorouter instances subscribe to this message bus receive the same configuration (Gorouter instances that belong to an isolation segment only receive configuration for Cells in the same Isolation Segment). As Gorouters prune application instances from the route when a TTL expires, each Route Emitter periodically publishes the routing configuration for the application instances on the same Cell. The aggregate number of route registration messages published by all the Route Emitters should be equal to the number of messages received by each Gorouter.
+      The <code>route_emitter.MessagesEmitted</code> metric reports the number of route registration messages published by a Route Emitter, and the <code>gorouter.registry_message.route-emitter</code> metric reports the number of messages received by a Gorouter instance.
+
+      <br><br>
+      Dynamic configuration that enables the Gorouter to route HTTP requests to apps is published by Route Emitters colocated on each Diego cell to the NATS clustered message bus.
+      All router instances subscribed to this message bus receive the same configuration. (Router instances that belong to an isolation segment receive configuration only for cells in the same isolation segment.)<br>
+      As Gorouters prune app instances from the route when a TTL expires, each Route Emitter periodically publishes the routing configuration for the app instances on the same cell.
+      <br><br>
+      The aggregate number of route registration messages published by all the Route Emitters should be equal to the number of messages received by each Gorouter instance.
                 	<br><br>
                   <strong>Use</strong>: A difference in the rate of change of these metrics is an indication of an issue in the control plane responsible for updating the routers with changes to the routing table.
 			<br><br>
-			Pivotal recommends alerting when the number of messages received per second for a given router instance falls below the sum of messages emitted per second across all Route-Emitters. The <code>route_emitter.MessagesEmitted</code> metric provides the total lifetime number of messages for routing table updates sent by a given Route-Emitter.
+			Pivotal recommends alerting when the number of messages received per second for a given router instance falls below the sum of messages emitted per second across all Route Emitters. The <code>route_emitter.MessagesEmitted</code> metric provides the total lifetime number of messages for routing table updates sent by a given Route Emitter.
 			<br><br>
-			If visualizing these metrics on a dashboard, look for increases in the difference between the rate of messages received and sent. For example, if the number of messages received by a Gorouter instance drops below the sum of messages sent by the Route-Emitters, this is an indication of a problem in the control plane.
+			If visualizing these metrics on a dashboard, look for increases in the difference between the rate of messages received and sent. If the number of messages received by a Gorouter instance drops below the sum of messages sent by the Route Emitters, this is an indication of a problem in the control plane.
                  	<br><br>
                  	<strong>Origin</strong>: Firehose<br>
                  	<strong>Type</strong>: Counter<br>
@@ -1290,7 +1297,7 @@ When PAS uses an internal MySQL database, as configured in the PAS tile **Settin
         </tr>
         <tr>
                 <th>Recommended measurement</th>
-                <td>Difference of 5-minute average of the per second deltas for <code>gorouter.registry_message.route_emitter</code> and sum of <code>route_emitter.MessagesEmitted</code> for all Route-Emitters</td>
+                <td>Difference of 5-minute average of the per second deltas for <code>gorouter.registry_message.route-emitter</code> and sum of <code>route_emitter.MessagesEmitted</code> for all Route Emitters</td>
         </tr>
         <tr>
                 <th>Recommended alert thresholds</th>
@@ -1301,10 +1308,10 @@ When PAS uses an internal MySQL database, as configured in the PAS tile **Settin
                 <th>Recommended response</th>
                 <td>
                     <ol>
-                        <li>Check the Gorouter and Route-Emitter logs to see if they are experiencing issues when connecting to NATS.</li>
-                        <li>Check the BOSH logs to see if the NATS, Gorouter, or Route-Emitter VMs are failing.</li>
+                        <li>Check the Gorouter and Route Emitter logs to see if they are experiencing issues when connecting to NATS.</li>
+                        <li>Check the BOSH logs to see if the NATS, Gorouter, or Route Emitter VMs are failing.</li>
                         <li>Look broadly at the health of all VMs, particularly Diego-related VMs.</li>
-                        <li>If problems persist, pull the Gorouter and Route-Emitter logs and contact Pivotal Support.</li>
+                        <li>If problems persist, pull the Gorouter and Route Emitter logs and contact Pivotal Support.</li>
                     </ol>
                     </td>
         </tr>
