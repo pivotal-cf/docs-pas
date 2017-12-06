@@ -1275,15 +1275,19 @@ When PAS uses an internal MySQL database, as configured in the PAS tile **Settin
         <tr>
                 <th width="25%">Description</th>
                 <td>
-      The <code>route_emitter.MessagesEmitted</code> metric reports the lifetime number of route registration messages sent by a given Route Emitter, and the <code>gorouter.registry_message.route-emitter</code> metric reports the lifetime number of messages received by a given Gorouter instance.
-
+      This KPI is based on the following metrics:
       <br><br>
+      <ul>
+        <li><code>route_emitter.MessagesEmitted</code> reports the lifetime number of route registration messages sent by the Route Emitter component. The metric is emitted for each Route Emitter.</li>
+        <li><code>gorouter.registry_message.route-emitter</code> reports the lifetime number of route registration messages received by the Gorouter. The metric is emitted for each Gorouter instance.</li>
+      </ul>
       Dynamic configuration that enables the Gorouter to route HTTP requests to apps is published by the Route Emitter component colocated on each Diego cell to the NATS clustered message bus.
-      All router instances subscribed to this message bus receive the same configuration. (Router instances that belong to an isolation segment receive configuration only for cells in the same isolation segment.)<br>
+      All router instances subscribed to this message bus receive the same configuration. (Router instances within an isolation segment receive configuration only for cells in the same isolation segment.)
+      <br><br>
       As Gorouters prune app instances from the route when a TTL expires, each Route Emitter periodically publishes the routing configuration for the app instances on the same cell.
       <br><br>
-      The aggregate number of route registration messages published by all the Route Emitters should be equal to the number of messages received by each Gorouter instance.
-                	<br><br>
+      Therefore, the aggregate number of route registration messages published by all the Route Emitters should be equal to the number of messages received by each Gorouter instance.
+                  <br><br>
                   <strong>Use</strong>: A difference in the rate of change of these metrics is an indication of an issue in the control plane responsible for updating the routers with changes to the routing table.
 			<br><br>
 			Pivotal recommends alerting when the number of messages received per second for a given router instance falls below the sum of messages emitted per second across all Route Emitters.
