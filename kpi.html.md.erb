@@ -662,7 +662,7 @@ When observing extended periods of high or low activity trends, scale up or down
       <th width="25%">Description</th>
       <td>Total count of how many locks the system components are holding.
           <br><br>
-          <strong>Use</strong>: If the Active Lock count is not equal to the expected value, there is likely a problem with Diego.
+          <strong>Use</strong>: If the ActiveLocks count is not equal to the expected value, there is likely a problem with Diego.
           <br><br>
           <strong>Origin</strong>: Firehose<br>
           <strong>Type</strong>: Gauge<br>
@@ -685,18 +685,18 @@ When observing extended periods of high or low activity trends, scale up or down
              <li>If there are no failing processes, then review the logs for the components using the Locket service: 
                       BBS, Auctioneer, TPS Watcher, and Routing API. Look for indications that only one of each component is active at a time.</li>
               <li>Focus triage on the BBS first:
-                 <ul>
-                   <li>A healthy BBS shows obvious activity around starting or claiming LRPs.</li>
-                   <li>An unhealthy BBS leads to the Auctioneer showing minimal or no activity. The BBS sends work to the Auctioneer.</li>
-		   <li>Reference the BBS level locket metric <a href="kpi.html#BBSActiveLocks">BBS Held Locks</a>. A value of 0 indicates locket issues at the BBS level.</li> 
-                 </ul>
-               <li>If the BBS appears healthy, then check the Auctioneer to ensure it is processing auction payloads.</li>
-	         <ul>
-                   <li>Recent logs for Auctioneer should show all but one are currently waiting on locks,
-                       and the active Auctioneer should show a record of when it last attempted to execute work. This attempt to execute should correspond to app dev activity, such as a <code>cf push</code>.</li>
-                   <li>Reference the Auctioneer level locket metric <a href="kpi.html#AuctioneerActiveLocks">Auctioneer Held Locks</a>. A value of 0 indicates locket issues at the Auctioneer level.</li> 
-                 </ul>	  
-	      <li>The TPS Watcher is primarily only active when application instances crash, so if the TPS Watcher is suspected, review the most recent logs.</li>
+                <ul>
+                  <li>A healthy BBS shows obvious activity around starting or claiming LRPs.</li>
+                  <li>An unhealthy BBS leads to the Auctioneer showing minimal or no activity. The BBS sends work to the Auctioneer.</li>
+		              <li>Reference the BBS-level Locket metric <a href="kpi.html#BBSActiveLocks">BBS-Held Locks</a>. A value of 0 indicates Locket issues at the BBS level.</li>
+                </ul>
+              <li>If the BBS appears healthy, then check the Auctioneer to ensure it is processing auction payloads.</li>
+	              <ul>
+                  <li>Recent logs for the Auctioneer should show all but one of its instances are currently waiting on locks,
+                      and the active Auctioneer should show a record of when it last attempted to execute work. This attempt to execute should correspond to app development activity, such as <code>cf push</code>.</li>
+                  <li>Reference the Auctioneer-level Locket metric <a href="kpi.html#AuctioneerActiveLocks">Auctioneer-Held Locks</a>. A value of 0 indicates Locket issues at the Auctioneer level.</li>
+                </ul>
+	            <li>The TPS Watcher is primarily active when app instances crash. Therefore, if the TPS Watcher is suspected, review the most recent logs.</li>
               <li>If unable to resolve on-going excessive active locks, pull logs from the Diego BBS and Auctioneer VMs,
                   which will include the Locket service component logs, and contact Pivotal Support.</li>
           </ol>
@@ -704,14 +704,14 @@ When observing extended periods of high or low activity trends, scale up or down
    </tr>
 </table>
 
-###<a id="BBSActiveLocks"></a>BBS Held Locks
+###<a id="BBSActiveLocks"></a>BBS-Held Locks
 <table>
    <tr><th colspan="2" style="text-align: center;"><br>bbs.LockHeld<br><br></th></tr>
    <tr>
       <th width="25%">Description</th>
-      <td>Whether a BBS instance holds the expected BBS lock (in locket). 1 means the lock is held by the active BBS server, and 0 means the lock was lost.
+      <td>Whether a BBS instance holds the expected BBS lock (in Locket). 1 means the active BBS server holds the lock, and 0 means the lock was lost.
           <br><br>
-          <strong>Use</strong>: This metric is complimentary to <a href="kpi.html#ActiveLocks">Active Locks</a> by offering a BBS component level version of the locket metrics. Although it is emitted per BBS instance, only 1 active lock is held by BBS, therefore the expected value is 1. Although the metric may occasionally be 0 when the BBS instances are performing a leader transition, a prolonged value of 0 indicates an issue with BBS. 
+          <strong>Use</strong>: This metric is complimentary to <a href="kpi.html#ActiveLocks">Active Locks</a>, and it offers a BBS-level version of the Locket metrics. Although it is emitted per BBS instance, only 1 active lock is held by the BBS. Therefore, the expected value is 1. The metric may occasionally be 0 when the BBS instances are performing a leader transition, but a prolonged value of 0 indicates an issue with the BBS.
           <br><br>
           <strong>Origin</strong>: Firehose<br>
           <strong>Type</strong>: Gauge<br>
@@ -730,20 +730,20 @@ When observing extended periods of high or low activity trends, scale up or down
       <th>Recommended response</th>
       <td>
           <ol>
-             <li>Run <code>monit status</code> on the Diego Database VM to inspect for failing processes.</li>
-             <li>If there are no failing processes, then review the logs for BBS.
+             <li>Run <code>monit status</code> on the Diego database VM to check for failing processes.</li>
+             <li>If there are no failing processes, then review the logs for the BBS.
                  <ul>
                    <li>A healthy BBS shows obvious activity around starting or claiming LRPs.</li>
                    <li>An unhealthy BBS leads to the Auctioneer showing minimal or no activity. The BBS sends work to the Auctioneer.</li>
                  </ul>
-             <li>If unable to resolve the BBS Held Locks issue, pull logs from the Diego BBS and Auctioneer VMs,
-                  which will include the Locket service component logs, and contact Pivotal Support.</li>
+             <li>If you are unable to resolve the issue, pull logs from the Diego BBS and Auctioneer VMs,
+                  which include the Locket service component logs, and contact Pivotal Support.</li>
           </ol>
           </td>
    </tr>
 </table>
 
-###<a id="AuctioneerActiveLocks"></a>Auctioneer Held Locks
+###<a id="AuctioneerActiveLocks"></a>Auctioneer-Held Locks
 <table>
    <tr><th colspan="2" style="text-align: center;"><br>auctioneer.LockHeld<br><br></th></tr>
    <tr>
