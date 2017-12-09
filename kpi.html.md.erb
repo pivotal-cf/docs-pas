@@ -750,7 +750,7 @@ When observing extended periods of high or low activity trends, scale up or down
       <th width="25%">Description</th>
       <td>Whether an Auctioneer instance holds the expected Auctioneer lock (in Locket). 1 means the active Auctioneer holds the lock, and 0 means the lock was lost.
           <br><br>
-          <strong>Use</strong>: This metric is complimentary to <a href="kpi.html#ActiveLocks">Active Locks</a>, and it offers an Auctioneer-level version of the Locket metrics. Although it is emitted per Auctioneer instance, only 1 active lock is held by Auctioneer. Therefore the expected value is 1. The metric may occasionally be 0 when the Auctioneer instances are performing a leader transition, but a prolonged value of 0 indicates an issue with Auctioneer. 
+          <strong>Use</strong>: This metric is complimentary to <a href="kpi.html#ActiveLocks">Active Locks</a>, and it offers an Auctioneer-level version of the Locket metrics. Although it is emitted per Auctioneer instance, only 1 active lock is held by Auctioneer. Therefore, the expected value is 1. The metric may occasionally be 0 when the Auctioneer instances are performing a leader transition, but a prolonged value of 0 indicates an issue with Auctioneer. 
           <br><br>
           <strong>Origin</strong>: Firehose<br>
           <strong>Type</strong>: Gauge<br>
