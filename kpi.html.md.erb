@@ -1330,10 +1330,14 @@ When PAS uses an internal MySQL database, as configured in the PAS tile **Settin
     <th width="25%">Description</th>
       <td>The lifetime number of requests completed by the UAA VM, emitted per UAA instance. This number includes health checks.
         <br><br>
-        <strong>Use</strong>: For capacity planning purposes, the aggregation of these values across all UAA instances can provide insight into the overall load against UAA. It is recommended to alert on unexpected spikes per UAA instance. Unusually high spikes, if they are not associated with an expected increase in demand, could indicate a DDoS risk and should be investigated. For performance and capacity management, look at this metric as either a requests-completed-per-second or requests-completed-per-minute rate to understand the throughput per UAA instance. This helps you see trends in the throughput rate that may indicate a need to scale UAA instances. Use the trends you observe to tune the threshold alerts for this metric. From performance and load testing of UAA, Pivotal has observed that while UAA endpoints can have different throughput behavior, once throughput reaches peak value per VM, it stays constant and latency increases.
+        <strong>Use</strong>: For capacity planning purposes, the aggregation of these values across all UAA instances can provide insight into the overall load that UAA is processing.
+        It is recommended to alert on unexpected spikes per UAA instance. Unusually high spikes, if they are not associated with an expected increase in demand, could indicate a DDoS risk and should be investigated.
+        For performance and capacity management, look at the UAA Throughput metric as either a requests-completed-per-second or requests-completed-per-minute rate to understand the throughput per UAA instance.
+        This helps you see trends in the throughput rate that may indicate a need to scale UAA instances. Use the trends you observe to tune the threshold alerts for this metric.
+        From performance and load testing of UAA, Pivotal has observed that while UAA endpoints can have different throughput behavior, once throughput reaches its peak value per VM, it stays constant and latency increases.
         <br><br>
         <strong>Origin</strong>: Firehose<br>
-        <strong>Type</strong>: Gauge (Integer), emitted value increments over lifetime of VM like a counter<br>
+        <strong>Type</strong>: Gauge (Integer), emitted value increments over the lifetime of the VM like a counter<br>
         <strong>Frequency</strong>: 5 s<br>
       </td>
     </tr>
@@ -1348,7 +1352,9 @@ When PAS uses an internal MySQL database, as configured in the PAS tile **Settin
     </tr>
     <tr>
       <th>Recommended response</th>
-      <td>For optimizing UAA, consider this metric in the context of UAA Request Latency and UAA VM CPU Utilization. To increase throughput and maintain low latency, scale the UAA VMs horizontally by editing the number of your <b>UAA</b> VM instances in the <b>Resource Config</b> pane of the PAS tile and watch that the <code>system.cpu.user</code> metric for UAA is not sustained in the suggested range of 80-90% maximum CPU utilization.
+      <td>For optimizing UAA, consider this metric in the context of UAA Request Latency and UAA VM CPU Utilization.
+      To increase throughput and maintain low latency, scale the UAA VMs horizontally by editing the number of your <b>UAA</b> VM instances in the <b>Resource Config</b> pane of the PAS tile
+      and ensure that the <code>system.cpu.user</code> metric for UAA is not sustained in the suggested range of 80-90% maximum CPU utilization.
       </td>
     </tr>
 </table>
@@ -1358,11 +1364,11 @@ When PAS uses an internal MySQL database, as configured in the PAS tile **Settin
   <tr><th colspan="2" style="text-align: center;"><br>gorouter.latency.uaa<br><br></th></tr>
   <tr>
     <th width="25%">Description</th>
-      <td>The time in milliseconds that UAA took to process a request that the Gorouter sent to UAA endpoints.
+      <td>Time in milliseconds that UAA took to process a request that the Gorouter sent to UAA endpoints.
         <br><br>
-        <strong>Use</strong>: Indicates how responsive UAA has been to requests sent from the Gorouter. Some operations may take longer amounts of time to process, such as bulk creating users and groups. It is important to correlate latency observed with the endpoint and evaluate latency in the context of overall historical latency performance from that endpoint. Unusual spikes in latency could indicate the need to scale UAA VMs.
+        <strong>Use</strong>: Indicates how responsive UAA has been to requests sent from the Gorouter. Some operations may take longer to process, such as creating bulk users and groups. It is important to correlate latency observed with the endpoint and evaluate this data in the context of overall historical latency from that endpoint. Unusual spikes in latency could indicate the need to scale UAA VMs.
         <br><br>
-        This metric is only emitted for the routers serving the UAA system component and will not be emitted per isolation segment even if you are using isolated routers.
+        This metric is emitted only for the routers serving the UAA system component and is not emitted per isolation segment even if you are using isolated routers.
         <br><br>
         <strong>Origin</strong>: Firehose<br>
         <strong>Type</strong>: Gauge (Float in ms)<br>
@@ -1380,10 +1386,10 @@ When PAS uses an internal MySQL database, as configured in the PAS tile **Settin
     </tr>
     <tr>
       <th>Recommended response</th>
-      <td>Latency is based on the endpoint and operation being used. It is important to correlate the latency with the endpoint and evaluate latency in the context of the historical latency from that endpoint.
+      <td>Latency depends on the endpoint and operation being used. It is important to correlate the latency with the endpoint and evaluate this data in the context of the historical latency from that endpoint.
 	      <ol>
-            <li>Inspect which endpoints requests are hitting. Use historical value to understand if the latency is unusual for that endpoint. A list of UAA endpoints is available as part of the <a href="http://docs.cloudfoundry.org/api/uaa/version/4.8.0/index.html">UAA API documentation</a>.</li>
-            <li>If it appears that the UAA needs to scale due to ongoing traffic congestion, do not scale on the latency metric alone. You should also watch that the <code>system.cpu.user metric</code> for UAA stays in the suggested range of 80-90% maximum CPU utilization.</li>
+            <li>Inspect which endpoints requests are hitting. Use historical data to determine if the latency is unusual for that endpoint. A list of UAA endpoints is available as part of the <a href="http://docs.cloudfoundry.org/api/uaa/version/4.8.0/index.html">UAA API documentation</a>.</li>
+            <li>If it appears that UAA needs to be scaled due to ongoing traffic congestion, do not scale based on the latency metric alone. You should also ensure that the <code>system.cpu.user</code> metric for UAA stays in the suggested range of 80-90% maximum CPU utilization.</li>
             <li>Resolve high utilization by scaling UAA VMs horizontally. To scale UAA, navigate to the <b>Resource Config</b> pane of the PAS tile and edit the number of your <b>UAA</b> VM instances.</li>
         </ol>
       </td>
@@ -1397,9 +1403,9 @@ When PAS uses an internal MySQL database, as configured in the PAS tile **Settin
     <th width="25%">Description</th>
       <td>The number of requests UAA is currently processing (in-flight requests), emitted per UAA instance.
         <br><br>
-        <strong>Use</strong>: Indicates how many concurrent requests are currently in flight for the UAA instance. Unusually high spikes, if not associated with an expected increase in demand, could indicate a DDoS risk. 
+        <strong>Use</strong>: Indicates how many concurrent requests are currently in flight for the UAA instance. Unusually high spikes, if they are not associated with an expected increase in demand, could indicate a DDoS risk. 
         <br><br>
-        From performance and load testing of the UAA component, Pivotal has observed that concurrent requests are closely related to increased throughput and latency. This helps you see trends in the request rate that may indicate the need to scale UAA instances. Use the trends you observe to tune the threshold alerts for this metric.
+        From performance and load testing of the UAA component, Pivotal has observed that the number of concurrent requests impacts throughput and latency. The UAA Requests In Flight metric helps you see trends in the request rate that may indicate the need to scale UAA instances. Use the trends you observe to tune the threshold alerts for this metric.
         <br><br>
         <strong>Origin</strong>: Firehose<br>
         <strong>Type</strong>: Gauge (Integer)<br>
