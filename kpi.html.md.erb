@@ -1332,8 +1332,10 @@ When PAS uses an internal MySQL database, as configured in the PAS tile **Settin
         <br><br>
         <strong>Use</strong>: For capacity planning purposes, the aggregation of these values across all UAA instances can provide insight into the overall load that UAA is processing.
         It is recommended to alert on unexpected spikes per UAA instance. Unusually high spikes, if they are not associated with an expected increase in demand, could indicate a DDoS risk and should be investigated.
-        For performance and capacity management, look at the UAA Throughput metric as either a requests-completed-per-second or requests-completed-per-minute rate to understand the throughput per UAA instance.
+        <br><br>
+        For performance and capacity management, look at the UAA Throughput metric as either a requests-completed-per-second or requests-completed-per-minute rate to determine the throughput per UAA instance.
         This helps you see trends in the throughput rate that may indicate a need to scale UAA instances. Use the trends you observe to tune the threshold alerts for this metric.
+        <br><br>
         From performance and load testing of UAA, Pivotal has observed that while UAA endpoints can have different throughput behavior, once throughput reaches its peak value per VM, it stays constant and latency increases.
         <br><br>
         <strong>Origin</strong>: Firehose<br>
@@ -1352,7 +1354,7 @@ When PAS uses an internal MySQL database, as configured in the PAS tile **Settin
     </tr>
     <tr>
       <th>Recommended response</th>
-      <td>For optimizing UAA, consider this metric in the context of UAA Request Latency and UAA VM CPU Utilization.
+      <td>For optimizing UAA, consider this metric in the context of <a href="#uaa_latency">UAA Request Latency</a> and <a href="key-cap-scaling.html#uaa-system.cpu.user">UAA VM CPU Utilization</a>.
       To increase throughput and maintain low latency, scale the UAA VMs horizontally by editing the number of your <b>UAA</b> VM instances in the <b>Resource Config</b> pane of the PAS tile
       and ensure that the <code>system.cpu.user</code> metric for UAA is not sustained in the suggested range of 80-90% maximum CPU utilization.
       </td>
@@ -1388,7 +1390,7 @@ When PAS uses an internal MySQL database, as configured in the PAS tile **Settin
       <th>Recommended response</th>
       <td>Latency depends on the endpoint and operation being used. It is important to correlate the latency with the endpoint and evaluate this data in the context of the historical latency from that endpoint.
 	      <ol>
-            <li>Inspect which endpoints requests are hitting. Use historical data to determine if the latency is unusual for that endpoint. A list of UAA endpoints is available as part of the <a href="http://docs.cloudfoundry.org/api/uaa/version/4.8.0/index.html">UAA API documentation</a>.</li>
+            <li>Inspect which endpoints requests are hitting. Use historical data to determine if the latency is unusual for that endpoint. A list of UAA endpoints is available in the <a href="http://docs.cloudfoundry.org/api/uaa/version/4.8.0/index.html">UAA API documentation</a>.</li>
             <li>If it appears that UAA needs to be scaled due to ongoing traffic congestion, do not scale based on the latency metric alone. You should also ensure that the <code>system.cpu.user</code> metric for UAA stays in the suggested range of 80-90% maximum CPU utilization.</li>
             <li>Resolve high utilization by scaling UAA VMs horizontally. To scale UAA, navigate to the <b>Resource Config</b> pane of the PAS tile and edit the number of your <b>UAA</b> VM instances.</li>
         </ol>
