@@ -27,6 +27,45 @@ This table highlights new and changed KPIs in PCF v2.1.
     </td>
     <td><a href="./kpi.html#uaa_throughput">Link</a></td>
   </tr> 
+  <tr>
+    <td><em>Modified</em></td>
+    <td>KPI: <strong><code>Log Transport Loss Rate</code> (formerly Firehose Loss Rate)</strong><br><br>
+      In PCF v2.1, it is no longer necessary to include <code>DopplerServer.doppler.shedEnvelopes</code> or <code>DopplerServer.listeners.totalReceivedMessageCount</code> in the calculated values, as these metrics are now deprecated. The formula to calculate Loss Rate has been updated accordingly. Additionally, this measure of Loss Rate has been renamed to better distinguish it from the new Log Ingress Loss Rate scaling indicator. With the combination of <code>Log Ingress Loss Rate</code> and <code>Log Transport Loss Rate</code>, Operators are able to better determine where in the logs path loss is occurring, in order to better scale the right components.
+key-cap-scaling.html#firehose-loss-rate
+    </td>
+    <td><a href="./key-cap-scaling.html#firehose-ingress-loss-rate">Link</a></td>
+  </tr> 
+  <tr>
+    <td><em>New</em></td>
+    <td>KPI: <strong><code>Log Ingress Loss Rate</code></strong><br><br>
+      New metrics allow for measurement of loss at the Metron and Doppler component level. When combined with the <code>Log Transport Loss Rate</code> indicator, Operators are able to better determine where in the logs path loss is occurring, in order to better scale the right components.
+    </td>
+    <td><a href="./key-cap-scaling.html#firehose-ingress-loss-rate">Link</a></td>
+  </tr> 
+  <tr>
+    <td><em>New</em></td>
+    <td>KPI: <strong><code>Doppler Message Rate Capacity</code></strong><br><br>
+      Indicates the need to scale based on the recommended maximum load for Doppler instances.
+    </td>
+    <td><a href="./key-cap-scaling.html#doppler-message-rate-ksi">Link</a></td>
+  </tr> 
+  <tr>
+    <td><em>Deleted</em></td>
+    <td>KPI: <strong><code>Firehose Dropped Messages</code></strong><br><br>
+      With the addition of new Firehose metrics, this metric is no longer recommended as a high-value monitoring indicator. [Log Ingress Loss Rate](key-cap-scaling.html#firehose-ingress-loss-rate) and [Log Transport Loss Rate](key-cap-scaling.html#firehose-loss-rate) are now the recommended indicators for scaling needs.
+    </td>
+    <td><em>n/a</em></td>
+  </tr> 
+  <tr>
+    <td><em>Deleted</em></td>
+    <td>KPI: <strong><code>Firehose Throughput</code></strong><br><br>
+      With the addition of new Firehose metrics, this metric is no longer recommended as a high-value monitoring indicator. [Doppler Message Rate Capacity](key-cap-scaling.html#doppler-message-rate-ksi) is now the recommended indicator for scaling needs.
+    </td>
+    <td><em>n/a</em></td>
+  </tr> 
+  
+  
+  
 </table> 
 
 ##<a id="resources"></a> Additional Resources
