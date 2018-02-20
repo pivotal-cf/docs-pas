@@ -31,7 +31,12 @@ This table highlights new and changed KPIs in PCF v2.1.
     <td><em>Modified</em></td>
     <td>KPI: <strong><code>Log Transport Loss Rate</code> (formerly Firehose Loss Rate)</strong><br><br>
       In PCF v2.1, it is no longer necessary to include <code>DopplerServer.doppler.shedEnvelopes</code> or <code>DopplerServer.listeners.totalReceivedMessageCount</code> in the calculated values, as these metrics are now deprecated. The formula to calculate Loss Rate has been updated accordingly. Additionally, this measure of Loss Rate has been renamed to better distinguish it from the new Log Ingress Loss Rate scaling indicator. With the combination of <code>Log Ingress Loss Rate</code> and <code>Log Transport Loss Rate</code>, Operators are able to better determine where in the logs path loss is occurring, in order to better scale the right components.
-key-cap-scaling.html#firehose-loss-rate
+      <br><br>
+      Due to improvements in the underlying architecture, recommended thresholds are now:
+         <ul>
+         <li>Warning/Yellow &ge; 0.005</li>
+         <li>Critical/Red &ge; 0.001</li>
+         </ul>
     </td>
     <td><a href="./key-cap-scaling.html#firehose-ingress-loss-rate">Link</a></td>
   </tr> 
