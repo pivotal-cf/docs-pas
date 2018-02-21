@@ -137,20 +137,58 @@ There are three key capacity scaling indicators recommended for Diego cell:
    </tr>
 </table>
 
-## <a id="doppler-server"></a> Firehose Performance Scaling Indicator
+## <a id="doppler-server"></a> Firehose Performance Scaling Indicators
 
-There is one key capacity scaling indicator recommended for Firehose performance. 
+There are three key capacity scaling indicators recommended for Firehose performance. 
 
-### <a id="firehose-loss-rate"></a> Firehose Loss Rate
+### <a id="firehose-ingress-loss-rate"></a> Log Ingress Loss Rate
 
 <table>
   <tr>
-      <th colspan="2" style="text-align: center;">(DopplerServer.doppler.shedEnvelopes +  loggregator.doppler.dropped) / (DopplerServer.listeners.totalReceivedMessageCount + loggregator.doppler.ingress)</th>
+      <th colspan="2" style="text-align: center;">loggregator.metron.dropped / loggregator.metron.ingress</th>
   </tr>
    <tr>
       <th width="25">Description</th>
-      <td> This derived value represents the Firehose loss rate, or the total messages dropped as a percentage of the total message throughput.
-           Total messages include the combined stream of logs from all apps and the metrics data from Cloud Foundry components.
+      <td>This derived value represents the loss rate occurring as messages ingress into the firehose via the [Metron Agent](https://docs.pivotal.io/pivotalcf/2-0/loggregator/architecture.html#components) components. Metron components proceed [Doppler](https://docs.pivotal.io/pivotalcf/2-0/loggregator/architecture.html#components) components as messages travel through the firehose. Metric `loggregator.metron.ingress` represents the number of messages entering the firehose via Metron, and `loggregator.metron.dropped` represents the number of messages dropped by Metron before they can proceed through the firehose.
+       </td>
+   </tr>
+   <tr>
+      <th>Purpose</th>
+      <td>Excessive dropped messages can indicate the Metrons are not processing messages fast enough.
+        <br><br>
+        The recommended scaling indicator is to look at the total dropped as a precentage of total throughput and scale if this derived loss rate value grows great than <code>0.01</code>
+   </tr>
+   <tr>
+      <th>Recommended thresholds</th>
+      <td><strong>Scale indicator</strong>: &ge; 0.01</br>
+      If alerting:<br>
+      <strong>Yellow warning</strong>: &ge; 0.005<br>
+      <strong>Red critical</strong>: &ge; 0.01</td>
+   </tr>
+   <tr>
+      <th>How to scale</th>
+      <td>Scale up the number of Metron instances.
+      </td>
+   </tr>
+   <tr>
+      <th>Additional details</th>
+      <td> <strong>Origin</strong>: Firehose<br>
+           <strong>Type</strong>: Gauge (float)<br>
+           <strong>Frequency</strong>: Base metrics are emitted every 15 s<br>
+           <strong>Applies to</strong>: cf:metron<br>
+      </td>
+   </tr>
+</table>
+
+### <a id="firehose-loss-rate"></a> Log Transport Loss Rate
+
+<table>
+  <tr>
+      <th colspan="2" style="text-align: center;">loggregator.doppler.dropped / loggregator.doppler.ingress</th>
+  </tr>
+   <tr>
+      <th width="25">Description</th>
+      <td>This derived value represents the loss rate occurring as messages are transported from the [Metron Agent](https://docs.pivotal.io/pivotalcf/2-0/loggregator/architecture.html#components) components (log ingress point) through the [Doppler](https://docs.pivotal.io/pivotalcf/2-0/loggregator/architecture.html#components) components to the firehose endpoints. Metric `loggregator.doppler.ingress` represents the number of messages entering Dopplers for transport through the firehose, and `loggregator.doppler.dropped` represents the number of messages dropped without delivery. Messages include the combined stream of logs from all apps and the metrics data from Cloud Foundry components.
        </td>
    </tr>
    <tr>
@@ -158,18 +196,18 @@ There is one key capacity scaling indicator recommended for Firehose performance
       <td>Excessive dropped messages can indicate the Dopplers and/or Traffic Controllers are not processing messages fast enough.
         <br><br>
         The recommended scaling indicator is to look at the total dropped as a percentage of the total throughput
-        and scale if the derived loss rate value grows greater than <code>0.1</code>.
+        and scale if the derived loss rate value grows greater than <code>0.01</code>.
    </tr>
    <tr>
       <th>Recommended thresholds</th>
-      <td><strong>Scale indicator</strong>: &ge; 0.1</br>
+      <td><strong>Scale indicator</strong>: &ge; 0.01</br>
       If alerting:<br>
-      <strong>Yellow warning</strong>: &ge; 0.05<br>
-      <strong>Red critical</strong>: &ge; 0.1</td>
+      <strong>Yellow warning</strong>: &ge; 0.005<br>
+      <strong>Red critical</strong>: &ge; 0.01</td>
    </tr>
    <tr>
       <th>How to scale</th>
-      <td>Scale up the Firehose Traffic Controllers and Dopplers. 
+      <td>Scale up the number of Traffic Controller and Doppler instances. 
       </td>
    </tr>
    <tr>
@@ -177,6 +215,40 @@ There is one key capacity scaling indicator recommended for Firehose performance
       <td> <strong>Origin</strong>: Firehose<br>
            <strong>Type</strong>: Gauge (float)<br>
            <strong>Frequency</strong>: Base metrics are emitted every 5 s<br>
+           <strong>Applies to</strong>: cf:doppler<br>
+      </td>
+   </tr>
+</table>
+
+### <a id="doppler-message-rate-ksi"></a> Doppler Message Rate Capacity
+
+<table>
+  <tr>
+      <th colspan="2" style="text-align: center;">loggregator.doppler.ingress (sum across instances) / current number of Doppler instances</th>
+  </tr>
+   <tr>
+      <th width="25">Description</th>
+       <td>This derived value represents the average rate of envelopes (messages) per Doppler instance. Deriving this into a per Doppler envelopes-per-second, or envelopes-per-minute, rate can indicate the need to scale when Doppler instances are at their recommended maximum load.<br>
+       </td>
+   </tr>
+   <tr>
+      <th>Purpose</th>
+      <td>The recommended scaling indicator is to look at the average load on the Doppler instances, and increase the number of Doppler instances when the derived rate is 16,000 envelopes-per-second, or 1 million envelopes-per-minute.
+   </tr>
+   <tr>
+      <th>Recommended thresholds</th>
+      <td><strong>Scale indicator</strong>: &ge; 16,000 envelopes-per-second (or 1 million envelopes-per-minute)<br>
+   </tr>
+   <tr>
+      <th>How to scale</th>
+      <td>Increase the number of Doppler VMs in the <strong>Resource Config</strong> pane of the Pivotal Application Service (PAS) tile.
+      </td>
+   </tr>
+   <tr>
+      <th>Additional details</th>
+      <td> <strong>Origin</strong>: Firehose<br>
+           <strong>Type</strong>: Gauge (float)<br>
+           <strong>Frequency</strong>: Emitted every 15 s<br>
            <strong>Applies to</strong>: cf:doppler<br>
       </td>
    </tr>
