@@ -29,6 +29,20 @@ This table highlights new and changed KPIs in PCF v2.1.
   </tr> 
   <tr>
     <td><em>Modified</em></td>
+    <td>KPI: <strong><code>rep.UnhealthyCell</code></strong><br><br>
+    Added a recommended warning threshold of = 1 to prompt further investigation. Previously, only a critical threshold was recommended.
+    </td>
+    <td><a href="./kpi.html#UnhealthyCell">Link</a></td>
+  </tr> 
+  <tr>
+    <td><em>Modified</em></td>
+    <td>KPI: <strong><code>Number of Route Registration Messages Sent and Received</code></strong><br><br>
+      The <code>route_emitter.MessagesEmitted</code> metric has been deprecated in favor of <code>route_emitter.HTTPRouteNATSMessagesEmitted</code>. The suggested formula for this assessment has been updated.
+    </td>
+    <td><a href="./kpi.html#route-registration">Link</a></td>
+  </tr> 
+  <tr>
+    <td><em>Modified</em></td>
     <td>KPI: <strong><code>Log Transport Loss Rate</code> (formerly Firehose Loss Rate)</strong><br><br>
       In PCF v2.1, it is no longer necessary to include <code>DopplerServer.doppler.shedEnvelopes</code> or <code>DopplerServer.listeners.totalReceivedMessageCount</code> in the calculated values, as these metrics are now deprecated. The formula to calculate Loss Rate has been updated accordingly. Additionally, this measure of Loss Rate has been renamed to better distinguish it from the new Log Ingress Loss Rate scaling indicator. With the combination of <code>Log Ingress Loss Rate</code> and <code>Log Transport Loss Rate</code>, Operators are able to better determine where in the logs path loss is occurring, in order to better scale the right components.
       <br><br>
