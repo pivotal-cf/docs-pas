@@ -622,11 +622,11 @@ When observing extended periods of high or low activity trends, scale up or down
                     <br><br>
                     <strong>Use</strong>: Set an alert for further investigation if 
                     multiple unhealthy Diego cells are detected in the given time window. 
-                    If one cell is impacted, it does not participate in auctions, 
-                    but end-user impact is usually low. If multiple cells are impacted, 
-                    this can indicate a larger problem with Diego.
+                    If one cell is impacted, it does not participate in auctions, but end-user impact is usually low. If multiple cells are impacted, this can indicate a larger problem with Diego, and should be considered a more critical investigation need.
                  <br><br>
 		Suggested alert threshold based on multiple unhealthy cells in the given time window.
+		<br><br>
+		Although end-user impact is usually low if only one cell is impacted, this should still be investigated. Particularly in a lower capacity environment, this situation could result in negative end-user impact if left unresolved.
 		<br><br>
                  <strong>Origin</strong>: Firehose<br>
                  <strong>Type</strong>: Gauge (Float, 0-1)<br>
@@ -638,7 +638,7 @@ When observing extended periods of high or low activity trends, scale up or down
         </tr>
         <tr>
                 <th>Recommended alert thresholds</th>
-                <td><strong>Yellow warning</strong>: <em>N/A</em><br>
+                <td><strong>Yellow warning</strong>: = 1<br>
                 <strong>Red critical</strong>: &gt; 1 </td>
         </tr>
         <tr>
@@ -647,7 +647,7 @@ When observing extended periods of high or low activity trends, scale up or down
                     <ol>
                         <li>Investigate Diego cell servers for faults and errors.</li>
                         <li>If a particular cell or cells appear problematic, 
-                            pull logs for that cell, as well as the BBS logs before contacting Pivotal Support.</li>
+                            pull logs for that cell, as well as the BBS logs before contacting Pivotal Support. The Cell ID is the same as the BOSH instance ID.</li>
                     </ol>
                     </td>
         </tr>
@@ -1271,14 +1271,14 @@ When PAS uses an internal MySQL database, as configured in the PAS tile **Settin
 ###<a id="route-registration"></a>Number of Route Registration Messages Sent and Received
 
 <table>
-     <tr><th colspan="2" style="text-align: center;"><br>gorouter.registry_message.route-emitter<br>route_emitter.MessagesEmitted<br><br></th></tr>
+     <tr><th colspan="2" style="text-align: center;"><br>gorouter.registry_message.route-emitter<br>route_emitter.HTTPRouteNATSMessagesEmitted<br><br></th></tr>
         <tr>
                 <th width="25%">Description</th>
                 <td>
       This KPI is based on the following metrics:
       <br><br>
       <ul>
-        <li><code>route_emitter.MessagesEmitted</code> reports the lifetime number of route registration messages sent by the Route Emitter component. The metric is emitted for each Route Emitter.</li>
+        <li><code>route_emitter.HTTPRouteNATSMessagesEmitted</code> reports the lifetime number of route registration messages sent by the Route Emitter component. The metric is emitted for each Route Emitter.</li>
         <li><code>gorouter.registry_message.route-emitter</code> reports the lifetime number of route registration messages received by the Gorouter. The metric is emitted for each Gorouter instance.</li>
       </ul>
       Dynamic configuration that enables the Gorouter to route HTTP requests to apps is published by the Route Emitter component colocated on each Diego cell to the NATS clustered message bus.
@@ -1301,7 +1301,7 @@ When PAS uses an internal MySQL database, as configured in the PAS tile **Settin
         </tr>
         <tr>
                 <th>Recommended measurement</th>
-                <td>Difference of 5-minute average of the per second deltas for <code>gorouter.registry_message.route-emitter</code> and sum of <code>route_emitter.MessagesEmitted</code> for all Route Emitters</td>
+                <td>Difference of 5-minute average of the per second deltas for <code>gorouter.registry_message.route-emitter</code> and sum of <code>route_emitter.HTTPRouteNATSMessagesEmitted</code> for all Route Emitters</td>
         </tr>
         <tr>
                 <th>Recommended alert thresholds</th>
