@@ -139,46 +139,7 @@ There are three key capacity scaling indicators recommended for Diego cell:
 
 ## <a id="doppler-server"></a> Firehose Performance Scaling Indicators
 
-There are three key capacity scaling indicators recommended for Firehose performance. 
-
-### <a id="firehose-ingress-loss-rate"></a> Log Ingress Loss Rate
-
-<table>
-  <tr>
-    <th colspan="2" style="text-align: center;">loggregator.metron.dropped / loggregator.metron.ingress</th>
-  </tr>
-  <tr>
-    <th width="25">Description</th>
-    <td>This derived value represents the loss rate occurring as messages ingress into the firehose through the <a href="../loggregator/architecture.html#components">Metron Agent</a> components. Metron components proceed <a href="../loggregator/architecture.html#components">Doppler</a> components as messages travel through the firehose. Metric <code>loggregator.metron.ingress</code> represents the number of messages entering the firehose via Metron, and <code>loggregator.metron.dropped</code> represents the number of messages dropped by Metron before they can proceed through the firehose.
-    </td>
-  </tr>
-  <tr>
-    <th>Purpose</th>
-    <td>Excessive dropped messages can indicate the Metrons are not processing messages fast enough.
-    <br><br>
-    The recommended scaling indicator is to look at the total dropped as a percentage of total throughput and scale if this derived loss rate value grows great than <code>0.01</code>
-   </tr>
-   <tr>
-      <th>Recommended thresholds</th>
-      <td><strong>Scale indicator</strong>: &ge; 0.01</br>
-      If alerting:<br>
-      <strong>Yellow warning</strong>: &ge; 0.005<br>
-      <strong>Red critical</strong>: &ge; 0.01</td>
-   </tr>
-   <tr>
-      <th>How to scale</th>
-      <td>Scale up the number of Metron instances.
-      </td>
-   </tr>
-   <tr>
-      <th>Additional details</th>
-      <td> <strong>Origin</strong>: Firehose<br>
-           <strong>Type</strong>: Gauge (float)<br>
-           <strong>Frequency</strong>: Base metrics are emitted every 15 s<br>
-           <strong>Applies to</strong>: cf:metron<br>
-      </td>
-   </tr>
-</table>
+There are two key capacity scaling indicators recommended for Firehose performance. 
 
 ### <a id="firehose-loss-rate"></a> Log Transport Loss Rate
 
