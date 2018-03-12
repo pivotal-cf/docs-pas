@@ -1339,7 +1339,7 @@ When PAS uses an internal MySQL database, as configured in the PAS tile **Settin
         From performance and load testing of UAA, Pivotal has observed that while UAA endpoints can have different throughput behavior, once throughput reaches its peak value per VM, it stays constant and latency increases.
         <br><br>
         <strong>Origin</strong>: Firehose<br>
-        <strong>Type</strong>: Counter (Integer)<br>
+        <strong>Type</strong>: Gauge (Integer), emitted value increments over the lifetime of the VM like a counter<br>
         <strong>Frequency</strong>: 5 s<br>
       </td>
     </tr>
