@@ -1372,6 +1372,8 @@ When PAS uses an internal MySQL database, as configured in the PAS tile **Settin
         <br><br>
         This metric is emitted only for the routers serving the UAA system component and is not emitted per isolation segment even if you are using isolated routers.
         <br><br>
+	**Known Issue**: This metric is not currently being emitted in PCF v2.1.
+	<br><br>
         <strong>Origin</strong>: Firehose<br>
         <strong>Type</strong>: Gauge (Float in ms)<br>
         <strong>Frequency</strong>: Emitted per Gorouter request to UAA<br>
