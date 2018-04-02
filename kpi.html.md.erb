@@ -1072,11 +1072,11 @@ When PAS uses an internal MySQL database, as configured in the PAS tile **Settin
      <tr><th colspan="2" style="text-align: center;"><br>gorouter.latency<br><br></th></tr>
         <tr>
                 <th width="25%">Description</th>
-                <td>The time in milliseconds that the Gorouter takes to handle requests to its app endpoints. 
-                    This is the average round trip response time to an app, which includes router handling. 
+                <td>The time in milliseconds that the Gorouter takes to handle requests to backend endpoints, which include both applications routable platform system APIs like Cloud Controller and UAA. 
+                    This is the average round trip response time, which includes router handling. 
                     <br><br>
-                    <strong>Use</strong>: Indicates how Gorouter jobs in PCF are impacting overall app responsiveness. 
-                    Latencies above 100 ms can indicate problems with the network, misbehaving apps, 
+                    <strong>Use</strong>: Indicates how Gorouter jobs in PCF are impacting overall responsiveness. 
+                    Latencies above 100 ms can indicate problems with the network, misbehaving backends, 
                     or the need to scale the Gorouter itself due to ongoing traffic congestion. 
                     An alert value on this metric should be tuned to the specifics of the deployment and its underlying network considerations; 
                     a suggested starting point is 100 ms. 
@@ -1098,9 +1098,9 @@ When PAS uses an internal MySQL database, as configured in the PAS tile **Settin
         <tr>
                 <th>Recommended response</th>
                 <td>Extended periods of high latency can point to several factors. 
-                    The Gorouter latency measure includes network and app latency impacts as well.<br><br>
+                    The Gorouter latency measure includes network and backend latency impacts as well.<br><br>
                     <ol>
-                        <li>First inspect logs for network issues and indications of misbehaving apps.</li>
+                        <li>First inspect logs for network issues and indications of misbehaving backends.</li>
                         <li>If it appears that the Gorouter needs to scale due to ongoing traffic congestion, 
                             do not scale on the latency metric alone. You should also look at the CPU utilization of the Gorouter VMs and keep it within a maximum 60-70% range.</li>
                         <li>Resolve high utilization by scaling the Gorouter.</li>
