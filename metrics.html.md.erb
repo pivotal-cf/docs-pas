@@ -1,148 +1,141 @@
 ---
-title: Configuring a Monitoring System
+title: Selecting and Configuring a Monitoring System
 owner: Cloud Ops
 ---
 
 <strong><%= modified_date %></strong>
 
-This topic describes how to set up Pivotal Cloud Foundry (PCF) with third-party monitoring platforms to continuously monitor component metrics and trigger health alerts.
+This topic describes considerations for selecting and configuring a system to continuously monitor Pivotal Cloud Foundry (PCF) component performance and health.
 
-<p class="note"><strong>Note</strong>: You can also use <a href="https://docs.pivotal.io/pcf-healthwatch/index.html">PCF Healthwatch</a> to monitor your deployment. PCF Healthwatch is a service tile developed and supported by Pivotal.</p>
+## <a id='select'></a>Selecting a Monitoring Platform
 
-To perform a manual, one-time check of current PCF system status from Ops Manager, see [Monitoring Virtual Machines in Pivotal Cloud Foundry](../customizing/monitoring.html).
+Pivotal recommends using <a href="https://docs.pivotal.io/pcf-healthwatch/index.html">PCF Healthwatch</a> to
+monitor your deployment. PCF Healthwatch is a service tile developed and supported by Pivotal and available on [Pivotal Network](https://network.pivotal.io/products/p-healthwatch).
 
-Pivotal recommends that operators experiment with different combinations of metrics and alerts appropriate to their specific requirements. As an example, the [Datadog Config repository](https://github.com/pivotal-cf-experimental/datadog-config-oss/blob/master/cloud-ops-example-doc.md) shows how the Pivotal Cloud Ops team monitors the health of its Cloud Foundry deployments using a customized Datadog dashboard.
+Many third-party systems can also be used to monitor a PCF deployment.</p>
 
-## <a id='overview'></a>Overview
-
-As a prerequisite to PCF monitoring, you need an account with a monitoring platform such as [SignalFx](https://signalfx.com/), [Datadog](https://www.datadoghq.com/), [OpenTDSB](http://opentsdb.net/), [New Relic](https://newrelic.com/), [vRealize Operations (vROPS)](http://www.vmware.com/products/vrealize-operations.html), [AppDynamics](https://www.appdynamics.com), [Dynatrace](https://www.dynatrace.com/), or another tool.
-
-To set up PCF monitoring, you then configure PCF and your monitoring platform as follows:
-
-* In PCF:
-	- Install a [nozzle](#nozzle) that extracts BOSH and CF metrics from the Firehose and sends them to the monitoring platform.
-	- (Optional) Deploy [smoke tests](#smoke-tests) or other apps that generate custom metrics. Pivotal recommends  custom metrics for production environments.
-
-* In your monitoring platform:
-  - Customize a [dashboard](#dashboard) that lets you check and diagnose system health.
-  - Create [alerts](#alerts) that generate communications regarding attention-worthy conditions.
-
-## <a id='bosh-cf'></a>BOSH Health Monitor and CF Component Metrics
-
-You can configure PCF to direct metrics from all Pivotal Application Service (PAS) component VMs, including system components and hosts, to a monitoring platform. To do this, you configure component logs and metrics to stream from the Loggregator [Firehose](../loggregator/architecture.html#firehose) endpoint and install a [nozzle](../loggregator/architecture.html#nozzles) that filters out the logs and directs the metrics to the monitoring platform.
-
-The Loggregator Firehose metrics come from two sources:
-
-* **The BOSH Health Monitor**: The BOSH Health Monitor receives health monitoring metrics from BOSH Agents for all VMs in a deployment.
-
-	<p class="note"><b>Note</b>: BOSH-reported component metrics are now available in the Loggregator Firehose by default. If your monitoring tool is set up to consume metrics from both the Loggregator Firehose and the <a href="http://docs.pivotal.io/jmx-bridge">PCF JMX Bridge</a> tile, you may receive duplicate data. To prevent this, stop using PCF JMX Bridge to consume BOSH-reported component metrics outside of the Firehose. For more guidance, see <a href="http://docs.pivotal.io/pivotalcf/2-0/pcf-release-notes/runtime-rn.html#bosh-metrics">BOSH System Metrics Available in Loggregator Firehose</a>.</p>
-
-* **Cloud Foundry components**: Cloud Foundry component VMs for executive control, hosting, routing, traffic control, authentication, and other internal functions generate metrics.
-
-<p class="note"><b>Note</b>: PCF components specific to your IaaS also generate key metrics for health monitoring.</p>
-
-See the  following topics for lists of high-signal-value metrics and capacity scaling indicators in a PCF deployment:
-
-* [Key Performance Indicators](kpi.html)
-* [Key Capacity Scaling Indicators](key-cap-scaling.html)
-
-### Metrics Path from Component to Firehose
-
-PCF component metrics originate from the Metron agents on their source components, then travel through Dopplers to the Traffic Controller.
-
-The Traffic Controller aggregates both metrics and log messages system-wide from all Dopplers, and emits them from its Firehose endpoint.
-
-## <a id='smoke-tests'></a> Smoke Tests and Custom Component Metrics
-
-PCF includes [smoke tests](https://github.com/pivotal-cloudops/cf-smoke-tests/tree/Dockerfile), which are functional unit and integration tests on all major system components. By default, whenever an operator upgrades to a new version of PAS, these smoke tests run as a post-deploy errand.
-
-Production systems typically also have an app that runs smoke tests periodically, for example every five minutes, and generate "pass/fail" metrics from the results. For example smoke tests, see the Pivotal Cloud Ops [CF Smoke Tests](https://github.com/pivotal-cloudops/cf-smoke-tests/tree/Dockerfile) repository.
-
-Operators can also generate other custom component metrics based on multi-component tests. An example is average outbound latency between components.
-
-## <a id='process'></a>PCF Monitoring Setup
-
-Perform the following steps to set up PCF monitoring:
-
-1. Install a [nozzle](../loggregator/architecture.html#nozzles) that extracts BOSH and CF metrics from the Loggregator Firehose and sends them to the monitoring platform.
-
-2. Install a custom app to generate smoke test or other custom component metrics.
-
-3. Customize your monitoring platform dashboard and alerts.
-
-### <a id='nozzle'></a>Install a Nozzle
-
-To monitor BOSH and CF component metrics, you install a [nozzle](../loggregator/architecture.html#nozzles) that directs the metrics from the Firehose to your monitoring platform. The nozzle process takes the Firehose output, ignores the logs, and sends the metrics.
-
-You can see an example nozzle for sending metrics to Datadog in the  [datadog-firehose-nozzle](https://github.com/cloudfoundry-incubator/datadog-firehose-nozzle) GitHub repository. You configure the Datadog account credentials, API location, and other fields and options in the `config/datadog-firehose-nozzle.json` file.
-
-### <a id='deploy-app'></a>Deploy a Custom Component Metrics App
-
-For production systems, Pivotal recommends deploying an app that runs regular smoke tests and other custom tests and generates metrics from the results.
-
-A custom component metrics app sends metrics to the monitoring platform directly, so you must configure it with your platform endpoint and account information. The app does not run a Metron agent, and the Firehose does not carry custom component metrics.
-
-The app can run in own Docker container, on a [Concourse](http://concourse.ci) VM, or elsewhere.
-
-See the Pivotal Cloud Ops [CF Smoke Tests](https://github.com/pivotal-cloudops/cf-smoke-tests/tree/Dockerfile) repository for more information and examples of smoke test and custom component metrics apps.
-
-See the [Metrics](https://concourse.ci/metrics.html) topic in the Concourse documentation for how to set up Concourse to generate custom component metrics.
-
-## <a id='config-mon'></a>Configure your Monitoring Platform
+### <a id='types'></a>Monitoring Platform Types
 
 Monitoring platforms support two types of monitoring:
 
-* A _dashboard_ for active monitoring when you are at a keyboard and screen
-* Automated _alerts_ for when your attention is elsewhere
+  - A _dashboard_ for active monitoring when you are at a keyboard and
+    screen
+  - Automated _alerts_ for when your attention is elsewhere
 
-Some monitoring solutions offer both in one package. Others require putting the two pieces together.
+Some monitoring solutions offer both in one package. Others require
+putting the two pieces together.
 
-See the [Datadog Config repository](https://github.com/pivotal-cf-experimental/datadog-config-oss/blob/master/cloud-ops-example-doc.md) for an example of how to configure a dashboard and alerts for Cloud Foundry in Datadog.
+### <a id='platforms'></a>Monitoring Platforms
 
-### <a id='thresholds'></a>Determine Warning and Critical Thresholds
+There are many monitoring options
+available, both open source and commercial products. Some commonly-used platforms among PCF customers include. 
 
-To properly configure your monitoring dashboard and alerts, you need to establish what thresholds should drive alerting and red/yellow/green dashboard behavior. PCF users can refer to these recommended [Key Performance Indicators](kpi.html) and [Key Capacity Scaling Indicators](key-cap-scaling.html).
+* [PCF Healthwatch](https://docs.pivotal.io/pcf-healthwatch/index.html) by Pivotal
 
-Some key metrics of operational value have more fixed thresholds, and recommended threshold numbers for them are generally the same values across different foundations and use cases. These metrics tend to revolve around the health and performance of key components that can impact the performance of the entire system.
+* PCF Partner
+Services available on [Pivotal Network](https://network.pivotal.io):
+  - [AppDynamics](https://docs.pivotal.io/partners/appdynamics/old_index.html)
+  - [Datadog](https://docs.pivotal.io/partners/datadog/release-notes.html)
+  - [Dynatrace](https://docs.pivotal.io/partners/dynatrace-fullstack-addon/release-notes.html)
+  - [New
+    Relic](http://docs.pivotal.io/partners/newrelic/release-notes.html)
+  - [SignalFx](https://signalfx.com/) 
 
-Other key metrics of operational value are more dynamic in nature. This means that you must establish a baseline and yellow/red thresholds suitable for your system and its use cases. Initially, baselines can be established by watching values of key metrics over time and noting what seems to be a good starting threshold level between acceptable and unacceptable system performance and health. The initial baselines should continue to be refined as you determine the appropriate balance between early detection and reducing unnecessary alert fatigue. These types of more dynamic measures should be revisited on occasion to ensure they are still appropriate to the current system configuration and its usage patterns.
+* Open Source Tooling: [Prometheus +
+    Grafana](https://github.com/bosh-prometheus/prometheus-boshrelease)
+  
+### <a id='cloud-ops'></a>Pivotal Cloud Ops Tools
 
-### <a id='dashboard'></a>Customize Your Dashboard
+The Pivotal Cloud Ops Team manages two types of deployments for internal Pivotal use: open-source Cloud Foundry, and Pivotal Cloud Foundry (PCF).
 
-You customize a dashboard by defining elements on the screen that show values derived from one or more metrics. These dashboard elements typically use simple formulas, such as averaging metric values over the past 60 seconds or summing them up over related instances. They are also often normalized to display with 3 or fewer digits for easy reading and color-coded red, yellow, or green to indicate health conditions.
+For **Cloud Foundry**, Pivotal Cloud Ops uses several monitoring tools.
+The [Datadog Config
+repository](https://github.com/pivotal-cf-experimental/datadog-config-oss)
+provides an example of how the Pivotal Cloud Ops team uses a customized Datadog dashboard to monitor the health of its open-source Cloud Foundry deployments.
 
-![Datadog dashboard](./dashboard.png)
+To monitor its **PCF** deployments, Pivotal Cloud Ops leverages a combination of
+[PCF
+Healthwatch](https://docs.pivotal.io/pcf-healthwatch/1-2/index.html)
+and [Google Stackdriver](https://cloud.google.com/stackdriver/). 
 
-In Datadog, for example, you can define a `screen_template` query that watches the `auctioneer.AuctioneerLRPAuctionsFailed` metric and displays its current average over the past minute.
+## <a id='cloud-ops'></a>Key Inputs for Platform Monitoring
 
-### <a id='alerts'></a>Create Alerts
+### <a id='component-metrics'></a>BOSH VM and PCF Component Health Metrics
 
-You create alerts by defining boolean conditions based on operations over one or more metrics, and an action that the platform takes when an alert triggers. The booleans typically check whether metric values exceed or fall below thresholds, or compare metric values against each other.
+Most monitoring service tiles for PCF come packaged with the Firehose
+[nozzle](https://docs.pivotal.io/pivotalcf/2-1/loggregator/architecture.html#nozzles)
+necessary to extract the BOSH and CF metrics leveraged for platform
+monitoring. 
 
-[In Datadog](https://github.com/pivotal-cf-experimental/datadog-config-oss/),for example, you can [define an `alert_template` condition](https://github.com/pivotal-cf-experimental/datadog-config-oss/blob/master/alert_templates/shared/diego/LRPs_auction_failure_per_min_too_high.json.erb) that triggers when the `auctioneer.AuctioneerLRPAuctionsFailed` metric indicates an average of more than one failed auction per minute for the past 15 minutes:
+The nozzles gather the component logs and metrics streaming from
+the Loggregator
+[Firehose](https://docs.pivotal.io/pivotalcf/2-1/loggregator/architecture.html#firehose)
+endpoint. As of PCF v2.0, both BOSH VM Health metrics and Cloud Foundry
+component metrics stream through the Firehose by default. 
 
-<pre>
-{
-  "query": "min(last_15m):per_minute(avg:datadog.nozzle.auctioneer.AuctioneerLRPAuctionsFailed{deployment:&lt;%= metron_agent_diego_deployment %>}) > 1",
-  "message": "##Description:\nDiego internal metrics \n\n## Escalation Path:\nDiego \n\n## Possible Causes:\nThose alerts were a pretty strong signal for us to look at the BBS, which was locked up\n\n## Potential Solutions:\nEscalate to Diego team\n>&lt;%= cloudops_pagerduty %> &lt;%= diego_oncall %>",
-  "name": "&lt;%= environment %> Diego: LRP Auction Failure per min is too high",
-  "no_data_timeframe": 30,
-  "notify_no_data": false
-}
-</pre>
+  - PCF component metrics originate from the Metron agents on their
+    source components, then travel through Dopplers to the Traffic
+    Controller.
+  - The Traffic Controller aggregates both metrics and log messages
+    system-wide from all Dopplers, and emits them from its Firehose
+    endpoint.
 
-Actions that an alert triggers can include sending a pager or SMS message, sending an email, generating a support ticket, or passing the alert to a alerting system such as [PagerDuty](https://www.pagerduty.com/).
+The following topic list high-signal-value metrics and
+capacity scaling indicators in a PCF deployment:
 
-## <a id='platforms'></a>Monitoring Platforms
+  - [Key Performance
+    Indicators](https://docs.pivotal.io/pivotalcf/2-1/monitoring/kpi.html)
+  - [Key Capacity Scaling
+    Indicators](https://docs.pivotal.io/pivotalcf/2-1/monitoring/key-cap-scaling.html)
 
-Some monitoring solutions offer both alerts and a dashboard in one package, while others require separate packages for alerts and dashboard.
+### <a id='smoke-tests'></a>Continuous Functional Smoke Tests
 
-Popular monitoring platforms among PCF customers include the following:
+PCF includes [smoke
+tests](https://github.com/pivotal-cloudops/cf-smoke-tests/tree/Dockerfile),
+which are functional unit and integration tests on all major system
+components. By default, whenever an operator upgrades to a new version
+of PAS, these smoke tests run as a post-deploy errand.
 
-* [AppDynamics](https://www.appdynamics.com)
-* [Datadog](https://www.datadoghq.com/)
-* [Dynatrace](https://www.dynatrace.com/)
-* [New Relic](https://newrelic.com/)
-* [OpenTSDB](http://opentsdb.net/) alerts and [Grafana](http://grafana.org/) dashboard
-* [vRealize Operations (vROPS)](http://www.vmware.com/products/vrealize-operations.html)
+Pivotal recommends additional higher-resolution monitoring via execution
+of continuous smoke tests, or Service Level Indicator tests, that measure user-defined features and check them against expected levels. 
 
+  - [PCF
+    Healthwatch](https://network.pivotal.io/products/p-healthwatch)
+    automatically executes these tests for PAS Service Level Indicators.
+  - The Pivotal Cloud Ops [CF Smoke
+    Tests](https://github.com/pivotal-cloudops/cf-smoke-tests/tree/Dockerfile)
+    repository offers additional testing examples.
+
+See the [Metrics](https://concourse.ci/metrics.html) topic in the
+Concourse documentation for how to set up Concourse to generate
+custom component metrics.
+
+## <a id="thresholds"></a>Warning and Critical Thresholds
+
+To properly configure your monitoring dashboard and alerts, you need to
+establish what thresholds should drive alerting and red/yellow/green
+dashboard behavior. 
+
+Some key metrics have more fixed thresholds, with
+similar threshold numbers numbers recommended across different foundations and use cases. These metrics tend to
+revolve around the health and performance of key components that can
+impact the performance of the entire system.
+
+Other metrics of operational value are more dynamic in nature. This
+means that you must establish a baseline and yellow/red thresholds
+suitable for your system and its use cases. You can establish initial baselines by watching values of key metrics over time and noting what
+seems to be a good starting threshold level that divides acceptable and
+unacceptable system performance and health.
+
+### <a id='continuous'></a>Continuous Evolution
+
+Effective platform monitoring requires continuous evolution.
+
+After you establish initial baselines, Pivotal recommends that you continue to refine your metrics and tests to maintain the appropriate balance between early detection and reducing
+unnecessary alert fatigue. The dynamic measures recommended in [Key
+Performance
+Indicators](https://docs.pivotal.io/pivotalcf/2-1/monitoring/kpi.html)
+& [Key Capacity Scaling
+Indicators](https://docs.pivotal.io/pivotalcf/2-1/monitoring/key-cap-scaling.html)
+should be revisited on occasion to ensure they are still appropriate to
+the current system configuration and its usage patterns.
