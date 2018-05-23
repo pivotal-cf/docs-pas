@@ -57,6 +57,12 @@ There are three key capacity scaling indicators recommended for Diego cell:
            <strong>Applies to</strong>: cf:diego_cells
       </td>
    </tr>
+    <tr>
+      <th>Alternative Metric</th>
+      <td>      
+      If leveraging [PCF Healthwatch](https://network.pivotal.io/products/p-healthwatch), the derived metric [healthwatch.Diego.TotalPercentageAvailableMemoryCapacity.5M](http://docs.pivotal.io/pcf-healthwatch/1-2/metrics.html#memory) is recommended for this purpose. 
+      </td>
+   </tr>
 </table>
 
 ###<a id="cell-disk"></a>Diego Cell Disk Capacity
@@ -96,6 +102,12 @@ There are three key capacity scaling indicators recommended for Diego cell:
            <strong>Applies to</strong>: cf:diego_cells
       </td>
    </tr>
+    <tr>
+      <th>Alternative Metric</th>
+      <td>      
+      If leveraging [PCF Healthwatch](https://network.pivotal.io/products/p-healthwatch), the derived metric [healthwatch.Diego.TotalPercentageAvailableDiskCapacity.5M](http://docs.pivotal.io/pcf-healthwatch/1-2/metrics.html#disk) is recommended for this purpose. 
+      </td>
+   </tr>
 </table>
 
 ###<a id="cell-container"></a>Diego Cell Container Capacity
@@ -133,6 +145,12 @@ There are three key capacity scaling indicators recommended for Diego cell:
            <strong>Type</strong>: Gauge (%)<br>
            <strong>Frequency</strong>: Emitted every 60 s<br>
            <strong>Applies to</strong>: cf:diego_cells
+      </td>
+   </tr>
+    <tr>
+      <th>Alternative Metric</th>
+      <td>      
+      If leveraging [PCF Healthwatch](https://network.pivotal.io/products/p-healthwatch), the derived metric [healthwatch.Diego.TotalPercentageAvailableContainerCapacity.5M](http://docs.pivotal.io/pcf-healthwatch/1-2/metrics.html#cell-container) is recommended for this purpose. 
       </td>
    </tr>
 </table>
@@ -179,6 +197,12 @@ There are two key capacity scaling indicators recommended for Firehose performan
            <strong>Applies to</strong>: cf:doppler<br>
       </td>
    </tr>
+    <tr>
+      <th>Alternative Metric</th>
+      <td>      
+      If leveraging [PCF Healthwatch](https://network.pivotal.io/products/p-healthwatch), the derived metric <code>healthwatch.Firehose.LossRate.1H</code> or [healthwatch.Firehose.LossRate.1M](http://docs.pivotal.io/pcf-healthwatch/1-2/metrics.html#firehose-loss) is recommended for this purpose. 
+      </td>
+   </tr>
 </table>
 
 ### <a id="doppler-message-rate-ksi"></a> Doppler Message Rate Capacity
@@ -211,6 +235,12 @@ There are two key capacity scaling indicators recommended for Firehose performan
            <strong>Type</strong>: Gauge (float)<br>
            <strong>Frequency</strong>: Emitted every 15 s<br>
            <strong>Applies to</strong>: cf:doppler<br>
+      </td>
+   </tr>
+   <tr>
+      <th>Alternative Metric</th>
+      <td>      
+      If leveraging [PCF Healthwatch](https://network.pivotal.io/products/p-healthwatch), the derived metric [healthwatch.Doppler.MessagesAverage.1M](http://docs.pivotal.io/pcf-healthwatch/1-2/metrics.html#doppler-capacity) is recommended for this purpose. 
       </td>
    </tr>
 </table>
@@ -267,6 +297,12 @@ There are three key capacity scaling indicators recommended for CF Syslog Drain 
            <strong>Applies to</strong>: cf:cf-syslog<br>
       </td>
    </tr>
+   <tr>
+      <th>Alternative Metric</th>
+      <td>      
+      If leveraging [PCF Healthwatch](https://network.pivotal.io/products/p-healthwatch), the derived metric [healthwatch.SyslogDrain.Adapter.LossRate.1M](http://docs.pivotal.io/pcf-healthwatch/1-2/metrics.html#adapter-loss) is recommended for this purpose. 
+      </td>
+   </tr>
 </table>
 
 ### <a id="syslog-rlp-ksi"></a> Reverse Log Proxy Loss Rate
@@ -312,6 +348,12 @@ There are three key capacity scaling indicators recommended for CF Syslog Drain 
            <strong>Applies to</strong>: cf:cf-syslog<br>
       </td>
    </tr>
+   <tr>
+      <th>Alternative Metric</th>
+      <td>      
+      If leveraging [PCF Healthwatch](https://network.pivotal.io/products/p-healthwatch), the derived metric [healthwatch.SyslogDrain.RLP.LossRate.1M](http://docs.pivotal.io/pcf-healthwatch/1-2/metrics.html#rlp-loss) is recommended for this purpose. 
+      </td>
+</tr>
 </table>
 
 ### <a id="scalable-syslog-ksi"></a> CF Syslog Drain Bindings Count
@@ -355,6 +397,12 @@ There are three key capacity scaling indicators recommended for CF Syslog Drain 
            <strong>Applies to</strong>: cf:cf-syslog<br>
       </td>
    </tr>
+   <tr>
+      <th>Alternative Metric</th>
+      <td>      
+      If leveraging [PCF Healthwatch](https://network.pivotal.io/products/p-healthwatch), the derived metric [healthwatch.SyslogDrain.Adapter.BindingsAverage.5M](http://docs.pivotal.io/pcf-healthwatch/1-2/metrics.html#syslog-drain-binding-capacity) is recommended for this purpose. 
+      </td>
+</tr>
 </table>
 
 ## <a id="Router"></a> Router Performance Scaling Indicator
