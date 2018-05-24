@@ -8,7 +8,7 @@ they need to scale their Pivotal Cloud Foundry (PCF) deployments.
 
 Pivotal provides these indicators to operators as general guidance for capacity scaling. 
 Each indicator is based on platform metrics from different components. 
-This guidance is applicable to most PCF v2.1 deployments.
+This guidance is applicable to most PCF v2.2 deployments.
 Pivotal recommends that operators fine-tune the suggested alert thresholds 
 by observing historical trends for their deployments. 
 
@@ -369,12 +369,12 @@ There are three key capacity scaling indicators recommended for CF Syslog Drain 
    </tr>
    <tr>
       <th>Purpose</th>
-      <td>Each Syslog Adapter can handle approximately 500 drain bindings.
+      <td>Each Syslog Adapter can handle approximately 250 drain bindings.
           The recommended initial configuration is a minimum of two Syslog Adapters
-          (to handle approximately 1000 drain bindings). 
-          A new Adapter instance should be added for each 500 additional drain bindings.
+          (to handle approximately 500 drain bindings). 
+          A new Adapter instance should be added for each 250 additional drain bindings.
         <br><br>
-        Therefore, the recommended initial scaling indicator is 900 (as a maximum value over a 1-hr window).
+        Therefore, the recommended initial scaling indicator is 450 (as a maximum value over a 1-hr window).
         This indicates the need to scale up to three Adapters from the initial two-Adapter configuration.
          
    </tr>
