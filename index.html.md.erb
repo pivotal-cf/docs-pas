@@ -15,58 +15,17 @@ This guide includes the following topics:
 
 For information about logging and metrics in PCF and about monitoring of services for PCF, see <a href="#resources">Additional Resources</a> below.
 
-##<a id="new"></a> KPI Changes from PCF v2.0 to v2.1
+##<a id="new"></a> KPI Changes from PCF v2.1 to v2.2
 
-This table highlights new and changed KPIs in PCF v2.1.
+This table highlights new and changed KPIs in PCF v2.2.
 
-<table>
+<table> 
   <tr>
     <td><em>Modified</em></td>
-    <td>KPI: <strong><code>rep.UnhealthyCell</code></strong><br><br>
-    Added a recommended warning threshold of = 1 to prompt further investigation. Previously, only a critical threshold was recommended.
+    <td>KPI: <strong><code>Scalable Syslog Drain Bindings Count</code></strong><br><br>
+      The recommended scaling threshold for this metric was modified downward.
     </td>
-    <td><a href="./kpi.html#UnhealthyCell">Link</a></td>
-  </tr> 
-  <tr>
-    <td><em>Modified</em></td>
-    <td>KPI: <strong><code>Number of Route Registration Messages Sent and Received</code></strong><br><br>
-      The <code>route_emitter.MessagesEmitted</code> metric has been deprecated in favor of <code>route_emitter.HTTPRouteNATSMessagesEmitted</code>. The suggested formula for this assessment has been updated.
-    </td>
-    <td><a href="./kpi.html#route-registration">Link</a></td>
-  </tr> 
-  <tr>
-    <td><em>Modified</em></td>
-    <td>KPI: <strong><code>Log Transport Loss Rate</code> (formerly Firehose Loss Rate)</strong><br><br>
-      In PCF v2.1, it is no longer necessary to include <code>DopplerServer.doppler.shedEnvelopes</code> or <code>DopplerServer.listeners.totalReceivedMessageCount</code> in the calculated values, as these metrics are now deprecated. The formula to calculate Loss Rate has been updated accordingly. Additionally, this measure of Loss Rate has been renamed to better distinguish it from future measures regarding Log Ingress.
-      <br><br>
-      Due to improvements in the underlying architecture, recommended thresholds are now:
-         <ul>
-         <li>Warning/Yellow &ge; 0.005</li>
-         <li>Critical/Red &ge; 0.001</li>
-         </ul>
-    </td>
-    <td><a href="./key-cap-scaling.html#firehose-loss-rate">Link</a></td>
-  </tr> 
-  <tr>
-    <td><em>New</em></td>
-    <td>KPI: <strong><code>Doppler Message Rate Capacity</code></strong><br><br>
-      Indicates the need to scale based on the recommended maximum load for Doppler instances.
-    </td>
-    <td><a href="./key-cap-scaling.html#doppler-message-rate-ksi">Link</a></td>
-  </tr> 
-  <tr>
-    <td><em>Deleted</em></td>
-    <td>KPI: <strong><code>Firehose Dropped Messages</code></strong><br><br>
-      With the addition of new Firehose metrics, this metric is no longer recommended as a high-value monitoring indicator. 
-    </td>
-    <td><em>n/a</em></td>
-  </tr> 
-  <tr>
-    <td><em>Deleted</em></td>
-    <td>KPI: <strong><code>Firehose Throughput</code></strong><br><br>
-      With the addition of new Firehose metrics, this metric is no longer recommended as a high-value monitoring indicator. <a href="key-cap-scaling.html#firehose-loss-rate">Log Transport Loss Rate</a> and <a href="key-cap-scaling.html#doppler-message-rate-ksi">Doppler Message Rate Capacity</a> are the recommended indicators for scaling needs.
-    </td>
-    <td><em>n/a</em></td>
+    <td><a href="./key-cap-scaling.html#scalable-syslog-ksi">Link</a></td>
   </tr> 
 </table> 
 
