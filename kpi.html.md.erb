@@ -5,8 +5,8 @@ owner: PCF Metrics Platform Monitoring
 
 This topic describes Key Performance Indicators (KPIs) that operators may want to monitor with their Pivotal Cloud Foundry (PCF) deployment to help ensure it is in a good operational state.
 
-The following PCF v2.1 KPIs are provided for operators to give general guidance on monitoring a PCF deployment using platform component and system (BOSH) metrics. 
-Although many metrics are emitted from the platform, the following PCF v2.1 KPIs are 
+The following PCF v2.2 KPIs are provided for operators to give general guidance on monitoring a PCF deployment using platform component and system (BOSH) metrics. 
+Although many metrics are emitted from the platform, the following PCF v2.2 KPIs are 
 high-signal-value metrics that can indicate emerging platform issues. 
 
 This alerting and response guidance has been shown to apply to most deployments. 
@@ -1390,8 +1390,6 @@ When PAS uses an internal MySQL database, as configured in the PAS tile **Settin
         <br><br>
         This metric is emitted only for the routers serving the UAA system component and is not emitted per isolation segment even if you are using isolated routers.
         <br><br>
-	<strong>Known Issue</strong>: This metric is only available in PCF v2.1.3 or later. 
-	<br><br>
         <strong>Origin</strong>: Firehose<br>
         <strong>Type</strong>: Gauge (Float in ms)<br>
         <strong>Frequency</strong>: Emitted per Gorouter request to UAA<br>
