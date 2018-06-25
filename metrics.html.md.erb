@@ -69,15 +69,13 @@ and [Google Stackdriver](https://cloud.google.com/stackdriver/).
 ### <a id='component-metrics'></a>BOSH VM and PCF Component Health Metrics
 
 Most monitoring service tiles for PCF come packaged with the Firehose
-[nozzle](https://docs.pivotal.io/pivotalcf/2-1/loggregator/architecture.html#nozzles)
-necessary to extract the BOSH and CF metrics leveraged for platform
-monitoring. 
+nozzle necessary to extract the BOSH and CF metrics leveraged for platform
+monitoring. For more information about nozzles, see [Nozzles](https://docs.pivotal.io/pivotalcf/loggregator/architecture.html#nozzles) in _Overview of the Loggregator System_.
 
-The nozzles gather the component logs and metrics streaming from
-the Loggregator
-[Firehose](https://docs.pivotal.io/pivotalcf/2-1/loggregator/architecture.html#firehose)
-endpoint. As of PCF v2.0, both BOSH VM Health metrics and Cloud Foundry
-component metrics stream through the Firehose by default. 
+The nozzles gather the component logs and metrics streaming from the 
+Loggregator Firehose endpoint. For more information about the Firehose, see [Firehose](https://docs.pivotal.io/pivotalcf/loggregator/architecture.html#firehose) in _Overview of the Loggregator System_.
+
+As of PCF v2.0, both BOSH VM Health metrics and Cloud Foundry component metrics stream through the Firehose by default.
 
   - PCF component metrics originate from the Metron agents on their
     source components, then travel through Dopplers to the Traffic
@@ -86,13 +84,11 @@ component metrics stream through the Firehose by default.
     system-wide from all Dopplers, and emits them from its Firehose
     endpoint.
 
-The following topic list high-signal-value metrics and
-capacity scaling indicators in a PCF deployment:
+The following topic list high-signal-value metrics and capacity scaling 
+indicators in a PCF deployment:
 
-  - [Key Performance
-    Indicators](https://docs.pivotal.io/pivotalcf/2-1/monitoring/kpi.html)
-  - [Key Capacity Scaling
-    Indicators](https://docs.pivotal.io/pivotalcf/2-1/monitoring/key-cap-scaling.html)
+  - [Key Performance Indicators](https://docs.pivotal.io/pivotalcf/monitoring/kpi.html)
+  - [Key Capacity Scaling Indicators](https://docs.pivotal.io/pivotalcf/monitoring/key-cap-scaling.html)
 
 ### <a id='smoke-tests'></a>Continuous Functional Smoke Tests
 
@@ -102,7 +98,7 @@ which are functional unit and integration tests on all major system
 components. By default, whenever an operator upgrades to a new version
 of PAS, these smoke tests run as a post-deploy errand.
 
-Pivotal recommends additional higher-resolution monitoring via execution
+Pivotal recommends additional higher-resolution monitoring by the execution
 of continuous smoke tests, or Service Level Indicator tests, that measure user-defined features and check them against expected levels. 
 
   - [PCF
@@ -112,26 +108,16 @@ of continuous smoke tests, or Service Level Indicator tests, that measure user-d
     Tests](https://github.com/pivotal-cloudops/cf-smoke-tests/tree/Dockerfile)
     repository offers additional testing examples.
 
-See the [Metrics](https://concourse.ci/metrics.html) topic in the
-Concourse documentation for how to set up Concourse to generate
-custom component metrics.
+See the [Metrics](https://concourse.ci/metrics.html) topic in the Concourse documentation for how to set up Concourse to generate custom component metrics.
 
 ## <a id="thresholds"></a>Warning and Critical Thresholds
 
-To properly configure your monitoring dashboard and alerts, you need to
-establish what thresholds should drive alerting and red/yellow/green
-dashboard behavior. 
+To properly configure your monitoring dashboard and alerts, you must establish what thresholds should drive alerting and red/yellow/green dashboard behavior. 
 
-Some key metrics have more fixed thresholds, with
-similar threshold numbers numbers recommended across different foundations and use cases. These metrics tend to
-revolve around the health and performance of key components that can
+Some key metrics have more fixed thresholds, with similar threshold numbers numbers recommended across different foundations and use cases. These metrics tend to revolve around the health and performance of key components that can
 impact the performance of the entire system.
 
-Other metrics of operational value are more dynamic in nature. This
-means that you must establish a baseline and yellow/red thresholds
-suitable for your system and its use cases. You can establish initial baselines by watching values of key metrics over time and noting what
-seems to be a good starting threshold level that divides acceptable and
-unacceptable system performance and health.
+Other metrics of operational value are more dynamic in nature. This means that you must establish a baseline and yellow/red thresholds suitable for your system and its use cases. You can establish initial baselines by watching values of key metrics over time and noting what seems to be a good starting threshold level that divides acceptable and unacceptable system performance and health.
 
 ### <a id='continuous'></a>Continuous Evolution
 
@@ -140,8 +126,8 @@ Effective platform monitoring requires continuous evolution.
 After you establish initial baselines, Pivotal recommends that you continue to refine your metrics and tests to maintain the appropriate balance between early detection and reducing
 unnecessary alert fatigue. The dynamic measures recommended in [Key
 Performance
-Indicators](https://docs.pivotal.io/pivotalcf/2-1/monitoring/kpi.html)
-& [Key Capacity Scaling
-Indicators](https://docs.pivotal.io/pivotalcf/2-1/monitoring/key-cap-scaling.html)
+Indicators](https://docs.pivotal.io/pivotalcf/monitoring/kpi.html)
+and [Key Capacity Scaling
+Indicators](https://docs.pivotal.io/pivotalcf/monitoring/key-cap-scaling.html)
 should be revisited on occasion to ensure they are still appropriate to
 the current system configuration and its usage patterns.
