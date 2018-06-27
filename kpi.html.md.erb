@@ -470,9 +470,9 @@ When observing extended periods of high or low activity trends, scale up or down
           <br><br>
           <strong>Use</strong>: Indicates the available cell memory. Insufficient cell memory can prevent pushing and scaling apps.
           <br><br>
-          The strongest operational value of this metric is to understand a deployment's average app size and monitor/alert on ensuring that at least some cells have large enough capacity to accept standard app size pushes. For example, if pushing a 4GB app, Diego would have trouble placing that app if there is no one cell with sufficient capacity of 4GB or greater.
+          The strongest operational value of this metric is to understand a deployment's average app size and monitor/alert on ensuring that at least some cells have large enough capacity to accept standard app size pushes. For example, if pushing a 6&nbsp;GB app, Diego would have trouble placing that app if there is no one cell with sufficient capacity of 6&nbsp;GB or greater.
 	  <br><br>
-	      As an example, Pivotal Cloud Ops uses a standard of 4GB, and computes and monitors for the number of cells with at least 4GB free. When the number of cells with at least 4GB falls below a defined threshold, this is a scaling indicator alert to increase  capacity. This <em>free chunk</em> count threshold should be tuned to the deployment size and the standard size of apps being pushed to the deployment.<br><br>
+	      As an example, Pivotal Cloud Ops uses a standard of 6&nbsp;GB, and computes and monitors for the number of cells with at least 6&nbsp;GB free. When the number of cells with at least 6&nbsp;GB falls below a defined threshold, this is a scaling indicator alert to increase  capacity. This <em>free chunk</em> count threshold should be tuned to the deployment size and the standard size of apps being pushed to the deployment.<br><br>
 
           <strong>Origin</strong>: Firehose<br>
           <strong>Type</strong>: Gauge (Integer in MiB)<br>
