@@ -470,9 +470,9 @@ When observing extended periods of high or low activity trends, scale up or down
           <br><br>
           <strong>Use</strong>: Indicates the available cell memory. Insufficient cell memory can prevent pushing and scaling apps.
           <br><br>
-          The strongest operational value of this metric is to understand a deployment's average app size and monitor/alert on ensuring that at least some cells have large enough capacity to accept standard app size pushes. For example, if pushing a 6&nbsp;GB app, Diego would have trouble placing that app if there is no one cell with sufficient capacity of 6&nbsp;GB or greater.
+          The strongest operational value of this metric is to understand a deployment's average app size and monitor/alert on ensuring that at least some cells have large enough capacity to accept standard app size pushes. For example, if pushing a 4&nbsp;GB app, Diego would have trouble placing that app if there is no one cell with sufficient capacity of 4&nbsp;GB or greater.
 	  <br><br>
-	      As an example, Pivotal Cloud Ops uses a standard of 6&nbsp;GB, and computes and monitors for the number of cells with at least 6&nbsp;GB free. When the number of cells with at least 6&nbsp;GB falls below a defined threshold, this is a scaling indicator alert to increase  capacity. This <em>free chunk</em> count threshold should be tuned to the deployment size and the standard size of apps being pushed to the deployment.<br><br>
+	      As an example, Pivotal Cloud Ops uses a standard of 4&nbsp;GB, and computes and monitors for the number of cells with at least 4&nbsp;GB free. When the number of cells with at least 4&nbsp;GB falls below a defined threshold, this is a scaling indicator alert to increase  capacity. This <em>free chunk</em> count threshold should be tuned to the deployment size and the standard size of apps being pushed to the deployment.<br><br>
 
           <strong>Origin</strong>: Firehose<br>
           <strong>Type</strong>: Gauge (Integer in MiB)<br>
@@ -568,9 +568,9 @@ When observing extended periods of high or low activity trends, scale up or down
                 <th width="25%">Description</th>
                 <td>Remaining amount of disk in MiB available for this Diego cell to allocate to containers.
                     <br><br>
-                    <strong>Use</strong>: Low disk capacity can prevent app scaling and new deployments. Because Diego staging Tasks can fail without at least 4&nbsp;GB free, 
+                    <strong>Use</strong>: Low disk capacity can prevent app scaling and new deployments. Because Diego staging Tasks can fail without at least 6&nbsp;GB free, 
                 the recommended red threshold is based on the minimum disk capacity across the deployment
-                falling below 4&nbsp;GB in the previous 5 minutes.
+                falling below 6&nbsp;GB in the previous 5 minutes.
 		<br><br>
 		It can also be meaningful to assess how many chunks of free disk space are above a given threshold, similar to <code>rep.CapacityRemainingMemory</code>.
                  <br><br>
@@ -584,8 +584,8 @@ When observing extended periods of high or low activity trends, scale up or down
         </tr>
         <tr>
                 <th>Recommended alert thresholds</th>
-                <td><strong>Yellow warning</strong>: &le; 8 GB<br>
-                <strong>Red critical</strong>: &le; 3.5 GB</td>
+                <td><strong>Yellow warning</strong>: &le; 12&nbsp;GB<br>
+                <strong>Red critical</strong>: &le; 6&nbsp;GB</td>
         </tr>
         <tr>
                 <th>Recommended response</th>
