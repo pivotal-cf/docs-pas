@@ -674,8 +674,12 @@ When observing extended periods of high or low activity trends, scale up or down
                 <td>
                     <ol>
                         <li>Investigate Diego cell servers for faults and errors.</li>
-                        <li>If a particular cell or cells appear problematic, 
-                            pull logs for that cell, as well as the BBS logs before contacting Pivotal Support. The Cell ID is the same as the BOSH instance ID.</li>
+                        <li>If a particular cell or cells appear problematic:
+                          <ol><li>Determine a time interval during which the metrics from the cell changed from healthy to unhealthy.</li>
+                            <li>Pull the logs that the cell generated over that interval. The Cell ID is the same as the BOSH instance ID.</li>
+                            <li>Pull the BBS logs over that same time interval.</li>
+                            <li>Contact Pivotal Support.</li></ol></li>
+                        <li>As a last resort, if you cannot wait for Pivotal Support, re-create the cell. This can sometimes help.</li>
                     </ol>
                     </td>
         </tr>
