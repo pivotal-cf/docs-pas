@@ -679,7 +679,8 @@ When observing extended periods of high or low activity trends, scale up or down
                             <li>Pull the logs that the cell generated over that interval. The Cell ID is the same as the BOSH instance ID.</li>
                             <li>Pull the BBS logs over that same time interval.</li>
                             <li>Contact Pivotal Support.</li></ol></li>
-                        <li>As a last resort, if you cannot wait for Pivotal Support, re-create the cell. This can sometimes help.</li>
+                        <li>As a last resort, if you cannot wait for Pivotal Support, it sometimes helps to run <code>bosh recreate</code> on the cell.
+                        <p class="warning note"><strong>WARNING: </strong> Running <code>bosh recreate</code> destroys the cell's logs. To enable a root cause analysis of the cell's problem, save out its logs before running <code>bosh recreate</code>.</p></li>
                     </ol>
                     </td>
         </tr>
