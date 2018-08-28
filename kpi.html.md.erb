@@ -5,8 +5,8 @@ owner: PCF Metrics Platform Monitoring
 
 This topic describes Key Performance Indicators (KPIs) that operators may want to monitor with their Pivotal Cloud Foundry (PCF) deployment to help ensure it is in a good operational state.
 
-The following PCF v2.2 KPIs are provided for operators to give general guidance on monitoring a PCF deployment using platform component and system (BOSH) metrics. 
-Although many metrics are emitted from the platform, the following PCF v2.2 KPIs are 
+The following PCF v2.3 KPIs are provided for operators to give general guidance on monitoring a PCF deployment using platform component and system (BOSH) metrics. 
+Although many metrics are emitted from the platform, the following PCF v2.3 KPIs are 
 high-signal-value metrics that can indicate emerging platform issues. 
 
 This alerting and response guidance has been shown to apply to most deployments. 
@@ -565,9 +565,69 @@ When observing extended periods of high or low activity trends, scale up or down
    </tr>
 </table>
 
-###<a id="CapacityRemainingDisk"></a>Remaining Disk Available
+###<a id="rep.CapacityRemainingDiskChunks"></a>Remaining Disk Available — Cell Disk Chunks Available
 <table>
-     <tr><th colspan="2" style="text-align: center;"><br> rep.CapacityRemainingDisk<br><br></th></tr>
+   <tr><th colspan="2" style="text-align: center;"><br>rep.CapacityRemainingDisk<br><br></th></tr>
+   <tr>
+      <th width="25%">Description</th>
+      <td>Remaining amount of disk in MiB available for this Diego cell to allocate to containers.
+          <br><br>
+          <strong>Use</strong>: Indicates the available cell disk. Insufficient free disk on cell(s) will prevent the staging or starting of apps or tasks, resulting in error messages like <code>ERR Failed to stage application: insufficient resources</code>.
+          <br><br>
+          Because Diego will fail to stage without at least 6 GB free, unreserved disk space on a given cell, the strongest operational value of this metric is to ensure that at least some cells have a large enough disk capacity to support the staging of apps and tasks.
+	  <br><br>
+	      Pivotal recommends computing and monitoring for the number of cells with at least 6 GB Disk free. When the number of cells with at least 6 GB falls below a defined threshold, this is a scaling indicator alert to increase capacity. The alerting threshold value for the amount of <em>free chunks</em> of Disk should be tuned to the deployment size and the standard size of apps being pushed to the deployment.
+	      
+          <strong>Origin</strong>: Firehose<br>
+          <strong>Type</strong>: Gauge (Integer in MiB)<br>
+          <strong>Frequency</strong>: 60 s<br>
+   </tr>
+   <tr>
+      <th>Recommended measurement</th>
+      <td><b>For alerting</b>: <ol>
+            <li>Because Diego will fail to stage without at least 6 GB free, this is the suggested minimum value to calculate <em>free chunks</em> of Remaining Disk by.
+	      <li>Create a script/tool that can iterate through each Diego Cell and do the following: 
+          <ol>
+          <li>Pull the <code>rep.CapacityRemainingDisk</code> metric for each cell.</li>
+          <li>Divide the values received by 1000 to get the value in Gigabytes (if desired threshold is GB-based).</li>
+          <li>Compare recorded values to your minimum capacity threshold, and count the number of cells that have equal or greater than the desired amount of <em>free chunk</em> space.</li>    
+	       </ol>
+	 <li> Determine a desired scaling threshold based on the minimum amount of <em>free chunks</em> that are acceptable in this deployment given historical trends.</li>
+	 <li> Set an alert to indicate the need to scale cell disk capacity when the value falls below the desired threshold number.</li>
+	      </ol> 
+	<b>For visualization purposes</b>:<br>
+	      Looking at this metric (<code>rep.CapacityRemainingDisk</code>) as a minimum value per cell has more informational value than alerting value. It can be an interesting heatmap visualization, showing average variance and density over time.   
+</td>
+  </tr>
+  <tr>
+      <th>Recommended alert thresholds</th>
+      <td><strong>Yellow warning</strong>: Dynamic<br>
+          <strong>Red critical</strong>: Dynamic<br>
+                 </td>
+   </tr>
+   <tr>
+      <th>Recommended response</th>
+      <td>
+          <ol>
+              <li>Assign more resources to the cells or assign more cells.</li>
+                        <li>Scale additional Diego cells using Ops Manager.</li>
+                    </ol>
+                    </td>
+        </tr>
+    <tr>
+      <th>Alternative Metric</th>
+      <td>
+      If you are using <a href="https://network.pivotal.io/products/p-healthwatch">PCF Healthwatch</a>,
+      Pivotal recommends the metric <a href="http://docs.pivotal.io/pcf-healthwatch/metrics.html#free-disk-chunks">healthwatch.Diego.AvailableFreeChunksDisk</a>
+      for this purpose.
+      </td>
+   </tr>
+</table>
+
+###<a id="CapacityRemainingDisk"></a>Remaining Disk Available - Overall Remaining Disk Available
+<table>
+     <tr><th colspan="2" style="text-align: center;"><br> rep.CapacityRemainingDisk<br>
+       (Alternative Use)<br><br></th></tr>
         <tr>
                 <th width="25%">Description</th>
                 <td>Remaining amount of disk in MiB available for this Diego cell to allocate to containers.
