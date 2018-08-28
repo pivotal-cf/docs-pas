@@ -963,24 +963,6 @@ When PAS uses an internal MySQL database, as configured in the PAS tile **Settin
 | **Recommended alert thresholds** | **Yellow warning:** > 80%<br> **Red critical:** > 90% |
 | **Recommended response** | - Run [`mysql-diag`](http://docs.pivotal.io/pas/2-3/mysql-diag.html) and check the MySQL Server logs for errors.<br> - When approaching 100% of max connections, Apps may be experiencing times when they cannot connect to the database. The connections per second for the cluster vary based on application instances and app utilization. If this threshold is met or exceeded for an extended period of time, monitor app usage to ensure everything is behaving as expected. |
 
-### <a id="open-files"></a> Query Rate
-
-|| **<%= vars.mysql_metrics_origin %>/performance/questions** |
-| --- | --- |
-| **Description** | The rate of statements execute by the server, shown as queries per second.<br><br> **Use:** The cluster should always be processing some queries, if just as part of the internal automation. <br><br> **Origin:** Firehose<br> **Envelope Type:** Gauge<br> **Unit:** count<br>**Frequency:** 30 s (default) |
-| **Recommended measurement** | Average over the last two minutes |
-| **Recommended alert thresholds** | **Yellow warning:** 0 for 90 s <br>**Red critical:** 0 for 120 s|
-| **Recommended response** | If the rate is ever zero for an extended time, run [`mysql-diag`](http://docs.pivotal.io/pas/2-3/mysql-diag.html) and investigate the MySQL server logs to understand why query rate changed and determine appropriate action. |
-
-### <a id="busy-time"></a> MySQL CPU Busy Time
-
-|| **<%= vars.mysql_metrics_origin %>/performance/busy_time** |
-| --- | --- |
-| **Description** | Percentage of CPU time spent by MySQL on user activity, executing user code, as opposed to kernel activity processing system calls.<br><br> **Use:** This closely reflects the amount of server activity dedicated to app queries.<br><br>**Origin:** Firehose<br> **Envelope Type:** Gauge<br> **Unit:** percentage<br> **Frequency:** 30 s (default) |
-| **Recommended measurement** | Average over last 2 minutes |
-| **Recommended alert thresholds** | **Yellow warning:** > 80%<br> **Red critical:** > 90% |
-| **Recommended response** | - If this metric meets or exceeds the recommended thresholds for extended periods of time, run `SHOW PROCESSLIST` and identify which queries or apps are using so much CPU. Optionally redeploy the MySQL jobs using VMs with more CPU capacity.<br> - Run [`mysql-diag`](http://docs.pivotal.io/pas/2-3/mysql-diag.html) and check the MySQL Server logs for errors. |
-
 ##<a id="gorouter"></a>Gorouter Metrics
 
 ###<a id="file_descriptors"></a>Router File Descriptors
