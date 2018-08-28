@@ -15,25 +15,18 @@ This guide includes the following topics:
 
 For information about logging and metrics in PCF and about monitoring of services for PCF, see <a href="#resources">Additional Resources</a> below.
 
-##<a id="new"></a> KPI Changes from PCF v2.1 to v2.2
+##<a id="new"></a> KPI Changes from PCF v2.2 to v2.3
 
-This table highlights new and changed KPIs in PCF v2.2.
+This table highlights new and changed KPIs in PCF v2.3.
 
 <table> 
   <tr>
-    <td><em>Modified</em></td>
-    <td>KPI: <strong><code>Scalable Syslog Drain Bindings Count</code></strong><br><br>
-      The recommended scaling threshold for this metric was modified downward.
+    <td><em>New</em></td>
+    <td>KPI: <strong><code>Remaining Disk Available - Cell Disk Chunks Available</code></strong><br><br>
+      Indicates the need to scale to ensure that Diego's 6 GB disk-space requirement on given cell(s) is met.
     </td>
-    <td><a href="./key-cap-scaling.html#scalable-syslog-ksi">Link</a></td>
+    <td><a href="./kpi.html#rep.CapacityRemainingDiskChunks">Link</a></td>
   </tr> 
-   <tr>
-    <td><em>Modified</em></td>
-    <td>KPI: <strong><code>Cloud Controller and Diego in Sync</code></strong><br><br>
-      The recommended alerting threshold for this metric was modified.
-    </td>
-    <td><a href="./kpi.html#cc-diego-sync">Link</a></td>
-  </tr>
 </table> 
 
 ##<a id="resources"></a> Additional Resources
