@@ -376,7 +376,8 @@ There are three key capacity scaling indicators recommended for CF Syslog Drain 
         <br><br>
         Therefore, the recommended initial scaling indicator is 450 (as a maximum value over a 1-hr window).
         This indicates the need to scale up to three Adapters from the initial two-Adapter configuration.
-         
+	<br><br>
+	Please note that while `cf-syslog-drain.scheduler.drains` is emitted by each scheduler instance, the metric emitted is the aggregated total number of active drains. Therefore this metric should not be summed across instances, as the total value is already emitted.  
    </tr>
    <tr>
       <th>Recommended thresholds</th>
