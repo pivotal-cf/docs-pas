@@ -276,8 +276,6 @@ When observing extended periods of high or low activity trends, scale up or down
               <li>No data received means <code>cf-apps</code> Domain is not up-to-date</li>
             </ul>
           <strong>Use</strong>: If the <code>cf-apps</code> Domain does not stay up-to-date, changes requested in the Cloud Controller are not guaranteed to propagate throughout the system. If the Cloud Controller and Diego are out of sync, then apps running could vary from those desired.
-          <br><br>
-	      The recommended threshold value represents a state where a up-to-date metric <code>1</code> has not been received for the entire 5 minute window.
 	  <br><br>
           <strong>Origin</strong>: Firehose<br>
           <strong>Type</strong>: Gauge (Float)<br>
@@ -290,7 +288,9 @@ When observing extended periods of high or low activity trends, scale up or down
    <tr>
       <th>Recommended alert thresholds</th>
       <td><strong>Yellow warning</strong>: <em>N/A</em> <br>
-      <strong>Red critical</strong>:  &ne; 1</td>
+      <strong>Red critical</strong>:  &ne; 1
+      <br><br>
+        The recommended threshold value represents a state where an up-to-date metric <code>1</code> has not been received for the entire 5-minute window.</td>
    </tr>
    <tr>
       <th>Recommended response</th>
