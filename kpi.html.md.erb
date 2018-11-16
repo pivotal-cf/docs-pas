@@ -5,8 +5,8 @@ owner: PCF Metrics Platform Monitoring
 
 This topic describes Key Performance Indicators (KPIs) that operators may want to monitor with their Pivotal Cloud Foundry (PCF) deployment to help ensure it is in a good operational state.
 
-The following PCF v2.3 KPIs are provided for operators to give general guidance on monitoring a PCF deployment using platform component and system (BOSH) metrics. 
-Although many metrics are emitted from the platform, the following PCF v2.3 KPIs are 
+The following PCF v2.4 KPIs are provided for operators to give general guidance on monitoring a PCF deployment using platform component and system (BOSH) metrics. 
+Although many metrics are emitted from the platform, the following PCF v2.4 KPIs are 
 high-signal-value metrics that can indicate emerging platform issues. 
 
 This alerting and response guidance has been shown to apply to most deployments. 
@@ -94,7 +94,8 @@ metrics, thresholds, and alerts based on learning from their deployments.
           <ol>
              <li>Check the health of the cells by reviewing the logs and looking for errors.</li>
              <li>Review IaaS console metrics.</li>
-             <li>Pull Diego brain logs and cell logs and contact Pivotal Support telling them that fetching cell states is taking too long.</li>
+	     <li>Inspect the Auctioneer logs to determine if one or more cells is taking significantly longer to fetch state than other cells. Relevant log lines will have wording like `fetched cell state`. </li>  
+             <li>Pull Diego brain logs, cell logs, and auctioneer logs and contact Pivotal Support telling them that fetching cell states is taking too long.</li>
           </ol>
        </td>
    </tr>
@@ -297,7 +298,7 @@ When observing extended periods of high or low activity trends, scale up or down
       <td>
           <ol>
               <li>Check the BBS and Clock Global (Cloud Controller clock) logs.</li>
-              <li>If the problem continues, pull the BBS logs 
+              <li>If the problem continues, pull the BBS logs and Clock Global (Cloud Controller clock) logs
                   and contact Pivotal Support to say that the <code>cf-apps</code> domain is not being kept fresh.</li>
           </ol>
       </td>
