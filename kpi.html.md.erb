@@ -775,7 +775,7 @@ When observing extended periods of high or low activity trends, scale up or down
       <tr>
       <th>Recommended alert thresholds</th>
       <td><strong>Yellow warning</strong>: <em>N/A</em> <br>
-          <strong>Red critical</strong>: &ne; 4</td>
+          <strong>Red critical</strong>: &ne; 5</td>
    </tr>
    <tr>
       <th>Recommended response</th>
@@ -783,7 +783,7 @@ When observing extended periods of high or low activity trends, scale up or down
           <ol>
              <li>Run <code>monit status</code> to inspect for failing processes.</li>
              <li>If there are no failing processes, then review the logs for the components using the Locket service: 
-                      BBS, Auctioneer, TPS Watcher, and Routing API. Look for indications that only one of each component is active at a time.</li>
+                      BBS, Auctioneer, TPS Watcher, Routing API, and Clock Global (Cloud Controller clock). Look for indications that only one of each component is active at a time.</li>
               <li>Focus triage on the BBS first:
                 <ul>
                   <li>A healthy BBS shows obvious activity around starting or claiming LRPs.</li>
