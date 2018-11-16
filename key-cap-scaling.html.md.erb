@@ -8,7 +8,7 @@ they need to scale their Pivotal Cloud Foundry (PCF) deployments.
 
 Pivotal provides these indicators to operators as general guidance for capacity scaling. 
 Each indicator is based on platform metrics from different components. 
-This guidance is applicable to most PCF v2.3 deployments.
+This guidance is applicable to most PCF v2.4 deployments.
 Pivotal recommends that operators fine-tune the suggested alert thresholds 
 by observing historical trends for their deployments. 
 
@@ -186,7 +186,7 @@ There are two key capacity scaling indicators recommended for Firehose performan
    </tr>
    <tr>
       <th>How to scale</th>
-      <td>Scale up the number of Traffic Controller and Doppler instances. 
+      <td>Scale up the number of Traffic Controller and Doppler instances. Note that there is a <a href="https://community.pivotal.io/s/article/known-loggregator-scaling-issues">known issue</a> related to the maximum number of Doppler and Traffic Controler instances at which performance will begin to decline and horizontal scaling is no longer useful.
       </td>
    </tr>
    <tr>
