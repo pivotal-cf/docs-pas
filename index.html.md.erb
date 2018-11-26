@@ -15,17 +15,17 @@ This guide includes the following topics:
 
 For information about logging and metrics in PCF and about monitoring of services for PCF, see <a href="#resources">Additional Resources</a> below.
 
-##<a id="new"></a> KPI Changes from PCF v2.2 to v2.3
+##<a id="new"></a> KPI Changes from PCF v2.3 to v2.4
 
-This table highlights new and changed KPIs in PCF v2.3.
+This table highlights new and changed KPIs in PCF v2.4.
 
 <table> 
   <tr>
-    <td><em>New</em></td>
-    <td>KPI: <strong><code>Remaining Disk Available - Cell Disk Chunks Available</code></strong><br><br>
-      Indicates the need to scale to ensure that Diego's 6 GB disk-space requirement on given cell(s) is met.
+    <td><em>Modified</em></td>
+    <td>KPI: <strong><code>locket.ActiveLocks</code></strong><br><br>
+      The Clock Global (Cloud Controller clock) job now also holds a component lock. Therefore the expected number of Active Locks increased to 5.
     </td>
-    <td><a href="./kpi.html#rep.CapacityRemainingDiskChunks">Link</a></td>
+    <td><a href="./kpi.html#ActiveLocks">Link</a></td>
   </tr> 
 </table> 
 
