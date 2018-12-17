@@ -53,7 +53,7 @@ There are three key capacity scaling indicators recommended for Diego cell:
       <th>Additional details</th>
       <td> <strong>Origin</strong>: Firehose<br>
            <strong>Type</strong>: Gauge (%)<br>
-           <strong>Frequency</strong>: Emitted every 60 s<br>
+           <strong>Frequency</strong>: Emitted every 60&nbsp;s<br>
            <strong>Applies to</strong>: cf:diego_cells
       </td>
    </tr>
@@ -98,7 +98,7 @@ There are three key capacity scaling indicators recommended for Diego cell:
       <th>Additional details</th>
       <td> <strong>Origin</strong>: Firehose<br>
            <strong>Type</strong>: Gauge (%)<br>
-           <strong>Frequency</strong>: Emitted every 60 s<br>
+           <strong>Frequency</strong>: Emitted every 60&nbsp;s<br>
            <strong>Applies to</strong>: cf:diego_cells
       </td>
    </tr>
@@ -143,7 +143,7 @@ There are three key capacity scaling indicators recommended for Diego cell:
       <th>Additional details</th>
       <td> <strong>Origin</strong>: Firehose<br>
            <strong>Type</strong>: Gauge (%)<br>
-           <strong>Frequency</strong>: Emitted every 60 s<br>
+           <strong>Frequency</strong>: Emitted every 60&nbsp;s<br>
            <strong>Applies to</strong>: cf:diego_cells
       </td>
    </tr>
@@ -157,7 +157,7 @@ There are three key capacity scaling indicators recommended for Diego cell:
 
 ## <a id="doppler-server"></a> Firehose Performance Scaling Indicators
 
-There are two key capacity scaling indicators recommended for Firehose performance. 
+Pivotal recommends two key capacity scaling indicators for monitoring Firehose performance. 
 
 ### <a id="firehose-loss-rate"></a> Log Transport Loss Rate
 
@@ -194,7 +194,7 @@ There are two key capacity scaling indicators recommended for Firehose performan
       <th>Additional details</th>
       <td> <strong>Origin</strong>: Firehose<br>
            <strong>Type</strong>: Gauge (float)<br>
-           <strong>Frequency</strong>: Base metrics are emitted every 5 s<br>
+           <strong>Frequency</strong>: Base metrics are emitted every 5&nbsp;s<br>
            <strong>Applies to</strong>: cf:doppler<br>
       </td>
    </tr>
@@ -234,7 +234,7 @@ There are two key capacity scaling indicators recommended for Firehose performan
       <th>Additional details</th>
       <td> <strong>Origin</strong>: Firehose<br>
            <strong>Type</strong>: Gauge (float)<br>
-           <strong>Frequency</strong>: Emitted every 15 s<br>
+           <strong>Frequency</strong>: Emitted every 15&nbsp;s<br>
            <strong>Applies to</strong>: cf:doppler<br>
       </td>
    </tr>
@@ -246,9 +246,9 @@ There are two key capacity scaling indicators recommended for Firehose performan
    </tr>
 </table>
 
-## <a id="firehose-consumer"></a> Firehose End Consumer Scaling Indicator
+## <a id="firehose-consumer"></a> Firehose Consumer Scaling Indicator
 
-There is one scaling indicator recommended for monitoring the performance of consumers of the Firehose.
+Pivotal recommends the following scaling indicator for monitoring the performance of consumers of the Firehose.
 
 ### <a id="slow-consumer"></a> Slow Consumer Drops
 
@@ -258,12 +258,12 @@ There is one scaling indicator recommended for monitoring the performance of con
   </tr>
    <tr>
       <th width="25">Description</th>
-      <td>Within PAS, metrics and logs enter the firehose for transport and then are egressed out of the platform via a consumer nozzle. Once the firehose transports the metrics and egresses out them as a stream, if the consuming downstream system fails to keep up, then the firehose is forced to close the connection to protect itself from back-pressure. The firehose will increment `slow_consumer` with each connection that was closed because a consumer could not keep up. 
+      <td>Within PAS, metrics and logs enter the Firehose for transport and exit out of the platform via a consumer nozzle. If the consuming downstream system fails to keep up with the exiting stream of metrics, the Firehose is forced to close the connection to protect itself from back-pressure. The Firehose increments <code>slow_consumer</code> with each connection that it closes because a consumer could not keep up. 
        </td>
    </tr>
    <tr>
       <th>Purpose</th>
-      <td>This metric indicates that a firehose consumer, such as a monitoring tool nozzle, is ingesting too slowly. If this number is anomalous, it may result in the downstream monitoring tool not having all expected data, even though that data was successfully transported through the firehose.
+      <td>This metric indicates that a Firehose consumer, such as a monitoring tool nozzle, is ingesting too slowly. If this number is anomalous, it may result in the downstream monitoring tool not having all expected data, even though that data was successfully transported through the Firehose.
         <br><br>
         This can also be confirmed via the Loggregator emitted log message <code>TB: Output channel too full. Dropped N messages</code>, where N is the number of dropped messages.
    </tr>
@@ -280,7 +280,7 @@ There is one scaling indicator recommended for monitoring the performance of con
       <th>Additional details</th>
       <td> <strong>Origin</strong>: Firehose<br>
            <strong>Type</strong>: Counter<br>
-           <strong>Frequency</strong>: Emitted every 5 s<br>
+           <strong>Frequency</strong>: Emitted every 5&nbsp;s<br>
            <strong>Applies to</strong>: cf:doppler<br>
       </td>
    </tr>
@@ -334,7 +334,7 @@ There are three key capacity scaling indicators recommended for CF Syslog Drain 
       <th>Additional details</th>
       <td> <strong>Origin</strong>: Firehose<br>
            <strong>Type</strong>: Counter (Integer)<br>
-           <strong>Frequency</strong>: Emitted every 60 s<br>
+           <strong>Frequency</strong>: Emitted every 60&nbsp;s<br>
            <strong>Applies to</strong>: cf:cf-syslog<br>
       </td>
    </tr>
@@ -385,7 +385,7 @@ There are three key capacity scaling indicators recommended for CF Syslog Drain 
       <th>Additional details</th>
       <td> <strong>Origin</strong>: Firehose<br>
            <strong>Type</strong>: Counter (Integer)<br>
-           <strong>Frequency</strong>: Emitted every 60 s<br>
+           <strong>Frequency</strong>: Emitted every 60&nbsp;s<br>
            <strong>Applies to</strong>: cf:cf-syslog<br>
       </td>
    </tr>
@@ -435,7 +435,7 @@ There are three key capacity scaling indicators recommended for CF Syslog Drain 
       <th>Additional details</th>
       <td> <strong>Origin</strong>: Firehose<br>
            <strong>Type</strong>: Gauge (float)<br>
-           <strong>Frequency</strong>: Emitted every 60 s<br>
+           <strong>Frequency</strong>: Emitted every 60&nbsp;s<br>
            <strong>Applies to</strong>: cf:cf-syslog<br>
       </td>
    </tr>
@@ -487,7 +487,7 @@ There is one key capacity scaling indicator recommended for Router performance.
       <th>Additional details</th>
       <td> <strong>Origin</strong>: Firehose<br>
            <strong>Type</strong>: Gauge (float)<br>
-           <strong>Frequency</strong>: Emitted every 60 s<br>
+           <strong>Frequency</strong>: Emitted every 60&nbsp;s<br>
            <strong>Applies to</strong>: cf:router<br>
       </td>
    </tr>
@@ -532,7 +532,7 @@ There is one key capacity scaling indicator recommended for UAA performance.
       <th>Additional details</th>
       <td> <strong>Origin:</strong> Firehose<br>
            <strong>Type:</strong> Gauge (float)<br>
-           <strong>Frequency:</strong> Emitted every 60 s<br>
+           <strong>Frequency:</strong> Emitted every 60&nbsp;s<br>
            <strong>Applies to:</strong> cf:uaa<br>
       </td>
    </tr>
