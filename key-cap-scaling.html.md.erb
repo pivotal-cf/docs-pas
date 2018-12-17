@@ -258,7 +258,7 @@ There is one scaling indicator recommended for monitoring the performance of con
   </tr>
    <tr>
       <th width="25">Description</th>
-      <td>Within PAS, metrics and logs enter the firehose for transport and then are egressed out of the platform via a consumer nozzle. Once the firehose transports the metrics and egresses out them as a stream, if the consuming downstream system fails to keep up, then the firehose is forced to terminate the connection to protect itself from back-pressure. The firehose will increment `slow_consumer` with each envelope dropped.
+      <td>Within PAS, metrics and logs enter the firehose for transport and then are egressed out of the platform via a consumer nozzle. Once the firehose transports the metrics and egresses out them as a stream, if the consuming downstream system fails to keep up, then the firehose is forced to close the connection to protect itself from back-pressure. The firehose will increment `slow_consumer` with each connection that was closed because a consumer could not keep up. 
        </td>
    </tr>
    <tr>
