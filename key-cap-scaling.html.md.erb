@@ -246,6 +246,46 @@ There are two key capacity scaling indicators recommended for Firehose performan
    </tr>
 </table>
 
+## <a id="firehose-consumer"></a> Firehose End Consumer Scaling Indicator
+
+There is one scaling indicator recommended for monitoring the performance of consumers of the Firehose.
+
+### <a id="slow-consumer"></a> Slow Consumer Drops
+
+<table>
+  <tr>
+      <th colspan="2" style="text-align: center;">doppler_proxy.slow_consumer</th>
+  </tr>
+   <tr>
+      <th width="25">Description</th>
+      <td>Within PAS, metrics and logs enter the firehose for transport and then are egressed out of the platform via a consumer nozzle. Once the firehose transports the metrics and egresses out them as a stream, if the consuming downstream system fails to keep up, then the firehose is forced to terminate the connection to protect itself from back-pressure. The firehose will increment `slow_consumer` with each envelope dropped.
+       </td>
+   </tr>
+   <tr>
+      <th>Purpose</th>
+      <td>This metric indicates that a firehose consumer, such as a monitoring tool nozzle, is ingesting too slowly. If this number is anomalous, it may result in the downstream monitoring tool not having all expected data, even though that data was successfully transported through the firehose.
+        <br><br>
+        This can also be confirmed via the Loggregator emitted log message <code>TB: Output channel too full. Dropped N messages</code>, where N is the number of dropped messages.
+   </tr>
+   <tr>
+      <th>Recommended thresholds</th>
+      <td><strong>Scale indicator</strong>: It is recommended to scale when the rate of Firehose Slow Consumer Drops is anomalous for a given environment.<br>
+   </tr>
+   <tr>
+      <th>How to scale</th>
+      <td>Scale up the number of nozzle instances. You can scale a nozzle using the subscription ID specified when the nozzle connects to the Firehose. If you use the same subscription ID on each nozzle instance, the Firehose evenly distributes data across all instances of the nozzle. For example, if you have two nozzle instances with the same subscription ID, the Firehose sends half of the data to one nozzle instance and half to the other. Similarly, if you have three nozzle instances with the same subscription ID, the Firehose sends one-third of the data to each instance. If you want to scale a nozzle, the number of nozzle instances should match the number of Traffic Controller instances. 
+      </td>
+   </tr>
+   <tr>
+      <th>Additional details</th>
+      <td> <strong>Origin</strong>: Firehose<br>
+           <strong>Type</strong>: Counter<br>
+           <strong>Frequency</strong>: Emitted every 5 s<br>
+           <strong>Applies to</strong>: cf:doppler<br>
+      </td>
+   </tr>
+</table>
+
 ## <a id="scalable-syslog"></a> CF Syslog Drain Performance Scaling Indicators
 There are three key capacity scaling indicators recommended for CF Syslog Drain performance. 
 
