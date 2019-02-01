@@ -286,6 +286,42 @@ Pivotal recommends the following scaling indicator for monitoring the performanc
    </tr>
 </table>
 
+### <a id="rlp-egress-dropped"></a> Reverse Log Proxy Egress Dropped Messages
+
+<table>
+  <tr>
+      <th colspan="2" style="text-align: center;">rlp.dropped, direction: egress</th>
+  </tr>
+   <tr>
+      <th width="25">Description</th>
+      <td>
+      <p>Within PAS, logs and metrics enter Loggregator for transport and then egress through the Reverse Log Proxy (RLP). The RLP drops messages when consumers of the RLP, such as monitoring tool nozzles, ingest the exiting stream of logs and metrics too slowly.</p>
+      <p class="note"><strong>Note</strong>: The <code>rlp.dropped</code> metric includes both <code>ingress</code> and <code>egress</code> directions. To differentiate between <code>ingress</code> and <code>egress</code>, refer to the <code>direction</code> tag on the metric.</p>
+      </td>
+   </tr>
+   <tr>
+      <th>Purpose</th>
+      <td>This metric indicates that a consumer of logs and metrics from the RLP, such as a monitoring tool nozzle, is ingesting RLP messages too slowly.
+   </tr>
+   <tr>
+      <th>Recommended thresholds</th>
+      <td><strong>Scale indicator</strong>: Scale when the rate of <code>rlp.dropped, direction: egress</code> metrics is continuously increasing.<br>
+   </tr>
+   <tr>
+      <th>How to scale</th>
+      <td>Scale up the number of nozzle instances. The number of nozzle instances should match the number of Traffic Controller instances. You can scale a nozzle using the subscription ID specified when the nozzle connects to the RLP. If you use the same subscription ID on each nozzle instance, the RLP evenly distributes data across all instances of the nozzle. For example, if you have two nozzle instances with the same subscription ID, the RLP sends half of the data to one nozzle instance and half to the other. Similarly, if you have three nozzle instances with the same subscription ID, the RLP sends one-third of the data to each instance.
+      </td>
+   </tr>
+   <tr>
+      <th>Additional details</th>
+      <td> <strong>Origin</strong>: Reverse Log Proxy<br>
+           <strong>Type</strong>: Counter<br>
+           <strong>Frequency</strong>: Emitted every 5&nbsp;s<br>
+           <strong>Applies to</strong>: cf:loggregator_trafficcontroller<br>
+      </td>
+   </tr>
+</table>
+
 ## <a id="scalable-syslog"></a> CF Syslog Drain Performance Scaling Indicators
 There are three key capacity scaling indicators recommended for CF Syslog Drain performance. 
 
