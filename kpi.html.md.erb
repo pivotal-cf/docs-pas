@@ -3,7 +3,7 @@ title: Key Performance Indicators
 owner: PCF Metrics Platform Monitoring
 ---
 
-This topic describes Key Performance Indicators (KPIs) that operators may want to monitor with their Pivotal Application Service Foundry (PAS) deployment to help ensure it is in a good operational state.
+This topic describes Key Performance Indicators (KPIs) that operators may want to monitor with their Pivotal Application Service (PAS) deployment to help ensure it is in a good operational state.
 
 The following PAS v2.4 KPIs are provided for operators to give general guidance on monitoring a PAS deployment using platform component and system (BOSH) metrics. 
 Although many metrics are emitted from the platform, the following PAS v2.4 KPIs are 
@@ -218,7 +218,7 @@ When observing extended periods of high or low activity trends, scale up or down
               <li>Check BBS logs for errors.</li>
               <li>Try vertically scaling the BBS VM resources up. 
               For example, add more CPUs or memory depending on its <code>system.cpu</code>/<code>system.memory</code> metrics.</li>
-	      <li>Consider vertically scaling the Pivotal Application Service (PAS) backing database, if <code>system.cpu</code> and <code>system.memory</code> metrics for the database instances are high.</li>
+	      <li>Consider vertically scaling the PAS backing database, if <code>system.cpu</code> and <code>system.memory</code> metrics for the database instances are high.</li>
 	      <li>If that does not solve the issue, pull the BBS logs and contact Pivotal Support for additional troubleshooting.
           </ol>
           </td>
@@ -258,7 +258,7 @@ When observing extended periods of high or low activity trends, scale up or down
               <li>Check BBS logs for faults and errors that can indicate issues with BBS.</li>
               <li>Try scaling the BBS VM resources up. For example, add more CPUs/memory 
                   depending on its <code>system.cpu</code>/<code>system.memory</code> metrics.</li>
-              <li>Consider vertically scaling the Pivotal Application Service (PAS) backing database, if <code>system.cpu</code> and <code>system.memory</code> metrics for the database instances are high.</li> 
+              <li>Consider vertically scaling the PAS backing database, if <code>system.cpu</code> and <code>system.memory</code> metrics for the database instances are high.</li> 
 	      <li>If the above steps do not solve the issue, collect a sample of the cell logs from the BBS VMs and contact Pivotal Support to troubleshoot further.
           </ol>
           </td>
