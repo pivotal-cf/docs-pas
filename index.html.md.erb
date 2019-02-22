@@ -3,50 +3,43 @@ title: Monitoring Pivotal Cloud Foundry
 owner: PCF Metrics Platform Monitoring
 ---
 
-This guide describes how Pivotal Cloud Foundry (PCF) operators can monitor their deployments. 
+This guide describes how Pivotal Cloud Foundry (PCF) operators can monitor their Pivotal Application Service (PAS) deployments. For information about monitoring Pivotal Container Service (PKS) deployments, see [Logging and Monitoring PKS](https://docs.pivotal.io/runtimes/pks/monitor.html).
 
-##<a id="guide"></a> In This Guide
+For more information about logging and metrics in PCF, see [Overview of Logging and Metrics](../loggregator/data-sources.html).
+
+##<a id="guide"></a> Overview
 
 This guide includes the following topics: 
 
-* <a class="subnav" href="./kpi.html">Key Performance Indicators</a>: A list of Key Performance Indicators (KPIs) that operators may want to monitor with their PCF deployment to help ensure it is in a good operational state.
-* <a class="subnav" href="./key-cap-scaling.html">Key Capacity Scaling Indicators</a>: A list of capacity scaling indicators that operators may want to  monitor to determine when they need to scale their PCF deployments.
-* <a class="subnav" href="./metrics.html">Selecting and Configuring a Monitoring System</a>: Guidance for setting up PCF with monitoring platforms to continuously monitor component metrics and trigger health alerts.
+* <a class="subnav" href="./kpi.html">Key Performance Indicators</a>: A list of Key Performance Indicators (KPIs) that operators may want to monitor with their PAS deployment to help ensure it is in a good operational state.
+* <a class="subnav" href="./key-cap-scaling.html">Key Capacity Scaling Indicators</a>: A list of capacity scaling indicators that operators may want to  monitor to determine when they need to scale their PAS deployments.
+* <a class="subnav" href="./metrics.html">Selecting and Configuring a Monitoring System</a>: Guidance for setting up PAS with monitoring platforms to continuously monitor component metrics and trigger health alerts.
 
-For information about logging and metrics in PCF and about monitoring of services for PCF, see <a href="#resources">Additional Resources</a> below.
+##<a id="new"></a> KPI Changes from PCF v2.4 to v2.5
 
-##<a id="new"></a> KPI Changes from PCF v2.3 to v2.4
-
-This table highlights new and changed KPIs in PCF v2.4.
+This table highlights new and changed KPIs in PAS v2.5.
 
 <table> 
   <tr>
     <td><em>Modified</em></td>
-    <td>KPI: <strong><code>locket.ActiveLocks</code></strong><br><br>
-      The Clock Global (Cloud Controller clock) job now also holds a component lock. Therefore the expected number of Active Locks increased to 5. If the Operator disables Zero Downtime App Deployments when configuring PAS, then the expected value will remain 4 for PAS v2.4.
-      
+    <td><br><br>
     </td>
-    <td><a href="./kpi.html#ActiveLocks">Link</a></td>
+    <td></td>
   </tr> 
     <tr>
-    <td><em>New</em></td>
-    <td>KPI: <strong><code>doppler_proxy.slow_consumer</code></strong><br><br>
-     This metric indicates that a firehose consumer, such as a monitoring tool nozzle, is ingesting too slowly. 
+    <td></td>
+    <td><br><br>
     </td>
-    <td><a href="./key-cap-scaling.html#slow-consumer">Link</a></td>
+    <td></td>
   </tr> 
 </table> 
 
-##<a id="resources"></a> Additional Resources
-
-For information about logging and metrics in PCF, see the following topics:
-
-* [Configuring System Logging in PAS](../opsguide/logging-config-opsman.html): 
-This topic explains how to configure the PCF Loggregator system to scale its maximum throughput and to forward logs to an external aggregator service.
-* [Logging and Metrics](../loggregator/index.html): A guide to Loggregator, the system which aggregates and streams logs and metrics 
-from user apps and system components in PAS.
+##<a id="resources"></a> Monitor PCF Services
 
 For information about KPIs and metrics for PCF services, see the following topics:
 
-* **RabbitMQ for PCF (on-demand)**: [Monitoring and KPIs for On-Demand RabbitMQ for PCF](https://docs.pivotal.io/rabbitmq-cf/monitor.html)
-* **RabbitMQ for PCF (pre-provisioned)**: [Monitoring and KPIs for Pre-Provisioned RabbitMQ for PCF](https://docs.pivotal.io/rabbitmq-cf/monitor-pp.html)
+* **Pivotal Cloud Cache**: See [Monitoring Pivotal Cloud Cache](https://docs.pivotal.io/p-cloud-cache/monitoring.html).
+* **Pivotal Greenplum**: See [Monitoring PXF](https://gpdb.docs.pivotal.io/5170/pxf/monitor_pxf.html).
+* **Redis for PCF**: [Monitoring Redis for PCF](https://docs.pivotal.io/redis/2-0/monitoring.html).
+* **RabbitMQ for PCF (on-demand)**: See [Monitoring and KPIs for On-Demand RabbitMQ for PCF](https://docs.pivotal.io/rabbitmq-cf/monitor.html).
+* **RabbitMQ for PCF (pre-provisioned)**: See [Monitoring and KPIs for Pre-Provisioned RabbitMQ for PCF](https://docs.pivotal.io/rabbitmq-cf/monitor-pp.html).
