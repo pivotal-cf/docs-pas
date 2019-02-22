@@ -3,10 +3,10 @@ title: Key Performance Indicators
 owner: PCF Metrics Platform Monitoring
 ---
 
-This topic describes Key Performance Indicators (KPIs) that operators may want to monitor with their Pivotal Cloud Foundry (PCF) deployment to help ensure it is in a good operational state.
+This topic describes Key Performance Indicators (KPIs) that operators may want to monitor with their Pivotal Application Service Foundry (PAS) deployment to help ensure it is in a good operational state.
 
-The following PCF v2.4 KPIs are provided for operators to give general guidance on monitoring a PCF deployment using platform component and system (BOSH) metrics. 
-Although many metrics are emitted from the platform, the following PCF v2.4 KPIs are 
+The following PAS v2.4 KPIs are provided for operators to give general guidance on monitoring a PAS deployment using platform component and system (BOSH) metrics. 
+Although many metrics are emitted from the platform, the following PAS v2.4 KPIs are 
 high-signal-value metrics that can indicate emerging platform issues. 
 
 This alerting and response guidance has been shown to apply to most deployments. 
@@ -15,7 +15,7 @@ by observing historical trends.
 Pivotal also recommends that operators expand beyond this guidance and create new, deployment-specific monitoring
 metrics, thresholds, and alerts based on learning from their deployments.
 
-<p class="note"><strong>Note</strong>: Thresholds noted as "dynamic" in the tables below indicate that while a metric is highly important to watch, the relative numbers to set threshold warnings at are specific to a given PCF environment and its use cases. These dynamic thresholds should be occasionally revisited because the PCF foundation and its usage continue to evolve. See <a href="metrics.html#thresholds">Determine Warning and Critical Thresholds</a> for more information.</p>
+<p class="note"><strong>Note</strong>: Thresholds noted as "dynamic" in the tables below indicate that while a metric is highly important to watch, the relative numbers to set threshold warnings at are specific to a given PAS deployment and its use cases. These dynamic thresholds should be occasionally revisited because the PCF foundation and its usage continue to evolve. See <a href="metrics.html#thresholds">Determine Warning and Critical Thresholds</a> for more information.</p>
 
 ## <a id="auctioneer"></a> Diego Auctioneer Metrics
  
@@ -27,7 +27,7 @@ metrics, thresholds, and alerts based on learning from their deployments.
       <th width="25%">Description</th>
       <td>The number of Long Running Process (LRP) instances that the auctioneer failed to place on Diego cells. This metric is cumulative over the lifetime of the auctioneer job.<br><br>
    
-      <strong>Use</strong>: This metric can indicate that PCF is out of container space or that there is a lack of resources within your environment. This indicator also increases when the LRP is requesting an isolation segment, volume drivers, or a stack that is unavailable, either not deployed or lacking sufficient resources to accept the work. 
+      <strong>Use</strong>: This metric can indicate that PAS is out of container space or that there is a lack of resources within your environment. This indicator also increases when the LRP is requesting an isolation segment, volume drivers, or a stack that is unavailable, either not deployed or lacking sufficient resources to accept the work. 
   <br><br> 
 	      This metric is emitted on event, and therefore gaps in receipt of this metric can be normal during periods of no app instances being scheduled. 
 	      <br><br>
@@ -234,7 +234,7 @@ When observing extended periods of high or low activity trends, scale up or down
       <td>The maximum observed latency time over the past 60 seconds that the BBS took to handle requests across all its API endpoints.<br><br>
 	      Diego is now aggregating this metric to emit the max value observed over 60 seconds.
           <br><br>
-          <strong>Use</strong>: If this metric rises, the PCF API is slowing. 
+          <strong>Use</strong>: If this metric rises, the PAS API is slowing. 
           Response to certain cf CLI commands is slow if request latency is high.
           <br><br>
           <strong>Origin</strong>: Firehose<br>
@@ -891,7 +891,7 @@ When observing extended periods of high or low activity trends, scale up or down
           <strong>Use</strong>: If the Active Presences count is far from the expected, there might be a problem with Diego. 
 	          <br><br>
                   The number of active presences varies according to the number of cells deployed.
-                  Therefore, during purposeful scale adjustments to PCF, this alerting threshold should be adjusted.<br>
+                  Therefore, during purposeful scale adjustments to PAS, this alerting threshold should be adjusted.<br>
                   Establish an initial threshold by observing the historical trends for the deployment over a brief period of time,
                   Increase the threshold as more cells are deployed.
                   During a rolling deploy, this metric shows variance during the BOSH lifecycle when cells are evacuated and restarted. 
@@ -1034,7 +1034,7 @@ When PAS uses an internal MySQL database, as configured in the PAS tile **Settin
       <td>The number of file descriptors currently used by the Gorouter job.
         <br><br>
         <strong>Use</strong>: Indicates an impending issue with the Gorouter.
-        Without proper mitigation, it is possible for an unresponsive app to eventually exhaust available Gorouter file descriptors and cause route starvation for other apps running on PCF. Under heavy load, this unmitigated situation can also result in the Gorouter losing its connection to NATS and all routes being pruned.
+        Without proper mitigation, it is possible for an unresponsive app to eventually exhaust available Gorouter file descriptors and cause route starvation for other apps running on PAS. Under heavy load, this unmitigated situation can also result in the Gorouter losing its connection to NATS and all routes being pruned.
         <br><br>
         While a drop in <code>gorouter.total_routes</code> or an increase in <code>gorouter.ms_since_last_registry_update</code> helps to surface that the issue may already be occurring, alerting on <code>gorouter.file_descriptors</code> indicates that such an issue is impending.
         <br><br>
@@ -1079,7 +1079,7 @@ When PAS uses an internal MySQL database, as configured in the PAS tile **Settin
     <th width="25%">Description</th>
       <td>The lifetime number of requests that have been rejected by the Gorouter VM due to the <code>Max Connections Per Backend</code> limit being reached across all tried backends. The limit controls the number of concurrent TCP connections to any particular app instance and is configured within PAS. 
         <br><br>
-        <strong>Use</strong>: Indicates that PCF is mitigating risk to other applications by self-protecting the platform against one or more unresponsive applications. Increases in this metric indicate the need to investigate and resolve issues with potentially unresponsive applications. A rapid rate of change upward is concerning and should be assessed further. 
+        <strong>Use</strong>: Indicates that PAS is mitigating risk to other applications by self-protecting the platform against one or more unresponsive applications. Increases in this metric indicate the need to investigate and resolve issues with potentially unresponsive applications. A rapid rate of change upward is concerning and should be assessed further. 
 	      <br><br>
         <strong>Origin</strong>: Firehose<br>
         <strong>Type</strong>: Counter (Integer) <br>
@@ -1149,7 +1149,7 @@ When PAS uses an internal MySQL database, as configured in the PAS tile **Settin
                 <td>The time in milliseconds that the Gorouter takes to handle requests to backend endpoints, which include both applications routable platform system APIs like Cloud Controller and UAA. 
                     This is the average round trip response time, which includes router handling. 
                     <br><br>
-                    <strong>Use</strong>: Indicates how Gorouter jobs in PCF are impacting overall responsiveness. 
+                    <strong>Use</strong>: Indicates how Gorouter jobs in PAS are impacting overall responsiveness. 
                     Latencies above 100 ms can indicate problems with the network, misbehaving backends, 
                     or the need to scale the Gorouter itself due to ongoing traffic congestion. 
                     An alert value on this metric should be tuned to the specifics of the deployment and its underlying network considerations; 

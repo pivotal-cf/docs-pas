@@ -4,11 +4,11 @@ owner: PCF Metrics Platform Monitoring
 ---
 
 This topic describes key capacity scaling indicators that operators monitor to determine when
-they need to scale their Pivotal Cloud Foundry (PCF) deployments.
+they need to scale their Pivotal Application Service (PAS) deployments.
 
 Pivotal provides these indicators to operators as general guidance for capacity scaling. 
 Each indicator is based on platform metrics from different components. 
-This guidance is applicable to most PCF v2.4 deployments.
+This guidance is applicable to most PAS v2.4 deployments.
 Pivotal recommends that operators fine-tune the suggested alert thresholds 
 by observing historical trends for their deployments. 
 
@@ -460,11 +460,11 @@ There are three key capacity scaling indicators recommended for CF Syslog Drain 
       <th>Recommended thresholds</th>
       <td><strong>Scale indicator</strong>: &ge; 450<br>
          Consider this threshold to be dynamic.
-         Adjust the threshold to the PCF deployment as adoption of CF Syslog Drain increases or decreases.</td>
+         Adjust the threshold to the PAS deployment as adoption of CF Syslog Drain increases or decreases.</td>
    </tr>
    <tr>
       <th>How to scale</th>
-      <td>Increase the number of Syslog Adapter VMs in the <strong>Resource Config</strong> pane of the Pivotal Application Service (PAS) tile.
+      <td>Increase the number of Syslog Adapter VMs in the <strong>Resource Config</strong> pane of the PAS tile.
       </td>
    </tr>
    <tr>
@@ -592,7 +592,7 @@ There is one key capacity scaling indicator for external S3 external storage.
    <tr>
        <th>Purpose</th>
        <td>If you do not use an external S3 repository for external storage with no capacity constraints,
-           you must monitor the PCF object store to push new app and buildpacks.
+           you must monitor the PAS object store to push new app and buildpacks.
      <br><br>
      If you use an internal NFS/WebDAV backed blobstore, consider scaling the persistent disk when it reaches 75% capacity.
      </td>
