@@ -167,17 +167,22 @@ Pivotal recommends two key capacity scaling indicators for monitoring Firehose p
   </tr>
    <tr>
       <th width="25">Description</th>
-      <td>This derived value represents the loss rate occurring as messages are transported from the <a href="../loggregator/architecture.html#components">Metron Agent</a> components (log ingress point) through the <a href="../loggregator/architecture.html#components">Doppler</a> components to the firehose endpoints. Metric <code>loggregator.doppler.ingress</code> represents the number of messages entering Dopplers for transport through the firehose, and <code>loggregator.doppler.dropped</code> represents the number of messages dropped without delivery. Messages include the combined stream of logs from all apps and the metrics data from Cloud Foundry components.
+      <td>This derived value represents the loss rate occurring as messages are transported from the Loggregator Agent components through the Doppler components to the Firehose endpoints.
+      <br><br>  
+      Metric <code>loggregator.doppler.ingress</code> represents the number of messages entering Dopplers for transport through the firehose, and <code>loggregator.doppler.dropped</code> represents the number of messages dropped without delivery. 
+      <br><br>
+      Messages include the combined stream of logs from all apps and the metrics data from Cloud Foundry components.
+      <br><br>
+      For more information about Loggregator components, see <a href="../loggregator/architecture.html">Loggregator Architecture</a>.
        </td>
    </tr>
    <tr>
       <th>Purpose</th>
-      <td>Excessive dropped messages can indicate the Dopplers and/or Traffic Controllers are not processing messages fast enough.
+      <td>Excessive dropped messages can indicate the Dopplers or Traffic Controllers are not processing messages quickly enough.
         <br><br>
-        The recommended scaling indicator is to look at the total dropped as a percentage of the total throughput
-        and scale if the derived loss rate value grows greater than <code>0.01</code>.
-
-        Note: Doppler emits two separate dropped metrics, one for ingress and one for egress. The envelopes have a <code>direction</code>. For this indicator, use the metric with a <code>direction</code> tag with a value of <code>ingress</code>.
+        The recommended scaling indicator is a dropped message rate greater than <code>0.01</code>. This scaling indicator is calculated by expressing the total number of dropped messages as a percentage of the total throughput and scale.
+        <br><br>
+        Doppler emits two separate dropped metrics, one for ingress and one for egress. The envelopes have a <code>direction</code>. For this indicator, use the metric with a <code>direction</code> tag with a value of <code>ingress</code>.
    </tr>
    <tr>
       <th>Recommended thresholds</th>
