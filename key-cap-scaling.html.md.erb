@@ -177,7 +177,7 @@ Pivotal recommends two key capacity scaling indicators for monitoring Firehose p
         The recommended scaling indicator is to look at the total dropped as a percentage of the total throughput
         and scale if the derived loss rate value grows greater than <code>0.01</code>.
 
-        Note: Doppler emits two separate dropped metrics, one for ingress and one for egress. The envelopes have a <code>direction</code>. For this indicator you want to look at the metric with a <code>direction</code> tag with a value of <code>ingress</code>.
+        Note: Doppler emits two separate dropped metrics, one for ingress and one for egress. The envelopes have a <code>direction</code>. For this indicator, use the metric with a <code>direction</code> tag with a value of <code>ingress</code>.
    </tr>
    <tr>
       <th>Recommended thresholds</th>
