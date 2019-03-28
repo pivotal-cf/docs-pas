@@ -4,11 +4,11 @@ owner: PCF Metrics Platform Monitoring
 ---
 
 This topic describes key capacity scaling indicators that operators monitor to determine when
-they need to scale their Pivotal Cloud Foundry (PCF) deployments.
+they need to scale their Pivotal Application Service (PAS) deployments.
 
 Pivotal provides these indicators to operators as general guidance for capacity scaling. 
 Each indicator is based on platform metrics from different components. 
-This guidance is applicable to most PCF v2.4 deployments.
+This guidance is applicable to most PAS v2.4 deployments.
 Pivotal recommends that operators fine-tune the suggested alert thresholds 
 by observing historical trends for their deployments. 
 
@@ -229,7 +229,7 @@ Pivotal recommends two key capacity scaling indicators for monitoring Firehose p
    </tr>
    <tr>
       <th>How to scale</th>
-      <td>Increase the number of Doppler VMs in the <strong>Resource Config</strong> pane of the Pivotal Application Service (PAS) tile.
+      <td>Increase the number of Doppler VMs in the <strong>Resource Config</strong> pane of the PAS tile.
       </td>
    </tr>
    <tr>
@@ -339,6 +339,42 @@ Pivotal recommends the following scaling indicator for monitoring the performanc
    </tr>
 </table>
 
+### <a id="rlp-egress-dropped"></a> Reverse Log Proxy Egress Dropped Messages
+
+<table>
+  <tr>
+      <th colspan="2" style="text-align: center;">rlp.dropped, direction: egress</th>
+  </tr>
+   <tr>
+      <th width="25">Description</th>
+      <td>
+      <p>Within PAS, logs and metrics enter Loggregator for transport and then egress through the Reverse Log Proxy (RLP). The RLP drops messages when consumers of the RLP, such as monitoring tool nozzles, ingest the exiting stream of logs and metrics too slowly.</p>
+      <p class="note"><strong>Note</strong>: The <code>rlp.dropped</code> metric includes both <code>ingress</code> and <code>egress</code> directions. To differentiate between <code>ingress</code> and <code>egress</code>, refer to the <code>direction</code> tag on the metric.</p>
+      </td>
+   </tr>
+   <tr>
+      <th>Purpose</th>
+      <td>This metric indicates that a consumer of logs and metrics from the RLP, such as a monitoring tool nozzle, is ingesting RLP messages too slowly.
+   </tr>
+   <tr>
+      <th>Recommended thresholds</th>
+      <td><strong>Scale indicator</strong>: Scale when the rate of <code>rlp.dropped, direction: egress</code> metrics is continuously increasing.<br>
+   </tr>
+   <tr>
+      <th>How to scale</th>
+      <td>Scale up the number of nozzle instances. The number of nozzle instances should match the number of Traffic Controller instances. You can scale a nozzle using the subscription ID specified when the nozzle connects to the RLP. If you use the same subscription ID on each nozzle instance, the RLP evenly distributes data across all instances of the nozzle. For example, if you have two nozzle instances with the same subscription ID, the RLP sends half of the data to one nozzle instance and half to the other. Similarly, if you have three nozzle instances with the same subscription ID, the RLP sends one-third of the data to each instance.
+      </td>
+   </tr>
+   <tr>
+      <th>Additional details</th>
+      <td> <strong>Origin</strong>: Reverse Log Proxy<br>
+           <strong>Type</strong>: Counter<br>
+           <strong>Frequency</strong>: Emitted every 5&nbsp;s<br>
+           <strong>Applies to</strong>: cf:loggregator_trafficcontroller<br>
+      </td>
+   </tr>
+</table>
+
 ## <a id="scalable-syslog"></a> CF Syslog Drain Performance Scaling Indicators
 There are three key capacity scaling indicators recommended for CF Syslog Drain performance. 
 
@@ -427,7 +463,7 @@ There are three key capacity scaling indicators recommended for CF Syslog Drain 
    </tr>
    <tr>
       <th>How to scale</th>
-      <td>Increase the number of Syslog Adapter VMs in the <strong>Resource Config</strong> pane of the Pivotal Application Service (PAS) tile.
+      <td>Increase the number of Syslog Adapter VMs in the <strong>Resource Config</strong> pane of the PAS tile.
       </td>
    </tr>
    <tr>
@@ -444,6 +480,45 @@ There are three key capacity scaling indicators recommended for CF Syslog Drain 
       PCF Healthwatch expresses this indicator with the metric<a href="https://docs.pivotal.io/pcf-healthwatch/1-2/metrics.html#syslog-drain-binding-capacity"><code>healthwatch.SyslogDrain.Adapter.BindingsAverage.5M</code></a>. 
       </td>
 </tr>
+</table>
+
+## <a id="log-cache"></a> Log Cache Scaling Indicator
+
+Pivotal recommends the following scaling indicator for monitoring the performance of Log Cache.
+
+### <a id="cache-duration"></a> Log Cache caching duration
+
+<table>
+  <tr>
+      <th colspan="2" style="text-align: center;">log_cache.cache_period</th>
+  </tr>
+   <tr>
+      <th width="25">Description</th>
+      <td>This metric indicates age of the oldest datapoint stored in the cache in milliseconds.</td>
+   </tr>
+   <tr>
+      <th>Purpose</th>
+      <td>Log Cache stores all messages that are passed through the firehose in an ephemeral in-memory store. The size of this store and therefore the cache duration are dependend on the amount of memory available on the VM. Some features of PAS rely on data being available in Log Cache, like the PAS Autoscaller. 
+         <br><br>
+        It is recommended to size the VM on which Log Cache runs (typically Doppler), so that Log Cache can hold at least the all messages that passed throughh loggregaotr in the last 15 minutes (900000 ms).
+   </tr>
+   <tr>
+      <th>Recommended thresholds</th>
+      <td><strong>Scale indicator</strong>: Scale when the cache period drops below 15 minutes (900000ms) <br>
+   </tr>
+   <tr>
+      <th>How to scale</th>
+      <td>Scale up the number of Doppler VMs or chose a VM-type for Doppler that provides more memory. 
+      </td>
+   </tr>
+   <tr>
+      <th>Additional details</th>
+      <td> <strong>Origin</strong>: log-cache<br>
+           <strong>Type</strong>: Gauge<br>
+           <strong>Frequency</strong>: Emitted every 15&nbsp;s<br>
+           <strong>Applies to</strong>: cf:log-cache<br>
+      </td>
+   </tr>
 </table>
 
 ## <a id="Router"></a> Router Performance Scaling Indicator
@@ -555,7 +630,7 @@ There is one key capacity scaling indicator for external S3 external storage.
    <tr>
        <th>Purpose</th>
        <td>If you do not use an external S3 repository for external storage with no capacity constraints,
-           you must monitor the PCF object store to push new app and buildpacks.
+           you must monitor the PAS object store to push new app and buildpacks.
      <br><br>
      If you use an internal NFS/WebDAV backed blobstore, consider scaling the persistent disk when it reaches 75% capacity.
      </td>
