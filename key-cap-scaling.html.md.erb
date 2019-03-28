@@ -407,18 +407,18 @@ There are three key capacity scaling indicators recommended for CF Syslog Drain 
   </tr>
    <tr>
       <th width="25">Description</th>
-       <td>The number of CF syslog drain bindings being serviced by adapters.<br>
+       <td>The number of CF syslog drain bindings. 
+	   CF syslog drain bindings enable app syslog drains by managing the connections between the Syslog Adapters and the Reverse Log Proxies (RLPs). 
+	   <br>
        </td>
    </tr>
    <tr>
       <th>Purpose</th>
-      <td>Each Syslog Adapter can handle approximately 500 drain bindings. Each drain binding is serviced by two Syslog Adapters.
-          The recommended initial configuration is a minimum of two Syslog Adapters
-          (to handle approximately 500 drain bindings).
-          A new Adapter instance should be added for each 250 additional drain bindings.
+      <td>Each syslog drain binding requires two Syslog Adapters.
+          A configuration with two Syslog Adapters allows for approximately 500 syslog drain bindings.
+          Pivotal recommends adding one Syslog Adapter instance for every 250 additional syslog drain bindings.
         <br><br>
-        Therefore, the recommended initial scaling indicator is 450 (as a maximum value over a 1-hr window).
-        This indicates the need to scale up to three Adapters from the initial two-Adapter configuration.
+        Pivotal recommends scaling to three Syslog Adapters if a maximum of 450 syslog drain bindings is reached in a one hour window.
 	<br><br>
    </tr>
    <tr>
