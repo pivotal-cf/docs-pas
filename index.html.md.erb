@@ -15,9 +15,26 @@ This guide includes the following topics:
 * <a class="subnav" href="./key-cap-scaling.html">Key Capacity Scaling Indicators</a>: A list of capacity scaling indicators that operators may want to  monitor to determine when they need to scale their PAS deployments.
 * <a class="subnav" href="./metrics.html">Selecting and Configuring a Monitoring System</a>: Guidance for setting up PAS with monitoring platforms to continuously monitor component metrics and trigger health alerts.
 
-##<a id="new"></a> KPI Changes from PAS v2.4 to v2.5
+##<a id="new"></a> KPI and Scaling Changes from PAS v2.4 to v2.5
 
-There are no KPI changes from PAS v2.4 to v2.5.
+This table highlights new and changed KPIs and scaling indicators in PAS v2.5.
+
+<table>
+  <tr>
+    <th>Status</th>
+    <th>Metric</th>
+    <th>Description</th>
+    <th>Reference</th>
+  </tr> 
+  <tr>
+    <td width='10%'>Modified</td>
+    <td width='20%'>CF Syslog Drain Bindings Count
+    <td width='50%'>
+      In PAS v2.5, the CF Syslog Drain Bindings Count scaling indicator uses the following derived metric: 
+      <code>cf-syslog-drain.drain_adapter.drain_bindings / number of Syslog Adapters</code>
+    </td>
+    <td width='20%'><a href="./key-cap-scaling.html#scalable-syslog-ksi">CF Syslog Drain Bindings Count</a></td>
+</table> 
 
 ##<a id="resources"></a> Monitor PCF Services
 
@@ -28,25 +45,3 @@ For information about KPIs and metrics for PCF services, see the following topic
 * **Redis for PCF**: [Monitoring Redis for PCF](https://docs.pivotal.io/redis/2-0/monitoring.html).
 * **RabbitMQ for PCF (pre-provisioned)**: See [Monitoring and KPIs for Pre-Provisioned RabbitMQ for PCF](https://docs.pivotal.io/rabbitmq-cf/monitor-pp.html).
 * **RabbitMQ for PCF (on-demand)**: See [Monitoring and KPIs for On-Demand RabbitMQ for PCF](https://docs.pivotal.io/rabbitmq-cf/monitor.html).
-
-<!---
-
-Add this completed table to the KPI Changes section.
-
-This table highlights new and changed KPIs in PAS v2.5.
-
-<table> 
-  <tr>
-    <td><em>Modified</em></td>
-    <td><br><br>
-    </td>
-    <td></td>
-  </tr> 
-    <tr>
-    <td></td>
-    <td><br><br>
-    </td>
-    <td></td>
-  </tr> 
-</table> 
---->
