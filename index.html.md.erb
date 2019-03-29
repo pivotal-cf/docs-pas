@@ -34,6 +34,15 @@ This table highlights new and changed KPIs and scaling indicators in PAS v2.5.
       <code>cf-syslog-drain.drain_adapter.drain_bindings / number of Syslog Adapters</code>
     </td>
     <td width='20%'><a href="./key-cap-scaling.html#scalable-syslog-ksi">CF Syslog Drain Bindings Count</a></td>
+  </tr>
+  <tr>  
+    <td width='10%'>New</td>
+    <td width='20%'>Log Cache Caching Duration
+    <td width='50%'>
+      The Log Cache Caching Duration scaling indicator indicates the age in milliseconds of the oldest datapoint stored in Log Cache. This metric is useful for determining when to scale the VMs on which Log Cache runs.
+    </td>
+    <td width='20%'><a href="./key-cap-scaling.html#cache-duration">Log Cache Caching Duration</a></td>
+  </tr>  
 </table> 
 
 ##<a id="resources"></a> Monitor PCF Services
