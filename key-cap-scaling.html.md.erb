@@ -491,7 +491,7 @@ There are three key capacity scaling indicators recommended for CF Syslog Drain 
 
 Pivotal recommends the following scaling indicator for monitoring the performance of Log Cache.
 
-### <a id="cache-duration"></a> Log Cache caching duration
+### <a id="cache-duration"></a> Log Cache Caching Duration
 
 <table>
   <tr>
@@ -499,21 +499,21 @@ Pivotal recommends the following scaling indicator for monitoring the performanc
   </tr>
    <tr>
       <th width="25">Description</th>
-      <td>This metric indicates age of the oldest datapoint stored in the cache in milliseconds.</td>
+      <td>This metric indicates the age  in milliseconds of the oldest datapoint stored in Log Cache.</td>
    </tr>
    <tr>
       <th>Purpose</th>
-      <td>Log Cache stores all messages that are passed through the firehose in an ephemeral in-memory store. The size of this store and therefore the cache duration are dependend on the amount of memory available on the VM. Some features of PAS rely on data being available in Log Cache, like the PAS Autoscaller. 
+      <td>Log Cache stores all messages that are passed through the Firehose in an ephemeral in-memory store. The size of this store and the cache duration are dependent on the amount of memory available on the VM on which Log Cache runs. Some features of PAS rely on data being available in Log Cache, such as App Autoscaler. 
          <br><br>
-        It is recommended to size the VM on which Log Cache runs (typically Doppler), so that Log Cache can hold at least the all messages that passed throughh loggregaotr in the last 15 minutes (900000 ms).
+        Pivotal recommends scaling the VM on which Log Cache runs, so  Log Cache can hold all messages that pass through Loggregator in the last 15 minutes, or 900000 milliseconds.
    </tr>
    <tr>
       <th>Recommended thresholds</th>
-      <td><strong>Scale indicator</strong>: Scale when the cache period drops below 15 minutes (900000ms) <br>
+      <td><strong>Scale indicator</strong>: Scale the VM on which Log Cache runs when the cache period drops below 15 minutes, or 900000 milliseconds. Typically, Log Cache runs on the Doppler VM.<br>
    </tr>
    <tr>
       <th>How to scale</th>
-      <td>Scale up the number of Doppler VMs or chose a VM-type for Doppler that provides more memory. 
+      <td>Scale up the number of Doppler VMs or chose a VM type for Doppler that provides more memory. 
       </td>
    </tr>
    <tr>
