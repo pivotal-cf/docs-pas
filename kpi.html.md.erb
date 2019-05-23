@@ -5,21 +5,16 @@ owner: PCF Metrics Platform Monitoring
 
 This topic describes Key Performance Indicators (KPIs) that operators may want to monitor with their Pivotal Application Service (PAS) deployment to help ensure it is in a good operational state.
 
-The following PAS v2.4 KPIs are provided for operators to give general guidance on monitoring a PAS deployment using platform component and system (BOSH) metrics. 
-Although many metrics are emitted from the platform, the following PAS v2.4 KPIs are 
-high-signal-value metrics that can indicate emerging platform issues. 
+The following PAS v2.4 KPIs are provided for operators to give general guidance on monitoring a PAS deployment using platform component and system (BOSH) metrics.  Although many metrics are emitted from the platform, the following PAS v2.4 KPIs are high-signal-value metrics that can indicate emerging platform issues. 
 
-This alerting and response guidance has been shown to apply to most deployments. 
-Pivotal recommends that operators continue to fine-tune the alert measures to their deployment 
-by observing historical trends. 
-Pivotal also recommends that operators expand beyond this guidance and create new, deployment-specific monitoring
-metrics, thresholds, and alerts based on learning from their deployments.
+This alerting and response guidance has been shown to apply to most deployments. Pivotal recommends that operators continue to fine-tune the alert measures to their deployment by observing historical trends. Pivotal also recommends that operators expand beyond this guidance and create new, deployment-specific monitoringmetrics, thresholds, and alerts based on learning from their deployments.
 
-<p class="note"><strong>Note</strong>: Thresholds noted as "dynamic" in the tables below indicate that while a metric is highly important to watch, the relative numbers to set threshold warnings at are specific to a given PAS deployment and its use cases. These dynamic thresholds should be occasionally revisited because the PCF foundation and its usage continue to evolve. See <a href="metrics.html#thresholds">Determine Warning and Critical Thresholds</a> for more information.</p>
+<p class="note"><strong>Note:</strong> Thresholds noted as "dynamic" in the tables below indicate that while a metric is highly important to watch, the relative numbers to set threshold warnings at are specific to a given PAS deployment and its use cases. These dynamic thresholds should be occasionally revisited because the PCF foundation and its usage continue to evolve. See <a href="metrics.html#thresholds">Determine Warning and Critical Thresholds</a> for more information.</p>
+
 
 ## <a id="auctioneer"></a> Diego Auctioneer Metrics
  
-###<a id="AuctioneerLRPAuctionsFailed"></a>Auctioneer App Instance (AI) Placement Failures
+### <a id="AuctioneerLRPAuctionsFailed"></a> Auctioneer App Instance (AI) Placement Failures
 
 <table>
    <tr><th colspan="2" style="text-align: center;"><br> auctioneer.AuctioneerLRPAuctionsFailed<br><br></th></tr>
@@ -62,8 +57,7 @@ metrics, thresholds, and alerts based on learning from their deployments.
    </tr>
 </table>
 
-
-###<a id="AuctioneerFetchStatesDuration"></a>Auctioneer Time to Fetch Cell State
+### <a id="AuctioneerFetchStatesDuration"></a> Auctioneer Time to Fetch Cell State
 
 <table>
    <tr><th colspan="2" style="text-align: center;"><br>auctioneer.AuctioneerFetchStatesDuration<br><br></th></tr>
@@ -101,7 +95,8 @@ metrics, thresholds, and alerts based on learning from their deployments.
    </tr>
 </table>
 
-###<a id="AuctioneerLRPAuctionsStarted"></a>Auctioneer App Instance Starts
+### <a id="AuctioneerLRPAuctionsStarted"></a> Auctioneer App Instance Starts
+
 <table> 
    <tr><th colspan="2" style="text-align: center;"><br>auctioneer.AuctioneerLRPAuctionsStarted<br><br></th></tr>
         <tr>
@@ -142,7 +137,8 @@ When observing extended periods of high or low activity trends, scale up or down
 </tr>
 </table>
 
-###<a id="AuctioneerTaskAuctionsFailed"></a> Auctioneer Task Placement Failures
+### <a id="AuctioneerTaskAuctionsFailed"></a> Auctioneer Task Placement Failures
+
 <table>
      <tr><th colspan="2" style="text-align: center;"><br>auctioneer.AuctioneerTaskAuctionsFailed<br><br></th></tr>
         <tr>
@@ -184,9 +180,11 @@ When observing extended periods of high or low activity trends, scale up or down
 </tr>
 </table>
 
+
 ## <a id="bbs"></a> Diego BBS Metrics
 
-###<a id="ConvergenceLRPDuration"></a>BBS Time to Run LRP Convergence
+### <a id="ConvergenceLRPDuration"></a> BBS Time to Run LRP Convergence
+
 <table>
    <tr><th colspan="2" style="text-align: center;"><br>bbs.ConvergenceLRPDuration<br><br></th></tr>
    <tr>
@@ -225,8 +223,8 @@ When observing extended periods of high or low activity trends, scale up or down
    </tr>
 </table>
 
+### <a id="RequestLatency"></a> BBS Time to Handle Requests
 
-###<a id="RequestLatency"></a>BBS Time to Handle Requests
 <table>
    <tr><th colspan="2" style="text-align: center;"><br>bbs.RequestLatency<br><br></th></tr>
    <tr>
@@ -265,8 +263,8 @@ When observing extended periods of high or low activity trends, scale up or down
     </tr>
 </table>
 
+### <a id="cc-diego-sync"></a> Cloud Controller and Diego in Sync
 
-###<a id="cc-diego-sync"></a>Cloud Controller and Diego in Sync
 <table>
    <tr><th colspan="2" style="text-align: center;"><br>bbs.Domain.cf-apps<br><br></th></tr>
    <tr>
@@ -305,7 +303,7 @@ When observing extended periods of high or low activity trends, scale up or down
    </tr>
 </table>
 
-###<a id="LRPsExtra"></a>More App Instances Than Expected
+### <a id="LRPsExtra"></a> More App Instances Than Expected
 
 <table>
      <tr><th colspan="2" style="text-align: center;"><br>bbs.LRPsExtra<br><br></th></tr>
@@ -344,8 +342,8 @@ When observing extended periods of high or low activity trends, scale up or down
         </tr>
 </table>
 
+### <a id="LRPsMissing"></a> Fewer App Instances Than Expected
 
-###<a id="LRPsMissing"></a>Fewer App Instances Than Expected
 <table>
      <tr><th colspan="2" style="text-align: center;"><br>bbs.LRPsMissing<br><br></th></tr>
         <tr>
@@ -380,8 +378,8 @@ When observing extended periods of high or low activity trends, scale up or down
         </tr>
 </table>
 
+### <a id="bbs.CrashedActualLRPs"></a> Crashed App Instances
 
-###<a id="bbs.CrashedActualLRPs"></a>Crashed App Instances
 <table>
      <tr><th colspan="2" style="text-align: center;"><br>bbs.CrashedActualLRPs<br><br></th></tr>
         <tr>
@@ -423,7 +421,8 @@ When observing extended periods of high or low activity trends, scale up or down
         </tr>
 </table>
 
-###<a id="1hraverageofbbs.LRPsRunning"></a>Running App Instances, Rate of Change
+### <a id="1hraverageofbbs.LRPsRunning"></a> Running App Instances, Rate of Change
+
 <table>
      <tr><th colspan="2" style="text-align: center;"><br>1hr average of bbs.LRPsRunning – prior 1hr average of bbs.LRPsRunning<br><br></th></tr>
         <tr>
@@ -459,10 +458,10 @@ When observing extended periods of high or low activity trends, scale up or down
 </table>
 
 
-
 ## <a id="cell"></a> Diego Cell Metrics
 
-###<a id="rep.CapacityRemainingMemory"></a>Remaining Memory Available — Cell Memory Chunks Available
+### <a id="rep.CapacityRemainingMemory"></a> Remaining Memory Available — Cell Memory Chunks Available
+
 <table>
    <tr><th colspan="2" style="text-align: center;"><br>rep.CapacityRemainingMemory<br><br></th></tr>
    <tr>
@@ -521,7 +520,8 @@ When observing extended periods of high or low activity trends, scale up or down
    </tr>
 </table>
 
-###<a id="rep.CapacityRemainingMemory2"></a>Remaining Memory Available — Overall Remaining Memory Available
+### <a id="rep.CapacityRemainingMemory2"></a> Remaining Memory Available — Overall Remaining Memory Available
+
 <table>
    <tr><th colspan="2" style="text-align: center;"><br>rep.CapacityRemainingMemory<br>
        (Alternative Use)<br><br></th></tr>
@@ -566,7 +566,8 @@ When observing extended periods of high or low activity trends, scale up or down
    </tr>
 </table>
 
-###<a id="rep.CapacityRemainingDiskChunks"></a>Remaining Disk Available — Cell Disk Chunks Available
+### <a id="rep.CapacityRemainingDiskChunks"></a> Remaining Disk Available — Cell Disk Chunks Available
+
 <table>
    <tr><th colspan="2" style="text-align: center;"><br>rep.CapacityRemainingDisk<br><br></th></tr>
    <tr>
@@ -625,7 +626,8 @@ When observing extended periods of high or low activity trends, scale up or down
    </tr>
 </table>
 
-###<a id="CapacityRemainingDisk"></a>Remaining Disk Available - Overall Remaining Disk Available
+### <a id="CapacityRemainingDisk"></a> Remaining Disk Available - Overall Remaining Disk Available
+
 <table>
      <tr><th colspan="2" style="text-align: center;"><br> rep.CapacityRemainingDisk<br>
        (Alternative Use)<br><br></th></tr>
@@ -672,7 +674,8 @@ When observing extended periods of high or low activity trends, scale up or down
 </table>
 
 
-###<a id="RepBulkSyncDuration"></a>Cell Rep Time to Sync
+### <a id="RepBulkSyncDuration"></a> Cell Rep Time to Sync
+
 <table>
      <tr><th colspan="2" style="text-align: center;"><br>rep.RepBulkSyncDuration<br><br></th></tr>
         <tr>
@@ -706,7 +709,7 @@ When observing extended periods of high or low activity trends, scale up or down
         </tr>
 </table>
 
-###<a id="UnhealthyCell"></a>Unhealthy Cells
+### <a id="UnhealthyCell"></a> Unhealthy Cells
 
 <table>
      <tr><th colspan="2" style="text-align: center;"><br>rep.UnhealthyCell<br><br></th></tr>
@@ -753,9 +756,11 @@ When observing extended periods of high or low activity trends, scale up or down
         </tr>
 </table>
 
+
 ## <a id="locket"></a> Diego Locket Metrics
 
-###<a id="ActiveLocks"></a>Active Locks
+### <a id="ActiveLocks"></a> Active Locks
+
 <table>
    <tr><th colspan="2" style="text-align: center;"><br>locket.ActiveLocks<br><br></th></tr>
    <tr>
@@ -804,7 +809,8 @@ When observing extended periods of high or low activity trends, scale up or down
    </tr>
 </table>
 
-###<a id="BBSActiveLocks"></a>Locks Held by BBS
+### <a id="BBSActiveLocks"></a> Locks Held by BBS
+
 <table>
    <tr><th colspan="2" style="text-align: center;"><br>bbs.LockHeld<br><br></th></tr>
    <tr>
@@ -843,7 +849,8 @@ When observing extended periods of high or low activity trends, scale up or down
    </tr>
 </table>
 
-###<a id="AuctioneerActiveLocks"></a>Locks Held by Auctioneer 
+### <a id="AuctioneerActiveLocks"></a> Locks Held by Auctioneer
+
 <table>
    <tr><th colspan="2" style="text-align: center;"><br>auctioneer.LockHeld<br><br></th></tr>
    <tr>
@@ -881,7 +888,8 @@ When observing extended periods of high or low activity trends, scale up or down
    </tr>
 </table>
 
-###<a id="ActivePresences"></a>Active Presences
+### <a id="ActivePresences"></a> Active Presences
+
 <table>
    <tr><th colspan="2" style="text-align: center;"><br>locket.ActivePresences<br><br></th></tr>
    <tr>
@@ -925,9 +933,11 @@ When observing extended periods of high or low activity trends, scale up or down
    </tr>
 </table>
 
-##<a id="route_emitter"></a>Diego Route Emitter Metrics
 
-###<a id="RouteEmitterSyncDuration"></a>Route Emitter Time to Sync
+## <a id="route_emitter"></a> Diego Route Emitter Metrics
+
+### <a id="RouteEmitterSyncDuration"></a> Route Emitter Time to Sync
+
 <table>
      <tr><th colspan="2" style="text-align: center;"><br>route_emitter.RouteEmitterSyncDuration<br><br></th></tr>
         <tr>
@@ -969,11 +979,12 @@ When observing extended periods of high or low activity trends, scale up or down
         </tr>
 </table>
 
-## <a id="kpi4MySQL"></a>PAS MySQL KPIs
+
+## <a id="kpi4MySQL"></a> PAS MySQL KPIs
 
 When PAS uses an internal MySQL database, as configured in the PAS tile **Settings** tab > **Databases** pane, the database cluster generates KPIs as described below.
 
-<p class="note"><strong>Note</strong>: This section assumes you are using the <b>Internal Databases - MySQL - MariaDB Galera Cluster</b> option as your system database.</p>
+<p class="note"><strong>Note:</strong> This section assumes you are using the <b>Internal Databases - MySQL - MariaDB Galera Cluster</b> option as your system database.</p>
 
 [//]: # (partial '../mysql/mysql_kpis' contents pasted below)
 [//]: # (calling partial causes header format problems)
@@ -1024,9 +1035,11 @@ When PAS uses an internal MySQL database, as configured in the PAS tile **Settin
 | **Recommended alert thresholds** | **Yellow warning:** > 80%<br> **Red critical:** > 90% |
 | **Recommended response** | - Run [`mysql-diag`](http://docs.pivotal.io/pas/2-3/mysql-diag.html) and check the MySQL Server logs for errors.<br> - When approaching 100% of max connections, Apps may be experiencing times when they cannot connect to the database. The connections per second for the cluster vary based on application instances and app utilization. If this threshold is met or exceeded for an extended period of time, monitor app usage to ensure everything is behaving as expected. |
 
-##<a id="gorouter"></a>Gorouter Metrics
 
-###<a id="file_descriptors"></a>Router File Descriptors
+## <a id="gorouter"></a> Gorouter Metrics
+
+### <a id="file_descriptors"></a> Router File Descriptors
+
 <table>
   <tr><th colspan="2" style="text-align: center;"><br>gorouter.file_descriptors<br><br></th></tr>
   <tr>
@@ -1072,7 +1085,8 @@ When PAS uses an internal MySQL database, as configured in the PAS tile **Settin
     </tr>
 </table>
 
-###<a id="exhausted_connections"></a>Router Exhausted Connections
+### <a id="exhausted_connections"></a> Router Exhausted Connections
+
 <table>
   <tr><th colspan="2" style="text-align: center;"><br>gorouter.backend_exhausted_conns<br><br></th></tr>
   <tr>
@@ -1107,7 +1121,7 @@ When PAS uses an internal MySQL database, as configured in the PAS tile **Settin
     </tr>
 </table>
 
-###<a id="total_requests"></a>Router Throughput
+### <a id="total_requests"></a> Router Throughput
 
 <table>
    <tr><th colspan="2" style="text-align: center;"><br>gorouter.total_requests<br><br></th></tr>
@@ -1141,7 +1155,8 @@ When PAS uses an internal MySQL database, as configured in the PAS tile **Settin
 </tr>
 </table>
 
-###<a id="latency"></a>Router Handling Latency
+### <a id="latency"></a> Router Handling Latency
+
 <table>
      <tr><th colspan="2" style="text-align: center;"><br>gorouter.latency<br><br></th></tr>
         <tr>
@@ -1183,7 +1198,8 @@ When PAS uses an internal MySQL database, as configured in the PAS tile **Settin
         </tr>
 </table>
 
-###<a id="mssincelastregistryupdate"></a>Time Since Last Route Register Received
+### <a id="mssincelastregistryupdate"></a> Time Since Last Route Register Received
+
 <table>
      <tr><th colspan="2" style="text-align: center;"><br>gorouter.ms_since_last_registry_update<br><br></th></tr>
         <tr>
@@ -1221,7 +1237,7 @@ When PAS uses an internal MySQL database, as configured in the PAS tile **Settin
         </tr>
 </table>
 
-###<a id="bad_gateways"></a>Router Error: 502 Bad Gateway
+### <a id="bad_gateways"></a> Router Error: 502 Bad Gateway
 
 <table>
      <tr><th colspan="2" style="text-align: center;"><br>gorouter.bad_gateways<br><br></th></tr>
@@ -1264,7 +1280,8 @@ When PAS uses an internal MySQL database, as configured in the PAS tile **Settin
      </tr>
 </table>
 
-###<a id="responses.5xx"></a>Router Error: Server Error
+### <a id="responses.5xx"></a> Router Error: Server Error
+
 <table>
      <tr><th colspan="2" style="text-align: center;"><br>gorouter.responses.5xx<br><br></th></tr>
         <tr>
@@ -1299,7 +1316,8 @@ When PAS uses an internal MySQL database, as configured in the PAS tile **Settin
         </tr>
 </table>
 
-###<a id="total_routes"></a>Number of Gorouter Routes Registered
+### <a id="total_routes"></a> Number of Gorouter Routes Registered
+
 <table>
      <tr><th colspan="2" style="text-align: center;"><br>gorouter.total_routes<br><br></th></tr>
         <tr>
@@ -1342,7 +1360,7 @@ When PAS uses an internal MySQL database, as configured in the PAS tile **Settin
         </tr>
 </table>
 
-###<a id="route-registration"></a>Number of Route Registration Messages Sent and Received
+### <a id="route-registration"></a> Number of Route Registration Messages Sent and Received
 
 <table>
      <tr><th colspan="2" style="text-align: center;"><br>gorouter.registry_message.route-emitter<br>route_emitter.HTTPRouteNATSMessagesEmitted<br><br></th></tr>
@@ -1395,9 +1413,11 @@ When PAS uses an internal MySQL database, as configured in the PAS tile **Settin
         </tr>
 </table>
 
-##<a id="uaa"></a>UAA Metrics
 
-###<a id="uaa_throughput"></a>UAA Throughput
+## <a id="uaa"></a> UAA Metrics
+
+### <a id="uaa_throughput"></a> UAA Throughput
+
 <table>
   <tr><th colspan="2" style="text-align: center;"><br>uaa.requests.global.completed.count<br><br></th></tr>
   <tr>
@@ -1435,7 +1455,8 @@ When PAS uses an internal MySQL database, as configured in the PAS tile **Settin
     </tr>
 </table>
 
-###<a id="uaa_latency"></a>UAA Request Latency
+### <a id="uaa_latency"></a> UAA Request Latency
+
 <table>
   <tr><th colspan="2" style="text-align: center;"><br>gorouter.latency.uaa<br><br></th></tr>
   <tr>
@@ -1472,7 +1493,8 @@ When PAS uses an internal MySQL database, as configured in the PAS tile **Settin
     </tr>
 </table>
 
-###<a id="uaa_requests_inflight"></a>UAA Requests In Flight
+### <a id="uaa_requests_inflight"></a> UAA Requests In Flight
+
 <table>
   <tr><th colspan="2" style="text-align: center;"><br>uaa.server.inflight.count<br><br></th></tr>
   <tr>
@@ -1504,9 +1526,11 @@ When PAS uses an internal MySQL database, as configured in the PAS tile **Settin
     </tr>
 </table>
 
+
 ## <a id="bosh"></a> System (BOSH) Metrics
 
-###<a id="healthy"></a>VM Health
+### <a id="healthy"></a> VM Health
+
 <table>
      <tr><th colspan="2" style="text-align: center;"><br>system.healthy<br><br></th></tr>
         <tr>
@@ -1540,8 +1564,8 @@ When PAS uses an internal MySQL database, as configured in the PAS tile **Settin
         </tr>
 </table>
 
+### <a id="mem.percent"></a> VM Memory Used
 
-###<a id="mem.percent"></a>VM Memory Used
 <table>
      <tr><th colspan="2" style="text-align: center;"><br>system.mem.percent<br><br></th></tr>
         <tr>
@@ -1571,7 +1595,8 @@ When PAS uses an internal MySQL database, as configured in the PAS tile **Settin
         </tr>
 </table>
 
-###<a id="disk.system.percent"></a>VM Disk Used
+### <a id="disk.system.percent"></a> VM Disk Used
+
 <table>
      <tr><th colspan="2" style="text-align: center;"><br>system.disk.system.percent<br><br></th></tr>
         <tr>
@@ -1602,8 +1627,8 @@ When PAS uses an internal MySQL database, as configured in the PAS tile **Settin
         </tr>
 </table>
 
+### <a id="disk.ephemeral.percent"></a> VM Ephemeral Disk Used
 
-###<a id="disk.ephemeral.percent"></a>VM Ephemeral Disk Used
 <table>
      <tr><th colspan="2" style="text-align: center;"><br>system.disk.ephemeral.percent<br><br></th></tr>
         <tr>
@@ -1638,8 +1663,8 @@ When PAS uses an internal MySQL database, as configured in the PAS tile **Settin
         </tr>
 </table>
 
+### <a id="disk.persistent.percent"></a> VM Persistent Disk Used
 
-###<a id="disk.persistent.percent"></a>VM Persistent Disk Used
 <table>
      <tr><th colspan="2" style="text-align: center;"><br>system.disk.persistent.percent<br><br></th></tr>
         <tr>
@@ -1674,7 +1699,8 @@ When PAS uses an internal MySQL database, as configured in the PAS tile **Settin
         </tr>
 </table>
 
-###<a id="cpu.user"></a>VM CPU Utilization
+### <a id="cpu.user"></a> VM CPU Utilization
+
 <table>
      <tr><th colspan="2" style="text-align: center;"><br>system.cpu.user<br><br></th></tr>
         <tr>
@@ -1710,6 +1736,3 @@ When PAS uses an internal MySQL database, as configured in the PAS tile **Settin
                     </td>
         </tr>
 </table>
-
-
-
