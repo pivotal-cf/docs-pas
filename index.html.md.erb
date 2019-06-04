@@ -7,7 +7,8 @@ This guide describes how Pivotal Cloud Foundry (PCF) operators can monitor their
 
 For more information about logging and metrics in PCF, see [Overview of Logging and Metrics](../loggregator/data-sources.html).
 
-##<a id="guide"></a> Overview
+
+## <a id="guide"></a> Overview
 
 This guide includes the following topics: 
 
@@ -15,9 +16,10 @@ This guide includes the following topics:
 * <a class="subnav" href="./key-cap-scaling.html">Key Capacity Scaling Indicators</a>: A list of capacity scaling indicators that operators may want to  monitor to determine when they need to scale their PAS deployments.
 * <a class="subnav" href="./metrics.html">Selecting and Configuring a Monitoring System</a>: Guidance for setting up PAS with monitoring platforms to continuously monitor component metrics and trigger health alerts.
 
-##<a id="new"></a> KPI and Scaling Changes from PAS v2.4 to v2.5
 
-This table highlights new and changed KPIs and scaling indicators in PAS v2.5.
+## <a id="new"></a> KPI and Scaling Changes from PAS v2.5 to v2.6
+
+This table highlights new and changed KPIs and scaling indicators in PAS v2.6.
 
 <table>
   <tr>
@@ -27,25 +29,17 @@ This table highlights new and changed KPIs and scaling indicators in PAS v2.5.
     <th>Reference</th>
   </tr> 
   <tr>
-    <td width='10%'>Modified</td>
-    <td width='20%'>CF Syslog Drain Bindings Count
-    <td width='50%'>
-      In PAS v2.5, the CF Syslog Drain Bindings Count scaling indicator uses the following derived metric: 
-      <code>cf-syslog-drain.drain_adapter.drain_bindings / number of Syslog Adapters</code>
-    </td>
-    <td width='20%'><a href="./key-cap-scaling.html#scalable-syslog-ksi">CF Syslog Drain Bindings Count</a></td>
-  </tr>
-  <tr>  
     <td width='10%'>New</td>
-    <td width='20%'>Log Cache Caching Duration
+    <td width='20%'>Doppler Dropped Messages
     <td width='50%'>
-      The Log Cache Caching Duration scaling indicator indicates the age in milliseconds of the oldest data point stored in Log Cache. This metric is useful for determining when to scale the VMs on which Log Cache runs.
+      Within PAS, logs and metrics enter Loggregator for transport and then egress through Doppler. Doppler drops messages when consumers of the RLP, such as monitoring tool nozzles, ingest the exiting stream of logs and metrics too slowly.
+      <p class='note'><strong>Note:</strong> The <code>doppler.dropped</code> metric includes both <code>ingress</code> and <code>egress</code> directions. To differentiate between <code>ingress</code> and <code>egress</code>, refer to the <code>direction</code> tag on the metric.</p>
     </td>
-    <td width='20%'><a href="./key-cap-scaling.html#cache-duration">Log Cache Caching Duration</a></td>
-  </tr>  
+    <td width='20%'><a href="./key-cap-scaling.html#doppler-egress-dropped">Doppler Egress Dropped Messages</a></td> 
 </table> 
 
-##<a id="resources"></a> Monitor PCF Services
+
+## <a id="resources"></a> Monitor PCF Services
 
 For information about KPIs and metrics for PCF services, see the following topics:
 
