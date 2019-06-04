@@ -29,11 +29,11 @@ This table highlights new and changed KPIs and scaling indicators in PAS v2.6.
     <th>Reference</th>
   </tr> 
   <tr>
-    <td width='10%'>New</td>
-    <td width='20%'>Doppler Dropped Messages
+    <td width='10%'>Modified</td>
+    <td width='20%'>Doppler Egress Dropped Messages
     <td width='50%'>
       Within PAS, logs and metrics enter Loggregator for transport and then egress through Doppler. Doppler drops messages when consumers of the RLP, such as monitoring tool nozzles, ingest the exiting stream of logs and metrics too slowly.
-      <p class='note'><strong>Note:</strong> The <code>doppler.dropped</code> metric includes both <code>ingress</code> and <code>egress</code> directions. To differentiate between <code>ingress</code> and <code>egress</code>, refer to the <code>direction</code> tag on the metric.</p>
+      <p class='note'><strong>Note:</strong> The <code>doppler.dropped</code> metric includes both <code>ingress</code> and <code>egress</code> directions, but <code>egress</code> is a newly added distinction. To differentiate between <code>ingress</code> and <code>egress</code>, see the <code>direction</code> tag on the metric.</p>
     </td>
     <td width='20%'><a href="./key-cap-scaling.html#doppler-egress-dropped">Doppler Egress Dropped Messages</a></td> 
 </table> 
