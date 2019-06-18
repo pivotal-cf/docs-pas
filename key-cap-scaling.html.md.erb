@@ -418,8 +418,9 @@ Pivotal recommends the following scaling indicator for monitoring the performanc
 ## <a id="scalable-syslog"></a> CF Syslog Drain Performance Scaling Indicators
 There are three key capacity scaling indicators recommended for CF Syslog Drain performance. 
 
-<p class="note"><strong>Note</strong>: These CF Syslog Drain scaling indicators are only relevant
-  if your deployment contains apps using the CF syslog drain binding feature.</p>
+<p class="note"><strong>Note</strong>: These CF Syslog Drain scaling indicators are only relevant if your deployment contains apps using the CF syslog drain binding feature.</p>
+
+<p class="note"><strong>Note</strong>: If you enable agent-based syslog on your deployment, the Adapter Loss Rate and CF Syslog Drain Bindings Count indicators are not relevant and should be ignored. For more information about the Adapter Loss Rate and CF Syslog Drain Bindings Count indicators, see <a href="#syslog-adapter-ksi">Adapter Loss Rate</a> and <a href="l#scalable-syslog-ksi">CF Syslog Drain Bindings Count</a>. For more information about enabling agent-based syslog, see <a href="https://docs.pivotal.io/pivotalcf/2-6/pcf-release-notes/runtime-rn.html#syslog">Loggregator Syslog Agent Increases Scale For Syslog Drains</a>.</p>  
 
 ### <a id="syslog-adapter-ksi"></a> Adapter Loss Rate
 
@@ -522,10 +523,10 @@ There are three key capacity scaling indicators recommended for CF Syslog Drain 
 </tr>
 </table>
 
-<p class="note"><strong>Note</strong>: The Syslog Agent indicator is only relevant
-  if your deployment enables the agent-based syslog egress.</p>
 
 ### <a id="syslog-agent-ksi"></a> Syslog Agent Loss Rate
+
+<p class="note"><strong>Note</strong>: The Syslog Agent Loss Rate indicator is only relevant if agent-based syslog is enabled on your deployment. Agent-based syslog is disabled by default. For more information about enabling agent-based syslog, see <a href="https://docs.pivotal.io/pivotalcf/2-6/pcf-release-notes/runtime-rn.html#syslog">Loggregator Syslog Agent Increases Scale For Syslog Drains</a>.</p>
 
 <table>
   <tr>
@@ -534,40 +535,36 @@ There are three key capacity scaling indicators recommended for CF Syslog Drain 
   </tr>
    <tr>
       <th width="25">Description</th>
-       <td>The loss rate of the Syslog Agents, that is, the total messages dropped
-          as a percentage of the total traffic coming through the Syslog Agents.
-          Total messages include only logs for bound applications.
+       <td>The loss rate of Syslog Agents. The loss rate of Syslog Agents is the messages dropped as a percentage of total message traffic through Syslog Agents. The message traffic through Syslog Agents includes logs for bound apps.
        <br><br>
-			This loss rate is specific to the Syslog Agents and does not impact the Firehose loss rate.
-                        For example, you can suffer lossiness in syslog while not suffering any lossiness in the Firehose.
+			The Syslog Agent loss rate does not affect the Firehose loss rate. Message loss can occur in Syslog Agents without message loss occuring in the Firehose.
       </td>
    </tr>
    <tr>
       <th>Purpose</th>
-      <td>Indicates that the syslog drains are not keeping up with the number of logs
-                            that a syslog-drain-bound app is producing.
-                            This likely means that the syslog-drain consumer is failing to keep up with the incoming log volume.
-           <br><br>
-        The recommended scaling indicator is to look at the maximum per minute loss rate over a 5-minute window and scale if the derived loss rate value grows greater than <code>0.1</code>.
+      <td>This metric indicates that the syslog drain consumer is ingesting logs from a syslog-drain-bound app too slowly.
    </tr>
    <tr>
       <th>Recommended thresholds</th>
-      <td><strong>Scale indicator</strong>: &ge; 0.1</br>
+      <td>
+      The recommended scaling indicator is the maximum Syslog Agent loss rate per minute within a five-minute window. You should scale up if the maximum loss rate is greater than <code>0.1</code>.
+      <br><br>
+      <strong>Scale indicator</strong>: &ge; 0.1</br>
       If alerting:<br>
       <strong>Yellow warning</strong>: &ge; 0.01<br>
       <strong>Red critical</strong>: &ge; 0.1</td>
    </tr>
    <tr>
       <th>How to scale</th>
-      <td>Performance test your syslog server, review the logs of the syslog consuming system for intake
-          and other performance issues that indicate a need to scale the consuming system.
+      <td>Review the logs of the syslog server for intake issues and other performance issues.
       </td>
    </tr>
    <tr>
       <th>Additional details</th>
-      <td> <strong>Origin</strong>: Syslog Agent<br>
-           <strong>Type</strong>: Counter (Integer)<br>
-           <strong>Frequency</strong>: Emitted every 60&nbsp;s<br>
+      <td> 
+          <strong>Origin</strong>: Syslog Agent<br>
+          <strong>Type</strong>: Counter (Integer)<br>
+          <strong>Frequency</strong>: Emitted every 60&nbsp;s<br>
       </td>
    </tr>
 </table>
