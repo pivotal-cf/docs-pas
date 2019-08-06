@@ -322,8 +322,6 @@ Pivotal recommends the following scaling indicator for monitoring the performanc
    <tr>
       <th>Purpose</th>
       <td>This metric indicates that a Firehose consumer, such as a monitoring tool nozzle, is ingesting too slowly. If this number is anomalous, it may result in the downstream monitoring tool not having all expected data, even though that data was successfully transported through the Firehose.
-        <br><br>
-        This can also be confirmed via the Loggregator emitted log message <code>TB: Output channel too full. Dropped N messages</code>, where N is the number of dropped messages.
    </tr>
    <tr>
       <th>Recommended thresholds</th>
