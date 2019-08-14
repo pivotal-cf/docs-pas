@@ -709,17 +709,17 @@ When observing extended periods of high or low activity trends, scale up or down
         </tr>
 </table>
 
-### <a id="UnhealthyCell"></a> Unhealthy Cells
+### <a id="GardenHealthCheckFailed"></a> Garden Healthcheck Failed
 
 <table>
-     <tr><th colspan="2" style="text-align: center;"><br>rep.UnhealthyCell<br><br></th></tr>
+     <tr><th colspan="2" style="text-align: center;"><br>rep.GardenHealthCheckFailed<br><br></th></tr>
         <tr>
                 <th width="25%">Description</th>
-                <td>The Diego cell periodically checks its health against the garden backend. 
+                <td>The Diego cell periodically checks its health against the garden backend.
                     For Diego cells, <code>0</code> means healthy, and <code>1</code> means unhealthy.
                     <br><br>
-                    <strong>Use</strong>: Set an alert for further investigation if 
-                    multiple unhealthy Diego cells are detected in the given time window. 
+                    <strong>Use</strong>: Set an alert for further investigation if
+                    multiple unhealthy Diego cells are detected in the given time window.
                     If one cell is impacted, it does not participate in auctions, but end-user impact is usually low. If multiple cells are impacted, this can indicate a larger problem with Diego, and should be considered a more critical investigation need.
                  <br><br>
 		Suggested alert threshold based on multiple unhealthy cells in the given time window.
