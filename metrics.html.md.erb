@@ -5,14 +5,14 @@ owner: Cloud Ops
 
 
 
-This topic describes considerations for selecting and configuring a system to continuously monitor Pivotal Cloud Foundry (PCF) component performance and health.
+This topic describes considerations for selecting and configuring a system to continuously monitor <%= vars.first_product_name  %> component performance and health.
 
 ## <a id='select'></a>Selecting a Monitoring Platform
 
-Pivotal recommends using <a href="https://docs.pivotal.io/pcf-healthwatch/index.html">PCF Healthwatch</a> to
-monitor your deployment. PCF Healthwatch is a service tile developed and supported by Pivotal and available on [Pivotal Network](https://network.pivotal.io/products/p-healthwatch).
+Pivotal recommends using <a href="https://docs.pivotal.io/pcf-healthwatch/index.html"><%= vars.product_name  %> Healthwatch</a> to
+monitor your deployment. <%= vars.product_name  %> Healthwatch is a service tile developed and supported by Pivotal and available on [Pivotal Network](https://network.pivotal.io/products/p-healthwatch).
 
-Many third-party systems can also be used to monitor a PCF deployment.</p>
+Many third-party systems can also be used to monitor a <%= vars.product_name  %> deployment.</p>
 
 ### <a id='types'></a>Monitoring Platform Types
 
@@ -28,11 +28,11 @@ putting the two pieces together.
 ### <a id='platforms'></a>Monitoring Platforms
 
 There are many monitoring options
-available, both open source and commercial products. Some commonly-used platforms among PCF customers include:
+available, both open source and commercial products. Some commonly-used platforms among <%= vars.product_name  %> customers include:
 
-* [PCF Healthwatch](https://docs.pivotal.io/pcf-healthwatch/index.html) by Pivotal
+* [<%= vars.product_name  %> Healthwatch](https://docs.pivotal.io/pcf-healthwatch/index.html) by Pivotal
 
-* PCF Partner
+* <%= vars.product_name  %> Partner
 Services available on [Pivotal Network](https://network.pivotal.io):
   - [AppDynamics](https://docs.pivotal.io/partners/appdynamics/old_index.html)
   - [Datadog](https://docs.pivotal.io/partners/datadog/release-notes.html)
@@ -52,31 +52,31 @@ Services available on [Pivotal Network](https://network.pivotal.io):
   
 ### <a id='cloud-ops'></a>Pivotal Cloud Ops Tools
 
-The Pivotal Cloud Ops Team manages two types of deployments for internal Pivotal use: open-source Cloud Foundry, and Pivotal Cloud Foundry (PCF).
+The Pivotal Cloud Ops Team manages two types of deployments for internal Pivotal use: open-source Cloud Foundry, and <%= vars.first_product_name  %>.
 
 For **Cloud Foundry**, Pivotal Cloud Ops uses several monitoring tools.
 The [Datadog Config
 repository](https://github.com/pivotal-cf-experimental/datadog-config-oss)
 provides an example of how the Pivotal Cloud Ops team uses a customized Datadog dashboard to monitor the health of its open-source Cloud Foundry deployments.
 
-To monitor its **PCF** deployments, Pivotal Cloud Ops leverages a combination of
-[PCF
+To monitor its **<%= vars.product_name  %>** deployments, Pivotal Cloud Ops leverages a combination of
+[<%= vars.product_name  %>
 Healthwatch](https://docs.pivotal.io/pcf-healthwatch/1-2/index.html)
 and [Google Stackdriver](https://cloud.google.com/stackdriver/). 
 
 ## <a id='cloud-ops'></a>Key Inputs for Platform Monitoring
 
-### <a id='component-metrics'></a>BOSH VM and PCF Component Health Metrics
+### <a id='component-metrics'></a>BOSH VM and <%= vars.product_name  %> Component Health Metrics
 
-Most monitoring service tiles for PCF come packaged with the Firehose
+Most monitoring service tiles for <%= vars.product_name  %> come packaged with the Firehose
 nozzle necessary to extract the BOSH and CF metrics leveraged for platform
 monitoring. Nozzles are programs that consume data from the Loggregator Firehose. Nozzles can be configured to select, buffer, and transform data, and to forward it to other apps and services. 
 
 The nozzles gather the component logs and metrics streaming from the Loggregator Firehose endpoint. For more information about the Firehose, see [Loggregator Architecture](https://docs.pivotal.io/pivotalcf/loggregator/architecture.html).
 
-As of PCF v2.0, both BOSH VM Health metrics and Cloud Foundry component metrics stream through the Firehose by default.
+As of <%= vars.product_name  %> v2.0, both BOSH VM Health metrics and Cloud Foundry component metrics stream through the Firehose by default.
 
-  - PCF component metrics originate from the Metron agents on their
+  - <%= vars.product_name  %> component metrics originate from the Metron agents on their
     source components, then travel through Dopplers to the Traffic
     Controller.
   - The Traffic Controller aggregates both metrics and log messages
@@ -84,14 +84,14 @@ As of PCF v2.0, both BOSH VM Health metrics and Cloud Foundry component metrics 
     endpoint.
 
 The following topic list high-signal-value metrics and capacity scaling 
-indicators in a PCF deployment:
+indicators in a <%= vars.product_name  %> deployment:
 
   - [Key Performance Indicators](https://docs.pivotal.io/pivotalcf/monitoring/kpi.html)
   - [Key Capacity Scaling Indicators](https://docs.pivotal.io/pivotalcf/monitoring/key-cap-scaling.html)
 
 ### <a id='smoke-tests'></a>Continuous Functional Smoke Tests
 
-PCF includes [smoke
+<%= vars.product_name  %> includes [smoke
 tests](https://github.com/pivotal-cloudops/cf-smoke-tests/tree/Dockerfile),
 which are functional unit and integration tests on all major system
 components. By default, whenever an operator upgrades to a new version
@@ -100,7 +100,7 @@ of PAS, these smoke tests run as a post-deploy errand.
 Pivotal recommends additional higher-resolution monitoring by the execution
 of continuous smoke tests, or Service Level Indicator tests, that measure user-defined features and check them against expected levels. 
 
-  - [PCF
+  - [<%= vars.product_name  %>
     Healthwatch](https://network.pivotal.io/products/p-healthwatch)
     automatically executes these tests for PAS Service Level Indicators.
   - The Pivotal Cloud Ops [CF Smoke

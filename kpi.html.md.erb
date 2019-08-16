@@ -1,6 +1,6 @@
 ---
 title: Key Performance Indicators 
-owner: PCF Metrics Platform Monitoring
+owner: <%= vars.product_name  %> Metrics Platform Monitoring
 ---
 
 This topic describes Key Performance Indicators (KPIs) that operators may want to monitor with their Pivotal Application Service (PAS) deployment to help ensure it is in a good operational state.
@@ -9,7 +9,7 @@ The following PAS v2.6 KPIs are provided for operators to give general guidance 
 
 This alerting and response guidance has been shown to apply to most deployments. Pivotal recommends that operators continue to fine-tune the alert measures to their deployment by observing historical trends. Pivotal also recommends that operators expand beyond this guidance and create new, deployment-specific monitoringmetrics, thresholds, and alerts based on learning from their deployments.
 
-<p class="note"><strong>Note:</strong> Thresholds noted as "dynamic" in the tables below indicate that while a metric is highly important to watch, the relative numbers to set threshold warnings at are specific to a given PAS deployment and its use cases. These dynamic thresholds should be occasionally revisited because the PCF foundation and its usage continue to evolve. See <a href="metrics.html#thresholds">Determine Warning and Critical Thresholds</a> for more information.</p>
+<p class="note"><strong>Note:</strong> Thresholds noted as "dynamic" in the tables below indicate that while a metric is highly important to watch, the relative numbers to set threshold warnings at are specific to a given PAS deployment and its use cases. These dynamic thresholds should be occasionally revisited because the <%= vars.product_name  %> foundation and its usage continue to evolve. See <a href="metrics.html#thresholds">Determine Warning and Critical Thresholds</a> for more information.</p>
 
 
 ## <a id="auctioneer"></a> Diego Auctioneer Metrics
@@ -513,7 +513,7 @@ When observing extended periods of high or low activity trends, scale up or down
     <tr>
       <th>Alternative Metric</th>
       <td>
-      If you are using <a href="https://network.pivotal.io/products/p-healthwatch">PCF Healthwatch</a>,
+      If you are using <a href="https://network.pivotal.io/products/p-healthwatch"><%= vars.product_name  %> Healthwatch</a>,
       Pivotal recommends the metric <a href="http://docs.pivotal.io/pcf-healthwatch/metrics.html#free-memory-chunks">healthwatch.Diego.AvailableFreeChunks</a>
       for this purpose.
       </td>
@@ -559,7 +559,7 @@ When observing extended periods of high or low activity trends, scale up or down
     <tr>
       <th>Alternative Metric</th>
       <td>
-      If you are using <a href="https://network.pivotal.io/products/p-healthwatch">PCF Healthwatch</a>,
+      If you are using <a href="https://network.pivotal.io/products/p-healthwatch"><%= vars.product_name  %> Healthwatch</a>,
       Pivotal recommends the metric <a href="http://docs.pivotal.io/pcf-healthwatch/metrics.html#free-memory-chunks">healthwatch.Diego.AvailableFreeChunks</a>
       for this purpose.
       </td>
@@ -619,7 +619,7 @@ When observing extended periods of high or low activity trends, scale up or down
     <tr>
       <th>Alternative Metric</th>
       <td>
-      If you are using <a href="https://network.pivotal.io/products/p-healthwatch">PCF Healthwatch</a>,
+      If you are using <a href="https://network.pivotal.io/products/p-healthwatch"><%= vars.product_name  %> Healthwatch</a>,
       Pivotal recommends the metric <a href="http://docs.pivotal.io/pcf-healthwatch/metrics.html#free-disk-chunks">healthwatch.Diego.AvailableFreeChunksDisk</a>
       for this purpose.
       </td>
@@ -666,7 +666,7 @@ When observing extended periods of high or low activity trends, scale up or down
     <tr>
       <th>Alternative Metric</th>
       <td>      
-      If you are using <a href="https://network.pivotal.io/products/p-healthwatch">PCF Healthwatch</a>,
+      If you are using <a href="https://network.pivotal.io/products/p-healthwatch"><%= vars.product_name  %> Healthwatch</a>,
       Pivotal recommends the metric <a href="http://docs.pivotal.io/pcf-healthwatch/metrics.html#free-memory-chunks">healthwatch.Diego.AvailableFreeChunks</a>
       for this purpose.
       </td>
