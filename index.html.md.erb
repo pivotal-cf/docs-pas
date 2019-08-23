@@ -27,7 +27,16 @@ This table highlights new and changed KPIs and scaling indicators in PAS v2.6.
     <th>Metric</th>
     <th>Description</th>
     <th>Reference</th>
-  </tr> 
+  </tr>
+  <tr>
+    <td width='10%'>Removed</td>
+    <td width='20%'>Number of Route Registration Messages Sent and Received
+    <td width='50%'>
+        In PAS 2.4 and above, GoRouter will skip the TTL for routes that are registered with TLS. So the routes will never expire or be pruned (other than in an attempt to connect to an invalid backend), which means these metrics are no longer an accurate representation of routing health.
+        Affected metrics: <code>gorouter.registry_message.route-emitter</code> & <code>route_emitter.HTTPRouteNATSMessagesEmitted</code>
+      </td>
+    <td width='20%'>N/A</td>
+  </tr>
   <tr>
     <td width='10%'>Modified</td>
     <td width='20%'>Doppler Egress Dropped Messages
