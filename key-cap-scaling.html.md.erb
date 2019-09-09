@@ -439,7 +439,7 @@ There is a single key capacity scaling indicator recommended for CF Syslog Drain
    <tr>
       <th>Recommended thresholds</th>
       <td>
-      The recommended scaling indicator is the maximum Syslog Agent loss rate per minute within a five-minute window. You should scale up if the maximum loss rate is greater than <code>0.1</code>.
+      The recommended scaling indicator is the minimum Syslog Agent loss rate per minute within a five-minute window. You should scale up if the minimum loss rate is greater than <code>0.1</code>, sustained over a five-minute window.
       <br><br>
       <strong>Scale indicator</strong>: &ge; 0.1</br>
       If alerting:<br>
