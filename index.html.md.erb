@@ -17,9 +17,9 @@ This guide includes the following topics:
 * <a class="subnav" href="./metrics.html">Selecting and Configuring a Monitoring System</a>: Guidance for setting up PAS with monitoring platforms to continuously monitor component metrics and trigger health alerts.
 
 
-## <a id="new"></a> KPI and Scaling Changes from PAS v2.5 to v2.6
+## <a id="new"></a> KPI and Scaling Changes from PAS v2.6 to v2.7
 
-This table highlights new and changed KPIs and scaling indicators in PAS v2.6.
+This table highlights new and changed KPIs and scaling indicators in PAS v2.7.
 
 <table>
   <tr>
@@ -30,20 +30,25 @@ This table highlights new and changed KPIs and scaling indicators in PAS v2.6.
   </tr>
   <tr>
     <td width='10%'>Removed</td>
-    <td width='20%'>Number of Route Registration Messages Sent and Received
+    <td width='20%'>Adapter Loss Rate</td>
     <td width='50%'>
-        These <code>gorouter.registry_message.route-emitter</code> and <code>route_emitter.HTTPRouteNATSMessagesEmitted</code>metrics are no longer an accurate representation of routing health. In PAS v2.4 and later, Gorouter skips the TTL for routes that are registered with TLS. This means the routes never expire or get pruned, other than in an attempt to connect to an invalid backend.  
+        The Adapter Loss Rate metric is replaced by Syslog Agent Loss Rate. In PAS v2.7, Syslog Adapters are removed from the Loggregator architecture. Syslog Agents replace Syslog Adapters. 
+        <br><br>
+        For more information about Syslog Agents, see <a href="https://docs.pivotal.io/pivotalcf/2-7/pcf-release-notes/runtime-rn.html#agent-based-syslog-egress">Agent-Based Syslog Egress Is Enabled by Default</a> in <i>Pivotal Application Service v2.7 Release Notes</i>.   
       </td>
-    <td width='20%'>N/A</td>
+    <td width='20%'><a href="./key-cap-scaling.html#syslog-agent-ksi">Syslog Agent Loss Rate</a></td>
   </tr>
   <tr>
-    <td width='10%'>Modified</td>
-    <td width='20%'>Doppler Egress Dropped Messages
+    <td width='10%'>Removed</td>
+    <td width='20%'>CF Syslog Drain Bindings Count
     <td width='50%'>
-      Within PAS, logs and metrics enter Loggregator for transport and then egress through Doppler. Doppler drops messages when consumers of the RLP, such as monitoring tool nozzles, ingest the exiting stream of logs and metrics too slowly.
-      <p class='note'><strong>Note:</strong> The <code>doppler.dropped</code> metric includes both <code>ingress</code> and <code>egress</code> directions, but <code>egress</code> is a newly added distinction. To differentiate between <code>ingress</code> and <code>egress</code>, see the <code>direction</code> tag on the metric.</p>
+      In PAS v2.6 and earlier, CF syslog drain bindings were required to manage connections between the Syslog Adapters and the Reverse Log Proxies (RLPs). 
+      <br><br>
+      In PAS v2.7, Syslog Agents replace Syslog Adapters. Syslog Agents do not use CF syslog drain bindings to manage syslog drains. 
+      <br><br>
+      For more information about Syslog Agents, see <a href="https://docs.pivotal.io/pivotalcf/2-7/pcf-release-notes/runtime-rn.html#agent-based-syslog-egress">Agent-Based Syslog Egress Is Enabled by Default</a> in <i>Pivotal Application Service v2.7 Release Notes</i>.
     </td>
-    <td width='20%'><a href="./key-cap-scaling.html#doppler-egress-dropped">Doppler Egress Dropped Messages</a></td> 
+    <td width='20%'>N/A</td> 
 </table> 
 
 
