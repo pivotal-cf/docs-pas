@@ -71,7 +71,7 @@ Most monitoring service tiles for <%= vars.product_name %> come packaged with th
 nozzle necessary to extract the BOSH and CF metrics leveraged for platform
 monitoring. Nozzles are programs that consume data from the Loggregator Firehose. Nozzles can be configured to select, buffer, and transform data, and to forward it to other apps and services. 
 
-The nozzles gather the component logs and metrics streaming from the Loggregator Firehose endpoint. For more information about the Firehose, see [Loggregator Architecture](https://docs.pivotal.io/pivotalcf/loggregator/architecture.html).
+The nozzles gather the component logs and metrics streaming from the Loggregator Firehose endpoint. For more information about the Firehose, see [Loggregator Architecture](https://docs.pivotal.io/platform/loggregator/architecture.html).
 
 As of <%= vars.product_name %> v2.0, both BOSH VM Health metrics and Cloud Foundry component metrics stream through the Firehose by default.
 
@@ -85,8 +85,8 @@ As of <%= vars.product_name %> v2.0, both BOSH VM Health metrics and Cloud Found
 The following topic list high-signal-value metrics and capacity scaling 
 indicators in a <%= vars.product_name %> deployment:
 
-  - [Key Performance Indicators](https://docs.pivotal.io/pivotalcf/monitoring/kpi.html)
-  - [Key Capacity Scaling Indicators](https://docs.pivotal.io/pivotalcf/monitoring/key-cap-scaling.html)
+  - [Key Performance Indicators](https://docs.pivotal.io/platform/monitoring/kpi.html)
+  - [Key Capacity Scaling Indicators](https://docs.pivotal.io/platform/monitoring/key-cap-scaling.html)
 
 ### <a id='smoke-tests'></a>Continuous Functional Smoke Tests
 
@@ -124,8 +124,8 @@ Effective platform monitoring requires continuous evolution.
 After you establish initial baselines, Pivotal recommends that you continue to refine your metrics and tests to maintain the appropriate balance between early detection and reducing
 unnecessary alert fatigue. The dynamic measures recommended in [Key
 Performance
-Indicators](https://docs.pivotal.io/pivotalcf/monitoring/kpi.html)
+Indicators](https://docs.pivotal.io/platform/monitoring/kpi.html)
 and [Key Capacity Scaling
-Indicators](https://docs.pivotal.io/pivotalcf/monitoring/key-cap-scaling.html)
+Indicators](https://docs.pivotal.io/platform/monitoring/key-cap-scaling.html)
 should be revisited on occasion to ensure they are still appropriate to
 the current system configuration and its usage patterns.
