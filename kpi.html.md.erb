@@ -986,73 +986,7 @@ When PAS uses an internal MySQL database, as configured in the PAS tile **Settin
 
 <p class="note"><strong>Note:</strong> This section assumes you are using the <b>Internal Databases - MySQL - MariaDB Galera Cluster</b> option as your system database.</p>
 
-[//]: # (partial '../mysql/mysql_kpis' contents pasted below)
-[//]: # (calling partial causes header format problems)
-[//]: # (keep below and docs-mysql/_mysql_kpis.html.md.erb in sync)
-
-### <a id="server-heartbeat"></a> MySQL Server Availability
-
-|| **<%= vars.mysql_metrics_origin %>/available** |
-| --- | --- |
-| **Description** | The MySQL Server is currently responding to requests, which indicates that the server is running.<br><br> **Use:** This metric is especially useful in single-node mode, where cluster metrics are not relevant. If the server does not emit heartbeats, it is offline.<br><br>**Origin:** Firehose<br> **Envelope Type:** Gauge<br> **Unit:** boolean<br>**Frequency:** 30 s (default) |
-| **Recommended measurement** | Average over the last 5 minutes |
-| **Recommended alert thresholds** | **Yellow warning:** N/A<br> **Red critical:** < 1  |
-| **Recommended response** | Run [`mysql-diag`](../mysql/mysql-diag.html) and check the MySQL Server logs for errors.  |
-
-### <a id="wsrep-ready"></a> Galera Cluster Node Readiness
-
-|| **<%= vars.mysql_metrics_origin %>/galera/wsrep_ready** |
-| --- | --- |
-| **Description** | Shows whether each cluster node can accept queries. Returns only 0 or 1. When this metric is 0, almost all queries to that node fail with the error:<br> ```ERROR 1047 (08501) Unknown Command```<br><br> **Use:** Discover when nodes of a cluster have been unable to communicate and, thus, unable to accept transactions.<br><br>**Origin:** Firehose<br> **Envelope Type:** Gauge<br> **Unit:** boolean<br>**Frequency:** 30 s (default) |
-| **Recommended measurement** | Average of values of each cluster node, over the last 5 minutes |
-| **Recommended alert thresholds** | **Yellow warning:** < 1.0<br> **Red critical:** 0 (cluster is down)  |
-| **Recommended response** | - Run [`mysql-diag`](../mysql/mysql-diag.html) and check the MySQL Server logs for errors.<br> - Make sure there has been no infrastructure event that affects intra-cluster communication.<br>- Ensure that `wsrep_ready` has not been set to off by using the query:<br>```SHOW STATUS LIKE 'wsrep_ready';``` |
-
-### <a id="wsrep-cluster-size"></a> Galera Cluster Size
-
-|| **<%= vars.mysql_metrics_origin %>/galera/wsrep\_cluster\_size** |
-| --- | --- |
-| **Description** | The number of cluster nodes with which each node is communicating normally.<br><br> **Use:** When running in a multi-node configuration, this metric indicates if each member of the cluster is communicating normally with all other nodes.<br><br>**Origin:** Firehose<br> **Envelope Type:** Gauge<br> **Unit:** count<br>**Frequency:** 30 s (default) |
-| **Recommended measurement** | (Average of the values of each node / cluster size), over the last 5 minutes |
-| **Recommended alert thresholds** | **Yellow warning:** < 3.0 (availability compromised)<br> **Red critical:** < 1.0 (cluster unavailable) |
-| **Recommended response** | Run [`mysql-diag`](../mysql/mysql-diag.html) and check the MySQL Server logs for errors.  |
-
-### <a id="wsrep-cluster-status"></a> Galera Cluster Status
-
-|| **<%= vars.mysql_metrics_origin %>/galera/wsrep\_cluster\_status** |
-| --- | --- |
-| **Description** | Shows the primary status of the cluster component that the node is in.<br>Values are:<br> - Primary = 1<br> - Non-primary = 0<br> - Disconnected = -1<br> See: [https://mariadb.com/kb/en/mariadb/galera-cluster-status-variables/](https://mariadb.com/kb/en/mariadb/galera-cluster-status-variables/ ) <br><br> **Use:** Any value other than "Primary" indicates that the node is part of a nonoperational component. This occurs in cases of multiple membership changes that result in a loss of quorum.<br><br>**Origin:** Firehose<br> **Envelope Type:** Gauge<br> **Unit:** integer (see above)<br>**Frequency:** 30 s (default) |
-| **Recommended measurement** | Sum of each of the nodes, over the last 5 minutes |
-| **Recommended alert thresholds** | **Yellow warning:** < 3 <br> **Red critical:** < 1  |
-| **Recommended response** | - Check node status to ensure that they are all in working order and able to receive write-sets.<br> - Run [`mysql-diag`](../mysql/mysql-diag.html) and check the MySQL Server logs for errors.  |
-
-### <a id="connections"></a> Connections per Second
-
-|| **<%= vars.mysql_metrics_origin %>/net/connections** |
-| --- | --- |
-| **Description** | Connections per second made to the server.<br><br> **Use:** If the number of connections drastically changes or if apps are unable to connect, there might be a network or app issue.<br><br> **Origin:** Firehose<br> **Envelope Type:** Gauge<br> **Unit:** count<br> **Frequency:** 30 s (default) |
-| **Recommended measurement** | (Average of all nodes / max connections), over last 1 minute |
-| **Recommended alert thresholds** | **Yellow warning:** > 80%<br> **Red critical:** > 90% |
-| **Recommended response** | - Run [`mysql-diag`](../mysql/mysql-diag.html) and check the MySQL Server logs for errors.<br> - When approaching 100% of max connections, Apps may be experiencing times when they cannot connect to the database. The connections per second for the cluster vary based on application instances and app utilization. If this threshold is met or exceeded for an extended period of time, monitor app usage to ensure everything is behaving as expected. |
-
-### <a id="cpu-utilization-percent"></a> CPU Utilization Percent
-
-|| **<%= vars.mysql_metrics_origin %>/performace/cpu_utilization_percent** |
-| --- | --- |
-| **Description** | CPU time being consumed by the MySQL service.<br><br> **Use:** A node that experiences context switching or high CPU usage will become unresponsive. This also affects the ability of the node to report metrics.<br><br> **Origin:** Doppler/Firehose<br> **Envelope Type:** Gauge<br> **Unit:** percent<br> **Frequency:** 30 s (default) |
-| **Recommended measurement** | Average over last 10 minutes |
-| **Recommended alert thresholds** | **Yellow warning:** > 80%<br> **Red critical:** > 90% |
-| **Recommended response** | - Run [`mysql-diag`](../mysql/mysql-diag.html) and check the MySQL Server logs for errors.<br> - Determine what is using so much CPU. If it is from normal processes, update the service instance to use a plan with larger CPU capacity. |
-
-### <a id="queries-delta"></a> Queries Delta
-
-|| **<%= vars.mysql_metrics_origin %>/performace/queries_delta** |
-| --- | --- |
-| **Description** | The number of statements executed by the server over the last 30 seconds.<br><br> **Use:** The server should always be processing some queries. If the server does not process any queries, the server is non-functional.<br><br> **Origin:** Doppler/Firehose<br> **Envelope Type:** Gauge<br> **Unit:** count<br> **Frequency:** 30 s |
-| **Recommended measurement** | Average over last 2 minutes |
-| **Recommended alert thresholds** | **Red critical:** 0 |
-| **Recommended response** | - Run [`mysql-diag`](../mysql/mysql-diag.html) and check the MySQL Server logs for errors.<br> - Investigate the MySQL server logs, such as the audit log, to understand why query rate changed and determine appropriate action. |
-
+<%= partial vars.path_to_partials + '/mysql/monitoring/kpis-metrics/all-kpis' %>
 
 ## <a id="gorouter"></a> Gorouter Metrics
 
