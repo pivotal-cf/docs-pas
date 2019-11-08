@@ -21,19 +21,18 @@ There are three key capacity scaling indicators recommended for a Diego Cell:
 <table>
    <tr><th colspan="2" style="text-align: center;"><br>rep.CapacityRemainingMemory / rep.CapacityTotalMemory<br><br></th></tr>
    <tr>
-      <th width="25%">Description</th>
+     <th width="25%">Description</th>
      <td> Percentage of remaining memory capacity for a given Diego Cell. Monitor this derived metric across all Diego Cells in a deployment.
-<br><br>
-      The metric <code>rep.CapacityRemainingMemory</code> indicates the remaining amount in MiB of memory available for this Diego Cell to allocate to containers.<br>
-      The metric <code>rep.CapacityTotalMemory</code> indicates the total amount in MiB of memory available for this Diego Cell to allocate to containers.</td>
- </tr>
+     <br><br>
+     The metric <code>rep.CapacityRemainingMemory</code> indicates the remaining amount in MiB of memory available for this Diego Cell to allocate to containers.<br>
+     The metric <code>rep.CapacityTotalMemory</code> indicates the total amount in MiB of memory available for this Diego Cell to allocate to containers.</td>
+   </tr>
    <tr>
       <th>Purpose</th>
-      <td>A best practice deployment of Cloud Foundry includes three availability zones (AZs).  
-          For these types of deployments, Pivotal recommends that you have enough capacity to suffer failure of an entire AZ.
-          <br><br>
-          The <em>Recommended threshold</em> assumes a three-AZ configuration. Adjust the threshold percentage if you have more or fewer AZs.
-      </td>
+      <td>A best practice deployment of <%= vars.platform_name %> includes three availability zones (AZs).  
+      For these types of deployments, Pivotal recommends that you have enough capacity to suffer failure of an entire AZ.
+      <br><br>
+      The <em>Recommended threshold</em> assumes a three-AZ configuration. Adjust the threshold percentage if you have more or fewer AZs.</td>
    </tr>
    <tr>
       <th>Recommended thresholds</th>
@@ -41,23 +40,20 @@ There are three key capacity scaling indicators recommended for a Diego Cell:
    </tr>
    <tr>
       <th>How to scale</th>
-      <td>      
-      Scale up your Diego Cells.
-      </td>
+      <td>Scale up your Diego Cells.</td>
    </tr>
-    <tr>
+   <tr>
       <th>Additional details</th>
-      <td> <strong>Origin</strong>: Firehose<br>
-           <strong>Type</strong>: Gauge (%)<br>
-           <strong>Frequency</strong>: Emitted every 60&nbsp;s<br>
-           <strong>Applies to</strong>: cf:diego_cells
+      <td>
+      <strong>Origin</strong>: Firehose<br>
+      <strong>Type</strong>: Gauge (%)<br>
+      <strong>Frequency</strong>: Emitted every 60&nbsp;s<br>
+      <strong>Applies to</strong>: cf:diego_cells
       </td>
    </tr>
-    <tr>
+   <tr>
       <th>Alternative Metric</th>
-      <td>      
-      <%= vars.platform_name %> Healthwatch expresses this indicator with the metric <a href="https://docs.pivotal.io/pcf-healthwatch/1-2/metrics.html#memory"><code>healthwatch.Diego.TotalPercentageAvailableMemoryCapacity.5M</code></a>. 
-      </td>
+      <td><%= vars.platform_name %> Healthwatch expresses this indicator with the metric <a href="https://docs.pivotal.io/pcf-healthwatch/1-2/metrics.html#memory"><code>healthwatch.Diego.TotalPercentageAvailableMemoryCapacity.5M</code></a>.</td>
    </tr>
 </table>
 
@@ -68,17 +64,16 @@ There are three key capacity scaling indicators recommended for a Diego Cell:
    <tr>
       <th width="25%">Description</th>
       <td> Percentage of remaining disk capacity for a given Diego Cell. Monitor this derived metric across all Diego Cells in a deployment.
-<br><br>
+      <br><br>
       The metric <code>rep.CapacityRemainingDisk</code> indicates the remaining amount in MiB of disk available for this Diego Cell to allocate to containers.<br> 
       The metric <code>rep.CapacityTotalDisk</code> indicates the total amount in MiB of disk available for this Diego Cell to allocate to containers.</td>
- </tr>
+   </tr>
    <tr>
-       <th>Purpose</th>
-      <td>A best practice deployment of Cloud Foundry includes three availability zones (AZs).  
-          For these types of deployments, Pivotal recommends that you have enough capacity to suffer failure of an entire AZ.
-          <br><br>
-          The <em>Recommended threshold</em> assumes a three-AZ configuration. Adjust the threshold percentage if you have more or fewer AZs.
-      </td>
+      <th>Purpose</th>
+      <td>A best practice deployment of <%= vars.platform_name %> includes three availability zones (AZs).  
+      For these types of deployments, Pivotal recommends that you have enough capacity to suffer failure of an entire AZ.
+      <br><br>
+      The <em>Recommended threshold</em> assumes a three-AZ configuration. Adjust the threshold percentage if you have more or fewer AZs.</td>
    </tr>
    <tr>
       <th>Recommended thresholds</th>
@@ -86,31 +81,27 @@ There are three key capacity scaling indicators recommended for a Diego Cell:
    </tr>
    <tr>
       <th>How to scale</th>
-      <td>      
-      Scale up your Diego Cells.
-      </td>
+      <td>Scale up your Diego Cells.</td>
    </tr>
-    <tr>
+   <tr>
       <th>Additional details</th>
-      <td> <strong>Origin</strong>: Firehose<br>
-           <strong>Type</strong>: Gauge (%)<br>
-           <strong>Frequency</strong>: Emitted every 60&nbsp;s<br>
-           <strong>Applies to</strong>: cf:diego_cells
+      <td>
+      <strong>Origin</strong>: Firehose<br>
+      <strong>Type</strong>: Gauge (%)<br>
+      <strong>Frequency</strong>: Emitted every 60&nbsp;s<br>
+      <strong>Applies to</strong>: cf:diego_cells
       </td>
    </tr>
-    <tr>
+   <tr>
       <th>Alternative Metric</th>
-      <td>      
-      <%= vars.platform_name %> Healthwatch expresses this indicator with the metric <a href="https://docs.pivotal.io/pcf-healthwatch/1-2/metrics.html#disk"><code>healthwatch.Diego.TotalPercentageAvailableDiskCapacity.5M</code></a>. 
-      </td>
+      <td><%= vars.platform_name %> Healthwatch expresses this indicator with the metric <a href="https://docs.pivotal.io/pcf-healthwatch/1-2/metrics.html#disk"><code>healthwatch.Diego.TotalPercentageAvailableDiskCapacity.5M</code></a>.</td>
    </tr>
 </table>
 
 ### <a id="cell-container"></a> Diego Cell Container Capacity
 
 <table>
-   <tr><th colspan="2" style="text-align: center;"><br>rep.CapacityRemainingContainers / 
-       rep.CapacityTotalContainers<br><br></th></tr>
+   <tr><th colspan="2" style="text-align: center;"><br>rep.CapacityRemainingContainers / rep.CapacityTotalContainers<br><br></th></tr>
    <tr>
       <th width="25%">Description</th>
       <td> Percentage of remaining container capacity for a given Diego Cell. Monitor this derived metric across all Diego Cells in a deployment.
@@ -119,11 +110,10 @@ There are three key capacity scaling indicators recommended for a Diego Cell:
       The metric <code>rep.CapacityTotalContainer</code> indicates the total number of containers this Diego Cell can host.</td>
    <tr>
       <th>Purpose</th>
-      <td>A best practice deployment of Cloud Foundry includes three availability zones (AZs).  
-          For these types of deployments, Pivotal recommends that you have enough capacity to suffer failure of an entire AZ.
-          <br><br>
-          The <em>Recommended threshold</em> assumes a three-AZ configuration. Adjust the threshold percentage if you have more or fewer AZs.
-      </td>
+      <td>A best practice deployment of <%= vars.platform_name %> includes three availability zones (AZs).  
+      For these types of deployments, Pivotal recommends that you have enough capacity to suffer failure of an entire AZ.
+      <br><br>
+      The <em>Recommended threshold</em> assumes a three-AZ configuration. Adjust the threshold percentage if you have more or fewer AZs.</td>
    </tr>
    <tr>
       <th>Recommended thresholds</th>
@@ -131,23 +121,20 @@ There are three key capacity scaling indicators recommended for a Diego Cell:
    </tr>
    <tr>
       <th>How to scale</th>
-      <td>
-      Scale up your Diego Cells.
-     </td>
+      <td>Scale up your Diego Cells.</td>
    </tr>
-    <tr>
+   <tr>
       <th>Additional details</th>
-      <td> <strong>Origin</strong>: Firehose<br>
-           <strong>Type</strong>: Gauge (%)<br>
-           <strong>Frequency</strong>: Emitted every 60&nbsp;s<br>
-           <strong>Applies to</strong>: cf:diego_cells
+      <td>
+      <strong>Origin</strong>: Firehose<br>
+      <strong>Type</strong>: Gauge (%)<br>
+      <strong>Frequency</strong>: Emitted every 60&nbsp;s<br>
+      <strong>Applies to</strong>: cf:diego_cells
       </td>
    </tr>
-    <tr>
-      <th>Alternative Metric</th>
-      <td>
-      <%= vars.platform_name %> Healthwatch expresses this indicator with the metric<a href="https://docs.pivotal.io/pcf-healthwatch/1-2/metrics.html#cell-container"><code>healthwatch.Diego.TotalPercentageAvailableContainerCapacity.5M</code></a>.
-      </td>
+   <tr>
+   <th>Alternative Metric</th>
+      <td><%= vars.platform_name %> Healthwatch expresses this indicator with the metric<a href="https://docs.pivotal.io/pcf-healthwatch/1-2/metrics.html#cell-container"><code>healthwatch.Diego.TotalPercentageAvailableContainerCapacity.5M</code></a>.</td>
    </tr>
 </table>
 
@@ -162,91 +149,87 @@ Pivotal recommends two key capacity scaling indicators for monitoring Firehose p
   <tr>
   <th colspan="2" style="text-align: center;">loggregator.doppler.dropped{direction=ingress} / loggregator.doppler.ingress</th>
   </tr>
-   <tr>
+  <tr>
       <th width="25">Description</th>
       <td>This derived value represents the loss rate occurring as messages are transported from the Loggregator Agent components through the Doppler components to the Firehose endpoints.
       <br><br>  
       Metric <code>loggregator.doppler.ingress</code> represents the number of messages entering Dopplers for transport through the firehose, and <code>loggregator.doppler.dropped</code> represents the number of messages dropped without delivery. 
       <br><br>
-      Messages include the combined stream of logs from all apps and the metrics data from Cloud Foundry components.
+      Messages include the combined stream of logs from all apps and the metrics data from <%= vars.platform_name %> components.
       <br><br>
-      For more information about Loggregator components, see <a href="../loggregator/architecture.html">Loggregator Architecture</a>.
-       </td>
+      For more information about Loggregator components, see <a href="../loggregator/architecture.html">Loggregator Architecture</a>.</td>
    </tr>
    <tr>
       <th>Purpose</th>
       <td>Excessive dropped messages can indicate the Dopplers or Traffic Controllers are not processing messages quickly enough.
-        <br><br>
-        The recommended scaling indicator is a dropped message rate greater than <code>0.01</code>. This scaling indicator is calculated by expressing the total number of dropped messages as a percentage of the total throughput and scale.
-        <br><br>
-        Doppler emits two separate dropped metrics, one for ingress and one for egress. The envelopes have a <code>direction</code>. For this indicator, use the metric with a <code>direction</code> tag with a value of <code>ingress</code>.
+      <br><br>
+      The recommended scaling indicator is a dropped message rate greater than <code>0.01</code>. This scaling indicator is calculated by expressing the total number of dropped messages as a percentage of the total throughput and scale.
+      <br><br>
+      Doppler emits two separate dropped metrics, one for ingress and one for egress. The envelopes have a <code>direction</code>. For this indicator, use the metric with a <code>direction</code> tag with a value of <code>ingress</code>.</td>
    </tr>
    <tr>
       <th>Recommended thresholds</th>
-      <td><strong>Scale indicator</strong>: &ge; 0.01</br>
+      <td>
+      <strong>Scale indicator</strong>: &ge; 0.01</br>
       If alerting:<br>
       <strong>Yellow warning</strong>: &ge; 0.005<br>
-      <strong>Red critical</strong>: &ge; 0.01</td>
+      <strong>Red critical</strong>: &ge; 0.01
+      </td>
    </tr>
    <tr>
       <th>How to scale</th>
       <td>Scale up the number of Traffic Controller and Doppler instances. 
-        <p class="note"><strong>Note:</strong> At approximately 40 Doppler instances and 20 Traffic Controller instances, horizontal scaling is no longer useful for improving Firehose performance. To improve performance, add vertical scale to the existing Doppler and Traffic Controller instances by increasing CPU resources.</p>
-      </td>
+      <p class="note"><strong>Note:</strong> At approximately 40 Doppler instances and 20 Traffic Controller instances, horizontal scaling is no longer useful for improving Firehose performance. To improve performance, add vertical scale to the existing Doppler and Traffic Controller instances by increasing CPU resources.</p></td>
    </tr>
    <tr>
       <th>Additional details</th>
-      <td> <strong>Origin</strong>: Firehose<br>
-           <strong>Type</strong>: Gauge (float)<br>
-           <strong>Frequency</strong>: Base metrics are emitted every 5&nbsp;s<br>
-           <strong>Applies to</strong>: cf:doppler<br>
+      <td>
+      <strong>Origin</strong>: Firehose<br>
+      <strong>Type</strong>: Gauge (float)<br>
+      <strong>Frequency</strong>: Base metrics are emitted every 5&nbsp;s<br>
+      <strong>Applies to</strong>: cf:doppler<br>
       </td>
    </tr>
     <tr>
       <th>Alternative Metrics</th>
-      <td>      
-      <%= vars.platform_name %> Healthwatch expresses this indicator with the metrics<a href="https://docs.pivotal.io/pcf-healthwatch/1-2/metrics.html#firehose-loss"><code>healthwatch.Firehose.LossRate.1H</code> and <code>healthwatch.Firehose.LossRate.1M</code></a>. 
-      </td>
+      <td><%= vars.platform_name %> Healthwatch expresses this indicator with the metrics <a href="https://docs.pivotal.io/pcf-healthwatch/1-2/metrics.html#firehose-loss"><code>healthwatch.Firehose.LossRate.1H</code> and <code>healthwatch.Firehose.LossRate.1M</code></a>.</td>
    </tr>
 </table>
 
 ### <a id="doppler-message-rate-ksi"></a> Doppler Message Rate Capacity
 
 <table>
-  <tr>
+   <tr>
       <th colspan="2" style="text-align: center;">loggregator.doppler.ingress (sum across instances) / current number of Doppler instances</th>
-  </tr>
+   </tr>
    <tr>
       <th width="25">Description</th>
-       <td>This derived value represents the average rate of envelopes (messages) per Doppler instance. Deriving this into a per-Doppler envelopes-per-second, or envelopes-per-minute, rate can indicate the need to scale when Doppler instances are at their recommended maximum load.<br>
-       </td>
+      <td>This derived value represents the average rate of envelopes (messages) per Doppler instance. Deriving this into a per-Doppler envelopes-per-second, or envelopes-per-minute, rate can indicate the need to scale when Doppler instances are at their recommended maximum load.</td>
    </tr>
    <tr>
       <th>Purpose</th>
-      <td>The recommended scaling indicator is to look at the average load on the Doppler instances, and increase the number of Doppler instances when the derived rate is 16,000 envelopes per second, or 1 million envelopes per minute.
+      <td>The recommended scaling indicator is to look at the average load on the Doppler instances, and increase the number of Doppler instances when the derived rate is 16,000 envelopes per second, or 1 million envelopes per minute.</td>
    </tr>
    <tr>
       <th>Recommended thresholds</th>
-      <td><strong>Scale indicator</strong>: &ge; 16,000 envelopes per second (or 1 million envelopes per minute)<br>
+      <td><strong>Scale indicator</strong>: &ge; 16,000 envelopes per second (or 1 million envelopes per minute)</td>
    </tr>
    <tr>
       <th>How to scale</th>
-      <td>Increase the number of Doppler VMs in the <strong>Resource Config</strong> pane of the PAS tile.
-      </td>
+      <td>Increase the number of Doppler VMs in the <strong>Resource Config</strong> pane of the PAS tile.</td>
    </tr>
    <tr>
       <th>Additional details</th>
-      <td> <strong>Origin</strong>: Firehose<br>
-           <strong>Type</strong>: Gauge (float)<br>
-           <strong>Frequency</strong>: Emitted every 5 s<br>
-           <strong>Applies to</strong>: cf:doppler<br>
+      <td>
+      <strong>Origin</strong>: Firehose<br>
+      <strong>Type</strong>: Gauge (float)<br>
+      <strong>Frequency</strong>: Emitted every 5 s<br>
+      <strong>Applies to</strong>: cf:doppler<br>
       </td>
    </tr>
    <tr>
       <th>Alternative Metric</th>
-      <td>      
-      <%= vars.platform_name %> Healthwatch expresses this indicator with the metric<a href="https://docs.pivotal.io/pcf-healthwatch/1-2/metrics.html#doppler-capacity"><code>healthwatch.Doppler.MessagesAverage.1M</code></a>. 
-      </td>
+      <td><%= vars.platform_name %> Healthwatch expresses this indicator with the metric<a href="https://docs.pivotal.io/pcf-healthwatch/1-2/metrics.html#doppler-capacity"><code>healthwatch.Doppler.MessagesAverage.1M</code></a>.</td>
    </tr>
 </table>
 
@@ -256,44 +239,42 @@ Pivotal recommends two key capacity scaling indicators for monitoring Firehose p
   <tr>
       <th colspan="2" style="text-align: center;">loggregator.rlp.dropped / loggregator.rlp.ingress</th>
   </tr>
-   <tr>
+  <tr>
       <th width="25">Description</th>
-       <td>The loss rate of the reverse log proxies (RLP), or the total messages dropped as a percentage of the total traffic coming through the <a href="../loggregator/architecture.html">reverse log proxy</a>. Total messages include only logs for bound apps.
-       <br><br>
-			This loss rate is specific to the RLP and does not impact the Firehose loss rate. For example, you can suffer lossiness in the RLP while not suffering any lossiness in the Firehose.
-      </td>
-   </tr>
-   <tr>
+      <td>The loss rate of the reverse log proxies (RLP), or the total messages dropped as a percentage of the total traffic coming through the <a href="../loggregator/architecture.html">reverse log proxy</a>. Total messages include only logs for bound apps.
+      <br><br>
+			This loss rate is specific to the RLP and does not impact the Firehose loss rate. For example, you can suffer lossiness in the RLP while not suffering any lossiness in the Firehose.</td>
+  </tr>
+  <tr>
       <th>Purpose</th>
       <td>Excessive dropped messages can indicate that the RLP is overloaded and that the Traffic Controllers need to be scaled.
-         <br><br>
-        The recommended scaling indicator is to look at the maximum per minute loss rate over a 5-minute window and scale if the derived loss rate value grows greater than <code>0.1</code>.
+      <br><br>
+      The recommended scaling indicator is to look at the maximum per minute loss rate over a 5-minute window and scale if the derived loss rate value grows greater than <code>0.1</code>.</td>
    </tr>
    <tr>
       <th>Recommended thresholds</th>
-      <td><strong>Scale indicator</strong>: &ge; 0.1</br>
+      <td>
+      <strong>Scale indicator</strong>: &ge; 0.1</br>
       If alerting:<br>
       <strong>Yellow warning</strong>: &ge; 0.01<br>
       <strong>Red critical</strong>: &ge; 0.1</td>
    </tr>
    <tr>
       <th>How to scale</th>
-      <td>Scale up the number of traffic controller instances to further balance log load.
-      </td>
+      <td>Scale up the number of traffic controller instances to further balance log load.</td>
    </tr>
    <tr>
       <th>Additional details</th>
-      <td> <strong>Origin</strong>: Firehose<br>
-           <strong>Type</strong>: Counter (Integer)<br>
-           <strong>Frequency</strong>: Emitted every 60&nbsp;s<br>
-           <strong>Applies to</strong>: cf:loggregator<br>
+      <td>
+      <strong>Origin</strong>: Firehose<br>
+      <strong>Type</strong>: Counter (Integer)<br>
+      <strong>Frequency</strong>: Emitted every 60&nbsp;s<br>
+      <strong>Applies to</strong>: cf:loggregator<br>
       </td>
    </tr>
    <tr>
       <th>Alternative Metric</th>
-      <td>
-      <%= vars.platform_name %> Healthwatch expresses this indicator with the metric<a href="https://docs.pivotal.io/pcf-healthwatch/1-2/metrics.html#rlp-loss"><code>healthwatch.SyslogDrain.RLP.LossRate.1M</code></a>.
-      </td>
+      <td><%= vars.platform_name %> Healthwatch expresses this indicator with the metric<a href="https://docs.pivotal.io/pcf-healthwatch/1-2/metrics.html#rlp-loss"><code>healthwatch.SyslogDrain.RLP.LossRate.1M</code></a>.</td>
 </tr>
 </table>
 
@@ -308,32 +289,31 @@ Pivotal recommends the following scaling indicator for monitoring the performanc
   <tr>
       <th colspan="2" style="text-align: center;">doppler_proxy.slow_consumer</th>
   </tr>
-   <tr>
+  <tr>
       <th width="25">Description</th>
-      <td>Within PAS, metrics and logs enter the Firehose for transport and exit out of the platform via a consumer nozzle. If the consuming downstream system fails to keep up with the exiting stream of metrics, the Firehose is forced to close the connection to protect itself from back-pressure. The Firehose increments <code>slow_consumer</code> with each connection that it closes because a consumer could not keep up. 
-       </td>
-   </tr>
-   <tr>
+      <td>Within PAS, metrics and logs enter the Firehose for transport and exit out of the platform via a consumer nozzle. If the consuming downstream system fails to keep up with the exiting stream of metrics, the Firehose is forced to close the connection to protect itself from back-pressure. The Firehose increments <code>slow_consumer</code> with each connection that it closes because a consumer could not keep up.</td>
+  </tr>
+  <tr>
       <th>Purpose</th>
-      <td>This metric indicates that a Firehose consumer, such as a monitoring tool nozzle, is ingesting too slowly. If this number is anomalous, it may result in the downstream monitoring tool not having all expected data, even though that data was successfully transported through the Firehose.
-   </tr>
-   <tr>
+      <td>This metric indicates that a Firehose consumer, such as a monitoring tool nozzle, is ingesting too slowly. If this number is anomalous, it may result in the downstream monitoring tool not having all expected data, even though that data was successfully transported through the Firehose.</td>
+  </tr>
+  <tr>
       <th>Recommended thresholds</th>
-      <td><strong>Scale indicator</strong>: It is recommended to scale when the rate of Firehose Slow Consumer Drops is anomalous for a given environment.<br>
-   </tr>
-   <tr>
+      <td><strong>Scale indicator</strong>: It is recommended to scale when the rate of Firehose Slow Consumer Drops is anomalous for a given environment.</td>
+  </tr>
+  <tr>
       <th>How to scale</th>
-      <td>Scale up the number of nozzle instances. You can scale a nozzle using the subscription ID specified when the nozzle connects to the Firehose. If you use the same subscription ID on each nozzle instance, the Firehose evenly distributes data across all instances of the nozzle. For example, if you have two nozzle instances with the same subscription ID, the Firehose sends half of the data to one nozzle instance and half to the other. Similarly, if you have three nozzle instances with the same subscription ID, the Firehose sends one-third of the data to each instance. If you want to scale a nozzle, the number of nozzle instances should match the number of Traffic Controller instances. 
-      </td>
-   </tr>
-   <tr>
+      <td>Scale up the number of nozzle instances. You can scale a nozzle using the subscription ID specified when the nozzle connects to the Firehose. If you use the same subscription ID on each nozzle instance, the Firehose evenly distributes data across all instances of the nozzle. For example, if you have two nozzle instances with the same subscription ID, the Firehose sends half of the data to one nozzle instance and half to the other. Similarly, if you have three nozzle instances with the same subscription ID, the Firehose sends one-third of the data to each instance. If you want to scale a nozzle, the number of nozzle instances should match the number of Traffic Controller instances.</td>
+  </tr>
+  <tr>
       <th>Additional details</th>
-      <td> <strong>Origin</strong>: Firehose<br>
-           <strong>Type</strong>: Counter<br>
-           <strong>Frequency</strong>: Emitted every 5&nbsp;s<br>
-           <strong>Applies to</strong>: cf:doppler<br>
+      <td>
+      <strong>Origin</strong>: Firehose<br>
+      <strong>Type</strong>: Counter<br>
+      <strong>Frequency</strong>: Emitted every 5&nbsp;s<br>
+      <strong>Applies to</strong>: cf:doppler<br>
       </td>
-   </tr>
+  </tr>
 </table>
 
 ### <a id="rlp-egress-dropped"></a> Reverse Log Proxy Egress Dropped Messages
@@ -344,32 +324,30 @@ Pivotal recommends the following scaling indicator for monitoring the performanc
   </tr>
    <tr>
       <th width="25">Description</th>
-      <td>
-      <p>Within PAS, logs and metrics enter Loggregator for transport and then egress through the Reverse Log Proxy (RLP). The RLP drops messages when consumers of the RLP, such as monitoring tool nozzles, ingest the exiting stream of logs and metrics too slowly.</p>
-      <p class="note"><strong>Note:</strong> The <code>rlp.dropped</code> metric includes both <code>ingress</code> and <code>egress</code> directions. To differentiate between <code>ingress</code> and <code>egress</code>, refer to the <code>direction</code> tag on the metric.</p>
-      </td>
-   </tr>
-   <tr>
+      <td>Within PAS, logs and metrics enter Loggregator for transport and then egress through the Reverse Log Proxy (RLP). The RLP drops messages when consumers of the RLP, such as monitoring tool nozzles, ingest the exiting stream of logs and metrics too slowly.
+      <p class="note"><strong>Note:</strong> The <code>rlp.dropped</code> metric includes both <code>ingress</code> and <code>egress</code> directions. To differentiate between <code>ingress</code> and <code>egress</code>, refer to the <code>direction</code> tag on the metric.</p></td>
+  </tr>
+  <tr>
       <th>Purpose</th>
-      <td>This metric indicates that a consumer of logs and metrics from the RLP, such as a monitoring tool nozzle, is ingesting RLP messages too slowly.
-   </tr>
-   <tr>
+      <td>This metric indicates that a consumer of logs and metrics from the RLP, such as a monitoring tool nozzle, is ingesting RLP messages too slowly.</td>
+  </tr>
+  <tr>
       <th>Recommended thresholds</th>
-      <td><strong>Scale indicator</strong>: Scale when the rate of <code>rlp.dropped, direction: egress</code> metrics is continuously increasing.<br>
-   </tr>
-   <tr>
+      <td><strong>Scale indicator</strong>: Scale when the rate of <code>rlp.dropped, direction: egress</code> metrics is continuously increasing.</td>
+  </tr>
+  <tr>
       <th>How to scale</th>
-      <td>Scale up the number of nozzle instances. The number of nozzle instances should match the number of Traffic Controller instances. You can scale a nozzle using the subscription ID specified when the nozzle connects to the RLP. If you use the same subscription ID on each nozzle instance, the RLP evenly distributes data across all instances of the nozzle. For example, if you have two nozzle instances with the same subscription ID, the RLP sends half of the data to one nozzle instance and half to the other. Similarly, if you have three nozzle instances with the same subscription ID, the RLP sends one-third of the data to each instance.
-      </td>
-   </tr>
-   <tr>
+      <td>Scale up the number of nozzle instances. The number of nozzle instances should match the number of Traffic Controller instances. You can scale a nozzle using the subscription ID specified when the nozzle connects to the RLP. If you use the same subscription ID on each nozzle instance, the RLP evenly distributes data across all instances of the nozzle. For example, if you have two nozzle instances with the same subscription ID, the RLP sends half of the data to one nozzle instance and half to the other. Similarly, if you have three nozzle instances with the same subscription ID, the RLP sends one-third of the data to each instance.</td>
+  </tr>
+  <tr>
       <th>Additional details</th>
-      <td> <strong>Origin</strong>: Reverse Log Proxy<br>
-           <strong>Type</strong>: Counter<br>
-           <strong>Frequency</strong>: Emitted every 5&nbsp;s<br>
-           <strong>Applies to</strong>: cf:loggregator_trafficcontroller<br>
+      <td>
+      <strong>Origin</strong>: Reverse Log Proxy<br>
+      <strong>Type</strong>: Counter<br>
+      <strong>Frequency</strong>: Emitted every 5&nbsp;s<br>
+      <strong>Applies to</strong>: cf:loggregator_trafficcontroller<br>
       </td>
-   </tr>
+  </tr>
 </table>
 
 ### <a id="doppler-egress-dropped"></a> Doppler Egress Dropped Messages
@@ -378,34 +356,32 @@ Pivotal recommends the following scaling indicator for monitoring the performanc
   <tr>
       <th colspan="2" style="text-align: center;">doppler.dropped, direction: egress</th>
   </tr>
-   <tr>
+  <tr>
       <th width="25">Description</th>
-      <td>
-      <p>Within PAS, logs and metrics enter Loggregator for transport and then egress through Doppler. Doppler drops messages when consumers of the RLP, such as monitoring tool nozzles, ingest the exiting stream of logs and metrics too slowly.</p>
-      <p class="note"><strong>Note:</strong> The <code>doppler.dropped</code> metric includes both <code>ingress</code> and <code>egress</code> directions. To differentiate between <code>ingress</code> and <code>egress</code>, refer to the <code>direction</code> tag on the metric.</p>
-      </td>
-   </tr>
-   <tr>
+      <td>Within PAS, logs and metrics enter Loggregator for transport and then egress through Doppler. Doppler drops messages when consumers of the RLP, such as monitoring tool nozzles, ingest the exiting stream of logs and metrics too slowly.
+      <p class="note"><strong>Note:</strong> The <code>doppler.dropped</code> metric includes both <code>ingress</code> and <code>egress</code> directions. To differentiate between <code>ingress</code> and <code>egress</code>, refer to the <code>direction</code> tag on the metric.</p></td>
+  </tr>
+  <tr>
       <th>Purpose</th>
-      <td>This metric indicates that a consumer of logs and metrics from the RLP, such as a monitoring tool nozzle, is ingesting too slowly.
-   </tr>
-   <tr>
+      <td>This metric indicates that a consumer of logs and metrics from the RLP, such as a monitoring tool nozzle, is ingesting too slowly.</td>
+  </tr>
+  <tr>
       <th>Recommended thresholds</th>
-      <td><strong>Scale indicator</strong>: Scale when the rate of <code>doppler.dropped, direction: egress</code> metrics is continuously increasing.<br>
-   </tr>
-   <tr>
+      <td><strong>Scale indicator</strong>: Scale when the rate of <code>doppler.dropped, direction: egress</code> metrics is continuously increasing.</td>
+  </tr>
+  <tr>
       <th>How to scale</th>
-      <td>Scale up the number of nozzle instances. The number of nozzle instances should match the number of Traffic Controller instances. You can scale a nozzle using the subscription ID specified when the nozzle connects to the RLP. If you use the same subscription ID on each nozzle instance, the RLP evenly distributes data across all instances of the nozzle. For example, if you have two nozzle instances with the same subscription ID, the RLP sends half of the data to one nozzle instance and half to the other. Similarly, if you have three nozzle instances with the same subscription ID, the RLP sends one-third of the data to each instance.
-      </td>
-   </tr>
-   <tr>
+      <td>Scale up the number of nozzle instances. The number of nozzle instances should match the number of Traffic Controller instances. You can scale a nozzle using the subscription ID specified when the nozzle connects to the RLP. If you use the same subscription ID on each nozzle instance, the RLP evenly distributes data across all instances of the nozzle. For example, if you have two nozzle instances with the same subscription ID, the RLP sends half of the data to one nozzle instance and half to the other. Similarly, if you have three nozzle instances with the same subscription ID, the RLP sends one-third of the data to each instance.</td>
+  </tr>
+  <tr>
       <th>Additional details</th>
-      <td> <strong>Origin</strong>: Doppler<br>
-           <strong>Type</strong>: Counter<br>
-           <strong>Frequency</strong>: Emitted every 5&nbsp;s<br>
-           <strong>Applies to</strong>: cf:doppler<br>
+      <td>
+      <strong>Origin</strong>: Doppler<br>
+      <strong>Type</strong>: Counter<br>
+      <strong>Frequency</strong>: Emitted every 5&nbsp;s<br>
+      <strong>Applies to</strong>: cf:doppler<br>
       </td>
-   </tr>
+  </tr>
 </table>
 
 
@@ -419,24 +395,21 @@ There is a single key capacity scaling indicator recommended for CF Syslog Drain
 
 <table>
   <tr>
-      <th colspan="2" style="text-align: center;">loggregator-agent.syslog_agent.dropped{direction:egress}
-                       / loggregator-agent.loggr-syslog-agent.ingress{scope:all_drains}</th>
+      <th colspan="2" style="text-align: center;">loggregator-agent.syslog_agent.dropped{direction:egress} / loggregator-agent.loggr-syslog-agent.ingress{scope:all_drains}</th>
   </tr>
    <tr>
       <th width="25">Description</th>
-       <td>The loss rate of Syslog Agents. The loss rate of Syslog Agents is the messages dropped as a percentage of total message traffic through Syslog Agents. The message traffic through Syslog Agents includes logs for bound apps.
-       <br><br>
-			The Syslog Agent loss rate does not affect the Firehose loss rate. Message loss can occur in Syslog Agents without message loss occuring in the Firehose.
-      </td>
+      <td>The loss rate of Syslog Agents. The loss rate of Syslog Agents is the messages dropped as a percentage of total message traffic through Syslog Agents. The message traffic through Syslog Agents includes logs for bound apps.
+      <br><br>
+			The Syslog Agent loss rate does not affect the Firehose loss rate. Message loss can occur in Syslog Agents without message loss occuring in the Firehose.</td>
    </tr>
    <tr>
       <th>Purpose</th>
-      <td>This metric indicates that the syslog drain consumer is ingesting logs from a syslog-drain-bound app too slowly.
+      <td>This metric indicates that the syslog drain consumer is ingesting logs from a syslog-drain-bound app too slowly.</td>
    </tr>
    <tr>
       <th>Recommended thresholds</th>
-      <td>
-      The recommended scaling indicator is the minimum Syslog Agent loss rate per minute within a five-minute window. You should scale up if the loss rate is greater than <code>0.1</code> for five minutes or longer.
+      <td>The recommended scaling indicator is the minimum Syslog Agent loss rate per minute within a five-minute window. You should scale up if the loss rate is greater than <code>0.1</code> for five minutes or longer.
       <br><br>
       <strong>Scale indicator</strong>: &ge; 0.1</br>
       If alerting:<br>
@@ -445,15 +418,14 @@ There is a single key capacity scaling indicator recommended for CF Syslog Drain
    </tr>
    <tr>
       <th>How to scale</th>
-      <td>Review the logs of the syslog server for intake issues and other performance issues. Scale the syslog server if necessary.
-      </td>
+      <td>Review the logs of the syslog server for intake issues and other performance issues. Scale the syslog server if necessary.</td>
    </tr>
    <tr>
       <th>Additional details</th>
       <td> 
-          <strong>Origin</strong>: Syslog Agent<br>
-          <strong>Type</strong>: Counter (Integer)<br>
-          <strong>Frequency</strong>: Emitted every 60&nbsp;s<br>
+      <strong>Origin</strong>: Syslog Agent<br>
+      <strong>Type</strong>: Counter (Integer)<br>
+      <strong>Frequency</strong>: Emitted every 60&nbsp;s<br>
       </td>
    </tr>
 </table>
@@ -476,24 +448,24 @@ Pivotal recommends the following scaling indicator for monitoring the performanc
    <tr>
       <th>Purpose</th>
       <td>Log Cache stores all messages that are passed through the Firehose in an ephemeral in-memory store. The size of this store and the cache duration are dependent on the amount of memory available on the VM on which Log Cache runs. Some features of PAS rely on data being available in Log Cache, such as App Autoscaler. 
-         <br><br>
-        Pivotal recommends scaling the VM on which Log Cache runs, so Log Cache can hold all messages that pass through Loggregator in the last 15 minutes, or 900000 milliseconds.
+      <br><br>
+      Pivotal recommends scaling the VM on which Log Cache runs, so Log Cache can hold all messages that pass through Loggregator in the last 15 minutes, or 900000 milliseconds.</td>
    </tr>
    <tr>
       <th>Recommended thresholds</th>
-      <td><strong>Scale indicator</strong>: Scale the VM on which Log Cache runs when the cache period drops below 15 minutes, or 900000 milliseconds. Typically, Log Cache runs on the Doppler VM.<br>
+      <td><strong>Scale indicator</strong>: Scale the VM on which Log Cache runs when the cache period drops below 15 minutes, or 900000 milliseconds. Typically, Log Cache runs on the Doppler VM.</td>
    </tr>
    <tr>
       <th>How to scale</th>
-      <td>Scale up the number of Doppler VMs or chose a VM type for Doppler that provides more memory. 
-      </td>
+      <td>Scale up the number of Doppler VMs or chose a VM type for Doppler that provides more memory.</td>
    </tr>
    <tr>
       <th>Additional details</th>
-      <td> <strong>Origin</strong>: log-cache<br>
-           <strong>Type</strong>: Gauge<br>
-           <strong>Frequency</strong>: Emitted every 15&nbsp;s<br>
-           <strong>Applies to</strong>: cf:log-cache<br>
+      <td>
+      <strong>Origin</strong>: log-cache<br>
+      <strong>Type</strong>: Gauge<br>
+      <strong>Frequency</strong>: Emitted every 15&nbsp;s<br>
+      <strong>Applies to</strong>: cf:log-cache<br>
       </td>
    </tr>
 </table>
@@ -518,12 +490,12 @@ There is one key capacity scaling indicator recommended for Router performance.
       <td>High CPU utilization of the Gorouter VMs can increase latency and cause throughput, or requests per/second, to level-off. Pivotal recommends keeping the CPU utilization within a maximum range of 60-70% for best Gorouter performance. 
       <br><br>
       If you want to increase throughput capabilities while also keeping latency low, Pivotal recommends scaling the Gorouter while continuing to ensure that CPU utilization does not exceed the maximum recommended range.
-      <p class="note"><strong>Note:</strong> At greater than 8 CPUs, vertical scaling is no longer beneficial for increasing throughput.</p>
-          </td>
+      <p class="note"><strong>Note:</strong> At greater than 8 CPUs, vertical scaling is no longer beneficial for increasing throughput.</p></td>
    </tr>
    <tr>
       <th>Recommended thresholds</th>
-      <td><strong>Scale indicator</strong>: &ge; 60%<br>
+      <td>
+      <strong>Scale indicator</strong>: &ge; 60%<br>
       If alerting:<br>
       <strong>Yellow warning</strong>: &ge; 60%<br>
       <strong>Red critical</strong>: &ge; 70%<br>
@@ -531,15 +503,15 @@ There is one key capacity scaling indicator recommended for Router performance.
    </tr>
    <tr>
       <th>How to scale</th>
-      <td>Resolve high utilization by scaling the Gorouters horizontally or vertically by editing the <strong>Router</strong> VM in the <strong>Resource Config</strong> pane of the PAS tile. 
-      </td>
+      <td>Resolve high utilization by scaling the Gorouters horizontally or vertically by editing the <strong>Router</strong> VM in the <strong>Resource Config</strong> pane of the PAS tile.</td>
    </tr>
    <tr>
       <th>Additional details</th>
-      <td> <strong>Origin</strong>: Firehose<br>
-           <strong>Type</strong>: Gauge (float)<br>
-           <strong>Frequency</strong>: Emitted every 60&nbsp;s<br>
-           <strong>Applies to</strong>: cf:router<br>
+      <td>
+      <strong>Origin</strong>: Firehose<br>
+      <strong>Type</strong>: Gauge (float)<br>
+      <strong>Frequency</strong>: Emitted every 60&nbsp;s<br>
+      <strong>Applies to</strong>: cf:router<br>
       </td>
    </tr>
 </table>
@@ -563,12 +535,12 @@ There is one key capacity scaling indicator recommended for UAA performance.
       <th>Purpose</th>
       <td>High CPU utilization of the UAA VMs can increase latency and cause throughput, or requests per/second, to level-off. Pivotal recommends keeping the CPU utilization within a maximum range of 80-90% for best UAA performance.
       <br><br>
-      If you want to increase throughput capabilities while keeping latency low, Pivotal recommends scaling the UAA VMs and ensuring that CPU utilization does not exceed the maximum recommended range.
-      </td>
+      If you want to increase throughput capabilities while keeping latency low, Pivotal recommends scaling the UAA VMs and ensuring that CPU utilization does not exceed the maximum recommended range.</td>
    </tr>
    <tr>
       <th>Recommended thresholds</th>
-      <td><strong>Scale indicator</strong>: &ge; 80%<br>
+      <td>
+      <strong>Scale indicator</strong>: &ge; 80%<br>
       If alerting:<br>
       <strong>Yellow warning</strong>: &ge; 80%<br>
       <strong>Red critical</strong>: &ge; 90%<br>
@@ -576,15 +548,15 @@ There is one key capacity scaling indicator recommended for UAA performance.
    </tr>
    <tr>
       <th>How to scale</th>
-      <td>Resolve high utilization by scaling UAA horizontally or vertically. To scale UAA, navigate to the <strong>Resource Config</strong> pane of the PAS tile and edit the number of your <strong>UAA</strong> VM instances or change the VM type to a type that utilizes more CPU cores.
-      </td>
+      <td>Resolve high utilization by scaling UAA horizontally or vertically. To scale UAA, navigate to the <strong>Resource Config</strong> pane of the PAS tile and edit the number of your <strong>UAA</strong> VM instances or change the VM type to a type that utilizes more CPU cores.</td>
    </tr>
    <tr>
       <th>Additional details</th>
-      <td> <strong>Origin:</strong> Firehose<br>
-           <strong>Type:</strong> Gauge (float)<br>
-           <strong>Frequency:</strong> Emitted every 60&nbsp;s<br>
-           <strong>Applies to:</strong> cf:uaa<br>
+      <td>
+      <strong>Origin:</strong> Firehose<br>
+      <strong>Type:</strong> Gauge (float)<br>
+      <strong>Frequency:</strong> Emitted every 60&nbsp;s<br>
+      <strong>Applies to:</strong> cf:uaa<br>
       </td>
    </tr>
 </table>
@@ -600,14 +572,13 @@ There is one key capacity scaling indicator for external S3 external storage.
    <tr><th colspan="2" style="text-align: center;"><br>system.disk.persistent.percent of NFS server VM(s)<br><br></th></tr>
    <tr>
       <th width="25%">Description</th>
-      <td><em>If applicable</em>: Monitor the percentage of persistent disk used on the VM for the NFS Server job.
+      <td><em>If applicable</em>: Monitor the percentage of persistent disk used on the VM for the NFS Server job.</td>
    </tr>
    <tr>
-       <th>Purpose</th>
-       <td>If you do not use an external S3 repository for external storage with no capacity constraints, you must monitor the PAS object store to push new app and buildpacks.
-     <br><br>
-     If you use an internal NFS/WebDAV backed blobstore, consider scaling the persistent disk when it reaches 75% capacity.
-     </td>
+      <th>Purpose</th>
+      <td>If you do not use an external S3 repository for external storage with no capacity constraints, you must monitor the PAS object store to push new app and buildpacks.
+      <br><br>
+      If you use an internal NFS/WebDAV backed blobstore, consider scaling the persistent disk when it reaches 75% capacity.</td>
    </tr>
    <tr>
       <th>Recommended thresholds</th>
@@ -615,15 +586,14 @@ There is one key capacity scaling indicator for external S3 external storage.
    </tr>
    <tr>
       <th>How to scale</th>
-      <td>
-      Give your NFS Server additional persistent disk resources.  
-      </td>
+      <td>Give your NFS Server additional persistent disk resources.</td>
    </tr>
     <tr>
       <th>Additional details</th>
-      <td> <strong>Origin</strong>: Firehose<br>
-           <strong>Type</strong>: Gauge (%)<br>
-           <strong>Applies to</strong>: cf:nfs_server<br>
+      <td>
+      <strong>Origin</strong>: Firehose<br>
+      <strong>Type</strong>: Gauge (%)<br>
+      <strong>Applies to</strong>: cf:nfs_server<br>
       </td>
    </tr>  
 </table>
