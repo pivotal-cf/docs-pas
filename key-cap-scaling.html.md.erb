@@ -3,33 +3,29 @@ title: Key Capacity Scaling Indicators
 owner: <%= vars.product_name %> Metrics Platform Monitoring
 ---
 
-This topic describes key capacity scaling indicators that operators monitor to determine when
-they need to scale their Pivotal Application Service (PAS) deployments.
+This topic describes key capacity scaling indicators that operators monitor to determine when they need to scale their Pivotal Application Service (PAS) deployments.
 
-Pivotal provides these indicators to operators as general guidance for capacity scaling. 
-Each indicator is based on platform metrics from different components. 
-This guidance is applicable to most PAS v2.4 deployments.
-Pivotal recommends that operators fine-tune the suggested alert thresholds 
-by observing historical trends for their deployments. 
+Pivotal provides these indicators to operators as general guidance for capacity scaling. Each indicator is based on platform metrics from different components. This guidance is applicable to most PAS v2.4 deployments. Pivotal recommends that operators fine-tune the suggested alert thresholds  by observing historical trends for their deployments. 
 
-##<a id="cell"></a>Diego Cell Capacity Scaling Indicators
 
-There are three key capacity scaling indicators recommended for Diego cell:
+## <a id="cell"></a> Diego Cell Capacity Scaling Indicators
 
-+ [Diego Cell Memory Capacity](#cell-memory) is a measure of the percentage of remaining memory capacity
-+ [Diego Cell Disk Capacity](#cell-disk) is a measure of the percentage of remaining disk capacity
-+ [Diego Cell Container Capacity](#cell-container) is a measure of the percentage of remaining container capacity
+There are three key capacity scaling indicators recommended for a Diego Cell:
 
-###<a id="cell-memory"></a>Diego Cell Memory Capacity
++ [Diego Cell Memory Capacity](#cell-memory) is a measure of the percentage of remaining memory capacity.
++ [Diego Cell Disk Capacity](#cell-disk) is a measure of the percentage of remaining disk capacity.
++ [Diego Cell Container Capacity](#cell-container) is a measure of the percentage of remaining container capacity.
+
+### <a id="cell-memory"></a> Diego Cell Memory Capacity
 
 <table>
    <tr><th colspan="2" style="text-align: center;"><br>rep.CapacityRemainingMemory / rep.CapacityTotalMemory<br><br></th></tr>
    <tr>
       <th width="25%">Description</th>
-     <td> Percentage of remaining memory capacity for a given cell. Monitor this derived metric across all cells in a deployment.
+     <td> Percentage of remaining memory capacity for a given Diego Cell. Monitor this derived metric across all Diego Cells in a deployment.
 <br><br>
-      The metric <code>rep.CapacityRemainingMemory</code> indicates the remaining amount in MiB of memory available for this cell to allocate to containers.<br>
-      The metric <code>rep.CapacityTotalMemory</code> indicates the total amount in MiB of memory available for this cell to allocate to containers.</td>
+      The metric <code>rep.CapacityRemainingMemory</code> indicates the remaining amount in MiB of memory available for this Diego Cell to allocate to containers.<br>
+      The metric <code>rep.CapacityTotalMemory</code> indicates the total amount in MiB of memory available for this Diego Cell to allocate to containers.</td>
  </tr>
    <tr>
       <th>Purpose</th>
@@ -46,7 +42,7 @@ There are three key capacity scaling indicators recommended for Diego cell:
    <tr>
       <th>How to scale</th>
       <td>      
-      Scale up your Diego Cells 
+      Scale up your Diego Cells.
       </td>
    </tr>
     <tr>
@@ -60,21 +56,21 @@ There are three key capacity scaling indicators recommended for Diego cell:
     <tr>
       <th>Alternative Metric</th>
       <td>      
-      <%= vars.product_name %> Healthwatch expresses this indicator with the metric<a href="https://docs.pivotal.io/pcf-healthwatch/1-2/metrics.html#memory"><code>healthwatch.Diego.TotalPercentageAvailableMemoryCapacity.5M</code></a>. 
+      <%= vars.product_name %> Healthwatch expresses this indicator with the metric <a href="https://docs.pivotal.io/pcf-healthwatch/1-2/metrics.html#memory"><code>healthwatch.Diego.TotalPercentageAvailableMemoryCapacity.5M</code></a>. 
       </td>
    </tr>
 </table>
 
-###<a id="cell-disk"></a>Diego Cell Disk Capacity
+### <a id="cell-disk"></a> Diego Cell Disk Capacity
 
 <table>
    <tr><th colspan="2" style="text-align: center;"><br>rep.CapacityRemainingDisk / rep.CapacityTotalDisk<br><br></th></tr>
    <tr>
       <th width="25%">Description</th>
-      <td> Percentage of remaining disk capacity for a given cell. Monitor this derived metric across all cells in a deployment.
+      <td> Percentage of remaining disk capacity for a given Diego Cell. Monitor this derived metric across all Diego Cells in a deployment.
 <br><br>
-      The metric <code>rep.CapacityRemainingDisk</code> indicates the remaining amount in MiB of disk available for this cell to allocate to containers.<br> 
-      The metric <code>rep.CapacityTotalDisk</code> indicates the total amount in MiB of disk available for this cell to allocate to containers.</td>
+      The metric <code>rep.CapacityRemainingDisk</code> indicates the remaining amount in MiB of disk available for this Diego Cell to allocate to containers.<br> 
+      The metric <code>rep.CapacityTotalDisk</code> indicates the total amount in MiB of disk available for this Diego Cell to allocate to containers.</td>
  </tr>
    <tr>
        <th>Purpose</th>
@@ -91,7 +87,7 @@ There are three key capacity scaling indicators recommended for Diego cell:
    <tr>
       <th>How to scale</th>
       <td>      
-      Scale up your Diego Cells 
+      Scale up your Diego Cells.
       </td>
    </tr>
     <tr>
@@ -105,22 +101,22 @@ There are three key capacity scaling indicators recommended for Diego cell:
     <tr>
       <th>Alternative Metric</th>
       <td>      
-      <%= vars.product_name %> Healthwatch expresses this indicator with the metric<a href="https://docs.pivotal.io/pcf-healthwatch/1-2/metrics.html#disk"><code>healthwatch.Diego.TotalPercentageAvailableDiskCapacity.5M</code></a>. 
+      <%= vars.product_name %> Healthwatch expresses this indicator with the metric <a href="https://docs.pivotal.io/pcf-healthwatch/1-2/metrics.html#disk"><code>healthwatch.Diego.TotalPercentageAvailableDiskCapacity.5M</code></a>. 
       </td>
    </tr>
 </table>
 
-###<a id="cell-container"></a>Diego Cell Container Capacity
+### <a id="cell-container"></a> Diego Cell Container Capacity
 
 <table>
    <tr><th colspan="2" style="text-align: center;"><br>rep.CapacityRemainingContainers / 
        rep.CapacityTotalContainers<br><br></th></tr>
    <tr>
       <th width="25%">Description</th>
-      <td> Percentage of remaining container capacity for a given cell. Monitor this derived metric across all cells in a deployment.
+      <td> Percentage of remaining container capacity for a given Diego Cell. Monitor this derived metric across all Diego Cells in a deployment.
       <br><br>
-      The metric <code>rep.CapacityRemainingContainers</code> indicates the remaining number of containers this cell can host.<br>
-      The metric  by <code>rep.CapacityTotalContainer</code> indicates the total number of containers this cell can host.</td>
+      The metric <code>rep.CapacityRemainingContainers</code> indicates the remaining number of containers this Diego Cell can host.<br>
+      The metric <code>rep.CapacityTotalContainer</code> indicates the total number of containers this Diego Cell can host.</td>
    <tr>
       <th>Purpose</th>
       <td>A best practice deployment of Cloud Foundry includes three availability zones (AZs).  
@@ -136,7 +132,7 @@ There are three key capacity scaling indicators recommended for Diego cell:
    <tr>
       <th>How to scale</th>
       <td>
-      Scale up your Diego Cells 
+      Scale up your Diego Cells.
      </td>
    </tr>
     <tr>
@@ -154,6 +150,7 @@ There are three key capacity scaling indicators recommended for Diego cell:
       </td>
    </tr>
 </table>
+
 
 ## <a id="doppler-server"></a> Firehose Performance Scaling Indicators
 
@@ -194,7 +191,7 @@ Pivotal recommends two key capacity scaling indicators for monitoring Firehose p
    <tr>
       <th>How to scale</th>
       <td>Scale up the number of Traffic Controller and Doppler instances. 
-        <p class="note"><b>Note</b>: At approximately 40 Doppler instances and 20 Traffic Controller instances, horizontal scaling is no longer useful for improving Firehose performance. To improve performance, add vertical scale to the existing Doppler and Traffic Controller instances by increasing CPU resources.</p>
+        <p class="note"><strong>Note:</strong> At approximately 40 Doppler instances and 20 Traffic Controller instances, horizontal scaling is no longer useful for improving Firehose performance. To improve performance, add vertical scale to the existing Doppler and Traffic Controller instances by increasing CPU resources.</p>
       </td>
    </tr>
    <tr>
@@ -261,20 +258,16 @@ Pivotal recommends two key capacity scaling indicators for monitoring Firehose p
   </tr>
    <tr>
       <th width="25">Description</th>
-       <td>The loss rate of the reverse log proxies (RLP), that is, the total messages dropped
-           as a percentage of the total traffic coming through the <a href="../loggregator/architecture.html">reverse log proxy</a>.
-           Total messages include only logs for bound applications.
+       <td>The loss rate of the reverse log proxies (RLP), or the total messages dropped as a percentage of the total traffic coming through the <a href="../loggregator/architecture.html">reverse log proxy</a>. Total messages include only logs for bound apps.
        <br><br>
-			This loss rate is specific to the RLP and does not impact the Firehose loss rate.
-                        For example, you can suffer lossiness in the RLP while not suffering any lossiness in the Firehose.
+			This loss rate is specific to the RLP and does not impact the Firehose loss rate. For example, you can suffer lossiness in the RLP while not suffering any lossiness in the Firehose.
       </td>
    </tr>
    <tr>
       <th>Purpose</th>
       <td>Excessive dropped messages can indicate that the RLP is overloaded and that the Traffic Controllers need to be scaled.
          <br><br>
-        The recommended scaling indicator is to look at the maximum per minute loss rate over a 5-minute window
-        and scale if the derived loss rate value grows greater than <code>0.1</code>.
+        The recommended scaling indicator is to look at the maximum per minute loss rate over a 5-minute window and scale if the derived loss rate value grows greater than <code>0.1</code>.
    </tr>
    <tr>
       <th>Recommended thresholds</th>
@@ -303,6 +296,7 @@ Pivotal recommends two key capacity scaling indicators for monitoring Firehose p
       </td>
 </tr>
 </table>
+
 
 ## <a id="firehose-consumer"></a> Firehose Consumer Scaling Indicator
 
@@ -352,7 +346,7 @@ Pivotal recommends the following scaling indicator for monitoring the performanc
       <th width="25">Description</th>
       <td>
       <p>Within PAS, logs and metrics enter Loggregator for transport and then egress through the Reverse Log Proxy (RLP). The RLP drops messages when consumers of the RLP, such as monitoring tool nozzles, ingest the exiting stream of logs and metrics too slowly.</p>
-      <p class="note"><strong>Note</strong>: The <code>rlp.dropped</code> metric includes both <code>ingress</code> and <code>egress</code> directions. To differentiate between <code>ingress</code> and <code>egress</code>, refer to the <code>direction</code> tag on the metric.</p>
+      <p class="note"><strong>Note:</strong> The <code>rlp.dropped</code> metric includes both <code>ingress</code> and <code>egress</code> directions. To differentiate between <code>ingress</code> and <code>egress</code>, refer to the <code>direction</code> tag on the metric.</p>
       </td>
    </tr>
    <tr>
@@ -379,6 +373,7 @@ Pivotal recommends the following scaling indicator for monitoring the performanc
 </table>
 
 ### <a id="doppler-egress-dropped"></a> Doppler Egress Dropped Messages
+
 <table>
   <tr>
       <th colspan="2" style="text-align: center;">doppler.dropped, direction: egress</th>
@@ -387,7 +382,7 @@ Pivotal recommends the following scaling indicator for monitoring the performanc
       <th width="25">Description</th>
       <td>
       <p>Within PAS, logs and metrics enter Loggregator for transport and then egress through Doppler. Doppler drops messages when consumers of the RLP, such as monitoring tool nozzles, ingest the exiting stream of logs and metrics too slowly.</p>
-      <p class="note"><strong>Note</strong>: The <code>doppler.dropped</code> metric includes both <code>ingress</code> and <code>egress</code> directions. To differentiate between <code>ingress</code> and <code>egress</code>, refer to the <code>direction</code> tag on the metric.</p>
+      <p class="note"><strong>Note:</strong> The <code>doppler.dropped</code> metric includes both <code>ingress</code> and <code>egress</code> directions. To differentiate between <code>ingress</code> and <code>egress</code>, refer to the <code>direction</code> tag on the metric.</p>
       </td>
    </tr>
    <tr>
@@ -413,10 +408,12 @@ Pivotal recommends the following scaling indicator for monitoring the performanc
    </tr>
 </table>
 
+
 ## <a id="scalable-syslog"></a> CF Syslog Drain Performance Scaling Indicators
+
 There is a single key capacity scaling indicator recommended for CF Syslog Drain performance. 
 
-<p class="note"><strong>Note</strong>: These CF Syslog Drain scaling indicators are only relevant if your deployment contains apps using the CF syslog drain binding feature.</p>
+<p class="note"><strong>Note:</strong> These CF Syslog Drain scaling indicators are only relevant if your deployment contains apps using the CF syslog drain binding feature.</p>
 
 ### <a id="syslog-agent-ksi"></a> Syslog Agent Loss Rate
 
@@ -461,6 +458,7 @@ There is a single key capacity scaling indicator recommended for CF Syslog Drain
    </tr>
 </table>
 
+
 ## <a id="log-cache"></a> Log Cache Scaling Indicator
 
 Pivotal recommends the following scaling indicator for monitoring the performance of Log Cache.
@@ -479,7 +477,7 @@ Pivotal recommends the following scaling indicator for monitoring the performanc
       <th>Purpose</th>
       <td>Log Cache stores all messages that are passed through the Firehose in an ephemeral in-memory store. The size of this store and the cache duration are dependent on the amount of memory available on the VM on which Log Cache runs. Some features of PAS rely on data being available in Log Cache, such as App Autoscaler. 
          <br><br>
-        Pivotal recommends scaling the VM on which Log Cache runs, so  Log Cache can hold all messages that pass through Loggregator in the last 15 minutes, or 900000 milliseconds.
+        Pivotal recommends scaling the VM on which Log Cache runs, so Log Cache can hold all messages that pass through Loggregator in the last 15 minutes, or 900000 milliseconds.
    </tr>
    <tr>
       <th>Recommended thresholds</th>
@@ -500,10 +498,12 @@ Pivotal recommends the following scaling indicator for monitoring the performanc
    </tr>
 </table>
 
+
 ## <a id="Router"></a> Router Performance Scaling Indicator
+
 There is one key capacity scaling indicator recommended for Router performance. 
 
-###<a id="system.cpu.user"></a>Router VM CPU Utilization
+### <a id="system.cpu.user"></a> Router VM CPU Utilization
 
 <table>
   <tr>
@@ -515,12 +515,10 @@ There is one key capacity scaling indicator recommended for Router performance.
   </tr>
   <tr>
       <th>Purpose</th>
-      <td>High CPU utilization of the Gorouter VMs can increase latency and cause throughput, or requests per/second, to level-off.
-          Pivotal recommends keeping the CPU utilization within a maximum range of 60-70% for best Gorouter performance. 
+      <td>High CPU utilization of the Gorouter VMs can increase latency and cause throughput, or requests per/second, to level-off. Pivotal recommends keeping the CPU utilization within a maximum range of 60-70% for best Gorouter performance. 
       <br><br>
-      If you want to increase throughput capabilities while also keeping latency low, Pivotal recommends scaling the Gorouter 
-      while continuing to ensure that CPU utilization does not exceed the maximum recommended range.
-      <p class="note"><strong>Note</strong>: At greater than 8 CPUs, vertical scaling is no longer beneficial for increasing throughput.</p>
+      If you want to increase throughput capabilities while also keeping latency low, Pivotal recommends scaling the Gorouter while continuing to ensure that CPU utilization does not exceed the maximum recommended range.
+      <p class="note"><strong>Note:</strong> At greater than 8 CPUs, vertical scaling is no longer beneficial for increasing throughput.</p>
           </td>
    </tr>
    <tr>
@@ -533,7 +531,7 @@ There is one key capacity scaling indicator recommended for Router performance.
    </tr>
    <tr>
       <th>How to scale</th>
-      <td>Resolve high utilization by scaling the Gorouters horizontally or vertically by editing the <b>Router</b> VM in the <b>Resource Config</b> pane of the PAS tile. 
+      <td>Resolve high utilization by scaling the Gorouters horizontally or vertically by editing the <strong>Router</strong> VM in the <strong>Resource Config</strong> pane of the PAS tile. 
       </td>
    </tr>
    <tr>
@@ -546,10 +544,12 @@ There is one key capacity scaling indicator recommended for Router performance.
    </tr>
 </table>
 
+
 ## <a id="UAA"></a> UAA Performance Scaling Indicator
+
 There is one key capacity scaling indicator recommended for UAA performance. 
 
-###<a id="uaa-system.cpu.user"></a>UAA VM CPU Utilization
+### <a id="uaa-system.cpu.user"></a> UAA VM CPU Utilization
 
 <table>
   <tr>
@@ -561,11 +561,9 @@ There is one key capacity scaling indicator recommended for UAA performance.
   </tr>
   <tr>
       <th>Purpose</th>
-      <td>High CPU utilization of the UAA VMs can increase latency and cause throughput, or requests per/second, to level-off.
-      Pivotal recommends keeping the CPU utilization within a maximum range of 80-90% for best UAA performance.
+      <td>High CPU utilization of the UAA VMs can increase latency and cause throughput, or requests per/second, to level-off. Pivotal recommends keeping the CPU utilization within a maximum range of 80-90% for best UAA performance.
       <br><br>
-      If you want to increase throughput capabilities while keeping latency low, Pivotal recommends scaling the UAA VMs
-      and ensuring that CPU utilization does not exceed the maximum recommended range.
+      If you want to increase throughput capabilities while keeping latency low, Pivotal recommends scaling the UAA VMs and ensuring that CPU utilization does not exceed the maximum recommended range.
       </td>
    </tr>
    <tr>
@@ -592,24 +590,21 @@ There is one key capacity scaling indicator recommended for UAA performance.
 </table>
 
 
-
-##<a id="systemdiskpersist"></a>NFS/WebDAV Backed Blobstore
+## <a id="systemdiskpersist"></a> NFS/WebDAV Backed Blobstore
 
 There is one key capacity scaling indicator for external S3 external storage.
 
-<p class="note"><strong>Note</strong>: This metric is only relevant if your deployment does not use 
-                        an external S3 repository for external storage with no capacity constraints.</p>
+<p class="note"><strong>Note:</strong> This metric is only relevant if your deployment does not use an external S3 repository for external storage with no capacity constraints.</p>
 
 <table>
    <tr><th colspan="2" style="text-align: center;"><br>system.disk.persistent.percent of NFS server VM(s)<br><br></th></tr>
    <tr>
       <th width="25%">Description</th>
       <td><em>If applicable</em>: Monitor the percentage of persistent disk used on the VM for the NFS Server job.
-           </tr>
+   </tr>
    <tr>
        <th>Purpose</th>
-       <td>If you do not use an external S3 repository for external storage with no capacity constraints,
-           you must monitor the PAS object store to push new app and buildpacks.
+       <td>If you do not use an external S3 repository for external storage with no capacity constraints, you must monitor the PAS object store to push new app and buildpacks.
      <br><br>
      If you use an internal NFS/WebDAV backed blobstore, consider scaling the persistent disk when it reaches 75% capacity.
      </td>
