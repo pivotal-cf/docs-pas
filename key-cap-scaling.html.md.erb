@@ -29,7 +29,7 @@ There are three key capacity scaling indicators recommended for a Diego Cell:
    </tr>
    <tr>
       <th>Purpose</th>
-      <td>A best practice deployment of <%= vars.platform_name %> includes three availability zones (AZs).  
+      <td>A best practice deployment of <%= vars.app_runtime_abbr %> includes three availability zones (AZs).  
       For these types of deployments, Pivotal recommends that you have enough capacity to suffer failure of an entire AZ.
       <br><br>
       The <em>Recommended threshold</em> assumes a three-AZ configuration. Adjust the threshold percentage if you have more or fewer AZs.</td>
@@ -70,7 +70,7 @@ There are three key capacity scaling indicators recommended for a Diego Cell:
    </tr>
    <tr>
       <th>Purpose</th>
-      <td>A best practice deployment of <%= vars.platform_name %> includes three availability zones (AZs).  
+      <td>A best practice deployment of <%= vars.app_runtime_abbr %> includes three availability zones (AZs).  
       For these types of deployments, Pivotal recommends that you have enough capacity to suffer failure of an entire AZ.
       <br><br>
       The <em>Recommended threshold</em> assumes a three-AZ configuration. Adjust the threshold percentage if you have more or fewer AZs.</td>
@@ -110,7 +110,7 @@ There are three key capacity scaling indicators recommended for a Diego Cell:
       The metric <code>rep.CapacityTotalContainer</code> indicates the total number of containers this Diego Cell can host.</td>
    <tr>
       <th>Purpose</th>
-      <td>A best practice deployment of <%= vars.platform_name %> includes three availability zones (AZs).  
+      <td>A best practice deployment of <%= vars.app_runtime_abbr %> includes three availability zones (AZs).  
       For these types of deployments, Pivotal recommends that you have enough capacity to suffer failure of an entire AZ.
       <br><br>
       The <em>Recommended threshold</em> assumes a three-AZ configuration. Adjust the threshold percentage if you have more or fewer AZs.</td>
@@ -155,7 +155,7 @@ Pivotal recommends two key capacity scaling indicators for monitoring Firehose p
       <br><br>  
       Metric <code>loggregator.doppler.ingress</code> represents the number of messages entering Dopplers for transport through the firehose, and <code>loggregator.doppler.dropped</code> represents the number of messages dropped without delivery. 
       <br><br>
-      Messages include the combined stream of logs from all apps and the metrics data from <%= vars.platform_name %> components.
+      Messages include the combined stream of logs from all apps and the metrics data from <%= vars.app_runtime_abbr %> components.
       <br><br>
       For more information about Loggregator components, see <a href="../loggregator/architecture.html">Loggregator Architecture</a>.</td>
    </tr>
