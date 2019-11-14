@@ -457,6 +457,41 @@ When observing extended periods of high or low activity trends, scale up or down
         </tr>
 </table>
 
+### <a id="bbs.BBSMasterElected"></a> BBS Master Elected
+
+<table>
+     <tr><th colspan="2" style="text-align: center;"><br>bbs.BBSMasterElected<br><br></th></tr>
+        <tr>
+                <th width="25%">Description</th>
+                <td>Indicates when there is a BBS master election, meaning that a BBS instance has taken over as the active instance. A value of 1 is emitted when the election takes place.
+                <br><br>
+                <strong>Use</strong>: This metric will be emitted when a redeployment of the BBS occurs. If this metric is emitted frequently outside of a deployment, this may be a signal of underlying problems that should be investigated. If the active BBS is continually changing, this can cause application push downtime.
+                <br><br>
+                <strong>Origin</strong>: Firehose<br>
+                 <strong>Type</strong>: Gauge (Float)<br>
+                 <strong>Frequency</strong>: 30 s<br>
+        </tr>
+        <tr>
+                <th>Recommended measurement</th>
+                <td><em>N/A</em>, the most effective visualization is as a stacked bar chart</td>
+        </tr>
+        <tr>
+                <th>Recommended alert thresholds</th>
+                <td><strong>Yellow warning</strong>: <em>N/A</em> <br>
+                <strong>Red critical</strong>: <em>N/A</em></td>
+        </tr>
+        <tr>
+                <th>Recommended response</th>
+                <td>
+                    <ol>
+                        <li>Check the BBS logs.</li>
+                        <li>Check the BBS VM load average and instance group size.</li>
+                        <li>Check the health of the connection to the backing SQL database and network latency.</li>
+                    </ol>
+                    </td>
+        </tr>
+</table>
+
 
 ## <a id="cell"></a> Diego Cell Metrics
 
