@@ -463,9 +463,9 @@ When observing extended periods of high or low activity trends, scale up or down
      <tr><th colspan="2" style="text-align: center;"><br>bbs.BBSMasterElected<br><br></th></tr>
         <tr>
                 <th width="25%">Description</th>
-                <td>Indicates when there is a BBS master election, meaning that a BBS instance has taken over as the active instance. A value of 1 is emitted when the election takes place.
+                <td>Indicates when there is a BBS master election. A BBS master election takes place when a BBS instance has taken over as the active instance. A value of `1` is emitted when the election takes place.
                 <br><br>
-                <strong>Use</strong>: This metric will be emitted when a redeployment of the BBS occurs. If this metric is emitted frequently outside of a deployment, this may be a signal of underlying problems that should be investigated. If the active BBS is continually changing, this can cause application push downtime.
+                <strong>Use</strong>: This metric emits when a redeployment of the BBS occurs. If this metric is emitted frequently outside of a deployment, this may be a signal of underlying problems that should be investigated. If the active BBS is continually changing, this can cause application push downtime.
                 <br><br>
                 <strong>Origin</strong>: Firehose<br>
                  <strong>Type</strong>: Gauge (Float)<br>
