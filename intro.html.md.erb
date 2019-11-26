@@ -4,9 +4,7 @@ title: Introduction to PCF
 owner: PCF Documentation
 ---
 
-##<a id='who'></a>Welcome to Pivotal Cloud Foundry
-
-This guide gives a high-level conceptual overview and introduction to the Pivotal Cloud Foundry (PCF) platform. It is designed to:
+This topic gives a high-level conceptual overview and introduction to Pivotal Application Service (PAS). It is designed to:
 
 * Introduce the platform to people who are unfamiliar with it.
 
@@ -14,63 +12,63 @@ This guide gives a high-level conceptual overview and introduction to the Pivota
 
 * Explain how you can get started running apps on PCF in two ways:
 
-  - Install and run <a href="https://docs.pivotal.io/pcf-dev/index.html">PCF Dev</a>, a free, lightweight version of PCF that enables you to develop and run Pivotal Application Service (PAS) apps on your local workstation.
+  - Install and run [<%= vars.product_name %> Dev](https://docs.pivotal.io/pcf-dev/index.html), a free, lightweight version of PAS that enables you to develop and run apps on your local workstation.
 
-  - Subscribe to <a href="http://docs.run.pivotal.io/starting/index.html">Pivotal Web Services</a> (PWS), a full PCF platform hosted by Pivotal.
+  - Subscribe to [Pivotal Web Services](http://docs.run.pivotal.io/starting/index.html) (PWS), a full PAS platform hosted by Pivotal.
 
 If you want to learn about how the PCF platform works or test it out yourself, this guide is for you.
 
-##<a id='contents'></a>Contents
 
-* <a href="/pivotalcf/concepts/overview.html">PAS Overview</a> - A general introduction to [Cloud Foundry Application Runtime](https://www.cloudfoundry.org/application-runtime/), the open-source software that underlies PCF and PAS. Read this first.
+## <a id='contents'></a> Contents
 
-  - <a href="/pivotalcf/concepts/cf-routing-architecture.html">Cloud Foundry Routing Architecture</a>
+* [<%= vars.app_runtime_full %> Overview](../concepts/overview.html) - A general introduction to [Cloud Foundry Application Runtime](https://www.cloudfoundry.org/application-runtime/), the open-source software that underlies PAS. Read this first.
 
-  - <a href="/pivotalcf/concepts/diego/diego-architecture.html">How the Diego Auction Balances Jobs</a>
+  - [PAS Routing Architecture](../concepts/cf-routing-architecture.html)
 
-  - <a href="/pivotalcf/concepts/diego/diego-auction.html">How the Diego Auction Balances App Processes</a>
+  - [How the Diego Auction Balances Jobs](../concepts/diego/diego-architecture.html)
 
-  - <a href="/pivotalcf/concepts/how-applications-are-staged.html">How Apps Are Staged</a>
+  - [How the Diego Auction Balances App Processes](../concepts/diego/diego-auction.html)
 
-  - <a href="/pivotalcf/devguide/deploy-apps/app-ssh-overview.html">Application SSH Overview</a>
+  - [How Apps Are Staged](../concepts/how-applications-are-staged.html)
 
-  - <a href="/pivotalcf/concepts/high-availability.html">High Availability in Cloud Foundry</a>
+  - [App SSH Overview](../devguide/deploy-apps/app-ssh-overview.html)
 
+  - [High Availability in PAS](../concepts/high-availability.html)
 
-* <a href="/pivotalcf/customizing/user-types.html">Pivotal Cloud Foundry User Types</a> - Explains the main categories of PCF users: the operators who run the platform, the runtime users who develop and manage apps and containers on the platform, and the end users who use the cloud-based apps that the platform hosts.
+* [<%= vars.product_name %> User Types](../customizing/user-types.html) - Explains the main categories of <%= vars.product_name %> users: the operators who run the platform, the runtime users who develop and manage apps and containers on the platform, and the end users who use the cloud-based apps that the platform hosts.
 
-  - <a href="/pivotalcf/concepts/roles.html">Orgs, Spaces, Roles, and Permissions</a>
+  - [Orgs, Spaces, Roles, and Permissions](../concepts/roles.html)
 
-* <a href="/pivotalcf/concepts/architecture/index.html">PAS Components</a> - Describes the internal components of PAS, and how these specialized processes work together to support, maintain, and provide control over hosted apps.  Each component performs a different function within the platform.
+* [PAS Components](../concepts/architecture/index.html) - Describes the internal components of PAS, and how these specialized processes work together to support, maintain, and provide control over hosted apps. Each component performs a different function within the...
 
-  - <a href="/pivotalcf/concepts/architecture/cloud-controller.html">Component: Cloud Controller</a>
+  - [Component: Cloud Controller](../concepts/architecture/cloud-controller.html)
 
-  - <a href="/pivotalcf/concepts/architecture/messaging-nats.html">Component: Messaging (NATS)</a>
+  - [Component: Messaging (NATS)](../concepts/architecture/messaging-nats.html)
 
-  - <a href="/pivotalcf/concepts/architecture/router.html">Component: Gorouter</a>
+  - [Component: Gorouter](../concepts/architecture/router.html)
 
-  - <a href="/pivotalcf/concepts/architecture/uaa.html">Component: User Account and Authentication (UAA) Server</a>
+  - [Component: User Account and Authentication (UAA) Server](../concepts/architecture/uaa.html)
 
-  - <a href="/pivotalcf/concepts/architecture/garden.html">Component: Garden</a>
+  - [Component: Garden](../concepts/architecture/garden.html)
 
-  - <a href="/pivotalcf/concepts/http-routing.html">Component: HTTP Routing</a>
+  - [Component: HTTP Routing](../concepts/http-routing.html)
 
-  - <a href="/pivotalcf/concepts/diego/ssh-conceptual.html">Application SSH Components and Processes</a>
+  - [App SSH Components and Processes](../concepts/diego/ssh-conceptual.html)
 
-* <a href="/pivotalcf/concepts/security.html">Cloud Foundry Security</a> - An overview of how PCF and PAS protect their internal components and hosted apps from security threats.
+* [PAS Security](../concepts/security.html) - An overview of how PAS protects its internal components and hosted apps from security threats.
 
-  - <a href="/pivotalcf/security/concepts/index.html">Security Concepts</a>
+  - [Security Concepts](../security/concepts/index.html)
 
-  - <a href="/pivotalcf/security/process/index.html">PCF Security Processes</a>
+  - [<%= vars.product_name %> Security Processes](../security/process/index.html)
 
-  - <a href="/pivotalcf/security/process/pcf-security.html">Pivotal Cloud Foundry Security Overview and Policy</a>
+  - [<%= vars.product_name %> Security Overview and Policy](../security/process/pcf-security.html)
 
-  - <a href="/pivotalcf/security/process/security-lifecycle.html">PCF Testing, Release, and Security Lifecycle</a>
+  - [<%= vars.product_name %> Testing, Release, and Security Lifecycle](../security/process/security-lifecycle.html)
 
-  - <a href="/pivotalcf/concepts/container-security.html">Container Security</a>
+  - [Container Security](../concepts/container-security.html)
 
-  - <a href="/pivotalcf/concepts/understand-cf-networking.html">Container-to-Container Networking</a>
+  - [Container-to-Container Networking](../concepts/understand-cf-networking.html)
 
-* <a href="https://docs.pivotal.io/pcf-dev/index.html">PCF Dev</a> - A lightweight PAS that runs on your workstation, for developing apps locally.
+* [<%= vars.product_name %> Dev](https://docs.pivotal.io/pcf-dev/index.html) - A lightweight PAS that runs on your workstation, for developing apps locally.
 
-* <a href="http://docs.run.pivotal.io/starting/index.html">Pivotal Web Services</a> - A subscription PCF installation operated by Pivotal.
+* [Pivotal Web Services](http://docs.run.pivotal.io/starting/index.html) - A subscription PAS installation operated by Pivotal.
