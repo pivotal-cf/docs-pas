@@ -1,10 +1,10 @@
 ---
-breadcrumb: <%= vars.product_name %> Documentation
+breadcrumb: <%= vars.platform_name %> Documentation
 title: PAS Developer Guide
-owner: <%= vars.product_name %> Documentation
+owner: <%= vars.platform_name %> Documentation
 ---
 
-The topics in this subsection serve as a guide for PAS developers. They explain how to develop, run, and manage apps on Pivotal Application Service (PAS).
+The topics in this subsection serve as a guide for Pivotal Application Service (PAS) developers. They explain how to develop, run, and manage apps on PAS.
 
 
 ## <a id='overview'></a> Overview
@@ -13,7 +13,7 @@ Developing, running, and managing apps on PAS may include:
 
 * Deploying and scaling apps with diverse languages, frameworks, and dependencies
 * Finding software services in the services marketplace, such as databases, email, or message servers
-* Creating your own Cloud Foundry service based on an external server
+* Creating your own PAS service based on an external server
 * Creating service instances and binding them to your apps
 * Streaming app logs to an external log management service
 * Troubleshooting app deployment and health
@@ -23,13 +23,13 @@ If you do these things, you are a PAS **Developer**, and the contents of this gu
 
 ## <a id='contents'></a> Guide Contents
 
-* [Deploying Apps](../devguide/index.html) - Deploying and managing apps on Linux or Windows cells or Docker containers.
+* [Deploying Apps](../devguide/index.html) - Deploying and managing apps on Linux or Windows Diego Cells or Docker containers.
 
   - [Considerations for Designing and Running an App in the Cloud](../devguide/deploy-apps/prepare-to-deploy.html)
 
   - [Pushing an App](../devguide/deploy-apps/deploy-app.html)
 
-  - [Deploying .NET Apps to Windows Cells](https://docs.pivotal.io/platform/<%= vars.current_major_version.sub('.', '-') %>/windows2012r2/push-windows-apps.html)
+  - [Deploying .NET Apps to Windows Diego Cells](https://docs.pivotal.io/platform/<%= vars.current_major_version.sub('.', '-') %>/windows2012r2/push-windows-apps.html)
 
   - [Deploying a Large App](../devguide/deploy-apps/large-app-deploy.html)
 
@@ -49,7 +49,7 @@ If you do these things, you are a PAS **Developer**, and the contents of this gu
 
   - [Routes and Domains](../devguide/deploy-apps/routes-domains.html)
 
-  - [Cloud Foundry Environment Variables](../devguide/deploy-apps/environment-variable.html)
+  - [PAS Environment Variables](../devguide/deploy-apps/environment-variable.html)
 
   - [Trusted System Certificates](../devguide/deploy-apps/trusted-system-certificates.html)
 
@@ -91,7 +91,7 @@ If you do these things, you are a PAS **Developer**, and the contents of this gu
 
 * [App Logging in Cloud Foundry](../devguide/deploy-apps/streaming-logs.html) - Outputting and processing app logs.
 
-  - [Overview of the Loggregator System](../loggregator/architecture.html)
+  - [Loggregator Architecture](../loggregator/architecture.html)
 
   - [App Log Streaming](../services/app-log-streaming.html)
 
