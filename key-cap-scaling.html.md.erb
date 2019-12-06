@@ -582,10 +582,22 @@ There is one key capacity scaling indicator recommended for UAA performance.
 
 There is one key capacity scaling indicator for external S3 external storage.
 
-<p class="note"><strong>Note:</strong> This metric is only relevant if your deployment does not use an external S3 repository for external storage with no capacity constraints.</p>
+<p class="note"><strong>Note:</strong>
+  This metric is only relevant if your deployment does not use an external S3 repository for
+  external storage with no capacity constraints.
+</p>
+
+<p class= "note"><strong>Note:</strong> The following metric appears in the Firehose in two different formats.
+  The below table lists both formats.
+  For more information,
+  see <a href="../pcf-release-notes/runtime-rn.html#duplicate-metrics">Duplicate Metrics Appear in the Firehose</a>.
+</p>
+
+
 
 <table>
-   <tr><th colspan="2" style="text-align: center;"><br>system.disk.persistent.percent of NFS server VM(s)<br><br></th></tr>
+   <tr><th colspan="2" style="text-align: center;"><br>system.disk.persistent.percent of NFS server VM(s)<br>
+     system_disk_persistent.percent of NFS server VM(s)<br><br></th></tr>
    <tr>
       <th width="25%">Description</th>
       <td><em>If applicable</em>: Monitor the percentage of persistent disk used on the VM for the NFS Server job.</td>
