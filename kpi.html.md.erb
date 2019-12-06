@@ -1,11 +1,11 @@
 ---
-title: Key Performance Indicators 
+title: Key Performance Indicators
 owner: <%= vars.product_name %> Metrics Platform Monitoring
 ---
 
 This topic describes Key Performance Indicators (KPIs) that operators may want to monitor with their Pivotal Application Service (PAS) deployment to help ensure it is in a good operational state.
 
-The following PAS v2.6 KPIs are provided for operators to give general guidance on monitoring a PAS deployment using platform component and system (BOSH) metrics.  Although many metrics are emitted from the platform, the following PAS v2.4 KPIs are high-signal-value metrics that can indicate emerging platform issues. 
+The following PAS v2.6 KPIs are provided for operators to give general guidance on monitoring a PAS deployment using platform component and system (BOSH) metrics.  Although many metrics are emitted from the platform, the following PAS v2.4 KPIs are high-signal-value metrics that can indicate emerging platform issues.
 
 This alerting and response guidance has been shown to apply to most deployments. Pivotal recommends that operators continue to fine-tune the alert measures to their deployment by observing historical trends. Pivotal also recommends that operators expand beyond this guidance and create new, deployment-specific monitoring metrics, thresholds, and alerts based on learning from their deployments.
 
@@ -13,7 +13,7 @@ This alerting and response guidance has been shown to apply to most deployments.
 
 
 ## <a id="auctioneer"></a> Diego Auctioneer Metrics
- 
+
 ### <a id="AuctioneerLRPAuctionsFailed"></a> Auctioneer App Instance (AI) Placement Failures
 
 <table>
@@ -21,12 +21,12 @@ This alerting and response guidance has been shown to apply to most deployments.
    <tr>
       <th width="25%">Description</th>
       <td>The number of Long Running Process (LRP) instances that the auctioneer failed to place on Diego cells. This metric is cumulative over the lifetime of the auctioneer job.<br><br>
-   
-      <strong>Use</strong>: This metric can indicate that PAS is out of container space or that there is a lack of resources within your environment. This indicator also increases when the LRP is requesting an isolation segment, volume drivers, or a stack that is unavailable, either not deployed or lacking sufficient resources to accept the work. 
-  <br><br> 
-	      This metric is emitted on event, and therefore gaps in receipt of this metric can be normal during periods of no app instances being scheduled. 
+
+      <strong>Use</strong>: This metric can indicate that PAS is out of container space or that there is a lack of resources within your environment. This indicator also increases when the LRP is requesting an isolation segment, volume drivers, or a stack that is unavailable, either not deployed or lacking sufficient resources to accept the work.
+  <br><br>
+	      This metric is emitted on event, and therefore gaps in receipt of this metric can be normal during periods of no app instances being scheduled.
 	      <br><br>
-      This error is most common due to capacity issues, for example, if cells do not have 
+      This error is most common due to capacity issues, for example, if cells do not have
       enough resources, or if cells are going back and forth between a healthy and unhealthy state.
       <br><br>
       <strong>Origin</strong>: Firehose<br>
@@ -46,9 +46,9 @@ This alerting and response guidance has been shown to apply to most deployments.
       <th>Recommended response</th>
       <td>
          <ol>
-	    <li>To best determine the root cause, examine the Auctioneer logs. Depending on the specific error and resource constraint, you may also find a failure reason in the Cloud Controller (CC) API.</li> 
+	    <li>To best determine the root cause, examine the Auctioneer logs. Depending on the specific error and resource constraint, you may also find a failure reason in the Cloud Controller (CC) API.</li>
             <li>Investigate the health of your Diego cells to determine if they
-            are the resource type causing the problem.</li> 
+            are the resource type causing the problem.</li>
             <li>Consider scaling additional cells using Ops Manager.</li>
             <li>If scaling cells does not solve the problem, pull Diego brain logs and BBS node logs
              and contact Pivotal Support telling them that LRP auctions are failing.</li>
@@ -65,7 +65,7 @@ This alerting and response guidance has been shown to apply to most deployments.
       <th width="25%">Description</th>
       <td> Time in ns that the auctioneer took to fetch state from all the Diego cells when running its auction.<br><br>
 
-      <strong>Use</strong>: Indicates how the cells themselves are performing. 
+      <strong>Use</strong>: Indicates how the cells themselves are performing.
       Alerting on this metric helps alert that app staging requests to Diego may be failing.
 
       <br><br>
@@ -88,7 +88,7 @@ This alerting and response guidance has been shown to apply to most deployments.
           <ol>
              <li>Check the health of the cells by reviewing the logs and looking for errors.</li>
              <li>Review IaaS console metrics.</li>
-	     <li>Inspect the Auctioneer logs to determine if one or more cells is taking significantly longer to fetch state than other cells. Relevant log lines will have wording like `fetched cell state`. </li>  
+	     <li>Inspect the Auctioneer logs to determine if one or more cells is taking significantly longer to fetch state than other cells. Relevant log lines will have wording like `fetched cell state`. </li>
              <li>Pull Diego brain logs, cell logs, and auctioneer logs and contact Pivotal Support telling them that fetching cell states is taking too long.</li>
           </ol>
        </td>
@@ -97,18 +97,18 @@ This alerting and response guidance has been shown to apply to most deployments.
 
 ### <a id="AuctioneerLRPAuctionsStarted"></a> Auctioneer App Instance Starts
 
-<table> 
+<table>
    <tr><th colspan="2" style="text-align: center;"><br>auctioneer.AuctioneerLRPAuctionsStarted<br><br></th></tr>
         <tr>
                 <th width="25%">Description</th>
-                <td>The number of LRP instances that the auctioneer successfully placed on Diego cells. This metric is cumulative over the lifetime of the auctioneer job. 
+                <td>The number of LRP instances that the auctioneer successfully placed on Diego cells. This metric is cumulative over the lifetime of the auctioneer job.
                         <br><br>
-                <strong>Use</strong>: Provides a sense of running system activity levels in your environment. 
+                <strong>Use</strong>: Provides a sense of running system activity levels in your environment.
                 Can also give you a sense of how many app instances have been started over time.
-                The recommended measurement, below, can help indicate a significant amount of container churn. 
-                However, for capacity planning purposes, it is more helpful to observe deltas over a long time window. 
+                The recommended measurement, below, can help indicate a significant amount of container churn.
+                However, for capacity planning purposes, it is more helpful to observe deltas over a long time window.
                  <br><br>
-		This metric is emitted on event, and therefore gaps in receipt of this metric can be normal during periods of no app instances being scheduled. 
+		This metric is emitted on event, and therefore gaps in receipt of this metric can be normal during periods of no app instances being scheduled.
 		 <br><br>
                  <strong>Origin</strong>: Firehose<br>
                  <strong>Type</strong>: Counter (Integer)<br>
@@ -130,7 +130,7 @@ When observing a significant amount of container churn, do the following:<br><br
     <ol>
     <li>Look to eliminate explainable causes of temporary churn, such as a deployment or increased developer activity.</li>
     <li>If container churn appears to continue over an extended period, pull logs from the Diego Brain and BBS node before contacting Pivotal support.</li>
-    </ol>	    
+    </ol>
 When observing extended periods of high or low activity trends, scale up or down CF components as needed.
 
     </td>
@@ -143,16 +143,16 @@ When observing extended periods of high or low activity trends, scale up or down
      <tr><th colspan="2" style="text-align: center;"><br>auctioneer.AuctioneerTaskAuctionsFailed<br><br></th></tr>
         <tr>
                 <th width="25%">Description</th>
-                <td>The number of Tasks that the auctioneer failed to place on Diego cells. This metric is cumulative over the lifetime of the auctioneer job. 
+                <td>The number of Tasks that the auctioneer failed to place on Diego cells. This metric is cumulative over the lifetime of the auctioneer job.
                         <br><br>
-                <strong>Use</strong>: Failing Task auctions indicate a lack of resources 
-                        within your environment and that you likely need to scale. 
-                        This indicator also increases when the Task is requesting an isolation segment, volume drivers, 
+                <strong>Use</strong>: Failing Task auctions indicate a lack of resources
+                        within your environment and that you likely need to scale.
+                        This indicator also increases when the Task is requesting an isolation segment, volume drivers,
                         or a stack that is unavailable, either not deployed or lacking sufficient resources to accept the work.
                 <br><br>
 			This metric is emitted on event, and therefore gaps in receipt of this metric can be normal during periods of no tasks being scheduled.
 			<br><br>
-			This error is most common due to capacity issues, for example, if cells do not have enough resources, or if cells are going back and forth between a healthy and unhealthy state. 
+			This error is most common due to capacity issues, for example, if cells do not have enough resources, or if cells are going back and forth between a healthy and unhealthy state.
 			<br><br>
                  <strong>Origin</strong>: Firehose<br>
                  <strong>Type</strong>: Counter (Float)<br>
@@ -189,10 +189,10 @@ When observing extended periods of high or low activity trends, scale up or down
    <tr><th colspan="2" style="text-align: center;"><br>bbs.ConvergenceLRPDuration<br><br></th></tr>
    <tr>
       <th width="25%">Description</th>
-      <td>Time in ns that the BBS took to run its LRP convergence pass. 
+      <td>Time in ns that the BBS took to run its LRP convergence pass.
           <br><br>
-          <strong>Use</strong>: If the convergence run begins taking too long, 
-          apps or Tasks may be crashing without restarting. 
+          <strong>Use</strong>: If the convergence run begins taking too long,
+          apps or Tasks may be crashing without restarting.
           This symptom can also indicate loss of connectivity to the BBS database.
           <br><br>
           <strong>Origin</strong>: Firehose<br>
@@ -214,7 +214,7 @@ When observing extended periods of high or low activity trends, scale up or down
       <td>
           <ol>
               <li>Check BBS logs for errors.</li>
-              <li>Try vertically scaling the BBS VM resources up. 
+              <li>Try vertically scaling the BBS VM resources up.
               For example, add more CPUs or memory depending on its <code>system.cpu</code>/<code>system.memory</code> metrics.</li>
 	      <li>Consider vertically scaling the PAS backing database, if <code>system.cpu</code> and <code>system.memory</code> metrics for the database instances are high.</li>
 	      <li>If that does not solve the issue, pull the BBS logs and contact Pivotal Support for additional troubleshooting.
@@ -232,7 +232,7 @@ When observing extended periods of high or low activity trends, scale up or down
       <td>The maximum observed latency time over the past 60 seconds that the BBS took to handle requests across all its API endpoints.<br><br>
 	      Diego is now aggregating this metric to emit the max value observed over 60 seconds.
           <br><br>
-          <strong>Use</strong>: If this metric rises, the PAS API is slowing. 
+          <strong>Use</strong>: If this metric rises, the PAS API is slowing.
           Response to certain cf CLI commands is slow if request latency is high.
           <br><br>
           <strong>Origin</strong>: Firehose<br>
@@ -254,9 +254,9 @@ When observing extended periods of high or low activity trends, scale up or down
           <ol>
               <li>Check CPU and memory statistics in Ops Manager.</li>
               <li>Check BBS logs for faults and errors that can indicate issues with BBS.</li>
-              <li>Try scaling the BBS VM resources up. For example, add more CPUs/memory 
+              <li>Try scaling the BBS VM resources up. For example, add more CPUs/memory
                   depending on its <code>system.cpu</code>/<code>system.memory</code> metrics.</li>
-              <li>Consider vertically scaling the PAS backing database, if <code>system.cpu</code> and <code>system.memory</code> metrics for the database instances are high.</li> 
+              <li>Consider vertically scaling the PAS backing database, if <code>system.cpu</code> and <code>system.memory</code> metrics for the database instances are high.</li>
 	      <li>If the above steps do not solve the issue, collect a sample of the cell logs from the BBS VMs and contact Pivotal Support to troubleshoot further.
           </ol>
           </td>
@@ -269,7 +269,7 @@ When observing extended periods of high or low activity trends, scale up or down
    <tr><th colspan="2" style="text-align: center;"><br>bbs.Domain.cf-apps<br><br></th></tr>
    <tr>
       <th width="25%">Description</th>
-      <td>Indicates if the <code>cf-apps</code> Domain is up-to-date, meaning that CF App requests from Cloud Controller are synchronized to <code>bbs.LRPsDesired</code> (Diego-desired AIs) for execution. 
+      <td>Indicates if the <code>cf-apps</code> Domain is up-to-date, meaning that CF App requests from Cloud Controller are synchronized to <code>bbs.LRPsDesired</code> (Diego-desired AIs) for execution.
             <ul>
               <li><code>1</code> means <code>cf-apps</code> Domain is up-to-date</li>
               <li>No data received means <code>cf-apps</code> Domain is not up-to-date</li>
@@ -309,13 +309,13 @@ When observing extended periods of high or low activity trends, scale up or down
      <tr><th colspan="2" style="text-align: center;"><br>bbs.LRPsExtra<br><br></th></tr>
         <tr>
                 <th width="25%">Description</th>
-                <td>Total number of LRP instances that are no longer desired but still have a BBS record. 
-                    When Diego wants to add more apps, the BBS sends a request to the auctioneer 
-                    to spin up additional LRPs. LRPsExtra is the total number of LRP instances that are no longer desired but still have a BBS record. 
+                <td>Total number of LRP instances that are no longer desired but still have a BBS record.
+                    When Diego wants to add more apps, the BBS sends a request to the auctioneer
+                    to spin up additional LRPs. LRPsExtra is the total number of LRP instances that are no longer desired but still have a BBS record.
                         <br><br>
-                <strong>Use</strong>: If Diego has more LRPs running than expected, 
+                <strong>Use</strong>: If Diego has more LRPs running than expected,
                         there may be problems with the BBS.<br><br>
-                        Deleting an app with many instances can temporarily spike this metric.  
+                        Deleting an app with many instances can temporarily spike this metric.
                         However, a sustained spike in <code>bbs.LRPsExtra</code> is unusual and should be investigated.
                  <br><br>
                  <strong>Origin</strong>: Firehose<br>
@@ -348,10 +348,10 @@ When observing extended periods of high or low activity trends, scale up or down
      <tr><th colspan="2" style="text-align: center;"><br>bbs.LRPsMissing<br><br></th></tr>
         <tr>
                 <th width="25%">Description</th>
-                <td>Total number of LRP instances that are desired but have no record in the BBS. When Diego wants to add more apps, the BBS sends a request to the auctioneer 
-                        to spin up additional LRPs. LRPsMissing is the total number of LRP instances that are desired but have no BBS record. 
+                <td>Total number of LRP instances that are desired but have no record in the BBS. When Diego wants to add more apps, the BBS sends a request to the auctioneer
+                        to spin up additional LRPs. LRPsMissing is the total number of LRP instances that are desired but have no BBS record.
                         <br><br>
-                <strong>Use</strong>: If Diego has less LRP running than expected, there may be problems with the BBS.<br><br> 
+                <strong>Use</strong>: If Diego has less LRP running than expected, there may be problems with the BBS.<br><br>
                         An app push with many instances can temporarily spike this metric. However, a sustained spike in <code>bbs.LRPsMissing</code> is unusual and should be investigated.
                  <br><br>
                  <strong>Origin</strong>: Firehose<br>
@@ -386,13 +386,13 @@ When observing extended periods of high or low activity trends, scale up or down
                 <th width="25%">Description</th>
                 <td>Total number of LRP instances that have crashed.
                 <br><br>
-                <strong>Use</strong>: Indicates how many instances in the deployment are in a crashed state. 
-                An increase in <code>bbs.CrashedActualLRPs</code> can indicate several problems, 
-                from a bad app with many instances associated, 
-                to a platform issue that is resulting in app crashes. 
-                Use this metric to help create a baseline for your deployment. 
-                After you have a baseline, you can create a deployment-specific alert to notify of a spike in crashes above the trend line. 
-                Tune alert values to your deployment. 
+                <strong>Use</strong>: Indicates how many instances in the deployment are in a crashed state.
+                An increase in <code>bbs.CrashedActualLRPs</code> can indicate several problems,
+                from a bad app with many instances associated,
+                to a platform issue that is resulting in app crashes.
+                Use this metric to help create a baseline for your deployment.
+                After you have a baseline, you can create a deployment-specific alert to notify of a spike in crashes above the trend line.
+                Tune alert values to your deployment.
                 <br><br>
                 <strong>Origin</strong>: Firehose<br>
                  <strong>Type</strong>: Gauge (Float)<br>
@@ -411,8 +411,8 @@ When observing extended periods of high or low activity trends, scale up or down
                 <th>Recommended response</th>
                 <td>
                     <ol>
-                        <li>Look at the BBS logs for apps that are crashing 
-                            and at the cell logs to see if the problem is with the apps themselves, rather than 
+                        <li>Look at the BBS logs for apps that are crashing
+                            and at the cell logs to see if the problem is with the apps themselves, rather than
                             a platform issue.</li>
                         <li>Before contacting Pivotal Support, pull the BBS logs and, if particular apps are the problem,
                             pull the logs from their Diego cells too.</li>
@@ -427,17 +427,17 @@ When observing extended periods of high or low activity trends, scale up or down
      <tr><th colspan="2" style="text-align: center;"><br>1hr average of bbs.LRPsRunning – prior 1hr average of bbs.LRPsRunning<br><br></th></tr>
         <tr>
                 <th width="25%">Description</th>
-                <td>Rate of change in app instances being started or stopped on the platform. 
+                <td>Rate of change in app instances being started or stopped on the platform.
                     It is derived from <code>bbs.LRPsRunning</code>
                     and represents the total number of LRP instances that are running on Diego cells.
                     <br><br>
-                    <strong>Use</strong>: Delta reflects upward or downward trend for app instances started or stopped. 
-                    Helps to provide a picture of the overall growth trend of the environment for capacity planning. 
+                    <strong>Use</strong>: Delta reflects upward or downward trend for app instances started or stopped.
+                    Helps to provide a picture of the overall growth trend of the environment for capacity planning.
                     You may want to alert on delta values outside of the expected range.
                     <br><br>
                  <strong>Origin</strong>: Firehose<br>
                  <strong>Type</strong>: Gauge (Float)<br>
-                 <strong>Frequency</strong>: During event, 
+                 <strong>Frequency</strong>: During event,
                          emission should be constant on a running deployment<br>
         </tr>
         <tr>
@@ -517,17 +517,17 @@ When observing extended periods of high or low activity trends, scale up or down
       <th>Recommended measurement</th>
       <td><b>For alerting</b>: <ol>
             <li>Determine the size of a standard app in your deployment. This is the suggested value to calculate <em>free chunks</em> of Remaining Memory by.
-	      <li>Create a script/tool that can iterate through each Diego Cell and do the following: 
+	      <li>Create a script/tool that can iterate through each Diego Cell and do the following:
           <ol>
           <li>Pull the <code>rep.CapacityRemainingMemory</code> metric for each cell.</li>
           <li>Divide the values received by 1000 to get the value in Gigabytes (if desired threshold is GB-based).</li>
-          <li>Compare recorded values to your minimum capacity threshold, and count the number of cells that have equal or greater than the desired amount of <em>free chunk</em> space.</li>    
+          <li>Compare recorded values to your minimum capacity threshold, and count the number of cells that have equal or greater than the desired amount of <em>free chunk</em> space.</li>
 	       </ol>
 	 <li> Determine a desired scaling threshold based on the minimum amount of <em>free chunks</em> that are acceptable in this deployment given historical trends.</li>
 	 <li> Set an alert to indicate the need to scale cell memory capacity when the value falls below the desired threshold number.</li>
-	      </ol> 
+	      </ol>
 	<b>For visualization purposes</b>:<br>
-	      Looking at this metric (<code>rep.CapacityRemainingMemory</code>) as a minimum value per cell has more informational value than alerting value. It can be an interesting heatmap visualization, showing average variance and density over time.   
+	      Looking at this metric (<code>rep.CapacityRemainingMemory</code>) as a minimum value per cell has more informational value than alerting value. It can be an interesting heatmap visualization, showing average variance and density over time.
 </td>
   </tr>
   <tr>
@@ -564,8 +564,8 @@ When observing extended periods of high or low activity trends, scale up or down
       <th width="25%">Description</th>
       <td>Remaining amount of memory in MiB available for this Diego cell to allocate to containers.
           <br><br>
-          <strong>Use</strong>: Can indicate low memory capacity overall in the platform. 
-          Low memory can prevent app scaling and new deployments. 
+          <strong>Use</strong>: Can indicate low memory capacity overall in the platform.
+          Low memory can prevent app scaling and new deployments.
           The overall sum of capacity can indicate that you need to scale the platform.
           Observing capacity consumption trends over time helps with capacity planning.
           <br><br>
@@ -614,7 +614,7 @@ When observing extended periods of high or low activity trends, scale up or down
           Because Diego will fail to stage without at least 6 GB free, unreserved disk space on a given cell, the strongest operational value of this metric is to ensure that at least some cells have a large enough disk capacity to support the staging of apps and tasks.
 	  <br><br>
 	      Pivotal recommends computing and monitoring for the number of cells with at least 6 GB Disk free. When the number of cells with at least 6 GB falls below a defined threshold, this is a scaling indicator alert to increase capacity. The alerting threshold value for the amount of <em>free chunks</em> of Disk should be tuned to the deployment size and the standard size of apps being pushed to the deployment.
-	      
+
           <strong>Origin</strong>: Firehose<br>
           <strong>Type</strong>: Gauge (Integer in MiB)<br>
           <strong>Frequency</strong>: 60 s<br>
@@ -623,17 +623,17 @@ When observing extended periods of high or low activity trends, scale up or down
       <th>Recommended measurement</th>
       <td><b>For alerting</b>: <ol>
             <li>Because Diego will fail to stage without at least 6 GB free, this is the suggested minimum value to calculate <em>free chunks</em> of Remaining Disk by.
-	      <li>Create a script/tool that can iterate through each Diego Cell and do the following: 
+	      <li>Create a script/tool that can iterate through each Diego Cell and do the following:
           <ol>
           <li>Pull the <code>rep.CapacityRemainingDisk</code> metric for each cell.</li>
           <li>Divide the values received by 1000 to get the value in Gigabytes (if desired threshold is GB-based).</li>
-          <li>Compare recorded values to your minimum capacity threshold, and count the number of cells that have equal or greater than the desired amount of <em>free chunk</em> space.</li>    
+          <li>Compare recorded values to your minimum capacity threshold, and count the number of cells that have equal or greater than the desired amount of <em>free chunk</em> space.</li>
 	       </ol>
 	 <li> Determine a desired scaling threshold based on the minimum amount of <em>free chunks</em> that are acceptable in this deployment given historical trends.</li>
 	 <li> Set an alert to indicate the need to scale cell disk capacity when the value falls below the desired threshold number.</li>
-	      </ol> 
+	      </ol>
 	<b>For visualization purposes</b>:<br>
-	      Looking at this metric (<code>rep.CapacityRemainingDisk</code>) as a minimum value per cell has more informational value than alerting value. It can be an interesting heatmap visualization, showing average variance and density over time.   
+	      Looking at this metric (<code>rep.CapacityRemainingDisk</code>) as a minimum value per cell has more informational value than alerting value. It can be an interesting heatmap visualization, showing average variance and density over time.
 </td>
   </tr>
   <tr>
@@ -670,7 +670,7 @@ When observing extended periods of high or low activity trends, scale up or down
                 <th width="25%">Description</th>
                 <td>Remaining amount of disk in MiB available for this Diego cell to allocate to containers.
                     <br><br>
-                    <strong>Use</strong>: Low disk capacity can prevent app scaling and new deployments. Because Diego staging Tasks can fail without at least 6&nbsp;GB free, 
+                    <strong>Use</strong>: Low disk capacity can prevent app scaling and new deployments. Because Diego staging Tasks can fail without at least 6&nbsp;GB free,
                 the recommended red threshold is based on the minimum disk capacity across the deployment
                 falling below 6&nbsp;GB in the previous 5 minutes.
 		<br><br>
@@ -700,7 +700,7 @@ When observing extended periods of high or low activity trends, scale up or down
         </tr>
     <tr>
       <th>Alternative Metric</th>
-      <td>      
+      <td>
       If you are using <a href="https://network.pivotal.io/products/p-healthwatch"><%= vars.product_name %> Healthwatch</a>,
       Pivotal recommends the metric <a href="http://docs.pivotal.io/pcf-healthwatch/metrics.html#free-memory-chunks">healthwatch.Diego.AvailableFreeChunks</a>
       for this purpose.
@@ -715,7 +715,7 @@ When observing extended periods of high or low activity trends, scale up or down
      <tr><th colspan="2" style="text-align: center;"><br>rep.RepBulkSyncDuration<br><br></th></tr>
         <tr>
                 <th width="25%">Description</th>
-                <td>Time in ns that the Diego Cell Rep took to sync the ActualLRPs that it claimed with its actual garden containers. 
+                <td>Time in ns that the Diego Cell Rep took to sync the ActualLRPs that it claimed with its actual garden containers.
                         <br><br>
                 <strong>Use</strong>: Sync times that are too high can indicate issues with the BBS.
                  <br><br>
@@ -737,7 +737,7 @@ When observing extended periods of high or low activity trends, scale up or down
                 <td>
                     <ol>
                         <li>Investigate BBS logs for faults and errors.</li>
-                        <li>If a particular cell or cells appear problematic, 
+                        <li>If a particular cell or cells appear problematic,
                             pull logs for the cells and the BBS logs before contacting Pivotal Support.</li>
                     </ol>
                     </td>
@@ -822,7 +822,7 @@ When observing extended periods of high or low activity trends, scale up or down
       <td>
           <ol>
              <li>Run <code>monit status</code> to inspect for failing processes.</li>
-             <li>If there are no failing processes, then review the logs for the components using the Locket service: 
+             <li>If there are no failing processes, then review the logs for the components using the Locket service:
                       BBS, Auctioneer, TPS Watcher, Routing API, and Clock Global (Cloud Controller clock). Look for indications that only one of each component is active at a time.</li>
               <li>Focus triage on the BBS first:
                 <ul>
@@ -892,7 +892,7 @@ When observing extended periods of high or low activity trends, scale up or down
       <th width="25%">Description</th>
       <td>Whether an Auctioneer instance holds the expected Auctioneer lock (in Locket). 1 means the active Auctioneer holds the lock, and 0 means the lock was lost.
           <br><br>
-          <strong>Use</strong>: This metric is complimentary to <a href="kpi.html#ActiveLocks">Active Locks</a>, and it offers an Auctioneer-level version of the Locket metrics. Although it is emitted per Auctioneer instance, only 1 active lock is held by Auctioneer. Therefore, the expected value is 1. The metric may occasionally be 0 when the Auctioneer instances are performing a leader transition, but a prolonged value of 0 indicates an issue with Auctioneer. 
+          <strong>Use</strong>: This metric is complimentary to <a href="kpi.html#ActiveLocks">Active Locks</a>, and it offers an Auctioneer-level version of the Locket metrics. Although it is emitted per Auctioneer instance, only 1 active lock is held by Auctioneer. Therefore, the expected value is 1. The metric may occasionally be 0 when the Auctioneer instances are performing a leader transition, but a prolonged value of 0 indicates an issue with Auctioneer.
           <br><br>
           <strong>Origin</strong>: Firehose<br>
           <strong>Type</strong>: Gauge<br>
@@ -929,15 +929,15 @@ When observing extended periods of high or low activity trends, scale up or down
    <tr><th colspan="2" style="text-align: center;"><br>locket.ActivePresences<br><br></th></tr>
    <tr>
       <th width="25%">Description</th>
-      <td>Total count of active presences. Presences are defined as the registration records that the cells maintain to advertise themselves to the platform. 
+      <td>Total count of active presences. Presences are defined as the registration records that the cells maintain to advertise themselves to the platform.
           <br><br>
-          <strong>Use</strong>: If the Active Presences count is far from the expected, there might be a problem with Diego. 
+          <strong>Use</strong>: If the Active Presences count is far from the expected, there might be a problem with Diego.
 	          <br><br>
                   The number of active presences varies according to the number of cells deployed.
                   Therefore, during purposeful scale adjustments to PAS, this alerting threshold should be adjusted.<br>
                   Establish an initial threshold by observing the historical trends for the deployment over a brief period of time,
                   Increase the threshold as more cells are deployed.
-                  During a rolling deploy, this metric shows variance during the BOSH lifecycle when cells are evacuated and restarted. 
+                  During a rolling deploy, this metric shows variance during the BOSH lifecycle when cells are evacuated and restarted.
                   Tolerable variance is within the bounds of the BOSH max inflight range for the instance group.
           <br><br>
           <strong>Origin</strong>: Firehose<br>
@@ -981,8 +981,8 @@ When observing extended periods of high or low activity trends, scale up or down
                     <br><br>
                     <strong>Use</strong>: Increases in this metric indicate that the Route Emitter may have
                     trouble maintaining an accurate routing table to broadcast to the Gorouters.
-                    Tune alerting values to your deployment based on historical data and adjust based on observations over time. 
-                    The suggested starting point is &ge; 5 for the yellow threshold and &ge; 10 for the critical threshold. 
+                    Tune alerting values to your deployment based on historical data and adjust based on observations over time.
+                    The suggested starting point is &ge; 5 for the yellow threshold and &ge; 10 for the critical threshold.
                     Pivotal has observed on its Pivotal Web Services deployment that above 10 s, the BBS may be failing.
                  <br><br>
                  <strong>Origin</strong>: Firehose<br>
@@ -1009,7 +1009,7 @@ When observing extended periods of high or low activity trends, scale up or down
                         Verify that app routes are functional by making a request to an app, pushing an app and pinging it, or if applicable, checking that your smoke tests have passed.
                         </li>
                         </ol>
-		If one or a few jobs showing as impacted, there is likely a connectivity issue and the impacted job should be investigated further. 
+		If one or a few jobs showing as impacted, there is likely a connectivity issue and the impacted job should be investigated further.
                 </td>
         </tr>
 </table>
@@ -1078,9 +1078,9 @@ When PAS uses an internal MySQL database, as configured in the PAS tile **Settin
   <tr><th colspan="2" style="text-align: center;"><br>gorouter.backend_exhausted_conns<br><br></th></tr>
   <tr>
     <th width="25%">Description</th>
-      <td>The lifetime number of requests that have been rejected by the Gorouter VM due to the <code>Max Connections Per Backend</code> limit being reached across all tried backends. The limit controls the number of concurrent TCP connections to any particular app instance and is configured within PAS. 
+      <td>The lifetime number of requests that have been rejected by the Gorouter VM due to the <code>Max Connections Per Backend</code> limit being reached across all tried backends. The limit controls the number of concurrent TCP connections to any particular app instance and is configured within PAS.
         <br><br>
-        <strong>Use</strong>: Indicates that PAS is mitigating risk to other applications by self-protecting the platform against one or more unresponsive applications. Increases in this metric indicate the need to investigate and resolve issues with potentially unresponsive applications. A rapid rate of change upward is concerning and should be assessed further. 
+        <strong>Use</strong>: Indicates that PAS is mitigating risk to other applications by self-protecting the platform against one or more unresponsive applications. Increases in this metric indicate the need to investigate and resolve issues with potentially unresponsive applications. A rapid rate of change upward is concerning and should be assessed further.
 	      <br><br>
         <strong>Origin</strong>: Firehose<br>
         <strong>Type</strong>: Counter (Integer) <br>
@@ -1114,9 +1114,9 @@ When PAS uses an internal MySQL database, as configured in the PAS tile **Settin
    <tr><th colspan="2" style="text-align: center;"><br>gorouter.total_requests<br><br></th></tr>
    <tr>
       <th width="25%">Description</th>
-      <td>The lifetime number of requests completed by the Gorouter VM, emitted per Gorouter instance 
+      <td>The lifetime number of requests completed by the Gorouter VM, emitted per Gorouter instance
           <br><br>
-          <strong>Use</strong>: The aggregation of these values across all Gorouters provide insight into the overall traffic flow of a deployment. Unusually high spikes, if not known to be associated with an expected increase in demand, could indicate a DDoS risk. For performance and capacity management, consider this metric a measure of router throughput per job, converting it to requests-per-second, by looking at the delta value of <code>gorouter.total_requests</code> and deriving back to 1s, or <code>gorouter.total_requests.delta)/5</code>, per Gorouter instance. This helps you see trends in the throughput rate that indicate a need to scale the Gorouter instances. Use the trends you observe to tune the threshold alerts for this metric. 
+          <strong>Use</strong>: The aggregation of these values across all Gorouters provide insight into the overall traffic flow of a deployment. Unusually high spikes, if not known to be associated with an expected increase in demand, could indicate a DDoS risk. For performance and capacity management, consider this metric a measure of router throughput per job, converting it to requests-per-second, by looking at the delta value of <code>gorouter.total_requests</code> and deriving back to 1s, or <code>gorouter.total_requests.delta)/5</code>, per Gorouter instance. This helps you see trends in the throughput rate that indicate a need to scale the Gorouter instances. Use the trends you observe to tune the threshold alerts for this metric.
           <br><br>
           <strong>Origin</strong>: Firehose<br>
           <strong>Type</strong>: Counter (Integer)<br>
@@ -1134,10 +1134,10 @@ When PAS uses an internal MySQL database, as configured in the PAS tile **Settin
    <tr>
       <th>Recommended response</th>
       <td>For optimizing the Gorouter, consider the requests-per-second
-          derived metric in the context of router latency and Gorouter VM CPU utilization. From performance and load testing of the Gorouter, Pivotal has observed that at approximately 2500 requests per second, latency can begin to increase. 
+          derived metric in the context of router latency and Gorouter VM CPU utilization. From performance and load testing of the Gorouter, Pivotal has observed that at approximately 2500 requests per second, latency can begin to increase.
           <br><br>
-          To increase throughput and maintain low latency, 
-          scale the Gorouters either horizontally or vertically 
+          To increase throughput and maintain low latency,
+          scale the Gorouters either horizontally or vertically
           and watch that the <a href="#cpu.user">system.cpu.user</a> metric for the Gorouter stays in the suggested range of 60-70% CPU Utilization.
 </tr>
 </table>
@@ -1148,14 +1148,14 @@ When PAS uses an internal MySQL database, as configured in the PAS tile **Settin
      <tr><th colspan="2" style="text-align: center;"><br>gorouter.latency<br><br></th></tr>
         <tr>
                 <th width="25%">Description</th>
-                <td>The time in milliseconds that the Gorouter takes to handle requests to backend endpoints, which include both applications routable platform system APIs like Cloud Controller and UAA. 
-                    This is the average round trip response time, which includes router handling. 
+                <td>The time in milliseconds that the Gorouter takes to handle requests to backend endpoints, which include both applications routable platform system APIs like Cloud Controller and UAA.
+                    This is the average round trip response time, which includes router handling.
                     <br><br>
-                    <strong>Use</strong>: Indicates how Gorouter jobs in PAS are impacting overall responsiveness. 
-                    Latencies above 100 ms can indicate problems with the network, misbehaving backends, 
-                    or the need to scale the Gorouter itself due to ongoing traffic congestion. 
-                    An alert value on this metric should be tuned to the specifics of the deployment and its underlying network considerations; 
-                    a suggested starting point is 100 ms. 
+                    <strong>Use</strong>: Indicates how Gorouter jobs in PAS are impacting overall responsiveness.
+                    Latencies above 100 ms can indicate problems with the network, misbehaving backends,
+                    or the need to scale the Gorouter itself due to ongoing traffic congestion.
+                    An alert value on this metric should be tuned to the specifics of the deployment and its underlying network considerations;
+                    a suggested starting point is 100 ms.
                  <br><br>
                  <strong>Origin</strong>: Firehose<br>
                  <strong>Type</strong>: Gauge (Float in ms)<br>
@@ -1173,11 +1173,11 @@ When PAS uses an internal MySQL database, as configured in the PAS tile **Settin
         </tr>
         <tr>
                 <th>Recommended response</th>
-                <td>Extended periods of high latency can point to several factors. 
+                <td>Extended periods of high latency can point to several factors.
                     The Gorouter latency measure includes network and backend latency impacts as well.<br><br>
                     <ol>
                         <li>First inspect logs for network issues and indications of misbehaving backends.</li>
-                        <li>If it appears that the Gorouter needs to scale due to ongoing traffic congestion, 
+                        <li>If it appears that the Gorouter needs to scale due to ongoing traffic congestion,
                             do not scale on the latency metric alone. You should also look at the CPU utilization of the Gorouter VMs and keep it within a maximum 60-70% range.</li>
                         <li>Resolve high utilization by scaling the Gorouter.</li>
                     </ol>
@@ -1193,7 +1193,7 @@ When PAS uses an internal MySQL database, as configured in the PAS tile **Settin
                 <th width="25%">Description</th>
                 <td>Time in milliseconds since the last route register was received, emitted per Gorouter instance
                         <br><br>
-                <strong>Use</strong>: Indicates if routes are not being registered to apps correctly. 
+                <strong>Use</strong>: Indicates if routes are not being registered to apps correctly.
                  <br><br>
                  <strong>Origin</strong>: Firehose<br>
                  <strong>Type</strong>: Gauge (Float in ms)<br>
@@ -1207,7 +1207,7 @@ When PAS uses an internal MySQL database, as configured in the PAS tile **Settin
                 <th>Recommended alert thresholds</th>
                 <td><strong>Yellow warning</strong>: <em>N/A</em> <br>
                 <strong>Red critical</strong>: &gt; 30,000<br>
-                        This threshold is suitable for normal platform usage. It alerts if it has been 
+                        This threshold is suitable for normal platform usage. It alerts if it has been
                         at least 30 seconds since the Gorouter last received a message from an app.</td>
         </tr>
         <tr>
@@ -1217,7 +1217,7 @@ When PAS uses an internal MySQL database, as configured in the PAS tile **Settin
                         <li>Search the Gorouter and Route Emitter logs for connection issues to NATS.</li>
                         <li>Check the BOSH logs to see if the NATS, Gorouter, or Route Emitter VMs are failing.</li>
                         <li>Look more broadly at the health of all VMs, particularly Diego-related VMs.</li>
-                        <li>If problems persist, pull the Gorouter and Route Emitter logs and contact 
+                        <li>If problems persist, pull the Gorouter and Route Emitter logs and contact
                             Pivotal Support to say there are consistently long delays in route registry.</li>
                     </ol>
                     </td>
@@ -1231,12 +1231,12 @@ When PAS uses an internal MySQL database, as configured in the PAS tile **Settin
      <tr>
          <th width="25%">Description</th>
             <td>The lifetime number of bad gateways, or 502 responses, from the Gorouter itself, emitted per Gorouter instance.<br>
-                The Gorouter emits a 502 bad gateway error when it has a route in the routing table 
+                The Gorouter emits a 502 bad gateway error when it has a route in the routing table
                 and, in attempting to make a connection to the backend, finds that the backend does not exist.
                     <br><br>
                     <strong>Use</strong>: Indicates that route tables might be stale.
-                    Stale routing tables suggest an issue in the route register management plane, 
-                    which indicates that something has likely changed with the locations of the containers. 
+                    Stale routing tables suggest an issue in the route register management plane,
+                    which indicates that something has likely changed with the locations of the containers.
                     Always investigate unexpected increases in this metric.
                     <br><br>
                  <strong>Origin</strong>: Firehose<br>
@@ -1260,7 +1260,7 @@ When PAS uses an internal MySQL database, as configured in the PAS tile **Settin
                         <li>Check the Gorouter and Route Emitter logs to see if they are experiencing issues when connecting to NATS.</li>
                         <li>Check the BOSH logs to see if the NATS, Gorouter, or Route Emitter VMs are failing.</li>
                         <li>Look broadly at the health of all VMs, particularly Diego-related VMs.</li>
-                        <li>If problems persist, pull Gorouter and Route Emitter logs and contact 
+                        <li>If problems persist, pull Gorouter and Route Emitter logs and contact
                             Pivotal Support to say there has been an unusual increase in Gorouter bad gateway responses.</li>
                     </ol>
                     </td>
@@ -1315,7 +1315,7 @@ When PAS uses an internal MySQL database, as configured in the PAS tile **Settin
 			<br><br>
 		Pivotal also recommends alerting on this metric if the number of routes falls outside of the normal range for your deployment. Dramatic decreases in this metric volume may indicate a problem with the route registration process, such as an app outage, or that something in the route register management plane has failed.
 			<br><br>
-			If visualizing these metrics on a dashboard, <code>gorouter.total_routes</code> can be helpful for visualizing dramatic drops. However, for alerting purposes, the <code>gorouter.ms_since_last_registry_update</code> metric is more valuable for quicker identification of Gorouter issues. Alerting thresholds for <code>gorouter.total_routes</code> should focus on dramatic increases or decreases out of expected range.   
+			If visualizing these metrics on a dashboard, <code>gorouter.total_routes</code> can be helpful for visualizing dramatic drops. However, for alerting purposes, the <code>gorouter.ms_since_last_registry_update</code> metric is more valuable for quicker identification of Gorouter issues. Alerting thresholds for <code>gorouter.total_routes</code> should focus on dramatic increases or decreases out of expected range.
                  <br><br>
                  <strong>Origin</strong>: Firehose<br>
                  <strong>Type</strong>: Gauge (Float)<br>
@@ -1335,7 +1335,7 @@ When PAS uses an internal MySQL database, as configured in the PAS tile **Settin
                 <td>
                     <ol>
                         <li>For capacity needs, scale up or down the Gorouter VMs as necessary.</li>
-                        <li>For significant drops in current total routes, see the 
+                        <li>For significant drops in current total routes, see the
                            <a href="#mssincelastregistryupdate"> <code>gorouter.ms_since_last_registry_update</code></a>
                             metric value for additional context.</li>
                         <li>Check the Gorouter and Route Emitter logs to see if they are experiencing issues when connecting to NATS.</li>
@@ -1434,7 +1434,7 @@ When PAS uses an internal MySQL database, as configured in the PAS tile **Settin
     <th width="25%">Description</th>
       <td>The number of requests UAA is currently processing (in-flight requests), emitted per UAA instance.
         <br><br>
-        <strong>Use</strong>: Indicates how many concurrent requests are currently in flight for the UAA instance. Unusually high spikes, if they are not associated with an expected increase in demand, could indicate a DDoS risk. 
+        <strong>Use</strong>: Indicates how many concurrent requests are currently in flight for the UAA instance. Unusually high spikes, if they are not associated with an expected increase in demand, could indicate a DDoS risk.
         <br><br>
         From performance and load testing of the UAA component, Pivotal has observed that the number of concurrent requests impacts throughput and latency. The UAA Requests In Flight metric helps you see trends in the request rate that may indicate the need to scale UAA instances. Use the trends you observe to tune the threshold alerts for this metric.
         <br><br>
@@ -1462,15 +1462,23 @@ When PAS uses an internal MySQL database, as configured in the PAS tile **Settin
 
 ## <a id="bosh"></a> System (BOSH) Metrics
 
+<p class= "note"><strong>Note:</strong> BOSH system metrics appear in the Firehose in two different formats.
+  The below tables list both formats.
+  For more information,
+  see <a href="../pcf-release-notes/runtime-rn.html#duplicate-metrics">Duplicate Metrics Appear in the Firehose</a>.
+</p>
+
 ### <a id="healthy"></a> VM Health
 
 <table>
-     <tr><th colspan="2" style="text-align: center;"><br>system.healthy<br><br></th></tr>
+     <tr><th colspan="2" style="text-align: center;"><br>system.healthy<br>
+       system_healthy <br><br>
+     </th></tr>
         <tr>
                 <th width="25%">Description</th>
                 <td><code>1</code> means the system is healthy, and <code>0</code> means the system is not healthy.
                 <br><br>
-                <strong>Use</strong>: This is the most important BOSH metric to monitor. 
+                <strong>Use</strong>: This is the most important BOSH metric to monitor.
                  It indicates if the VM emitting the metric is healthy.
                  Review this metric for all VMs to estimate the overall health of the system.
 			<br><br>
@@ -1500,12 +1508,14 @@ When PAS uses an internal MySQL database, as configured in the PAS tile **Settin
 ### <a id="mem.percent"></a> VM Memory Used
 
 <table>
-     <tr><th colspan="2" style="text-align: center;"><br>system.mem.percent<br><br></th></tr>
+     <tr><th colspan="2" style="text-align: center;"><br>system.mem.percent<br>
+       system_mem_percent <br><br>
+     </th></tr>
         <tr>
                 <th width="25%">Description</th>
-                <td>System Memory — Percentage of memory used on the VM 
+                <td>System Memory — Percentage of memory used on the VM
                         <br><br>
-                 <strong>Use</strong>: Set an alert and investigate if the free RAM is low over an extended period. 
+                 <strong>Use</strong>: Set an alert and investigate if the free RAM is low over an extended period.
                  <br><br>
                  <strong>Origin</strong>: Firehose<br>
                  <strong>Type</strong>: Gauge (%)<br>
@@ -1531,7 +1541,9 @@ When PAS uses an internal MySQL database, as configured in the PAS tile **Settin
 ### <a id="disk.system.percent"></a> VM Disk Used
 
 <table>
-     <tr><th colspan="2" style="text-align: center;"><br>system.disk.system.percent<br><br></th></tr>
+     <tr><th colspan="2" style="text-align: center;"><br>system.disk.system.percent<br>
+        system_disk_system_percent <br><br>
+     </th></tr>
         <tr>
                 <th width="25%">Description</th>
                 <td>System disk — Percentage of the system disk used on the VM
@@ -1556,19 +1568,21 @@ When PAS uses an internal MySQL database, as configured in the PAS tile **Settin
                 <td>
                     Investigate what is filling the jobs system partition. <br>
                     This partition should not typically fill because BOSH deploys jobs to use ephemeral and persistent disks.
-                    </td> 
+                    </td>
         </tr>
 </table>
 
 ### <a id="disk.ephemeral.percent"></a> VM Ephemeral Disk Used
 
 <table>
-     <tr><th colspan="2" style="text-align: center;"><br>system.disk.ephemeral.percent<br><br></th></tr>
+     <tr><th colspan="2" style="text-align: center;"><br>system.disk.ephemeral.percent<br>
+        system_disk_ephemeral_percent <br><br>
+     </th></tr>
         <tr>
                 <th width="25%">Description</th>
                 <td>Ephemeral disk — Percentage of the ephemeral disk used on the VM
                 <br><br>
-               <strong>Use</strong>: Set an alert and investigate if the ephemeral 
+               <strong>Use</strong>: Set an alert and investigate if the ephemeral
                 disk usage is too high for a job over an extended period.
                 <br><br>
                 <strong>Origin</strong>: Firehose<br>
@@ -1589,7 +1603,7 @@ When PAS uses an internal MySQL database, as configured in the PAS tile **Settin
                 <td>
                     <ol>
                         <li>Run <code>bosh vms --details</code> to view jobs on affected deployments.</li>
-                        <li>Determine cause of the data consumption, and, if appropriate, 
+                        <li>Determine cause of the data consumption, and, if appropriate,
                             increase disk space or scale out the affected jobs.</li>
                     </ol>
                     </td>
@@ -1599,12 +1613,13 @@ When PAS uses an internal MySQL database, as configured in the PAS tile **Settin
 ### <a id="disk.persistent.percent"></a> VM Persistent Disk Used
 
 <table>
-     <tr><th colspan="2" style="text-align: center;"><br>system.disk.persistent.percent<br><br></th></tr>
+     <tr><th colspan="2" style="text-align: center;"><br>system.disk.persistent.percent<br>
+     system_disk_persistent_percent <br><br></th></tr>
         <tr>
                 <th width="25%">Description</th>
                 <td>Persistent disk — Percentage of persistent disk used on the VM
                         <br><br>
-                <strong>Use</strong>: Set an alert and investigate further if the persistent disk usage for a job is too high 
+                <strong>Use</strong>: Set an alert and investigate further if the persistent disk usage for a job is too high
                 over an extended period.
                         <br><br>
                  <strong>Origin</strong>: Firehose<br>
@@ -1625,7 +1640,7 @@ When PAS uses an internal MySQL database, as configured in the PAS tile **Settin
                 <td>
                     <ol>
                         <li>Run <code>bosh vms --details</code> to view jobs on affected deployments.</li>
-                        <li>Determine cause of the data consumption, and, if appropriate, 
+                        <li>Determine cause of the data consumption, and, if appropriate,
                             increase disk space or scale out affected jobs.</li>
                     </ol>
                     </td>
@@ -1635,14 +1650,15 @@ When PAS uses an internal MySQL database, as configured in the PAS tile **Settin
 ### <a id="cpu.user"></a> VM CPU Utilization
 
 <table>
-     <tr><th colspan="2" style="text-align: center;"><br>system.cpu.user<br><br></th></tr>
+     <tr><th colspan="2" style="text-align: center;"><br>system.cpu.user<br>
+     system_cpu_user <br><br></th></tr>
         <tr>
                 <th width="25%">Description</th>
                 <td>CPU utilization — The percentage of CPU spent in user processes
                 <br><br>
                 <strong>Use</strong>: Set an alert and investigate further if the CPU utilization is
                 too high for a job.<br><br>
-                For monitoring Gorouter performance, CPU utilization of the Gorouter VM is 
+                For monitoring Gorouter performance, CPU utilization of the Gorouter VM is
                 the recommended key capacity scaling indicator.
                 For more information, see <a href="./key-cap-scaling.html#system.cpu.user">Gorouter Latency and Throughput</a>.
                 <br><br>

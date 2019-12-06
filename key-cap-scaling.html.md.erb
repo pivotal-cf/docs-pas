@@ -5,7 +5,7 @@ owner: <%= vars.product_name %> Metrics Platform Monitoring
 
 This topic describes key capacity scaling indicators that operators monitor to determine when they need to scale their Pivotal Application Service (PAS) deployments.
 
-Pivotal provides these indicators to operators as general guidance for capacity scaling. Each indicator is based on platform metrics from different components. This guidance is applicable to most PAS v2.4 deployments. Pivotal recommends that operators fine-tune the suggested alert thresholds  by observing historical trends for their deployments. 
+Pivotal provides these indicators to operators as general guidance for capacity scaling. Each indicator is based on platform metrics from different components. This guidance is applicable to most PAS v2.4 deployments. Pivotal recommends that operators fine-tune the suggested alert thresholds  by observing historical trends for their deployments.
 
 
 ## <a id="cell"></a> Diego Cell Capacity Scaling Indicators
@@ -29,7 +29,7 @@ There are three key capacity scaling indicators recommended for a Diego Cell:
    </tr>
    <tr>
       <th>Purpose</th>
-      <td>A best practice deployment of <%= vars.app_runtime_abbr %> includes three availability zones (AZs).  
+      <td>A best practice deployment of <%= vars.app_runtime_abbr %> includes three availability zones (AZs).
       For these types of deployments, Pivotal recommends that you have enough capacity to suffer failure of an entire AZ.
       <br><br>
       The <em>Recommended threshold</em> assumes a three-AZ configuration. Adjust the threshold percentage if you have more or fewer AZs.</td>
@@ -65,12 +65,12 @@ There are three key capacity scaling indicators recommended for a Diego Cell:
       <th width="25%">Description</th>
       <td> Percentage of remaining disk capacity for a given Diego Cell. Monitor this derived metric across all Diego Cells in a deployment.
       <br><br>
-      The metric <code>rep.CapacityRemainingDisk</code> indicates the remaining amount in MiB of disk available for this Diego Cell to allocate to containers.<br> 
+      The metric <code>rep.CapacityRemainingDisk</code> indicates the remaining amount in MiB of disk available for this Diego Cell to allocate to containers.<br>
       The metric <code>rep.CapacityTotalDisk</code> indicates the total amount in MiB of disk available for this Diego Cell to allocate to containers.</td>
    </tr>
    <tr>
       <th>Purpose</th>
-      <td>A best practice deployment of <%= vars.app_runtime_abbr %> includes three availability zones (AZs).  
+      <td>A best practice deployment of <%= vars.app_runtime_abbr %> includes three availability zones (AZs).
       For these types of deployments, Pivotal recommends that you have enough capacity to suffer failure of an entire AZ.
       <br><br>
       The <em>Recommended threshold</em> assumes a three-AZ configuration. Adjust the threshold percentage if you have more or fewer AZs.</td>
@@ -110,7 +110,7 @@ There are three key capacity scaling indicators recommended for a Diego Cell:
       The metric <code>rep.CapacityTotalContainer</code> indicates the total number of containers this Diego Cell can host.</td>
    <tr>
       <th>Purpose</th>
-      <td>A best practice deployment of <%= vars.app_runtime_abbr %> includes three availability zones (AZs).  
+      <td>A best practice deployment of <%= vars.app_runtime_abbr %> includes three availability zones (AZs).
       For these types of deployments, Pivotal recommends that you have enough capacity to suffer failure of an entire AZ.
       <br><br>
       The <em>Recommended threshold</em> assumes a three-AZ configuration. Adjust the threshold percentage if you have more or fewer AZs.</td>
@@ -152,8 +152,8 @@ Pivotal recommends two key capacity scaling indicators for monitoring Firehose p
   <tr>
       <th width="25">Description</th>
       <td>This derived value represents the loss rate occurring as messages are transported from the Loggregator Agent components through the Doppler components to the Firehose endpoints.
-      <br><br>  
-      Metric <code>loggregator.doppler.ingress</code> represents the number of messages entering Dopplers for transport through the firehose, and <code>loggregator.doppler.dropped</code> represents the number of messages dropped without delivery. 
+      <br><br>
+      Metric <code>loggregator.doppler.ingress</code> represents the number of messages entering Dopplers for transport through the firehose, and <code>loggregator.doppler.dropped</code> represents the number of messages dropped without delivery.
       <br><br>
       Messages include the combined stream of logs from all apps and the metrics data from <%= vars.app_runtime_abbr %> components.
       <br><br>
@@ -178,7 +178,7 @@ Pivotal recommends two key capacity scaling indicators for monitoring Firehose p
    </tr>
    <tr>
       <th>How to scale</th>
-      <td>Scale up the number of Traffic Controller and Doppler instances. 
+      <td>Scale up the number of Traffic Controller and Doppler instances.
       <p class="note"><strong>Note:</strong> At approximately 40 Doppler instances and 20 Traffic Controller instances, horizontal scaling is no longer useful for improving Firehose performance. To improve performance, add vertical scale to the existing Doppler and Traffic Controller instances by increasing CPU resources.</p></td>
    </tr>
    <tr>
@@ -387,7 +387,7 @@ Pivotal recommends the following scaling indicator for monitoring the performanc
 
 ## <a id="scalable-syslog"></a> CF Syslog Drain Performance Scaling Indicators
 
-There is a single key capacity scaling indicator recommended for CF Syslog Drain performance. 
+There is a single key capacity scaling indicator recommended for CF Syslog Drain performance.
 
 <p class="note"><strong>Note:</strong> These CF Syslog Drain scaling indicators are only relevant if your deployment contains apps using the CF syslog drain binding feature.</p>
 
@@ -422,7 +422,7 @@ There is a single key capacity scaling indicator recommended for CF Syslog Drain
    </tr>
    <tr>
       <th>Additional details</th>
-      <td> 
+      <td>
       <strong>Origin</strong>: Syslog Agent<br>
       <strong>Type</strong>: Counter (Integer)<br>
       <strong>Frequency</strong>: Emitted every 60&nbsp;s<br>
@@ -447,7 +447,7 @@ Pivotal recommends the following scaling indicator for monitoring the performanc
    </tr>
    <tr>
       <th>Purpose</th>
-      <td>Log Cache stores all messages that are passed through the Firehose in an ephemeral in-memory store. The size of this store and the cache duration are dependent on the amount of memory available on the VM on which Log Cache runs. Some features of PAS rely on data being available in Log Cache, such as App Autoscaler. 
+      <td>Log Cache stores all messages that are passed through the Firehose in an ephemeral in-memory store. The size of this store and the cache duration are dependent on the amount of memory available on the VM on which Log Cache runs. Some features of PAS rely on data being available in Log Cache, such as App Autoscaler.
       <br><br>
       Pivotal recommends scaling the VM on which Log Cache runs, so Log Cache can hold all messages that pass through Loggregator in the last 15 minutes, or 900000 milliseconds.</td>
    </tr>
@@ -473,13 +473,21 @@ Pivotal recommends the following scaling indicator for monitoring the performanc
 
 ## <a id="Router"></a> Router Performance Scaling Indicator
 
-There is one key capacity scaling indicator recommended for Router performance. 
+There is one key capacity scaling indicator recommended for Router performance.
+
+<p class= "note"><strong>Note:</strong> The following metric appears in the Firehose in two different formats.
+  The below table lists both formats.
+  For more information,
+  see <a href="../pcf-release-notes/runtime-rn.html#duplicate-metrics">Duplicate Metrics Appear in the Firehose</a>.
+</p>
 
 ### <a id="system.cpu.user"></a> Router VM CPU Utilization
 
 <table>
   <tr>
-      <th colspan="2" style="text-align: center;">system.cpu.user of the Gorouter VM(s)</th>
+      <th colspan="2" style="text-align: center;">system.cpu.user of the Gorouter VM(s)<br>
+        system_cpu_user of the Gorouter VM(s)<br>
+      </th>
   </tr>
   <tr>
       <th>Description</th>
@@ -487,7 +495,7 @@ There is one key capacity scaling indicator recommended for Router performance.
   </tr>
   <tr>
       <th>Purpose</th>
-      <td>High CPU utilization of the Gorouter VMs can increase latency and cause throughput, or requests per/second, to level-off. Pivotal recommends keeping the CPU utilization within a maximum range of 60-70% for best Gorouter performance. 
+      <td>High CPU utilization of the Gorouter VMs can increase latency and cause throughput, or requests per/second, to level-off. Pivotal recommends keeping the CPU utilization within a maximum range of 60-70% for best Gorouter performance.
       <br><br>
       If you want to increase throughput capabilities while also keeping latency low, Pivotal recommends scaling the Gorouter while continuing to ensure that CPU utilization does not exceed the maximum recommended range.
       <p class="note"><strong>Note:</strong> At greater than 8 CPUs, vertical scaling is no longer beneficial for increasing throughput.</p></td>
@@ -519,13 +527,21 @@ There is one key capacity scaling indicator recommended for Router performance.
 
 ## <a id="UAA"></a> UAA Performance Scaling Indicator
 
-There is one key capacity scaling indicator recommended for UAA performance. 
+There is one key capacity scaling indicator recommended for UAA performance.
+
+<p class= "note"><strong>Note:</strong> The following metric appears in the Firehose in two different formats.
+  The below table lists both formats.
+  For more information,
+  see <a href="../pcf-release-notes/runtime-rn.html#duplicate-metrics">Duplicate Metrics Appear in the Firehose</a>.
+</p>
 
 ### <a id="uaa-system.cpu.user"></a> UAA VM CPU Utilization
 
 <table>
   <tr>
-      <th colspan="2" style="text-align: center;">system.cpu.user of the UAA VM(s)</th>
+      <th colspan="2" style="text-align: center;">system.cpu.user of the UAA VM(s)<br>
+        system_cpu_user of the UAA VM(s)
+      </th>
   </tr>
   <tr>
       <th>Description</th>
@@ -595,5 +611,5 @@ There is one key capacity scaling indicator for external S3 external storage.
       <strong>Type</strong>: Gauge (%)<br>
       <strong>Applies to</strong>: cf:nfs_server<br>
       </td>
-   </tr>  
+   </tr>
 </table>
