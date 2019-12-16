@@ -8,9 +8,9 @@ This guide describes how <%= vars.product_name %> operators can monitor their Pi
 For more information about logging and metrics in <%= vars.product_name %>, see [Overview of Logging and Metrics](../loggregator/data-sources.html).
 
 
-## <a id="new"></a> KPI and Scaling Changes from PAS v2.6 to v2.7
+## <a id="new"></a> KPI and Scaling Changes from PAS v2.7 to v2.8
 
-This table highlights new and changed KPIs and scaling indicators in PAS v2.7.
+This table highlights new and changed KPIs and scaling indicators in PAS v2.8.
 
 <table>
   <tr>
@@ -20,36 +20,20 @@ This table highlights new and changed KPIs and scaling indicators in PAS v2.7.
     <th>Reference</th>
   </tr>
   <tr>
-    <td width='10%'>Removed</td>
-    <td width='20%'>Number of Route Registration Messages Sent and Received
-    <td width='50%'>
-        The <code>gorouter.registry_message.route-emitter</code> and <code>route_emitter.HTTPRouteNATSMessagesEmitted</code> metrics are no longer an accurate representation of routing health. 
-        <br><br>
-        In PAS v2.4 and later, Gorouter skips the TTL for routes that are registered with TLS. This means the routes never expire or get pruned, other than in an attempt to connect to an invalid backend.  
-      </td>
-    <td width='20%'>N/A</td>
-  </tr>
-  <tr>
-    <td width='10%'>Removed</td>
-    <td width='20%'>Adapter Loss Rate</td>
-    <td width='50%'>
-        The Adapter Loss Rate metric is replaced by Syslog Agent Loss Rate. In PAS v2.7, Syslog Adapters are removed from the Loggregator architecture. Syslog Agents replace Syslog Adapters. 
-        <br><br>
-        For more information about Syslog Agents, see <a href="https://docs.pivotal.io/pivotalcf/2-7/pcf-release-notes/runtime-rn.html#agent-based-syslog-egress">Agent-Based Syslog Egress Is Enabled by Default</a> in <i>Pivotal Application Service v2.7 Release Notes</i>.   
-      </td>
-    <td width='20%'><a href="./key-cap-scaling.html#syslog-agent-ksi">Syslog Agent Loss Rate</a></td>
-  </tr>
-  <tr>
-    <td width='10%'>Removed</td>
-    <td width='20%'>CF Syslog Drain Bindings Count
-    <td width='50%'>
-      In PAS v2.6 and earlier, CF syslog drain bindings were required to manage connections between the Syslog Adapters and the Reverse Log Proxies (RLPs). 
-      <br><br>
-      In PAS v2.7, Syslog Agents replace Syslog Adapters. Syslog Agents do not use CF syslog drain bindings to manage syslog drains. 
-      <br><br>
-      For more information about Syslog Agents, see <a href="https://docs.pivotal.io/pivotalcf/2-7/pcf-release-notes/runtime-rn.html#agent-based-syslog-egress">Agent-Based Syslog Egress Is Enabled by Default</a> in <i>Pivotal Application Service v2.7 Release Notes</i>.
+    <td width='10%'>Duplicated</td>
+    <td width='20%'>
+      <ul>
+        <li><code>system.healthy</code> now also <code>system_healthy</code></li>
+        <li><code>system.mem.percent</code> now also <code>system_mem_percent</code></li>
+        <li><code>system.disk.system.percent</code> now also <code>system_disk_system_percent</code></li>
+        <li><code>system.disk.ephemeral.percent</code> now also <code>system_disk_ephemeral_percent</code></li>
+        <li><code>system.disk.persistent.percent</code> now also <code>system_disk_persistent_percent</code></li>
+        <li><code>system.cpu.user</code> now also <code>system_cpu_user</code></li>
+      </ul>
     </td>
-    <td width='20%'>N/A</td> 
+    <td width='50%'>PAS v2.8 introduces a System Metrics Agent that sends metrics to the Firehose. These metrics match existing BOSH system metrics, but they use an updated format. In the Firehose in PAS v2.8, you see duplicate metrics entries in both the Loggregator format and the System Metrics Agent format.</td>
+    <td width='20%'>See <a href="https://docs.pivotal.io/platform/2-8/release-notes/runtime-rn.html#duplicate-metrics">Duplicate Metrics Appear in Firehose</a> in _Pivotal Application Service v2.8 Release Notes_.</td>
+  </tr>
 </table> 
 
 
