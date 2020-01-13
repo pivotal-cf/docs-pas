@@ -143,7 +143,7 @@ These sections describe Diego Auctioneer metrics.
           The number of Tasks that the Auctioneer failed to place on Diego Cells. This metric is cumulative over the lifetime of the Auctioneer job.<br><br>
           <strong>Use:</strong> Failing Task auctions indicate a lack of resources within your environment and that you likely need to scale. This indicator also increases when the Task is requesting an isolation segment, volume drivers, or a stack that is unavailable, either not deployed or lacking sufficient resources to accept the work.<br><br>
           This metric is emitted on event, and therefore gaps in receipt of this metric can be normal during periods of no tasks being scheduled.<br><br>
-  		    This error is most common due to capacity issues, for example, if Diego Cells do not have enough resources, or if Diego Cells are going back and forth between a healthy and unhealthy state.<br><br>
+  		    This error is most common due to capacity issues. For example, if Diego Cells do not have enough resources, or if Diego Cells are going back and forth between a healthy and unhealthy state.<br><br>
           <strong>Origin:</strong> Firehose<br>
           <strong>Type:</strong> Counter (Float)<br>
           <strong>Frequency:</strong> During event, during each auction<br>
@@ -175,6 +175,8 @@ These sections describe Diego Auctioneer metrics.
 
 
 ## <a id="bbs"></a> Diego BBS Metrics
+
+These sections describe Diego BBS metrics.
 
 ### <a id="ConvergenceLRPDuration"></a> BBS Time to Run LRP Convergence
 
@@ -222,7 +224,7 @@ These sections describe Diego Auctioneer metrics.
       <th width="25%">Description</th>
         <td>
           The maximum observed latency time over the past 60 seconds that the BBS took to handle requests across all its API endpoints.<br><br>
-          Diego is now aggregating this metric to emit the max value observed over 60 seconds.<br><br>
+          Diego now aggregates this metric to emit the maximum value observed over 60 seconds.<br><br>
           <strong>Use:</strong> If this metric rises, the <%= vars.app_runtime_abbr %> API is slowing. Response to certain cf CLI commands is slow if request latency is high.<br><br>
           <strong>Origin:</strong> Firehose<br>
           <strong>Type:</strong> Gauge (Integer in ns)<br>
@@ -246,7 +248,7 @@ These sections describe Diego Auctioneer metrics.
         <ol>
           <li>Check CPU and memory statistics in Ops Manager.</li>
           <li>Check BBS logs for faults and errors that can indicate issues with BBS.</li>
-          <li>Try scaling the BBS VM resources up. For example, add more CPUs/memory depending on its <code>system.cpu</code>/<code>system.memory</code> metrics.</li>
+          <li>Try scaling the BBS VM resources up. For example, add more CPUs and memory depending on its <code>system.cpu</code>/<code>system.memory</code> metrics.</li>
           <li>Consider vertically scaling the <%= vars.app_runtime_abbr %> backing database, if <code>system.cpu</code> and <code>system.memory</code> metrics for the database instances are high.</li>
           <li>If the above steps do not solve the issue, collect a sample of the Diego Cell logs from the BBS VMs and contact Pivotal Support to troubleshoot further.
         </ol>
@@ -475,6 +477,8 @@ These sections describe Diego Auctioneer metrics.
 
 
 ## <a id="Cell"></a> Diego Cell Metrics
+
+These sections describe Diego Cell metrics.
 
 ### <a id="rep.CapacityRemainingMemory"></a> Remaining Memory Available — Diego Cell Memory Chunks Available
 
@@ -757,6 +761,8 @@ These sections describe Diego Auctioneer metrics.
 
 ## <a id="locket"></a> Diego Locket Metrics
 
+These sections describe Diego Locket metrics.
+
 ### <a id="ActiveLocks"></a> Active Locks
 
 <table>
@@ -897,7 +903,7 @@ These sections describe Diego Auctioneer metrics.
           Total count of active presences. Presences are defined as the registration records that the Diego Cells maintain to advertise themselves to the platform.<br><br>
           <strong>Use:</strong> If the Active Presences count is far from the expected, there might be a problem with Diego.<br><br>
           The number of active presences varies according to the number of Diego Cells deployed. Therefore, during purposeful scale adjustments to <%= vars.app_runtime_abbr %>, this alerting threshold should be adjusted.<br>
-          Establish an initial threshold by observing the historical trends for the deployment over a brief period of time, Increase the threshold as more Diego Cells are deployed. During a rolling deploy, this metric shows variance during the BOSH lifecycle when Diego Cells are evacuated and restarted. Tolerable variance is within the bounds of the BOSH max inflight range for the instance group.<br><br>
+          Establish an initial threshold by observing the historical trends for the deployment over a brief period of time, Increase the threshold as more Diego Cells are deployed. During a rolling deploy, this metric shows variance during the BOSH lifecycle when Diego Cells are evacuated and restarted. Tolerable variance is within the bounds of the BOSH maximum in-flight range for the instance group.<br><br>
           <strong>Origin:</strong> Firehose<br>
           <strong>Type:</strong> Gauge<br>
           <strong>Frequency:</strong> 60 s
@@ -929,6 +935,8 @@ These sections describe Diego Auctioneer metrics.
 
 
 ## <a id="route_emitter"></a> Diego Route Emitter Metrics
+
+These sections describe Diego Route Emitter metrics.
 
 ### <a id="RouteEmitterSyncDuration"></a> Route Emitter Time to Sync
 
@@ -971,6 +979,8 @@ These sections describe Diego Auctioneer metrics.
 
 ## <a id="kpi4MySQL"></a> <%= vars.app_runtime_abbr %> MySQL KPIs
 
+These sections describe <%= vars.app_runtime_abbr %> MySQL KPIs.
+
 When <%= vars.app_runtime_abbr %> uses an internal MySQL database, as configured in the <%= vars.app_runtime_abbr %> tile **Settings** tab > **Databases** pane, the database cluster generates KPIs as described below.
 
 <p class="note"><strong>Note:</strong> This section assumes you are using the <strong>Internal Databases - MySQL - Percona XtraDB Cluster</strong> option as your system database.</p>
@@ -978,6 +988,8 @@ When <%= vars.app_runtime_abbr %> uses an internal MySQL database, as configured
 <%= partial vars.path_to_partials + '/mysql/monitoring/kpis-metrics/all-kpis' %>
 
 ## <a id="gorouter"></a> Gorouter Metrics
+
+These sections describe Gorouter metrics.
 
 ### <a id="file_descriptors"></a> Router File Descriptors
 
@@ -1026,7 +1038,7 @@ When <%= vars.app_runtime_abbr %> uses an internal MySQL database, as configured
 ### <a id="exhausted_connections"></a> Router Exhausted Connections
 
 <table>
-  <tr><th colspan="2" style="text-align: center;"><br>gorouter.back end_exhausted_conns<br><br></th></tr>
+  <tr><th colspan="2" style="text-align: center;"><br>gorouter.backend_exhausted_conns<br><br></th></tr>
     <tr>
       <th width="25%">Description</th>
         <td>
@@ -1052,9 +1064,9 @@ When <%= vars.app_runtime_abbr %> uses an internal MySQL database, as configured
       <th>Recommended response</th>
         <td>
   	      <ol>
-            <li>If <code>gorouter.back end_exhausted_conns</code> spikes, first look to the Router Throughput metric <code>gorouter.total_requests</code> to determine if this measure is high or low in relation to normal bounds for this deployment.</li>
-            <li>If Router Throughput appears within normal bounds, it is likely that <code>gorouter.back end_exhausted_conns</code> is spiking due to an unresponsive app, possibly due to app code issues or underlying app dependency issues. To help determine the problematic app, look in access logs for repeated calls to one app. Then proceed to troubleshoot this app accordingly.</li>
-            <li>If Router Throughput also shows unusual spikes, the cause of the increase in <code>gorouter.back end_exhausted_conns</code> spikes is likely external to the platform. Unusual increases in load may be due to expected business events driving additional traffic to apps. Unexpected increases in load may indicate a DDoS attack risk.</li>
+            <li>If <code>gorouter.backend_exhausted_conns</code> spikes, first look to the Router Throughput metric <code>gorouter.total_requests</code> to determine if this measure is high or low in relation to normal bounds for this deployment.</li>
+            <li>If Router Throughput appears within normal bounds, it is likely that <code>gorouter.backend_exhausted_conns</code> is spiking due to an unresponsive app, possibly due to app code issues or underlying app dependency issues. To help determine the problematic app, look in access logs for repeated calls to one app. Then proceed to troubleshoot this app accordingly.</li>
+            <li>If Router Throughput also shows unusual spikes, the cause of the increase in <code>gorouter.backend_exhausted_conns</code> spikes is likely external to the platform. Unusual increases in load may be due to expected business events driving additional traffic to apps. Unexpected increases in load may indicate a DDoS attack risk.</li>
           </ol>
         </td>
     </tr>
@@ -1398,6 +1410,8 @@ When <%= vars.app_runtime_abbr %> uses an internal MySQL database, as configured
 
 
 ## <a id="bosh"></a> System (BOSH) Metrics
+
+These sections describe system metrics, or BOSH metrics.
 
 <p class= "note"><strong>Note:</strong> BOSH system metrics appear in the Firehose in two different formats. The tables in this section list both formats. For more information, see <a href="https://docs.pivotal.io/platform/2-8/pcf-release-notes/runtime-rn.html#duplicate-metrics">Duplicate Metrics Appear in the Firehose</a> in the <em><%= vars.app_runtime_full %> <%= vars.current_major_version %> Release Notes</em> topic.</p>
 
