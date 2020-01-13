@@ -243,7 +243,8 @@ There are three key capacity scaling indicators recommended for a Diego Cell:
     <tr>
       <th width="25">Description</th>
         <td>
-          The loss rate of the reverse log proxies (RLP), or the total messages dropped as a percentage of the total traffic coming through the <a href="../loggregator/architecture.html">reverse log proxy</a>. Total messages include only logs for bound apps.<br><br>This loss rate is specific to the RLP and does not impact the Firehose loss rate. For example, you can suffer lossiness in the RLP while not suffering any lossiness in the Firehose.
+          The loss rate of the reverse log proxies (RLP), or the total messages dropped as a percentage of the total traffic coming through the RLP. Total messages include only logs for bound apps.<br><br>
+          This loss rate is specific to the RLP and does not impact the Firehose loss rate. For example, you can suffer lossiness in the RLP while not suffering any lossiness in the Firehose.
         </td>
     </tr>
     <tr>
@@ -300,7 +301,7 @@ There are three key capacity scaling indicators recommended for a Diego Cell:
     </tr>
     <tr>
       <th>Recommended thresholds</th>
-        <td><strong>Scale indicator:</strong> It is recommended to scale when the rate of Firehose Slow Consumer Drops is anomalous for a given environment.</td>
+        <td><strong>Scale indicator:</strong> <%=vars.recommended_by %> recommends scaling when the rate of Firehose Slow Consumer Drops is anomalous for a given environment.</td>
     </tr>
     <tr>
       <th>How to scale</th>
@@ -386,11 +387,11 @@ There are three key capacity scaling indicators recommended for a Diego Cell:
 </table>
 
 
-## <a id="scalable-syslog"></a> CF Syslog Drain Performance Scaling Indicators
+## <a id="scalable-syslog"></a> Syslog Drain Performance Scaling Indicators
 
-There is a single key capacity scaling indicator recommended for CF Syslog Drain performance.
+There is a single key capacity scaling indicator recommended for Syslog Drain performance.
 
-<p class="note"><strong>Note:</strong> These CF Syslog Drain scaling indicators are only relevant if your deployment contains apps using the CF syslog drain binding feature.</p>
+<p class="note"><strong>Note:</strong> These Syslog Drain scaling indicators are only relevant if your deployment contains apps using the syslog drain binding feature.</p>
 
 ### <a id="syslog-agent-ksi"></a> Syslog Agent Loss Rate
 
@@ -487,7 +488,7 @@ There is one key capacity scaling indicator recommended for Router performance.
     <tr>
       <th>Purpose</th>
         <td>
-          High CPU utilization of the Gorouter VMs can increase latency and cause throughput, or requests per/second, to level-off. <%=vars.recommended_by %> recommends keeping the CPU utilization within a maximum range of 60-70% for best Gorouter performance.<br><br>
+          High CPU utilization of the Gorouter VMs can increase latency and cause throughput, or requests per second, to level off. <%=vars.recommended_by %> recommends keeping the CPU utilization within a maximum range of 60-70% for best Gorouter performance.<br><br>
           If you want to increase throughput capabilities while also keeping latency low, <%=vars.recommended_by %> recommends scaling the Gorouter while continuing to ensure that CPU utilization does not exceed the maximum recommended range.
           <p class="note"><strong>Note:</strong> At greater than 8 CPUs, vertical scaling is no longer beneficial for increasing throughput.</p>
         </td>
@@ -534,7 +535,7 @@ There is one key capacity scaling indicator recommended for UAA performance.
     <tr>
       <th>Purpose</th>
         <td>
-          High CPU utilization of the UAA VMs can increase latency and cause throughput, or requests per/second, to level-off. <%=vars.recommended_by %> recommends keeping the CPU utilization within a maximum range of 80-90% for best UAA performance.<br><br>
+          High CPU utilization of the UAA VMs can increase latency and cause throughput, or requests per second, to level off. <%=vars.recommended_by %> recommends keeping the CPU utilization within a maximum range of 80-90% for best UAA performance.<br><br>
           If you want to increase throughput capabilities while keeping latency low, <%=vars.recommended_by %> recommends scaling the UAA VMs and ensuring that CPU utilization does not exceed the maximum recommended range.</td>
     </tr>
     <tr>
