@@ -13,7 +13,7 @@ Pivotal provides these indicators to operators as general guidance for capacity 
 
 ## <a id="cell"></a> Diego Cell Capacity Scaling Indicators
 
-There are three key capacity scaling indicators recommended for a Diego Cell:
+There are three key capacity scaling indicators <%= vars.recommended_by %> recommends for a Diego Cell:
 
 + [Diego Cell Memory Capacity](#cell-memory) is a measure of the percentage of remaining memory capacity.
 + [Diego Cell Disk Capacity](#cell-disk) is a measure of the percentage of remaining disk capacity.
@@ -34,7 +34,7 @@ There are three key capacity scaling indicators recommended for a Diego Cell:
     <tr>
       <th>Purpose</th>
         <td>
-          A best practice deployment of <%= vars.app_runtime_abbr %> includes three availability zones (AZs). For these types of deployments, <%=vars.recommended_by %> recommends recommends that you have enough capacity to suffer failure of an entire AZ.<br><br>
+          A best practice deployment of <%= vars.app_runtime_abbr %> includes three availability zones (AZs). For these types of deployments, <%=vars.recommended_by %> recommends that you have enough capacity to suffer failure of an entire AZ.<br><br>
           The <em>Recommended threshold</em> assumes a three-AZ configuration. Adjust the threshold percentage if you have more or fewer AZs.
         </td>
     </tr>
@@ -165,7 +165,7 @@ There are three key capacity scaling indicators recommended for a Diego Cell:
       <th>Purpose</th>
         <td>
           Excessive dropped messages can indicate the Dopplers or Traffic Controllers are not processing messages quickly enough.<br><br>
-          The recommended scaling indicator is a dropped message rate greater than <code>0.01</code>. This scaling indicator is calculated by expressing the total number of dropped messages as a percentage of the total throughput and scale.<br><br>
+          The scaling indicator <%= vars.recommended_by %> recommends is a dropped message rate greater than <code>0.01</code>. This scaling indicator is calculated by expressing the total number of dropped messages as a percentage of the total throughput and scale.<br><br>
           Doppler emits two separate dropped metrics, one for ingress and one for egress. The envelopes have a <code>direction</code>. For this indicator, use the metric with a <code>direction</code> tag with a value of <code>ingress</code>.
         </td>
     </tr>
@@ -206,11 +206,11 @@ There are three key capacity scaling indicators recommended for a Diego Cell:
   <tr><th colspan="2" style="text-align: center;">loggregator.doppler.ingress (sum across instances) / current number of Doppler instances</th></tr>
     <tr>
       <th width="25">Description</th>
-        <td>This derived value represents the average rate of envelopes (messages) per Doppler instance. Deriving this into a per-Doppler envelopes-per-second, or envelopes-per-minute, rate can indicate the need to scale when Doppler instances are at their recommended maximum load.</td>
+        <td>This derived value represents the average rate of envelopes (messages) per Doppler instance. Deriving this into a per-Doppler envelopes-per-second, or envelopes-per-minute, rate can indicate the need to scale when Doppler instances are at the maximum load <%= vars.recommended_by %> recommends.</td>
     </tr>
     <tr>
       <th>Purpose</th>
-        <td>The recommended scaling indicator is to look at the average load on the Doppler instances, and increase the number of Doppler instances when the derived rate is 16,000 envelopes per second, or 1 million envelopes per minute.</td>
+        <td>The scaling indicator <%= vars.recommended_by %> recommends is to look at the average load on the Doppler instances, and increase the number of Doppler instances when the derived rate is 16,000 envelopes per second, or 1 million envelopes per minute.</td>
     </tr>
     <tr>
       <th>Recommended thresholds</th>
@@ -250,7 +250,7 @@ There are three key capacity scaling indicators recommended for a Diego Cell:
       <th>Purpose</th>
         <td>
           Excessive dropped messages can indicate that the RLP is overloaded and that the Traffic Controllers need to be scaled.<br><br>
-          The recommended scaling indicator is to look at the maximum per minute loss rate over a 5-minute window and scale if the derived loss rate value grows greater than <code>0.1</code>.
+          The scaling indicator <%= vars.recommended_by %> recommends is to look at the maximum per minute loss rate over a 5-minute window and scale if the derived loss rate value grows greater than <code>0.1</code>.
         </td>
     </tr>
     <tr>
@@ -388,7 +388,7 @@ There are three key capacity scaling indicators recommended for a Diego Cell:
 
 ## <a id="scalable-syslog"></a> Syslog Drain Performance Scaling Indicators
 
-There is a single key capacity scaling indicator recommended for Syslog Drain performance.
+There is a single key capacity scaling indicator <%= vars.recommended_by %> recommends for Syslog Drain performance.
 
 <p class="note"><strong>Note:</strong> These Syslog Drain scaling indicators are only relevant if your deployment contains apps using the syslog drain binding feature.</p>
 
@@ -410,7 +410,7 @@ There is a single key capacity scaling indicator recommended for Syslog Drain pe
     <tr>
       <th>Recommended thresholds</th>
         <td>
-          The recommended scaling indicator is the minimum Syslog Agent loss rate per minute within a five-minute window. You should scale up if the loss rate is greater than <code>0.1</code> for five minutes or longer.<br><br>
+          The scaling indicator <%= vars.recommended_by %> recommends is the minimum Syslog Agent loss rate per minute within a five-minute window. You should scale up if the loss rate is greater than <code>0.1</code> for five minutes or longer.<br><br>
           <strong>Scale indicator:</strong> &ge; 0.1</br>
           If alerting:<br>
           <strong>Yellow warning:</strong> &ge; 0.01<br>
@@ -472,7 +472,7 @@ There is a single key capacity scaling indicator recommended for Syslog Drain pe
 
 ## <a id="Router"></a> Router Performance Scaling Indicator
 
-There is one key capacity scaling indicator recommended for Router performance. 
+There is one key capacity scaling indicator <%= vars.recommended_by %> recommends for Router performance.
 
 ### <a id="system.cpu.user"></a> Router VM CPU Utilization
 
@@ -486,7 +486,7 @@ There is one key capacity scaling indicator recommended for Router performance.
       <th>Purpose</th>
         <td>
           High CPU utilization of the Gorouter VMs can increase latency and cause throughput, or requests per second, to level off. <%=vars.recommended_by %> recommends keeping the CPU utilization within a maximum range of 60-70% for best Gorouter performance.<br><br>
-          If you want to increase throughput capabilities while also keeping latency low, <%=vars.recommended_by %> recommends scaling the Gorouter while continuing to ensure that CPU utilization does not exceed the maximum recommended range.
+          If you want to increase throughput capabilities while also keeping latency low, <%=vars.recommended_by %> recommends scaling the Gorouter while continuing to ensure that CPU utilization does not exceed the maximum range <%= vars.recommended_by %> recommends.
           <p class="note"><strong>Note:</strong> At greater than 8 CPUs, vertical scaling is no longer beneficial for increasing throughput.</p>
         </td>
     </tr>
@@ -517,7 +517,7 @@ There is one key capacity scaling indicator recommended for Router performance.
 
 ## <a id="UAA"></a> UAA Performance Scaling Indicator
 
-There is one key capacity scaling indicator recommended for UAA performance.
+There is one key capacity scaling indicator <%= vars.recommended_by %> recommends for UAA performance.
 
 ### <a id="uaa-system.cpu.user"></a> UAA VM CPU Utilization
 
@@ -531,7 +531,7 @@ There is one key capacity scaling indicator recommended for UAA performance.
       <th>Purpose</th>
         <td>
           High CPU utilization of the UAA VMs can increase latency and cause throughput, or requests per second, to level off. <%=vars.recommended_by %> recommends keeping the CPU utilization within a maximum range of 80-90% for best UAA performance.<br><br>
-          If you want to increase throughput capabilities while keeping latency low, <%=vars.recommended_by %> recommends scaling the UAA VMs and ensuring that CPU utilization does not exceed the maximum recommended range.</td>
+          If you want to increase throughput capabilities while keeping latency low, <%=vars.recommended_by %> recommends scaling the UAA VMs and ensuring that CPU utilization does not exceed the maximum range <%= vars.recommended_by %> recommends.</td>
     </tr>
     <tr>
       <th>Recommended thresholds</th>
