@@ -1,6 +1,6 @@
 ---
-title: Key Performance Indicators 
-owner: <%= vars.product_name %> Metrics Platform Monitoring
+title: Key Performance Indicators
+owner: <%= vars.platform_name %> Metrics Platform Monitoring
 ---
 
 This topic describes Key Performance Indicators (KPIs) that operators may want to monitor with their <%= vars.app_runtime_full %> (<%= vars.app_runtime_abbr %>) deployment to help ensure it is in a good operational state.
@@ -12,7 +12,7 @@ The KPIs in this topic are provided for operators to give general guidance on mo
 
 This alerting and response guidance has been shown to apply to most deployments. <%= vars.recommended_by %> recommends that operators continue to fine-tune the alert measures to their deployment by observing historical trends. <%= vars.recommended_by %> also recommends that operators expand beyond this guidance and create new, deployment-specific monitoring metrics, thresholds, and alerts based on learning from their deployments.
 
-<p class="note"><strong>Note:</strong> Thresholds noted as "dynamic" in the tables below indicate that while a metric is highly important to watch, the relative numbers to set threshold warnings at are specific to a given <%= vars.app_runtime_abbr %> deployment and its use cases. These dynamic thresholds should be occasionally revisited because the <%= vars.product_name %> foundation and its usage continue to evolve. For more information, see the <a href="metrics.html#thresholds">Warning and Critical Thresholds</a> section of the <em>Selecting and Configuring a Monitoring System</em> topic.</p>
+<p class="note"><strong>Note:</strong> Thresholds noted as "dynamic" in the tables below indicate that while a metric is highly important to watch, the relative numbers to set threshold warnings at are specific to a given <%= vars.app_runtime_abbr %> deployment and its use cases. These dynamic thresholds should be occasionally revisited because the <%= vars.platform_name %> foundation and its usage continue to evolve. For more information, see <a href="metrics.html#thresholds">Warning and Critical Thresholds</a> in <em>Selecting and Configuring a Monitoring System</em>.</p>
 
 
 ## <a id="auctioneer"></a> Diego Auctioneer Metrics
@@ -533,7 +533,7 @@ These sections describe Diego Cell metrics.
     </tr>
     <tr>
       <th>Alternative Metric</th>
-        <td>If you are using <%= vars.product_name %> Healthwatch, <%= vars.recommended_by %> recommends the metric <code>healthwatch.Diego.AvailableFreeChunks</code>for this purpose. For more information, see the <a href="http://docs.pivotal.io/pcf-healthwatch/metrics.html#free-memory-chunks">Number of Available Free Chunks of Memory</a> section of the <em>Pivotal Healthwatch Metrics</em> topic in the Pivotal Healthwatch documentation.</td>
+        <td>If you are using <%= vars.platform_name %> Healthwatch, <%= vars.recommended_by %> recommends the metric <code>healthwatch.Diego.AvailableFreeChunks</code>for this purpose. For more information, see <a href="http://docs.pivotal.io/pcf-healthwatch/metrics.html#free-memory-chunks">Number of Available Free Chunks of Memory</a> in <em>Pivotal Healthwatch Metrics</em> in the Pivotal Healthwatch documentation.</td>
     </tr>
 </table>
 
@@ -573,7 +573,7 @@ These sections describe Diego Cell metrics.
     </tr>
     <tr>
       <th>Alternative Metric</th>
-      <td>If you are using <%= vars.product_name %> Healthwatch, <%= vars.recommended_by %> recommends the metric <code>healthwatch.Diego.AvailableFreeChunks</code>for this purpose. For more information, see the <a href="http://docs.pivotal.io/pcf-healthwatch/metrics.html#free-memory-chunks">Number of Available Free Chunks of Memory</a> section of the <em>Pivotal Healthwatch Metrics</em> topic in the Pivotal Healthwatch documentation.</td>
+      <td>If you are using <%= vars.platform_name %> Healthwatch, <%= vars.recommended_by %> recommends the metric <code>healthwatch.Diego.AvailableFreeChunks</code>for this purpose. For more information, see <a href="http://docs.pivotal.io/pcf-healthwatch/metrics.html#free-memory-chunks">Number of Available Free Chunks of Memory</a> in <em>Pivotal Healthwatch Metrics</em> in the Pivotal Healthwatch documentation.</td>
     </tr>
 </table>
 
@@ -630,7 +630,7 @@ These sections describe Diego Cell metrics.
     </tr>
     <tr>
       <th>Alternative Metric</th>
-        <td>If you are using <%= vars.product_name %> Healthwatch, <%= vars.recommended_by %> recommends the metric <code>healthwatch.Diego.AvailableFreeChunks</code>for this purpose. For more information, see the <a href="http://docs.pivotal.io/pcf-healthwatch/metrics.html#free-memory-chunks">Number of Available Free Chunks of Memory</a> section of the <em>Pivotal Healthwatch Metrics</em> topic in the Pivotal Healthwatch documentation.</td>
+        <td>If you are using <%= vars.platform_name %> Healthwatch, <%= vars.recommended_by %> recommends the metric <code>healthwatch.Diego.AvailableFreeChunks</code>for this purpose. For more information, see <a href="http://docs.pivotal.io/pcf-healthwatch/metrics.html#free-memory-chunks">Number of Available Free Chunks of Memory</a> in <em>Pivotal Healthwatch Metrics</em> in the Pivotal Healthwatch documentation.</td>
     </tr>
 </table>
 
@@ -671,7 +671,7 @@ These sections describe Diego Cell metrics.
     </tr>
     <tr>
       <th>Alternative Metric</th>
-        <td>If you are using <%= vars.product_name %> Healthwatch, <%= vars.recommended_by %> recommends the metric <code>healthwatch.Diego.AvailableFreeChunks</code>for this purpose. For more information, see the <a href="http://docs.pivotal.io/pcf-healthwatch/metrics.html#free-memory-chunks">Number of Available Free Chunks of Memory</a> section of the <em>Pivotal Healthwatch Metrics</em> topic in the Pivotal Healthwatch documentation.</td>
+        <td>If you are using <%= vars.platform_name %> Healthwatch, <%= vars.recommended_by %> recommends the metric <code>healthwatch.Diego.AvailableFreeChunks</code>for this purpose. For more information, see <a href="http://docs.pivotal.io/pcf-healthwatch/metrics.html#free-memory-chunks">Number of Available Free Chunks of Memory</a> in <em>Pivotal Healthwatch Metrics</em> in the Pivotal Healthwatch documentation.</td>
     </tr>
 </table>
 
@@ -751,7 +751,7 @@ These sections describe Diego Cell metrics.
                   <li>Contact Pivotal Support.</li>
                 </ol>
               </li>
-              <li>As a last resort, if you cannot wait for Pivotal Support, it sometimes helps to recreate the Diego Cell by running <code>bosh recreate</code>. For information about the <code>bosh recreate</code> command syntax, see the <a href="http://bosh.io/docs/cli-v2/#deployment-mgmt">Deployments</a> section of the <em>Commands</em> topic in the BOSH documentation.
+              <li>As a last resort, if you cannot wait for Pivotal Support, it sometimes helps to recreate the Diego Cell by running <code>bosh recreate</code>. For information about the <code>bosh recreate</code> command syntax, see <a href="http://bosh.io/docs/cli-v2/#deployment-mgmt">Deployments</a> in <em>Commands</em> in the BOSH documentation.
                 <p class="warning note"><strong>Warning:</strong> Recreating a Diego Cell destroys its logs. To enable a root cause analysis of the Diego Cell's problem, save out its logs before running <code>bosh recreate</code>.</p></li>
             </ol>
           </td>
@@ -1332,7 +1332,7 @@ These sections describe Gorouter metrics.
     <tr>
       <th>Recommended response</th>
         <td>
-          For optimizing UAA, consider this metric in the context of UAA request latency and UAA VM CPU utilization. To increase throughput and maintain low latency, scale the UAA VMs horizontally by editing the number of your <strong>UAA</strong> VM instances in the <strong>Resource Config</strong> pane of the <%= vars.app_runtime_abbr %> tile and ensure that the <code>system.cpu.user</code> metric for UAA is not sustained in the suggested range of 80-90% maximum CPU utilization. For more information, see <a href="#uaa_latency">UAA Request Latency</a> and the <a href="key-cap-scaling.html#uaa-system.cpu.user">UAA VM CPU Utilization</a> section of the <em>Key Capacity Scaling Indicators</em> topic.
+          For optimizing UAA, consider this metric in the context of UAA request latency and UAA VM CPU utilization. To increase throughput and maintain low latency, scale the UAA VMs horizontally by editing the number of your <strong>UAA</strong> VM instances in the <strong>Resource Config</strong> pane of the <%= vars.app_runtime_abbr %> tile and ensure that the <code>system.cpu.user</code> metric for UAA is not sustained in the suggested range of 80-90% maximum CPU utilization. For more information, see <a href="#uaa_latency">UAA Request Latency</a> and <a href="key-cap-scaling.html#uaa-system.cpu.user">UAA VM CPU Utilization</a> in <em>Key Capacity Scaling Indicators</em>.
         </td>
     </tr>
 </table>
@@ -1591,7 +1591,7 @@ These sections describe system metrics, or BOSH metrics.
         <td>
           CPU utilization — The percentage of CPU spent in user processes<br><br>
           <strong>Use:</strong> Set an alert and investigate further if the CPU utilization is too high for a job.<br><br>
-          For monitoring Gorouter performance, CPU utilization of the Gorouter VM is the key capacity scaling indicator <%= vars.recommended_by %> recommends. For more information, see the <a href="./key-cap-scaling.html#system.cpu.user">Router VM CPU Utilization</a> section of the <em>Key Capacity Scaling Indicators</em> topic.<br><br>
+          For monitoring Gorouter performance, CPU utilization of the Gorouter VM is the key capacity scaling indicator <%= vars.recommended_by %> recommends. For more information, see <a href="./key-cap-scaling.html#system.cpu.user">Router VM CPU Utilization</a> in <em>Key Capacity Scaling Indicators</em>.<br><br>
           <strong>Origin:</strong> Firehose<br>
           <strong>Type:</strong> Gauge (%)<br>
           <strong>Frequency:</strong> 60 s<br>

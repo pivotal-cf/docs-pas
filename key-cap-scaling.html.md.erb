@@ -15,9 +15,11 @@ Pivotal provides these indicators to operators as general guidance for capacity 
 
 There are three key capacity scaling indicators <%= vars.recommended_by %> recommends for a Diego Cell:
 
-+ [Diego Cell Memory Capacity](#cell-memory) is a measure of the percentage of remaining memory capacity.
-+ [Diego Cell Disk Capacity](#cell-disk) is a measure of the percentage of remaining disk capacity.
-+ [Diego Cell Container Capacity](#cell-container) is a measure of the percentage of remaining container capacity.
+* Diego Cell memory capacity is a measure of the percentage of remaining memory capacity. For more information, see [Diego Cell Memory Capacity](#cell-memory).
+
+* Diego Cell disk capacity is a measure of the percentage of remaining disk capacity. For more information, see [Diego Cell Disk Capacity](#cell-disk).
+
+* Diego Cell container capacity is a measure of the percentage of remaining container capacity. For more information, see [Diego Cell Container Capacity](#cell-container).
 
 ### <a id="cell-memory"></a> Diego Cell Memory Capacity
 
@@ -57,7 +59,7 @@ There are three key capacity scaling indicators <%= vars.recommended_by %> recom
     </tr>
     <tr>
       <th>Alternative Metric</th>
-        <td><%= vars.platform_name %> Healthwatch expresses this indicator with the metric <code>healthwatch.Diego.TotalPercentageAvailableMemoryCapacity.5M</code>. For more information, see the <a href="https://docs.pivotal.io/pcf-healthwatch/1-8/metrics.html#memory">Percentage of Memory Available</a> section of the <em><%= vars.platform_name %> Healthwatch Metrics</em> topic in the <%= vars.platform_name %> Healthwatch documentation.</td>
+        <td><%= vars.platform_name %> Healthwatch expresses this indicator with the metric <code>healthwatch.Diego.TotalPercentageAvailableMemoryCapacity.5M</code>. For more information, see <a href="https://docs.pivotal.io/pcf-healthwatch/1-8/metrics.html#memory">Percentage of Memory Available</a> in <em><%= vars.platform_name %> Healthwatch Metrics</em> in the <%= vars.platform_name %> Healthwatch documentation.</td>
     </tr>
 </table>
 
@@ -99,7 +101,7 @@ There are three key capacity scaling indicators <%= vars.recommended_by %> recom
     </tr>
     <tr>
       <th>Alternative Metric</th>
-        <td><%= vars.platform_name %> Healthwatch expresses this indicator with the metric <code>healthwatch.Diego.TotalPercentageAvailableMemoryCapacity.5M</code>. For more information, see the <a href="https://docs.pivotal.io/pcf-healthwatch/1-8/metrics.html#memory">Percentage of Memory Available</a> section of the <em><%= vars.platform_name %> Healthwatch Metrics</em> topic in the <%= vars.platform_name %> Healthwatch documentation.</td>
+        <td><%= vars.platform_name %> Healthwatch expresses this indicator with the metric <code>healthwatch.Diego.TotalPercentageAvailableMemoryCapacity.5M</code>. For more information, see <a href="https://docs.pivotal.io/pcf-healthwatch/1-8/metrics.html#memory">Percentage of Memory Available</a> in <em><%= vars.platform_name %> Healthwatch Metrics</em> in the <%= vars.platform_name %> Healthwatch documentation.</td>
     </tr>
 </table>
 
@@ -139,7 +141,7 @@ There are three key capacity scaling indicators <%= vars.recommended_by %> recom
     </tr>
     <tr>
       <th>Alternative Metric</th>
-        <td><%= vars.platform_name %> Healthwatch expresses this indicator with the metric <code>healthwatch.Diego.TotalPercentageAvailableMemoryCapacity.5M</code>. For more information, see the <a href="https://docs.pivotal.io/pcf-healthwatch/1-8/metrics.html#memory">Percentage of Memory Available</a> section of the <em><%= vars.platform_name %> Healthwatch Metrics</em> topic in the <%= vars.platform_name %> Healthwatch documentation.</td>
+        <td><%= vars.platform_name %> Healthwatch expresses this indicator with the metric <code>healthwatch.Diego.TotalPercentageAvailableMemoryCapacity.5M</code>. For more information, see <a href="https://docs.pivotal.io/pcf-healthwatch/1-8/metrics.html#memory">Percentage of Memory Available</a> in <em><%= vars.platform_name %> Healthwatch Metrics</em> in the <%= vars.platform_name %> Healthwatch documentation.</td>
     </tr>
 </table>
 
@@ -196,7 +198,7 @@ There are three key capacity scaling indicators <%= vars.recommended_by %> recom
     </tr>
     <tr>
       <th>Alternative Metrics</th>
-      <td><%= vars.platform_name %> Healthwatch expresses this indicator with the metric <code>healthwatch.Firehose.LossRate.1H</code>. For more information, see the <a href="https://docs.pivotal.io/pcf-healthwatch/1-7/metrics.html#firehose-loss">Log Transport Loss Rate</a> section of the <em><%= vars.platform_name %> Healthwatch Metrics</em> topic in the <%= vars.platform_name %> Healthwatch documentation.</td>
+      <td><%= vars.platform_name %> Healthwatch expresses this indicator with the metric <code>healthwatch.Firehose.LossRate.1H</code>. For more information, see <a href="https://docs.pivotal.io/pcf-healthwatch/1-7/metrics.html#firehose-loss">Log Transport Loss Rate</a> in <em><%= vars.platform_name %> Healthwatch Metrics</em> in the <%= vars.platform_name %> Healthwatch documentation.</td>
     </tr>
 </table>
 
@@ -231,7 +233,7 @@ There are three key capacity scaling indicators <%= vars.recommended_by %> recom
     </tr>
     <tr>
       <th>Alternative Metric</th>
-        <td><%= vars.platform_name %> Healthwatch expresses this indicator with the metric <code>healthwatch.Doppler.MessagesAverage.1M</code>. For more information, see the <a href="https://docs.pivotal.io/pcf-healthwatch/1-8/metrics.html#doppler-capacity">Doppler Message Rate Capacity</a> section of the <em><%= vars.platform_name %> Healthwatch Metrics</em> topic in the <%= vars.platform_name %> Healthwatch documentation.</td>
+        <td><%= vars.platform_name %> Healthwatch expresses this indicator with the metric <code>healthwatch.Doppler.MessagesAverage.1M</code>. For more information, see <a href="https://docs.pivotal.io/pcf-healthwatch/1-8/metrics.html#doppler-capacity">Doppler Message Rate Capacity</a> in <em><%= vars.platform_name %> Healthwatch Metrics</em> in the <%= vars.platform_name %> Healthwatch documentation.</td>
     </tr>
 </table>
 
@@ -277,7 +279,7 @@ There are three key capacity scaling indicators <%= vars.recommended_by %> recom
     </tr>
     <tr>
       <th>Alternative Metric</th>
-        <td><%= vars.platform_name %> Healthwatch expresses this indicator with the metric <code>healthwatch.SyslogDrain.RLP.LossRate.1M</code>. For more information, see the <a href="https://docs.pivotal.io/pcf-healthwatch/1-8/metrics.html#rlp-loss">Reverse Log Proxy Loss Rate</a> section of the <em><%= vars.platform_name %> Healthwatch Metrics</em> topic in the <%= vars.platform_name %> Healthwatch documentation.</td>
+        <td><%= vars.platform_name %> Healthwatch expresses this indicator with the metric <code>healthwatch.SyslogDrain.RLP.LossRate.1M</code>. For more information, see <a href="https://docs.pivotal.io/pcf-healthwatch/1-8/metrics.html#rlp-loss">Reverse Log Proxy Loss Rate</a> in <em><%= vars.platform_name %> Healthwatch Metrics</em> in the <%= vars.platform_name %> Healthwatch documentation.</td>
     </tr>
 </table>
 
