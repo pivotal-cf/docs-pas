@@ -10,7 +10,7 @@ This topic describes Key Performance Indicators (KPIs) that operators may want t
 
 The KPIs in this topic are provided for operators to give general guidance on monitoring a <%= vars.app_runtime_abbr %> deployment using platform component and system (BOSH) metrics. Although many metrics are emitted from the platform, the KPIs are high-signal-value metrics that can indicate emerging platform issues.
 
-This alerting and response guidance has been shown to apply to most deployments. <%= vars.recommended_by %> recommends that operators continue to fine-tune the alert measures to their deployment by observing historical trends. <%= vars.recommended_by %> also recommends that operators expand beyond this guidance and create new, deployment-specific monitoring metrics, thresholds, and alerts based on learning from their deployments.
+This alerting and response guidance has been shown to apply to most deployments. <%= vars.company_name %> recommends that operators continue to fine-tune the alert measures to their deployment by observing historical trends. <%= vars.company_name %> also recommends that operators expand beyond this guidance and create new, deployment-specific monitoring metrics, thresholds, and alerts based on learning from their deployments.
 
 <p class="note"><strong>Note:</strong> Thresholds noted as "dynamic" in the tables below indicate that while a metric is highly important to watch, the relative numbers to set threshold warnings at are specific to a given <%= vars.app_runtime_abbr %> deployment and its use cases. These dynamic thresholds should be occasionally revisited because the <%= vars.platform_name %> foundation and its usage continue to evolve. For more information, see <a href="metrics.html#thresholds">Warning and Critical Thresholds</a> in <em>Selecting and Configuring a Monitoring System</em>.</p>
 
@@ -53,7 +53,7 @@ These sections describe Diego Auctioneer metrics.
             <li>To best determine the root cause, examine the Auctioneer logs. Depending on the specific error and resource constraint, you may also find a failure reason in the Cloud Controller (CC) API.</li>
             <li>Investigate the health of your Diego Cells to determine if they are the resource type causing the problem.</li>
             <li>Consider scaling additional Diego Cells using Ops Manager.</li>
-            <li>If scaling Diego Cells does not solve the problem, pull Diego Brain logs and BBS node logs and contact Pivotal Support telling them that LRP auctions are failing.</li>
+            <li>If scaling Diego Cells does not solve the problem, pull Diego Brain logs and BBS node logs and contact Support telling them that LRP auctions are failing.</li>
           </ol>
         </td>
     </tr>
@@ -89,7 +89,7 @@ These sections describe Diego Auctioneer metrics.
             <li>Check the health of the Diego Cells by reviewing the logs and looking for errors.</li>
             <li>Review IaaS console metrics.</li>
             <li>Inspect the Auctioneer logs to determine if one or more Diego Cells is taking significantly longer to fetch state than other Diego Cells. Relevant log lines have wording like `fetched Diego Cell state`. </li>
-            <li>Pull Diego Brain logs, Diego Cell logs, and Auctioneer logs and contact Pivotal Support telling them that fetching Diego Cell states is taking too long.</li>
+            <li>Pull Diego Brain logs, Diego Cell logs, and Auctioneer logs and contact Support telling them that fetching Diego Cell states is taking too long.</li>
           </ol>
         </td>
     </tr>
@@ -103,7 +103,7 @@ These sections describe Diego Auctioneer metrics.
       <th width="25%">Description</th>
         <td>
           The number of LRP instances that the Auctioneer successfully placed on Diego Cells. This metric is cumulative over the lifetime of the Auctioneer job.<br><br>
-          <strong>Use:</strong> Provides a sense of running system activity levels in your environment. Can also give you a sense of how many app instances have been started over time. The measurement <%= vars.recommended_by %> recommends, below, can help indicate a significant amount of container churn. However, for capacity planning purposes, it is more helpful to observe deltas over a long time window.<br><br>
+          <strong>Use:</strong> Provides a sense of running system activity levels in your environment. Can also give you a sense of how many app instances have been started over time. The measurement <%= vars.company_name %> recommends, below, can help indicate a significant amount of container churn. However, for capacity planning purposes, it is more helpful to observe deltas over a long time window.<br><br>
     		  This metric is emitted on event, and therefore gaps in receipt of this metric can be normal during periods of no app instances being scheduled.<br><br>
           <strong>Origin:</strong> Firehose<br>
           <strong>Type:</strong> Counter (Integer)<br>
@@ -126,7 +126,7 @@ These sections describe Diego Auctioneer metrics.
       <td>When observing a significant amount of container churn:<br><br>
         <ol>
           <li>Look to eliminate explainable causes of temporary churn, such as a deployment or increased developer activity.</li>
-          <li>If container churn appears to continue over an extended period, pull logs from the Diego Brain and BBS node before contacting Pivotal support.</li>
+          <li>If container churn appears to continue over an extended period, pull logs from the Diego Brain and BBS node before contacting Support.</li>
         </ol>
         When observing extended periods of high or low activity trends, scale <%= vars.app_runtime_abbr %> components up or down as needed.
       </td>
@@ -167,7 +167,7 @@ These sections describe Diego Auctioneer metrics.
         	    <li>In order to best determine the root cause, examine the Auctioneer logs. Depending on the specific error or resource constraint, you may also find a failure reason in the CC API.</li>
               <li>Investigate the health of Diego Cells.</li>
               <li>Consider scaling additional Diego Cells using Ops Manager.</li>
-              <li>If scaling Diego Cells does not solve the problem, pull Diego Brain logs and BBS logs for troubleshooting and contact Pivotal Support for additional troubleshooting. Inform Pivotal Support that Task auctions are failing.</li>
+              <li>If scaling Diego Cells does not solve the problem, pull Diego Brain logs and BBS logs for troubleshooting and contact Support for additional troubleshooting. Inform Support that Task auctions are failing.</li>
             </ol>
           </td>
       </tr>
@@ -186,7 +186,7 @@ These sections describe Diego BBS metrics.
       <th width="25%">Description</th>
         <td>
           Time in ns that the BBS took to run its LRP convergence pass.<br><br>
-          <strong>Use:</strong> If the convergence run begins taking too long, apps or Tasks may be crashing without restarting. This symptom can also indicate loss of connectivity to the BBS database.<br><br>
+          <strong>Use:</strong> If the convergence run begins taking too long, apps or tasks may be crashing without restarting. This symptom can also indicate loss of connectivity to the BBS database.<br><br>
           <strong>Origin:</strong> Firehose<br>
           <strong>Type:</strong> Gauge (Integer in ns)<br>
           <strong>Frequency:</strong> During event, every 30 seconds when LRP convergence runs, emission should be near-constant on a running deployment
@@ -210,7 +210,7 @@ These sections describe Diego BBS metrics.
             <li>Check BBS logs for errors.</li>
             <li>Try vertically scaling the BBS VM resources up. For example, add more CPUs or memory depending on its <code>system.cpu</code>/<code>system.memory</code> metrics.</li>
             <li>Consider vertically scaling the <%= vars.app_runtime_abbr %> backing database, if <code>system.cpu</code> and <code>system.memory</code> metrics for the database instances are high.</li>
-            <li>If that does not solve the issue, pull the BBS logs and contact Pivotal Support for additional troubleshooting.
+            <li>If that does not solve the issue, pull the BBS logs and contact Support for additional troubleshooting.
           </ol>
         </td>
     </tr>
@@ -250,7 +250,7 @@ These sections describe Diego BBS metrics.
           <li>Check BBS logs for faults and errors that can indicate issues with BBS.</li>
           <li>Try scaling the BBS VM resources up. For example, add more CPUs and memory depending on its <code>system.cpu</code>/<code>system.memory</code> metrics.</li>
           <li>Consider vertically scaling the <%= vars.app_runtime_abbr %> backing database, if <code>system.cpu</code> and <code>system.memory</code> metrics for the database instances are high.</li>
-          <li>If the above steps do not solve the issue, collect a sample of the Diego Cell logs from the BBS VMs and contact Pivotal Support to troubleshoot further.
+          <li>If the above steps do not solve the issue, collect a sample of the Diego Cell logs from the BBS VMs and contact Support to troubleshoot further.
         </ol>
       </td>
     </tr>
@@ -283,7 +283,7 @@ These sections describe Diego BBS metrics.
         <td>
           <strong>Yellow warning:</strong> <em>N/A</em><br>
           <strong>Red critical:</strong> &ne; 1<br><br>
-          The threshold value <%= vars.recommended_by %> recommends represents a state where an up-to-date metric <code>1</code> has not been received for the entire 5-minute window.
+          The threshold value <%= vars.company_name %> recommends represents a state where an up-to-date metric <code>1</code> has not been received for the entire 5-minute window.
         </td>
     </tr>
     <tr>
@@ -291,7 +291,7 @@ These sections describe Diego BBS metrics.
         <td>
           <ol>
             <li>Check the BBS and Clock Global (Cloud Controller clock) logs.</li>
-            <li>If the problem continues, pull the BBS logs and Clock Global (Cloud Controller clock) logs and contact Pivotal Support to say that the <code>cf-apps</code> domain is not being kept fresh.</li>
+            <li>If the problem continues, pull the BBS logs and Clock Global (Cloud Controller clock) logs and contact Support to say that the <code>cf-apps</code> domain is not being kept fresh.</li>
           </ol>
         </td>
     </tr>
@@ -328,7 +328,7 @@ These sections describe Diego BBS metrics.
             <td>
               <ol>
                 <li>Review the BBS logs for proper operation or errors, looking for detailed error messages.</li>
-                <li>If the condition persists, pull the BBS logs and contact Pivotal Support.</li>
+                <li>If the condition persists, pull the BBS logs and contact Support.</li>
               </ol>
             </td>
         </tr>
@@ -365,7 +365,7 @@ These sections describe Diego BBS metrics.
         <td>
           <ol>
             <li>Review the BBS logs for proper operation or errors, looking for detailed error messages.</li>
-            <li>If the condition persists, pull the BBS logs and contact Pivotal Support.</li>
+            <li>If the condition persists, pull the BBS logs and contact Support.</li>
           </ol>
         </td>
     </tr>
@@ -401,7 +401,7 @@ These sections describe Diego BBS metrics.
         <td>
           <ol>
             <li>Look at the BBS logs for apps that are crashing and at the Diego Cell logs to see if the problem is with the apps themselves, rather than a platform issue.</li>
-            <li>Before contacting Pivotal Support, pull the BBS logs and, if particular apps are the problem, pull the logs from their Diego Cells too.</li>
+            <li>Before contacting Support, pull the BBS logs and, if particular apps are the problem, pull the logs from their Diego Cells too.</li>
           </ol>
         </td>
     </tr>
@@ -490,7 +490,7 @@ These sections describe Diego Cell metrics.
           Remaining amount of memory in MiB available for this Diego Cell to allocate to containers.<br><br>
           <strong>Use:</strong> Indicates the available Diego Cell memory. Insufficient Diego Cell memory can prevent pushing and scaling apps.<br><br>
           The strongest operational value of this metric is to understand a deployment's average app size and monitor/alert on ensuring that at least some Cells have large enough capacity to accept standard app size pushes. For example, if pushing a 4&nbsp;GB app, Diego would have trouble placing that app if there is no one Diego Cell with sufficient capacity of 4&nbsp;GB or greater.<br><br>
-          As an example, Pivotal Cloud Ops uses a standard of 4&nbsp;GB, and computes and monitors for the number of Diego Cells with at least 4&nbsp;GB free. When the number of Diego Cells with at least 4&nbsp;GB falls below a defined threshold, this is a scaling indicator alert to increase  capacity. This <em>free chunk</em> count threshold should be tuned to the deployment size and the standard size of apps being pushed to the deployment.<br><br>
+          As an example, <%= vars.company_name %> Cloud Ops uses a standard of 4&nbsp;GB, and computes and monitors for the number of Diego Cells with at least 4&nbsp;GB free. When the number of Diego Cells with at least 4&nbsp;GB falls below a defined threshold, this is a scaling indicator alert to increase  capacity. This <em>free chunk</em> count threshold should be tuned to the deployment size and the standard size of apps being pushed to the deployment.<br><br>
           <strong>Origin:</strong> Firehose<br>
           <strong>Type:</strong> Gauge (Integer in MiB)<br>
           <strong>Frequency:</strong> 60 s<br>
@@ -533,7 +533,7 @@ These sections describe Diego Cell metrics.
     </tr>
     <tr>
       <th>Alternative Metric</th>
-        <td>If you are using <%= vars.platform_name %> Healthwatch, <%= vars.recommended_by %> recommends the metric <code>healthwatch.Diego.AvailableFreeChunks</code>for this purpose. For more information, see <a href="http://docs.pivotal.io/pcf-healthwatch/metrics.html#free-memory-chunks">Number of Available Free Chunks of Memory</a> in <em>Pivotal Healthwatch Metrics</em> in the Pivotal Healthwatch documentation.</td>
+        <td>If you are using Healthwatch, <%= vars.company_name %> recommends the metric <code>healthwatch.Diego.AvailableFreeChunks</code>for this purpose. For more information, see <a href="http://docs.pivotal.io/pcf-healthwatch/metrics.html#free-memory-chunks">Number of Available Free Chunks of Memory</a> in <em>Healthwatch Metrics</em> in the Healthwatch documentation.</td>
     </tr>
 </table>
 
@@ -573,7 +573,7 @@ These sections describe Diego Cell metrics.
     </tr>
     <tr>
       <th>Alternative Metric</th>
-      <td>If you are using <%= vars.platform_name %> Healthwatch, <%= vars.recommended_by %> recommends the metric <code>healthwatch.Diego.AvailableFreeChunks</code>for this purpose. For more information, see <a href="http://docs.pivotal.io/pcf-healthwatch/metrics.html#free-memory-chunks">Number of Available Free Chunks of Memory</a> in <em>Pivotal Healthwatch Metrics</em> in the Pivotal Healthwatch documentation.</td>
+      <td>If you are using Healthwatch, <%= vars.company_name %> recommends the metric <code>healthwatch.Diego.AvailableFreeChunks</code>for this purpose. For more information, see <a href="http://docs.pivotal.io/pcf-healthwatch/metrics.html#free-memory-chunks">Number of Available Free Chunks of Memory</a> in <em>Healthwatch Metrics</em> in the Healthwatch documentation.</td>
     </tr>
 </table>
 
@@ -587,7 +587,7 @@ These sections describe Diego Cell metrics.
           Remaining amount of disk in MiB available for this Diego Cell to allocate to containers.<br><br>
           <strong>Use:</strong> Indicates the available Diego Cell disk. Insufficient free disk on Diego Cells prevents the staging or starting of apps or tasks, resulting in error messages like <code>ERR Failed to stage app: insufficient resources</code>.<br><br>
           Because Diego fails to stage without at least 6&nbsp;GB free, unreserved disk space on a given Diego Cell, the strongest operational value of this metric is to ensure that at least some Diego Cells have a large enough disk capacity to support the staging of apps and tasks.<br><br>
-  	      <%= vars.recommended_by %> recommends computing and monitoring for the number of Diego Cells with at least 6&nbsp;GB Disk free. When the number of Diego Cells with at least 6&nbsp;GB falls below a defined threshold, this is a scaling indicator alert to increase capacity. The alerting threshold value for the amount of <em>free chunks</em> of Disk should be tuned to the deployment size and the standard size of apps being pushed to the deployment.
+  	      <%= vars.company_name %> recommends computing and monitoring for the number of Diego Cells with at least 6&nbsp;GB Disk free. When the number of Diego Cells with at least 6&nbsp;GB falls below a defined threshold, this is a scaling indicator alert to increase capacity. The alerting threshold value for the amount of <em>free chunks</em> of Disk should be tuned to the deployment size and the standard size of apps being pushed to the deployment.<br><br>
           <strong>Origin:</strong> Firehose<br>
           <strong>Type:</strong> Gauge (Integer in MiB)<br>
           <strong>Frequency:</strong> 60 s<br>
@@ -630,7 +630,7 @@ These sections describe Diego Cell metrics.
     </tr>
     <tr>
       <th>Alternative Metric</th>
-        <td>If you are using <%= vars.platform_name %> Healthwatch, <%= vars.recommended_by %> recommends the metric <code>healthwatch.Diego.AvailableFreeChunks</code>for this purpose. For more information, see <a href="http://docs.pivotal.io/pcf-healthwatch/metrics.html#free-memory-chunks">Number of Available Free Chunks of Memory</a> in <em>Pivotal Healthwatch Metrics</em> in the Pivotal Healthwatch documentation.</td>
+        <td>If you are using Healthwatch, <%= vars.company_name %> recommends the metric <code>healthwatch.Diego.AvailableFreeChunks</code>for this purpose. For more information, see <a href="http://docs.pivotal.io/pcf-healthwatch/metrics.html#free-memory-chunks">Number of Available Free Chunks of Memory</a> in <em>Healthwatch Metrics</em> in the Healthwatch documentation.</td>
     </tr>
 </table>
 
@@ -642,7 +642,7 @@ These sections describe Diego Cell metrics.
       <th width="25%">Description</th>
         <td>
           Remaining amount of disk in MiB available for this Diego Cell to allocate to containers.<br><br>
-          <strong>Use:</strong> Low disk capacity can prevent app scaling and new deployments. Because Diego staging Tasks can fail without at least 6&nbsp;GB free, the red threshold <%= vars.recommended_by %> recommends is based on the minimum disk capacity across the deployment falling below 6&nbsp;GB in the previous 5 minutes.<br><br>
+          <strong>Use:</strong> Low disk capacity can prevent app scaling and new deployments. Because Diego staging Tasks can fail without at least 6&nbsp;GB free, the red threshold <%= vars.company_name %> recommends is based on the minimum disk capacity across the deployment falling below 6&nbsp;GB in the previous 5 minutes.<br><br>
           It can also be meaningful to assess how many chunks of free disk space are above a given threshold, similar to <code>rep.CapacityRemainingMemory</code>.<br><br>
           <strong>Origin:</strong> Firehose<br>
           <strong>Type:</strong> Gauge (Integer in MiB)<br>
@@ -671,7 +671,7 @@ These sections describe Diego Cell metrics.
     </tr>
     <tr>
       <th>Alternative Metric</th>
-        <td>If you are using <%= vars.platform_name %> Healthwatch, <%= vars.recommended_by %> recommends the metric <code>healthwatch.Diego.AvailableFreeChunks</code>for this purpose. For more information, see <a href="http://docs.pivotal.io/pcf-healthwatch/metrics.html#free-memory-chunks">Number of Available Free Chunks of Memory</a> in <em>Pivotal Healthwatch Metrics</em> in the Pivotal Healthwatch documentation.</td>
+        <td>If you are using Healthwatch, <%= vars.company_name %> recommends the metric <code>healthwatch.Diego.AvailableFreeChunks</code>for this purpose. For more information, see <a href="http://docs.pivotal.io/pcf-healthwatch/metrics.html#free-memory-chunks">Number of Available Free Chunks of Memory</a> in <em>Healthwatch Metrics</em> in the Healthwatch documentation.</td>
     </tr>
 </table>
 
@@ -682,7 +682,7 @@ These sections describe Diego Cell metrics.
     <tr>
       <th width="25%">Description</th>
         <td>
-          Time in ns that the Diego Cell Rep took to sync the ActualLRPs that it claimed with its actual garden containers.<br><br>
+          Time in ns that the Diego Cell Rep took to sync the ActualLRPs that it claimed with its actual Garden containers.<br><br>
           <strong>Use:</strong> Sync times that are too high can indicate issues with the BBS.<br><br>
           <strong>Origin:</strong> Firehose<br>
           <strong>Type:</strong> Gauge (Float in ns)<br>
@@ -705,7 +705,7 @@ These sections describe Diego Cell metrics.
         <td>
           <ol>
             <li>Investigate BBS logs for faults and errors.</li>
-            <li>If a particular Diego Cell or Diego Cells appear problematic, pull logs for the Diego Cells and the BBS logs before contacting Pivotal Support.</li>
+            <li>If a particular Diego Cell or Diego Cells appear problematic, pull logs for the Diego Cells and the BBS logs before contacting Support.</li>
           </ol>
         </td>
     </tr>
@@ -748,10 +748,10 @@ These sections describe Diego Cell metrics.
                   <li>Determine a time interval during which the metrics from the Diego Cell changed from healthy to unhealthy.</li>
                   <li>Pull the logs that the Diego Cell generated over that interval. The Diego Cell ID is the same as the BOSH instance ID.</li>
                   <li>Pull the BBS logs over that same time interval.</li>
-                  <li>Contact Pivotal Support.</li>
+                  <li>Contact Support.</li>
                 </ol>
               </li>
-              <li>As a last resort, if you cannot wait for Pivotal Support, it sometimes helps to recreate the Diego Cell by running <code>bosh recreate</code>. For information about the <code>bosh recreate</code> command syntax, see <a href="http://bosh.io/docs/cli-v2/#deployment-mgmt">Deployments</a> in <em>Commands</em> in the BOSH documentation.
+              <li>As a last resort, if you cannot wait for Support, it sometimes helps to recreate the Diego Cell by running <code>bosh recreate</code>. For information about the <code>bosh recreate</code> command syntax, see <a href="http://bosh.io/docs/cli-v2/#deployment-mgmt">Deployments</a> in <em>Commands</em> in the BOSH documentation.
                 <p class="warning note"><strong>Warning:</strong> Recreating a Diego Cell destroys its logs. To enable a root cause analysis of the Diego Cell's problem, save out its logs before running <code>bosh recreate</code>.</p></li>
             </ol>
           </td>
@@ -806,7 +806,7 @@ These sections describe Diego Locket metrics.
                 <li>Reference the Auctioneer-level Locket metric <code>auctioneer.LockHeld</code>. A value of 0 indicates Locket issues at the Auctioneer level. For more information, see <a href="#AuctioneerActiveLocks">Locks Held by Auctioneer</a>.</li>
               </ul>
             <li>The TPS Watcher is primarily active when app instances crash. Therefore, if the TPS Watcher is suspected, review the most recent logs.</li>
-            <li>If you are unable to resolve on-going excessive active locks, pull logs from the Diego BBS and Auctioneer VMs, which includes the Locket service component logs, and contact Pivotal Support.</li>
+            <li>If you are unable to resolve on-going excessive active locks, pull logs from the Diego BBS and Auctioneer VMs, which includes the Locket service component logs, and contact Support.</li>
           </ol>
         </td>
     </tr>
@@ -847,7 +847,7 @@ These sections describe Diego Locket metrics.
                 <li>A healthy BBS shows obvious activity around starting or claiming LRPs.</li>
                 <li>An unhealthy BBS leads to the Auctioneer showing minimal or no activity. The BBS sends work to the Auctioneer.</li>
               </ul>
-            <li>If you are unable to resolve the issue, pull logs from the Diego BBS, which include the Locket service component logs, and contact Pivotal Support.</li>
+            <li>If you are unable to resolve the issue, pull logs from the Diego BBS, which include the Locket service component logs, and contact Support.</li>
           </ol>
         </td>
     </tr>
@@ -887,7 +887,7 @@ These sections describe Diego Locket metrics.
               <ul>
                 <li>Recent logs for Auctioneer should show all but one of its instances are currently waiting on locks, and the active Auctioneer should show a record of when it last attempted to execute work. This attempt should correspond to app development activity, such as <code>cf push</code>.</li>
               </ul>
-            <li>If you are unable to resolve the issue, pull logs from the Diego BBS and Auctioneer VMs, which includes the Locket service component logs, and contact Pivotal Support.</li>
+            <li>If you are unable to resolve the issue, pull logs from the Diego BBS and Auctioneer VMs, which includes the Locket service component logs, and contact Support.</li>
           </ol>
         </td>
     </tr>
@@ -927,7 +927,7 @@ These sections describe Diego Locket metrics.
             <li>Ensure that the variance is not the result of an active rolling deploy. Also ensure that the alert threshold is appropriate to the number of Diego Cells in the current deployment.</li>
             <li>Run <code>monit status</code> to inspect for failing processes.</li>
             <li>If there are no failing processes, then review the logs for the components using the Locket service itself on Diego BBS instances.</li>
-            <li>If you are unable to resolve the problem, pull the logs from the Diego BBS, which include the Locket service component logs, and contact Pivotal Support.</li>
+            <li>If you are unable to resolve the problem, pull the logs from the Diego BBS, which include the Locket service component logs, and contact Support.</li>
           </ol>
         </td>
     </tr>
@@ -946,7 +946,7 @@ These sections describe Diego Route Emitter metrics.
       <th width="25%">Description</th>
         <td>
           Time in ns that the active Route Emitter took to perform its synchronization pass.<br><br>
-          <strong>Use:</strong> Increases in this metric indicate that the Route Emitter may have trouble maintaining an accurate routing table to broadcast to the Gorouters. Tune alerting values to your deployment based on historical data and adjust based on observations over time. The suggested starting point is &ge; 5 for the yellow threshold and &ge; 10 for the critical threshold. Pivotal has observed on its Pivotal Web Services deployment that above 10 s, the BBS may be failing.<br><br>
+          <strong>Use:</strong> Increases in this metric indicate that the Route Emitter may have trouble maintaining an accurate routing table to broadcast to the Gorouters. Tune alerting values to your deployment based on historical data and adjust based on observations over time. The suggested starting point is &ge; 5 for the yellow threshold and &ge; 10 for the critical threshold. <%= vars.company_name %> has observed on its Pivotal Web Services deployment that above 10 s, the BBS may be failing.<br><br>
           <strong>Origin:</strong> Firehose<br>
           <strong>Type:</strong> Gauge (Float in ns)<br>
           <strong>Frequency:</strong> 60 s<br>
@@ -1002,9 +1002,9 @@ These sections describe Gorouter metrics.
           <strong>Use:</strong> Indicates an impending issue with the Gorouter. Without proper mitigation, it is possible for an unresponsive app to eventually exhaust available Gorouter file descriptors and cause route starvation for other apps running on <%= vars.app_runtime_abbr %>. Under heavy load, this unmitigated situation can also result in the Gorouter losing its connection to NATS and all routes being pruned.<br><br>
           While a drop in <code>gorouter.total_routes</code> or an increase in <code>gorouter.ms_since_last_registry_update</code> helps to surface that the issue may already be occurring, alerting on <code>gorouter.file_descriptors</code> indicates that such an issue is impending.<br><br>
           The Gorouter limits the number of file descriptors to 100,000 per job. Once the limit is met, the Gorouter is unable to establish any new connections.<br><br>
-          To reduce the risk of DDoS attacks, <%= vars.recommended_by %> recommends doing one or both of the following:<br><br>
+          To reduce the risk of DDoS attacks, <%= vars.company_name %> recommends doing one or both of the following:<br><br>
             <ul>
-              <li>Within <%= vars.app_runtime_abbr %>, set <strong>Maximum connections per back end</strong> to define how many requests can be routed to any particular app instance. This prevents a single app from using all Gorouter connections. The value specified should be determined by the operator based on the use cases for that foundation. For example, Pivotal sets the number of connections to 500 for Pivotal Web Services.</li>
+              <li>Within <%= vars.app_runtime_abbr %>, set <strong>Maximum connections per back end</strong> to define how many requests can be routed to any particular app instance. This prevents a single app from using all Gorouter connections. The value specified should be determined by the operator based on the use cases for that foundation. For example, <%= vars.company_name %> sets the number of connections to 500 for Pivotal Web Services.</li>
               <li>Add rate limiting at the load balancer level.</li>
             </ul>
           <strong>Origin:</strong> Firehose<br>
@@ -1100,7 +1100,7 @@ These sections describe Gorouter metrics.
     <tr>
       <th>Recommended response</th>
         <td>
-          For optimizing the Gorouter, consider the requests-per-second derived metric in the context of router latency and Gorouter VM CPU utilization. From performance and load testing of the Gorouter, Pivotal has observed that at approximately 2500 requests per second, latency can begin to increase.<br><br>
+          For optimizing the Gorouter, consider the requests-per-second derived metric in the context of router latency and Gorouter VM CPU utilization. From performance and load testing of the Gorouter, <%= vars.company_name %> has observed that at approximately 2500 requests per second, latency can begin to increase.<br><br>
           To increase throughput and maintain low latency, scale the Gorouters either horizontally or vertically and ensure that the <code>system.cpu.user</code> metric for the Gorouter stays in the suggested range of 60-70% CPU Utilization. For more information about the <code>system.cpu.user</code> metric, see <a href="#cpu.user">VM CPU Utilization</a>.
     </tr>
 </table>
@@ -1176,7 +1176,7 @@ These sections describe Gorouter metrics.
             <li>Search the Gorouter and Route Emitter logs for connection issues to NATS.</li>
             <li>Check the BOSH logs to see if the NATS, Gorouter, or Route Emitter VMs are failing.</li>
             <li>Look more broadly at the health of all VMs, particularly Diego-related VMs.</li>
-            <li>If problems persist, pull the Gorouter and Route Emitter logs and contact Pivotal Support to say there are consistently long delays in route registry.</li>
+            <li>If problems persist, pull the Gorouter and Route Emitter logs and contact Support to say there are consistently long delays in route registry.</li>
           </ol>
         </td>
     </tr>
@@ -1215,7 +1215,7 @@ These sections describe Gorouter metrics.
             <li>Check the Gorouter and Route Emitter logs to see if they are experiencing issues when connecting to NATS.</li>
             <li>Check the BOSH logs to see if the NATS, Gorouter, or Route Emitter VMs are failing.</li>
             <li>Look broadly at the health of all VMs, particularly Diego-related VMs.</li>
-            <li>If problems persist, pull Gorouter and Route Emitter logs and contact Pivotal Support to say there has been an unusual increase in Gorouter bad gateway responses.</li>
+            <li>If problems persist, pull Gorouter and Route Emitter logs and contact Support to say there has been an unusual increase in Gorouter bad gateway responses.</li>
           </ol>
         </td>
     </tr>
@@ -1266,7 +1266,7 @@ These sections describe Gorouter metrics.
         <td>
           The current total number of routes registered with the Gorouter, emitted per Gorouter instance<br><br>
           <strong>Use:</strong> The aggregation of these values across all Gorouters indicates uptake and gives a picture of the overall growth of the environment for capacity planning.<br><br>
-		      <%= vars.recommended_by %> also recommends alerting on this metric if the number of routes falls outside of the normal range for your deployment. Dramatic decreases in this metric volume may indicate a problem with the route registration process, such as an app outage, or that something in the route register management plane has failed.<br><br>
+		      <%= vars.company_name %> also recommends alerting on this metric if the number of routes falls outside of the normal range for your deployment. Dramatic decreases in this metric volume may indicate a problem with the route registration process, such as an app outage, or that something in the route register management plane has failed.<br><br>
           If visualizing these metrics on a dashboard, <code>gorouter.total_routes</code> can be helpful for visualizing dramatic drops. However, for alerting purposes, the <code>gorouter.ms_since_last_registry_update</code> metric is more valuable for quicker identification of Gorouter issues. Alerting thresholds for <code>gorouter.total_routes</code> should focus on dramatic increases or decreases out of expected range.<br><br>
           <strong>Origin:</strong> Firehose<br>
           <strong>Type:</strong> Gauge (Float)<br>
@@ -1293,7 +1293,7 @@ These sections describe Gorouter metrics.
             <li>Check the Gorouter and Route Emitter logs to see if they are experiencing issues when connecting to NATS.</li>
             <li>Check the BOSH logs to see if the NATS, Gorouter, or Route Emitter VMs are failing.</li>
             <li>Look broadly at the health of all VMs, particularly Diego-related VMs.</li>
-            <li>If problems persist, pull the Gorouter and Route Emitter logs and contact Pivotal Support.</li>
+            <li>If problems persist, pull the Gorouter and Route Emitter logs and contact Support.</li>
           </ol>
         </td>
     </tr>
@@ -1310,9 +1310,9 @@ These sections describe Gorouter metrics.
       <th width="25%">Description</th>
         <td>
           The lifetime number of requests completed by the UAA VM, emitted per UAA instance. This number includes health checks.<br><br>
-          <strong>Use:</strong> For capacity planning purposes, the aggregation of these values across all UAA instances can provide insight into the overall load that UAA is processing. <%= vars.recommended_by %> recommends alerting on unexpected spikes per UAA instance. Unusually high spikes, if they are not associated with an expected increase in demand, could indicate a DDoS risk and should be investigated.<br><br>
+          <strong>Use:</strong> For capacity planning purposes, the aggregation of these values across all UAA instances can provide insight into the overall load that UAA is processing. <%= vars.company_name %> recommends alerting on unexpected spikes per UAA instance. Unusually high spikes, if they are not associated with an expected increase in demand, could indicate a DDoS risk and should be investigated.<br><br>
           For performance and capacity management, look at the UAA Throughput metric as either a requests-completed-per-second or requests-completed-per-minute rate to determine the throughput per UAA instance. This helps you see trends in the throughput rate that may indicate a need to scale UAA instances. Use the trends you observe to tune the threshold alerts for this metric.<br><br>
-          From performance and load testing of UAA, Pivotal has observed that while UAA endpoints can have different throughput behavior, once throughput reaches its peak value per VM, it stays constant and latency increases.<br><br>
+          From performance and load testing of UAA, <%= vars.company_name %> has observed that while UAA endpoints can have different throughput behavior, once throughput reaches its peak value per VM, it stays constant and latency increases.<br><br>
           <strong>Origin:</strong> Firehose<br>
           <strong>Type:</strong> Gauge (Integer), emitted value increments over the lifetime of the VM like a counter<br>
           <strong>Frequency:</strong> 5 s<br>
@@ -1385,7 +1385,7 @@ These sections describe Gorouter metrics.
         <td>
           The number of requests UAA is currently processing (in-flight requests), emitted per UAA instance.<br><br>
           <strong>Use:</strong> Indicates how many concurrent requests are currently in flight for the UAA instance. Unusually high spikes, if they are not associated with an expected increase in demand, could indicate a DDoS risk.<br><br>
-          From performance and load testing of the UAA component, Pivotal has observed that the number of concurrent requests impacts throughput and latency. The UAA Requests In Flight metric helps you see trends in the request rate that may indicate the need to scale UAA instances. Use the trends you observe to tune the threshold alerts for this metric.<br><br>
+          From performance and load testing of the UAA component, <%= vars.company_name %> has observed that the number of concurrent requests impacts throughput and latency. The UAA Requests In Flight metric helps you see trends in the request rate that may indicate the need to scale UAA instances. Use the trends you observe to tune the threshold alerts for this metric.<br><br>
           <strong>Origin:</strong> Firehose<br>
           <strong>Type:</strong> Gauge (Integer)<br>
           <strong>Frequency:</strong> 5 s<br>
@@ -1413,7 +1413,7 @@ These sections describe Gorouter metrics.
 
 These sections describe system metrics, or BOSH metrics.
 
-<p class= "note"><strong>Note:</strong> BOSH system metrics appear in the Firehose in two different formats. The tables in this section list both formats. For more information, see <a href="https://docs.pivotal.io/platform/2-8/pcf-release-notes/runtime-rn.html#duplicate-metrics">Duplicate Metrics Appear in the Firehose</a> in <em><%= vars.app_runtime_full %> <%= vars.current_major_version %> Release Notes</em>.</p>
+<p class= "note"><strong>Note:</strong> BOSH system metrics appear in the Firehose in two different formats. The tables in this section list both formats. For more information, see <a href="https://docs.pivotal.io/platform/2-8/pcf-release-notes/runtime-rn.html#duplicate-metrics">Duplicate Metrics Appear in the Firehose</a> in <em><%= vars.app_runtime_full %> v2.8 Release Notes</em>.</p>
 
 ### <a id="healthy"></a> VM Health
 
@@ -1424,7 +1424,7 @@ These sections describe system metrics, or BOSH metrics.
         <td>
           <code>1</code> means the system is healthy, and <code>0</code> means the system is not healthy.<br><br>
           <strong>Use:</strong> This is the most important BOSH metric to monitor. It indicates if the VM emitting the metric is healthy. Review this metric for all VMs to estimate the overall health of the system.<br><br>
-          Multiple unhealthy VMs signals problems with the underlying IAAS layer.<br><br>
+          Multiple unhealthy VMs signals problems with the underlying IaaS layer.<br><br>
           <strong>Origin:</strong> Firehose<br>
           <strong>Type:</strong> Gauge (Float, 0-1)<br>
           <strong>Frequency:</strong> 60 s<br>
@@ -1443,7 +1443,7 @@ These sections describe system metrics, or BOSH metrics.
     </tr>
     <tr>
       <th>Recommended response</th>
-        <td>Investigate <%= vars.app_runtime_abbr %> logs for the unhealthy component(s).</td>
+        <td>Investigate <%= vars.app_runtime_abbr %> logs for the unhealthy components.</td>
     </tr>
 </table>
 
@@ -1598,7 +1598,7 @@ These sections describe system metrics, or BOSH metrics.
         <td>
           CPU utilization — The percentage of CPU spent in user processes<br><br>
           <strong>Use:</strong> Set an alert and investigate further if the CPU utilization is too high for a job.<br><br>
-          For monitoring Gorouter performance, CPU utilization of the Gorouter VM is the key capacity scaling indicator <%= vars.recommended_by %> recommends. For more information, see <a href="./key-cap-scaling.html#system.cpu.user">Router VM CPU Utilization</a> in <em>Key Capacity Scaling Indicators</em>.<br><br>
+          For monitoring Gorouter performance, CPU utilization of the Gorouter VM is the key capacity scaling indicator <%= vars.company_name %> recommends. For more information, see <a href="./key-cap-scaling.html#system.cpu.user">Router VM CPU Utilization</a> in <em>Key Capacity Scaling Indicators</em>.<br><br>
           <strong>Origin:</strong> Firehose<br>
           <strong>Type:</strong> Gauge (%)<br>
           <strong>Frequency:</strong> 60 s<br>
