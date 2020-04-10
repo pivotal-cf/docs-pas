@@ -1,74 +1,74 @@
 ---
 breadcrumb: <%= vars.platform_name %> Documentation
-title: Getting Started with PAS
+title: Getting Started with TAS for VMs
 owner: <%= vars.platform_name %> Documentation
 ---
 
-This topic gives a high-level conceptual overview and introduction to Pivotal Application Service (PAS). It is designed to:
+This topic gives a high-level conceptual overview and introduction to <%= vars.app_runtime_full %> (<%= vars.app_runtime_abbr %>). It is designed to:
 
-* Introduce the PAS runtime to people who are unfamiliar with it.
+* Introduce the <%= vars.app_runtime_abbr %> runtime to people who are unfamiliar with it.
 
-* Provide context and explanations that support the how-to information in the Pivotal documentation's role-based guides.
+* Provide context and explanations that support the how-to information in the <%= vars.company_name %> documentation's role-based guides.
 
-* Explain how you can get started running apps on PAS in two ways:
+* Explain how you can get started running apps on <%= vars.app_runtime_abbr %> in two ways:
 
-  - Install and run [<%= vars.platform_name %> Dev](https://docs.pivotal.io/pcf-dev/index.html), a free, lightweight version of PAS that enables you to develop and run apps on your local workstation.
+  - Install and run [<%= vars.platform_name %> Dev](https://docs.pivotal.io/pcf-dev/index.html), a free, lightweight version of <%= vars.app_runtime_abbr %> that enables you to develop and run apps on your local workstation.
 
-  - Subscribe to [Pivotal Web Services](http://docs.run.pivotal.io/starting/index.html) (PWS), a full PAS platform hosted by Pivotal.
+  - Subscribe to [Pivotal Web Services](http://docs.run.pivotal.io/starting/index.html) (PWS), a full <%= vars.app_runtime_abbr %> platform hosted by <%= vars.company_name %>.
 
-If you want to learn about how PAS works or test it out yourself, this guide is for you.
+If you want to learn about how <%= vars.app_runtime_abbr %> works or test it out yourself, this guide is for you.
 
 
 ## <a id='contents'></a> Contents
 
-* [<%= vars.app_runtime_full %> Overview](../concepts/overview.html) - A general introduction to [Cloud Foundry Application Runtime](https://www.cloudfoundry.org/application-runtime/), the open-source software that underlies PAS. Read this first.
+* [<%= vars.app_runtime_abbr %> Overview](../concepts/overview.html) - A general introduction to [Cloud Foundry Application Runtime](https://www.cloudfoundry.org/application-runtime/), the open-source software that underlies <%= vars.app_runtime_abbr %>. Read this first.
 
-  - [PAS Routing Architecture](../concepts/cf-routing-architecture.html)
+  - [<%= vars.app_runtime_abbr %> Routing Architecture](../concepts/cf-routing-architecture.html)
 
-  - [How the Diego Auction Balances Jobs](../concepts/diego/diego-architecture.html)
+  - [Diego Components and Architecture](../concepts/diego/diego-architecture.html)
 
-  - [How the Diego Auction Balances App Processes](../concepts/diego/diego-auction.html)
+  - [How Diego Balances App Processes](../concepts/diego/diego-auction.html)
 
   - [How Apps Are Staged](../concepts/how-applications-are-staged.html)
 
   - [App SSH Overview](../devguide/deploy-apps/app-ssh-overview.html)
 
-  - [High Availability in PAS](../concepts/high-availability.html)
+  - [High Availability in <%= vars.app_runtime_abbr %>](../concepts/high-availability.html)
 
 * [<%= vars.platform_name %> User Types](../customizing/user-types.html) - Explains the main categories of <%= vars.platform_name %> users: the operators who run the platform, the runtime users who develop and manage apps and containers on the platform, and the end users who use the cloud-based apps that the platform hosts.
 
   - [Orgs, Spaces, Roles, and Permissions](../concepts/roles.html)
 
-* [PAS Components](../concepts/architecture/index.html) - Describes the internal components of PAS, and how these specialized processes work together to support, maintain, and provide control over hosted apps. Each component performs a different function within the...
+* [<%= vars.app_runtime_abbr %> Components](../concepts/architecture/index.html) - Describes the internal components of <%= vars.app_runtime_abbr %>, and how these specialized processes work together to support, maintain, and provide control over hosted apps. Each component performs a different function within the...
 
-  - [Component: Cloud Controller](../concepts/architecture/cloud-controller.html)
+  - [Cloud Controller](../concepts/architecture/cloud-controller.html)
 
-  - [Component: Messaging (NATS)](../concepts/architecture/messaging-nats.html)
+  - [Messaging (NATS)](../concepts/architecture/messaging-nats.html)
 
-  - [Component: Gorouter](../concepts/architecture/router.html)
+  - [Gorouter](../concepts/architecture/router.html)
 
-  - [Component: User Account and Authentication (UAA) Server](../concepts/architecture/uaa.html)
+  - [User Account and Authentication (UAA) Server](../concepts/architecture/uaa.html)
 
-  - [Component: Garden](../concepts/architecture/garden.html)
+  - [Garden](../concepts/architecture/garden.html)
 
-  - [Component: HTTP Routing](../concepts/http-routing.html)
+  - [HTTP Routing](../concepts/http-routing.html)
 
   - [App SSH Components and Processes](../concepts/diego/ssh-conceptual.html)
 
-* [PAS Security](../concepts/security.html) - An overview of how PAS protects its internal components and hosted apps from security threats.
+* [<%= vars.app_runtime_abbr %> Security](../concepts/security.html) - An overview of how <%= vars.app_runtime_abbr %> protects its internal components and hosted apps from security threats.
 
   - [Security Concepts](https://docs.pivotal.io/platform/<%= vars.current_major_version.sub('.', '-') %>/security/concepts/index.html)
 
-  - [<%= vars.platform_name %> Security Processes](https://docs.pivotal.io/platform/<%= vars.current_major_version.sub('.', '-') %>/security/process/index.html)
+  - [Security Processes](https://docs.pivotal.io/platform/<%= vars.current_major_version.sub('.', '-') %>/security/process/index.html)
 
   - [<%= vars.platform_name %> Security Overview and Policy](https://docs.pivotal.io/platform/<%= vars.current_major_version.sub('.', '-') %>/security/process/pcf-security.html)
 
-  - [<%= vars.platform_name %> Testing, Release, and Security Lifecycle](https://docs.pivotal.io/platform/<%= vars.current_major_version.sub('.', '-') %>/security/process/security-lifecycle.html)
+  - [Testing, Release, and Security Lifecycle](https://docs.pivotal.io/platform/<%= vars.current_major_version.sub('.', '-') %>/security/process/security-lifecycle.html)
 
   - [Container Security](../concepts/container-security.html)
 
   - [Container-to-Container Networking](../concepts/understand-cf-networking.html)
 
-* [<%= vars.platform_name %> Dev](https://docs.pivotal.io/pcf-dev/index.html) - A lightweight PAS that runs on your workstation, for developing apps locally.
+* [<%= vars.platform_name %> Dev](https://docs.pivotal.io/pcf-dev/index.html) - A lightweight <%= vars.app_runtime_abbr %> that runs on your workstation, for developing apps locally.
 
-* [Pivotal Web Services](http://docs.run.pivotal.io/starting/index.html) - A subscription PAS installation operated by Pivotal.
+* [Pivotal Web Services](http://docs.run.pivotal.io/starting/index.html) - A subscription <%= vars.app_runtime_abbr %> installation operated by <%= vars.company_name %>.
