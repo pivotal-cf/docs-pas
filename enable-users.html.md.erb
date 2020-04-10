@@ -1,14 +1,14 @@
 ---
-title: Enabling PAS Users
+title: Enabling TAS for VMs Users
 owner: <%= vars.product_name %> Documentation
 ---
 
-The topics in this subsection explain how to manage user accounts and enable the users of a Pivotal Application Service (PAS) runtime on <%= vars.platform_name %>.
+The topics in this subsection explain how to manage user accounts and enable the users of a <%= vars.app_runtime_full %> (<%= vars.app_runtime_abbr %>) runtime on <%= vars.platform_name %>.
 
 
 ## <a id='overview'></a> Overview
 
-PAS-based runtimes are opinionated development environments with built-in structures to compartmentalize, support, and track multiple independent app development teams. Enabling PAS users means:
+<%= vars.app_runtime_abbr %>-based runtimes are opinionated development environments with built-in structures to compartmentalize, support, and track multiple independent app development teams. Enabling <%= vars.app_runtime_abbr %> users means:
 
 * Inviting new users and assigning user roles
 * Setting up and managing user notifications
@@ -16,9 +16,9 @@ PAS-based runtimes are opinionated development environments with built-in struct
 * Giving developers access to software services and buildpacks
 * Giving developers and security objects
 * Enabling secure traffic between apps
-* Integrating PAS with container systems and development environments
+* Integrating <%= vars.app_runtime_abbr %> with container systems and development environments
 
-In addition to these tasks, PAS managers may also deploy apps, create service instances, and perform other tasks that PAS app developers do. For more information, see [Developer Guide](../devguide/index.html).
+In addition to these tasks, <%= vars.app_runtime_abbr %> managers may also deploy apps, create service instances, and perform other tasks that <%= vars.app_runtime_abbr %> app developers do. For more information, see [Developer Guide](../devguide/index.html).
       
 
 ## <a id='contents'></a> Contents
@@ -27,7 +27,7 @@ In addition to these tasks, PAS managers may also deploy apps, create service in
 
 - [Managing User Roles with Apps Manager](../console/console-roles.html)
 
-- [Creating PAS User Accounts](../opsguide/creating-account.html)
+- [Creating New <%= vars.app_runtime_abbr %> User Accounts](../opsguide/creating-account.html)
 
 - [Adding Existing SAML or LDAP Users](../opsguide/external-user-management.html)
 
@@ -53,6 +53,6 @@ In addition to these tasks, PAS managers may also deploy apps, create service in
 
 - [Managing Isolation Segments](../adminguide/isolation-segments.html)
 
-- [Using Docker in PAS](../adminguide/docker.html)
+- [Using Docker in <%= vars.app_runtime_abbr %>](../adminguide/docker.html)
 
 - [Trusted System Certificates](../devguide/deploy-apps/trusted-system-certificates.html)
