@@ -1,12 +1,12 @@
 ---
-breadcrumb: <%= vars.product_name %> Documentation
-title: PAS Administrator Guide
-owner: <%= vars.product_name %> Documentation
+breadcrumb: <%= vars.platform_name %> Documentation
+title: TAS for VMs Administrator Guide
+owner: <%= vars.platform_name %> Documentation
 ---
 
-##<a id='who'></a>For PAS Administrators
+## <a id='who'></a> For <%= vars.app_runtime_abbr %> Administrators
 
-This guide shows you how to manage application runtimes on <%= vars.product_name %>, including Pivotal Application Runtime (PAS), PAS for Windows 2012R2, Isolation Segment, and the Small Footprint Runtime.
+This guide shows you how to manage app runtimes on <%= vars.platform_name %>, including <%= vars.app_runtime_full %> (<%= vars.app_runtime_abbr %>), <%= vars.window_runtime_full %> (<%= vars.windows_runtime_abbr %>), <%= vars.segment_runtime_full %>, and <%= vars.app_runtime_abbr %> Small Footprint Runtime.
 
 This ongoing responsibility may include but is not limited to:
 
@@ -19,23 +19,24 @@ This ongoing responsibility may include but is not limited to:
 * Enabling secure app communications
 * Integrating app development tools
 
-If you do these things, you are a PAS **Administrator**. You have an Admin or Manager [role](../concepts/roles.html#roles) in PAS, and the contents of this guide are for you.
+If you do these things, you are a <%= vars.app_runtime_abbr %> **Administrator**. You have an Admin or Manager [role](../concepts/roles.html#roles) in <%= vars.app_runtime_abbr %>, and the contents of this guide are for you.
 
-All <%= vars.product_name %> Operators can [access credentials](https://docs.pivotal.io/platform/<%= vars.current_major_version.sub('.', '-') %>/customizing/console-login.html) that grant them the Admin role.
+All <%= vars.platform_name %> Operators can [access credentials](https://docs.pivotal.io/platform/<%= vars.current_major_version.sub('.', '-') %>/customizing/console-login.html) that grant them the Admin role.
 
-Procedures that require logging into Ops Manager or the BOSH Director are beyond the scope of this guide, because they require accounts with the Ops Manager user authentication and access (UAA) server, not the PAS Cloud Controller UAA. For Ops Manager user documentation, see the [<%= vars.product_name %> Operators Guide](https://docs.pivotal.io/platform/<%= vars.current_major_version.sub('.', '-') %>/opsguide/index.html) and the [<%= vars.product_name %> Architecture and Installation Guide](https://docs.pivotal.io/platform/<%= vars.current_major_version.sub('.', '-') %>/installing/index.html).
+Procedures that require logging into <%= vars.ops_manager %> or the BOSH Director are beyond the scope of this guide, because they require accounts with the <%= vars.ops_manager %> user authentication and access (UAA) server, not the <%= vars.app_runtime_abbr %> Cloud Controller UAA. For <%= vars.ops_manager %> user documentation, see the [<%= vars.platform_name %> Operators Guide](https://docs.pivotal.io/platform/<%= vars.current_major_version.sub('.', '-') %>/opsguide/index.html) and the [<%= vars.platform_name %> Architecture and Installation Guide](https://docs.pivotal.io/platform/<%= vars.current_major_version.sub('.', '-') %>/installing/index.html).
 
-##<a id='contents'></a>Guide Contents
 
-* <a href="./manage-platform.html">Managing the PAS Platform</a>
+##<a id='contents'></a> Guide Contents
+
+* <a href="./manage-platform.html">Managing the <%= vars.app_runtime_abbr %> Platform</a>
 
 	- Managing Routes and Domains
 	- Managing Orgs, Spaces, and Platform Settings
 	- App Logs and Usage Reports
 
-* <a href="./enable-users.html">Enabling PAS Users</a>
+* <a href="./enable-users.html">Enabling <%= vars.app_runtime_abbr %> Users</a>
 
 	- User Accounts and Communications
 	- Enabling Developers
 
-* <a href="../cf-cli/index.html">Cloud Foundry Command Line Interface (cf CLI)</a> - Using the cf CLI to send commands to the Cloud Controller, the executive component of PAS.
+* <a href="../cf-cli/index.html">Cloud Foundry Command Line Interface (cf CLI)</a> - Using the cf CLI to send commands to the Cloud Controller, the executive component of <%= vars.app_runtime_abbr %>.

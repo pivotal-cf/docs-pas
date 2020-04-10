@@ -1,21 +1,21 @@
 ---
 breadcrumb: <%= vars.platform_name %> Documentation
-title: PAS Developer Guide
+title: TAS for VMs Developer Guide
 owner: <%= vars.platform_name %> Documentation
 ---
 
-The topics in this subsection serve as a guide for Pivotal Application Service (PAS) developers. They explain how to develop, run, and manage apps on PAS.
+The topics in this subsection serve as a guide for <%= vars.app_runtime_full %> (<%= vars.app_runtime_abbr %>) developers. They explain how to develop, run, and manage apps on <%= vars.app_runtime_abbr %>.
 
 
 ## <a id='overview'></a> Overview
 
-Developing, running, and managing apps on PAS may include:
+Developing, running, and managing apps on <%= vars.app_runtime_abbr %> may include:
 
 * Deploying and scaling apps with diverse languages, frameworks, and dependencies
 
 * Finding software services in the services marketplace, such as databases, email, or message servers
 
-* Creating your own PAS service based on an external server
+* Creating your own <%= vars.app_runtime_abbr %> service based on an external server
 
 * Creating service instances and binding them to your apps
 
@@ -23,7 +23,7 @@ Developing, running, and managing apps on PAS may include:
 
 * Troubleshooting app deployment and health
 
-If you do these things, you are a PAS **Developer**, and the contents of this guide are for you.
+If you do these things, you are a <%= vars.app_runtime_abbr %> **Developer**, and the contents of this guide are for you.
 
 
 ## <a id='contents'></a> Guide Contents
@@ -54,7 +54,7 @@ If you do these things, you are a PAS **Developer**, and the contents of this gu
 
   - [Routes and Domains](../devguide/deploy-apps/routes-domains.html)
 
-  - [PAS Environment Variables](../devguide/deploy-apps/environment-variable.html)
+  - [<%= vars.app_runtime_abbr %> Environment Variables](../devguide/deploy-apps/environment-variable.html)
 
   - [Trusted System Certificates](../devguide/deploy-apps/trusted-system-certificates.html)
 
@@ -78,7 +78,7 @@ If you do these things, you are a PAS **Developer**, and the contents of this gu
 
   - [Using an External Filesystem (Volume Services)](../devguide/services/using-vol-services.html)
 
-* [Using Apps Manager](../console/index.html) - A dashboard for managing apps, services, and PAS user accounts.
+* [Using Apps Manager](../console/index.html) - A dashboard for managing apps, services, and <%= vars.app_runtime_abbr %> user accounts.
 
   - [Getting Started with Apps Manager](../console/dev-console.html)
 
@@ -146,17 +146,17 @@ If you do these things, you are a PAS **Developer**, and the contents of this gu
 
   - [Accessing Services with SSH](../devguide/deploy-apps/ssh-services.html)
 
-* [<%= vars.platform_name %> Dev](https://docs.pivotal.io/pcf-dev/index.html) - A lightweight PAS that runs on your workstation, for developing apps locally.
+* [<%= vars.platform_name %> Dev](https://docs.pivotal.io/pcf-dev/index.html) - A lightweight <%= vars.app_runtime_abbr %> that runs on your workstation, for developing apps locally.
 
-* [Cloud Controller API Client Libraries](../devguide/capi/client-libraries.html) - Libraries for calling the Cloud Controller, the executive component of PAS, programmatically.
+* [Cloud Controller API Client Libraries](../devguide/capi/client-libraries.html) - Libraries for calling the Cloud Controller, the executive component of <%= vars.app_runtime_abbr %>, programmatically.
 
-* [Cloud Foundry Command Line Interface (cf CLI)](../cf-cli/index.html) - A CLI for calling the Cloud Controller, the executive component of PAS, interactively.
+* [Cloud Foundry Command Line Interface (cf CLI)](../cf-cli/index.html) - A CLI for calling the Cloud Controller, the executive component of <%= vars.app_runtime_abbr %>, interactively.
 
   - [Installing the cf CLI](../cf-cli/install-go-cli.html)
 
   - [Getting Started with the cf CLI](../cf-cli/getting-started.html)
 
-  - [Identifying the API Endpoint for Your PAS Instance](../opsguide/api-endpoint.html)
+  - [Identifying the API Endpoint for Your <%= vars.app_runtime_abbr %> Instance](../opsguide/api-endpoint.html)
 
   - [Using the cf CLI with an HTTP Proxy Server](../cf-cli/http-proxy.html)
 
