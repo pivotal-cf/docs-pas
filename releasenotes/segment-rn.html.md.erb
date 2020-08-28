@@ -1,0 +1,535 @@
+---
+title: Isolation Segment v2.9 Release Notes
+owner: Release Engineering
+---
+
+<% current_page.data.title = vars.segment_runtime_full + " " + vars.v_major_version + " Release Notes" %>
+
+<p class="note"><strong>Note:</strong>
+  Pivotal Platform is now part of VMware Tanzu.
+  In v2.9 and later, Pivotal Isolation Segment is renamed to Isolation Segment.
+</p>
+
+This topic contains release notes for <%= vars.segment_runtime_full %> <%= vars.v_major_version %>.
+
+<hr>
+
+## <a id='releases'></a> Releases
+
+<%# DO NOT DELETE THIS LINE - robots use this to add new release notes %>
+ 
+### <a id='2.9.10'></a> 2.9.10
+
+**Release Date:** 08/24/2020
+
+* **[Bug Fix]** loggr-syslog-agent - Fix server alternative name
+* **[Bug Fix]**: Return 502 TLS Handshake error for an unresponsive backend
+* **[Bug Fix]** Bump garden-runc to v1.19.16
+* Bump ubuntu-xenial stemcell to version `621.78`
+* Bump cflinuxfs3 to version `0.203.0`
+* Bump garden-runc to version `1.19.16`
+* Bump routing to version `0.205.0`
+
+<table border="1" class="nice">
+  <thead>
+    <tr>
+      <th>Component</th>
+      <th>Version</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>ubuntu-xenial stemcell</td><td>621.78</td></tr>
+    <tr><td>bpm</td><td>1.1.6</td></tr>
+    <tr><td>cf-networking</td><td>2.31.0</td></tr>
+    <tr><td>cflinuxfs3</td><td>0.203.0</td></tr>
+    <tr><td>diego</td><td>2.47.0</td></tr>
+    <tr><td>garden-runc</td><td>1.19.16</td></tr>
+    <tr><td>haproxy</td><td>9.8.0</td></tr>
+    <tr><td>license</td><td></td></tr>
+    <tr><td>loggregator-agent</td><td>5.3.10</td></tr>
+    <tr><td>mapfs</td><td>1.2.4</td></tr>
+    <tr><td>metrics-discovery</td><td>3.0.0</td></tr>
+    <tr><td>nfs-volume</td><td>7.0.3</td></tr>
+    <tr><td>routing</td><td>0.205.0</td></tr>
+    <tr><td>silk</td><td>2.31.0</td></tr>
+    <tr><td>smb-volume</td><td>3.0.1</td></tr>
+    <tr><td>smoke-tests</td><td>2.2.0</td></tr>
+    <tr><td>syslog</td><td>11.6.1</td></tr>
+  </tbody>
+</table>
+ 
+ 
+ 
+### <a id='2.9.9'></a> 2.9.9
+
+**Release Date:** 08/07/2020
+
+* **[Bug Fix]** Fix issue where requests to internal routes could fail due to incorrect case-sensitivity in DNS lookup in the service discovery controller.
+* **[Bug Fix]** System Metrics Scraper/Prom Scraper — Fixes a bug that causes excess log volume and increases scrape interval to reduce metric volume
+* Bump ubuntu-xenial stemcell to version `621.77`
+* Bump cf-networking to version `2.31.0`
+* Bump cflinuxfs3 to version `0.202.0`
+* Bump garden-runc to version `1.19.14`
+* Bump silk to version `2.31.0`
+
+<table border="1" class="nice">
+  <thead>
+    <tr>
+      <th>Component</th>
+      <th>Version</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>ubuntu-xenial stemcell</td><td>621.77</td></tr>
+    <tr><td>bpm</td><td>1.1.6</td></tr>
+    <tr><td>cf-networking</td><td>2.31.0</td></tr>
+    <tr><td>cflinuxfs3</td><td>0.202.0</td></tr>
+    <tr><td>diego</td><td>2.47.0</td></tr>
+    <tr><td>garden-runc</td><td>1.19.14</td></tr>
+    <tr><td>haproxy</td><td>9.8.0</td></tr>
+    <tr><td>loggregator-agent</td><td>5.3.10</td></tr>
+    <tr><td>mapfs</td><td>1.2.4</td></tr>
+    <tr><td>metrics-discovery</td><td>3.0.0</td></tr>
+    <tr><td>nfs-volume</td><td>7.0.3</td></tr>
+    <tr><td>routing</td><td>0.203.0</td></tr>
+    <tr><td>silk</td><td>2.31.0</td></tr>
+    <tr><td>smb-volume</td><td>3.0.1</td></tr>
+    <tr><td>smoke-tests</td><td>2.2.0</td></tr>
+    <tr><td>syslog</td><td>11.6.1</td></tr>
+  </tbody>
+</table>
+ 
+ 
+ 
+### <a id='2.9.8'></a> 2.9.8
+
+**Release Date:** 07/16/2020
+
+* **[Security Fix]** Fix for [CVE-2020-15586](https://www.cloudfoundry.org/blog/cve-2020-15586/): Bump golang to version 1.14.5 with a fix in the net/http/httputil package for an issue which could cause the Gorouter to crash if a malicious client sends specially crafted HTTP requests.
+* Bump cflinuxfs3 to version `0.198.0`
+* Bump routing to version `0.203.0`
+
+<table border="1" class="nice">
+  <thead>
+    <tr>
+      <th>Component</th>
+      <th>Version</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>ubuntu-xenial stemcell</td><td>621.76</td></tr>
+    <tr><td>bpm</td><td>1.1.6</td></tr>
+    <tr><td>cf-networking</td><td>2.30.0</td></tr>
+    <tr><td>cflinuxfs3</td><td>0.198.0</td></tr>
+    <tr><td>diego</td><td>2.47.0</td></tr>
+    <tr><td>garden-runc</td><td>1.19.10</td></tr>
+    <tr><td>haproxy</td><td>9.8.0</td></tr>
+    <tr><td>loggregator-agent</td><td>5.3.10</td></tr>
+    <tr><td>mapfs</td><td>1.2.4</td></tr>
+    <tr><td>metrics-discovery</td><td>3.0.0</td></tr>
+    <tr><td>nfs-volume</td><td>7.0.3</td></tr>
+    <tr><td>routing</td><td>0.203.0</td></tr>
+    <tr><td>silk</td><td>2.30.0</td></tr>
+    <tr><td>smb-volume</td><td>3.0.1</td></tr>
+    <tr><td>smoke-tests</td><td>2.2.0</td></tr>
+    <tr><td>syslog</td><td>11.6.1</td></tr>
+  </tbody>
+</table>
+ 
+ 
+ 
+### <a id='2.9.7'></a> 2.9.7
+
+**Release Date:** 07/09/2020
+
+* Bump cflinuxfs3 to version `0.197.0`
+
+<table border="1" class="nice">
+  <thead>
+    <tr>
+      <th>Component</th>
+      <th>Version</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>ubuntu-xenial stemcell</td><td>621.76</td></tr>
+    <tr><td>bpm</td><td>1.1.6</td></tr>
+    <tr><td>cf-networking</td><td>2.30.0</td></tr>
+    <tr><td>cflinuxfs3</td><td>0.197.0</td></tr>
+    <tr><td>diego</td><td>2.47.0</td></tr>
+    <tr><td>garden-runc</td><td>1.19.10</td></tr>
+    <tr><td>haproxy</td><td>9.8.0</td></tr>
+    <tr><td>loggregator-agent</td><td>5.3.10</td></tr>
+    <tr><td>mapfs</td><td>1.2.4</td></tr>
+    <tr><td>metrics-discovery</td><td>3.0.0</td></tr>
+    <tr><td>nfs-volume</td><td>7.0.3</td></tr>
+    <tr><td>routing</td><td>0.201.0</td></tr>
+    <tr><td>silk</td><td>2.30.0</td></tr>
+    <tr><td>smb-volume</td><td>3.0.1</td></tr>
+    <tr><td>smoke-tests</td><td>2.2.0</td></tr>
+    <tr><td>syslog</td><td>11.6.1</td></tr>
+  </tbody>
+</table>
+ 
+ 
+
+### <a id='2.9.6'></a> 2.9.6
+
+**Release Date:** 06/25/2020
+
+* **[Breaking Change]** Incorrect HTTP(S) Proxy configuration breaks CredHub interpolation for apps. For more information, see [<%= vars.segment_runtime_full %> <%= vars.v_major_version %> Breaking Changes](breaking-changes.html#credhub-interpolate-with-https-iso).
+* **[Breaking Change]**: If you use the NSX-T Container Plugin (NCP) tile v3.0.1 or earlier, do not upgrade to this patch.
+The stemcell in this patch is not compatible with the NCP tile v3.0.1 and causes the `openvswitch` job to fail when you deploy.
+* **[Bug Fix]** Remove invalid characters in hostnames in outgoing application syslog messages to comply with [RFC 5424](https://tools.ietf.org/html/rfc5424)
+* Bump ubuntu-xenial stemcell to version `621.76`
+* Bump cflinuxfs3 to version `0.195.0`
+* Bump diego to version `2.47.0`
+* Bump loggregator-agent to version `5.3.10`
+* Bump smoke-tests to version `2.2.0`
+
+<table border="1" class="nice">
+  <thead>
+    <tr>
+      <th>Component</th>
+      <th>Version</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>ubuntu-xenial stemcell</td><td>621.76</td></tr>
+    <tr><td>bpm</td><td>1.1.6</td></tr>
+    <tr><td>cf-networking</td><td>2.30.0</td></tr>
+    <tr><td>cflinuxfs3</td><td>0.195.0</td></tr>
+    <tr><td>diego</td><td>2.47.0</td></tr>
+    <tr><td>garden-runc</td><td>1.19.10</td></tr>
+    <tr><td>haproxy</td><td>9.8.0</td></tr>
+    <tr><td>loggregator-agent</td><td>5.3.10</td></tr>
+    <tr><td>mapfs</td><td>1.2.4</td></tr>
+    <tr><td>metrics-discovery</td><td>3.0.0</td></tr>
+    <tr><td>nfs-volume</td><td>7.0.3</td></tr>
+    <tr><td>routing</td><td>0.201.0</td></tr>
+    <tr><td>silk</td><td>2.30.0</td></tr>
+    <tr><td>smb-volume</td><td>3.0.1</td></tr>
+    <tr><td>smoke-tests</td><td>2.2.0</td></tr>
+    <tr><td>syslog</td><td>11.6.1</td></tr>
+  </tbody>
+</table>
+ 
+ 
+ 
+### <a id='2.9.5'></a> 2.9.5
+
+**Release Date:** 06/11/2020
+
+* **[Bug Fix]** Gorouter - Drain timeout always uses configured value
+* **[Bug Fix]** Silk - Continue container networking during cell drain
+* **[Bug Fix]** Loggregator Agent - Fix certificate issues for all agent metrics
+* Bump cf-networking to version `2.30.0`
+* Bump cflinuxfs3 to version `0.191.0`
+* Bump routing to version `0.201.0`
+* Bump silk to version `2.30.0`
+
+<table border="1" class="nice">
+  <thead>
+    <tr>
+      <th>Component</th>
+      <th>Version</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>ubuntu-xenial stemcell</td><td>621.74</td></tr>
+    <tr><td>bpm</td><td>1.1.6</td></tr>
+    <tr><td>cf-networking</td><td>2.30.0</td></tr>
+    <tr><td>cflinuxfs3</td><td>0.191.0</td></tr>
+    <tr><td>diego</td><td>2.44.0</td></tr>
+    <tr><td>garden-runc</td><td>1.19.10</td></tr>
+    <tr><td>haproxy</td><td>9.8.0</td></tr>
+    <tr><td>loggregator-agent</td><td>5.3.9</td></tr>
+    <tr><td>mapfs</td><td>1.2.4</td></tr>
+    <tr><td>metrics-discovery</td><td>3.0.0</td></tr>
+    <tr><td>nfs-volume</td><td>7.0.3</td></tr>
+    <tr><td>routing</td><td>0.201.0</td></tr>
+    <tr><td>silk</td><td>2.30.0</td></tr>
+    <tr><td>smb-volume</td><td>3.0.1</td></tr>
+    <tr><td>smoke-tests</td><td>2.0.6</td></tr>
+    <tr><td>syslog</td><td>11.6.1</td></tr>
+  </tbody>
+</table>
+ 
+ 
+ 
+### <a id='2.9.4'></a> 2.9.4
+
+**Release Date:** 06/02/2020
+
+* **[Feature]** Allow egress traffic from apps to addresses on host via host_tcp_services
+* **[Bug Fix]** Migrate `services/intermediate_tls_ca` to `/services/tls_leaf` for Maestro
+* **[Bug Fix]** Add a new cache configuration to the NFS service allowing service instances to enable file attribute caching and achieve directory listing performance similar to the nfs-legacy service
+* Bump cflinuxfs3 to version `0.189.0`
+* Bump metrics-discovery to version `3.0.0`
+* Bump nfs-volume to version `7.0.3`
+
+<table border="1" class="nice">
+  <thead>
+    <tr>
+      <th>Component</th>
+      <th>Version</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>ubuntu-xenial stemcell</td><td>621.74</td></tr>
+    <tr><td>bpm</td><td>1.1.6</td></tr>
+    <tr><td>cf-networking</td><td>2.28.0</td></tr>
+    <tr><td>cflinuxfs3</td><td>0.189.0</td></tr>
+    <tr><td>diego</td><td>2.44.0</td></tr>
+    <tr><td>garden-runc</td><td>1.19.10</td></tr>
+    <tr><td>haproxy</td><td>9.8.0</td></tr>
+    <tr><td>loggregator-agent</td><td>5.3.9</td></tr>
+    <tr><td>mapfs</td><td>1.2.4</td></tr>
+    <tr><td>metrics-discovery</td><td>3.0.0</td></tr>
+    <tr><td>nfs-volume</td><td>7.0.3</td></tr>
+    <tr><td>routing</td><td>0.199.0</td></tr>
+    <tr><td>silk</td><td>2.28.0</td></tr>
+    <tr><td>smb-volume</td><td>3.0.1</td></tr>
+    <tr><td>smoke-tests</td><td>2.0.6</td></tr>
+    <tr><td>syslog</td><td>11.6.1</td></tr>
+  </tbody>
+</table>
+ 
+ 
+ 
+### <a id='2.9.3'></a> 2.9.3
+
+**Release Date:** 05/18/2020
+
+* **[Bug Fix]** Fix scheduling bug in `loggregator agent` by upgrading to Go 1.14.2
+* Bump ubuntu-xenial stemcell to version `621.74`
+* Bump cflinuxfs3 to version `0.179.0`
+* Bump loggregator-agent to version `5.3.9`
+
+<table border="1" class="nice">
+  <thead>
+    <tr>
+      <th>Component</th>
+      <th>Version</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>ubuntu-xenial stemcell</td><td>621.74</td></tr>
+    <tr><td>bpm</td><td>1.1.6</td></tr>
+    <tr><td>cf-networking</td><td>2.28.0</td></tr>
+    <tr><td>cflinuxfs3</td><td>0.179.0</td></tr>
+    <tr><td>diego</td><td>2.44.0</td></tr>
+    <tr><td>garden-runc</td><td>1.19.10</td></tr>
+    <tr><td>haproxy</td><td>9.8.0</td></tr>
+    <tr><td>loggregator-agent</td><td>5.3.9</td></tr>
+    <tr><td>mapfs</td><td>1.2.4</td></tr>
+    <tr><td>metrics-discovery</td><td>2.0.2</td></tr>
+    <tr><td>nfs-volume</td><td>7.0.2</td></tr>
+    <tr><td>routing</td><td>0.199.0</td></tr>
+    <tr><td>silk</td><td>2.28.0</td></tr>
+    <tr><td>smb-volume</td><td>3.0.1</td></tr>
+    <tr><td>smoke-tests</td><td>2.0.6</td></tr>
+    <tr><td>syslog</td><td>11.6.1</td></tr>
+  </tbody>
+</table>
+ 
+ 
+ 
+### <a id='2.9.2'></a> 2.9.2
+
+**Release Date:** 05/05/2020
+
+* **[Security Fix]** Update debian packages and source libraries in nfs and mapfs releases
+* Bump ubuntu-xenial stemcell to version `621.71`
+* Bump cflinuxfs3 to version `0.178.0`
+* Bump mapfs to version `1.2.4`
+* Bump nfs-volume to version `7.0.2`
+* Bump smb-volume to version `3.0.1`
+
+<table border="1" class="nice">
+  <thead>
+    <tr>
+      <th>Component</th>
+      <th>Version</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>ubuntu-xenial stemcell</td><td>621.71</td></tr>
+    <tr><td>bpm</td><td>1.1.6</td></tr>
+    <tr><td>cf-networking</td><td>2.28.0</td></tr>
+    <tr><td>cflinuxfs3</td><td>0.178.0</td></tr>
+    <tr><td>diego</td><td>2.44.0</td></tr>
+    <tr><td>garden-runc</td><td>1.19.10</td></tr>
+    <tr><td>haproxy</td><td>9.8.0</td></tr>
+    <tr><td>loggregator-agent</td><td>5.3.8</td></tr>
+    <tr><td>mapfs</td><td>1.2.4</td></tr>
+    <tr><td>metrics-discovery</td><td>2.0.2</td></tr>
+    <tr><td>nfs-volume</td><td>7.0.2</td></tr>
+    <tr><td>routing</td><td>0.199.0</td></tr>
+    <tr><td>silk</td><td>2.28.0</td></tr>
+    <tr><td>smb-volume</td><td>3.0.1</td></tr>
+    <tr><td>smoke-tests</td><td>2.0.6</td></tr>
+    <tr><td>syslog</td><td>11.6.1</td></tr>
+  </tbody>
+</table>
+ 
+ 
+ 
+### <a id='2.9.1'></a> 2.9.1
+
+**Release Date:** 04/22/2020
+
+* **[Feature]** HAProxy can now be configured with custom certificate authorities
+* **[Bug Fix]** Fix `server_name` value to use Common Name as metrics_agent_metrics_tls
+* Bump ubuntu-xenial stemcell to version `621.64`
+* Bump cflinuxfs3 to version `0.175.0`
+
+<table border="1" class="nice">
+  <thead>
+    <tr>
+      <th>Component</th>
+      <th>Version</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>ubuntu-xenial stemcell</td><td>621.64</td></tr>
+    <tr><td>bpm</td><td>1.1.6</td></tr>
+    <tr><td>cf-networking</td><td>2.28.0</td></tr>
+    <tr><td>cflinuxfs3</td><td>0.175.0</td></tr>
+    <tr><td>diego</td><td>2.44.0</td></tr>
+    <tr><td>garden-runc</td><td>1.19.10</td></tr>
+    <tr><td>haproxy</td><td>9.8.0</td></tr>
+    <tr><td>loggregator-agent</td><td>5.3.8</td></tr>
+    <tr><td>mapfs</td><td>1.2.3</td></tr>
+    <tr><td>metrics-discovery</td><td>2.0.2</td></tr>
+    <tr><td>nfs-volume</td><td>6.0.0</td></tr>
+    <tr><td>routing</td><td>0.199.0</td></tr>
+    <tr><td>silk</td><td>2.28.0</td></tr>
+    <tr><td>smb-volume</td><td>2.1.1</td></tr>
+    <tr><td>smoke-tests</td><td>2.0.6</td></tr>
+    <tr><td>syslog</td><td>11.6.1</td></tr>
+  </tbody>
+</table>
+ 
+ 
+ 
+### <a id='2-9-0'></a> v2.9.0
+
+**Release Date:** April 10, 2020
+
+* See [New Features in <%= vars.segment_runtime_full %> v2.9](#new-features).
+
+<table border="1" class="nice">
+  <thead>
+    <tr>
+      <th>Component</th>
+      <th>Version</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>ubuntu-xenial stemcell</td><td>621.61</td></tr>
+    <tr><td>bpm</td><td>1.1.6</td></tr>
+    <tr><td>cf-networking</td><td>2.28.0</td></tr>
+    <tr><td>cflinuxfs3</td><td>0.174.0</td></tr>
+    <tr><td>diego</td><td>2.44.0</td></tr>
+    <tr><td>garden-runc</td><td>1.19.10</td></tr>
+    <tr><td>haproxy</td><td>9.8.0</td></tr>
+    <tr><td>loggregator-agent</td><td>5.3.8</td></tr>
+    <tr><td>mapfs</td><td>1.2.3</td></tr>
+    <tr><td>metrics-discovery</td><td>2.0.2</td></tr>
+    <tr><td>nfs-volume</td><td>6.0.0</td></tr>
+    <tr><td>routing</td><td>0.199.0</td></tr>
+    <tr><td>silk</td><td>2.28.0</td></tr>
+    <tr><td>smb-volume</td><td>2.1.1</td></tr>
+    <tr><td>smoke-tests</td><td>2.0.6</td></tr>
+    <tr><td>syslog</td><td>11.6.1</td></tr>
+  </tbody>
+</table>
+
+
+## <a id='intro'></a> About <%= vars.segment_runtime_full %>
+
+The <%= vars.segment_runtime_full %> <%= vars.v_major_version %> tile is available for installation with <%= vars.platform_name %> <%= vars.v_major_version %>.
+
+Isolation segments provide dedicated pools of resources where you can deploy apps and isolate workloads. Using isolation segments separates app resources as completely as if they were in different <%= vars.platform_name %> deployments but avoids redundant management and network complexity. For more information about isolation segments, see [Isolation Segments](https://docs.pivotal.io/application-service/<%= product_info['local_product_version'].to_s.sub('.','-') %>/concepts/security.html#isolation-segments) in _<%= vars.app_runtime_abbr %> Security_.
+
+For more information about using isolation segments in your deployment, see [Managing Isolation Segments](https://docs.pivotal.io/application-service/<%= product_info['local_product_version'].to_s.sub('.','-') %>/adminguide/isolation-segments.html).
+
+
+## <a id='install'></a> How to Install
+
+To install <%= vars.segment_runtime_full %> <%= vars.v_major_version %>, see [Installing <%= vars.segment_runtime_full %>](https://docs.pivotal.io/platform/<%= product_info['local_product_version'].to_s.sub('.','-') %>/customizing/installing-pcf-is.html).
+
+To install <%= vars.segment_runtime_full %> <%= vars.v_major_version %>, you must first install <%= vars.platform_name %> <%= vars.v_major_version %>.
+
+
+## <a id='new-features'></a> New Features in <%= vars.segment_runtime_full %> <%= vars.v_major_version %>
+
+<%= vars.segment_runtime_full %> <%= vars.v_major_version %> includes the following major features.
+
+### <a id='app-graceful-shutdown'></a> Increase App Graceful Shutdown Period
+
+You can increase the graceful shutdown period for your apps.
+
+When <%= vars.app_runtime_full %> (<%= vars.app_runtime_abbr %>) requests a shutdown of app instances, the processes in app containers have a period of time to gracefully shut down before the processes are forcefully terminated. The default, minimum graceful shutdown period is 10 seconds. If your apps require a longer period of time to finish in-flight jobs and gracefully shutdown, you can increase the graceful shutdown period in the **Advanced Features** pane of the <%= vars.app_runtime_abbr %> tile.
+
+For more information, see [Shutdown](https://docs.pivotal.io/application-service/2-9/devguide/deploy-apps/app-lifecycle.html#shutdown) in _App Container Lifecycle_ and [Configure Advanced Features](https://docs.pivotal.io/application-service/2-9/operating/installing-pcf-is.html#advanced_features) in _Installing <%= vars.segment_runtime_full %>_.
+
+### <a id='smoke-tests'></a> Run Smoke Tests for <%= vars.segment_runtime_full %>
+
+The **Smoke Tests** pane is added to the <%= vars.segment_runtime_full %> tile. This pane allows you to specify an org and space where smoke tests are run.
+
+In the org and space that you specify, the Smoke Test errand pushes an app to an <%= vars.platform_name %> org. 
+The app runs basic functionality tests against both the <%= vars.app_runtime_abbr %> and <%= vars.segment_runtime_full %> tiles after an installation or update. 
+
+The Smoke Test errand is on by default. You can turn off the Smoke Test errand in the **Errands** pane.
+
+For more information, see [Configure Smoke Tests](https://docs.pivotal.io/application-service/2-9/operating/installing-pcf-is.html#smoke-tests) in _Installing <%= vars.segment_runtime_full %>_.
+
+<p class='note warning'><strong>Warning:</strong> If you configure the <strong>Compute and Networking Isolation</strong> pane
+   and the <strong>Gorouters reject requests for isolation segments</strong> checkbox in the <%= vars.app_runtime_abbr %> tile
+   in a manner other than the use cases that <%= vars.recommended_by %> recommends, the smoke tests fail.
+   For more information, see <a href="https://docs.pivotal.io/application-service/2-9/operating/installing-pcf-is.html#compute-networking-isolation-configs">Options
+   for Configuring Compute and Networking Isolation</a> in <em>Installing <%= vars.segment_runtime_full %></em>.
+   </p>
+
+### <a id='errands'></a> Manage Errands in <%= vars.segment_runtime_full %>
+
+The **Errands** pane is added to the <%= vars.segment_runtime_full %> tile. In the **Errands** pane, you can select **On** to always run an errand or **Off** to never run it.
+
+Errands are scripts that <%= vars.ops_manager %> runs automatically when it installs or uninstalls a product, such as a new version of <%= vars.app_runtime_abbr %>. By default, <%= vars.ops_manager %> always runs all errands.  For more information about how <%= vars.ops_manager %> manages errands, see [Managing Errands in <%= vars.ops_manager %>](https://docs.pivotal.io/platform/<%= vars.current_major_version.sub('.', '-') %>/customizing/managing_errands.html).
+
+This pane allows you to configure whether the Smoke Test errand runs. For more information, see [Configure Errands](https://docs.pivotal.io/application-service/2-9/operating/installing-pcf-is.html#errands) in _Installing <%= vars.segment_runtime_full %>_.
+
+### <a id='app-log-limit'></a> Configure App Log Rate Limit (Beta)
+
+You can limit the number of log lines each app instance in your isolation segment generates per second by configuring the **App log rate limit (beta)** section in the **App Containers** pane of the <%= vars.segment_runtime_full %> tile.
+
+This feature is disabled by default. Enabling this feature prevents app instances from overloading the Loggregator Agent with logs, so the Loggregator Agent does not drop logs for other app instances. Enabling this feature also prevents apps from reporting inaccurate app metrics in the Cloud Foundry Command Line Interface (cf CLI) or increasing the CPU usage on the Diego Cell VM.
+
+For more information, see [Configure App Containers](https://docs.pivotal.io/application-service/2-9/operating/installing-pcf-is.html#application_containers) in _Installing <%= vars.segment_runtime_full %>_.
+
+
+## <a id='known-issues'></a> Known Issues
+
+<%= vars.segment_runtime_full %> <%= vars.v_major_version %> includes the following known issue.
+
+### <a id='iso-seg-name'></a> Smoke Test Fails When Isolation Segment Name Begins with Hyphen
+
+The Smoke Test errand fails for an isolation segment when the isolation segment name begins with a hyphen.
+
+To fix this issue, you must rename the isolation segment to remove the hyphen at the beginning of the name. To rename the isolation segment:
+
+1. In the <%= vars.segment_runtime_full %> tile, navigate to the **Compute and Networking Isolation** pane.
+
+1. Under **Compute isolation**, edit the name in the **Segment name** field.
+
+1. Click **Save**.
+
+1. Return to the <%= vars.ops_manager %> Installation Dashboard.
+
+1. Click **Review Pending Changes**
+
+1. Click **Apply Changes**.
+
+For more information about isolation segment names, see [Configure Pane](https://docs.pivotal.io/application-service/2-9/operating/installing-pcf-is.html#pane-config) in _Installing <%= vars.segment_runtime_full %>_. For more information about the Smoke Test errand, see [Configure Smoke Tests](https://docs.pivotal.io/application-service/2-9/operating/installing-pcf-is.html#smoke-tests) and [Configure Errands](https://docs.pivotal.io/application-service/2-9/operating/installing-pcf-is.html#errands) in _Installing <%= vars.segment_runtime_full %>_.
