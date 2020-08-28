@@ -1,0 +1,786 @@
+---
+title: Pivotal Isolation Segment v2.8 Release Notes
+owner: Release Engineering
+---
+
+<% current_page.data.title = "Pivotal Isolation Segment " + vars.v_major_version + " Release Notes" %>
+
+This topic contains release notes for <%= vars.segment_runtime_full %> <%= vars.v_major_version %>.
+
+<%= vars.platform_name %> is certified by the Cloud Foundry Foundation for <%= Date.today.year %>.
+
+Read more about the [certified provider program](https://www.cloudfoundry.org/provider-faq/) and the [requirements of providers](https://www.cloudfoundry.org/provider-requirements/).
+
+<hr>
+
+## <a id='releases'></a> Releases
+
+<%# DO NOT DELETE THIS LINE - robots use this to add new release notes %>
+ 
+### <a id='2.8.16'></a> 2.8.16
+
+**Release Date:** 08/24/2020
+
+* **[Bug Fix]** loggr-syslog-agent - Fix server alternative name
+* **[Bug Fix]**: Return 502 TLS Handshake error for an unresponsive backend
+* **[Bug Fix]** Bump garden-runc to v1.19.16
+* Bump ubuntu-xenial stemcell to version `621.78`
+* Bump cflinuxfs3 to version `0.203.0`
+* Bump garden-runc to version `1.19.16`
+* Bump routing to version `0.205.0`
+
+<table border="1" class="nice">
+  <thead>
+    <tr>
+      <th>Component</th>
+      <th>Version</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>ubuntu-xenial stemcell</td><td>621.78</td></tr>
+    <tr><td>bpm</td><td>1.1.5</td></tr>
+    <tr><td>cf-networking</td><td>2.31.0</td></tr>
+    <tr><td>cflinuxfs3</td><td>0.203.0</td></tr>
+    <tr><td>diego</td><td>2.47.0</td></tr>
+    <tr><td>garden-runc</td><td>1.19.16</td></tr>
+    <tr><td>haproxy</td><td>9.8.0</td></tr>
+    <tr><td>license</td><td></td></tr>
+    <tr><td>loggregator-agent</td><td>5.2.10</td></tr>
+    <tr><td>mapfs</td><td>1.2.4</td></tr>
+    <tr><td>metrics-discovery</td><td>2.0.2</td></tr>
+    <tr><td>nfs-volume</td><td>5.0.9</td></tr>
+    <tr><td>routing</td><td>0.205.0</td></tr>
+    <tr><td>silk</td><td>2.31.0</td></tr>
+    <tr><td>smb-volume</td><td>3.0.1</td></tr>
+    <tr><td>syslog</td><td>11.6.1</td></tr>
+  </tbody>
+</table>
+ 
+ 
+ 
+### <a id='2.8.15'></a> 2.8.15
+
+**Release Date:** 08/07/2020
+
+* **[Bug Fix]** Fix issue where requests to internal routes could fail due to incorrect case-sensitivity in DNS lookup in the service discovery controller.
+* **[Bug Fix]** System Metrics Scraper/Prom Scraper — Fixes a bug that causes excess log volume and increases scrape interval to reduce metric volume
+* Bump ubuntu-xenial stemcell to version `621.77`
+* Bump cf-networking to version `2.31.0`
+* Bump cflinuxfs3 to version `0.202.0`
+* Bump garden-runc to version `1.19.14`
+* Bump silk to version `2.31.0`
+
+<table border="1" class="nice">
+  <thead>
+    <tr>
+      <th>Component</th>
+      <th>Version</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>ubuntu-xenial stemcell</td><td>621.77</td></tr>
+    <tr><td>bpm</td><td>1.1.5</td></tr>
+    <tr><td>cf-networking</td><td>2.31.0</td></tr>
+    <tr><td>cflinuxfs3</td><td>0.202.0</td></tr>
+    <tr><td>diego</td><td>2.47.0</td></tr>
+    <tr><td>garden-runc</td><td>1.19.14</td></tr>
+    <tr><td>haproxy</td><td>9.8.0</td></tr>
+    <tr><td>loggregator-agent</td><td>5.2.10</td></tr>
+    <tr><td>mapfs</td><td>1.2.4</td></tr>
+    <tr><td>metrics-discovery</td><td>2.0.2</td></tr>
+    <tr><td>nfs-volume</td><td>5.0.9</td></tr>
+    <tr><td>routing</td><td>0.203.0</td></tr>
+    <tr><td>silk</td><td>2.31.0</td></tr>
+    <tr><td>smb-volume</td><td>3.0.1</td></tr>
+    <tr><td>syslog</td><td>11.6.1</td></tr>
+  </tbody>
+</table>
+ 
+ 
+ 
+### <a id='2.8.14'></a> 2.8.14
+
+**Release Date:** 07/16/2020
+
+* **[Security Fix]** Fix for [CVE-2020-15586](https://www.cloudfoundry.org/blog/cve-2020-15586/): Bump golang to version 1.14.5 with a fix in the net/http/httputil package for an issue which could cause the Gorouter to crash if a malicious client sends specially crafted HTTP requests.
+* Bump cflinuxfs3 to version `0.198.0`
+* Bump routing to version `0.203.0`
+
+<table border="1" class="nice">
+  <thead>
+    <tr>
+      <th>Component</th>
+      <th>Version</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>ubuntu-xenial stemcell</td><td>621.76</td></tr>
+    <tr><td>bpm</td><td>1.1.5</td></tr>
+    <tr><td>cf-networking</td><td>2.30.0</td></tr>
+    <tr><td>cflinuxfs3</td><td>0.198.0</td></tr>
+    <tr><td>diego</td><td>2.47.0</td></tr>
+    <tr><td>garden-runc</td><td>1.19.10</td></tr>
+    <tr><td>haproxy</td><td>9.8.0</td></tr>
+    <tr><td>loggregator-agent</td><td>5.2.10</td></tr>
+    <tr><td>mapfs</td><td>1.2.4</td></tr>
+    <tr><td>metrics-discovery</td><td>2.0.2</td></tr>
+    <tr><td>nfs-volume</td><td>5.0.9</td></tr>
+    <tr><td>routing</td><td>0.203.0</td></tr>
+    <tr><td>silk</td><td>2.30.0</td></tr>
+    <tr><td>smb-volume</td><td>3.0.1</td></tr>
+    <tr><td>syslog</td><td>11.6.1</td></tr>
+  </tbody>
+</table>
+ 
+ 
+ 
+### <a id='2.8.13'></a> 2.8.13
+
+**Release Date:** 07/09/2020
+
+* Bump cflinuxfs3 to version `0.197.0`
+
+<table border="1" class="nice">
+  <thead>
+    <tr>
+      <th>Component</th>
+      <th>Version</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>ubuntu-xenial stemcell</td><td>621.76</td></tr>
+    <tr><td>bpm</td><td>1.1.5</td></tr>
+    <tr><td>cf-networking</td><td>2.30.0</td></tr>
+    <tr><td>cflinuxfs3</td><td>0.197.0</td></tr>
+    <tr><td>diego</td><td>2.47.0</td></tr>
+    <tr><td>garden-runc</td><td>1.19.10</td></tr>
+    <tr><td>haproxy</td><td>9.8.0</td></tr>
+    <tr><td>loggregator-agent</td><td>5.2.10</td></tr>
+    <tr><td>mapfs</td><td>1.2.4</td></tr>
+    <tr><td>metrics-discovery</td><td>2.0.2</td></tr>
+    <tr><td>nfs-volume</td><td>5.0.9</td></tr>
+    <tr><td>routing</td><td>0.201.0</td></tr>
+    <tr><td>silk</td><td>2.30.0</td></tr>
+    <tr><td>smb-volume</td><td>3.0.1</td></tr>
+    <tr><td>syslog</td><td>11.6.1</td></tr>
+  </tbody>
+</table>
+ 
+ 
+
+### <a id='2.8.12'></a> 2.8.12
+
+**Release Date:** 06/25/2020
+
+* **[Breaking Change]** Incorrect HTTP(S) Proxy configuration breaks CredHub interpolation for apps. For more information, see [<%= vars.segment_runtime_full %> <%= vars.v_major_version %> Breaking Changes](breaking-changes.html#credhub-interpolate-with-https-iso).
+* **[Breaking Change]**: If you use the NSX-T Container Plugin (NCP) tile v3.0.1 or earlier, do not upgrade to this patch.
+The stemcell in this patch is not compatible with the NCP tile v3.0.1 and causes the `openvswitch` job to fail when you deploy.
+* **[Bug Fix]** Add a new cache configuration to the NFS service allowing service instances to enable file attribute caching and achieve directory listing performance similar to the nfs-legacy service
+* **[Bug Fix]** Remove invalid characters in hostnames in outgoing application syslog messages to comply with [RFC 5424](https://tools.ietf.org/html/rfc5424)
+* Bump ubuntu-xenial stemcell to version `621.76`
+* Bump cflinuxfs3 to version `0.195.0`
+* Bump diego to version `2.47.0`
+* Bump loggregator-agent to version `5.2.10`
+* Bump nfs-volume to version `5.0.9`
+
+<table border="1" class="nice">
+  <thead>
+    <tr>
+      <th>Component</th>
+      <th>Version</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>ubuntu-xenial stemcell</td><td>621.76</td></tr>
+    <tr><td>bpm</td><td>1.1.5</td></tr>
+    <tr><td>cf-networking</td><td>2.30.0</td></tr>
+    <tr><td>cflinuxfs3</td><td>0.195.0</td></tr>
+    <tr><td>diego</td><td>2.47.0</td></tr>
+    <tr><td>garden-runc</td><td>1.19.10</td></tr>
+    <tr><td>haproxy</td><td>9.8.0</td></tr>
+    <tr><td>loggregator-agent</td><td>5.2.10</td></tr>
+    <tr><td>mapfs</td><td>1.2.4</td></tr>
+    <tr><td>metrics-discovery</td><td>2.0.2</td></tr>
+    <tr><td>nfs-volume</td><td>5.0.9</td></tr>
+    <tr><td>routing</td><td>0.201.0</td></tr>
+    <tr><td>silk</td><td>2.30.0</td></tr>
+    <tr><td>smb-volume</td><td>3.0.1</td></tr>
+    <tr><td>syslog</td><td>11.6.1</td></tr>
+  </tbody>
+</table>
+ 
+ 
+ 
+### <a id='2.8.11'></a> 2.8.11
+
+**Release Date:** 06/11/2020
+
+* **[Bug Fix]** Gorouter - Drain timeout always uses configured value
+* **[Bug Fix]** Silk - Continue container networking during cell drain
+* **[Bug Fix]** Loggregator Agent - Fix certificate issues for all agent metrics
+* Bump cf-networking to version `2.30.0`
+* Bump cflinuxfs3 to version `0.191.0`
+* Bump routing to version `0.201.0`
+* Bump silk to version `2.30.0`
+
+<table border="1" class="nice">
+  <thead>
+    <tr>
+      <th>Component</th>
+      <th>Version</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>ubuntu-xenial stemcell</td><td>621.74</td></tr>
+    <tr><td>bpm</td><td>1.1.5</td></tr>
+    <tr><td>cf-networking</td><td>2.30.0</td></tr>
+    <tr><td>cflinuxfs3</td><td>0.191.0</td></tr>
+    <tr><td>diego</td><td>2.44.0</td></tr>
+    <tr><td>garden-runc</td><td>1.19.10</td></tr>
+    <tr><td>haproxy</td><td>9.8.0</td></tr>
+    <tr><td>loggregator-agent</td><td>5.2.9</td></tr>
+    <tr><td>mapfs</td><td>1.2.4</td></tr>
+    <tr><td>metrics-discovery</td><td>2.0.2</td></tr>
+    <tr><td>nfs-volume</td><td>5.0.6</td></tr>
+    <tr><td>routing</td><td>0.201.0</td></tr>
+    <tr><td>silk</td><td>2.30.0</td></tr>
+    <tr><td>smb-volume</td><td>3.0.1</td></tr>
+    <tr><td>syslog</td><td>11.6.1</td></tr>
+  </tbody>
+</table>
+ 
+ 
+ 
+### <a id='2.8.10'></a> 2.8.10
+
+**Release Date:** 06/03/2020
+
+* **[Feature]** Allow egress traffic from apps to addresses on host via host_tcp_services
+* **[Bug Fix]** Migrate `services/intermediate_tls_ca` to `/services/tls_leaf` for Maestro
+* **[Bug Fix]** Add a new cache configuration to the NFS service allowing service instances to enable file attribute caching and achieve directory listing performance similar to the nfs-legacy service
+* Bump cflinuxfs3 to version `0.189.0`
+* Bump nfs-volume to version `5.0.6`
+
+<table border="1" class="nice">
+  <thead>
+    <tr>
+      <th>Component</th>
+      <th>Version</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>ubuntu-xenial stemcell</td><td>621.74</td></tr>
+    <tr><td>bpm</td><td>1.1.5</td></tr>
+    <tr><td>cf-networking</td><td>2.28.0</td></tr>
+    <tr><td>cflinuxfs3</td><td>0.189.0</td></tr>
+    <tr><td>diego</td><td>2.44.0</td></tr>
+    <tr><td>garden-runc</td><td>1.19.10</td></tr>
+    <tr><td>haproxy</td><td>9.8.0</td></tr>
+    <tr><td>loggregator-agent</td><td>5.2.9</td></tr>
+    <tr><td>mapfs</td><td>1.2.4</td></tr>
+    <tr><td>metrics-discovery</td><td>2.0.2</td></tr>
+    <tr><td>nfs-volume</td><td>5.0.6</td></tr>
+    <tr><td>routing</td><td>0.199.0</td></tr>
+    <tr><td>silk</td><td>2.28.0</td></tr>
+    <tr><td>smb-volume</td><td>3.0.1</td></tr>
+    <tr><td>syslog</td><td>11.6.1</td></tr>
+  </tbody>
+</table>
+ 
+ 
+ 
+### <a id='2.8.9'></a> 2.8.9
+
+**Release Date:** 05/18/2020
+
+* **[Bug Fix]** Fix scheduling bug in `loggregator agent` by upgrading to Go 1.14.2
+* Bump ubuntu-xenial stemcell to version `621.74`
+* Bump cflinuxfs3 to version `0.179.0`
+* Bump loggregator-agent to version `5.2.9`
+
+<table border="1" class="nice">
+  <thead>
+    <tr>
+      <th>Component</th>
+      <th>Version</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>ubuntu-xenial stemcell</td><td>621.74</td></tr>
+    <tr><td>bpm</td><td>1.1.5</td></tr>
+    <tr><td>cf-networking</td><td>2.28.0</td></tr>
+    <tr><td>cflinuxfs3</td><td>0.179.0</td></tr>
+    <tr><td>diego</td><td>2.44.0</td></tr>
+    <tr><td>garden-runc</td><td>1.19.10</td></tr>
+    <tr><td>haproxy</td><td>9.8.0</td></tr>
+    <tr><td>loggregator-agent</td><td>5.2.9</td></tr>
+    <tr><td>mapfs</td><td>1.2.4</td></tr>
+    <tr><td>metrics-discovery</td><td>2.0.2</td></tr>
+    <tr><td>nfs-volume</td><td>5.0.5</td></tr>
+    <tr><td>routing</td><td>0.199.0</td></tr>
+    <tr><td>silk</td><td>2.28.0</td></tr>
+    <tr><td>smb-volume</td><td>3.0.1</td></tr>
+    <tr><td>syslog</td><td>11.6.1</td></tr>
+  </tbody>
+</table>
+ 
+ 
+ 
+### <a id='2.8.8'></a> 2.8.8
+
+**Release Date:** 05/05/2020
+
+* **[Security Fix]** Update debian packages and source libraries in nfs and mapfs releases
+* Bump ubuntu-xenial stemcell to version `621.71`
+* Bump cflinuxfs3 to version `0.178.0`
+* Bump mapfs to version `1.2.4`
+* Bump nfs-volume to version `5.0.5`
+* Bump smb-volume to version `3.0.1`
+
+<table border="1" class="nice">
+  <thead>
+    <tr>
+      <th>Component</th>
+      <th>Version</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>ubuntu-xenial stemcell</td><td>621.71</td></tr>
+    <tr><td>bpm</td><td>1.1.5</td></tr>
+    <tr><td>cf-networking</td><td>2.28.0</td></tr>
+    <tr><td>cflinuxfs3</td><td>0.178.0</td></tr>
+    <tr><td>diego</td><td>2.44.0</td></tr>
+    <tr><td>garden-runc</td><td>1.19.10</td></tr>
+    <tr><td>haproxy</td><td>9.8.0</td></tr>
+    <tr><td>loggregator-agent</td><td>5.2.8</td></tr>
+    <tr><td>mapfs</td><td>1.2.4</td></tr>
+    <tr><td>metrics-discovery</td><td>2.0.2</td></tr>
+    <tr><td>nfs-volume</td><td>5.0.5</td></tr>
+    <tr><td>routing</td><td>0.199.0</td></tr>
+    <tr><td>silk</td><td>2.28.0</td></tr>
+    <tr><td>smb-volume</td><td>3.0.1</td></tr>
+    <tr><td>syslog</td><td>11.6.1</td></tr>
+  </tbody>
+</table>
+ 
+ 
+ 
+### <a id='2.8.7'></a> 2.8.7
+
+**Release Date:** 04/22/2020
+
+* **[Feature]** HAProxy can now be configured with custom certificate authorities
+* **[Bug Fix]** Fix `server_name` value to use Common Name as metrics_agent_metrics_tls
+* Bump ubuntu-xenial stemcell to version `621.64`
+* Bump cflinuxfs3 to version `0.175.0`
+
+<table border="1" class="nice">
+  <thead>
+    <tr>
+      <th>Component</th>
+      <th>Version</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>ubuntu-xenial stemcell</td><td>621.64</td></tr>
+    <tr><td>bpm</td><td>1.1.5</td></tr>
+    <tr><td>cf-networking</td><td>2.28.0</td></tr>
+    <tr><td>cflinuxfs3</td><td>0.175.0</td></tr>
+    <tr><td>diego</td><td>2.44.0</td></tr>
+    <tr><td>garden-runc</td><td>1.19.10</td></tr>
+    <tr><td>haproxy</td><td>9.8.0</td></tr>
+    <tr><td>loggregator-agent</td><td>5.2.8</td></tr>
+    <tr><td>mapfs</td><td>1.2.0</td></tr>
+    <tr><td>metrics-discovery</td><td>2.0.2</td></tr>
+    <tr><td>nfs-volume</td><td>5.0.2</td></tr>
+    <tr><td>routing</td><td>0.199.0</td></tr>
+    <tr><td>silk</td><td>2.28.0</td></tr>
+    <tr><td>smb-volume</td><td>2.1.1</td></tr>
+    <tr><td>syslog</td><td>11.6.1</td></tr>
+  </tbody>
+</table>
+ 
+ 
+ 
+### <a id='2.8.6'></a> 2.8.6
+
+**Release Date:** 04/07/2020
+
+* **[Bug Fix]** garden-runc - bump to latest release in supported versions
+* **[Bug Fix]** GoRouter correctly handles control characters in URLs
+* **[Bug Fix]** Fix a memory leak and go-routine leak related to having multiple aggregate drains in Loggregator
+* **[Bug Fix]**  App developers now receive a 401 when using an expired access token with policy server
+* Bump ubuntu-xenial stemcell to version `621.61`
+* Bump cf-networking to version `2.28.0`
+* Bump cflinuxfs3 to version `0.174.0`
+* Bump garden-runc to version `1.19.10`
+* Bump loggregator-agent to version `5.2.8`
+* Bump routing to version `0.199.0`
+* Bump silk to version `2.28.0`
+
+<table border="1" class="nice">
+  <thead>
+    <tr>
+      <th>Component</th>
+      <th>Version</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>ubuntu-xenial stemcell</td><td>621.61</td></tr>
+    <tr><td>bpm</td><td>1.1.5</td></tr>
+    <tr><td>cf-networking</td><td>2.28.0</td></tr>
+    <tr><td>cflinuxfs3</td><td>0.174.0</td></tr>
+    <tr><td>diego</td><td>2.44.0</td></tr>
+    <tr><td>garden-runc</td><td>1.19.10</td></tr>
+    <tr><td>haproxy</td><td>9.8.0</td></tr>
+    <tr><td>loggregator-agent</td><td>5.2.8</td></tr>
+    <tr><td>mapfs</td><td>1.2.0</td></tr>
+    <tr><td>metrics-discovery</td><td>2.0.2</td></tr>
+    <tr><td>nfs-volume</td><td>5.0.2</td></tr>
+    <tr><td>routing</td><td>0.199.0</td></tr>
+    <tr><td>silk</td><td>2.28.0</td></tr>
+    <tr><td>smb-volume</td><td>2.1.1</td></tr>
+    <tr><td>syslog</td><td>11.6.1</td></tr>
+  </tbody>
+</table>
+ 
+ 
+ 
+### <a id='2.8.5'></a> 2.8.5
+
+**Release Date:** 03/13/2020
+
+* **[Bug Fix]** Fix DNS Interaction between Loggregator Agent and Doppler
+* Bump ubuntu-xenial stemcell to version `621.59`
+* Bump cflinuxfs3 to version `0.169.0`
+* Bump loggregator-agent to version `5.2.7`
+
+<table border="1" class="nice">
+  <thead>
+    <tr>
+      <th>Component</th>
+      <th>Version</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>ubuntu-xenial stemcell</td><td>621.59</td></tr>
+    <tr><td>bpm</td><td>1.1.5</td></tr>
+    <tr><td>cf-networking</td><td>2.27.0</td></tr>
+    <tr><td>cflinuxfs3</td><td>0.169.0</td></tr>
+    <tr><td>diego</td><td>2.44.0</td></tr>
+    <tr><td>garden-runc</td><td>1.19.9</td></tr>
+    <tr><td>haproxy</td><td>9.8.0</td></tr>
+    <tr><td>loggregator-agent</td><td>5.2.7</td></tr>
+    <tr><td>mapfs</td><td>1.2.0</td></tr>
+    <tr><td>metrics-discovery</td><td>2.0.2</td></tr>
+    <tr><td>nfs-volume</td><td>5.0.2</td></tr>
+    <tr><td>routing</td><td>0.198.0</td></tr>
+    <tr><td>silk</td><td>2.27.0</td></tr>
+    <tr><td>smb-volume</td><td>2.1.1</td></tr>
+    <tr><td>syslog</td><td>11.6.1</td></tr>
+  </tbody>
+</table>
+ 
+ 
+ 
+### <a id='2.8.4'></a> 2.8.4
+
+**Release Date:** 03/02/2020
+
+* **[Feature]** Support Maestro's rotation capability by adding Services TLS CA to all App containers
+* **[Feature Improvement]** Bring bug fixes and improvements in latest routing releases to all supported PAS versions
+* **[Bug Fix]** Log only necessary information when auction scoring fails
+* **[Bug Fix]** Fix Race Condition in Loggregator Agent
+* Bump ubuntu-xenial stemcell to version `621.57`
+* Bump cflinuxfs3 to version `0.165.0`
+* Bump diego to version `2.44.0`
+* Bump loggregator-agent to version `5.2.6`
+* Bump routing to version `0.198.0`
+
+<table border="1" class="nice">
+  <thead>
+    <tr>
+      <th>Component</th>
+      <th>Version</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>ubuntu-xenial stemcell</td><td>621.57</td></tr>
+    <tr><td>bpm</td><td>1.1.5</td></tr>
+    <tr><td>cf-networking</td><td>2.27.0</td></tr>
+    <tr><td>cflinuxfs3</td><td>0.165.0</td></tr>
+    <tr><td>diego</td><td>2.44.0</td></tr>
+    <tr><td>garden-runc</td><td>1.19.9</td></tr>
+    <tr><td>haproxy</td><td>9.8.0</td></tr>
+    <tr><td>loggregator-agent</td><td>5.2.6</td></tr>
+    <tr><td>mapfs</td><td>1.2.0</td></tr>
+    <tr><td>metrics-discovery</td><td>2.0.2</td></tr>
+    <tr><td>nfs-volume</td><td>5.0.2</td></tr>
+    <tr><td>routing</td><td>0.198.0</td></tr>
+    <tr><td>silk</td><td>2.27.0</td></tr>
+    <tr><td>smb-volume</td><td>2.1.1</td></tr>
+    <tr><td>syslog</td><td>11.6.1</td></tr>
+  </tbody>
+</table>
+ 
+ 
+ 
+### <a id='2.8.3'></a> 2.8.3
+
+**Release Date:** 02/06/2020
+
+* **[Feature Improvement]** Use the Diego logging format for the Garden job
+* Bump ubuntu-xenial stemcell to version `621.51`
+* Bump cflinuxfs3 to version `0.160.0`
+
+<table border="1" class="nice">
+  <thead>
+    <tr>
+      <th>Component</th>
+      <th>Version</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>ubuntu-xenial stemcell</td><td>621.51</td></tr>
+    <tr><td>bpm</td><td>1.1.5</td></tr>
+    <tr><td>cf-networking</td><td>2.27.0</td></tr>
+    <tr><td>cflinuxfs3</td><td>0.160.0</td></tr>
+    <tr><td>diego</td><td>2.39.0</td></tr>
+    <tr><td>garden-runc</td><td>1.19.9</td></tr>
+    <tr><td>haproxy</td><td>9.8.0</td></tr>
+    <tr><td>loggregator-agent</td><td>5.2.1</td></tr>
+    <tr><td>mapfs</td><td>1.2.0</td></tr>
+    <tr><td>metrics-discovery</td><td>2.0.2</td></tr>
+    <tr><td>nfs-volume</td><td>5.0.2</td></tr>
+    <tr><td>routing</td><td>0.196.0</td></tr>
+    <tr><td>silk</td><td>2.27.0</td></tr>
+    <tr><td>smb-volume</td><td>2.1.1</td></tr>
+    <tr><td>syslog</td><td>11.6.1</td></tr>
+  </tbody>
+</table>
+ 
+ 
+ 
+### <a id='2.8.2'></a> 2.8.2
+
+**Release Date:** 01/16/2020
+
+* **[Bug Fix]** mapfs - Fix error when appending to a file
+* Bump ubuntu-xenial stemcell to version `621.41`
+* Bump cflinuxfs3 to version `0.153.0`
+
+<table border="1" class="nice">
+  <thead>
+    <tr>
+      <th>Component</th>
+      <th>Version</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>ubuntu-xenial stemcell</td><td>621.41</td></tr>
+    <tr><td>bpm</td><td>1.1.5</td></tr>
+    <tr><td>cf-networking</td><td>2.27.0</td></tr>
+    <tr><td>cflinuxfs3</td><td>0.153.0</td></tr>
+    <tr><td>diego</td><td>2.39.0</td></tr>
+    <tr><td>garden-runc</td><td>1.19.9</td></tr>
+    <tr><td>haproxy</td><td>9.8.0</td></tr>
+    <tr><td>loggregator-agent</td><td>5.2.1</td></tr>
+    <tr><td>mapfs</td><td>1.2.0</td></tr>
+    <tr><td>metrics-discovery</td><td>2.0.2</td></tr>
+    <tr><td>nfs-volume</td><td>5.0.2</td></tr>
+    <tr><td>routing</td><td>0.196.0</td></tr>
+    <tr><td>silk</td><td>2.27.0</td></tr>
+    <tr><td>smb-volume</td><td>2.1.1</td></tr>
+    <tr><td>syslog</td><td>11.6.1</td></tr>
+  </tbody>
+</table>
+
+### <a id='2.8.1'></a> 2.8.1
+
+**Release Date:** 12/26/2019
+
+* **[Security Fix]** [CVE-2019-17596](https://nvd.nist.gov/vuln/detail/CVE-2019-17596) - Fix panic upon an attempt to process network traffic containing an invalid DSA public key for syslog release
+* **[Security Fix]** [CVE-2019-17596](https://nvd.nist.gov/vuln/detail/CVE-2019-17596) - Fix panic upon an attempt to process network traffic containing an invalid DSA public key for garden-runc release
+* **[Security Fix]** [CVE-2019-17596](https://nvd.nist.gov/vuln/detail/CVE-2019-17596) - Fix panic upon an attempt to process network traffic containing an invalid DSA public key for loggregator releases
+* **[Feature]**  Expose all platform metrics on Prometheus endpoints
+* **[Bug Fix]** Passwords containing commas no longer cause the SMB volume service to crash at startup with a "mount failed" error
+* Bump ubuntu-xenial stemcell to version `621.29`
+* Bump cflinuxfs3 to version `0.151.0`
+* Bump garden-runc to version `1.19.9`
+* Bump loggregator-agent to version `5.2.1`
+* Add new release metrics-discovery at version `2.0.2`
+* Bump smb-volume to version `2.1.1`
+* Bump syslog to version `11.6.1`
+
+<table border="1" class="nice">
+  <thead>
+    <tr>
+      <th>Component</th>
+      <th>Version</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>ubuntu-xenial stemcell</td><td>621.29</td></tr>
+    <tr><td>bpm</td><td>1.1.5</td></tr>
+    <tr><td>cf-networking</td><td>2.27.0</td></tr>
+    <tr><td>cflinuxfs3</td><td>0.151.0</td></tr>
+    <tr><td>diego</td><td>2.39.0</td></tr>
+    <tr><td>garden-runc</td><td>1.19.9</td></tr>
+    <tr><td>haproxy</td><td>9.8.0</td></tr>
+    <tr><td>loggregator-agent</td><td>5.2.1</td></tr>
+    <tr><td>mapfs</td><td>1.2.1</td></tr>
+    <tr><td>metrics-discovery</td><td>2.0.2</td></tr>
+    <tr><td>nfs-volume</td><td>5.0.2</td></tr>
+    <tr><td>routing</td><td>0.196.0</td></tr>
+    <tr><td>silk</td><td>2.27.0</td></tr>
+    <tr><td>smb-volume</td><td>2.1.1</td></tr>
+    <tr><td>syslog</td><td>11.6.1</td></tr>
+  </tbody>
+</table>
+
+### <a id='2.8.0'></a> 2.8.0
+
+**Release Date:** 12/09/2019
+
+* See [New Features in <%= vars.segment_runtime_full %> v2.8](#new-features)
+* See [Breaking Changes](./breaking-changes.html)
+* **[Feature Improvement]** Upgrade Routing, Networking, and Silk releases to use go 1.13 release
+* **[Feature Improvement]** Add syslog log-cache aggregate drain
+* Bump cf-networking to version `2.27.0`
+* Bump cflinuxfs3 to version `0.150.0`
+* Bump routing to version `0.196.0`
+* Bump silk to version `2.27.0`
+
+<table border="1" class="nice">
+  <thead>
+    <tr>
+      <th>Component</th>
+      <th>Version</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>ubuntu-xenial stemcell</td><td>621.26</td></tr>
+    <tr><td>bpm</td><td>1.1.5</td></tr>
+    <tr><td>cf-networking</td><td>2.27.0</td></tr>
+    <tr><td>cflinuxfs3</td><td>0.150.0</td></tr>
+    <tr><td>diego</td><td>2.39.0</td></tr>
+    <tr><td>garden-runc</td><td>1.19.8</td></tr>
+    <tr><td>haproxy</td><td>9.8.0</td></tr>
+    <tr><td>loggregator-agent</td><td>5.1.0</td></tr>
+    <tr><td>mapfs</td><td>1.2.1</td></tr>
+    <tr><td>nfs-volume</td><td>5.0.2</td></tr>
+    <tr><td>routing</td><td>0.196.0</td></tr>
+    <tr><td>silk</td><td>2.27.0</td></tr>
+    <tr><td>smb-volume</td><td>2.1.0</td></tr>
+    <tr><td>syslog</td><td>11.5.0</td></tr>
+  </tbody>
+</table>
+
+
+## <a id='intro'></a> About <%= vars.segment_runtime_full %>
+
+The <%= vars.segment_runtime_full %> <%= vars.v_major_version %> tile is available for installation with <%= vars.platform_name %> <%= vars.v_major_version %>.
+
+Isolation segments provide dedicated pools of resources where you can deploy apps and isolate workloads. Using isolation segments separates app resources as completely as if they were in different <%= vars.platform_name %> deployments but avoids redundant management and network complexity. For more information about isolation segments, see [Isolation Segments](https://docs.pivotal.io/application-service/<%= product_info['local_product_version'].to_s.sub('.','-') %>/concepts/security.html#isolation-segments) in _<%= vars.app_runtime_abbr %> Security_.
+
+For more information about using isolation segments in your deployment, see [Managing Isolation Segments](https://docs.pivotal.io/application-service/<%= product_info['local_product_version'].to_s.sub('.','-') %>/adminguide/isolation-segments.html).
+
+
+## <a id='install'></a> How to Install
+
+To install <%= vars.segment_runtime_full %> <%= vars.v_major_version %>, see [Installing <%= vars.segment_runtime_full %>](https://docs.pivotal.io/platform/<%= product_info['local_product_version'].to_s.sub('.','-') %>/customizing/installing-pcf-is.html).
+
+To install <%= vars.segment_runtime_full %> <%= vars.v_major_version %>, you must first install <%= vars.platform_name %> <%= vars.v_major_version %>.
+
+
+## <a id='new-features'></a> New Features in <%= vars.segment_runtime_full %> <%= vars.v_major_version %>
+
+<%= vars.segment_runtime_full %> <%= vars.v_major_version %> includes the following major features:
+
+### <a id='cpu-entitlement'></a> Diego Sets Container CPU Weight Property Equal to Container Memory Limit
+
+Diego sets the CPU weight property on the containers it creates to a number equivalent to the container memory limit. This allows Garden to calculate the `AbsoluteCPUEntitlement` metric, which is the CPU entitlement for the container. With `AbsoluteCPUEntitlement`, Garden can produce accurate CPU usage metrics that are relative to `AbsoluteCPUEntitlement`.
+
+For more information about the `AbsoluteCPUEntitlement` metric, see [Diego Container Metrics](https://docs.pivotal.io/application-service/2-8/loggregator/container-metrics.html#container-metrics) in _Container Metrics_. For information about the Cloud Foundry CPU Entitlement Plugin, an experimental plugin that allows you to examine the CPU usage of <%= vars.app_runtime_abbr %> apps relative to their CPU entitlement, see the [Cloud Foundry CPU Entitlement Plugin](https://github.com/cloudfoundry/cpu-entitlement-plugin) repository on GitHub.
+
+### <a id='smb-default'></a> SMB Volume Services Enabled by Default
+
+SMB volume services are enabled by default. When SMB volume services are enabled, app developers can bind existing SMB shares to apps for shared file access.
+
+To disable SMB volume services in the <%= vars.segment_runtime_full %> tile, select **Advanced Features** and clear the **Enable SMB volume services** checkbox.
+
+For more information, see [Advanced Features](https://docs.pivotal.io/application-service/2-8/operating/installing-pcf-is.html#advanced_features) in _Installing <%= vars.segment_runtime_full %>_.
+
+For general information about volume services, see [Using an External File System (Volume Services)](https://docs.pivotal.io/application-service/2-8/devguide/services/using-vol-services.html).
+
+### <a id='nfs-broker-credhub'></a> NFS Broker Uses CredHub as Backing Store
+
+NFS Broker uses CredHub as its backing store, rather than an internal <%= vars.app_runtime_full %> (<%= vars.app_runtime_abbr %>) database. Because BOSH Backup and Restore (BBR) no longer backs up NFS Broker, the `nfsbroker-bbr` job is removed.
+
+For more information about CredHub, see [CredHub](https://docs.pivotal.io/platform/2-8/credhub/index.html).
+
+### <a id='compute-networking-isolation'></a> Use <%= vars.segment_runtime_full %> to Improve Upgrades for Large Foundations
+
+<div class="note warning"><strong>Warning:</strong> This feature has the following breaking changes:</br></br>
+  <ul>
+    <li><a href="https://docs.pivotal.io/platform/2-8/release-notes/breaking-changes.html#property-renamed">Segment Name Property is Renamed</a></li>
+    <li><a href="https://docs.pivotal.io/platform/2-8/release-notes/breaking-changes.html#compute-isolation-router-sharding">Compute Isolation Must Be Enabled If Networking Isolation Is Enabled</a></li>
+    <li><a href="https://docs.pivotal.io/platform/healthwatch/1-7/release-notes.html">Healthwatch Reports False Capacity Metrics for Isolation Segments Without Placement Tags</a></li>
+  </ul>
+</div> 
+
+You can use the <%= vars.segment_runtime_full %> tile to deploy a separate group of Diego Cells without isolating the Diego Cell capacity from other apps.
+
+This approach helps separate the upgrade of the <%= vars.app_runtime_abbr %> control plane from the upgrade of the Diego Cells. Further, it splits the upgrade of the Diego Cells into smaller groups. This helps operators of large foundations by making upgrades more manageable. It does not affect developers pushing apps to <%= vars.app_runtime_abbr %>.
+
+To use this feature, go to the **Compute and Networking Isolation** pane in the <%= vars.segment_runtime_full %> tile and select **None** for **Tag name for Diego Cell blocks**. 
+
+For more information, see [Compute and Networking Isolation](https://docs.pivotal.io/platform/2-8/customizing/installing-pcf-is.html#compute-networking-isolation) in _Installing <%= vars.segment_runtime_full %>_.
+
+### <a id='aws-ecr-support'></a> Support for Pushing Container Images Hosted in AWS ECR
+
+When you push container images hosted in AWS Elastic Container Registry (ECR) with the Cloud Foundry CLI (cf CLI), you can provide the access key ID and secret for an AWS IAM user as a Docker username and password as part of the `cf push` command. Apps are able to then continuously restart and restage successfully.
+
+This update allows the cf CLI to successfully pull container images hosted in ECR with valid AWS Identity and Access Management (IAM) user credentials.
+
+For more information, see [Amazon Elastic Container Registry (ECR)](https://docs.pivotal.io/application-service/2-8/devguide/deploy-apps/push-docker.html#ecr) in _Deploying an App with Docker_.
+
+### <a id='mtls-loggregator'></a> Mutual TLS Added to Loggregator Endpoints and Components
+
+Mutual TLS is added to the Loggregator, Loggregator Agent, and Log Cache endpoints. It is also added to the Leadership Election job. This provides additional security between these endpoints and metric scrapers.
+
+For more information about Loggregator components, see [Loggregator Architecture](https://docs.pivotal.io/application-service/2-8/loggregator/architecture.html). For more information about the Leadership Election job and metric scraping, see the [System Metrics](https://github.com/cloudfoundry/system-metrics-release) repository on GitHub.
+
+### <a id='disable-v2-firehose'></a> V2 Firehose Can Be Disabled
+
+You can disable the Loggregator V2 Firehose by deselecting the **Enable V2 Firehose** checkbox in the **System Logging** pane of the <%= vars.app_runtime_abbr %> tile. This shuts down VMs used for the V2 Firehose, such as Dopplers and Reverse Log Proxies. After you disable the V2 Firehose, you can delete these VMs from your deployment to save resources.
+
+<div class='note warning'><strong>Warning:</strong> If you disable the V2 Firehose, you must select the <strong>Enable Log Cache syslog ingestion</strong> checkbox, or logs and metrics do not appear in Log Cache. <%= vars.recommended_by %> recommends that you do not disable the Firehose if you are dependent on any of the following: 
+  <ul>
+    <li>Service tile metrics</li>
+    <li>Pivotal Healthwatch or Pivotal App Metrics</li>
+    <li>Partner log or metric integrations</li>
+  </ul>
+</div>
+
+<p class="note warning"><strong>Warning:</strong> If you disable the V1 or V2 Firehose, you must disable the Smoke Test Errand or the deploy fails. For more information, see <a href="./runtime-rn.html#disable-firehose-smoke-test-errand">Disable the Smoke Test Errand If You Disable the Firehose</a> in the <%= vars.app_runtime_full %> v2.8 release notes.</p>
+
+For more information, see [Configure System Logging](https://docs.pivotal.io/application-service/2-8/operating/configure-pas.html#sys-logging) in _Configuring <%= vars.app_runtime_abbr %>_.
+
+### <a id='aggregate-drain'></a> Aggregate Drain for Metrics and App Logs
+
+When an aggregate log and metric drain is configured in <%= vars.app_runtime_abbr %>, <%= vars.segment_runtime_full %> sends logs and metrics to the Loggregator Log Cache syslog server through the aggregate log and metric drain instead of the Loggregator Firehose. This allows you to disable the Firehose and delete related VMs, such as Dopplers and Reverse Log Proxies. For more information about disabling the Firehose, see [V2 Firehose Can Be Disabled](#disable-v2-firehose).
+
+To enable an aggregate log and metric drain for your foundation, add a comma-separated list of syslog endpoints to the **Aggregate log and metric drain destinations** field in the **System Logging** pane of the <%= vars.app_runtime_abbr %> tile. For more information, see [Configure System Logging](https://docs.pivotal.io/application-service/2-8/operating/configure-pas.html#sys-logging) in _Configuring <%= vars.app_runtime_abbr %>_.
+
+
+## <a id='adv-features'></a> About Advanced Features
+
+The Advanced Features section of the <%= vars.segment_runtime_full %> <%= vars.v_major_version %> tile includes new functionality that may have certain constraints.
+
+Although these features are fully supported, <%= vars.recommended_by %> recommends caution when using them in production.
+
+
+## <a id='known-issues'></a> Known Issues
+
+There are currently no known issues in <%= vars.segment_runtime_full %> <%= vars.v_major_version %>.

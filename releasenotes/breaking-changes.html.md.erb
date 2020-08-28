@@ -1,0 +1,129 @@
+---
+title: Pivotal Platform v2.8 Breaking Changes
+owner: Release Engineering
+---
+
+<% current_page.data.title = vars.platform_name + " " + vars.v_major_version + " Breaking Changes" %>
+
+This topic describes the breaking changes you need to be aware of when upgrading to <%= vars.platform_name %> <%= vars.v_major_version %>. For more information about important preparation steps you must follow before beginning an upgrade, see [Upgrading <%= vars.platform_name %>](https://docs.pivotal.io/platform/<%= product_info['local_product_version'].to_s.sub('.','-') %>/customizing/upgrading-pcf.html).
+
+
+
+
+
+
+
+## <a id='pas'></a> <%= vars.app_runtime_full %> (<%= vars.app_runtime_abbr %>)
+
+See the following <%= vars.app_runtime_abbr %> breaking changes:
+
+### <a id='credhub-interpolate-with-https'></a> Incorrect HTTP(S) Proxy Configuration Breaks CredHub Interpolation for Apps in <%= vars.app_runtime_abbr %> v2.8.12 and Later
+
+In <%= vars.app_runtime_abbr %> v2.8.12 and later, apps that have an incorrect HTTP(S) Proxy configuration fail to stage or restart due to a CredHub interpolation error. 
+
+Before you upgrade to <%= vars.app_runtime_abbr %> v2.8.12 or later, you must fix the HTTP(S) Proxy configuration of any impacted applications:
+
+1. Determine whether your apps are impacted by following the resolution procedure in [Knowledgebase Article 9305](https://community.pivotal.io/s/article/Credhub-Reference-Can-t-Be-Interpolated-Due-To-Improper-HTTP-S-Proxy-Configuration).
+1. Update all impacted apps to use the recommended proxy settings that are documented in [Configuring Proxy Settings for All Apps](https://docs.pivotal.io/application-service/2-8/operating/config-proxy.html).
+1. Restart modified apps.
+
+### <a id="2-8-4-stability"></a> PAS v2.8.4 Stability Issues
+
+<p class="note warning"><strong>WARNING</strong>: Pivotal advises that you do not upgrade to PAS v2.8.4 at this time. Pivotal is investigating issues reported with the stability of PAS v2.8.4.</p>
+
+If you have already upgraded to PAS v2.8.4 and are experiencing instability in your PAS deployment, such as `cf push` failure, contact [Support](https://support.pivotal.io).
+
+### <a id='credhub-vm'></a> CredHub Requires At Least One CredHub Instance
+
+<%= vars.app_runtime_abbr %> v2.8 and later requires at least one CredHub instance. If the number of CredHub instances is set to 0, the deployment fails.
+
+If you scaled the number of CredHub instances to 0 in <%= vars.app_runtime_abbr %> v2.7, check the number of CredHub instances in the **Resource Config** pane of the <%= vars.app_runtime_abbr %> v2.8 tile and increase to one or more instances before you apply changes for the upgrade.
+
+For more information, see [<%= vars.app_runtime_abbr %> Must Use At Least One CredHub VM](runtime-rn.html#credhub-vm) in _<%= vars.app_runtime_full %> v2.8 Release Notes_.
+
+### <a id='syslog-adapters-removed'></a> Syslog Adapters Are Removed
+
+Syslog Adapters are not supported in <%= vars.app_runtime_abbr %> v2.8. If you disabled Syslog Agents in <%= vars.app_runtime_abbr %> v2.7.7, you must enable Syslog Agents before you upgrade to <%= vars.app_runtime_abbr %> v2.8. If you do not enable Syslog Agents prior to upgrade, the upgrade fails in order to prevent potential log loss.
+
+To enable Syslog Agents on <%= vars.app_runtime_abbr %> v2.7.7, do one of the following:
+
+* Go to the **System Logging** pane in the <%= vars.app_runtime_abbr %> tile and select the **Enable syslog egress through Syslog Agents** checkbox.
+
+* Set the `properties.syslog_agent_enabled` property to `true`.
+
+### <a id="agent-based-syslog-egress-format"></a> Additional Metadata Tags for Metrics and App Logs
+
+In PAS v2.8, metadata tags for app logs and metrics appear after the header of each syslog message and before the syslog message text.
+If your external monitoring depends on a specific format for app logs, you must update the configuration.
+
+The new metadata tags appear in syslogs in the following format:
+
+<pre class="terminal">
+956 <14>1 2020-03-31T12:11:02.529497+00:00 My-org.My-space.my-app-blue ec3cd4e4-baf9-456d-965a-96bcb2c61a47
+[APP/PROC/WEB/0] - [tags@47450 app_id="ec3cd4e4-baf9-456d-965a-96bcb2c61a47" app_name="my-app-blue"
+deployment="cf-78e7a9442158adb53366" index="c57b95c6-d79f-4cfb-b7f3-08a770946b7a" instance_id="0"
+ip="10.214.110.84" job="diego_cell" organization_id="c23f6fb2-beeb-4d2f-8c1d-693be5bd502c"
+organization_name="My-org" origin="rep" process_id="ec3cd4e4-baf9-456d-965a-96bcb2c61a47"
+process_instance_id="1cf3854e-29d8-4825-7685-11ec" process_type="web" product="Pivotal Application Service"
+source_id="ec3cd4e4-baf9-456d-965a-96bcb2c61a47" source_type="APP/PROC/WEB"
+space_id="93e9f375-1567-4ea4-b2a1-ef6fd7e0125b" space_name="My-space"
+system_domain="example.mydomain.io"] 2020-03-31 07:11:02.529
+INFO [my-app,B2347215-T21118008-COWF/35558169/38311791] --- [http-nio-8080-exec-5]
+c.c.b.t.p.s.p.b.BatchPostProcessor : Report file created in 47 ms
+</pre>
+
+For more information, see [Human-Friendly Metadata](https://docs.pivotal.io/application-service/2-8/operating/identify-metric-source.html#human-friendly-metric-tags) in _Identifying the Source Deployment of Metrics_.
+
+### <a id="agent-based-syslog-egress"></a> Agent-Based Syslog Egress Cannot Be Disabled
+
+If you disabled Agent-based syslog egress in PAS v2.7.7 or later, then you must update your external monitoring configuration.
+
+Agent-based syslog egress is always enabled in PAS v2.8.0.
+Agent-based syslog egress was enabled by default in PAS v2.7.0, but you could optionally disable the egress in PAS v2.7.7 and later.
+For more information, see [Agent-Based Syslog Egress Is Enabled by Default](https://docs.pivotal.io/platform/2-7/release-notes/runtime-rn.html#agent-based-syslog-egress) in the Pivotal Application Service v2.7 Release Notes.
+
+
+
+
+
+
+
+## <a id='ist'></a> <%= vars.segment_runtime_full %>
+
+See the following <%= vars.segment_runtime_full %> breaking changes:
+
+### <a id='credhub-interpolate-with-https-iso'></a> Incorrect HTTP(S) Proxy Configuration Breaks CredHub Interpolation for Apps in <%= vars.segment_runtime_full %> v2.8.12 and Later
+
+In <%= vars.segment_runtime_full %> v2.8.12 and later, apps that have an incorrect HTTP(S) Proxy configuration fail to stage or restart due to a CredHub interpolation error. 
+
+Before you upgrade to <%= vars.segment_runtime_full %> v2.8.12 or later, you must fix the HTTP(S) Proxy configuration of any impacted applications:
+
+1. Determine whether your apps are impacted by following the resolution procedure in [Knowledgebase Article 9305](https://community.pivotal.io/s/article/Credhub-Reference-Can-t-Be-Interpolated-Due-To-Improper-HTTP-S-Proxy-Configuration).
+1. Update all impacted apps to use the recommended proxy settings that are documented in [Configuring Proxy Settings for All Apps](https://docs.pivotal.io/application-service/2-8/operating/config-proxy.html).
+1. Restart modified apps.
+
+### <a id='property-renamed'></a> Segment Name Property Is Renamed
+
+The property `.isolated_diego_cell.placement_tag` is renamed `.properties.compute_isolation` and includes three new inputs. This may impact your platform automation scripts.
+
+`.properties.compute_isolation` contains the following inputs:
+
+* `.properties.compute_isolation.disabled` to disable compute isolation
+
+* `.properties.compute_isolation.enabled` to enable compute isolation
+
+* `.properties.compute_isolation.enabled.isolation_segment_name` to add a placement tag for your Diego Cells when compute isolation is enabled
+
+You must update any platform automation scripts that include `.isolated_diego_cell.placement_tag` to use the new `.properties.compute_isolation` name and inputs. You must either disable compute isolation or enable compute isolation and specify a placement tag with these inputs.
+
+For more information, see [Compute and Networking Isolation](segment-rn.html#compute-networking-isolation) in _<%= vars.segment_runtime_full %> v2.8 Release Notes_.
+
+For guidance on setting configuration values, see [Compute and Networking Isolation](https://docs.pivotal.io/platform/2-8/customizing/installing-pcf-is.html#compute-networking-isolation) in _Installing <%= vars.segment_runtime_full %>_.
+
+### <a id='compute-isolation-router-sharding'></a> Compute Isolation Must Be Enabled If Networking Isolation Is Enabled
+
+In the <%= vars.segment_runtime_full %> <%= vars.v_major_version %> tile, you cannot disable compute isolation and enable networking isolation at the same time. In the **Compute and Network Isolation** pane, you can disable compute isolation by selecting **Disable** under **Compute isolation**. If you disable compute isolation, you must set **Router sharding mode** to **No isolation segment**. If **Compute isolation** is disabled and **Router sharding mode** is set to **Isolation segment only**, the apps in your isolation segment fail to schedule.
+
+Compute isolation is enabled by default. However, isolation segments do not require compute isolation. For more information, see [Compute and Networking Isolation](https://docs.pivotal.io/platform/2-8/pcf-release-notes/segment-rn.html#compute-networking-isolation) in _<%= vars.segment_runtime_full %> v2.8 Release Notes_.
+
+For more information about configuring or disabling compute and networking isolation, see [Compute and Networking Isolation](https://docs.pivotal.io/platform/2-8/customizing/installing-pcf-is.html#compute-networking-isolation) in _Installing <%= vars.segment_runtime_full %>_.

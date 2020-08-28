@@ -1,0 +1,1879 @@
+---
+title: Pivotal Application Service v2.8 Release Notes
+owner: Release Engineering
+---
+
+This topic contains release notes for <%= vars.app_runtime_full %> (<%= vars.app_runtime_abbr %>) <%= vars.v_major_version %>.
+
+<%= vars.platform_name %> is certified by the Cloud Foundry Foundation for <%= Date.today.year %>.
+
+Read more about the [certified provider program](https://www.cloudfoundry.org/provider-faq/) and the [requirements of providers](https://www.cloudfoundry.org/provider-requirements/).
+
+<hr>
+
+## <a id='releases'></a> Releases
+
+<%# DO NOT DELETE THIS LINE - robots use this to add new release notes %>
+ 
+### <a id='2.8.16'></a> 2.8.16
+
+**Release Date:** 08/24/2020
+
+* **[Bug Fix]** loggr-syslog-agent - Fix server alternative name
+* **[Bug Fix]** Fix memory leak in RLP gateway
+* **[Bug Fix]**: Return 502 TLS Handshake error for an unresponsive backend
+* **[Bug Fix]** Fix Usage Service for inactive foundations
+* **[Bug Fix]** Bump garden-runc to v1.19.16
+* Bump ubuntu-xenial stemcell to version `621.78`
+* Bump cflinuxfs3 to version `0.203.0`
+* Bump garden-runc to version `1.19.16`
+* Bump go-offline-buildpack to version `1.9.16`
+* Bump java-offline-buildpack to version `4.32.1`
+* Bump loggregator to version `106.2.9`
+* Bump python-offline-buildpack to version `1.7.18`
+* Bump routing to version `0.205.0`
+* Bump ruby-offline-buildpack to version `1.8.23`
+
+<table border="1" class="nice">
+  <thead>
+    <tr>
+      <th>Component</th>
+      <th>Version</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>ubuntu-xenial stemcell</td><td>621.78</td></tr>
+    <tr><td>backup-and-restore-sdk</td><td>1.17.4</td></tr>
+    <tr><td>binary-offline-buildpack</td><td>1.0.36</td></tr>
+    <tr><td>bosh-dns-aliases</td><td>0.0.3</td></tr>
+    <tr><td>bosh-system-metrics-forwarder</td><td>0.0.18</td></tr>
+    <tr><td>bpm</td><td>1.1.5</td></tr>
+    <tr><td>capi</td><td>1.87.9</td></tr>
+    <tr><td>cf-autoscaling</td><td>232</td></tr>
+    <tr><td>cf-cli</td><td>1.28.0</td></tr>
+    <tr><td>cf-networking</td><td>2.31.0</td></tr>
+    <tr><td>cf-smoke-tests</td><td>40.0.134</td></tr>
+    <tr><td>cflinuxfs3</td><td>0.203.0</td></tr>
+    <tr><td>credhub</td><td>2.5.12</td></tr>
+    <tr><td>diego</td><td>2.47.0</td></tr>
+    <tr><td>dotnet-core-offline-buildpack</td><td>2.3.13</td></tr>
+    <tr><td>garden-runc</td><td>1.19.16</td></tr>
+    <tr><td>go-offline-buildpack</td><td>1.9.16</td></tr>
+    <tr><td>haproxy</td><td>9.8.0</td></tr>
+    <tr><td>istio</td><td>1.3.0</td></tr>
+    <tr><td>java-offline-buildpack</td><td>4.32.1</td></tr>
+    <tr><td>license</td><td></td></tr>
+    <tr><td>log-cache</td><td>2.6.15</td></tr>
+    <tr><td>loggregator-agent</td><td>5.2.10</td></tr>
+    <tr><td>loggregator</td><td>106.2.9</td></tr>
+    <tr><td>mapfs</td><td>1.2.4</td></tr>
+    <tr><td>metric-registrar</td><td>1.1.1</td></tr>
+    <tr><td>metrics-discovery</td><td>2.0.2</td></tr>
+    <tr><td>mysql-monitoring</td><td>9.7.0</td></tr>
+    <tr><td>nats</td><td>28</td></tr>
+    <tr><td>nfs-volume</td><td>5.0.9</td></tr>
+    <tr><td>nginx-offline-buildpack</td><td>1.1.12</td></tr>
+    <tr><td>nodejs-offline-buildpack</td><td>1.7.25</td></tr>
+    <tr><td>notifications-ui</td><td>39</td></tr>
+    <tr><td>notifications</td><td>61</td></tr>
+    <tr><td>php-offline-buildpack</td><td>4.4.19</td></tr>
+    <tr><td>push-apps-manager-release</td><td>671.0.15</td></tr>
+    <tr><td>push-usage-service-release</td><td>670.0.21</td></tr>
+    <tr><td>pxc</td><td>0.28.0</td></tr>
+    <tr><td>python-offline-buildpack</td><td>1.7.18</td></tr>
+    <tr><td>r-offline-buildpack</td><td>1.1.7</td></tr>
+    <tr><td>routing</td><td>0.205.0</td></tr>
+    <tr><td>ruby-offline-buildpack</td><td>1.8.23</td></tr>
+    <tr><td>silk</td><td>2.31.0</td></tr>
+    <tr><td>smb-volume</td><td>3.0.1</td></tr>
+    <tr><td>staticfile-offline-buildpack</td><td>1.5.9</td></tr>
+    <tr><td>statsd-injector</td><td>1.11.8</td></tr>
+    <tr><td>syslog</td><td>11.6.1</td></tr>
+    <tr><td>system-metrics-scraper</td><td>2.0.13</td></tr>
+    <tr><td>uaa</td><td>74.5.18</td></tr>
+  </tbody>
+</table>
+ 
+ 
+
+### <a id='2.8.15'></a> 2.8.15
+
+**Release Date:** 08/07/2020
+
+* **[Security Fix]** Notifications-ui removes UAA client secret from logs during installation
+* **[Feature Improvement]** Upgrade Percona-XtraDB-Cluster to version 5.7.30-31.43
+* **[Bug Fix]** Fix issue where requests to internal routes could fail due to incorrect case-sensitivity in DNS lookup in the service discovery controller.
+* **[Bug Fix]** System Metrics Scraper/Prom Scraper — Fixes a bug that causes excess log volume and increases scrape interval to reduce metric volume
+* Bump ubuntu-xenial stemcell to version `621.77`
+* Bump cf-cli to version `1.28.0`
+* Bump cf-networking to version `2.31.0`
+* Bump cf-smoke-tests to version `40.0.134`
+* Bump cflinuxfs3 to version `0.202.0`
+* Bump dotnet-core-offline-buildpack to version `2.3.13`
+* Bump garden-runc to version `1.19.14`
+* Bump go-offline-buildpack to version `1.9.15`
+* Bump nginx-offline-buildpack to version `1.1.12`
+* Bump nodejs-offline-buildpack to version `1.7.25`
+* Bump notifications-ui to version `39`
+* Bump php-offline-buildpack to version `4.4.19`
+* Bump pxc to version `0.28.0`
+* Bump python-offline-buildpack to version `1.7.17`
+* Bump ruby-offline-buildpack to version `1.8.22`
+* Bump silk to version `2.31.0`
+* Bump system-metrics-scraper to version `2.0.13`
+
+<table border="1" class="nice">
+  <thead>
+    <tr>
+      <th>Component</th>
+      <th>Version</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>ubuntu-xenial stemcell</td><td>621.77</td></tr>
+    <tr><td>backup-and-restore-sdk</td><td>1.17.4</td></tr>
+    <tr><td>binary-offline-buildpack</td><td>1.0.36</td></tr>
+    <tr><td>bosh-dns-aliases</td><td>0.0.3</td></tr>
+    <tr><td>bosh-system-metrics-forwarder</td><td>0.0.18</td></tr>
+    <tr><td>bpm</td><td>1.1.5</td></tr>
+    <tr><td>capi</td><td>1.87.9</td></tr>
+    <tr><td>cf-autoscaling</td><td>232</td></tr>
+    <tr><td>cf-cli</td><td>1.28.0</td></tr>
+    <tr><td>cf-networking</td><td>2.31.0</td></tr>
+    <tr><td>cf-smoke-tests</td><td>40.0.134</td></tr>
+    <tr><td>cflinuxfs3</td><td>0.202.0</td></tr>
+    <tr><td>credhub</td><td>2.5.12</td></tr>
+    <tr><td>diego</td><td>2.47.0</td></tr>
+    <tr><td>dotnet-core-offline-buildpack</td><td>2.3.13</td></tr>
+    <tr><td>garden-runc</td><td>1.19.14</td></tr>
+    <tr><td>go-offline-buildpack</td><td>1.9.15</td></tr>
+    <tr><td>haproxy</td><td>9.8.0</td></tr>
+    <tr><td>istio</td><td>1.3.0</td></tr>
+    <tr><td>java-offline-buildpack</td><td>4.31.1</td></tr>
+    <tr><td>log-cache</td><td>2.6.15</td></tr>
+    <tr><td>loggregator-agent</td><td>5.2.10</td></tr>
+    <tr><td>loggregator</td><td>106.2.8</td></tr>
+    <tr><td>mapfs</td><td>1.2.4</td></tr>
+    <tr><td>metric-registrar</td><td>1.1.1</td></tr>
+    <tr><td>metrics-discovery</td><td>2.0.2</td></tr>
+    <tr><td>mysql-monitoring</td><td>9.7.0</td></tr>
+    <tr><td>nats</td><td>28</td></tr>
+    <tr><td>nfs-volume</td><td>5.0.9</td></tr>
+    <tr><td>nginx-offline-buildpack</td><td>1.1.12</td></tr>
+    <tr><td>nodejs-offline-buildpack</td><td>1.7.25</td></tr>
+    <tr><td>notifications-ui</td><td>39</td></tr>
+    <tr><td>notifications</td><td>61</td></tr>
+    <tr><td>php-offline-buildpack</td><td>4.4.19</td></tr>
+    <tr><td>push-apps-manager-release</td><td>671.0.15</td></tr>
+    <tr><td>push-usage-service-release</td><td>671.0.14</td></tr>
+    <tr><td>pxc</td><td>0.28.0</td></tr>
+    <tr><td>python-offline-buildpack</td><td>1.7.17</td></tr>
+    <tr><td>r-offline-buildpack</td><td>1.1.7</td></tr>
+    <tr><td>routing</td><td>0.203.0</td></tr>
+    <tr><td>ruby-offline-buildpack</td><td>1.8.22</td></tr>
+    <tr><td>silk</td><td>2.31.0</td></tr>
+    <tr><td>smb-volume</td><td>3.0.1</td></tr>
+    <tr><td>staticfile-offline-buildpack</td><td>1.5.9</td></tr>
+    <tr><td>statsd-injector</td><td>1.11.8</td></tr>
+    <tr><td>syslog</td><td>11.6.1</td></tr>
+    <tr><td>system-metrics-scraper</td><td>2.0.13</td></tr>
+    <tr><td>uaa</td><td>74.5.18</td></tr>
+  </tbody>
+</table>
+
+
+
+### <a id='2.8.14'></a> 2.8.14
+
+**Release Date:** 07/16/2020
+
+* **[Security Fix]** Fix for [CVE-2020-15586](https://www.cloudfoundry.org/blog/cve-2020-15586/): Bump golang to version 1.14.5 with a fix in the net/http/httputil package for an issue which could cause the Gorouter to crash if a malicious client sends specially crafted HTTP requests.
+* **[Feature Improvement]** Platform operators can see X-Cf-RouterError response headers in router access logs
+* **[Feature Improvement]** Application developers can successfully deploy a reverse-proxy with support for sticky sessions
+* **[Feature Improvement]** Gorouter provides improved logging when the following error is received: `x509: certificate has expired or is not yet valid`
+
+* Bump cf-cli to version `1.27.0`
+* Bump cf-smoke-tests to version `40.0.132`
+* Bump cflinuxfs3 to version `0.198.0`
+* Bump dotnet-core-offline-buildpack to version `2.3.12`
+* Bump go-offline-buildpack to version `1.9.14`
+* Bump java-offline-buildpack to version `4.31.1`
+* Bump nginx-offline-buildpack to version `1.1.11`
+* Bump nodejs-offline-buildpack to version `1.7.24`
+* Bump php-offline-buildpack to version `4.4.18`
+* Bump python-offline-buildpack to version `1.7.16`
+* Bump r-offline-buildpack to version `1.1.7`
+* Bump routing to version `0.203.0`
+* Bump ruby-offline-buildpack to version `1.8.21`
+* Bump staticfile-offline-buildpack to version `1.5.9`
+
+<table border="1" class="nice">
+  <thead>
+    <tr>
+      <th>Component</th>
+      <th>Version</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>ubuntu-xenial stemcell</td><td>621.76</td></tr>
+    <tr><td>backup-and-restore-sdk</td><td>1.17.4</td></tr>
+    <tr><td>binary-offline-buildpack</td><td>1.0.36</td></tr>
+    <tr><td>bosh-dns-aliases</td><td>0.0.3</td></tr>
+    <tr><td>bosh-system-metrics-forwarder</td><td>0.0.18</td></tr>
+    <tr><td>bpm</td><td>1.1.5</td></tr>
+    <tr><td>capi</td><td>1.87.9</td></tr>
+    <tr><td>cf-autoscaling</td><td>232</td></tr>
+    <tr><td>cf-cli</td><td>1.27.0</td></tr>
+    <tr><td>cf-networking</td><td>2.30.0</td></tr>
+    <tr><td>cf-smoke-tests</td><td>40.0.132</td></tr>
+    <tr><td>cflinuxfs3</td><td>0.198.0</td></tr>
+    <tr><td>credhub</td><td>2.5.12</td></tr>
+    <tr><td>diego</td><td>2.47.0</td></tr>
+    <tr><td>dotnet-core-offline-buildpack</td><td>2.3.12</td></tr>
+    <tr><td>garden-runc</td><td>1.19.10</td></tr>
+    <tr><td>go-offline-buildpack</td><td>1.9.14</td></tr>
+    <tr><td>haproxy</td><td>9.8.0</td></tr>
+    <tr><td>istio</td><td>1.3.0</td></tr>
+    <tr><td>java-offline-buildpack</td><td>4.31.1</td></tr>
+    <tr><td>log-cache</td><td>2.6.15</td></tr>
+    <tr><td>loggregator-agent</td><td>5.2.10</td></tr>
+    <tr><td>loggregator</td><td>106.2.8</td></tr>
+    <tr><td>mapfs</td><td>1.2.4</td></tr>
+    <tr><td>metric-registrar</td><td>1.1.1</td></tr>
+    <tr><td>metrics-discovery</td><td>2.0.2</td></tr>
+    <tr><td>mysql-monitoring</td><td>9.7.0</td></tr>
+    <tr><td>nats</td><td>28</td></tr>
+    <tr><td>nfs-volume</td><td>5.0.9</td></tr>
+    <tr><td>nginx-offline-buildpack</td><td>1.1.11</td></tr>
+    <tr><td>nodejs-offline-buildpack</td><td>1.7.24</td></tr>
+    <tr><td>notifications-ui</td><td>36</td></tr>
+    <tr><td>notifications</td><td>61</td></tr>
+    <tr><td>php-offline-buildpack</td><td>4.4.18</td></tr>
+    <tr><td>push-apps-manager-release</td><td>671.0.15</td></tr>
+    <tr><td>push-usage-service-release</td><td>671.0.14</td></tr>
+    <tr><td>pxc</td><td>0.22.0</td></tr>
+    <tr><td>python-offline-buildpack</td><td>1.7.16</td></tr>
+    <tr><td>r-offline-buildpack</td><td>1.1.7</td></tr>
+    <tr><td>routing</td><td>0.203.0</td></tr>
+    <tr><td>ruby-offline-buildpack</td><td>1.8.21</td></tr>
+    <tr><td>silk</td><td>2.30.0</td></tr>
+    <tr><td>smb-volume</td><td>3.0.1</td></tr>
+    <tr><td>staticfile-offline-buildpack</td><td>1.5.9</td></tr>
+    <tr><td>statsd-injector</td><td>1.11.8</td></tr>
+    <tr><td>syslog</td><td>11.6.1</td></tr>
+    <tr><td>system-metrics-scraper</td><td>2.0.3</td></tr>
+    <tr><td>uaa</td><td>74.5.18</td></tr>
+  </tbody>
+</table>
+
+
+
+### <a id='2.8.13'></a> 2.8.13
+
+**Release Date:** 07/09/2020
+
+* **[Breaking Change]** If you use the NSX-T Container Plugin (NCP) tile v3.0.1 or earlier, do not upgrade to this patch.
+The stemcell in this patch is not compatible with the NCP tile v3.0.1 and causes the `openvswitch` job to fail when you deploy.
+* **[Security Fix]** Stop logging credentials in Autoscaler app
+* **[Bug Fix]** For sets of logs larger than 4MB, Apps Manager does not make requests to log cache with an invalid log limit
+* **[Bug Fix]** Display correct guid for App subresources in v2 GET response
+* **[Bug Fix]** Fix bug impacting hybrid grant flow with external oauth providers
+* **[Bug Fix]** Restore access to Log Cache service logs
+* Bump capi to version `1.87.9`
+* Bump cf-autoscaling to version `232`
+* Bump cf-smoke-tests to version `40.0.130`
+* Bump cflinuxfs3 to version `0.197.0`
+* Bump log-cache to version `2.6.15`
+* Bump push-apps-manager-release to version `671.0.15`
+* Bump uaa to version `74.5.18`
+
+<table border="1" class="nice">
+  <thead>
+    <tr>
+      <th>Component</th>
+      <th>Version</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>ubuntu-xenial stemcell</td><td>621.76</td></tr>
+    <tr><td>backup-and-restore-sdk</td><td>1.17.4</td></tr>
+    <tr><td>binary-offline-buildpack</td><td>1.0.36</td></tr>
+    <tr><td>bosh-dns-aliases</td><td>0.0.3</td></tr>
+    <tr><td>bosh-system-metrics-forwarder</td><td>0.0.18</td></tr>
+    <tr><td>bpm</td><td>1.1.5</td></tr>
+    <tr><td>capi</td><td>1.87.9</td></tr>
+    <tr><td>cf-autoscaling</td><td>232</td></tr>
+    <tr><td>cf-cli</td><td>1.26.0</td></tr>
+    <tr><td>cf-networking</td><td>2.30.0</td></tr>
+    <tr><td>cf-smoke-tests</td><td>40.0.130</td></tr>
+    <tr><td>cflinuxfs3</td><td>0.197.0</td></tr>
+    <tr><td>credhub</td><td>2.5.12</td></tr>
+    <tr><td>diego</td><td>2.47.0</td></tr>
+    <tr><td>dotnet-core-offline-buildpack</td><td>2.3.9</td></tr>
+    <tr><td>garden-runc</td><td>1.19.10</td></tr>
+    <tr><td>go-offline-buildpack</td><td>1.9.12</td></tr>
+    <tr><td>haproxy</td><td>9.8.0</td></tr>
+    <tr><td>istio</td><td>1.3.0</td></tr>
+    <tr><td>java-offline-buildpack</td><td>4.31</td></tr>
+    <tr><td>log-cache</td><td>2.6.15</td></tr>
+    <tr><td>loggregator-agent</td><td>5.2.10</td></tr>
+    <tr><td>loggregator</td><td>106.2.8</td></tr>
+    <tr><td>mapfs</td><td>1.2.4</td></tr>
+    <tr><td>metric-registrar</td><td>1.1.1</td></tr>
+    <tr><td>metrics-discovery</td><td>2.0.2</td></tr>
+    <tr><td>mysql-monitoring</td><td>9.7.0</td></tr>
+    <tr><td>nats</td><td>28</td></tr>
+    <tr><td>nfs-volume</td><td>5.0.9</td></tr>
+    <tr><td>nginx-offline-buildpack</td><td>1.1.8</td></tr>
+    <tr><td>nodejs-offline-buildpack</td><td>1.7.18</td></tr>
+    <tr><td>notifications-ui</td><td>36</td></tr>
+    <tr><td>notifications</td><td>61</td></tr>
+    <tr><td>php-offline-buildpack</td><td>4.4.13</td></tr>
+    <tr><td>push-apps-manager-release</td><td>671.0.15</td></tr>
+    <tr><td>push-usage-service-release</td><td>671.0.14</td></tr>
+    <tr><td>pxc</td><td>0.22.0</td></tr>
+    <tr><td>python-offline-buildpack</td><td>1.7.13</td></tr>
+    <tr><td>r-offline-buildpack</td><td>1.1.4</td></tr>
+    <tr><td>routing</td><td>0.201.0</td></tr>
+    <tr><td>ruby-offline-buildpack</td><td>1.8.17</td></tr>
+    <tr><td>silk</td><td>2.30.0</td></tr>
+    <tr><td>smb-volume</td><td>3.0.1</td></tr>
+    <tr><td>staticfile-offline-buildpack</td><td>1.5.6</td></tr>
+    <tr><td>statsd-injector</td><td>1.11.8</td></tr>
+    <tr><td>syslog</td><td>11.6.1</td></tr>
+    <tr><td>system-metrics-scraper</td><td>2.0.3</td></tr>
+    <tr><td>uaa</td><td>74.5.18</td></tr>
+  </tbody>
+</table>
+
+
+
+### <a id='2.8.12'></a> 2.8.12
+
+**Release Date:** 06/25/2020
+
+* **[Breaking Change]** Incorrect HTTP(S) Proxy configuration breaks CredHub interpolation for apps. For more information, see [<%= vars.app_runtime_abbr %> <%= vars.v_major_version %> Breaking Changes](breaking-changes.html#credhub-interpolate-with-https).
+* **[Breaking Change]** If you use the NSX-T Container Plugin (NCP) tile v3.0.1 or earlier, do not upgrade to this patch.
+The stemcell in this patch is not compatible with the NCP tile v3.0.1 and causes the `openvswitch` job to fail when you deploy.
+* **[Bug Fix]** Add a new cache configuration to the NFS service allowing service instances to enable file attribute caching and achieve directory listing performance similar to the nfs-legacy service
+* **[Bug Fix]** Purged and re-seeded AppUsageEvents now contain parent app guid/name
+* **[Bug Fix]** Fix Autoscaler logging to respect the 'Enable Verbose Logging' checkbox
+* **[Bug Fix]** Remove invalid characters (such as underscores) in hostnames in outgoing application syslog messages to comply with [RFC 5424](https://tools.ietf.org/html/rfc5424)
+* Bump ubuntu-xenial stemcell to version `621.76`
+* Bump capi to version `1.87.7`
+* Bump cflinuxfs3 to version `0.195.0`
+* Bump diego to version `2.47.0`
+* Bump java-offline-buildpack to version `4.31`
+* Bump loggregator-agent to version `5.2.10`
+* Bump nfs-volume to version `5.0.9`
+* Bump push-usage-service-release to version `671.0.14`
+
+<table border="1" class="nice">
+  <thead>
+    <tr>
+      <th>Component</th>
+      <th>Version</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>ubuntu-xenial stemcell</td><td>621.76</td></tr>
+    <tr><td>backup-and-restore-sdk</td><td>1.17.4</td></tr>
+    <tr><td>binary-offline-buildpack</td><td>1.0.36</td></tr>
+    <tr><td>bosh-dns-aliases</td><td>0.0.3</td></tr>
+    <tr><td>bosh-system-metrics-forwarder</td><td>0.0.18</td></tr>
+    <tr><td>bpm</td><td>1.1.5</td></tr>
+    <tr><td>capi</td><td>1.87.7</td></tr>
+    <tr><td>cf-autoscaling</td><td>230</td></tr>
+    <tr><td>cf-cli</td><td>1.26.0</td></tr>
+    <tr><td>cf-networking</td><td>2.30.0</td></tr>
+    <tr><td>cf-smoke-tests</td><td>40.0.128</td></tr>
+    <tr><td>cflinuxfs3</td><td>0.195.0</td></tr>
+    <tr><td>credhub</td><td>2.5.12</td></tr>
+    <tr><td>diego</td><td>2.47.0</td></tr>
+    <tr><td>dotnet-core-offline-buildpack</td><td>2.3.9</td></tr>
+    <tr><td>garden-runc</td><td>1.19.10</td></tr>
+    <tr><td>go-offline-buildpack</td><td>1.9.12</td></tr>
+    <tr><td>haproxy</td><td>9.8.0</td></tr>
+    <tr><td>istio</td><td>1.3.0</td></tr>
+    <tr><td>java-offline-buildpack</td><td>4.31</td></tr>
+    <tr><td>log-cache</td><td>2.6.14</td></tr>
+    <tr><td>loggregator-agent</td><td>5.2.10</td></tr>
+    <tr><td>loggregator</td><td>106.2.8</td></tr>
+    <tr><td>mapfs</td><td>1.2.4</td></tr>
+    <tr><td>metric-registrar</td><td>1.1.1</td></tr>
+    <tr><td>metrics-discovery</td><td>2.0.2</td></tr>
+    <tr><td>mysql-monitoring</td><td>9.7.0</td></tr>
+    <tr><td>nats</td><td>28</td></tr>
+    <tr><td>nfs-volume</td><td>5.0.9</td></tr>
+    <tr><td>nginx-offline-buildpack</td><td>1.1.8</td></tr>
+    <tr><td>nodejs-offline-buildpack</td><td>1.7.18</td></tr>
+    <tr><td>notifications-ui</td><td>36</td></tr>
+    <tr><td>notifications</td><td>61</td></tr>
+    <tr><td>php-offline-buildpack</td><td>4.4.13</td></tr>
+    <tr><td>push-apps-manager-release</td><td>671.0.14</td></tr>
+    <tr><td>push-usage-service-release</td><td>671.0.14</td></tr>
+    <tr><td>pxc</td><td>0.22.0</td></tr>
+    <tr><td>python-offline-buildpack</td><td>1.7.13</td></tr>
+    <tr><td>r-offline-buildpack</td><td>1.1.4</td></tr>
+    <tr><td>routing</td><td>0.201.0</td></tr>
+    <tr><td>ruby-offline-buildpack</td><td>1.8.17</td></tr>
+    <tr><td>silk</td><td>2.30.0</td></tr>
+    <tr><td>smb-volume</td><td>3.0.1</td></tr>
+    <tr><td>staticfile-offline-buildpack</td><td>1.5.6</td></tr>
+    <tr><td>statsd-injector</td><td>1.11.8</td></tr>
+    <tr><td>syslog</td><td>11.6.1</td></tr>
+    <tr><td>system-metrics-scraper</td><td>2.0.3</td></tr>
+    <tr><td>uaa</td><td>74.5.17</td></tr>
+  </tbody>
+</table>
+
+### <a id='2.8.11'></a> 2.8.11
+
+**Release Date:** 06/15/2020
+
+* The option to enable dynamic egress through the <%= vars.app_runtime_abbr %> UI is removed. To administer App Security Groups (ASGs) for your apps instead of dynamic egress policies, see [App Security Groups](https://docs.pivotal.io/application-service/2-8/concepts/asg.html).
+* **[Feature Improvement]** Service instances can send metrics to logcache over syslog
+* **[Feature Improvement]** Upgrade Bellsoft JDK to version 11.0.7+10
+* **[Bug Fix]** Update App Metrics UAA client to support cloud_controller.admin scope
+* **[Bug Fix]** Usage Service - Backfill missing service name fields in usage reports
+* **[Bug Fix]** Fix issue preventing rolling deployments from working with Windows apps
+* **[Bug Fix]** Gorouter - Drain timeout always uses configured value
+* **[Bug Fix]** Silk - Continue container networking during cell drain
+* **[Bug Fix]** Pass through arbitrary parameters when binding a service to a route in Apps Manager
+* **[Bug Fix]** Prevent click into Apps Manager search bar from erroring out when data is not fully loaded
+* **[Bug Fix]** Improve monitoring metrics for Usage Service
+* Bump ubuntu-xenial stemcell to version `621.75`
+* Bump capi to version `1.87.6`
+* Bump cf-networking to version `2.30.0`
+* Bump cflinuxfs3 to version `0.193.0`
+* Bump push-apps-manager-release to version `671.0.14`
+* Bump push-usage-service-release to version `671.0.12`
+* Bump routing to version `0.201.0`
+* Bump silk to version `2.30.0`
+* Bump uaa to version `74.5.17`
+
+<table border="1" class="nice">
+  <thead>
+    <tr>
+      <th>Component</th>
+      <th>Version</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>ubuntu-xenial stemcell</td><td>621.75</td></tr>
+    <tr><td>backup-and-restore-sdk</td><td>1.17.4</td></tr>
+    <tr><td>binary-offline-buildpack</td><td>1.0.36</td></tr>
+    <tr><td>bosh-dns-aliases</td><td>0.0.3</td></tr>
+    <tr><td>bosh-system-metrics-forwarder</td><td>0.0.18</td></tr>
+    <tr><td>bpm</td><td>1.1.5</td></tr>
+    <tr><td>capi</td><td>1.87.6</td></tr>
+    <tr><td>cf-autoscaling</td><td>230</td></tr>
+    <tr><td>cf-cli</td><td>1.26.0</td></tr>
+    <tr><td>cf-networking</td><td>2.30.0</td></tr>
+    <tr><td>cf-smoke-tests</td><td>40.0.128</td></tr>
+    <tr><td>cflinuxfs3</td><td>0.193.0</td></tr>
+    <tr><td>credhub</td><td>2.5.12</td></tr>
+    <tr><td>diego</td><td>2.44.0</td></tr>
+    <tr><td>dotnet-core-offline-buildpack</td><td>2.3.9</td></tr>
+    <tr><td>garden-runc</td><td>1.19.10</td></tr>
+    <tr><td>go-offline-buildpack</td><td>1.9.12</td></tr>
+    <tr><td>haproxy</td><td>9.8.0</td></tr>
+    <tr><td>istio</td><td>1.3.0</td></tr>
+    <tr><td>java-offline-buildpack</td><td>4.29.1</td></tr>
+    <tr><td>log-cache</td><td>2.6.14</td></tr>
+    <tr><td>loggregator-agent</td><td>5.2.9</td></tr>
+    <tr><td>loggregator</td><td>106.2.8</td></tr>
+    <tr><td>mapfs</td><td>1.2.4</td></tr>
+    <tr><td>metric-registrar</td><td>1.1.1</td></tr>
+    <tr><td>metrics-discovery</td><td>2.0.2</td></tr>
+    <tr><td>mysql-monitoring</td><td>9.7.0</td></tr>
+    <tr><td>nats</td><td>28</td></tr>
+    <tr><td>nfs-volume</td><td>5.0.6</td></tr>
+    <tr><td>nginx-offline-buildpack</td><td>1.1.8</td></tr>
+    <tr><td>nodejs-offline-buildpack</td><td>1.7.18</td></tr>
+    <tr><td>notifications-ui</td><td>36</td></tr>
+    <tr><td>notifications</td><td>61</td></tr>
+    <tr><td>php-offline-buildpack</td><td>4.4.13</td></tr>
+    <tr><td>push-apps-manager-release</td><td>671.0.14</td></tr>
+    <tr><td>push-usage-service-release</td><td>671.0.12</td></tr>
+    <tr><td>pxc</td><td>0.22.0</td></tr>
+    <tr><td>python-offline-buildpack</td><td>1.7.13</td></tr>
+    <tr><td>r-offline-buildpack</td><td>1.1.4</td></tr>
+    <tr><td>routing</td><td>0.201.0</td></tr>
+    <tr><td>ruby-offline-buildpack</td><td>1.8.17</td></tr>
+    <tr><td>silk</td><td>2.30.0</td></tr>
+    <tr><td>smb-volume</td><td>3.0.1</td></tr>
+    <tr><td>staticfile-offline-buildpack</td><td>1.5.6</td></tr>
+    <tr><td>statsd-injector</td><td>1.11.8</td></tr>
+    <tr><td>syslog</td><td>11.6.1</td></tr>
+    <tr><td>system-metrics-scraper</td><td>2.0.3</td></tr>
+    <tr><td>uaa</td><td>74.5.17</td></tr>
+  </tbody>
+</table>
+
+
+
+### <a id='2.8.10'></a> 2.8.10
+
+**Release Date:** 06/03/2020
+
+* **[Security Fix]** Fix minor CVEs in Credhub server from dependent libraries
+* **[Feature]** Allow egress traffic from apps to addresses on host via host_tcp_services
+* **[Feature Improvement]** HTTP trace requests now respond with a generic error page
+* **[Bug Fix]** Safeguard against unavailable stack traces in Spring and Steeltoe threaddump actuator endpoint in Apps Manager
+* **[Bug Fix]** Update Reverse Log Proxies to fix shutdown issues in Loggregator
+* **[Bug Fix]** Migrate `services/intermediate_tls_ca` to `/services/tls_leaf` for Maestro
+* Bump cf-smoke-tests to version `40.0.128`
+* Bump cflinuxfs3 to version `0.189.0`
+* Bump credhub to version `2.5.12`
+* Bump go-offline-buildpack to version `1.9.12`
+* Bump loggregator to version `106.2.8`
+* Bump nfs-volume to version `5.0.6`
+* Bump nodejs-offline-buildpack to version `1.7.18`
+* Bump push-apps-manager-release to version `671.0.11`
+* Bump uaa to version `74.5.16`
+
+<table border="1" class="nice">
+  <thead>
+    <tr>
+      <th>Component</th>
+      <th>Version</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>ubuntu-xenial stemcell</td><td>621.74</td></tr>
+    <tr><td>backup-and-restore-sdk</td><td>1.17.4</td></tr>
+    <tr><td>binary-offline-buildpack</td><td>1.0.36</td></tr>
+    <tr><td>bosh-dns-aliases</td><td>0.0.3</td></tr>
+    <tr><td>bosh-system-metrics-forwarder</td><td>0.0.18</td></tr>
+    <tr><td>bpm</td><td>1.1.5</td></tr>
+    <tr><td>capi</td><td>1.87.4</td></tr>
+    <tr><td>cf-autoscaling</td><td>230</td></tr>
+    <tr><td>cf-cli</td><td>1.26.0</td></tr>
+    <tr><td>cf-networking</td><td>2.28.0</td></tr>
+    <tr><td>cf-smoke-tests</td><td>40.0.128</td></tr>
+    <tr><td>cflinuxfs3</td><td>0.189.0</td></tr>
+    <tr><td>credhub</td><td>2.5.12</td></tr>
+    <tr><td>diego</td><td>2.44.0</td></tr>
+    <tr><td>dotnet-core-offline-buildpack</td><td>2.3.9</td></tr>
+    <tr><td>garden-runc</td><td>1.19.10</td></tr>
+    <tr><td>go-offline-buildpack</td><td>1.9.12</td></tr>
+    <tr><td>haproxy</td><td>9.8.0</td></tr>
+    <tr><td>istio</td><td>1.3.0</td></tr>
+    <tr><td>java-offline-buildpack</td><td>4.29.1</td></tr>
+    <tr><td>log-cache</td><td>2.6.14</td></tr>
+    <tr><td>loggregator-agent</td><td>5.2.9</td></tr>
+    <tr><td>loggregator</td><td>106.2.8</td></tr>
+    <tr><td>mapfs</td><td>1.2.4</td></tr>
+    <tr><td>metric-registrar</td><td>1.1.1</td></tr>
+    <tr><td>metrics-discovery</td><td>2.0.2</td></tr>
+    <tr><td>mysql-monitoring</td><td>9.7.0</td></tr>
+    <tr><td>nats</td><td>28</td></tr>
+    <tr><td>nfs-volume</td><td>5.0.6</td></tr>
+    <tr><td>nginx-offline-buildpack</td><td>1.1.8</td></tr>
+    <tr><td>nodejs-offline-buildpack</td><td>1.7.18</td></tr>
+    <tr><td>notifications-ui</td><td>36</td></tr>
+    <tr><td>notifications</td><td>61</td></tr>
+    <tr><td>php-offline-buildpack</td><td>4.4.13</td></tr>
+    <tr><td>push-apps-manager-release</td><td>671.0.11</td></tr>
+    <tr><td>push-usage-service-release</td><td>671.0.9</td></tr>
+    <tr><td>pxc</td><td>0.22.0</td></tr>
+    <tr><td>python-offline-buildpack</td><td>1.7.13</td></tr>
+    <tr><td>r-offline-buildpack</td><td>1.1.4</td></tr>
+    <tr><td>routing</td><td>0.199.0</td></tr>
+    <tr><td>ruby-offline-buildpack</td><td>1.8.17</td></tr>
+    <tr><td>silk</td><td>2.28.0</td></tr>
+    <tr><td>smb-volume</td><td>3.0.1</td></tr>
+    <tr><td>staticfile-offline-buildpack</td><td>1.5.6</td></tr>
+    <tr><td>statsd-injector</td><td>1.11.8</td></tr>
+    <tr><td>syslog</td><td>11.6.1</td></tr>
+    <tr><td>system-metrics-scraper</td><td>2.0.3</td></tr>
+    <tr><td>uaa</td><td>74.5.16</td></tr>
+  </tbody>
+</table>
+
+
+
+### <a id='2.8.9'></a> 2.8.9
+
+**Release Date:** 05/18/2020
+
+* **[Security Fix]** Support various CVE impacted components
+* **[Bug Fix]** Fix scheduling issue in `loggregator agent` by upgrading to Go 1.14.2
+* **[Bug Fix]** Fix issue in App Autoscaler where rules that were based on the HTTP-throughput metric failed to fire.
+   For information about the HTTP Throughput metric, see [Default Metrics for Scaling
+   Rules](https://docs.pivotal.io/application-service/2-8/appsman-services/autoscaler/about-app-autoscaler.html#default-metrics).
+* **[Bug Fix]** Fix issue in App Autoscaler where the Scheduler API returned an error
+  when `executes_at` was set to a time that was in the past.
+* Bump ubuntu-xenial stemcell to version `621.74`
+* Bump cf-autoscaling to version `230`
+* Bump cflinuxfs3 to version `0.180.0`
+* Bump loggregator-agent to version `5.2.9`
+
+<table border="1" class="nice">
+  <thead>
+    <tr>
+      <th>Component</th>
+      <th>Version</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>ubuntu-xenial stemcell</td><td>621.74</td></tr>
+    <tr><td>backup-and-restore-sdk</td><td>1.17.4</td></tr>
+    <tr><td>binary-offline-buildpack</td><td>1.0.36</td></tr>
+    <tr><td>bosh-dns-aliases</td><td>0.0.3</td></tr>
+    <tr><td>bosh-system-metrics-forwarder</td><td>0.0.18</td></tr>
+    <tr><td>bpm</td><td>1.1.5</td></tr>
+    <tr><td>capi</td><td>1.87.4</td></tr>
+    <tr><td>cf-autoscaling</td><td>230</td></tr>
+    <tr><td>cf-cli</td><td>1.26.0</td></tr>
+    <tr><td>cf-networking</td><td>2.28.0</td></tr>
+    <tr><td>cf-smoke-tests</td><td>40.0.127</td></tr>
+    <tr><td>cflinuxfs3</td><td>0.180.0</td></tr>
+    <tr><td>credhub</td><td>2.5.11</td></tr>
+    <tr><td>diego</td><td>2.44.0</td></tr>
+    <tr><td>dotnet-core-offline-buildpack</td><td>2.3.9</td></tr>
+    <tr><td>garden-runc</td><td>1.19.10</td></tr>
+    <tr><td>go-offline-buildpack</td><td>1.9.11</td></tr>
+    <tr><td>haproxy</td><td>9.8.0</td></tr>
+    <tr><td>istio</td><td>1.3.0</td></tr>
+    <tr><td>java-offline-buildpack</td><td>4.29.1</td></tr>
+    <tr><td>log-cache</td><td>2.6.14</td></tr>
+    <tr><td>loggregator-agent</td><td>5.2.9</td></tr>
+    <tr><td>loggregator</td><td>106.2.6</td></tr>
+    <tr><td>mapfs</td><td>1.2.4</td></tr>
+    <tr><td>metric-registrar</td><td>1.1.1</td></tr>
+    <tr><td>metrics-discovery</td><td>2.0.2</td></tr>
+    <tr><td>mysql-monitoring</td><td>9.7.0</td></tr>
+    <tr><td>nats</td><td>28</td></tr>
+    <tr><td>nfs-volume</td><td>5.0.5</td></tr>
+    <tr><td>nginx-offline-buildpack</td><td>1.1.8</td></tr>
+    <tr><td>nodejs-offline-buildpack</td><td>1.7.17</td></tr>
+    <tr><td>notifications-ui</td><td>36</td></tr>
+    <tr><td>notifications</td><td>61</td></tr>
+    <tr><td>php-offline-buildpack</td><td>4.4.13</td></tr>
+    <tr><td>push-apps-manager-release</td><td>671.0.10</td></tr>
+    <tr><td>push-usage-service-release</td><td>671.0.9</td></tr>
+    <tr><td>pxc</td><td>0.22.0</td></tr>
+    <tr><td>python-offline-buildpack</td><td>1.7.13</td></tr>
+    <tr><td>r-offline-buildpack</td><td>1.1.4</td></tr>
+    <tr><td>routing</td><td>0.199.0</td></tr>
+    <tr><td>ruby-offline-buildpack</td><td>1.8.17</td></tr>
+    <tr><td>silk</td><td>2.28.0</td></tr>
+    <tr><td>smb-volume</td><td>3.0.1</td></tr>
+    <tr><td>staticfile-offline-buildpack</td><td>1.5.6</td></tr>
+    <tr><td>statsd-injector</td><td>1.11.8</td></tr>
+    <tr><td>syslog</td><td>11.6.1</td></tr>
+    <tr><td>system-metrics-scraper</td><td>2.0.3</td></tr>
+    <tr><td>uaa</td><td>74.5.15</td></tr>
+  </tbody>
+</table>
+
+
+
+### <a id='2.8.8'></a> 2.8.8
+
+**Release Date:** 05/05/2020
+
+* **[Security Fix]** Update debian packages and source libraries in nfs and mapfs releases
+* **[Feature Improvement]** Improved access logging and bumped versions of Jackson and MariaDB
+* **[Feature Improvement]** Autoscaler only skips certificate validation when no Database CA is provided
+* **[Bug Fix]** Performance and stability improvements in Log Cache
+* **[Bug Fix]** Cloud Controller only checks for bucket presence on startup instead of every call to blobstore
+* **[Bug Fix]** Fix bug that caused Apps Manager to error out on clicking into the search bar
+* **[Bug Fix]** Show full list of jobs for an app in Apps Manager
+* Bump ubuntu-xenial stemcell to version `621.71`
+* Bump capi to version `1.87.4`
+* Bump cflinuxfs3 to version `0.177.0`
+* Bump dotnet-core-offline-buildpack to version `2.3.9`
+* Bump go-offline-buildpack to version `1.9.11`
+* Bump log-cache to version `2.6.14`
+* Bump mapfs to version `1.2.4`
+* Bump nfs-volume to version `5.0.5`
+* Bump nginx-offline-buildpack to version `1.1.8`
+* Bump nodejs-offline-buildpack to version `1.7.17`
+* Bump php-offline-buildpack to version `4.4.13`
+* Bump push-apps-manager-release to version `671.0.10`
+* Bump python-offline-buildpack to version `1.7.13`
+* Bump r-offline-buildpack to version `1.1.4`
+* Bump ruby-offline-buildpack to version `1.8.17`
+* Bump smb-volume to version `3.0.1`
+* Bump staticfile-offline-buildpack to version `1.5.6`
+* Bump uaa to version `74.5.15`
+
+<table border="1" class="nice">
+  <thead>
+    <tr>
+      <th>Component</th>
+      <th>Version</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>ubuntu-xenial stemcell</td><td>621.71</td></tr>
+    <tr><td>backup-and-restore-sdk</td><td>1.17.4</td></tr>
+    <tr><td>binary-offline-buildpack</td><td>1.0.36</td></tr>
+    <tr><td>bosh-dns-aliases</td><td>0.0.3</td></tr>
+    <tr><td>bosh-system-metrics-forwarder</td><td>0.0.18</td></tr>
+    <tr><td>bpm</td><td>1.1.5</td></tr>
+    <tr><td>capi</td><td>1.87.4</td></tr>
+    <tr><td>cf-autoscaling</td><td>226</td></tr>
+    <tr><td>cf-cli</td><td>1.26.0</td></tr>
+    <tr><td>cf-networking</td><td>2.28.0</td></tr>
+    <tr><td>cf-smoke-tests</td><td>40.0.127</td></tr>
+    <tr><td>cflinuxfs3</td><td>0.177.0</td></tr>
+    <tr><td>credhub</td><td>2.5.11</td></tr>
+    <tr><td>diego</td><td>2.44.0</td></tr>
+    <tr><td>dotnet-core-offline-buildpack</td><td>2.3.9</td></tr>
+    <tr><td>garden-runc</td><td>1.19.10</td></tr>
+    <tr><td>go-offline-buildpack</td><td>1.9.11</td></tr>
+    <tr><td>haproxy</td><td>9.8.0</td></tr>
+    <tr><td>istio</td><td>1.3.0</td></tr>
+    <tr><td>java-offline-buildpack</td><td>4.29.1</td></tr>
+    <tr><td>log-cache</td><td>2.6.14</td></tr>
+    <tr><td>loggregator-agent</td><td>5.2.8</td></tr>
+    <tr><td>loggregator</td><td>106.2.6</td></tr>
+    <tr><td>mapfs</td><td>1.2.4</td></tr>
+    <tr><td>metric-registrar</td><td>1.1.1</td></tr>
+    <tr><td>metrics-discovery</td><td>2.0.2</td></tr>
+    <tr><td>mysql-monitoring</td><td>9.7.0</td></tr>
+    <tr><td>nats</td><td>28</td></tr>
+    <tr><td>nfs-volume</td><td>5.0.5</td></tr>
+    <tr><td>nginx-offline-buildpack</td><td>1.1.8</td></tr>
+    <tr><td>nodejs-offline-buildpack</td><td>1.7.17</td></tr>
+    <tr><td>notifications-ui</td><td>36</td></tr>
+    <tr><td>notifications</td><td>61</td></tr>
+    <tr><td>php-offline-buildpack</td><td>4.4.13</td></tr>
+    <tr><td>push-apps-manager-release</td><td>671.0.10</td></tr>
+    <tr><td>push-usage-service-release</td><td>671.0.9</td></tr>
+    <tr><td>pxc</td><td>0.22.0</td></tr>
+    <tr><td>python-offline-buildpack</td><td>1.7.13</td></tr>
+    <tr><td>r-offline-buildpack</td><td>1.1.4</td></tr>
+    <tr><td>routing</td><td>0.199.0</td></tr>
+    <tr><td>ruby-offline-buildpack</td><td>1.8.17</td></tr>
+    <tr><td>silk</td><td>2.28.0</td></tr>
+    <tr><td>smb-volume</td><td>3.0.1</td></tr>
+    <tr><td>staticfile-offline-buildpack</td><td>1.5.6</td></tr>
+    <tr><td>statsd-injector</td><td>1.11.8</td></tr>
+    <tr><td>syslog</td><td>11.6.1</td></tr>
+    <tr><td>system-metrics-scraper</td><td>2.0.3</td></tr>
+    <tr><td>uaa</td><td>74.5.15</td></tr>
+  </tbody>
+</table>
+
+
+
+### <a id='2.8.7'></a> 2.8.7
+
+**Release Date:** 04/22/2020
+
+* **[Security Fix]** Update netaddr library to prevent misconfigured file permissions in CAPI Release
+* **[Feature]** HAProxy can now be configured with custom certificate authorities
+* **[Feature Improvement]** Autoscaler uses TLS to communicate with its database
+* **[Bug Fix]** Fix Certificates in CredHub KMS Provider Interface
+* **[Bug Fix]** Fix `server_name` value to use Common Name as metrics_agent_metrics_tls
+* Bump ubuntu-xenial stemcell to version `621.64`
+* Bump capi to version `1.87.3`
+* Bump cf-cli to version `1.26.0`
+* Bump cflinuxfs3 to version `0.175.0`
+
+<table border="1" class="nice">
+  <thead>
+    <tr>
+      <th>Component</th>
+      <th>Version</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>ubuntu-xenial stemcell</td><td>621.64</td></tr>
+    <tr><td>backup-and-restore-sdk</td><td>1.17.4</td></tr>
+    <tr><td>binary-offline-buildpack</td><td>1.0.36</td></tr>
+    <tr><td>bosh-dns-aliases</td><td>0.0.3</td></tr>
+    <tr><td>bosh-system-metrics-forwarder</td><td>0.0.18</td></tr>
+    <tr><td>bpm</td><td>1.1.5</td></tr>
+    <tr><td>capi</td><td>1.87.3</td></tr>
+    <tr><td>cf-autoscaling</td><td>226</td></tr>
+    <tr><td>cf-cli</td><td>1.26.0</td></tr>
+    <tr><td>cf-networking</td><td>2.28.0</td></tr>
+    <tr><td>cf-smoke-tests</td><td>40.0.127</td></tr>
+    <tr><td>cflinuxfs3</td><td>0.175.0</td></tr>
+    <tr><td>credhub</td><td>2.5.11</td></tr>
+    <tr><td>diego</td><td>2.44.0</td></tr>
+    <tr><td>dotnet-core-offline-buildpack</td><td>2.3.7</td></tr>
+    <tr><td>garden-runc</td><td>1.19.10</td></tr>
+    <tr><td>go-offline-buildpack</td><td>1.9.8</td></tr>
+    <tr><td>haproxy</td><td>9.8.0</td></tr>
+    <tr><td>istio</td><td>1.3.0</td></tr>
+    <tr><td>java-offline-buildpack</td><td>4.29.1</td></tr>
+    <tr><td>log-cache</td><td>2.6.12</td></tr>
+    <tr><td>loggregator-agent</td><td>5.2.8</td></tr>
+    <tr><td>loggregator</td><td>106.2.6</td></tr>
+    <tr><td>mapfs</td><td>1.2.0</td></tr>
+    <tr><td>metric-registrar</td><td>1.1.1</td></tr>
+    <tr><td>metrics-discovery</td><td>2.0.2</td></tr>
+    <tr><td>mysql-monitoring</td><td>9.7.0</td></tr>
+    <tr><td>nats</td><td>28</td></tr>
+    <tr><td>nfs-volume</td><td>5.0.2</td></tr>
+    <tr><td>nginx-offline-buildpack</td><td>1.1.6</td></tr>
+    <tr><td>nodejs-offline-buildpack</td><td>1.7.15</td></tr>
+    <tr><td>notifications-ui</td><td>36</td></tr>
+    <tr><td>notifications</td><td>61</td></tr>
+    <tr><td>php-offline-buildpack</td><td>4.4.9</td></tr>
+    <tr><td>push-apps-manager-release</td><td>671.0.9</td></tr>
+    <tr><td>push-usage-service-release</td><td>671.0.9</td></tr>
+    <tr><td>pxc</td><td>0.22.0</td></tr>
+    <tr><td>python-offline-buildpack</td><td>1.7.10</td></tr>
+    <tr><td>r-offline-buildpack</td><td>1.1.2</td></tr>
+    <tr><td>routing</td><td>0.199.0</td></tr>
+    <tr><td>ruby-offline-buildpack</td><td>1.8.14</td></tr>
+    <tr><td>silk</td><td>2.28.0</td></tr>
+    <tr><td>smb-volume</td><td>2.1.1</td></tr>
+    <tr><td>staticfile-offline-buildpack</td><td>1.5.5</td></tr>
+    <tr><td>statsd-injector</td><td>1.11.8</td></tr>
+    <tr><td>syslog</td><td>11.6.1</td></tr>
+    <tr><td>system-metrics-scraper</td><td>2.0.3</td></tr>
+    <tr><td>uaa</td><td>74.5.13</td></tr>
+  </tbody>
+</table>
+
+
+
+### <a id='2.8.6'></a> 2.8.6
+
+**Release Date:** 04/07/2020
+
+* **[Feature]** Allow Zero Instances of MySQL Monitor
+* **[Feature Improvement]** Apps Manager Revisions tab only shows the Redeploy button for revisions
+    that can be redeployed
+* **[Bug Fix]** Fix DNS Loggregator Trafficcontroller DNS issue
+* **[Bug Fix]** Bump Tomcat in UAA to fix SAML login issues
+* **[Bug Fix]** garden-runc - bump to latest release in supported versions
+* **[Bug Fix]** Apps now show a status of down instead of crashed
+* **[Bug Fix]** You can now view logs larger than 4&nbsp;MB in Apps Manager
+* **[Bug Fix]** Honor option to hide service plan prices in Apps Manager services tables
+* **[Bug Fix]** Expose buildpack versions in the Settings tab for the app in Apps Manager
+* **[Bug Fix]** Apps Manager accepts numerical status, such as 500,
+    from the Spring and Steeltoe `health` actuator endpoints
+* **[Bug Fix]** Fix error when viewing the Settings tab for an app in Apps Manager
+    while a Spring or Steeltoe app is restarting
+* **[Bug Fix]** Gorouter correctly handles control characters in URLs
+* **[Bug Fix]** Ensure usage service correctly considers usage events when installed after PAS
+* **[Bug Fix]** Fix a memory leak and go-routine leak related to having multiple aggregate drains in Loggregator
+* **[Bug Fix]**  App developers now receive a 401 when using an expired access token with policy server
+* **[Bug Fix]** Autoscaler smoke test works when router rejects requests on port 80
+* **[Security fix]** Bump backup and restore SDK
+* Bump ubuntu-xenial stemcell to version `621.61`
+* Bump backup-and-restore-sdk to version `1.17.4`
+* Bump cf-autoscaling to version `226`
+* Bump cf-networking to version `2.28.0`
+* Bump cflinuxfs3 to version `0.174.0`
+* Bump dotnet-core-offline-buildpack to version `2.3.7`
+* Bump garden-runc to version `1.19.10`
+* Bump go-offline-buildpack to version `1.9.8`
+* Bump java-offline-buildpack to version `4.29.1`
+* Bump loggregator-agent to version `5.2.8`
+* Bump loggregator to version `106.2.6`
+* Bump nginx-offline-buildpack to version `1.1.6`
+* Bump nodejs-offline-buildpack to version `1.7.15`
+* Bump php-offline-buildpack to version `4.4.9`
+* Bump push-apps-manager-release to version `671.0.9`
+* Bump push-usage-service-release to version `671.0.9`
+* Bump python-offline-buildpack to version `1.7.10`
+* Bump r-offline-buildpack to version `1.1.2`
+* Bump routing to version `0.199.0`
+* Bump ruby-offline-buildpack to version `1.8.14`
+* Bump silk to version `2.28.0`
+* Bump staticfile-offline-buildpack to version `1.5.5`
+* Bump uaa to version `74.5.13`
+
+<table border="1" class="nice">
+  <thead>
+    <tr>
+      <th>Component</th>
+      <th>Version</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>ubuntu-xenial stemcell</td><td>621.61</td></tr>
+    <tr><td>backup-and-restore-sdk</td><td>1.17.4</td></tr>
+    <tr><td>binary-offline-buildpack</td><td>1.0.36</td></tr>
+    <tr><td>bosh-dns-aliases</td><td>0.0.3</td></tr>
+    <tr><td>bosh-system-metrics-forwarder</td><td>0.0.18</td></tr>
+    <tr><td>bpm</td><td>1.1.5</td></tr>
+    <tr><td>capi</td><td>1.87.2</td></tr>
+    <tr><td>cf-autoscaling</td><td>226</td></tr>
+    <tr><td>cf-cli</td><td>1.25.0</td></tr>
+    <tr><td>cf-networking</td><td>2.28.0</td></tr>
+    <tr><td>cf-smoke-tests</td><td>40.0.127</td></tr>
+    <tr><td>cflinuxfs3</td><td>0.174.0</td></tr>
+    <tr><td>credhub</td><td>2.5.11</td></tr>
+    <tr><td>diego</td><td>2.44.0</td></tr>
+    <tr><td>dotnet-core-offline-buildpack</td><td>2.3.7</td></tr>
+    <tr><td>garden-runc</td><td>1.19.10</td></tr>
+    <tr><td>go-offline-buildpack</td><td>1.9.8</td></tr>
+    <tr><td>haproxy</td><td>9.8.0</td></tr>
+    <tr><td>istio</td><td>1.3.0</td></tr>
+    <tr><td>java-offline-buildpack</td><td>4.29.1</td></tr>
+    <tr><td>log-cache</td><td>2.6.12</td></tr>
+    <tr><td>loggregator-agent</td><td>5.2.8</td></tr>
+    <tr><td>loggregator</td><td>106.2.6</td></tr>
+    <tr><td>mapfs</td><td>1.2.0</td></tr>
+    <tr><td>metric-registrar</td><td>1.1.1</td></tr>
+    <tr><td>metrics-discovery</td><td>2.0.2</td></tr>
+    <tr><td>mysql-monitoring</td><td>9.7.0</td></tr>
+    <tr><td>nats</td><td>28</td></tr>
+    <tr><td>nfs-volume</td><td>5.0.2</td></tr>
+    <tr><td>nginx-offline-buildpack</td><td>1.1.6</td></tr>
+    <tr><td>nodejs-offline-buildpack</td><td>1.7.15</td></tr>
+    <tr><td>notifications-ui</td><td>36</td></tr>
+    <tr><td>notifications</td><td>61</td></tr>
+    <tr><td>php-offline-buildpack</td><td>4.4.9</td></tr>
+    <tr><td>push-apps-manager-release</td><td>671.0.9</td></tr>
+    <tr><td>push-usage-service-release</td><td>671.0.9</td></tr>
+    <tr><td>pxc</td><td>0.22.0</td></tr>
+    <tr><td>python-offline-buildpack</td><td>1.7.10</td></tr>
+    <tr><td>r-offline-buildpack</td><td>1.1.2</td></tr>
+    <tr><td>routing</td><td>0.199.0</td></tr>
+    <tr><td>ruby-offline-buildpack</td><td>1.8.14</td></tr>
+    <tr><td>silk</td><td>2.28.0</td></tr>
+    <tr><td>smb-volume</td><td>2.1.1</td></tr>
+    <tr><td>staticfile-offline-buildpack</td><td>1.5.5</td></tr>
+    <tr><td>statsd-injector</td><td>1.11.8</td></tr>
+    <tr><td>syslog</td><td>11.6.1</td></tr>
+    <tr><td>system-metrics-scraper</td><td>2.0.3</td></tr>
+    <tr><td>uaa</td><td>74.5.13</td></tr>
+  </tbody>
+</table>
+
+
+
+### <a id='2.8.5'></a> 2.8.5
+
+**Release Date:** 03/13/2020
+
+* **[Breaking Change]** Autoscaler controls do not appear for apps in Apps Manager. For the workaround, see the known issue [Autoscaler Controls Do Not Appear in Apps Manager for Proxied Setups](#autoscaler-apps-manager-no-proxy).
+* **[Breaking Change]** PCF Metrics link disappears from Apps Manager. For the workaround, see the known issue [PCF Metrics Link Disappears in Apps Manager for Proxied Setups](#autoscaler-apps-manager-no-proxy).
+* **[Security Fix]** Improve autoscaler HTTP throughput calculation performance and omit DATABASE_URL from logs
+* **[Bug Fix]** UAA no longer attempts to create logs in incorrect directory
+* **[Bug Fix]** Fix bug that prevented usage report in Apps Manager from displaying when only partial data is available
+* **[Bug Fix]** Wrap long resource names in Apps Manager's usage report and invite members flow
+* **[Bug Fix]** Fix DNS Interaction between Loggregator Agent and Doppler
+* Bump ubuntu-xenial stemcell to version `621.59`
+* Bump cf-autoscaling to version `223`
+* Bump cf-cli to version `1.25.0`
+* Bump cflinuxfs3 to version `0.169.0`
+* Bump dotnet-core-offline-buildpack to version `2.3.6`
+* Bump go-offline-buildpack to version `1.9.7`
+* Bump loggregator-agent to version `5.2.7`
+* Bump loggregator to version `106.2.4`
+* Bump nginx-offline-buildpack to version `1.1.5`
+* Bump nodejs-offline-buildpack to version `1.7.13`
+* Bump php-offline-buildpack to version `4.4.8`
+* Bump push-apps-manager-release to version `671.0.8`
+* Bump python-offline-buildpack to version `1.7.8`
+* Bump ruby-offline-buildpack to version `1.8.12`
+* Bump staticfile-offline-buildpack to version `1.5.4`
+* Bump uaa to version `74.5.10`
+
+<table border="1" class="nice">
+  <thead>
+    <tr>
+      <th>Component</th>
+      <th>Version</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>ubuntu-xenial stemcell</td><td>621.59</td></tr>
+    <tr><td>backup-and-restore-sdk</td><td>1.17.2</td></tr>
+    <tr><td>binary-offline-buildpack</td><td>1.0.36</td></tr>
+    <tr><td>bosh-dns-aliases</td><td>0.0.3</td></tr>
+    <tr><td>bosh-system-metrics-forwarder</td><td>0.0.18</td></tr>
+    <tr><td>bpm</td><td>1.1.5</td></tr>
+    <tr><td>capi</td><td>1.87.2</td></tr>
+    <tr><td>cf-autoscaling</td><td>223</td></tr>
+    <tr><td>cf-cli</td><td>1.25.0</td></tr>
+    <tr><td>cf-networking</td><td>2.27.0</td></tr>
+    <tr><td>cf-smoke-tests</td><td>40.0.127</td></tr>
+    <tr><td>cflinuxfs3</td><td>0.169.0</td></tr>
+    <tr><td>credhub</td><td>2.5.11</td></tr>
+    <tr><td>diego</td><td>2.44.0</td></tr>
+    <tr><td>dotnet-core-offline-buildpack</td><td>2.3.6</td></tr>
+    <tr><td>garden-runc</td><td>1.19.9</td></tr>
+    <tr><td>go-offline-buildpack</td><td>1.9.7</td></tr>
+    <tr><td>haproxy</td><td>9.8.0</td></tr>
+    <tr><td>istio</td><td>1.3.0</td></tr>
+    <tr><td>java-offline-buildpack</td><td>4.26</td></tr>
+    <tr><td>log-cache</td><td>2.6.12</td></tr>
+    <tr><td>loggregator-agent</td><td>5.2.7</td></tr>
+    <tr><td>loggregator</td><td>106.2.4</td></tr>
+    <tr><td>mapfs</td><td>1.2.0</td></tr>
+    <tr><td>metric-registrar</td><td>1.1.1</td></tr>
+    <tr><td>metrics-discovery</td><td>2.0.2</td></tr>
+    <tr><td>mysql-monitoring</td><td>9.7.0</td></tr>
+    <tr><td>nats</td><td>28</td></tr>
+    <tr><td>nfs-volume</td><td>5.0.2</td></tr>
+    <tr><td>nginx-offline-buildpack</td><td>1.1.5</td></tr>
+    <tr><td>nodejs-offline-buildpack</td><td>1.7.13</td></tr>
+    <tr><td>notifications-ui</td><td>36</td></tr>
+    <tr><td>notifications</td><td>61</td></tr>
+    <tr><td>php-offline-buildpack</td><td>4.4.8</td></tr>
+    <tr><td>push-apps-manager-release</td><td>671.0.8</td></tr>
+    <tr><td>push-usage-service-release</td><td>671.0.8</td></tr>
+    <tr><td>pxc</td><td>0.22.0</td></tr>
+    <tr><td>python-offline-buildpack</td><td>1.7.8</td></tr>
+    <tr><td>r-offline-buildpack</td><td>1.1.1</td></tr>
+    <tr><td>routing</td><td>0.198.0</td></tr>
+    <tr><td>ruby-offline-buildpack</td><td>1.8.12</td></tr>
+    <tr><td>silk</td><td>2.27.0</td></tr>
+    <tr><td>smb-volume</td><td>2.1.1</td></tr>
+    <tr><td>staticfile-offline-buildpack</td><td>1.5.4</td></tr>
+    <tr><td>statsd-injector</td><td>1.11.8</td></tr>
+    <tr><td>syslog</td><td>11.6.1</td></tr>
+    <tr><td>system-metrics-scraper</td><td>2.0.3</td></tr>
+    <tr><td>uaa</td><td>74.5.10</td></tr>
+  </tbody>
+</table>
+
+
+### <a id='2.8.4'></a> 2.8.4 - Do Not Use
+
+<p class="note warning"><strong>WARNING</strong>: Pivotal advises that you <strong>do not upgrade</strong> to PAS v2.8.4 at this time. Pivotal is investigating issues reported with the stability of PAS v2.8.4. If you have already upgraded to PAS v2.8.4 and are experiencing instability in your PAS deployment, such as <code>cf push</code> failure, contact <a href="https://support.pivotal.io">Support</a>.</p>
+
+**Release Date:** 03/02/2020
+
+* **[Breaking Change]** Autoscaler controls do not appear for apps in Apps Manager. For the workaround, see the known issue [Autoscaler Controls Do Not Appear in Apps Manager for Proxied Setups](#autoscaler-apps-manager-no-proxy).
+* **[Breaking Change]** PCF Metrics link disappears from Apps Manager. For the workaround, see the known issue [PCF Metrics Link Disappears in Apps Manager for Proxied Setups](#apps-manager-app-metrics-link-no-proxy).
+* **[Security Fix]** Stop logging private data in background jobs
+* **[Security Fix]** Fix vulnerabilities [CVE-2019-2426](https://nvd.nist.gov/vuln/detail/CVE-2019-2426), [CVE-2019-2449](https://nvd.nist.gov/vuln/detail/CVE-2019-2449), [CVE-2019-2422](https://nvd.nist.gov/vuln/detail/CVE-2019-2422) in Credhub
+* **[Security Fix]** Fix Vulnerability [CVE-2020-5402](https://tanzu.vmware.com/security/cve-2020-5402) in UAA
+* **[Feature]** Support Maestro's rotation capability by adding Services TLS CA to all App containers
+* **[Feature Improvement]** Add circuit breaker to Logcache so users can push apps even if metrics are unavailable
+* **[Feature Improvement]** Bring bug fixes and improvements in latest routing releases to all supported PAS versions
+* **[Feature Improvement]** The latest routing release adds the `gorouter_time`
+field, which logs the total time it takes for a request to travel through Gorouter.
+Because this changes the access log format, you might need to update your external monitoring configuration.
+For more information, see [About Access Logs](https://docs.pivotal.io/application-service/2-8/concepts/architecture/router.html#about-access-logs).
+* **[Feature Improvement]** Allow users to specify a list of URIs for other foundations that Apps Manager manages
+* **[Feature Improvement]** Introduce read-only capabilities in Apps Manager for users with `cloud_controller.global_auditor` and `cloud_controller.admin_read_only` scopes
+* **[Feature Improvement]** Safeguard deletion of spaces in Apps Manager
+* **[Feature Improvement]** Improve the service instance creation flow in Apps Manager to better represent plan costs and features
+* **[Feature Improvement]** Improve performance of app logs loaded in Apps Manager
+* **[Bug Fix]** Fix display of Pivotal logo in footer of Apps Manager for Internet Explorer users
+* **[Bug Fix]** Allow users with `usage_service.audit` scope to view Usage Report in Apps Manager
+* **[Bug Fix]** Increase responsiveness of Apps Manager sidebar services count
+* **[Bug Fix]** Remove unnecessary suggestion to restage apps when binding the App Autoscaler to apps in Apps Manager
+* **[Bug Fix]** Surface errors from Spring and Steeltoe trace actuator endpoint in Apps Manager
+* **[Bug Fix]** Account for asynchronous Spring and Steeltoe health actuator endpoint responses in Apps Manager
+* **[Bug Fix]** Fix bug that prevented users from navigating beyond first page of app revisions in Apps Manager
+* **[Bug Fix]** Fix issue that caused Apps Manager to show a `404` after renaming an org
+* **[Bug Fix]** Show full space and organization names, regardless of length, in Apps Manager
+* **[Bug Fix]** Use more informative description "Last Update" instead of "Last Push" in Apps Manager
+* **[Bug Fix]** Log only necessary information when auction scoring fails
+* **[Bug Fix]** Fix Race Condition in Loggregator Agent
+* **[Bug Fix]** Cloud Controller no longer tries to connect to Copilot when it is not deployed
+* Bump ubuntu-xenial stemcell to version `621.57`
+* Bump capi to version `1.87.2`
+* Bump cf-smoke-tests to version `40.0.127`
+* Bump cflinuxfs3 to version `0.164.0`
+* Bump credhub to version `2.5.11`
+* Bump diego to version `2.44.0`
+* Bump log-cache to version `2.6.12`
+* Bump loggregator-agent to version `5.2.6`
+* Bump push-apps-manager-release to version `671.0.6`
+* Bump routing to version `0.198.0`
+* Bump uaa to version `74.5.9`
+
+<table border="1" class="nice">
+  <thead>
+    <tr>
+      <th>Component</th>
+      <th>Version</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>ubuntu-xenial stemcell</td><td>621.57</td></tr>
+    <tr><td>backup-and-restore-sdk</td><td>1.17.2</td></tr>
+    <tr><td>binary-offline-buildpack</td><td>1.0.36</td></tr>
+    <tr><td>bosh-dns-aliases</td><td>0.0.3</td></tr>
+    <tr><td>bosh-system-metrics-forwarder</td><td>0.0.18</td></tr>
+    <tr><td>bpm</td><td>1.1.5</td></tr>
+    <tr><td>capi</td><td>1.87.2</td></tr>
+    <tr><td>cf-autoscaling</td><td>222</td></tr>
+    <tr><td>cf-cli</td><td>1.24.0</td></tr>
+    <tr><td>cf-networking</td><td>2.27.0</td></tr>
+    <tr><td>cf-smoke-tests</td><td>40.0.127</td></tr>
+    <tr><td>cflinuxfs3</td><td>0.164.0</td></tr>
+    <tr><td>credhub</td><td>2.5.11</td></tr>
+    <tr><td>diego</td><td>2.44.0</td></tr>
+    <tr><td>dotnet-core-offline-buildpack</td><td>2.3.4</td></tr>
+    <tr><td>garden-runc</td><td>1.19.9</td></tr>
+    <tr><td>go-offline-buildpack</td><td>1.9.5</td></tr>
+    <tr><td>haproxy</td><td>9.8.0</td></tr>
+    <tr><td>istio</td><td>1.3.0</td></tr>
+    <tr><td>java-offline-buildpack</td><td>4.26</td></tr>
+    <tr><td>log-cache</td><td>2.6.12</td></tr>
+    <tr><td>loggregator-agent</td><td>5.2.6</td></tr>
+    <tr><td>loggregator</td><td>106.2.0</td></tr>
+    <tr><td>mapfs</td><td>1.2.0</td></tr>
+    <tr><td>metric-registrar</td><td>1.1.1</td></tr>
+    <tr><td>metrics-discovery</td><td>2.0.2</td></tr>
+    <tr><td>mysql-monitoring</td><td>9.7.0</td></tr>
+    <tr><td>nats</td><td>28</td></tr>
+    <tr><td>nfs-volume</td><td>5.0.2</td></tr>
+    <tr><td>nginx-offline-buildpack</td><td>1.1.4</td></tr>
+    <tr><td>nodejs-offline-buildpack</td><td>1.7.9</td></tr>
+    <tr><td>notifications-ui</td><td>36</td></tr>
+    <tr><td>notifications</td><td>61</td></tr>
+    <tr><td>php-offline-buildpack</td><td>4.4.6</td></tr>
+    <tr><td>push-apps-manager-release</td><td>671.0.6</td></tr>
+    <tr><td>push-usage-service-release</td><td>671.0.8</td></tr>
+    <tr><td>pxc</td><td>0.22.0</td></tr>
+    <tr><td>python-offline-buildpack</td><td>1.7.6</td></tr>
+    <tr><td>r-offline-buildpack</td><td>1.1.1</td></tr>
+    <tr><td>routing</td><td>0.198.0</td></tr>
+    <tr><td>ruby-offline-buildpack</td><td>1.8.8</td></tr>
+    <tr><td>silk</td><td>2.27.0</td></tr>
+    <tr><td>smb-volume</td><td>2.1.1</td></tr>
+    <tr><td>staticfile-offline-buildpack</td><td>1.5.3</td></tr>
+    <tr><td>statsd-injector</td><td>1.11.8</td></tr>
+    <tr><td>syslog</td><td>11.6.1</td></tr>
+    <tr><td>system-metrics-scraper</td><td>2.0.3</td></tr>
+    <tr><td>uaa</td><td>74.5.9</td></tr>
+  </tbody>
+</table>
+
+
+
+### <a id='2.8.3'></a> 2.8.3
+
+**Release Date:** 02/06/2020
+
+* **[Security Fix]** [CVE-2020-5399](https://nvd.nist.gov/vuln/detail/CVE-2020-5399) - Use TLS for MySQL database connections in Credhub
+* **[Feature Improvement]** Replace Metric Forwarder integration with Metric Registrar integration in Apps Manager
+* **[Feature Improvement]** The HSM Client Private Key for CredHub can be encrypted.
+* **[Feature Improvement]** Use the Diego logging format for the Garden job
+* **[Bug Fix]** Show spring mappings in Apps Manager for apps using Spring Boot 2.2.x
+* **[Bug Fix]** Add empty state message to Marketplace for orgs without spaces in Apps Manager
+* **[Bug Fix]** Add support for non-ASCII characters in app logs shown in Apps Manager
+* **[Bug Fix]** The Apps Manager bound services list correctly shows the number of bound apps when a table is paginated
+* **[Bug Fix]** Show full app name, regardless of length, in Apps Manager
+* **[Bug Fix]** Allow users with `cloud_controller.global_auditor` scope to view
+    Cloud Controller resources in Apps Manager
+* **[Bug Fix]** Allow users with `cloud_controller.admin_read_only` scope to view
+    Cloud Controller resources in Apps Manager, including secrets
+* **[Bug Fix]** When you click the Restage App option, Apps Manager renders the restage app modal.
+* **[Bug Fix]** For apps using Spring Boot 2.2.x, show Spring Health information in Apps Manager
+* **[Bug Fix]** Wait for necessary information to load in Apps Manager before rendering link to recently accessed apps
+* **[Bug Fix]** Disable hostname validation for external DBs in routing-api, silk-controller, and policy-server
+* **[Bug Fix]** HAProxy returns with HTTP/1.1 proto for 504s
+* Bump ubuntu-xenial stemcell to version `621.51`
+* Bump cflinuxfs3 to version `0.160.0`
+* Bump credhub to version `2.5.10`
+* Bump dotnet-core-offline-buildpack to version `2.3.4`
+* Bump go-offline-buildpack to version `1.9.5`
+* Bump nginx-offline-buildpack to version `1.1.4`
+* Bump nodejs-offline-buildpack to version `1.7.9`
+* Bump php-offline-buildpack to version `4.4.6`
+* Bump push-apps-manager-release to version `671.0.3`
+* Bump python-offline-buildpack to version `1.7.6`
+* Bump ruby-offline-buildpack to version `1.8.8`
+
+<table border="1" class="nice">
+  <thead>
+    <tr>
+      <th>Component</th>
+      <th>Version</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>ubuntu-xenial stemcell</td><td>621.51</td></tr>
+    <tr><td>backup-and-restore-sdk</td><td>1.17.2</td></tr>
+    <tr><td>binary-offline-buildpack</td><td>1.0.36</td></tr>
+    <tr><td>bosh-dns-aliases</td><td>0.0.3</td></tr>
+    <tr><td>bosh-system-metrics-forwarder</td><td>0.0.18</td></tr>
+    <tr><td>bpm</td><td>1.1.5</td></tr>
+    <tr><td>capi</td><td>1.87.0</td></tr>
+    <tr><td>cf-autoscaling</td><td>222</td></tr>
+    <tr><td>cf-cli</td><td>1.24.0</td></tr>
+    <tr><td>cf-networking</td><td>2.27.0</td></tr>
+    <tr><td>cf-smoke-tests</td><td>40.0.125</td></tr>
+    <tr><td>cflinuxfs3</td><td>0.160.0</td></tr>
+    <tr><td>credhub</td><td>2.5.10</td></tr>
+    <tr><td>diego</td><td>2.39.0</td></tr>
+    <tr><td>dotnet-core-offline-buildpack</td><td>2.3.4</td></tr>
+    <tr><td>garden-runc</td><td>1.19.9</td></tr>
+    <tr><td>go-offline-buildpack</td><td>1.9.5</td></tr>
+    <tr><td>haproxy</td><td>9.8.0</td></tr>
+    <tr><td>istio</td><td>1.3.0</td></tr>
+    <tr><td>java-offline-buildpack</td><td>4.26</td></tr>
+    <tr><td>log-cache</td><td>2.6.1</td></tr>
+    <tr><td>loggregator-agent</td><td>5.2.1</td></tr>
+    <tr><td>loggregator</td><td>106.2.0</td></tr>
+    <tr><td>mapfs</td><td>1.2.0</td></tr>
+    <tr><td>metric-registrar</td><td>1.1.1</td></tr>
+    <tr><td>metrics-discovery</td><td>2.0.2</td></tr>
+    <tr><td>mysql-monitoring</td><td>9.7.0</td></tr>
+    <tr><td>nats</td><td>28</td></tr>
+    <tr><td>nfs-volume</td><td>5.0.2</td></tr>
+    <tr><td>nginx-offline-buildpack</td><td>1.1.4</td></tr>
+    <tr><td>nodejs-offline-buildpack</td><td>1.7.9</td></tr>
+    <tr><td>notifications-ui</td><td>36</td></tr>
+    <tr><td>notifications</td><td>61</td></tr>
+    <tr><td>php-offline-buildpack</td><td>4.4.6</td></tr>
+    <tr><td>push-apps-manager-release</td><td>671.0.3</td></tr>
+    <tr><td>push-usage-service-release</td><td>671.0.8</td></tr>
+    <tr><td>pxc</td><td>0.22.0</td></tr>
+    <tr><td>python-offline-buildpack</td><td>1.7.6</td></tr>
+    <tr><td>r-offline-buildpack</td><td>1.1.1</td></tr>
+    <tr><td>routing</td><td>0.196.0</td></tr>
+    <tr><td>ruby-offline-buildpack</td><td>1.8.8</td></tr>
+    <tr><td>silk</td><td>2.27.0</td></tr>
+    <tr><td>smb-volume</td><td>2.1.1</td></tr>
+    <tr><td>staticfile-offline-buildpack</td><td>1.5.3</td></tr>
+    <tr><td>statsd-injector</td><td>1.11.8</td></tr>
+    <tr><td>syslog</td><td>11.6.1</td></tr>
+    <tr><td>system-metrics-scraper</td><td>2.0.3</td></tr>
+    <tr><td>uaa</td><td>74.5.5</td></tr>
+  </tbody>
+</table>
+
+
+
+### <a id='2.8.2'></a> 2.8.2
+
+**Release Date:** 01/16/2020
+
+* **[Security Fix]** Several security issues were fixed in MySQL [USN-4070-1](https://usn.ubuntu.com/4070-1/), [USN-4195-1](https://usn.ubuntu.com/4195-1/)
+* **[Feature]** Expose <%= vars.app_runtime_abbr %> database metrics in the Healthwatch Indicator Protocol dashboard
+* **[Bug Fix]** mapfs - Fix error when appending to a file
+* Bump ubuntu-xenial stemcell to version `621.41`
+* Bump binary-offline-buildpack to version `1.0.36`
+* Bump cf-cli to version `1.24.0`
+* Bump cf-smoke-tests to version `40.0.125`
+* Bump cflinuxfs3 to version `0.153.0`
+* Bump dotnet-core-offline-buildpack to version `2.3.3`
+* Bump go-offline-buildpack to version `1.9.4`
+* Bump nginx-offline-buildpack to version `1.1.3`
+* Bump nodejs-offline-buildpack to version `1.7.8`
+* Bump php-offline-buildpack to version `4.4.5`
+* Bump pxc to version `0.22.0`
+* Bump python-offline-buildpack to version `1.7.5`
+* Bump r-offline-buildpack to version `1.1.1`
+* Bump ruby-offline-buildpack to version `1.8.6`
+* Bump staticfile-offline-buildpack to version `1.5.3`
+
+<table border="1" class="nice">
+  <thead>
+    <tr>
+      <th>Component</th>
+      <th>Version</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>ubuntu-xenial stemcell</td><td>621.41</td></tr>
+    <tr><td>backup-and-restore-sdk</td><td>1.17.2</td></tr>
+    <tr><td>binary-offline-buildpack</td><td>1.0.36</td></tr>
+    <tr><td>bosh-dns-aliases</td><td>0.0.3</td></tr>
+    <tr><td>bosh-system-metrics-forwarder</td><td>0.0.18</td></tr>
+    <tr><td>bpm</td><td>1.1.5</td></tr>
+    <tr><td>capi</td><td>1.87.0</td></tr>
+    <tr><td>cf-autoscaling</td><td>222</td></tr>
+    <tr><td>cf-cli</td><td>1.24.0</td></tr>
+    <tr><td>cf-networking</td><td>2.27.0</td></tr>
+    <tr><td>cf-smoke-tests</td><td>40.0.125</td></tr>
+    <tr><td>cflinuxfs3</td><td>0.153.0</td></tr>
+    <tr><td>credhub</td><td>2.5.6</td></tr>
+    <tr><td>diego</td><td>2.39.0</td></tr>
+    <tr><td>dotnet-core-offline-buildpack</td><td>2.3.3</td></tr>
+    <tr><td>garden-runc</td><td>1.19.9</td></tr>
+    <tr><td>go-offline-buildpack</td><td>1.9.4</td></tr>
+    <tr><td>haproxy</td><td>9.8.0</td></tr>
+    <tr><td>istio</td><td>1.3.0</td></tr>
+    <tr><td>java-offline-buildpack</td><td>4.26</td></tr>
+    <tr><td>log-cache</td><td>2.6.1</td></tr>
+    <tr><td>loggregator-agent</td><td>5.2.1</td></tr>
+    <tr><td>loggregator</td><td>106.2.0</td></tr>
+    <tr><td>mapfs</td><td>1.2.0</td></tr>
+    <tr><td>metric-registrar</td><td>1.1.1</td></tr>
+    <tr><td>metrics-discovery</td><td>2.0.2</td></tr>
+    <tr><td>mysql-monitoring</td><td>9.7.0</td></tr>
+    <tr><td>nats</td><td>28</td></tr>
+    <tr><td>nfs-volume</td><td>5.0.2</td></tr>
+    <tr><td>nginx-offline-buildpack</td><td>1.1.3</td></tr>
+    <tr><td>nodejs-offline-buildpack</td><td>1.7.8</td></tr>
+    <tr><td>notifications-ui</td><td>36</td></tr>
+    <tr><td>notifications</td><td>61</td></tr>
+    <tr><td>php-offline-buildpack</td><td>4.4.5</td></tr>
+    <tr><td>push-apps-manager-release</td><td>671.0.2</td></tr>
+    <tr><td>push-usage-service-release</td><td>671.0.8</td></tr>
+    <tr><td>pxc</td><td>0.22.0</td></tr>
+    <tr><td>python-offline-buildpack</td><td>1.7.5</td></tr>
+    <tr><td>r-offline-buildpack</td><td>1.1.1</td></tr>
+    <tr><td>routing</td><td>0.196.0</td></tr>
+    <tr><td>ruby-offline-buildpack</td><td>1.8.6</td></tr>
+    <tr><td>silk</td><td>2.27.0</td></tr>
+    <tr><td>smb-volume</td><td>2.1.1</td></tr>
+    <tr><td>staticfile-offline-buildpack</td><td>1.5.3</td></tr>
+    <tr><td>statsd-injector</td><td>1.11.8</td></tr>
+    <tr><td>syslog</td><td>11.6.1</td></tr>
+    <tr><td>system-metrics-scraper</td><td>2.0.3</td></tr>
+    <tr><td>uaa</td><td>74.5.5</td></tr>
+  </tbody>
+</table>
+
+### <a id='2.8.1'></a> 2.8.1
+
+**Release Date:** 12/26/2019
+
+* **[Security Fix]** App Usage Service - Bump Nokogiri to 1.10.5 to fix [CVE-2019-13117](https://nvd.nist.gov/vuln/detail/CVE-2019-13117)
+* **[Security Fix]** [CVE-2019-17596](https://nvd.nist.gov/vuln/detail/CVE-2019-17596) - Fix panic upon an attempt to process network traffic containing an invalid DSA public key for syslog release
+* **[Security Fix]** [CVE-2019-17596](https://nvd.nist.gov/vuln/detail/CVE-2019-17596) - Fix panic upon an attempt to process network traffic containing an invalid DSA public key for garden-runc release
+* **[Security Fix]** [CVE-2019-17596](https://nvd.nist.gov/vuln/detail/CVE-2019-17596) - Fix panic upon an attempt to process network traffic containing an invalid DSA public key for loggregator releases
+* **[Feature]**  Expose all platform metrics on Prometheus endpoints
+* **[Feature Improvement]** Upgrade nats release to use go 1.13 release
+* **[Feature Improvement]** Notifications service will skip hostname validation for external databases
+* **[Feature Improvement]** Clarify wording of Marketplace URL help text in Apps Manager configuration
+* **[Feature Improvement]** Add doppler.firehose and usage_service.audit to Apps Manager client
+* **[Feature Improvement]** Always enable ssh-proxy TLS to backend instances to ensure widest compatibility mode with <%= vars.windows_runtime_abbr %> and IST
+* **[Feature Improvement]** When users have correct permissions, show bound and bindable services shared from other spaces as bindable for an app in Apps Manager
+* **[Feature Improvement]** When users have correct permissions, show bound and bindable apps from spaces a service instance has been shared to in Apps Manager
+* **[Bug Fix]** Fix bug that prevented users from downloading the Accounting and Usage Service reports through Apps Manager when fields are undefined or null
+* **[Bug Fix]** Prevent new requests from being made when clicking on the currently active tab in Apps Manager
+* **[Bug Fix]** Fix bug that prevented additional resources from populating after user permissions load in Apps Manager
+* **[Bug Fix]** Fix bug preventing multiple service instances without binding names from being bound to apps in Apps Manager
+* **[Bug Fix]** Exclude user provided service instances from org level service instance hours on Usage Report in Apps Manager
+* **[Bug Fix]** Account for malformed git properties in Spring and Steeltoe apps to keep Apps Manager from crashing on render
+* **[Bug Fix]** Fix bug where 'Invalid Date' was shown in Apps Manager trace tab when using Spring v2.0
+* **[Bug Fix]** Prevent Apps Manager's revisions tab from crashing out when a deployment is in progress
+* **[Bug Fix]** Move tooltip in the Apps Manager bind services flyout to make text fully visible
+* **[Bug Fix]** Prevent attempts to build a droplet when starting an app through Apps Manager if there is no associated package
+* **[Bug Fix]** Passwords containing commas no longer cause the SMB volume service to crash at startup with a "mount failed" error
+* **[Bug Fix]** All CAPI jobs respect "Maximum disk quota per app"
+* Bump ubuntu-xenial stemcell to version `621.29`
+* Bump cf-smoke-tests to version `40.0.124`
+* Bump cflinuxfs3 to version `0.151.0`
+* Bump garden-runc to version `1.19.9`
+* Bump log-cache to version `2.6.1`
+* Bump loggregator-agent to version `5.2.1`
+* Add new release metrics-discovery at version `2.0.2`
+* Bump nats to version `28`
+* Bump push-apps-manager-release to version `671.0.2`
+* Bump push-usage-service-release to version `671.0.8`
+* Bump pxc to version `0.21.0`
+* Bump smb-volume to version `2.1.1`
+* Bump statsd-injector to version `1.11.8`
+* Bump syslog to version `11.6.1`
+* Bump system-metrics-scraper to version `2.0.3`
+
+<table border="1" class="nice">
+  <thead>
+    <tr>
+      <th>Component</th>
+      <th>Version</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>ubuntu-xenial stemcell</td><td>621.29</td></tr>
+    <tr><td>backup-and-restore-sdk</td><td>1.17.2</td></tr>
+    <tr><td>binary-offline-buildpack</td><td>1.0.35</td></tr>
+    <tr><td>bosh-dns-aliases</td><td>0.0.3</td></tr>
+    <tr><td>bosh-system-metrics-forwarder</td><td>0.0.18</td></tr>
+    <tr><td>bpm</td><td>1.1.5</td></tr>
+    <tr><td>capi</td><td>1.87.0</td></tr>
+    <tr><td>cf-autoscaling</td><td>222</td></tr>
+    <tr><td>cf-cli</td><td>1.23.0</td></tr>
+    <tr><td>cf-networking</td><td>2.27.0</td></tr>
+    <tr><td>cf-smoke-tests</td><td>40.0.124</td></tr>
+    <tr><td>cflinuxfs3</td><td>0.151.0</td></tr>
+    <tr><td>credhub</td><td>2.5.6</td></tr>
+    <tr><td>diego</td><td>2.39.0</td></tr>
+    <tr><td>dotnet-core-offline-buildpack</td><td>2.3.2</td></tr>
+    <tr><td>garden-runc</td><td>1.19.9</td></tr>
+    <tr><td>go-offline-buildpack</td><td>1.9.3</td></tr>
+    <tr><td>haproxy</td><td>9.8.0</td></tr>
+    <tr><td>istio</td><td>1.3.0</td></tr>
+    <tr><td>java-offline-buildpack</td><td>4.26</td></tr>
+    <tr><td>log-cache</td><td>2.6.1</td></tr>
+    <tr><td>loggregator-agent</td><td>5.2.1</td></tr>
+    <tr><td>loggregator</td><td>106.2.0</td></tr>
+    <tr><td>mapfs</td><td>1.2.1</td></tr>
+    <tr><td>metric-registrar</td><td>1.1.1</td></tr>
+    <tr><td>metrics-discovery</td><td>2.0.2</td></tr>
+    <tr><td>mysql-monitoring</td><td>9.7.0</td></tr>
+    <tr><td>nats</td><td>28</td></tr>
+    <tr><td>nfs-volume</td><td>5.0.2</td></tr>
+    <tr><td>nginx-offline-buildpack</td><td>1.1.1</td></tr>
+    <tr><td>nodejs-offline-buildpack</td><td>1.7.4</td></tr>
+    <tr><td>notifications-ui</td><td>36</td></tr>
+    <tr><td>notifications</td><td>61</td></tr>
+    <tr><td>php-offline-buildpack</td><td>4.4.2</td></tr>
+    <tr><td>push-apps-manager-release</td><td>671.0.2</td></tr>
+    <tr><td>push-usage-service-release</td><td>671.0.8</td></tr>
+    <tr><td>pxc</td><td>0.21.0</td></tr>
+    <tr><td>python-offline-buildpack</td><td>1.7.2</td></tr>
+    <tr><td>r-offline-buildpack</td><td>1.1.0</td></tr>
+    <tr><td>routing</td><td>0.196.0</td></tr>
+    <tr><td>ruby-offline-buildpack</td><td>1.8.2</td></tr>
+    <tr><td>silk</td><td>2.27.0</td></tr>
+    <tr><td>smb-volume</td><td>2.1.1</td></tr>
+    <tr><td>staticfile-offline-buildpack</td><td>1.5.1</td></tr>
+    <tr><td>statsd-injector</td><td>1.11.8</td></tr>
+    <tr><td>syslog</td><td>11.6.1</td></tr>
+    <tr><td>system-metrics-scraper</td><td>2.0.3</td></tr>
+    <tr><td>uaa</td><td>74.5.5</td></tr>
+  </tbody>
+</table>
+
+### <a id='2.8.0'></a> 2.8.0
+
+* See [New Features in <%= vars.app_runtime_abbr %> v2.8](#new-features)
+* See [Breaking Changes](./breaking-changes.html)
+
+<table border="1" class="nice">
+  <thead>
+    <tr>
+      <th>Component</th>
+      <th>Version</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>ubuntu-xenial stemcell</td><td>621.26</td></tr>
+    <tr><td>backup-and-restore-sdk</td><td>1.17.2</td></tr>
+    <tr><td>binary-offline-buildpack</td><td>1.0.35</td></tr>
+    <tr><td>bosh-dns-aliases</td><td>0.0.3</td></tr>
+    <tr><td>bosh-system-metrics-forwarder</td><td>0.0.18</td></tr>
+    <tr><td>bpm</td><td>1.1.5</td></tr>
+    <tr><td>capi</td><td>1.87.0</td></tr>
+    <tr><td>cf-autoscaling</td><td>222</td></tr>
+    <tr><td>cf-cli</td><td>1.23.0</td></tr>
+    <tr><td>cf-networking</td><td>2.27.0</td></tr>
+    <tr><td>cf-smoke-tests</td><td>40.0.123</td></tr>
+    <tr><td>cflinuxfs3</td><td>0.150.0</td></tr>
+    <tr><td>credhub</td><td>2.5.6</td></tr>
+    <tr><td>diego</td><td>2.39.0</td></tr>
+    <tr><td>dotnet-core-offline-buildpack</td><td>2.3.2</td></tr>
+    <tr><td>garden-runc</td><td>1.19.8</td></tr>
+    <tr><td>go-offline-buildpack</td><td>1.9.3</td></tr>
+    <tr><td>haproxy</td><td>9.8.0</td></tr>
+    <tr><td>istio</td><td>1.3.0</td></tr>
+    <tr><td>java-offline-buildpack</td><td>4.26</td></tr>
+    <tr><td>log-cache</td><td>2.6.0</td></tr>
+    <tr><td>loggregator-agent</td><td>5.1.0</td></tr>
+    <tr><td>loggregator</td><td>106.2.0</td></tr>
+    <tr><td>mapfs</td><td>1.2.1</td></tr>
+    <tr><td>metric-registrar</td><td>1.1.1</td></tr>
+    <tr><td>mysql-monitoring</td><td>9.7.0</td></tr>
+    <tr><td>nats</td><td>27</td></tr>
+    <tr><td>nfs-volume</td><td>5.0.2</td></tr>
+    <tr><td>nginx-offline-buildpack</td><td>1.1.1</td></tr>
+    <tr><td>nodejs-offline-buildpack</td><td>1.7.4</td></tr>
+    <tr><td>notifications-ui</td><td>36</td></tr>
+    <tr><td>notifications</td><td>61</td></tr>
+    <tr><td>php-offline-buildpack</td><td>4.4.2</td></tr>
+    <tr><td>push-apps-manager-release</td><td>671.0.1</td></tr>
+    <tr><td>push-usage-service-release</td><td>671.0.7</td></tr>
+    <tr><td>pxc</td><td>0.20.0</td></tr>
+    <tr><td>python-offline-buildpack</td><td>1.7.2</td></tr>
+    <tr><td>r-offline-buildpack</td><td>1.1.0</td></tr>
+    <tr><td>routing</td><td>0.196.0</td></tr>
+    <tr><td>ruby-offline-buildpack</td><td>1.8.2</td></tr>
+    <tr><td>silk</td><td>2.27.0</td></tr>
+    <tr><td>smb-volume</td><td>2.1.0</td></tr>
+    <tr><td>staticfile-offline-buildpack</td><td>1.5.1</td></tr>
+    <tr><td>statsd-injector</td><td>1.11.1</td></tr>
+    <tr><td>syslog</td><td>11.5.0</td></tr>
+    <tr><td>system-metrics-scraper</td><td>2.0.1</td></tr>
+    <tr><td>uaa</td><td>74.5.5</td></tr>
+  </tbody>
+</table>
+
+
+## <a id='upgrade'></a> How to Upgrade
+
+To upgrade to <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>, see [Upgrading <%= vars.platform_name %>](https://docs.pivotal.io/platform/<%= product_info['local_product_version'].to_s.sub('.','-') %>/customizing/upgrading-pcf.html).
+
+When upgrading to <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>, be aware of the following upgrade considerations:
+
+* If you previously used an earlier version of <%= vars.app_runtime_abbr %>, you must first upgrade to <%= vars.app_runtime_abbr %> v2.7 to successfully upgrade to <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>.
+
+* Some partner service tiles may be incompatible with <%= vars.platform_name %> <%= vars.v_major_version %>. Pivotal is working with partners to ensure their tiles are updated to work with the latest versions of <%= vars.platform_name %>.<br/><br/> For information about which partner service releases are currently compatible with <%= vars.platform_name %> <%= vars.v_major_version %>, review the appropriate partners services release documentation at [https://docs.pivotal.io](https://docs.pivotal.io), or contact the partner organization that produces the tile.
+
+
+## <a id='new-features'></a> New Features in <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>
+
+<%= vars.app_runtime_abbr %> <%= vars.v_major_version %> includes the following major features:
+
+### <a id='cpu-entitlement'></a> Diego Sets Container CPU Weight Property Equal to Container Memory Limit
+
+Diego sets the CPU weight property on the containers it creates to a number equivalent to the container memory limit. This allows Garden to calculate the `AbsoluteCPUEntitlement` metric, which is the CPU entitlement for the container. With `AbsoluteCPUEntitlement`, Garden can produce accurate CPU usage metrics that are relative to `AbsoluteCPUEntitlement`.
+
+For more information about the `AbsoluteCPUEntitlement` metric, see [Diego Container Metrics](https://docs.pivotal.io/application-service/2-8/loggregator/container-metrics.html#container-metrics) in _Container Metrics_. For information about the Cloud Foundry CPU Entitlement Plugin, an experimental plugin that allows you to examine the CPU usage of <%= vars.app_runtime_abbr %> apps relative to their CPU entitlement, see the [Cloud Foundry CPU Entitlement Plugin](https://github.com/cloudfoundry/cpu-entitlement-plugin) repository on GitHub.
+
+### <a id='appsman-scs'></a> Spring Cloud Services Configuration in Apps Manager
+
+For Spring Cloud Services (SCS) instances, Apps Manager shows the current status of the SCS Config Server and lets you trigger the Config Server to update app configurations.
+
+For more information, see [View and Update Spring Cloud Services Configurations](https://docs.pivotal.io/application-service/2-8/console/manage-apps.html#configure-scs) in _Managing Apps and Service Instances Using Apps Manager_.
+
+### <a id='active-droplet'></a> View the Active Droplet for an App in Apps Manager
+
+On the Apps Manager **Revisions** page for an app, you can view which revision version contains the active droplet for the app. The active droplet has a GUID that is equivalent to the current droplet GUID of the app.
+
+The text `Deployed (Active)` appears in the **Status** column of the table to indicate that the revision version is active.
+
+For more information about using the Apps Manager UI, see [Using Apps Manager](https://docs.pivotal.io/application-service/2-8/console/index.html).
+
+### <a id='cli-support-sidecars'></a> cf CLI Supports Sidecar Processes
+
+The Cloud Foundry Command-Line Interface (cf CLI) adds support for sidecar processes. You can add a sidecar process to an app process using an app manifest. The cf CLI displays the sidecar process alongside the app process to which it is attached.
+
+For more information about deploying sidecar processes with apps, see [Pushing Apps with Sidecar Processes (Beta)](https://docs.pivotal.io/application-service/2-8/devguide/sidecars.html).
+
+### <a id='sidecars-buildpack'></a> Deploy Sidecar Processes with a Custom Buildpack
+
+As an alternative to using an app manifest, you can deploy a sidecar process for an app with a custom buildpack.
+
+<p class="note"><strong>Note:</strong> PAS v2.8 does not support using custom buildpacks to push sidecars for Java apps. You can only push sidecars for Java apps by using an app manifest.</p>
+
+For more information, see [Sidecar Buildpacks](https://docs.pivotal.io/application-service/2-8/buildpacks/sidecar-buildpacks.html).
+
+### <a id='usage-service-data-retention'></a> Configure Retention Period for Usage Service Data
+
+Usage Service deletes granular data after 365 days by default. You can configure the retention period for granular data in the **Advanced Features** pane of the <%= vars.app_runtime_abbr %> tile.
+
+This feature reduces the amount of data in the Usage Service database, which helps prevent data migration issues on very large foundations.
+
+For more information, see [Usage Data Retention](https://docs.pivotal.io/application-service/2-8/operating/accounting-report.html#usage-retention) in _Reporting App, Task, and Service Instance Usage_.
+
+### <a id='smb-default'></a> SMB Volume Services Enabled by Default
+
+SMB volume services are enabled by default. When SMB volume services are enabled, app developers can bind existing SMB shares to apps for shared file access.
+
+To disable SMB volume services in the <%= vars.app_runtime_abbr %> tile, select **App Containers** and clear the **Enable SMB volume services** checkbox, and then select **Errands** and set the **SMB Broker Errand** to **Off**.
+
+For more information, see [Enable SMB Volume Services](https://docs.pivotal.io/application-service/2-8/operating/enable-vol-services.html#smb-enable) in _Enabling Volume Services_.
+
+For general information about volume services, see [Using an External File System (Volume Services)](https://docs.pivotal.io/application-service/2-8/devguide/services/using-vol-services.html).
+
+### <a id='nfs-broker-credhub'></a> NFS Broker Uses CredHub as Backing Store
+
+NFS Broker uses CredHub as its backing store, rather than an internal <%= vars.app_runtime_abbr %> database. Because BOSH Backup and Restore (BBR) no longer backs up NFS Broker, the `nfsbroker-bbr` job is removed.
+
+For more information about CredHub, see [CredHub](https://docs.pivotal.io/platform/2-8/credhub/index.html).
+
+### <a id='uaa-client-url-encoding'></a> Enable URL Encoding For UAA Client Credentials
+
+You can disable an optional **Client basic auth compatibility mode** checkbox in the **UAA** pane of the <%= vars.app_runtime_abbr %> tile to require URL encoding for UAA client credentials.
+
+URL encoding is defined by RFC 6749. For more information, see the [2.3.1. Client Password](https://tools.ietf.org/html/rfc6749#section-2.3.1) section of RFC 6749.
+
+By default, the **Client basic auth compatibility mode** checkbox is enabled. When the checkbox is enabled, UAA does not require URL encoding for client IDs and secrets. This represents the default behavior of UAA prior to v74.0.0. For more information, see [v74.0.0](https://github.com/cloudfoundry/uaa-release/releases/tag/v74.0.0) in GitHub.
+
+For more information about configuring the **Client basic auth compatibility mode** checkbox, see [Configure UAA](https://docs.pivotal.io/application-service/2-8/operating/configure-pas.html#uaa) in _Configuring <%= vars.app_runtime_abbr %>_.
+
+<p class="note warning"><strong>Warning:</strong> If you disable the <strong>Client basic auth compatibility mode</strong> checkbox, URL encoding is required for all UAA client apps in your deployment. To avoid breaking changes, ensure that all client apps support URL encoding before you disable the checkbox.</p>
+
+### <a id='aws-ecr-support'></a> Support for Pushing Container Images Hosted in AWS ECR
+
+When you push container images hosted in AWS Elastic Container Registry (ECR) with the Cloud Foundry CLI (cf CLI), you can provide the access key ID and secret for an AWS IAM user as a Docker username and password as part of the `cf push` command. Apps are able to then continuously restart and restage successfully.
+
+This update allows the cf CLI to successfully pull container images hosted in ECR with valid AWS Identity and Access Management (IAM) user credentials.
+
+For more information, see [Amazon Elastic Container Registry (ECR)](https://docs.pivotal.io/application-service/2-8/devguide/deploy-apps/push-docker.html#ecr) in _Deploying an App with Docker_.
+
+### <a id='mtls-loggregator'></a> Mutual TLS Added to Loggregator Endpoints and Components
+
+Mutual TLS is added to the Loggregator, Loggregator Agent, and Log Cache endpoints. It is also added to the Leadership Election job. This provides additional security between these endpoints and metric scrapers.
+
+For more information about Loggregator components, see [Loggregator Architecture](https://docs.pivotal.io/application-service/2-8/loggregator/architecture.html). For more information about the Leadership Election job and metric scraping, see the [System Metrics](https://github.com/cloudfoundry/system-metrics-release) repository on GitHub.
+
+### <a id='disable-v2-firehose'></a> V2 Firehose Can Be Disabled
+
+You can disable the Loggregator V2 Firehose by deselecting the **Enable V2 Firehose** checkbox in the **System Logging** pane of the <%= vars.app_runtime_abbr %> tile. This shuts down VMs used for the V2 Firehose, such as Dopplers and Reverse Log Proxies. After you disable the V2 Firehose, you can delete these VMs from your deployment to save resources.
+
+<div class='note warning'><strong>Warning:</strong> If you disable the V2 Firehose, you must select the <strong>Enable Log Cache syslog ingestion</strong> checkbox, or logs and metrics do not appear in Log Cache. <%= vars.recommended_by %> recommends that you do not disable the Firehose if you are dependent on any of the following:
+  <ul>
+    <li>Service tile metrics</li>
+    <li>Pivotal Healthwatch or Pivotal App Metrics</li>
+    <li>Partner log or metric integrations</li>
+  </ul>
+</div>
+
+<p class="note warning"><strong>Warning:</strong> If you disable the V1 or V2 Firehose, you must disable the Smoke Test Errand or the deploy fails. For more information, see <a href="#disable-firehose-smoke-test-errand">Disable the Smoke Test Errand If You Disable the Firehose</a>.</p>
+
+To forward logs and metrics to a syslog endpoint after you disable the Firehose, configure an aggregate log and metric drain for your foundation. For more information about disabling the V2 Firehose and enabling aggregate drains, see [Configure System Logging](https://docs.pivotal.io/application-service/2-8/operating/configure-pas.html#sys-logging) in _Configuring <%= vars.app_runtime_abbr %>_.
+
+For more information about the Loggregator Firehose, see [Loggregator Architecture](https://docs.pivotal.io/application-service/2-8/loggregator/architecture.html).
+
+### <a id='aggregate-drain'></a> Aggregate Drain for Metrics and App Logs
+
+You can configure an aggregate log and metric drain for your foundation to allow Syslog Agents to forward all app metrics, app logs, and <%= vars.app_runtime_abbr %> component VM metrics to one or more syslog endpoints.
+
+This allows you to forward logs and metrics for all apps in your foundation without configuring syslog drains for each app individually.
+
+You can also use an aggregate log and metric drain instead of the Loggregator Firehose. This allows you to disable the Firehose and delete related VMs, such as Dopplers and Reverse Log Proxies. For more information about disabling the Firehose, see [V2 Firehose Can Be Disabled](#disable-v2-firehose).
+
+To enable an aggregate log and metric drain for your foundation, add a comma-separated list of syslog endpoints to the **Aggregate log and metric drain destinations** field in the **System Logging** pane of the <%= vars.app_runtime_abbr %> tile. For more information, see [Configure System Logging](https://docs.pivotal.io/application-service/2-8/operating/configure-pas.html#sys-logging) in _Configuring <%= vars.app_runtime_abbr %>_.
+
+### <a id='credhub-vm'></a> <%= vars.app_runtime_abbr %> Must Use At Least One CredHub VM
+
+In <%= vars.app_runtime_abbr %> v2.8, you must use at least one CredHub VM. The default number of CredHub instances is increased from `0` to `2`. You can configure the number of CredHub VMs <%= vars.app_runtime_abbr %> uses in the **Resource Config** pane of the <%= vars.app_runtime_abbr %> tile.
+
+For high availability, <%= vars.recommended_by %> recommends that you use at least one CredHub instance per availability zone (AZ). Or, if you have only one AZ, use at least three CredHub instances.
+
+<p class="note warning"><strong>Warning:</strong> If you use an external GCP or Azure database for <%= vars.app_runtime_abbr %> and previously set CredHub instances to 0 in <%= vars.app_runtime_abbr %> v2.7, you must also disable hostname verification before you upgrade to <%= vars.app_runtime_abbr %> v2.8. For more information, see <a href="https://docs.pivotal.io/platform/2-8/upgrading/checklist.html#disable-hostname-verification">Disable Hostname Verification for External CredHub Databases on GCP and Azure</a> in <em>Upgrade Preparation Checklist for <%= vars.platform_name %> v2.8</em>.</p>
+
+For more information about CredHub, see [CredHub](https://docs.pivotal.io/platform/2-8/credhub/index.html). For more information about configuring VMs, see [Configure Resources](https://docs.pivotal.io/application-service/2-8/operating/configure-pas.html#resources) in _Configuring <%= vars.app_runtime_abbr %>_.
+
+### <a id='apps-man-marketplace'></a> Customizable Marketplace URL and Secondary Navigation Links in Apps Manager
+
+In the **Custom Branding** pane of <%= vars.app_runtime_abbr %> v2.8, you can customize the Marketplace URL and secondary navigation links that appear in your Apps Manager deployment.
+
+For more information, see [Configure Custom Branding and Apps Manager](https://docs.pivotal.io/application-service/2-8/operating/configure-pas.html#customize-apps-man) in _Configuring <%= vars.app_runtime_abbr %>_.
+
+### <a id="agent-based-syslog-egress"></a> Agent-Based Syslog Egress Cannot Be Disabled
+
+Agent-based syslog egress is enabled in PAS v2.8.0 and cannot be disabled.
+Syslog Agents forward logs to Loggregator and syslog drains that you configure.
+This feature removes the need for VMs dedicated to syslog drains.
+
+For more information, see [Agent-Based Syslog Egress Is Enabled by Default](https://docs.pivotal.io/platform/2-7/release-notes/runtime-rn.html#agent-based-syslog-egress) in the PAS v2.7 release notes.
+
+### <a id="new-metatags"></a> Additional Metadata Tags for Metrics and App Logs
+
+In PAS v2.8, six new metadata tags appear in app logs and metrics.
+The following metadata tags have been added to outgoing syslogs in v2.8:
+
+- `app_id`
+- `app_name`
+- `organization_id`
+- `organization_name`
+- `space_id`
+- `space_name`
+
+The tags correspond to the internal name and ID of the app and its org and space.
+
+The new metadata tags appear in app logs in the following format:
+
+<pre class="terminal">
+956 <14>1 2020-03-31T12:11:02.529497+00:00 My-org.My-space.my-app-blue ec3cd4e4-baf9-456d-965a-96bcb2c61a47
+[APP/PROC/WEB/0] - [tags@47450 app_id="ec3cd4e4-baf9-456d-965a-96bcb2c61a47" app_name="my-app-blue"
+deployment="cf-78e7a9442158adb53366" index="c57b95c6-d79f-4cfb-b7f3-08a770946b7a" instance_id="0"
+ip="10.214.110.84" job="diego_cell" organization_id="c23f6fb2-beeb-4d2f-8c1d-693be5bd502c"
+organization_name="My-org" origin="rep" process_id="ec3cd4e4-baf9-456d-965a-96bcb2c61a47"
+process_instance_id="1cf3854e-29d8-4825-7685-11ec" process_type="web" product="Pivotal Application Service"
+source_id="ec3cd4e4-baf9-456d-965a-96bcb2c61a47" source_type="APP/PROC/WEB"
+space_id="93e9f375-1567-4ea4-b2a1-ef6fd7e0125b" space_name="My-space"
+system_domain="example.mydomain.io"] 2020-03-31 07:11:02.529
+INFO [my-app,B2347215-T21118008-COWF/35558169/38311791] --- [http-nio-8080-exec-5]
+c.c.b.t.p.s.p.b.BatchPostProcessor : Report file created in 47 ms
+</pre>
+
+For information about the log format, see [Metadata Tags for Metrics and App Logs](https://docs.pivotal.io/platform/2-7/release-notes/breaking-changes.html#syslog-agent-metadata)
+in _Pivotal Platform v2.7 Breaking Changes_.
+
+For information about a known issue related to the metadata tags,
+see [Metadata Tags Not Updated if App, Org, or Space Name Changed](#metadata-tags-known-issue).
+
+## <a id='known-issues'></a> Known Issues
+
+<%= vars.app_runtime_abbr %> <%= vars.v_major_version %> includes the following known issues:
+
+### <a id='duplicate-metrics'></a> Duplicate Metrics Appear in the Firehose
+
+<%= vars.app_runtime_abbr %> v2.8 introduces a System Metrics Agent that sends metrics to the Firehose. These metrics match existing BOSH system metrics, but they use an updated format. In <%= vars.app_runtime_abbr %> v2.8, metrics appear in both formats. In the Firehose, you see duplicate metrics entries in both the Loggregator format and the System Metrics Agent format.
+
+The following table shows examples of the existing Loggregator metrics format and the new System Metrics Agent metrics format:
+
+| Loggregator Format | System Metrics Agent Format |
+| ------------------ | --------------------------- |
+| `system.healthy` | `system_healthy` |
+| `system.mem.percent` | `system_mem_percent` |
+| `system.disk.system.percent` | `system_disk_system_percent` |
+| `system.disk.ephemeral.percent` | `system_disk_ephemeral_percent` |
+| `system.disk.persistent.percent` | `system_disk_persistent_percent` |
+| `system.cpu.user` | `system_cpu_user` |
+
+The new System Metrics Agent adds about 50 metric envelopes per VM each minute.
+
+The existing BOSH system metrics forwarder emits 2 metric envelopes per VM each minute. Each envelope contains 13 metrics.
+
+### <a id='disable-firehose-smoke-test-errand'></a> Disable the Smoke Test Errand If You Disable the Firehose
+
+If you disable the V1 or V2 Firehose in <%= vars.app_runtime_abbr %> v2.8, you must also disable the smoke test errand.
+
+If you do not disable the smoke test errand, the deploy fails with an error similar to the following:
+
+```
+[91m[1m[Fail] [0m[90mLoggregator: [0m[0mcf logs [0m[90mlinux [0m[91m[1m[It] can see app messages in the logs [0m
+          [37m/var/vcap/packages/smoke_tests/src/github.com/cloudfoundry/cf-smoke-tests/smoke/logging/loggregator_test.go:42[0m
+          [1m[91mRan 1 of 2 Specs in 56.171 seconds[0m
+          [1m[91mFAIL![0m -- [32m[1m0 Passed[0m | [91m[1m1 Failed[0m | [33m[1m0 Pending[0m | [36m[1m1 Skipped[0m
+          --- FAIL: TestSmokeTests (56.17s)
+          FAIL
+          Ginkgo ran 2 suites in 1m7.050120251s
+          Test Suite Failed
+Stderr     Error: failed to run job-process: exit status 1 (exit status 1)
+```
+
+To disable the smoke test errand:
+
+1. Navigate to the **Errands** pane in the <%= vars.app_runtime_abbr %> tile.
+
+1. For **Smoke Test Errand**, select **Off**.
+
+For more information, see [Configure Errands](https://docs.pivotal.io/application-service/2-8/operating/configure-pas.html#errands) in _Configuring <%= vars.app_runtime_abbr %>_.
+
+### <a id='nfs-file-append'></a> Errors in NFS Volume Service File Append Operations
+
+A defect in the mapfs FUSE driver causes errors to occur in file append operations when you enable the ID mapping feature with NFS in <%= vars.app_runtime_abbr %> v2.8.0 through <%= vars.app_runtime_abbr %> v2.8.1.
+
+You enable the ID mapping feature by specifying either the `uid` or `username` option in service instance or service bind configurations.
+
+When this issue occurs, appending files within the mounted file system fail with the error `File operation not supported`. For example, `echo hello >> test.txt` fails.
+
+This issue is resolved in <%= vars.app_runtime_abbr %> v2.8.2.
+
+### <a id='pcf-metrics-incompatible'></a> PCF Metrics v1.6.2 and Earlier Not Compatible with PAS v2.8.3 and Later
+
+<%= partial "/pcf/app-service-kis/pcf_metrics_incompatible" %>
+
+### <a id="apps-manager-slow-logs"></a> Logs Take a Long Time to Load in Apps Manager
+
+In <%= vars.app_runtime_abbr %> v2.8.0 through v2.8.3, Apps Manager uses an inefficient method of loading app logs.
+This method causes the logs page to remain in a loading state for a long time before displaying logs.
+This issue is resolved in <%= vars.app_runtime_abbr %> v2.8.4.
+
+### <a id="apps-manager-async-health-endpoint"></a> Asynchronous Spring and Steeltoe health Endpoint Causes Apps Manager to Crash
+
+This issue only applies to PAS v2.8.3 and earlier.
+
+If your Spring or Steeltoe app uses an asynchronous `health` actuator endpoint,
+you might see the error `TypeError: Cannot read property 'code' of undefined`
+in the Overview tab for the app.
+The normal contents of the Overview tab are not displayed.
+
+This does not indicate a problem with the app, and information on the other tabs
+displays correctly.
+
+### <a id='cf-cli-firehose-errors'></a> Errors Viewing App Logs after Disabling V1 Firehose
+
+<%= partial "/pcf/app-service-kis/cf_cli_errors_disable_firehose" %>
+
+### <a id="apps-manager-app-metrics-link"></a> App Metrics v2.0.0 Is Incompatible with Apps Manager Integration
+
+This issue affects App Metrics v2.0.0.
+
+If the App Metrics v2.0.0 tile is installed on a foundation,
+then the **View in Metrics** link on the app Overview tab in Apps Manager
+does not appear or is broken.
+
+### <a id="large-number-unnecessary-queries"></a> Traffic Controller Can Issue a Large Number of Unnecessary DNS Queries
+
+This issue is resolved in <%= vars.app_runtime_abbr %> v2.8.6 and later.
+
+In PAS v2.8.5, Loggregator release version 106.2.4 uses an upgraded version of GOLANG GRPC. By default, GRPC attempts
+to find the hostname `q-s0.doppler.NETWORK-NAME.cf-GUID.bosh` through BOSH DNS for A, SRV, and TXT records. If this
+attempt fails or is delayed, GRPC sends DNS lookups to all of the external DNS servers listed in `/etc/resolv.conf`.
+This can result in the Loggregator Traffic Controller generating hundreds of requests per second.
+
+Example log message from BOSH DNS server:
+
+<pre class="terminal">
+[RequestLoggerHandler] 2020/03/27 12:06:04 WARN - handlers.DiscoveryHandler Request qtype=[TXT] qname=[q-s0.doppler.pas.cf-GUID.bosh.] rcode=SERVFAIL time=17000ns
+</pre>
+
+To work around this issue in <%= vars.app_runtime_abbr %> v2.8.5, see
+[Loggregator continuously generates hundreds of DNS requests per second to external DNS servers](https://community.pivotal.io/s/article/Loggregator-Continuously-generates-hundreds-of-dns-requests-per-second-to-external-dns-servers)
+in the Knowledge Base.
+
+### <a id="app-metrics-route-deprecated"></a> App Metrics Route Change Results In "Unexpected error occurrence"
+
+This issue affects you only if you upgrade from App Metrics v2.0.0 to App Metrics v2.0.1 or later.
+
+The route to App Metrics moved from `appmetrics.FOUNDATION_SYSTEM_DOMAIN.com` in
+v2.0.0 to `metrics.FOUNDATION_SYSTEM_DOMAIN` in v2.0.1.
+
+If you have set the **Multi-foundation configuration (beta)** field of the Apps Manager section
+in a PAS tile, you must update the **metricsUrl** field to reflect
+the route change. If the field is not updated, then clicking **View in Metrics** on the app
+Overview tab in Apps Manager results in an `Unexpected error occurence` message.
+
+
+
+### <a id="cc-purge-reseed-usage-bug"></a> Invalid Events from Cloud Controller Purge and Reseed
+
+In <%= vars.app_runtime_abbr %> v2.8.11 and earlier, the `/v2/app_usage_events/destructively_purge_all_and_reseed_started_apps` endpoint may generate app events without valid GUIDs. These invalid GUIDs can cause errors with components that consume them when parsing and correlating events. This issue affects Cloud Controller and App Usage Service.
+
+For more information about the API endpoint, see [Purge and reseed App Usage Events](https://apidocs.cloudfoundry.org/13.6.0/app_usage_events/purge_and_reseed_app_usage_events.html) in the _App Usage Events API_ documentation. For more information about the issue, see [App Usage Service startup errors and data inconsistency](https://community.pivotal.io/s/article/App-Usage-Service-startup-errors-and-data-inconsistency) in the knowledge base.
+
+This issue is resolved in <%= vars.app_runtime_abbr %> v2.8.12.
+
+
+
+### <a id="apps-manager-app-metrics-logout"></a> App Metrics v2.0 Causes Apps Manager to Log Out on PAS v2.8.3 and Earlier
+
+For deployments with both App Metrics v2.0 and PAS v2.8.3 or earlier installed, viewing any app **Overview** page in Apps Manager causes the user session to expire, which results in a log out.
+
+For deployments with PAS v2.8.3 and earlier, this issue affects all App Metrics v2.0 patch versions.
+
+This issue is resolved in PAS v2.8.4 and later.
+
+### <a id="metadata-tags-known-issue"></a>Metadata Tags Not Updated if App, Org, or Space Name Changed
+
+If you rename an app, org, or space, the metadata tags for metrics and app logs do not update to reflect the new names.
+The original names persist in the metrics and app logs.
+
+To resolve this issue, restart the app.
+After the app restarts, app logs and metrics use the updated metadata tags.
+
+For more info about these metadata tags,
+see [Additional Metadata Tags for Metrics and App Logs](#new-metatags) above.
+
+
+### <a id="apps-manager-app-metrics-link-no-proxy"></a>PCF Metrics Link Disappears in Apps Manager for Proxied Setups
+
+This issue affects <%= vars.app_runtime_abbr %> v2.8.4 and later deployments that have any version of PCF Metrics or App Metrics installed.
+
+If your <%= vars.app_runtime_abbr %> deployment has restrictive networking policies around request proxying, then the **View in PCF Metrics** link may not appear in Apps Manager.
+
+To resolve this issue:
+
+1. Using the cf CLI, log in to the system org and system space.
+2. Locate the `search-server` app.
+3. Update the `no_proxy` environment variable for the `search-server` app to include your system domain.
+
+    ```
+    cf set-env search-server no_proxy '*.SYSTEM-DOMAIN'
+    ```
+    where `SYSTEM-DOMAIN` is the system domain configured for your <%= vars.app_runtime_abbr %> deployment.
+    For example:
+    <pre class="terminal">
+    cf set-env search-server no_proxy '*.example.com'
+    </pre>
+
+4. Restage the `search-server` app.
+
+    ```
+    cf restage search-server
+    ```
+
+### <a id="autoscaler-apps-manager-no-proxy"></a>Autoscaler Controls Do Not Appear in Apps Manager for Proxied Setups
+
+This issue affects <%= vars.app_runtime_abbr %> v2.8.4 and later deployments that manage the Autoscaler service for individual apps in Apps Manager.
+
+If your <%= vars.app_runtime_abbr %> deployment has restrictive networking policies around request proxying, then Autoscaler controls may not appear for apps within Apps Manager even when the Autoscaler service is enabled for an org.
+
+To resolve this issue:
+
+1. Using the cf CLI, log in to the system org and system space.
+2. Locate the `search-server` app.
+3. Update the `no_proxy` environment variable for the `search-server` app to include your system domain.
+
+    ```
+    cf set-env search-server no_proxy '*.SYSTEM-DOMAIN'
+    ```
+    where `SYSTEM-DOMAIN` is the system domain configured for your <%= vars.app_runtime_abbr %> deployment.
+    For example:
+    <pre class="terminal">
+    cf set-env search-server no_proxy '*.example.com'
+    </pre>
