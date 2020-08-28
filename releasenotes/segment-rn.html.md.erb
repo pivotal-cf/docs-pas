@@ -1,0 +1,186 @@
+---
+title: Pivotal Isolation Segment v2.10 Release Notes
+owner: Release Engineering
+---
+<% current_page.data.title = vars.segment_runtime_full + " " + vars.v_major_version + " Release Notes" %>
+
+This topic contains release notes for <%= vars.segment_runtime_full %> <%= vars.v_major_version %>.
+
+<hr>
+
+## <a id='releases'></a> Releases
+
+<%# DO NOT DELETE THIS LINE - robots use this to add new release notes %>
+ 
+### <a id='2.10.2'></a> 2.10.2
+
+**Release Date:** 08/24/2020
+
+* **[Bug Fix]** loggr-syslog-agent - Fix server alternative name
+* **[Bug Fix]**: Return 502 TLS Handshake error for an unresponsive backend
+* **[Bug Fix]** Bump garden-runc to v1.19.16
+* Bump ubuntu-xenial stemcell to version `621.78`
+* Bump cflinuxfs3 to version `0.203.0`
+* Bump garden-runc to version `1.19.16`
+* Bump routing to version `0.205.0`
+
+<table border="1" class="nice">
+  <thead>
+    <tr>
+      <th>Component</th>
+      <th>Version</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>ubuntu-xenial stemcell</td><td>621.78</td></tr>
+    <tr><td>bpm</td><td>1.1.7</td></tr>
+    <tr><td>cf-networking</td><td>2.31.0</td></tr>
+    <tr><td>cflinuxfs3</td><td>0.203.0</td></tr>
+    <tr><td>diego</td><td>2.47.0</td></tr>
+    <tr><td>garden-runc</td><td>1.19.16</td></tr>
+    <tr><td>haproxy</td><td>10.0.0</td></tr>
+    <tr><td>license</td><td></td></tr>
+    <tr><td>loggregator-agent</td><td>6.0.2</td></tr>
+    <tr><td>mapfs</td><td>1.2.4</td></tr>
+    <tr><td>metrics-discovery</td><td>3.0.0</td></tr>
+    <tr><td>nfs-volume</td><td>7.0.3</td></tr>
+    <tr><td>routing</td><td>0.205.0</td></tr>
+    <tr><td>silk</td><td>2.31.0</td></tr>
+    <tr><td>smb-volume</td><td>3.0.1</td></tr>
+    <tr><td>smoke-tests</td><td>2.0.6</td></tr>
+    <tr><td>syslog</td><td>11.6.1</td></tr>
+  </tbody>
+</table>
+ 
+ 
+ 
+### <a id='2.10.1'></a> 2.10.1
+
+**Release Date:** 08/08/2020
+
+* **[Bug Fix]** Fix issue where requests to internal routes could fail due to incorrect case-sensitivity in DNS lookup in the service discovery controller.
+* **[Bug Fix]** System Metrics Scraper/Prom Scraper — Fixes a bug that causes excess log volume and increases scrape interval to reduce metric volume
+* Bump ubuntu-xenial stemcell to version `621.77`
+* Bump cf-networking to version `2.31.0`
+* Bump cflinuxfs3 to version `0.202.0`
+* Bump garden-runc to version `1.19.14`
+* Bump silk to version `2.31.0`
+
+<table border="1" class="nice">
+  <thead>
+    <tr>
+      <th>Component</th>
+      <th>Version</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>ubuntu-xenial stemcell</td><td>621.77</td></tr>
+    <tr><td>bpm</td><td>1.1.7</td></tr>
+    <tr><td>cf-networking</td><td>2.31.0</td></tr>
+    <tr><td>cflinuxfs3</td><td>0.202.0</td></tr>
+    <tr><td>diego</td><td>2.47.0</td></tr>
+    <tr><td>garden-runc</td><td>1.19.14</td></tr>
+    <tr><td>haproxy</td><td>10.0.0</td></tr>
+    <tr><td>loggregator-agent</td><td>6.0.2</td></tr>
+    <tr><td>mapfs</td><td>1.2.4</td></tr>
+    <tr><td>metrics-discovery</td><td>3.0.0</td></tr>
+    <tr><td>nfs-volume</td><td>7.0.3</td></tr>
+    <tr><td>routing</td><td>0.203.0</td></tr>
+    <tr><td>silk</td><td>2.31.0</td></tr>
+    <tr><td>smb-volume</td><td>3.0.1</td></tr>
+    <tr><td>smoke-tests</td><td>2.0.6</td></tr>
+    <tr><td>syslog</td><td>11.6.1</td></tr>
+  </tbody>
+</table>
+ 
+ 
+
+### <a id='2.10.0'></a> 2.10.0
+
+**Release Date:** July 31, 2020
+
+* See [New Features in Isolation Segment v2.10](#new-features)
+* See [Breaking Changes](breaking-changes.html)
+
+<table border="1" class="nice">
+  <thead>
+    <tr>
+      <th>Component</th>
+      <th>Version</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>ubuntu-xenial stemcell</td><td>621.76</td></tr>
+    <tr><td>bpm</td><td>1.1.7</td></tr>
+    <tr><td>cf-networking</td><td>2.30.0</td></tr>
+    <tr><td>cflinuxfs3</td><td>0.198.0</td></tr>
+    <tr><td>diego</td><td>2.47.0</td></tr>
+    <tr><td>garden-runc</td><td>1.19.11</td></tr>
+    <tr><td>haproxy</td><td>10.0.0</td></tr>
+    <tr><td>loggregator-agent</td><td>6.0.2</td></tr>
+    <tr><td>mapfs</td><td>1.2.4</td></tr>
+    <tr><td>metrics-discovery</td><td>3.0.0</td></tr>
+    <tr><td>nfs-volume</td><td>7.0.3</td></tr>
+    <tr><td>routing</td><td>0.203.0</td></tr>
+    <tr><td>silk</td><td>2.30.0</td></tr>
+    <tr><td>smb-volume</td><td>3.0.1</td></tr>
+    <tr><td>smoke-tests</td><td>2.0.6</td></tr>
+    <tr><td>syslog</td><td>11.6.1</td></tr>
+  </tbody>
+</table>
+
+
+## <a id='intro'></a> About <%= vars.segment_runtime_full %>
+
+The <%= vars.segment_runtime_full %> <%= vars.v_major_version %> tile is available for installation with <%= vars.platform_name %> <%= vars.v_major_version %>.
+
+Isolation segments provide dedicated pools of resources where you can deploy apps and isolate workloads. Using isolation segments separates app resources as completely as if they were in different <%= vars.platform_name %> deployments but avoids redundant management and network complexity. For more information about isolation segments, see [Isolation Segments](https://docs.pivotal.io/application-service/<%= product_info['local_product_version'].to_s.sub('.','-') %>/concepts/security.html#isolation-segments) in _<%= vars.app_runtime_abbr %> Security_.
+
+For more information about using isolation segments in your deployment, see [Managing Isolation Segments](https://docs.pivotal.io/application-service/<%= product_info['local_product_version'].to_s.sub('.','-') %>/adminguide/isolation-segments.html).
+
+
+## <a id='install'></a> How to Install
+
+To install <%= vars.segment_runtime_full %> <%= vars.v_major_version %>, see [Installing <%= vars.segment_runtime_full %>](https://docs.pivotal.io/platform/<%= product_info['local_product_version'].to_s.sub('.','-') %>/customizing/installing-pcf-is.html).
+
+To install <%= vars.segment_runtime_full %> <%= vars.v_major_version %>, you must first install <%= vars.platform_name %> <%= vars.v_major_version %>.
+
+
+## <a id='new-features'></a> New Features in <%= vars.segment_runtime_full %> <%= vars.v_major_version %>
+
+<%= vars.segment_runtime_full %> <%= vars.v_major_version %> includes the following major features:
+
+### <a id='syslog-no-metrics'></a>Aggregate Syslog Drains Contain Logs Only
+
+When you configure an aggregate syslog drain in <%= vars.segment_runtime_full %> v2.10, by default you receive logs only.
+You do not also receive metrics.
+By not including metrics alongside logs, your syslog drain uses fewer resources and reduces network traffic between <%= vars.app_runtime_abbr %> components and your external logging service.
+
+If you want the aggregate drain to send metrics along with logs, you can modify your drain URLs.
+
+To continue to see metrics in your drains after upgrading to <%= vars.segment_runtime_full %> v2.10:
+
+1. Navigate to the Ops Manager Installation Dashboard.
+1. Click the **<%= vars.segment_runtime_full %>** tile in the Installation Dashboard.
+1. Select **System Logging**.
+1. For **Address**, enter the hostname or IP address of the syslog server and append `?include-metrics-deprecated=true`. For example, `https://syslog-server.com:123?include-metrics-deprecated=true`.
+1. Click **Save**.
+
+For more information about configuring aggregate syslog drains, see [Configure System Logging](https://docs.pivotal.io/application-service/2-10/operating/configure-pas.html#sys-logging) in _Configuring TAS for VMs_.
+
+### <a id='sticky-cookies'></a> Configurable Sticky Session Cookie Names
+
+You can supply sticky session cookie names for the Gorouter to use when handling sticky sessions.
+The Gorouter uses these cookies to support session affinity, or _sticky sessions_.
+For more information, see [Session Affinity](https://docs.pivotal.io/platform/2-10/concepts/http-routing.html#sessions)
+in _HTTP Routing_.
+
+By default, the Gorouter uses `JSESSIONID`. Some apps require a different session name.
+For example, Spring WebFlux requires `SESSION` for the session cookie name.
+
+To supply cookie names, see [Configure Networking](https://docs.pivotal.io/application-service/2-10/operating/installing-pcf-is.html#networking) in _Installing <%= vars.segment_runtime_full %>_.
+
+
+## <a id='known-issues'></a> Known Issues
+
+There are no known issues for <%= vars.segment_runtime_full %> <%= vars.v_major_version %> at this time.
