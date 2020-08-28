@@ -1,0 +1,575 @@
+---
+title: TAS for VMs v2.11 Release Notes
+owner: Release Engineering
+---
+
+<% current_page.data.title = vars.app_runtime_full + " " + vars.v_major_version + " Release Notes" %>
+
+This topic contains release notes for <%= vars.app_runtime_full %> (<%= vars.app_runtime_abbr %>) <%= vars.v_major_version %>.
+
+<%= vars.platform_name %> is certified by the Cloud Foundry Foundation for <%= Date.today.year %>.
+
+Read more about the [certified provider program](https://www.cloudfoundry.org/provider-faq/) and the [requirements of providers](https://www.cloudfoundry.org/provider-requirements/).
+
+<hr>
+
+## <a id='releases'></a> Releases
+
+<%# DO NOT DELETE THIS LINE - robots use this to add new release notes %>
+ 
+### <a id='2.11.0-alpha.7'></a> 2.11.0-alpha.7
+
+**Release Date:** 08/24/2020
+
+* **[Bug Fix]** loggr-syslog-agent - Fix server alternative name
+* No BOSH release bumps
+
+<table border="1" class="nice">
+  <thead>
+    <tr>
+      <th>Component</th>
+      <th>Version</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>ubuntu-xenial stemcell</td><td>621.81</td></tr>
+    <tr><td>backup-and-restore-sdk</td><td>1.18.0</td></tr>
+    <tr><td>binary-offline-buildpack</td><td>1.0.36</td></tr>
+    <tr><td>bosh-dns-aliases</td><td>0.0.3</td></tr>
+    <tr><td>bosh-system-metrics-forwarder</td><td>0.0.19</td></tr>
+    <tr><td>bpm</td><td>1.1.7</td></tr>
+    <tr><td>capi</td><td>1.96.0</td></tr>
+    <tr><td>cf-autoscaling</td><td>232</td></tr>
+    <tr><td>cf-cli</td><td>1.28.0</td></tr>
+    <tr><td>cf-networking</td><td>2.33.0</td></tr>
+    <tr><td>cflinuxfs3</td><td>0.203.0</td></tr>
+    <tr><td>credhub</td><td>2.6.1</td></tr>
+    <tr><td>diego</td><td>2.48.0</td></tr>
+    <tr><td>dotnet-core-offline-buildpack</td><td>2.3.13</td></tr>
+    <tr><td>garden-runc</td><td>1.19.16</td></tr>
+    <tr><td>go-offline-buildpack</td><td>1.9.16</td></tr>
+    <tr><td>haproxy</td><td>10.1.0</td></tr>
+    <tr><td>istio</td><td>1.3.0</td></tr>
+    <tr><td>java-offline-buildpack</td><td>4.32.1</td></tr>
+    <tr><td>log-cache</td><td>2.7.2</td></tr>
+    <tr><td>loggregator-agent</td><td>6.1.1</td></tr>
+    <tr><td>loggregator</td><td>106.3.11</td></tr>
+    <tr><td>mapfs</td><td>1.2.6</td></tr>
+    <tr><td>metric-registrar</td><td>1.1.1</td></tr>
+    <tr><td>metrics-discovery</td><td>3.0.1</td></tr>
+    <tr><td>mysql-monitoring</td><td>9.15.0</td></tr>
+    <tr><td>nats</td><td>34</td></tr>
+    <tr><td>nfs-volume</td><td>7.1.0</td></tr>
+    <tr><td>nginx-offline-buildpack</td><td>1.1.12</td></tr>
+    <tr><td>nodejs-offline-buildpack</td><td>1.7.25</td></tr>
+    <tr><td>notifications-ui</td><td>40</td></tr>
+    <tr><td>notifications</td><td>61</td></tr>
+    <tr><td>php-offline-buildpack</td><td>4.4.19</td></tr>
+    <tr><td>push-apps-manager-release</td><td>672.0.12</td></tr>
+    <tr><td>push-usage-service-release</td><td>674.0.7</td></tr>
+    <tr><td>pxc</td><td>0.28.0</td></tr>
+    <tr><td>python-offline-buildpack</td><td>1.7.18</td></tr>
+    <tr><td>r-offline-buildpack</td><td>1.1.7</td></tr>
+    <tr><td>routing</td><td>0.206.0</td></tr>
+    <tr><td>ruby-offline-buildpack</td><td>1.8.23</td></tr>
+    <tr><td>silk</td><td>2.33.0</td></tr>
+    <tr><td>smb-volume</td><td>3.1.0</td></tr>
+    <tr><td>smoke-tests</td><td>2.2.0</td></tr>
+    <tr><td>staticfile-offline-buildpack</td><td>1.5.9</td></tr>
+    <tr><td>statsd-injector</td><td>1.11.15</td></tr>
+    <tr><td>syslog</td><td>11.6.1</td></tr>
+    <tr><td>system-metrics-scraper</td><td>2.0.10</td></tr>
+    <tr><td>uaa</td><td>74.5.18</td></tr>
+  </tbody>
+</table>
+ 
+ 
+ 
+### <a id='2.11.0-alpha.6'></a> 2.11.0-alpha.6
+
+**Release Date:** 07/09/2020
+
+* Bump capi to version `1.96.0`
+* Bump cf-autoscaling to version `232`
+* Bump cf-networking to version `2.31.0`
+* Bump cflinuxfs3 to version `0.197.0`
+* Bump garden-runc to version `1.19.13`
+* Bump log-cache to version `2.7.2`
+* Bump push-apps-manager-release to version `672.0.11`
+* Bump routing to version `0.202.0`
+* Bump silk to version `2.31.0`
+
+<table border="1" class="nice">
+  <thead>
+    <tr>
+      <th>Component</th>
+      <th>Version</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>ubuntu-xenial stemcell</td><td>621.76</td></tr>
+    <tr><td>backup-and-restore-sdk</td><td>1.18.0</td></tr>
+    <tr><td>binary-offline-buildpack</td><td>1.0.36</td></tr>
+    <tr><td>bosh-dns-aliases</td><td>0.0.3</td></tr>
+    <tr><td>bosh-system-metrics-forwarder</td><td>0.0.19</td></tr>
+    <tr><td>bpm</td><td>1.1.7</td></tr>
+    <tr><td>capi</td><td>1.96.0</td></tr>
+    <tr><td>cf-autoscaling</td><td>232</td></tr>
+    <tr><td>cf-cli</td><td>1.26.0</td></tr>
+    <tr><td>cf-networking</td><td>2.31.0</td></tr>
+    <tr><td>cflinuxfs3</td><td>0.197.0</td></tr>
+    <tr><td>credhub</td><td>2.6.1</td></tr>
+    <tr><td>diego</td><td>2.47.0</td></tr>
+    <tr><td>dotnet-core-offline-buildpack</td><td>2.3.9</td></tr>
+    <tr><td>garden-runc</td><td>1.19.13</td></tr>
+    <tr><td>go-offline-buildpack</td><td>1.9.12</td></tr>
+    <tr><td>haproxy</td><td>10.1.0</td></tr>
+    <tr><td>istio</td><td>1.3.0</td></tr>
+    <tr><td>java-offline-buildpack</td><td>4.31</td></tr>
+    <tr><td>log-cache</td><td>2.7.2</td></tr>
+    <tr><td>loggregator-agent</td><td>6.0.2</td></tr>
+    <tr><td>loggregator</td><td>106.3.10</td></tr>
+    <tr><td>mapfs</td><td>1.2.6</td></tr>
+    <tr><td>metric-registrar</td><td>1.1.1</td></tr>
+    <tr><td>metrics-discovery</td><td>3.0.1</td></tr>
+    <tr><td>mysql-monitoring</td><td>9.13.0</td></tr>
+    <tr><td>nats</td><td>34</td></tr>
+    <tr><td>nfs-volume</td><td>7.0.4</td></tr>
+    <tr><td>nginx-offline-buildpack</td><td>1.1.8</td></tr>
+    <tr><td>nodejs-offline-buildpack</td><td>1.7.18</td></tr>
+    <tr><td>notifications-ui</td><td>37</td></tr>
+    <tr><td>notifications</td><td>61</td></tr>
+    <tr><td>php-offline-buildpack</td><td>4.4.13</td></tr>
+    <tr><td>push-apps-manager-release</td><td>672.0.11</td></tr>
+    <tr><td>push-usage-service-release</td><td>674.0.6</td></tr>
+    <tr><td>pxc</td><td>0.27.0</td></tr>
+    <tr><td>python-offline-buildpack</td><td>1.7.13</td></tr>
+    <tr><td>r-offline-buildpack</td><td>1.1.4</td></tr>
+    <tr><td>routing</td><td>0.202.0</td></tr>
+    <tr><td>ruby-offline-buildpack</td><td>1.8.17</td></tr>
+    <tr><td>silk</td><td>2.31.0</td></tr>
+    <tr><td>smb-volume</td><td>3.0.2</td></tr>
+    <tr><td>smoke-tests</td><td>2.2.0</td></tr>
+    <tr><td>staticfile-offline-buildpack</td><td>1.5.6</td></tr>
+    <tr><td>statsd-injector</td><td>1.11.15</td></tr>
+    <tr><td>syslog</td><td>11.6.1</td></tr>
+    <tr><td>system-metrics-scraper</td><td>2.0.10</td></tr>
+    <tr><td>uaa</td><td>74.21.0</td></tr>
+  </tbody>
+</table>
+ 
+ 
+ 
+### <a id='2.11.0-alpha.5'></a> 2.11.0-alpha.5
+
+**Release Date:** 06/25/2020
+
+* **[Feature Improvement]** Enable configuration for additional system metrics
+* **[Feature Improvement]** BOSH System Metrics can now be configured
+* **[Bug Fix]** Fix issues with BBR not backing up non-public Azure Cloud environments
+* **[Bug Fix]** Fixes Autoscaler logging to respect the 'Enable Verbose Logging' checkbox
+* Bump ubuntu-xenial stemcell to version `621.76`
+* Bump capi to version `1.95.0`
+* Bump cflinuxfs3 to version `0.195.0`
+* Bump diego to version `2.47.0`
+* Bump java-offline-buildpack to version `4.31`
+* Bump loggregator-agent to version `6.0.2`
+* Bump mapfs to version `1.2.6`
+* Bump nfs-volume to version `7.0.4`
+* Bump push-usage-service-release to version `674.0.6`
+* Bump smb-volume to version `3.0.2`
+* Bump uaa to version `74.21.0`
+
+<table border="1" class="nice">
+  <thead>
+    <tr>
+      <th>Component</th>
+      <th>Version</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>ubuntu-xenial stemcell</td><td>621.76</td></tr>
+    <tr><td>backup-and-restore-sdk</td><td>1.18.0</td></tr>
+    <tr><td>binary-offline-buildpack</td><td>1.0.36</td></tr>
+    <tr><td>bosh-dns-aliases</td><td>0.0.3</td></tr>
+    <tr><td>bosh-system-metrics-forwarder</td><td>0.0.19</td></tr>
+    <tr><td>bpm</td><td>1.1.7</td></tr>
+    <tr><td>capi</td><td>1.95.0</td></tr>
+    <tr><td>cf-autoscaling</td><td>230</td></tr>
+    <tr><td>cf-cli</td><td>1.26.0</td></tr>
+    <tr><td>cf-networking</td><td>2.30.0</td></tr>
+    <tr><td>cflinuxfs3</td><td>0.195.0</td></tr>
+    <tr><td>credhub</td><td>2.6.1</td></tr>
+    <tr><td>diego</td><td>2.47.0</td></tr>
+    <tr><td>dotnet-core-offline-buildpack</td><td>2.3.9</td></tr>
+    <tr><td>garden-runc</td><td>1.19.12</td></tr>
+    <tr><td>go-offline-buildpack</td><td>1.9.12</td></tr>
+    <tr><td>haproxy</td><td>10.1.0</td></tr>
+    <tr><td>istio</td><td>1.3.0</td></tr>
+    <tr><td>java-offline-buildpack</td><td>4.31</td></tr>
+    <tr><td>log-cache</td><td>2.7.1</td></tr>
+    <tr><td>loggregator-agent</td><td>6.0.2</td></tr>
+    <tr><td>loggregator</td><td>106.3.10</td></tr>
+    <tr><td>mapfs</td><td>1.2.6</td></tr>
+    <tr><td>metric-registrar</td><td>1.1.1</td></tr>
+    <tr><td>metrics-discovery</td><td>3.0.1</td></tr>
+    <tr><td>mysql-monitoring</td><td>9.13.0</td></tr>
+    <tr><td>nats</td><td>34</td></tr>
+    <tr><td>nfs-volume</td><td>7.0.4</td></tr>
+    <tr><td>nginx-offline-buildpack</td><td>1.1.8</td></tr>
+    <tr><td>nodejs-offline-buildpack</td><td>1.7.18</td></tr>
+    <tr><td>notifications-ui</td><td>37</td></tr>
+    <tr><td>notifications</td><td>61</td></tr>
+    <tr><td>php-offline-buildpack</td><td>4.4.13</td></tr>
+    <tr><td>push-apps-manager-release</td><td>672.0.10</td></tr>
+    <tr><td>push-usage-service-release</td><td>674.0.6</td></tr>
+    <tr><td>pxc</td><td>0.27.0</td></tr>
+    <tr><td>python-offline-buildpack</td><td>1.7.13</td></tr>
+    <tr><td>r-offline-buildpack</td><td>1.1.4</td></tr>
+    <tr><td>routing</td><td>0.201.0</td></tr>
+    <tr><td>ruby-offline-buildpack</td><td>1.8.17</td></tr>
+    <tr><td>silk</td><td>2.30.0</td></tr>
+    <tr><td>smb-volume</td><td>3.0.2</td></tr>
+    <tr><td>smoke-tests</td><td>2.2.0</td></tr>
+    <tr><td>staticfile-offline-buildpack</td><td>1.5.6</td></tr>
+    <tr><td>statsd-injector</td><td>1.11.15</td></tr>
+    <tr><td>syslog</td><td>11.6.1</td></tr>
+    <tr><td>system-metrics-scraper</td><td>2.0.10</td></tr>
+    <tr><td>uaa</td><td>74.21.0</td></tr>
+  </tbody>
+</table>
+ 
+ 
+ 
+### <a id='2.11.0-alpha.4'></a> 2.11.0-alpha.4
+
+**Release Date:** 06/11/2020
+
+* **[Feature Improvement]** Use same s3 path style as CAPI for Backup and Restore
+* **[Feature Improvement]** Service instances can send metrics to logcache over syslog
+* **[Feature Improvement]** Removes metrics by default in aggregate drains
+* **[Bug Fix]** Update App Metrics UAA client to support cloud_controller.admin scope
+* Bump ubuntu-xenial stemcell to version `621.75`
+* Bump cflinuxfs3 to version `0.192.0`
+* Bump loggregator-agent to version `6.0.1`
+* Bump push-apps-manager-release to version `672.0.10`
+* Bump routing to version `0.201.0`
+* Bump uaa to version `74.20.0`
+
+<table border="1" class="nice">
+  <thead>
+    <tr>
+      <th>Component</th>
+      <th>Version</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>ubuntu-xenial stemcell</td><td>621.75</td></tr>
+    <tr><td>backup-and-restore-sdk</td><td>1.18.0</td></tr>
+    <tr><td>binary-offline-buildpack</td><td>1.0.36</td></tr>
+    <tr><td>bosh-dns-aliases</td><td>0.0.3</td></tr>
+    <tr><td>bosh-system-metrics-forwarder</td><td>0.0.19</td></tr>
+    <tr><td>bpm</td><td>1.1.7</td></tr>
+    <tr><td>capi</td><td>1.94.0</td></tr>
+    <tr><td>cf-autoscaling</td><td>230</td></tr>
+    <tr><td>cf-cli</td><td>1.26.0</td></tr>
+    <tr><td>cf-networking</td><td>2.30.0</td></tr>
+    <tr><td>cflinuxfs3</td><td>0.192.0</td></tr>
+    <tr><td>credhub</td><td>2.6.1</td></tr>
+    <tr><td>diego</td><td>2.46.0</td></tr>
+    <tr><td>dotnet-core-offline-buildpack</td><td>2.3.9</td></tr>
+    <tr><td>garden-runc</td><td>1.19.12</td></tr>
+    <tr><td>go-offline-buildpack</td><td>1.9.12</td></tr>
+    <tr><td>haproxy</td><td>10.1.0</td></tr>
+    <tr><td>istio</td><td>1.3.0</td></tr>
+    <tr><td>java-offline-buildpack</td><td>4.29.1</td></tr>
+    <tr><td>log-cache</td><td>2.7.1</td></tr>
+    <tr><td>loggregator-agent</td><td>6.0.1</td></tr>
+    <tr><td>loggregator</td><td>106.3.10</td></tr>
+    <tr><td>mapfs</td><td>1.2.5</td></tr>
+    <tr><td>metric-registrar</td><td>1.1.1</td></tr>
+    <tr><td>metrics-discovery</td><td>3.0.1</td></tr>
+    <tr><td>mysql-monitoring</td><td>9.13.0</td></tr>
+    <tr><td>nats</td><td>34</td></tr>
+    <tr><td>nfs-volume</td><td>7.0.3</td></tr>
+    <tr><td>nginx-offline-buildpack</td><td>1.1.8</td></tr>
+    <tr><td>nodejs-offline-buildpack</td><td>1.7.18</td></tr>
+    <tr><td>notifications-ui</td><td>37</td></tr>
+    <tr><td>notifications</td><td>61</td></tr>
+    <tr><td>php-offline-buildpack</td><td>4.4.13</td></tr>
+    <tr><td>push-apps-manager-release</td><td>672.0.10</td></tr>
+    <tr><td>push-usage-service-release</td><td>674.0.5</td></tr>
+    <tr><td>pxc</td><td>0.27.0</td></tr>
+    <tr><td>python-offline-buildpack</td><td>1.7.13</td></tr>
+    <tr><td>r-offline-buildpack</td><td>1.1.4</td></tr>
+    <tr><td>routing</td><td>0.201.0</td></tr>
+    <tr><td>ruby-offline-buildpack</td><td>1.8.17</td></tr>
+    <tr><td>silk</td><td>2.30.0</td></tr>
+    <tr><td>smb-volume</td><td>3.0.1</td></tr>
+    <tr><td>smoke-tests</td><td>2.2.0</td></tr>
+    <tr><td>staticfile-offline-buildpack</td><td>1.5.6</td></tr>
+    <tr><td>statsd-injector</td><td>1.11.15</td></tr>
+    <tr><td>syslog</td><td>11.6.1</td></tr>
+    <tr><td>system-metrics-scraper</td><td>2.0.10</td></tr>
+    <tr><td>uaa</td><td>74.20.0</td></tr>
+  </tbody>
+</table>
+ 
+ 
+ 
+### <a id='2.11.0-alpha.3'></a> 2.11.0-alpha.3
+
+**Release Date:** 06/02/2020
+
+* **[Security Fix]** Fix minor CVEs in Credhub server from dependent libraries
+* **[Feature]** Optionally Converge on Human Readable Timestamps for TAS Component Logs
+* **[Feature]** Allow egress traffic from apps to addresses on host via host_tcp_services
+* **[Bug Fix]** Allow Usage Service to work with an external platform database which does not have the correct hostname in its certificate
+* **[Bug Fix]** Migrate `services/intermediate_tls_ca` to `/services/tls_leaf` for Maestro
+* Bump capi to version `1.94.0`
+* Bump cf-networking to version `2.30.0`
+* Bump cflinuxfs3 to version `0.189.0`
+* Bump credhub to version `2.6.1`
+* Bump diego to version `2.46.0`
+* Bump go-offline-buildpack to version `1.9.12`
+* Bump loggregator to version `106.3.10`
+* Bump metrics-discovery to version `3.0.1`
+* Bump nodejs-offline-buildpack to version `1.7.18`
+* Bump push-apps-manager-release to version `672.0.9`
+* Bump push-usage-service-release to version `674.0.5`
+* Bump pxc to version `0.27.0`
+* Bump silk to version `2.30.0`
+* Bump uaa to version `74.19.0`
+
+<table border="1" class="nice">
+  <thead>
+    <tr>
+      <th>Component</th>
+      <th>Version</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>ubuntu-xenial stemcell</td><td>621.74</td></tr>
+    <tr><td>backup-and-restore-sdk</td><td>1.18.0</td></tr>
+    <tr><td>binary-offline-buildpack</td><td>1.0.36</td></tr>
+    <tr><td>bosh-dns-aliases</td><td>0.0.3</td></tr>
+    <tr><td>bosh-system-metrics-forwarder</td><td>0.0.19</td></tr>
+    <tr><td>bpm</td><td>1.1.7</td></tr>
+    <tr><td>capi</td><td>1.94.0</td></tr>
+    <tr><td>cf-autoscaling</td><td>230</td></tr>
+    <tr><td>cf-cli</td><td>1.26.0</td></tr>
+    <tr><td>cf-networking</td><td>2.30.0</td></tr>
+    <tr><td>cflinuxfs3</td><td>0.189.0</td></tr>
+    <tr><td>credhub</td><td>2.6.1</td></tr>
+    <tr><td>diego</td><td>2.46.0</td></tr>
+    <tr><td>dotnet-core-offline-buildpack</td><td>2.3.9</td></tr>
+    <tr><td>garden-runc</td><td>1.19.12</td></tr>
+    <tr><td>go-offline-buildpack</td><td>1.9.12</td></tr>
+    <tr><td>haproxy</td><td>10.1.0</td></tr>
+    <tr><td>istio</td><td>1.3.0</td></tr>
+    <tr><td>java-offline-buildpack</td><td>4.29.1</td></tr>
+    <tr><td>log-cache</td><td>2.7.1</td></tr>
+    <tr><td>loggregator-agent</td><td>6.0.0</td></tr>
+    <tr><td>loggregator</td><td>106.3.10</td></tr>
+    <tr><td>mapfs</td><td>1.2.5</td></tr>
+    <tr><td>metric-registrar</td><td>1.1.1</td></tr>
+    <tr><td>metrics-discovery</td><td>3.0.1</td></tr>
+    <tr><td>mysql-monitoring</td><td>9.13.0</td></tr>
+    <tr><td>nats</td><td>34</td></tr>
+    <tr><td>nfs-volume</td><td>7.0.3</td></tr>
+    <tr><td>nginx-offline-buildpack</td><td>1.1.8</td></tr>
+    <tr><td>nodejs-offline-buildpack</td><td>1.7.18</td></tr>
+    <tr><td>notifications-ui</td><td>37</td></tr>
+    <tr><td>notifications</td><td>61</td></tr>
+    <tr><td>php-offline-buildpack</td><td>4.4.13</td></tr>
+    <tr><td>push-apps-manager-release</td><td>672.0.9</td></tr>
+    <tr><td>push-usage-service-release</td><td>674.0.5</td></tr>
+    <tr><td>pxc</td><td>0.27.0</td></tr>
+    <tr><td>python-offline-buildpack</td><td>1.7.13</td></tr>
+    <tr><td>r-offline-buildpack</td><td>1.1.4</td></tr>
+    <tr><td>routing</td><td>0.200.0</td></tr>
+    <tr><td>ruby-offline-buildpack</td><td>1.8.17</td></tr>
+    <tr><td>silk</td><td>2.30.0</td></tr>
+    <tr><td>smb-volume</td><td>3.0.1</td></tr>
+    <tr><td>smoke-tests</td><td>2.2.0</td></tr>
+    <tr><td>staticfile-offline-buildpack</td><td>1.5.6</td></tr>
+    <tr><td>statsd-injector</td><td>1.11.15</td></tr>
+    <tr><td>syslog</td><td>11.6.1</td></tr>
+    <tr><td>system-metrics-scraper</td><td>2.0.10</td></tr>
+    <tr><td>uaa</td><td>74.19.0</td></tr>
+  </tbody>
+</table>
+ 
+ 
+ 
+### <a id='2.11.0-alpha.2'></a> 2.11.0-alpha.2
+
+**Release Date:** 05/18/2020
+
+* Bump ubuntu-xenial stemcell to version `621.74`
+* Bump backup-and-restore-sdk to version `1.18.0`
+* Bump cf-autoscaling to version `230`
+* Bump cflinuxfs3 to version `0.180.0`
+* Bump mysql-monitoring to version `9.13.0`
+* Bump nfs-volume to version `7.0.3`
+* Bump push-usage-service-release to version `673.0.7`
+* Bump pxc to version `0.26.0`
+* Bump uaa to version `74.18.0`
+
+<table border="1" class="nice">
+  <thead>
+    <tr>
+      <th>Component</th>
+      <th>Version</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>ubuntu-xenial stemcell</td><td>621.74</td></tr>
+    <tr><td>backup-and-restore-sdk</td><td>1.18.0</td></tr>
+    <tr><td>binary-offline-buildpack</td><td>1.0.36</td></tr>
+    <tr><td>bosh-dns-aliases</td><td>0.0.3</td></tr>
+    <tr><td>bosh-system-metrics-forwarder</td><td>0.0.19</td></tr>
+    <tr><td>bpm</td><td>1.1.7</td></tr>
+    <tr><td>capi</td><td>1.93.0</td></tr>
+    <tr><td>cf-autoscaling</td><td>230</td></tr>
+    <tr><td>cf-cli</td><td>1.26.0</td></tr>
+    <tr><td>cf-networking</td><td>2.29.0</td></tr>
+    <tr><td>cflinuxfs3</td><td>0.180.0</td></tr>
+    <tr><td>credhub</td><td>2.6.0</td></tr>
+    <tr><td>diego</td><td>2.45.0</td></tr>
+    <tr><td>dotnet-core-offline-buildpack</td><td>2.3.9</td></tr>
+    <tr><td>garden-runc</td><td>1.19.12</td></tr>
+    <tr><td>go-offline-buildpack</td><td>1.9.11</td></tr>
+    <tr><td>haproxy</td><td>10.1.0</td></tr>
+    <tr><td>istio</td><td>1.3.0</td></tr>
+    <tr><td>java-offline-buildpack</td><td>4.29.1</td></tr>
+    <tr><td>log-cache</td><td>2.7.1</td></tr>
+    <tr><td>loggregator-agent</td><td>6.0.0</td></tr>
+    <tr><td>loggregator</td><td>106.3.9</td></tr>
+    <tr><td>mapfs</td><td>1.2.5</td></tr>
+    <tr><td>metric-registrar</td><td>1.1.1</td></tr>
+    <tr><td>metrics-discovery</td><td>2.0.9</td></tr>
+    <tr><td>mysql-monitoring</td><td>9.13.0</td></tr>
+    <tr><td>nats</td><td>34</td></tr>
+    <tr><td>nfs-volume</td><td>7.0.3</td></tr>
+    <tr><td>nginx-offline-buildpack</td><td>1.1.8</td></tr>
+    <tr><td>nodejs-offline-buildpack</td><td>1.7.17</td></tr>
+    <tr><td>notifications-ui</td><td>37</td></tr>
+    <tr><td>notifications</td><td>61</td></tr>
+    <tr><td>php-offline-buildpack</td><td>4.4.13</td></tr>
+    <tr><td>push-apps-manager-release</td><td>672.0.7</td></tr>
+    <tr><td>push-usage-service-release</td><td>673.0.7</td></tr>
+    <tr><td>pxc</td><td>0.26.0</td></tr>
+    <tr><td>python-offline-buildpack</td><td>1.7.13</td></tr>
+    <tr><td>r-offline-buildpack</td><td>1.1.4</td></tr>
+    <tr><td>routing</td><td>0.200.0</td></tr>
+    <tr><td>ruby-offline-buildpack</td><td>1.8.17</td></tr>
+    <tr><td>silk</td><td>2.29.0</td></tr>
+    <tr><td>smb-volume</td><td>3.0.1</td></tr>
+    <tr><td>smoke-tests</td><td>2.2.0</td></tr>
+    <tr><td>staticfile-offline-buildpack</td><td>1.5.6</td></tr>
+    <tr><td>statsd-injector</td><td>1.11.15</td></tr>
+    <tr><td>syslog</td><td>11.6.1</td></tr>
+    <tr><td>system-metrics-scraper</td><td>2.0.10</td></tr>
+    <tr><td>uaa</td><td>74.18.0</td></tr>
+  </tbody>
+</table>
+ 
+ 
+ 
+### <a id='2.11.0-alpha.1'></a> 2.11.0-alpha.1
+
+**Release Date:** 05/05/2020
+
+* **[Feature Improvement]** Sticky Session Cookie Names Are Configurable
+* **[Feature Improvement]** NATS TLS server runs alongside NATS server
+* Bump capi to version `1.93.0`
+* Bump garden-runc to version `1.19.12`
+* Bump haproxy to version `10.1.0`
+* Bump mapfs to version `1.2.5`
+
+<table border="1" class="nice">
+  <thead>
+    <tr>
+      <th>Component</th>
+      <th>Version</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>ubuntu-xenial stemcell</td><td>621.71</td></tr>
+    <tr><td>backup-and-restore-sdk</td><td>1.17.4</td></tr>
+    <tr><td>binary-offline-buildpack</td><td>1.0.36</td></tr>
+    <tr><td>bosh-dns-aliases</td><td>0.0.3</td></tr>
+    <tr><td>bosh-system-metrics-forwarder</td><td>0.0.19</td></tr>
+    <tr><td>bpm</td><td>1.1.7</td></tr>
+    <tr><td>capi</td><td>1.93.0</td></tr>
+    <tr><td>cf-autoscaling</td><td>226</td></tr>
+    <tr><td>cf-cli</td><td>1.26.0</td></tr>
+    <tr><td>cf-networking</td><td>2.29.0</td></tr>
+    <tr><td>cflinuxfs3</td><td>0.178.0</td></tr>
+    <tr><td>credhub</td><td>2.6.0</td></tr>
+    <tr><td>diego</td><td>2.45.0</td></tr>
+    <tr><td>dotnet-core-offline-buildpack</td><td>2.3.9</td></tr>
+    <tr><td>garden-runc</td><td>1.19.12</td></tr>
+    <tr><td>go-offline-buildpack</td><td>1.9.11</td></tr>
+    <tr><td>haproxy</td><td>10.1.0</td></tr>
+    <tr><td>istio</td><td>1.3.0</td></tr>
+    <tr><td>java-offline-buildpack</td><td>4.29.1</td></tr>
+    <tr><td>log-cache</td><td>2.7.1</td></tr>
+    <tr><td>loggregator-agent</td><td>6.0.0</td></tr>
+    <tr><td>loggregator</td><td>106.3.9</td></tr>
+    <tr><td>mapfs</td><td>1.2.5</td></tr>
+    <tr><td>metric-registrar</td><td>1.1.1</td></tr>
+    <tr><td>metrics-discovery</td><td>2.0.9</td></tr>
+    <tr><td>mysql-monitoring</td><td>9.12.0</td></tr>
+    <tr><td>nats</td><td>34</td></tr>
+    <tr><td>nfs-volume</td><td>7.0.2</td></tr>
+    <tr><td>nginx-offline-buildpack</td><td>1.1.8</td></tr>
+    <tr><td>nodejs-offline-buildpack</td><td>1.7.17</td></tr>
+    <tr><td>notifications-ui</td><td>37</td></tr>
+    <tr><td>notifications</td><td>61</td></tr>
+    <tr><td>php-offline-buildpack</td><td>4.4.13</td></tr>
+    <tr><td>push-apps-manager-release</td><td>672.0.7</td></tr>
+    <tr><td>push-usage-service-release</td><td>672.0.8</td></tr>
+    <tr><td>pxc</td><td>0.25.0</td></tr>
+    <tr><td>python-offline-buildpack</td><td>1.7.13</td></tr>
+    <tr><td>r-offline-buildpack</td><td>1.1.4</td></tr>
+    <tr><td>routing</td><td>0.200.0</td></tr>
+    <tr><td>ruby-offline-buildpack</td><td>1.8.17</td></tr>
+    <tr><td>silk</td><td>2.29.0</td></tr>
+    <tr><td>smb-volume</td><td>3.0.1</td></tr>
+    <tr><td>smoke-tests</td><td>2.2.0</td></tr>
+    <tr><td>staticfile-offline-buildpack</td><td>1.5.6</td></tr>
+    <tr><td>statsd-injector</td><td>1.11.15</td></tr>
+    <tr><td>syslog</td><td>11.6.1</td></tr>
+    <tr><td>system-metrics-scraper</td><td>2.0.10</td></tr>
+    <tr><td>uaa</td><td>74.17.0</td></tr>
+  </tbody>
+</table>
+ 
+ 
+ 
+## <a id='upgrade'></a> How to Upgrade
+
+To upgrade to <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>, see [Upgrading <%= vars.platform_name %>](http://docs.pivotal.io/platform/<%= product_info['local_product_version'].to_s.sub('.','-') %>/customizing/upgrading-pcf.html).
+
+When upgrading to <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>, be aware of the following upgrade considerations:
+
+* If you previously used an earlier version of <%= vars.app_runtime_abbr %>, you must first upgrade to <%= vars.app_runtime_abbr %> v2.8 to successfully upgrade to <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>.
+
+* Some partner service tiles may be incompatible with <%= vars.platform_name %> <%= vars.v_major_version %>.
+  VMware is working with partners to ensure their tiles are updated to work with the latest versions of <%= vars.platform_name %>.
+  <br/><br/> For information about which partner service releases are currently compatible with <%= vars.platform_name %>
+  <%= vars.v_major_version %>, review the appropriate partners services release documentation
+  at [https://docs.pivotal.io](https://docs.pivotal.io) or contact the partner organization that produces the tile.
+
+
+## <a id='new-features'></a> New Features in <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>
+
+<%= vars.app_runtime_abbr %> <%= vars.v_major_version %> includes the following major features:
+
+
+
+## <a id='known-issues'></a> Known Issues
+
+<%= vars.app_runtime_abbr %> <%= vars.v_major_version %> includes the following known issues:
