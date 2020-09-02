@@ -16,11 +16,12 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
 ## <a id='releases'></a> Releases
 
 <%# DO NOT DELETE THIS LINE - robots use this to add new release notes %>
- 
+
 ### <a id='2.7.22'></a> 2.7.22
 
 **Release Date:** 08/24/2020
 
+* **[Security Fix]** Fix for [CVE-2020-5416](https://tanzu.vmware.com/security/cve-2020-5416): Improve Gorouter's websocket error handling
 * **[Bug Fix]** Fix memory leak in RLP gateway
 * **[Bug Fix]**: Return 502 TLS Handshake error for an unresponsive backend
 * **[Bug Fix]** Fix Usage Service for inactive foundations
@@ -94,8 +95,8 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
     <tr><td>uaa</td><td>73.4.25</td></tr>
   </tbody>
 </table>
- 
- 
+
+
 
 ### <a id='2.7.21'></a> 2.7.21
 
@@ -2441,12 +2442,12 @@ The following commands that are executed asynchronously may fail if they are enq
 
 - `cf delete-org`
 - `cf delete-space`
-- `cf create-service` 
+- `cf create-service`
 - `cf update-service`
 
 
 The job times out with the message, `Job ([JOB-GUID]) polling timeout has been reached.`<br>
-Where `JOB-GUID` is the GUID of the job. 
+Where `JOB-GUID` is the GUID of the job.
 
 The job failure may occur between the update of the `cloud_controller` and `cloud_controller_worker` instance groups.
 To mitigate this issue, retry any failed jobs after the worker instance groups complete updating.
