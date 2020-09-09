@@ -22,7 +22,7 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
 ## <a id='releases'></a> Releases
 
 <%# DO NOT DELETE THIS LINE - robots use this to add new release notes %>
- 
+
 ### <a id='2.9.10'></a> 2.9.10
 
 **Release Date:** 08/24/2020
@@ -107,8 +107,8 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
     <tr><td>uaa</td><td>74.5.18</td></tr>
   </tbody>
 </table>
- 
- 
+
+
 
 ### <a id='2.9.9'></a> 2.9.9
 
@@ -1039,6 +1039,69 @@ To use the Log and Metric Agent Architecture components, you must also configure
 
 For more information about the Log and Metric Agent Architecture, see [Log and Metric Agent Architecture (Beta)](https://docs.pivotal.io/application-service/2-9/loggregator/agent-architecture.html).
 
+## <a id='breaking-changes'></a> Breaking Changes
+
+<%= vars.app_runtime_abbr %> <%= vars.v_major_version %> includes the following breaking changes:
+
+### <a id='credhub-interpolate-with-https'></a> Incorrect HTTP(S) Proxy Configuration Breaks CredHub Interpolation for Apps in <%= vars.app_runtime_abbr %> v2.9.6 and Later
+
+In <%= vars.app_runtime_abbr %> v2.9.6 and later, apps that have an incorrect HTTP(S) Proxy configuration fail to stage or restart due to a CredHub interpolation error.
+
+Before you upgrade to <%= vars.app_runtime_abbr %> v2.9.6 or later, you must fix the HTTP(S) Proxy configuration of any impacted applications:
+
+1. Determine whether your apps are impacted by following the resolution procedure in [Knowledgebase Article 9305](https://community.pivotal.io/s/article/Credhub-Reference-Can-t-Be-Interpolated-Due-To-Improper-HTTP-S-Proxy-Configuration).
+1. Update all impacted apps to use the recommended proxy settings that are documented in [Configuring Proxy Settings for All Apps](https://docs.pivotal.io/application-service/2-9/operating/config-proxy.html).
+1. Restart modified apps.
+
+### <a id='nats-listens-to-more-ports'></a> NAT Listens to Additional Ports
+
+In <%= vars.app_runtime_abbr %> <%= vars.v_major_version %> and later, NATS listens on the following ports:
+
+* `4222`
+* `4223`
+* `4224`
+* `4225`
+
+In earlier version, NAT only listened on port `4222`. Before upgrading to
+<%= vars.app_runtime_abbr %> <%= vars.v_major_version %>, you must also open ports `4223`, `4224`, and `4225` in your
+firewall settings.
+
+### <a id='disable-hostname-validation'></a> Disable Hostname Validation for External Databases on GCP and Azure
+
+This breaking change applies only to deployments where the following
+conditions are met:
+
+* In the **Databases** pane, PAS v2.8 is
+configured to use an external GCP or Azure database.
+
+* In <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>,
+you want to use the same external GCP or Azure database configured
+in the **Databases** pane.
+
+* You enabled TLS communication for the GCP or Azure external database by adding a certificate authority (CA) certificate to the **Database CA certificate** field in the **Databases** pane.
+
+If your deployment meets these conditions, you must disable hostname validation
+before you upgrade to <%= vars.v_major_version %>.
+Failure to disable hostname validation can cause the upgrade to fail
+for deployments that use external databases on GCP or Azure.
+
+For more information about disabling hostname validation, see [Disable Hostname Validation for External Databases on GCP and Azure](https://docs.pivotal.io/platform/2-9/upgrading/checklist.html#disable-hostname-validation) in _Upgrade Preparation Checklist_.
+
+### <a id='apps-manager-app-metrics-link-no-proxy'></a>App Metrics Link Disappears in Apps Manager for Proxied Setups
+
+This breaking change applies to deployments that have any version of PCF Metrics or App Metrics installed.
+
+If your <%= vars.app_runtime_abbr %> deployment has restrictive networking policies around request proxying, then the **View in App Metrics** link may no longer appear in Apps Manager after you upgrade to <%= vars.app_runtime_abbr %> v2.9.
+
+To resolve this issue, follow the steps in the related [known issue](runtime-rn.html#apps-manager-app-metrics-link-no-proxy) of the <%= vars.app_runtime_abbr %> release notes before or after upgrading to <%= vars.app_runtime_abbr %> v2.9.
+
+### <a id='autoscaler-apps-manager-no-proxy'></a>Autoscaler Controls Do Not Appear in Apps Manager for Proxied Setups
+
+This breaking change applies to deployments that manage the Autoscaler service for individual apps in Apps Manager.
+
+If your <%= vars.app_runtime_abbr %> deployment has restrictive networking policies around request proxying, then Autoscaler controls may not appear for apps within Apps Manager even when the Autoscaler service is enabled for an org.
+
+To resolve this issue, follow the steps in the related [known issue](runtime-rn.html#autoscaler-apps-manager-no-proxy) of the <%= vars.app_runtime_abbr %> release notes before or after upgrading to <%= vars.app_runtime_abbr %> v2.9.
 
 ## <a id='known-issues'></a> Known Issues
 

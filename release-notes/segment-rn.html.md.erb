@@ -17,7 +17,7 @@ This topic contains release notes for <%= vars.segment_runtime_full %> <%= vars.
 ## <a id='releases'></a> Releases
 
 <%# DO NOT DELETE THIS LINE - robots use this to add new release notes %>
- 
+
 ### <a id='2.9.10'></a> 2.9.10
 
 **Release Date:** 08/24/2020
@@ -57,9 +57,9 @@ This topic contains release notes for <%= vars.segment_runtime_full %> <%= vars.
     <tr><td>syslog</td><td>11.6.1</td></tr>
   </tbody>
 </table>
- 
- 
- 
+
+
+
 ### <a id='2.9.9'></a> 2.9.9
 
 **Release Date:** 08/07/2020
@@ -98,9 +98,9 @@ This topic contains release notes for <%= vars.segment_runtime_full %> <%= vars.
     <tr><td>syslog</td><td>11.6.1</td></tr>
   </tbody>
 </table>
- 
- 
- 
+
+
+
 ### <a id='2.9.8'></a> 2.9.8
 
 **Release Date:** 07/16/2020
@@ -135,9 +135,9 @@ This topic contains release notes for <%= vars.segment_runtime_full %> <%= vars.
     <tr><td>syslog</td><td>11.6.1</td></tr>
   </tbody>
 </table>
- 
- 
- 
+
+
+
 ### <a id='2.9.7'></a> 2.9.7
 
 **Release Date:** 07/09/2020
@@ -170,8 +170,8 @@ This topic contains release notes for <%= vars.segment_runtime_full %> <%= vars.
     <tr><td>syslog</td><td>11.6.1</td></tr>
   </tbody>
 </table>
- 
- 
+
+
 
 ### <a id='2.9.6'></a> 2.9.6
 
@@ -213,9 +213,9 @@ The stemcell in this patch is not compatible with the NCP tile v3.0.1 and causes
     <tr><td>syslog</td><td>11.6.1</td></tr>
   </tbody>
 </table>
- 
- 
- 
+
+
+
 ### <a id='2.9.5'></a> 2.9.5
 
 **Release Date:** 06/11/2020
@@ -254,9 +254,9 @@ The stemcell in this patch is not compatible with the NCP tile v3.0.1 and causes
     <tr><td>syslog</td><td>11.6.1</td></tr>
   </tbody>
 </table>
- 
- 
- 
+
+
+
 ### <a id='2.9.4'></a> 2.9.4
 
 **Release Date:** 06/02/2020
@@ -294,9 +294,9 @@ The stemcell in this patch is not compatible with the NCP tile v3.0.1 and causes
     <tr><td>syslog</td><td>11.6.1</td></tr>
   </tbody>
 </table>
- 
- 
- 
+
+
+
 ### <a id='2.9.3'></a> 2.9.3
 
 **Release Date:** 05/18/2020
@@ -332,9 +332,9 @@ The stemcell in this patch is not compatible with the NCP tile v3.0.1 and causes
     <tr><td>syslog</td><td>11.6.1</td></tr>
   </tbody>
 </table>
- 
- 
- 
+
+
+
 ### <a id='2.9.2'></a> 2.9.2
 
 **Release Date:** 05/05/2020
@@ -372,9 +372,9 @@ The stemcell in this patch is not compatible with the NCP tile v3.0.1 and causes
     <tr><td>syslog</td><td>11.6.1</td></tr>
   </tbody>
 </table>
- 
- 
- 
+
+
+
 ### <a id='2.9.1'></a> 2.9.1
 
 **Release Date:** 04/22/2020
@@ -410,9 +410,9 @@ The stemcell in this patch is not compatible with the NCP tile v3.0.1 and causes
     <tr><td>syslog</td><td>11.6.1</td></tr>
   </tbody>
 </table>
- 
- 
- 
+
+
+
 ### <a id='2-9-0'></a> v2.9.0
 
 **Release Date:** April 10, 2020
@@ -479,8 +479,8 @@ For more information, see [Shutdown](https://docs.pivotal.io/application-service
 
 The **Smoke Tests** pane is added to the <%= vars.segment_runtime_full %> tile. This pane allows you to specify an org and space where smoke tests are run.
 
-In the org and space that you specify, the Smoke Test errand pushes an app to an <%= vars.platform_name %> org. 
-The app runs basic functionality tests against both the <%= vars.app_runtime_abbr %> and <%= vars.segment_runtime_full %> tiles after an installation or update. 
+In the org and space that you specify, the Smoke Test errand pushes an app to an <%= vars.platform_name %> org.
+The app runs basic functionality tests against both the <%= vars.app_runtime_abbr %> and <%= vars.segment_runtime_full %> tiles after an installation or update.
 
 The Smoke Test errand is on by default. You can turn off the Smoke Test errand in the **Errands** pane.
 
@@ -509,6 +509,19 @@ This feature is disabled by default. Enabling this feature prevents app instance
 
 For more information, see [Configure App Containers](https://docs.pivotal.io/application-service/2-9/operating/installing-pcf-is.html#application_containers) in _Installing <%= vars.segment_runtime_full %>_.
 
+## <a id='breaking changes'></a> Breaking Changes
+
+<%= vars.segment_runtime_full %> <%= vars.v_major_version %> includes the following breaking change.
+
+### <a id='credhub-interpolate-with-https-iso'></a> Incorrect HTTP(S) Proxy Configuration Breaks CredHub Interpolation for Apps in <%= vars.segment_runtime_full %> v2.9.6 and Later
+
+In <%= vars.segment_runtime_full %> v2.9.6 and later, apps that have an incorrect HTTP(S) Proxy configuration fail to stage or restart due to a CredHub interpolation error.
+
+Before you upgrade to <%= vars.segment_runtime_full %> v2.9.6 or later, you must fix the HTTP(S) Proxy configuration of any impacted applications:
+
+1. Determine whether your apps are impacted by following the resolution procedure in [Knowledgebase Article 9305](https://community.pivotal.io/s/article/Credhub-Reference-Can-t-Be-Interpolated-Due-To-Improper-HTTP-S-Proxy-Configuration).
+1. Update all impacted apps to use the recommended proxy settings that are documented in [Configuring Proxy Settings for All Apps](https://docs.pivotal.io/application-service/2-9/operating/config-proxy.html).
+1. Restart modified apps.
 
 ## <a id='known-issues'></a> Known Issues
 
