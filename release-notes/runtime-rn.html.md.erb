@@ -356,7 +356,7 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
 
 **Release Date:** 06/25/2020
 
-* **[Breaking Change]** Incorrect HTTP(S) Proxy configuration breaks CredHub interpolation for apps. For more information, see [<%= vars.app_runtime_abbr %> <%= vars.v_major_version %> Breaking Changes](breaking-changes.html#credhub-interpolate-with-https).
+* **[Breaking Change]** Incorrect HTTP(S) Proxy configuration breaks CredHub interpolation for apps. For more information, see [Incorrect HTTP(S) Proxy Configuration Breaks CredHub Interpolation for Apps in <%= vars.app_runtime_abbr %> v2.7.18 and Later](#credhub-interpolate-with-https) below.
 * **[Bug Fix]** Add a new cache configuration to the NFS service allowing service instances to enable file attribute caching and achieve directory listing performance similar to the nfs-legacy service
 * **[Bug Fix]** Purged and re-seeded AppUsageEvents now contain parent app guid/name
 * **[Bug Fix]** Fix Autoscaler logging to respect the 'Enable Verbose Logging' checkbox
@@ -1765,7 +1765,7 @@ For more information, see [About Access Logs](https://docs.pivotal.io/applicatio
   </tbody>
 </table>
 
-<p class="note warning"><strong>Warning:</strong> Before installing or upgrading to <%= vars.app_runtime_abbr %> v2.7, review <a href="./breaking-changes.html#pas"><%= vars.app_runtime_abbr %> Breaking Changes v2.7</a>.</p>
+<p class="note warning"><strong>Warning:</strong> Before installing or upgrading to <%= vars.app_runtime_abbr %> v2.7, review <a href="#breaking-changes">Breaking Changes</a>.</p>
 
 ### <a id='2.7.2'></a> 2.7.2
 
@@ -1969,7 +1969,7 @@ For more information, see [About Access Logs](https://docs.pivotal.io/applicatio
 ### <a id='2.7.0'></a> 2.7.0
 
 * See [New Features in <%= vars.app_runtime_abbr %> v2.7](#new-features)
-* See [Breaking Changes](./breaking-changes.html)
+* See [Breaking Changes](#breaking-changes)
 
 <table border="1" class="nice">
   <thead>
@@ -2064,7 +2064,7 @@ The Consul server instance is removed from <%= vars.app_runtime_abbr %>. This sa
 
 In <%= vars.app_runtime_abbr %> v2.4, the instance count for Consul server VMs was scaled down to zero. This allowed the Consul server to continue to provide the Consul link for tiles that consume it. In <%= vars.app_runtime_abbr %> v2.7, the Consul server instance is removed from <%= vars.app_runtime_abbr %>.
 
-<p class="note warning"><strong>Warning:</strong> This feature causes breaking changes. For information about breaking changes caused by the removal of the Consul server instance, see <a href="./breaking-changes.html#consul-server">Consul Clients Not Supported in <%= vars.app_runtime_abbr %></a> in <em><%= vars.platform_name %> v2.7 Breaking Changes</em>.</p>
+<p class="note warning"><strong>Warning:</strong> This feature causes breaking changes. For information about breaking changes caused by the removal of the Consul server instance, see <a href="#consul-server-breaking">Consul Clients Not Supported in <%= vars.app_runtime_abbr %></a> below.</p>
 
 ### <a id='log-cache'></a> Maximum Envelopes Per Source Raised for Log Cache
 
@@ -2114,7 +2114,7 @@ The UAA property `uaadb.tls` replaces `uaadb.tls_enabled` and `uaadb.skip_ssl_va
 * `enabled_skip_all_validation`: Enables TLS connections to an external database and skips SSL validation in database server certificates.
 * `disabled`: Disables TLS connections to the UAA database.
 
-<p class='note warning'><strong>Warning:</strong> This is a breaking change. For more information, see <a href="breaking-changes.html#uaadb">UAA Properties uaadb.tls_enabled and uaadb.skip_ssl_validation Are Removed</a> in <em><%= vars.platform_name %> v2.7 Breaking Changes</em>.</p>
+<p class='note warning'><strong>Warning:</strong> This is a breaking change. For more information, see <a href="#props-changed">Changed Properties and Jobs.</p>
 
 ### <a id='credhub-kms'></a> CredHub Supports KMS
 
@@ -2151,7 +2151,7 @@ The following property is removed:
 
 <p class="note"><strong>Note:</strong>The <code>syslog_adapter</code> and <code>syslog_scheduler</code> instance groups and the <code>syslog_metrics_to_syslog_enabled</code> property are availble in <%= vars.app_runtime_abbr %> v2.7.7. This allows you to optionally disable Syslog Agents in <%= vars.app_runtime_abbr %> v2.7.7.</p>
 
-<p class='note breaking'><strong>Breaking Change:</strong> If you enable Syslog Agents in <%= vars.app_runtime_abbr %> v2.7.7 or later, metadata tags for app logs and metrics are added to outgoing syslog messages. You must update any external monitoring configuration you use to account for the new format and tags. For more information, see <a href='breaking-changes.html#syslog-agent-metadata'>Metadata Tags for Metrics and App Logs</a> in <em><%= vars.platform_name %> v2.7 Breaking Changes</em>.</p>
+<p class='note breaking'><strong>Breaking Change:</strong> If you enable Syslog Agents in <%= vars.app_runtime_abbr %> v2.7.7 or later, metadata tags for app logs and metrics are added to outgoing syslog messages. You must update any external monitoring configuration you use to account for the new format and tags. For more information, see <a href='#syslog-agent-metadata'>Metadata Tags for Metrics and App Logs</a> below.</p>
 
 For more information about how Syslog Agents function within Loggregator, see [Loggregator Architecture](https://docs.pivotal.io/platform/2-7/loggregator/architecture.html) and the [loggregator-agent-release](https://github.com/cloudfoundry/loggregator-agent-release) repository on GitHub.
 
@@ -2239,7 +2239,7 @@ Before you upgrade to <%= vars.app_runtime_abbr %> v2.7.18 or later, you must fi
 
 You cannot install or deploy <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>.0 or <%= vars.v_major_version %>.1 with external blobstores. For more information, see [You Cannot Install <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>.0 or <%= vars.v_major_version %>.1 with External Blobstores](runtime-rn.html#no-external-blobstores) in _<%= vars.app_runtime_full %> <%= vars.v_major_version %> Release Notes_.
 
-### <a id='consul-server'></a> Consul Clients Not Supported in <%= vars.app_runtime_abbr %>
+### <a id='consul-server-breaking'></a> Consul Clients Not Supported in <%= vars.app_runtime_abbr %>
 
 The Consul server instance is removed from <%= vars.app_runtime_abbr %>. Tile authors must remove any Consul clients from their products to avoid failed deployments.
 
@@ -2301,7 +2301,7 @@ Before upgrading to <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>, yo
 
 * UAA properties `uaadb.tls_enabled` and `uaadb.skip_ssl_validation`
   - The UAA properties `uaadb.tls_enabled` and `uaadb.skip_ssl_validation` are removed and replaced by `uaadb.tls`
-  - For more information, see [UAA Property uaadb.tls Consolidates TLS Configuration Options](runtime-rn.html#uaadb) in _<%= vars.app_runtime_full %> <%= vars.v_major_version %> Release Notes_.
+  - For more information, see [UAA Property uaadb.tls Consolidates TLS Configuration Options](#uaadb).
 
 * Syslog jobs `syslog_adapter` and `syslog_scheduler`, and property `syslog_metrics_to_syslog_enabled`
   - The job instance groups `syslog_adapter` and `syslog_scheduler`, and the property `syslog_metrics_to_syslog_enabled` are removed.
