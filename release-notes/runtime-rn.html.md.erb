@@ -328,7 +328,7 @@ To confirm which <%= vars.app_runtime_abbr %> components use RFC3339 timestamps:
 
 1. For each component, confirm that the `logging.format.timestamp` property is set to `rfc3339`.
 
-<p class='note breaking'><strong>Breaking Change:</strong> The <strong>Timestamp format for component logs</strong> feature replaces the <strong>Format of timestamps in Diego logs</strong> feature in the <strong>App Containers</strong> pane of the <%= vars.app_runtime_abbr %> tile. However, when you upgrade to <%= vars.app_runtime_abbr %> v2.10, the option that was selected under <strong>Format of timestamps in Diego logs</strong> in your previous deployment is applied to <strong>Timestamp format for component logs</strong>. For more information, see <a href='breaking-changes.html#timestamps'>Timestamp Format for Component Logs Replaces Timestamp Format for Diego Logs</a> in <em>Ops Manager and Runtime Breaking Changes</em>.</p>
+<p class='note breaking'><strong>Breaking Change:</strong> The <strong>Timestamp format for component logs</strong> feature replaces the <strong>Format of timestamps in Diego logs</strong> feature in the <strong>App Containers</strong> pane of the <%= vars.app_runtime_abbr %> tile. However, when you upgrade to <%= vars.app_runtime_abbr %> v2.10, the option that was selected under <strong>Format of timestamps in Diego logs</strong> in your previous deployment is applied to <strong>Timestamp format for component logs</strong>. For more information, see <a href='#timestamps'>Timestamp Format for Component Logs Replaces Timestamp Format for Diego Logs</a> below.</p>
 
 ### <a id='sticky-cookies'></a> Configurable Sticky Session Cookie Names
 
@@ -390,7 +390,7 @@ To avoid breaking changes associated with this update, you must:
 
 * Update any automation scripts that reference the removed **Format of timestamps in Diego logs** feature.
 
-* If **RFC3339 timestamps** is selected for **Format of timestamps in Diego logs** before you upgrade to TAS for VMs v2.10, update any external monitoring configuration to account for RFC3339 timestamps in the logs for several TAS for VMs components. For a list of TAS for VMs components that support RFC3339 timestamps in TAS for VMs v2.10, see [Optionally Use Human-Readable Timestamps for Component Logs](runtime-rn.html#timestamps) in _VMware Tanzu Application Service for VMs v2.10 Release Notes_.
+* If **RFC3339 timestamps** is selected for **Format of timestamps in Diego logs** before you upgrade to TAS for VMs v2.10, update any external monitoring configuration to account for RFC3339 timestamps in the logs for several TAS for VMs components. For a list of TAS for VMs components that support RFC3339 timestamps in TAS for VMs v2.10, see [Optionally Use Human-Readable Timestamps for Component Logs](#timestamps) below.
 
 For more information about configuring RFC3339 timestamps for component logs, see [System Logging](https://docs.pivotal.io/application-service/ating/configuring-pas.html) in _Configuring <%= vars.app_runtime_abbr %>_.
 
