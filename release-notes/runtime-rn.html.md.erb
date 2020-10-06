@@ -26,11 +26,11 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
 * **[Security Fix]** Bump Usage Service ruby version to 2.6.6 - [CVE-2020-15169](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-15169) [CVE-2020-10933](https://www.ruby-lang.org/en/news/2020/03/31/heap-exposure-in-socket-cve-2020-10933/) [CVE-2020-10663](https://www.ruby-lang.org/en/news/2020/03/19/json-dos-cve-2020-10663/)
 * **[Security Fix]** Update cf-autoscaling’s dependencies to mitigate CVEs
 * **[Bug Fix]** Modify cf-autoscaling’s API to return HTTP status 404 (not found) when not logged in. Previously it returned 401 (unauthorized). The behavior now matches the documentation
+* **[Bug Fix]** Include correct version of push-usage-service-release `671.0.17` - an incorrect version was shipped in TAS v2.8.16 and TAS v2.8.17
 * **[Feature Improvement]** Secure scraping available in Metric Registrar
 * Bump ubuntu-xenial stemcell to version `621.84`
 * Bump cf-autoscaling to version `233`
 * Bump metric-registrar to version `1.2.1`
-* Bump push-usage-service-release to version `671.0.17`
 
 <table border="1" class="nice">
   <thead>
@@ -97,8 +97,12 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
 
 **Release Date:** 09/10/2020
 
+<p class="note warning"><strong>WARNING</strong>: This version of TAS includes an incorrect version of Usage Service. We strongly suggest skipping this release and using TAS v2.8.18 or newer instead. If you are already running this release we suggest upgrading. For more information see [this kb article](https://community.pivotal.io/s/article/App-Usage-service-requests-are-failing-with-a-500-error?language=en_US)</p>
+
 * **[Security Fix]** Fix for [CVE-2020-5420](https://tanzu.vmware.com/security/cve-2020-5420): Improve Gorouter's handling of invalid HTTP response codes
 * **[Feature Improvement]** Gorouter aliases /healthz to /health in order to prevent downtime during upgrades
+* **[Feature Improvement]** Allow users to scale memory & disk for web processes in Apps Manager when autoscaling is enabled
+* **[Bug Fix]** Safeguard against null log payloads for apps in Apps Manager
 * **[Bug Fix]** Improve Log Cache Syslog Ingestion Performance
 * Bump ubuntu-xenial stemcell to version `621.82`
 * Bump cf-networking to version `2.33.0`
@@ -181,6 +185,8 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
 ### <a id='2.8.16'></a> 2.8.16
 
 **Release Date:** 08/24/2020
+
+<p class="note warning"><strong>WARNING</strong>: This version of TAS includes an incorrect version of Usage Service. We strongly suggest skipping this release and using TAS v2.8.18 or newer instead. If you are already running this release we suggest upgrading. For more information see [this kb article](https://community.pivotal.io/s/article/App-Usage-service-requests-are-failing-with-a-500-error?language=en_US)</p>
 
 * **[Security Fix]** Fix for [CVE-2020-5416](https://tanzu.vmware.com/security/cve-2020-5416): Improve Gorouter's websocket error handling
 * **[Bug Fix]** loggr-syslog-agent - Fix server alternative name
