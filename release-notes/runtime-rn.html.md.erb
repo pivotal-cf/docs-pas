@@ -26,6 +26,8 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
 **Release Date:** 09/21/2020
 
 * **[Security Fix]** Bump Usage Service ruby version to 2.6.6 - [CVE-2020-15169](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-15169) [CVE-2020-10933](https://www.ruby-lang.org/en/news/2020/03/31/heap-exposure-in-socket-cve-2020-10933/) [CVE-2020-10663](https://www.ruby-lang.org/en/news/2020/03/19/json-dos-cve-2020-10663/)
+* **[Security Fix]** Update cf-autoscaling’s dependencies to mitigate CVEs
+* **[Bug Fix]** Modify cf-autoscaling’s API to return HTTP status 404 (not found) when not logged in. Previously it returned 401 (unauthorized). The behavior now matches the documentation
 * **[Feature Improvement]** Secure scraping available in Metric Registrar
 * Bump ubuntu-xenial stemcell to version `621.84`
 * Bump cf-autoscaling to version `233`
