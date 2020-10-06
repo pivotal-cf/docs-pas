@@ -111,6 +111,8 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
 * **[Security Fix]** Log Cache fixes for [CVE-2019-9512](https://nvd.nist.gov/vuln/detail/CVE-2019-9512) [CVE-2019-9513](https://nvd.nist.gov/vuln/detail/CVE-2019-9513) [CVE-2019-9515](https://nvd.nist.gov/vuln/detail/CVE-2019-9515)
 * **[Security Fix]** Fix for [CVE-2020-5420](https://tanzu.vmware.com/security/cve-2020-5420): Improve Gorouter's handling of invalid HTTP response codes
 * **[Feature Improvement]** Gorouter aliases /healthz to /health in order to prevent downtime during upgrades
+* **[Feature Improvement]** Allow users to scale memory & disk for web processes in Apps Manager when autoscaling is enabled
+* **[Bug Fix]** Safeguard against null log payloads for apps in Apps Manager
 * Bump ubuntu-xenial stemcell to version `456.119`
 * Bump cf-networking to version `2.33.0`
 * Bump diego to version `2.48.0`
