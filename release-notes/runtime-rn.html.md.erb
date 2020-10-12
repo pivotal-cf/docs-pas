@@ -7,8 +7,8 @@ owner: Release Engineering
 
 This topic contains release notes for <%= vars.app_runtime_full %> (<%= vars.app_runtime_abbr %>) <%= vars.v_major_version %>.
 
-For the feature highlights of this release, 
-read the blog post [Against the Backdrop of VMware Tanzu, Here’s How Tanzu Application Service’s New Release Helps You Build Modern Apps](https://tanzu.vmware.com/content/blog/against-the-backdrop-of-vmware-tanzu-here-s-how-pivotal-platform-s-new-release-helps-you-build-modern-apps) 
+For the feature highlights of this release,
+read the blog post [Against the Backdrop of VMware Tanzu, Here’s How Tanzu Application Service’s New Release Helps You Build Modern Apps](https://tanzu.vmware.com/content/blog/against-the-backdrop-of-vmware-tanzu-here-s-how-pivotal-platform-s-new-release-helps-you-build-modern-apps)
 or ee [New Features in <%= vars.app_runtime_abbr %> v2.8](#new-features).
 
 <%= vars.platform_name %> is certified by the Cloud Foundry Foundation for <%= Date.today.year %>.
@@ -20,7 +20,7 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
 ## <a id='releases'></a> Releases
 
 <%# DO NOT DELETE THIS LINE - robots use this to add new release notes %>
- 
+
 ### <a id='2.7.25'></a> 2.7.25
 
 **Release Date:** 10/09/2020
@@ -104,15 +104,15 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
     <tr><td>uaa</td><td>73.4.27</td></tr>
   </tbody>
 </table>
- 
- 
+
+
 
 ### <a id='2.7.25'></a> 2.7.25
 
-**Release Date:** 
+**Release Date:**
 
 * **[Feature Improvement]** Properly escape LDAP service account credentials
- 
+
 ### <a id='2.7.24'></a> 2.7.24
 
 **Release Date:** 09/21/2020
@@ -194,9 +194,9 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
     <tr><td>uaa</td><td>73.4.27</td></tr>
   </tbody>
 </table>
- 
- 
- 
+
+
+
 ### <a id='2.7.23'></a> 2.7.23
 
 **Release Date:** 09/09/2020
@@ -275,8 +275,8 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
     <tr><td>uaa</td><td>73.4.27</td></tr>
   </tbody>
 </table>
- 
- 
+
+
 
 ### <a id='2.7.22'></a> 2.7.22
 
@@ -2447,14 +2447,11 @@ Excluding droplets or both droplets and packages from your blobstore backup can 
 For more information about the advantages and disadvantages of excluding droplets or excluding both droplets and packages, see [File Storage Backup Level](https://docs.pivotal.io/platform/2-7/customizing/backup-restore/file-storage-backup-level.html). To configure your blobstore backup level, see [Configure File Storage](https://docs.pivotal.io/platform/2-7/customizing/configure-pas.html#file-storage) in _Configuring <%= vars.app_runtime_abbr %>_.
 
 ### <a id='rolling-deployments'></a> Rolling App Deployments Is GA
-It was released as a beta feature in <%= vars.app_runtime_abbr %> v2.4. This feature allows you to push updates to apps without incurring downtime.
+Rolling app deployments waswas released as a beta feature in <%= vars.app_runtime_abbr %> v2.4. This feature allows you to push updates to apps without incurring downtime.
 
 This feature is enabled by default. You can optionally disable it in the **Advanced Features** pane.
 
-**Important to Note:** 
-- This feature is GA when executed via direct interaction with the v3 CC API or via Apps Manager.
-- The cf CLI implementation of the feature is still experimental (The CLI's implementation is GA in cf CLI v7 
-and it's minimum compatible version of TAS is v2.10.
+<p class="note"><strong>Note:</strong> The rolling app deployments feature is GA when executed via direct interaction with the v3 CC API or via Apps Manager. The cf CLI implementation of the feature is still experimental. The CLI's implementation of the feature is GA with the cf CLI v7. The minimum compatible version of TAS is v2.10.</p>
 
 For more information, see [Rolling App Deployments](https://docs.pivotal.io/platform/2-7/devguide/deploy-apps/rolling-deploy.html).
 
