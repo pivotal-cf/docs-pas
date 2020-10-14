@@ -626,7 +626,7 @@ see [Cloud Foundry Further Simplifies Modern App Development: An Inside Look at 
 
 <%= vars.app_runtime_abbr %> <%= vars.v_major_version %> includes the following breaking changes:
 
-### <a id='timestamps'></a> Timestamp Format for Component Logs Replaces Timestamp Format for Diego Logs
+### <a id='timestamps-br'></a> Timestamp Format for Component Logs Replaces Timestamp Format for Diego Logs
 
 The **Format of timestamps in Diego logs** feature is removed from the **App Containers** pane of the TAS for VMs tile. It is replaced by **Timestamp format for component logs** in the **System Logging** pane of the TAS for VMs tile.
 
@@ -644,7 +644,7 @@ To avoid breaking changes associated with this update, you must:
 
 For more information about configuring RFC3339 timestamps for component logs, see [System Logging](https://docs.pivotal.io/application-service/ating/configuring-pas.html) in _Configuring <%= vars.app_runtime_abbr %>_.
 
-### <a id='aggregate-drains'></a> Aggregate Syslog Drains Contain Logs Only
+### <a id='aggregate-drains-br'></a> Aggregate Syslog Drains Contain Logs Only
 
 In TAS for VMs v2.10, aggregate syslog drains contain only logs by default, and do not contain metrics. If you rely on metrics sent through aggregate syslog drains, you must add <code>?include-metrics-deprecated=true</code> to your aggregate drain URLs to continue to receive metrics in the drains.
 
