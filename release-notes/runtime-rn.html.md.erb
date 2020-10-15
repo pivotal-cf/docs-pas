@@ -2870,7 +2870,7 @@ To resolve this issue:
 
 ### <a id="metric-registrar-1.2.1-issues"></a> Metric Registrar v1.2.1 Known Issues
 
-The following known issues with Metrics Registrat v1.2.1 affect <%= vars.app_runtime_abbr %> v2.7.24.
+The following known issues with Metrics Registrar v1.2.1 affect <%= vars.app_runtime_abbr %> v2.7.24.
 
 Several issues with the Metric Registrar v1.2.1 release
 cause problems when upgrading to <%= vars.app_runtime_abbr %> v2.7.24.
@@ -2902,7 +2902,7 @@ unable to connect to Cloud Controller: unexpected status from cloud controller: 
 The failure of `metric_registrar_orchestrator` to start can block 
 upgrades to <%= vars.app_runtime_abbr %> v2.7.24.
 
-#### Metric Registrar Orchestrator Crashes with Unexpected Service URLs
+#### <a id="mr-service-urls"></a> Metric Registrar Orchestrator Crashes with Unexpected Service URLs
 
 The `metric_registrar_orchestrator` job parses user-provided services
 and their associated URLs. It expects all service URLs to have a scheme,
@@ -2919,7 +2919,7 @@ communicated over.
 
 This issue is resolved in <%= vars.app_runtime_abbr %> v2.7.25 and later.
 
-#### Metric Registrar Smoke Tests Fail in Environments that Enable mTLS for App Containers
+#### <a id="mr-smoke-test"></a> Metric Registrar Smoke Tests Fail in Environments that Enable mTLS for App Containers
 
 This issue affects <%= vars.app_runtime_abbr %> v2.7.24 deployments that have the
 Gorouter app identity verification property enabled. When enabled, this property configures Gorouter and app containers to use mTLS to verify each other's identity.
