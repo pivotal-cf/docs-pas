@@ -2579,6 +2579,13 @@ Before upgrading to <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>, yo
 
 <%= vars.app_runtime_abbr %> <%= vars.v_major_version %> includes the following known issues:
 
+### <a id='incompatible-stemcell'></a> Incompatible Stemcell Causes Job Failure
+
+If you use the NSX-T Container Plugin (NCP) tile v3.0.2 or earlier, do not
+upgrade to <%= vars.app_runtime_abbr %> 2.7.25. The stemcell in this patch is
+not compatible with the NCP tile v3.0.2 or earlier and causes the `openvswitch`
+job to fail when you deploy.
+
 ### <a id='no-external-blobstores'></a> You Cannot Install <%= vars.app_runtime_abbr %> v2.7.0 or v2.7.1 with External Blobstores
 
 <p class="note warning"><strong>Warning:</strong> This is a breaking change for <%= vars.app_runtime_abbr %> v2.7.0 and v2.7.1. Do not attempt to upgrade to <%= vars.app_runtime_abbr %> v2.7.0 or v2.7.1 if you have one or more external blobstores. You can deploy <%= vars.app_runtime_abbr %> v2.7.2 with external blobstores.</p>
