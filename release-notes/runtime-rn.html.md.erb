@@ -2000,6 +2000,13 @@ For more information, see [Agent-Based Syslog Egress Is Enabled by Default](http
 
 <%= vars.app_runtime_abbr %> <%= vars.v_major_version %> includes the following known issues:
 
+### <a id='incompatible-stemcell'></a> Incompatible Stemcell Causes Job Failure
+
+If you use the NSX-T Container Plugin (NCP) tile v3.0.2 or earlier, do not
+upgrade to <%= vars.app_runtime_abbr %> 2.8.19. The stemcell in this patch is
+not compatible with the NCP tile v3.0.2 or earlier and causes the `openvswitch`
+job to fail when you deploy.
+
 ### <a id='duplicate-metrics'></a> Duplicate Metrics Appear in the Firehose
 
 <%= vars.app_runtime_abbr %> v2.8 introduces a System Metrics Agent that sends metrics to the Firehose. These metrics match existing BOSH system metrics, but they use an updated format. In <%= vars.app_runtime_abbr %> v2.8, metrics appear in both formats. In the Firehose, you see duplicate metrics entries in both the Loggregator format and the System Metrics Agent format.
