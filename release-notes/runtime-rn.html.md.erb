@@ -1,6 +1,8 @@
 ---
 title: Pivotal Application Service v2.8 Release Notes
 owner: Release Engineering
+mr_issues_version: 2.8.18
+mr_fixed_version: 2.8.19
 ---
 
 This topic contains release notes for <%= vars.app_runtime_full %> (<%= vars.app_runtime_abbr %>) <%= vars.v_major_version %>.
@@ -110,7 +112,7 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
 * **[Security Fix]** Update cf-autoscaling’s dependencies to mitigate CVEs
 * **[Bug Fix]** Modify cf-autoscaling’s API to return HTTP status 404 (not found) when not logged in. Previously it returned 401 (unauthorized). The behavior now matches the documentation
 * **[Bug Fix]** Include correct version of push-usage-service-release `671.0.17` - an incorrect version was shipped in TAS v2.8.16 and TAS v2.8.17
-* **[Feature Improvement]** Secure scraping available in Metric Registrar
+* **[Feature Improvement]** Secure scraping available in Metric Registrar (Reverted in v2.8.19)
 * Bump ubuntu-xenial stemcell to version `621.84`
 * Bump cf-autoscaling to version `233`
 * Bump metric-registrar to version `1.2.1`
@@ -2207,83 +2209,7 @@ To resolve this issue:
     cf set-env search-server no_proxy '*.example.com'
     </pre>
 
-### <a id="metric-registrar-1.2.1-issues"></a>Metric Registrar 1.2.1 Issues
+### <a id="metric-registrar-1.2.1-issues"></a>Metric Registrar v1.2.1 Known Issues
 
-This issue affects <%= vars.app_runtime_abbr %> v2.8.18.
+<%= partial "/pcf/app-service-kis/metrics-registrar-known-issues" %>
 
-There are a few issues with the Metric Registrar 1.2.1 release
-that may cause issues with upgrading to <%= vars.app_runtime_abbr %> v2.8.18.
-
-These issues led to a revert in <%= vars.app_runtime_abbr %> v2.8.19,
-so the features that were introduced in v2.8.18 are not available in later
-versions.
-
-##### Metric Registrar Orchestrator unable to connect to Cloud Controller
-
-When the `metric_registrar_orchestrator` job is starting up, it will exit
-if it is unable to connect to Cloud Controller.
-
-This could arise from either BOSH DNS or Cloud Controller going down. For
-example, if BOSH DNS is being rolled during an update, there may be an
-log line regarding host name resolution:
-```
-unable to connect to Cloud Controller: Get \"https://q-s0.cloud-controller.env.deployment.bosh:9227/internal/v4/syslog_drain_urls\": dial tcp: lookup q-s0.cloud-controller.pcfdev802.cf-85ed2c836ae0287e088c.bosh on 10.0.0.6:23: no such host
-```
-If Cloud Controller is unavailable, there may be a log line about the
-Cloud Controller:
-```
-unable to connect to Cloud Controller: unexpected status from cloud controller: 503
-```
-
-This failure to start can block upgrades to <%= vars.app_runtime_abbr %> v2.8.18.
-
-##### Metric Registrar Orchestrator crashes with unexpected service URLs
-
-The `metric_registrar_orchestrator` job parses user-provided services
-and their associated URLs. It expects all service URLs to have a scheme,
-and if it encounters one without a scheme, it will crash with the error message:
-```
-panic: runtime error: index out of range [1] with length 1
-```
-
-To fix this issue, check user-provided services and make sure each of them
-have a scheme. For example, if one of the services has the URL `my.service.com`,
-update it to `http://my.service.com` or whatever scheme it expects to be
-communicated over.
-
-This issue is resolved in <%= vars.app_runtime_abbr %> v2.8.19 and later.
-
-##### Metric Registrar Smoke Test fails in environments with mTLS for App Containers
-
-This issue affects <%= vars.app_runtime_abbr %> v2.8.18 that have the
-Gorouter app identity verification property enabled so that Gorouter and
-app containers use mTLS to verify each other's identity.
-
-When running the `metric_registrar_smoke_test` errand, the smoke test will
-fail to detect metrics from a secure-endpoint:
-```
-DeploymentValidation
-[90m/var/vcap/data/compile/smoke_test/smoke_test/deployment_validation/deployment_validation_test.go:25[0m
-  [91m[1mreceives metrics scraped from metric endpoints [It][0m
-  [90m/var/vcap/data/compile/smoke_test/smoke_test/deployment_validation/deployment_validation_test.go:48[0m
-
-  [91mMonitor could not detect metrics emitted from the registered endpoint.
-  Expected
-      <int>: 0
-  to be >
-      <int>: 0[0m
-```
-
-To resolve this issue,
-1. Retrieve the cf manifest using `bosh -d $CF_DEPLOYMENT manifest > /tmp/cf-manifest.yml`
-2. Update the `rep` job's `containers.proxy.verify_subject_alt_name` property to include
-   the server name of the Metric Registrar secure endpoint scraper:
-   ```
-        verify_subject_alt_name:
-          - gorouter.service.cf.internal
-          - ssh-proxy.service.cf.internal
-          - metric_registrar_endpoint_worker_scrape_tls
-   ```
-3. Redploy with the updated manifest: `bosh -d $CF_DEPLOYMENT deploy /tmp/cf-manifest.yml`
-
-This issue is resolved in <%= vars.app_runtime_abbr %> v2.8.19 and later.
