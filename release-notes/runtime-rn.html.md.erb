@@ -656,7 +656,10 @@ For more information, see <a href="https://docs.pivotal.io/platform/2-10/release
 
 ### <a id='incompatible-stemcell'></a> Incompatible Stemcell Causes Job Failure
 
-<%= partial "/pcf/app-service-kis/incompatible_stemcell_job_failure" %>
+If you use the NSX-T Container Plugin (NCP) tile v3.0.2 or earlier, do not
+upgrade to <%= vars.app_runtime_abbr %> 2.10.5. The stemcell in this patch is
+not compatible with the NCP tile v3.0.2 or earlier and causes the `openvswitch`
+job to fail when you deploy.
 
 ### <a id='cf-cli-firehose-errors'></a> Errors Viewing App Logs after Disabling V1 Firehose
 
