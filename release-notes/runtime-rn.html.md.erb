@@ -1357,6 +1357,13 @@ To resolve this issue, follow the steps in the related [known issue](runtime-rn.
 
 <%= vars.app_runtime_abbr %> <%= vars.v_major_version %> includes the following known issues:
 
+### <a id='incompatible-stemcell'></a> Incompatible Stemcell Causes Job Failure
+
+If you use the NSX-T Container Plugin (NCP) tile v3.0.2 or earlier, do not
+upgrade to <%= vars.app_runtime_abbr %> 2.9.13. The stemcell in this patch is
+not compatible with the NCP tile v3.0.2 or earlier and causes the `openvswitch`
+job to fail when you deploy.
+
 ### <a id='nfs-broker-errand'></a> Run NFS Broker Errand Before Upgrade
 
 If you are using NFS Volume Services, you must run the **NFS Broker Errand** errand before upgrading to <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>. Running this errand in <%= vars.app_runtime_abbr %> v2.8 migrates existing service instances for NFS Volume Services from MySQL to CredHub.
