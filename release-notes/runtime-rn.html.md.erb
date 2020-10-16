@@ -1,6 +1,8 @@
 ---
 title: Pivotal Application Service Release Notes
 owner: Release Engineering
+mr_issues_version: 2.7.24
+mr_fixed_version: 2.7.25
 ---
 
 <% current_page.data.title = vars.app_runtime_full + " " + vars.v_major_version + " Release Notes" %>
@@ -2870,97 +2872,4 @@ To resolve this issue:
 
 ### <a id="metric-registrar-1.2.1-issues"></a> Metric Registrar v1.2.1 Known Issues
 
-The following known issues with Metrics Registrar v1.2.1 affect <%= vars.app_runtime_abbr %> v2.7.24.
-
-Several issues with the Metric Registrar v1.2.1 release
-cause problems when upgrading to <%= vars.app_runtime_abbr %> v2.7.24.
-
-These known issues led to a reversion of Metrics Registrar in <%= vars.app_runtime_abbr %> v2.7.25.
-Features introduced in <%= vars.app_runtime_abbr %> v2.7.24 are not available 
-in later versions of <%= vars.app_runtime_abbr %>.
-
-#### <a id="mr-orchestrator"></a> Metric Registrar Orchestrator Cannot Connect to Cloud Controller
-
-When the `metric_registrar_orchestrator` job starts up, it exits
-if it cannot connect to the Cloud Controller.
-
-This issue can arise if either BOSH DNS or the Cloud Controller fails. 
-For example, if BOSH DNS is being rolled during an update, there may be a
-log line similar to the following regarding host name resolution:
-
-```
-unable to connect to Cloud Controller: Get \"https://q-s0.cloud-controller.env.deployment.bosh:9227/internal/v4/syslog_drain_urls\": dial tcp: lookup q-s0.cloud-controller.pcfdev802.cf-85ed2c836ae0287e088c.bosh on 10.0.0.6:23: no such host
-```
-
-If Cloud Controller is unavailable, there may be a log line about the
-Cloud Controller:
-
-```
-unable to connect to Cloud Controller: unexpected status from cloud controller: 503
-```
-
-The failure of `metric_registrar_orchestrator` to start can block 
-upgrades to <%= vars.app_runtime_abbr %> v2.7.24.
-
-#### <a id="mr-service-urls"></a> Metric Registrar Orchestrator Crashes with Unexpected Service URLs
-
-The `metric_registrar_orchestrator` job parses user-provided services
-and their associated URLs. It expects all service URLs to have a scheme,
-and if it encounters one without a scheme, it crashes with the error message:
-
-```
-panic: runtime error: index out of range [1] with length 1
-```
-
-To fix this issue, check user-provided services, and make sure each service
-has a scheme. For example, if one of the services has the URL `my.service.com`,
-update the scheme to `http://my.service.com` or whichever scheme the service is communicated over.
-
-This issue is resolved in <%= vars.app_runtime_abbr %> v2.7.25 and later.
-
-#### <a id="mr-smoke-test"></a> Metric Registrar Smoke Tests Fail in Environments that Enable mTLS for App Containers
-
-This issue affects <%= vars.app_runtime_abbr %> v2.7.24 deployments that have the
-Gorouter app identity verification property enabled. When enabled, this property configures Gorouter and app containers to use mTLS to verify each other's identity.
-
-When running the `metric_registrar_smoke_test` errand, the smoke test
-fails to detect metrics from a secure-endpoint:
-
-
-```
-DeploymentValidation
-[90m/var/vcap/data/compile/smoke_test/smoke_test/deployment_validation/deployment_validation_test.go:25[0m
-  [91m[1mreceives metrics scraped from metric endpoints [It][0m
-  [90m/var/vcap/data/compile/smoke_test/smoke_test/deployment_validation/deployment_validation_test.go:48[0m
-
-  [91mMonitor could not detect metrics emitted from the registered endpoint.
-  Expected
-      <int>: 0
-  to be >
-      <int>: 0[0m
-```
-
-To resolve this issue:
-
-1. Retrieve the cf manifest:
-    
-    ```
-    bosh -d $CF_DEPLOYMENT manifest > /tmp/cf-manifest.yml
-    ```
-
-1. Update the `containers.proxy.verify_subject_alt_name` property of the `rep` job to include the server name of the Metric Registrar secure endpoint scraper:
-    
-    ```
-    verify_subject_alt_name:
-        - gorouter.service.cf.internal
-        - ssh-proxy.service.cf.internal
-        - metric_registrar_endpoint_worker_scrape_tls
-    ```
-
-1. Redploy with the updated manifest:
-
-    ```
-    bosh -d $CF_DEPLOYMENT deploy /tmp/cf-manifest.yml
-    ```
-
-This issue is resolved in <%= vars.app_runtime_abbr %> v2.7.25 and later.
+<%= partial "/pcf/app-service-kis/metrics-registrar-known-issues" %>
