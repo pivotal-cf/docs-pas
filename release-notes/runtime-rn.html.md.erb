@@ -2876,8 +2876,8 @@ Several issues with the Metric Registrar v1.2.1 release
 cause problems when upgrading to <%= vars.app_runtime_abbr %> v2.7.24.
 
 These known issues led to a reversion of Metrics Registrar in <%= vars.app_runtime_abbr %> v2.7.25.
-Features introduced in %= vars.app_runtime_abbr %> v2.7.24 are not available 
-in later versions of %= vars.app_runtime_abbr %>.
+Features introduced in <%= vars.app_runtime_abbr %> v2.7.24 are not available 
+in later versions of <%= vars.app_runtime_abbr %>.
 
 #### <a id="mr-orchestrator"></a> Metric Registrar Orchestrator Cannot Connect to Cloud Controller
 
@@ -2914,8 +2914,7 @@ panic: runtime error: index out of range [1] with length 1
 
 To fix this issue, check user-provided services, and make sure each service
 has a scheme. For example, if one of the services has the URL `my.service.com`,
-update the scheme to `http://my.service.com` or whichever scheme it expects to be
-communicated over.
+update the scheme to `http://my.service.com` or whichever scheme the service is communicated over.
 
 This issue is resolved in <%= vars.app_runtime_abbr %> v2.7.25 and later.
 
@@ -2944,24 +2943,24 @@ DeploymentValidation
 To resolve this issue:
 
 1. Retrieve the cf manifest:
-
+    
     ```
     bosh -d $CF_DEPLOYMENT manifest > /tmp/cf-manifest.yml
     ```
 
-2. Update the `rep` job's `containers.proxy.verify_subject_alt_name` property to includecthe server name of the Metric Registrar secure endpoint scraper:
+1. Update the `containers.proxy.verify_subject_alt_name` property of the `rep` job to include the server name of the Metric Registrar secure endpoint scraper:
+    
+    ```
+    verify_subject_alt_name:
+        - gorouter.service.cf.internal
+        - ssh-proxy.service.cf.internal
+        - metric_registrar_endpoint_worker_scrape_tls
+    ```
 
-   ```
-        verify_subject_alt_name:
-          - gorouter.service.cf.internal
-          - ssh-proxy.service.cf.internal
-          - metric_registrar_endpoint_worker_scrape_tls
-   ```
+1. Redploy with the updated manifest:
 
-3. Redploy with the updated manifest: 
-
-   ```
-   bosh -d $CF_DEPLOYMENT deploy /tmp/cf-manifest.yml
-   ```
+    ```
+    bosh -d $CF_DEPLOYMENT deploy /tmp/cf-manifest.yml
+    ```
 
 This issue is resolved in <%= vars.app_runtime_abbr %> v2.7.25 and later.
