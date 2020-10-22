@@ -7,9 +7,9 @@ mr_fixed_version: 2.8.19
 
 This topic contains release notes for <%= vars.app_runtime_full %> (<%= vars.app_runtime_abbr %>) <%= vars.v_major_version %>.
 
-For the feature highlights of this release, 
-read the blog post [Any company can become a software-driven organization. The new release of Tanzu Application Service gives you the blueprint](https://tanzu.vmware.com/content/blog/any-company-can-become-a-software-driven-organization-the-new-release-of-pivotal-platform-gives-you-the-blueprint) 
-or see [New Features in <%= vars.app_runtime_abbr %> v2.8](#new-features). 
+For the feature highlights of this release,
+read the blog post [Any company can become a software-driven organization. The new release of Tanzu Application Service gives you the blueprint](https://tanzu.vmware.com/content/blog/any-company-can-become-a-software-driven-organization-the-new-release-of-pivotal-platform-gives-you-the-blueprint)
+or see [New Features in <%= vars.app_runtime_abbr %> v2.8](#new-features).
 
 <%= vars.platform_name %> is certified by the Cloud Foundry Foundation for <%= Date.today.year %>.
 
@@ -20,7 +20,7 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
 ## <a id='releases'></a> Releases
 
 <%# DO NOT DELETE THIS LINE - robots use this to add new release notes %>
- 
+
 ### <a id='2.8.20'></a> 2.8.20
 
 **Release Date:** 10/19/2020
@@ -92,9 +92,9 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
     <tr><td>uaa</td><td>74.5.18</td></tr>
   </tbody>
 </table>
- 
- 
- 
+
+
+
 ### <a id='2.8.19'></a> 2.8.19
 
 **Release Date:** 10/09/2020
@@ -175,9 +175,9 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
     <tr><td>uaa</td><td>74.5.18</td></tr>
   </tbody>
 </table>
- 
- 
- 
+
+
+
 ### <a id='2.8.18'></a> 2.8.18
 
 **Release Date:** 09/21/2020
@@ -249,9 +249,9 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
     <tr><td>uaa</td><td>74.5.18</td></tr>
   </tbody>
 </table>
- 
- 
- 
+
+
+
 ### <a id='2.8.17'></a> 2.8.17
 
 **Release Date:** 09/10/2020
@@ -338,8 +338,8 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
     <tr><td>uaa</td><td>74.5.18</td></tr>
   </tbody>
 </table>
- 
- 
+
+
 
 ### <a id='2.8.16'></a> 2.8.16
 
@@ -1277,15 +1277,45 @@ The stemcell in this patch is not compatible with the NCP tile v3.0.1 and causes
 
 ### <a id='2.8.5'></a> 2.8.5
 
+<p class='note'><strong>Note:</strong> This release includes breaking changes, security fixes, new features, feature improvements, and bug fixes from PAS v2.8.4 and v2.8.5.</p>
+
 **Release Date:** 03/13/2020
 
 * **[Breaking Change]** Autoscaler controls do not appear for apps in Apps Manager. For the workaround, see the known issue [Autoscaler Controls Do Not Appear in Apps Manager for Proxied Setups](#autoscaler-apps-manager-no-proxy).
 * **[Breaking Change]** PCF Metrics link disappears from Apps Manager. For the workaround, see the known issue [PCF Metrics Link Disappears in Apps Manager for Proxied Setups](#autoscaler-apps-manager-no-proxy).
+* **[Security Fix]** Stop logging private data in background jobs
+* **[Security Fix]** Fix vulnerabilities [CVE-2019-2426](https://nvd.nist.gov/vuln/detail/CVE-2019-2426), [CVE-2019-2449](https://nvd.nist.gov/vuln/detail/CVE-2019-2449), [CVE-2019-2422](https://nvd.nist.gov/vuln/detail/CVE-2019-2422) in Credhub
+* **[Security Fix]** Fix Vulnerability [CVE-2020-5402](https://tanzu.vmware.com/security/cve-2020-5402) in UAA
 * **[Security Fix]** Improve autoscaler HTTP throughput calculation performance and omit DATABASE_URL from logs
+* **[Feature]** Support Maestro's rotation capability by adding Services TLS CA to all App containers
+* **[Feature Improvement]** Add circuit breaker to Logcache so users can push apps even if metrics are unavailable
+* **[Feature Improvement]** Bring bug fixes and improvements in latest routing releases to all supported PAS versions
+* **[Feature Improvement]** The latest routing release adds the `gorouter_time`
+field, which logs the total time it takes for a request to travel through Gorouter.
+Because this changes the access log format, you might need to update your external monitoring configuration.
+For more information, see [About Access Logs](https://docs.pivotal.io/application-service/2-8/concepts/architecture/router.html#about-access-logs).
+* **[Feature Improvement]** Allow users to specify a list of URIs for other foundations that Apps Manager manages
+* **[Feature Improvement]** Introduce read-only capabilities in Apps Manager for users with `cloud_controller.global_auditor` and `cloud_controller.admin_read_only` scopes
+* **[Feature Improvement]** Safeguard deletion of spaces in Apps Manager
+* **[Feature Improvement]** Improve the service instance creation flow in Apps Manager to better represent plan costs and features
+* **[Feature Improvement]** Improve performance of app logs loaded in Apps Manager
 * **[Bug Fix]** UAA no longer attempts to create logs in incorrect directory
+* **[Bug Fix]** Fix display of Pivotal logo in footer of Apps Manager for Internet Explorer users
+* **[Bug Fix]** Allow users with `usage_service.audit` scope to view Usage Report in Apps Manager
+* **[Bug Fix]** Increase responsiveness of Apps Manager sidebar services count
+* **[Bug Fix]** Remove unnecessary suggestion to restage apps when binding the App Autoscaler to apps in Apps Manager
+* **[Bug Fix]** Surface errors from Spring and Steeltoe trace actuator endpoint in Apps Manager
+* **[Bug Fix]** Account for asynchronous Spring and Steeltoe health actuator endpoint responses in Apps Manager
+* **[Bug Fix]** Fix bug that prevented users from navigating beyond first page of app revisions in Apps Manager
+* **[Bug Fix]** Fix issue that caused Apps Manager to show a `404` after renaming an org
+* **[Bug Fix]** Show full space and organization names, regardless of length, in Apps Manager
+* **[Bug Fix]** Use more informative description "Last Update" instead of "Last Push" in Apps Manager
 * **[Bug Fix]** Fix bug that prevented usage report in Apps Manager from displaying when only partial data is available
 * **[Bug Fix]** Wrap long resource names in Apps Manager's usage report and invite members flow
 * **[Bug Fix]** Fix DNS Interaction between Loggregator Agent and Doppler
+* **[Bug Fix]** Fix Race Condition in Loggregator Agent
+* **[Bug Fix]** Log only necessary information when auction scoring fails
+* **[Bug Fix]** Cloud Controller no longer tries to connect to Copilot when it is not deployed
 * Bump ubuntu-xenial stemcell to version `621.59`
 * Bump cf-autoscaling to version `223`
 * Bump cf-cli to version `1.25.0`
@@ -1369,36 +1399,6 @@ The stemcell in this patch is not compatible with the NCP tile v3.0.1 and causes
 
 **Release Date:** 03/02/2020
 
-* **[Breaking Change]** Autoscaler controls do not appear for apps in Apps Manager. For the workaround, see the known issue [Autoscaler Controls Do Not Appear in Apps Manager for Proxied Setups](#autoscaler-apps-manager-no-proxy).
-* **[Breaking Change]** PCF Metrics link disappears from Apps Manager. For the workaround, see the known issue [PCF Metrics Link Disappears in Apps Manager for Proxied Setups](#apps-manager-app-metrics-link-no-proxy).
-* **[Security Fix]** Stop logging private data in background jobs
-* **[Security Fix]** Fix vulnerabilities [CVE-2019-2426](https://nvd.nist.gov/vuln/detail/CVE-2019-2426), [CVE-2019-2449](https://nvd.nist.gov/vuln/detail/CVE-2019-2449), [CVE-2019-2422](https://nvd.nist.gov/vuln/detail/CVE-2019-2422) in Credhub
-* **[Security Fix]** Fix Vulnerability [CVE-2020-5402](https://tanzu.vmware.com/security/cve-2020-5402) in UAA
-* **[Feature]** Support Maestro's rotation capability by adding Services TLS CA to all App containers
-* **[Feature Improvement]** Add circuit breaker to Logcache so users can push apps even if metrics are unavailable
-* **[Feature Improvement]** Bring bug fixes and improvements in latest routing releases to all supported PAS versions
-* **[Feature Improvement]** The latest routing release adds the `gorouter_time`
-field, which logs the total time it takes for a request to travel through Gorouter.
-Because this changes the access log format, you might need to update your external monitoring configuration.
-For more information, see [About Access Logs](https://docs.pivotal.io/application-service/2-8/concepts/architecture/router.html#about-access-logs).
-* **[Feature Improvement]** Allow users to specify a list of URIs for other foundations that Apps Manager manages
-* **[Feature Improvement]** Introduce read-only capabilities in Apps Manager for users with `cloud_controller.global_auditor` and `cloud_controller.admin_read_only` scopes
-* **[Feature Improvement]** Safeguard deletion of spaces in Apps Manager
-* **[Feature Improvement]** Improve the service instance creation flow in Apps Manager to better represent plan costs and features
-* **[Feature Improvement]** Improve performance of app logs loaded in Apps Manager
-* **[Bug Fix]** Fix display of Pivotal logo in footer of Apps Manager for Internet Explorer users
-* **[Bug Fix]** Allow users with `usage_service.audit` scope to view Usage Report in Apps Manager
-* **[Bug Fix]** Increase responsiveness of Apps Manager sidebar services count
-* **[Bug Fix]** Remove unnecessary suggestion to restage apps when binding the App Autoscaler to apps in Apps Manager
-* **[Bug Fix]** Surface errors from Spring and Steeltoe trace actuator endpoint in Apps Manager
-* **[Bug Fix]** Account for asynchronous Spring and Steeltoe health actuator endpoint responses in Apps Manager
-* **[Bug Fix]** Fix bug that prevented users from navigating beyond first page of app revisions in Apps Manager
-* **[Bug Fix]** Fix issue that caused Apps Manager to show a `404` after renaming an org
-* **[Bug Fix]** Show full space and organization names, regardless of length, in Apps Manager
-* **[Bug Fix]** Use more informative description "Last Update" instead of "Last Push" in Apps Manager
-* **[Bug Fix]** Log only necessary information when auction scoring fails
-* **[Bug Fix]** Fix Race Condition in Loggregator Agent
-* **[Bug Fix]** Cloud Controller no longer tries to connect to Copilot when it is not deployed
 * Bump ubuntu-xenial stemcell to version `621.57`
 * Bump capi to version `1.87.2`
 * Bump cf-smoke-tests to version `40.0.127`
@@ -2286,4 +2286,3 @@ To resolve this issue:
 ### <a id="metric-registrar-1.2.1-issues"></a>Metric Registrar v1.2.1 Known Issues
 
 <%= partial "/pcf/app-service-kis/metrics-registrar-known-issues" %>
-
