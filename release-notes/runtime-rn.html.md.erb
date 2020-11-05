@@ -21,7 +21,9 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
 
 <%# DO NOT DELETE THIS LINE - robots use this to add new release notes %>
  
-### <a id='2.8.22'></a> 2.8.22
+### <a id='2.8.22'></a> 2.8.22 - Withdrawn
+
+<p class="note warning"><strong> Warning:</strong> This release has been removed from VMware Tanzu Network due to the <a href="#bosh-system-metrics-forwarder-regression">Bosh System Metrics Forwarder release v0.0.19 regresssion</a>.</p>
 
 **Release Date:** 11/04/2020
 
@@ -2290,6 +2292,22 @@ To disable the smoke test errand:
 1. For **Smoke Test Errand**, select **Off**.
 
 For more information, see [Configure Errands](https://docs.pivotal.io/application-service/2-8/operating/configure-pas.html#errands) in _Configuring <%= vars.app_runtime_abbr %>_.
+
+### <a id='bosh-system-metrics-forwarder-regression'></a> Bosh System Metrics Forwarder Regression in v2.8.22
+
+If you already have Healthwatch installed, upgrading to this patch will cause installation errors.
+
+If you do not have Healthwatch, you are still impacted in downstream monitoring systems (DataDog, Splunk, etc). Those monitoring systems will start firing missing data alerts for metrics for BOSH/TAS recommended KPIs.
+
+To resolve this issue:
+
+If possible, do not upgrade.
+
+If the upgrade has failed:
+1) Download the TAS manifest and manually set enabled: true on the bosh_system_metrics_forwarder job.
+2) Redeploy with Bosh.
+
+* DO NOT apply changes on the TAS tile until the next version is out.
 
 ### <a id='nfs-file-append'></a> Errors in NFS Volume Service File Append Operations
 
