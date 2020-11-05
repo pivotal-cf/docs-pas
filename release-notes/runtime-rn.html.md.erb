@@ -23,7 +23,9 @@ Read more about the [certified provider program](https://www.cloudfoundry.org/pr
 
 <%# DO NOT DELETE THIS LINE - robots use this to add new release notes %>
  
-### <a id='2.7.28'></a> 2.7.28
+### <a id='2.7.28'></a> 2.7.28 - Withdrawn
+
+<p class="note warning"><strong> Warning:</strong> This release has been removed from VMware Tanzu Network due to the <a href="#bosh-system-metrics-forwarder-regression">Bosh System Metrics Forwarder release v0.0.19 regresssion</a>.</p>
 
 **Release Date:** 11/04/2020
 
@@ -2944,6 +2946,22 @@ To resolve this issue, do one of the following:
   to assign more CPU instances.
 
 For more information, see the [Applications failing to stage after upgrading to PAS 2.7.13 or 2.7.14](https://community.pivotal.io/s/article/apps-failed-to-stage-after-upgrading-PAS-tile?language=en_US) Knowledge Base article.
+
+### <a id='bosh-system-metrics-forwarder-regression'></a> Bosh System Metrics Forwarder Regression in v2.7.28
+
+If you already have Healthwatch installed, upgrading to this patch will cause installation errors.
+
+If you do not have Healthwatch, you are still impacted in downstream monitoring systems (DataDog, Splunk, etc). Those monitoring systems will start firing missing data alerts for metrics for BOSH/TAS recommended KPIs.
+
+To resolve this issue:
+
+If possible, do not upgrade.
+
+If the upgrade has failed:
+1) Download the TAS manifest and manually set enabled: true on the bosh_system_metrics_forwarder job.
+2) Redeploy with Bosh.
+
+* DO NOT apply changes on the TAS tile until the next version is out.
 
 ### <a id='multi-process-scaling'></a> Autoscaler Scales Only Web Processes Based on HTTP Metrics From All Processes
 
