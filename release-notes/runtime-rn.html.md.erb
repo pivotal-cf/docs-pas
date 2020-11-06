@@ -2304,10 +2304,12 @@ To resolve this issue:
 If possible, do not upgrade.
 
 If the upgrade has failed:
-1) Download the TAS manifest and manually set enabled: true on the bosh_system_metrics_forwarder job.
-2) Redeploy with Bosh.
 
-* DO NOT apply changes on the TAS tile until the next version is out.
+1. Download the TAS manifest and manually set `enabled: true` on the `bosh_system_metrics_forwarder` job.
+
+1. Redeploy with Bosh.
+
+**DO NOT** apply changes on the TAS tile until the next version is out.
 
 ### <a id='nfs-file-append'></a> Errors in NFS Volume Service File Append Operations
 
