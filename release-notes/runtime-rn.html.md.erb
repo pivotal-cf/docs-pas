@@ -774,7 +774,7 @@ To continue to see metrics in your drains after upgrading to <%= vars.app_runtim
 1. Navigate to the Ops Manager Installation Dashboard.
 1. Click the **VMware Tanzu Application Service for VMs** tile in the Installation Dashboard.
 1. Select **System Logging**.
-1. For **Address**, enter the hostname or IP address of the syslog server and append `?include-metrics-deprecated=true`. For example, `https://syslog-server.com:123?include-metrics-deprecated=true`.
+1. For **Aggregate log and metric drain destinations**, enter the hostname or IP address of the syslog server and append `?include-metrics-deprecated=true`. For example, `https://syslog-server.com:123?include-metrics-deprecated=true`.
 1. Click **Save**.
 
 For more information about configuring aggregate syslog drains, see [Configure System Logging](http://docs.pivotal.io/application-service/operating/configure-pas.html#sys-logging) in _Configuring TAS for VMs_.
