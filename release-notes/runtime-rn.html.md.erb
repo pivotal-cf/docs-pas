@@ -16,8 +16,8 @@ mr_fixed_version: 2.9.13
 This topic contains release notes for <%= vars.app_runtime_full %> (<%= vars.app_runtime_abbr %>) <%= vars.v_major_version %>.
 
 
-For the feature highlights of this release, 
-read the blog post [VMware Tanzu Application Service 2.9: Key Enhancements for Transformation at Scale](https://tanzu.vmware.com/content/blog/vmware-tanzu-application-service-2-9-key-enhancements-for-transformation-at-scale), 
+For the feature highlights of this release,
+read the blog post [VMware Tanzu Application Service 2.9: Key Enhancements for Transformation at Scale](https://tanzu.vmware.com/content/blog/vmware-tanzu-application-service-2-9-key-enhancements-for-transformation-at-scale),
 or see [New Features in <%= vars.ops_manager %> v2.9](#major-features).
 
 <%= vars.platform_name %> is certified by the Cloud Foundry Foundation for <%= Date.today.year %>.
@@ -31,7 +31,7 @@ on the Cloud Foundry website.
 ## <a id='releases'></a> Releases
 
 <%# DO NOT DELETE THIS LINE - robots use this to add new release notes %>
- 
+
 ### <a id='2.9.17'></a> 2.9.17
 
 **Release Date:** 11/17/2020
@@ -101,9 +101,9 @@ on the Cloud Foundry website.
     <tr><td>uaa</td><td>74.5.21</td></tr>
   </tbody>
 </table>
- 
- 
- 
+
+
+
 ### <a id='2.9.16'></a> 2.9.16
 
 **Release Date:** 11/04/2020
@@ -184,9 +184,9 @@ on the Cloud Foundry website.
     <tr><td>uaa</td><td>74.5.20</td></tr>
   </tbody>
 </table>
- 
- 
- 
+
+
+
 ### <a id='2.9.15'></a> 2.9.15
 
 **Release Date:** 10/26/2020
@@ -257,9 +257,9 @@ on the Cloud Foundry website.
     <tr><td>uaa</td><td>74.5.20</td></tr>
   </tbody>
 </table>
- 
- 
- 
+
+
+
 ### <a id='2.9.14'></a> 2.9.14
 
 **Release Date:** 10/19/2020
@@ -335,9 +335,9 @@ on the Cloud Foundry website.
     <tr><td>uaa</td><td>74.5.18</td></tr>
   </tbody>
 </table>
- 
- 
- 
+
+
+
 ### <a id='2.9.13'></a> 2.9.13
 
 **Release Date:** 10/09/2020
@@ -418,9 +418,9 @@ on the Cloud Foundry website.
     <tr><td>uaa</td><td>74.5.18</td></tr>
   </tbody>
 </table>
- 
- 
- 
+
+
+
 ### <a id='2.9.12'></a> 2.9.12
 
 **Release Date:** 09/21/2020
@@ -498,9 +498,9 @@ on the Cloud Foundry website.
     <tr><td>uaa</td><td>74.5.18</td></tr>
   </tbody>
 </table>
- 
- 
- 
+
+
+
 ### <a id='2.9.11'></a> 2.9.11
 
 **Release Date:** 09/09/2020
@@ -580,8 +580,8 @@ on the Cloud Foundry website.
     <tr><td>uaa</td><td>74.5.18</td></tr>
   </tbody>
 </table>
- 
- 
+
+
 
 ### <a id='2.9.10'></a> 2.9.10
 
@@ -1517,9 +1517,9 @@ For more information, see [Sidecar Buildpacks](https://docs.pivotal.io/applicati
 
 You can limit the number of log lines each app instance generates per second by configuring the **App log rate limit (beta)** section in the **App Containers** pane of the <%= vars.app_runtime_abbr %> tile.
 
-This feature is disabled by default. Enabling this feature prevents app instances from overloading the Loggregator Agent with logs, so the Loggregator Agent does not drop logs for other app instances. Enabling this feature also prevents apps from reporting inaccurate app metrics in the Cloud Foundry Command Line Interface (cf CLI) or increasing the CPU usage on the Diego Cell VM.
+This feature is disabled by default. Enabling this feature prevents apps from overloading the Loggregator Agent with logs, reporting inaccurate app metrics in the Cloud Foundry Command Line Interface (cf CLI), or increasing the CPU usage on the Diego Cell VM.
 
-For more information, see [Configure App Containers](https://docs.pivotal.io/application-service/2-9/operating/configure-pas.html#application-containers-config) in _Configuring <%= vars.app_runtime_abbr %>_.
+For more information, see [App Log Rate Limiting](../loggregator/app-log-rate-limits.html).
 
 ### <a id='apps-manager-buildpacks'></a> Configure Buildpacks for Apps Manager
 
@@ -1599,6 +1599,7 @@ To use the Log and Metric Agent Architecture components, you must also configure
 
 For more information about the Log and Metric Agent Architecture, see [Log and Metric Agent Architecture (Beta)](https://docs.pivotal.io/application-service/2-9/loggregator/agent-architecture.html).
 
+
 ## <a id='breaking-changes'></a> Breaking Changes
 
 <%= vars.app_runtime_abbr %> <%= vars.v_major_version %> includes the following breaking changes:
@@ -1663,6 +1664,7 @@ If your <%= vars.app_runtime_abbr %> deployment has restrictive networking polic
 
 To resolve this issue, follow the steps in the related [known issue](runtime-rn.html#autoscaler-apps-manager-no-proxy) of the <%= vars.app_runtime_abbr %> release notes before or after upgrading to <%= vars.app_runtime_abbr %> v2.9.
 
+
 ## <a id='known-issues'></a> Known Issues
 
 <%= vars.app_runtime_abbr %> <%= vars.v_major_version %> includes the following known issues:
@@ -1718,13 +1720,11 @@ This issue is resolved in App Metrics v2.0.1.
 
 ### <a id="cc-purge-reseed-usage-bug"></a> Invalid Events from Cloud Controller Purge and Reseed
 
-
 In <%= vars.app_runtime_abbr %> v2.9.5 and earlier, the `/v2/app_usage_events/destructively_purge_all_and_reseed_started_apps` endpoint may generate app events without valid GUIDs. These invalid GUIDs can cause errors with components that consume them when parsing and correlating events. This issue affects Cloud Controller and App Usage Service.
 
 For more information about the API endpoint, see [Purge and reseed App Usage Events](https://apidocs.cloudfoundry.org/13.6.0/app_usage_events/purge_and_reseed_app_usage_events.html) in the _App Usage Events API_ documentation. For more information about the issue, see [App Usage Service startup errors and data inconsistency](https://community.pivotal.io/s/article/App-Usage-Service-startup-errors-and-data-inconsistency) in the knowledge base.
 
 This issue is resolved in <%= vars.app_runtime_abbr %> v2.9.6.
-
 
 ### <a id="app-metrics-route-deprecated"></a> App Metrics Route Change Results In "Unexpected error occurrence"
 
@@ -1737,7 +1737,6 @@ If you have set the **Multi-foundation configuration (beta)** field of the Apps 
 in a PAS tile, you must update the **metricsUrl** field to reflect
 the route change. If the field is not updated, then clicking **View in Metrics** on the app
 Overview tab in Apps Manager results in an `Unexpected error occurence` message.
-
 
 ### <a id="apps-manager-app-metrics-link-no-proxy"></a>App Metrics Link Disappears in Apps Manager for Proxied Setups
 
