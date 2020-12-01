@@ -48,7 +48,7 @@ There are three key capacity scaling indicators <%= vars.company_name %> recomme
         </td>
     </tr>
     <tr>
-      <th>Metric</th>
+      <th>Metrics</th>
         <td>
           CapacityRemainingMemory<br>
           CapacityTotalMemory
@@ -77,14 +77,12 @@ There are three key capacity scaling indicators <%= vars.company_name %> recomme
     </tr>
 </table>
 
-### <a id="cell-disk"></a> Diego Cell Disk Capacity
-
 <table>
-   <tr><th colspan="2" style="text-align: center;"><br>rep.CapacityRemainingDisk / rep.CapacityTotalDisk<br><br></th></tr>
+   <tr><th colspan="2" style="text-align: center;"><br>Diego Cell Disk Capacity<br><br></th></tr>
     <tr>
       <th width="25%">Description</th>
         <td>
-          Percentage of remaining disk capacity for a given Diego Cell. Monitor this derived metric across all Diego Cells in a deployment.<br><br>
+          Divide the <code>CapacityRemainingDisk</code> metric by the <code>CapacityTotalDisk</code> metric to get the percentage of remaining disk capacity for a given Diego Cell. Monitor this derived metric across all Diego Cells in a deployment.<br><br>
           The metric <code>rep.CapacityRemainingDisk</code> indicates the remaining amount in MiB of disk available for this Diego Cell to allocate to containers.<br>
           The metric <code>rep.CapacityTotalDisk</code> indicates the total amount in MiB of disk available for this Diego Cell to allocate to containers.
         </td>
@@ -94,6 +92,19 @@ There are three key capacity scaling indicators <%= vars.company_name %> recomme
         <td>
           A best practice deployment of <%= vars.app_runtime_abbr %> includes three availability zones (AZs). For these types of deployments, <%= vars.company_name %> recommends that you have enough capacity to suffer failure of an entire AZ.<br><br>
           The <em>Recommended threshold</em> assumes a three-AZ configuration. Adjust the threshold percentage if you have more or fewer AZs.
+        </td>
+    </tr>
+    <tr>
+      <th>Source ID</th>
+        <td>
+          <code>rep</code>
+        </td>
+    </tr>
+    <tr>
+      <th>Metrics</th>
+        <td>
+          CapacityRemainingDisk<br>
+          CapacityTotalDisk
         </td>
     </tr>
     <tr>
