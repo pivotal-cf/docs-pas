@@ -22,14 +22,12 @@ There are three key capacity scaling indicators <%= vars.company_name %> recomme
 
 * Diego Cell container capacity is a measure of the percentage of remaining container capacity. For more information, see [Diego Cell Container Capacity](#cell-container).
 
-### <a id="cell-memory"></a> Diego Cell Memory Capacity
-
 <table>
-  <tr><th colspan="2" style="text-align: center;"><br>rep.CapacityRemainingMemory / rep.CapacityTotalMemory<br><br></th></tr>
+  <tr><th id="cell-memory" colspan="2" style="text-align: center;"><br>Diego Cell Memory Capacity<br><br></th></tr>
     <tr>
       <th width="25%">Description</th>
         <td>
-          Percentage of remaining memory capacity for a given Diego Cell. Monitor this derived metric across all Diego Cells in a deployment.<br><br>
+          Divide the <<code>CapacityRemainingMemory</code> metric with the <<code>CapacityTotalMemory</code> to get the percentage of remaining memory capacity for a given Diego Cell. Monitor this derived metric across all Diego Cells in a deployment.<br><br>
           The metric <code>rep.CapacityRemainingMemory</code> indicates the remaining amount in MiB of memory available for this Diego Cell to allocate to containers.<br>
           The metric <code>rep.CapacityTotalMemory</code> indicates the total amount in MiB of memory available for this Diego Cell to allocate to containers.
         </td>
@@ -78,7 +76,7 @@ There are three key capacity scaling indicators <%= vars.company_name %> recomme
 </table>
 
 <table>
-   <tr><th colspan="2" style="text-align: center;"><br>Diego Cell Disk Capacity<br><br></th></tr>
+   <tr><th id="cell-disk" colspan="2" style="text-align: center;"><br>Diego Cell Disk Capacity<br><br></th></tr>
     <tr>
       <th width="25%">Description</th>
         <td>
@@ -130,13 +128,12 @@ There are three key capacity scaling indicators <%= vars.company_name %> recomme
     </tr>
 </table>
 
-### <a id="cell-container"></a> Diego Cell Container Capacity
-
 <table>
-  <tr><th colspan="2" style="text-align: center;"><br>rep.CapacityRemainingContainers / rep.CapacityTotalContainers<br><br></th></tr>
+  <tr><th id="cell-container" colspan="2" style="text-align: center;"><br>Diego Cell Container Capacity<br><br></th></tr>
     <tr>
       <th width="25%">Description</th>
         <td>
+          rep.CapacityRemainingContainers / rep.CapacityTotalContainers
           Percentage of remaining container capacity for a given Diego Cell. Monitor this derived metric across all Diego Cells in a deployment.<br><br>
           The metric <code>rep.CapacityRemainingContainers</code> indicates the remaining number of containers this Diego Cell can host.<br>
           The metric <code>rep.CapacityTotalContainer</code> indicates the total number of containers this Diego Cell can host.
@@ -146,6 +143,19 @@ There are three key capacity scaling indicators <%= vars.company_name %> recomme
         <td>
           A best practice deployment of <%= vars.app_runtime_abbr %> includes three availability zones (AZs). For these types of deployments, <%= vars.company_name %> recommends that you have enough capacity to suffer failure of an entire AZ.<br><br>
           The <em>Recommended threshold</em> assumes a three-AZ configuration. Adjust the threshold percentage if you have more or fewer AZs.
+        </td>
+    </tr>
+    <tr>
+      <th>Source ID</th>
+        <td>
+          <code>rep</code>
+        </td>
+    </tr>
+    <tr>
+      <th>Metrics</th>
+        <td>
+          CapacityRemainingContainers<br>
+          CapacityTotalContainers
         </td>
     </tr>
     <tr>
@@ -176,13 +186,12 @@ There are three key capacity scaling indicators <%= vars.company_name %> recomme
 
 <%= vars.company_name %> recommends two key capacity scaling indicators for monitoring Firehose performance.
 
-### <a id="firehose-loss-rate"></a> Log Transport Loss Rate
-
 <table>
-  <tr><th colspan="2" style="text-align: center;">loggregator.doppler.dropped{direction=ingress} / loggregator.doppler.ingress</th></tr>
+  <tr><th id="firehose-loss-rate" id="firehose-loss-rate" colspan="2" style="text-align: center;">Log Transport Loss Rate</th></tr>
     <tr>
       <th width="25">Description</th>
         <td>
+          loggregator.doppler.dropped{direction=ingress} / loggregator.doppler.ingress
           This derived value represents the loss rate occurring as messages are transported from the Loggregator Agent components through the Doppler components to the Firehose endpoints.<br><br>
           Metric <code>loggregator.doppler.ingress</code> represents the number of messages entering Dopplers for transport through the Firehose, and <code>loggregator.doppler.dropped</code> represents the number of messages dropped without delivery.<br><br>
           Messages include the combined stream of logs from all apps and the metrics data from <%= vars.app_runtime_abbr %> components.<br><br>
@@ -195,6 +204,19 @@ There are three key capacity scaling indicators <%= vars.company_name %> recomme
           Excessive dropped messages can indicate the Dopplers or Traffic Controllers are not processing messages quickly enough.<br><br>
           The scaling indicator <%= vars.company_name %> recommends is a dropped message rate greater than <code>0.01</code>. This scaling indicator is calculated by expressing the total number of dropped messages as a percentage of the total throughput and scale.<br><br>
           Doppler emits two separate dropped metrics, one for ingress and one for egress. The envelopes have a <code>direction</code>. For this indicator, use the metric with a <code>direction</code> tag with a value of <code>ingress</code>.
+        </td>
+    </tr>
+    <tr>
+      <th>Source ID</th>
+        <td>
+          <code>doppler</code>
+        </td>
+    </tr>
+    <tr>
+      <th>Metrics</th>
+        <td>
+          Dropped<br>
+          Ingress
         </td>
     </tr>
     <tr>
@@ -228,13 +250,11 @@ There are three key capacity scaling indicators <%= vars.company_name %> recomme
     </tr>
 </table>
 
-### <a id="doppler-message-rate-ksi"></a> Doppler Message Rate Capacity
-
 <table>
-  <tr><th colspan="2" style="text-align: center;">loggregator.doppler.ingress (sum across instances) / current number of Doppler instances</th></tr>
+  <tr><th id="doppler-message-rate-ksi" colspan="2" style="text-align: center;">Doppler Message Rate Capacity</th></tr>
     <tr>
       <th width="25">Description</th>
-        <td>This derived value represents the average rate of envelopes (messages) per Doppler instance. Deriving this into a per-Doppler envelopes-per-second, or envelopes-per-minute, rate can indicate the need to scale when Doppler instances are at the maximum load <%= vars.company_name %> recommends.</td>
+        <td> loggregator.doppler.ingress (sum across instances) / current number of Doppler instances. This derived value represents the average rate of envelopes (messages) per Doppler instance. Deriving this into a per-Doppler envelopes-per-second, or envelopes-per-minute, rate can indicate the need to scale when Doppler instances are at the maximum load <%= vars.company_name %> recommends.</td>
     </tr>
     <tr>
       <th>Purpose</th>
