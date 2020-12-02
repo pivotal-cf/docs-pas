@@ -603,13 +603,11 @@ There is one key capacity scaling indicator <%= vars.company_name %> recommends 
 
 <p class= "note"><strong>Note:</strong> The following metric appears in the Firehose in two different formats. The below table lists both formats. For more information, see <a href="https://docs.pivotal.io/platform/2-8/pcf-release-notes/runtime-rn.html#duplicate-metrics">Duplicate Metrics Appear in the Firehose</a> in <em><%= vars.app_runtime_full %> v2.8 Release Notes</em>.</p>
 
-### <a id="system.cpu.user"></a> Gorouter VM CPU Utilization
-
 <table>
-  <tr><th colspan="2" style="text-align: center;">system.cpu.user of the Gorouter VM(s)<br>system_cpu_user of the Gorouter VM(s)<br></th></tr>
+  <tr><th id="system.cpu.user" colspan="2" style="text-align: center;"><br>Gorouter VM CPU Utilization<br><br></th></tr>
     <tr>
       <th>Description</th>
-        <td>CPU utilization of the Gorouter VM(s)</td>
+        <td>system.cpu.user of the Gorouter VM(s)<br>system_cpu_user of the Gorouter VM(s) <br>CPU utilization of the Gorouter VM(s)</td>
     </tr>
     <tr>
       <th>Purpose</th>
@@ -617,6 +615,18 @@ There is one key capacity scaling indicator <%= vars.company_name %> recommends 
           High CPU utilization of the Gorouter VMs can increase latency and cause throughput, or requests per second, to level off. <%= vars.company_name %> recommends keeping the CPU utilization within a maximum range of 60-70% for best Gorouter performance.<br><br>
           If you want to increase throughput capabilities while also keeping latency low, <%= vars.company_name %> recommends scaling the Gorouter while continuing to ensure that CPU utilization does not exceed the maximum range <%= vars.company_name %> recommends.
           <p class="note"><strong>Note:</strong> At greater than 8 CPUs, vertical scaling is no longer beneficial for increasing throughput.</p>
+        </td>
+    </tr>
+    <tr>
+      <th>Source ID</th>
+        <td>
+          <code>cpu</code>
+        </td>
+    </tr>
+    <tr>
+      <th>Metrics</th>
+        <td>
+          <code>user</code>
         </td>
     </tr>
     <tr>
@@ -650,13 +660,11 @@ There is one key capacity scaling indicator <%= vars.company_name %> recommends 
 
 <p class= "note"><strong>Note:</strong> The following metric appears in the Firehose in two different formats. The below table lists both formats. For more information, see <a href="https://docs.pivotal.io/platform/2-8/pcf-release-notes/runtime-rn.html#duplicate-metrics">Duplicate Metrics Appear in the Firehose</a> in <em><%= vars.app_runtime_full %> v2.8 Release Notes</em>.</p>
 
-### <a id="uaa-system.cpu.user"></a> UAA VM CPU Utilization
-
 <table>
-  <tr><th colspan="2" style="text-align: center;">system.cpu.user of the UAA VM(s)<br>system_cpu_user of the UAA VM(s)</th></tr>
+  <tr><th id="uaa-system.cpu.user" colspan="2" style="text-align: center;"><br>UAA VM CPU Utilization<br><br></th></tr>
     <tr>
       <th>Description</th>
-        <td>CPU utilization of the UAA VM(s)</td>
+        <td>system.cpu.user of the UAA VM(s)<br>system_cpu_user of the UAA VM(s) <br>CPU utilization of the UAA VM(s)</td>
     </tr>
     <tr>
       <th>Purpose</th>
@@ -664,6 +672,18 @@ There is one key capacity scaling indicator <%= vars.company_name %> recommends 
           High CPU utilization of the UAA VMs can increase latency and cause throughput, or requests per second, to level off. <%= vars.company_name %> recommends keeping the CPU utilization within a maximum range of 80-90% for best UAA performance.<br><br>
           If you want to increase throughput capabilities while keeping latency low, <%= vars.company_name %> recommends scaling the UAA VMs and ensuring that CPU utilization does not exceed the maximum range <%= vars.company_name %> recommends.</td>
     </tr>
+    <tr>
+    <th>Source ID</th>
+      <td>
+        <code>cpu</code>
+      </td>
+  </tr>
+  <tr>
+    <th>Metrics</th>
+      <td>
+        <code>user</code>
+      </td>
+  </tr>
     <tr>
       <th>Recommended thresholds</th>
         <td>
