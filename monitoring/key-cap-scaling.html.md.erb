@@ -27,7 +27,7 @@ There are three key capacity scaling indicators <%= vars.company_name %> recomme
     <tr>
       <th width="25%">Description</th>
         <td>
-          Divide the <<code>CapacityRemainingMemory</code> metric with the <<code>CapacityTotalMemory</code> to get the percentage of remaining memory capacity for a given Diego Cell. Monitor this derived metric across all Diego Cells in a deployment.<br><br>
+          Divide the <code>CapacityRemainingMemory</code> metric with the <code>CapacityTotalMemory</code> to get the percentage of remaining memory capacity for a given Diego Cell. Monitor this derived metric across all Diego Cells in a deployment.<br><br>
           The metric <code>rep.CapacityRemainingMemory</code> indicates the remaining amount in MiB of memory available for this Diego Cell to allocate to containers.<br>
           The metric <code>rep.CapacityTotalMemory</code> indicates the total amount in MiB of memory available for this Diego Cell to allocate to containers.
         </td>
@@ -48,8 +48,8 @@ There are three key capacity scaling indicators <%= vars.company_name %> recomme
     <tr>
       <th>Metrics</th>
         <td>
-          CapacityRemainingMemory<br>
-          CapacityTotalMemory
+          <code>CapacityRemainingMemory</code><br>
+          <code>CapacityTotalMemory</code>
         </td>
     </tr>
     <tr>
@@ -101,8 +101,8 @@ There are three key capacity scaling indicators <%= vars.company_name %> recomme
     <tr>
       <th>Metrics</th>
         <td>
-          CapacityRemainingDisk<br>
-          CapacityTotalDisk
+          <code>CapacityRemainingDisk</code><br>
+          <code>CapacityTotalDisk</code>
         </td>
     </tr>
     <tr>
@@ -154,8 +154,8 @@ There are three key capacity scaling indicators <%= vars.company_name %> recomme
     <tr>
       <th>Metrics</th>
         <td>
-          CapacityRemainingContainers<br>
-          CapacityTotalContainers
+          <code>CapacityRemainingContainers</code><br>
+          <code>CapacityTotalContainers</code>
         </td>
     </tr>
     <tr>
@@ -187,7 +187,7 @@ There are three key capacity scaling indicators <%= vars.company_name %> recomme
 <%= vars.company_name %> recommends two key capacity scaling indicators for monitoring Firehose performance.
 
 <table>
-  <tr><th id="firehose-loss-rate" id="firehose-loss-rate" colspan="2" style="text-align: center;">Log Transport Loss Rate</th></tr>
+  <tr><th id="firehose-loss-rate" id="firehose-loss-rate" colspan="2" style="text-align: center;"><br>Log Transport Loss Rate<br><br></th></tr>
     <tr>
       <th width="25">Description</th>
         <td>
@@ -209,14 +209,14 @@ There are three key capacity scaling indicators <%= vars.company_name %> recomme
     <tr>
       <th>Source ID</th>
         <td>
-          <code>Doppler</code>
+          <code>doppler</code>
         </td>
     </tr>
     <tr>
       <th>Metrics</th>
         <td>
-          Dropped<br>
-          Ingress
+          <code>dropped</code><br>
+          <code>ingress</code>
         </td>
     </tr>
     <tr>
@@ -263,13 +263,13 @@ There are three key capacity scaling indicators <%= vars.company_name %> recomme
     <tr>
       <th>Source ID</th>
         <td>
-          <code>Doppler</code>
+          <code>doppler</code>
         </td>
     </tr>
     <tr>
       <th>Metrics</th>
         <td>
-          Ingress
+          <code>ingress</code>
         </td>
     </tr>
     <tr>
@@ -296,7 +296,7 @@ There are three key capacity scaling indicators <%= vars.company_name %> recomme
 </table>
 
 <table>
-  <tr><th id="rlp-ksi" colspan="2" style="text-align: center;">Reverse Log Proxy Loss Rate</th></tr>
+  <tr><th id="rlp-ksi" colspan="2" style="text-align: center;"><br>Reverse Log Proxy Loss Rate<br><br></th></tr>
     <tr>
       <th width="25">Description</th>
         <td>
@@ -314,14 +314,14 @@ There are three key capacity scaling indicators <%= vars.company_name %> recomme
     <tr>
       <th>Source ID</th>
         <td>
-          <code>Rlp</code>
+          <code>rlp</code>
         </td>
     </tr>
     <tr>
       <th>Metrics</th>
         <td>
-          Ingress<br>
-          Dropped
+          <code>ingress</code><br>
+          <code>dropped</code>
         </td>
     </tr>
     <tr>
@@ -357,17 +357,27 @@ There are three key capacity scaling indicators <%= vars.company_name %> recomme
 
 <%= vars.company_name %> recommends the following scaling indicator for monitoring the performance of consumers of the Firehose.
 
-### <a id="slow-consumer"></a> Slow Consumer Drops
-
 <table>
-  <tr><th colspan="2" style="text-align: center;">doppler_proxy.slow_consumer</th></tr>
+  <tr><th id="slow-consumer" colspan="2" style="text-align: center;"><br>Slow Consumer Drops<br><br></th></tr>
     <tr>
       <th width="25">Description</th>
-        <td>Within <%= vars.app_runtime_abbr %>, metrics and logs enter the Firehose for transport and exit out of the platform via a consumer nozzle. If the consuming downstream system fails to keep up with the exiting stream of metrics, the Firehose is forced to close the connection to protect itself from back-pressure. The Firehose increments <code>slow_consumer</code> with each connection that it closes because a consumer could not keep up.</td>
+        <td>doppler_proxy.slow_consumer <br> Within <%= vars.app_runtime_abbr %>, metrics and logs enter the Firehose for transport and exit out of the platform via a consumer nozzle. If the consuming downstream system fails to keep up with the exiting stream of metrics, the Firehose is forced to close the connection to protect itself from back-pressure. The Firehose increments <code>slow_consumer</code> with each connection that it closes because a consumer could not keep up.</td>
     </tr>
     <tr>
       <th>Purpose</th>
         <td>This metric indicates that a Firehose consumer, such as a monitoring tool nozzle, is ingesting too slowly. If this number is anomalous, it may result in the downstream monitoring tool not having all expected data, even though that data was successfully transported through the Firehose.</td>
+    </tr>
+    <tr>
+      <th>Source ID</th>
+        <td>
+          <code>doppler_proxy</code>
+        </td>
+    </tr>
+    <tr>
+      <th>Metrics</th>
+        <td>
+          <code>slow_consumer</code>
+        </td>
     </tr>
     <tr>
       <th>Recommended thresholds</th>
@@ -388,13 +398,12 @@ There are three key capacity scaling indicators <%= vars.company_name %> recomme
     </tr>
 </table>
 
-### <a id="rlp-egress-dropped"></a> Reverse Log Proxy Egress Dropped Messages
-
 <table>
-  <tr><th colspan="2" style="text-align: center;">rlp.dropped, direction: egress</th></tr>
+  <tr><th id="rlp-egress-dropped" colspan="2" style="text-align: center;"><br>Reverse Log Proxy Egress Dropped Messages <br><br></th></tr>
     <tr>
       <th width="25">Description</th>
         <td>
+          rlp.dropped, direction: egress<br>
           Within <%= vars.app_runtime_abbr %>, logs and metrics enter Loggregator for transport and then egress through the Reverse Log Proxy (RLP). The RLP drops messages when consumers of the RLP, such as monitoring tool nozzles, ingest the exiting stream of logs and metrics too slowly.
           <p class="note"><strong>Note:</strong> The <code>rlp.dropped</code> metric includes both <code>ingress</code> and <code>egress</code> directions. To differentiate between <code>ingress</code> and <code>egress</code>, refer to the <code>direction</code> tag on the metric.</p>
         </td>
@@ -402,6 +411,19 @@ There are three key capacity scaling indicators <%= vars.company_name %> recomme
     <tr>
       <th>Purpose</th>
         <td>This metric indicates that a consumer of logs and metrics from the RLP, such as a monitoring tool nozzle, is ingesting RLP messages too slowly.</td>
+    </tr>
+    <tr>
+      <th>Source ID</th>
+        <td>
+          <code>rlp</code>
+        </td>
+    </tr>
+    <tr>
+      <th>Metrics</th>
+        <td>
+          <code>dropped</code><br>
+          <code>egress</code>
+        </td>
     </tr>
     <tr>
       <th>Recommended thresholds</th>
