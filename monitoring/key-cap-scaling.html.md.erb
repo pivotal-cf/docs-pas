@@ -209,7 +209,7 @@ There are three key capacity scaling indicators <%= vars.company_name %> recomme
     <tr>
       <th>Source ID</th>
         <td>
-          <code>doppler</code>
+          <code>Doppler</code>
         </td>
     </tr>
     <tr>
@@ -261,6 +261,18 @@ There are three key capacity scaling indicators <%= vars.company_name %> recomme
         <td>The scaling indicator <%= vars.company_name %> recommends is to look at the average load on the Doppler instances, and increase the number of Doppler instances when the derived rate is 16,000 envelopes per second, or 1 million envelopes per minute.</td>
     </tr>
     <tr>
+      <th>Source ID</th>
+        <td>
+          <code>Doppler</code>
+        </td>
+    </tr>
+    <tr>
+      <th>Metrics</th>
+        <td>
+          Ingress
+        </td>
+    </tr>
+    <tr>
       <th>Recommended thresholds</th>
         <td><strong>Scale indicator:</strong> &ge; 16,000 envelopes per second (or 1 million envelopes per minute)</td>
     </tr>
@@ -283,10 +295,8 @@ There are three key capacity scaling indicators <%= vars.company_name %> recomme
     </tr>
 </table>
 
-### <a id="rlp-ksi"></a> Reverse Log Proxy Loss Rate
-
 <table>
-  <tr><th colspan="2" style="text-align: center;">loggregator.rlp.dropped / loggregator.rlp.ingress</th></tr>
+  <tr><th id="rlp-ksi" colspan="2" style="text-align: center;">Reverse Log Proxy Loss Rate</th></tr>
     <tr>
       <th width="25">Description</th>
         <td>
@@ -299,6 +309,19 @@ There are three key capacity scaling indicators <%= vars.company_name %> recomme
         <td>
           Excessive dropped messages can indicate that the RLP is overloaded and that the Traffic Controllers need to be scaled.<br><br>
           The scaling indicator <%= vars.company_name %> recommends is to look at the maximum per minute loss rate over a 5-minute window and scale if the derived loss rate value grows greater than <code>0.1</code>.
+        </td>
+    </tr>
+    <tr>
+      <th>Source ID</th>
+        <td>
+          <code>Rlp</code>
+        </td>
+    </tr>
+    <tr>
+      <th>Metrics</th>
+        <td>
+          Ingress<br>
+          Dropped
         </td>
     </tr>
     <tr>
