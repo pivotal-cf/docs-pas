@@ -399,7 +399,7 @@ There are three key capacity scaling indicators <%= vars.company_name %> recomme
 </table>
 
 <table>
-  <tr><th id="rlp-egress-dropped" colspan="2" style="text-align: center;"><br>Reverse Log Proxy Egress Dropped Messages <br><br></th></tr>
+  <tr><th id="rlp-egress-dropped" colspan="2" style="text-align: center;"><br>Reverse Log Proxy Egress Dropped Messages<br><br></th></tr>
     <tr>
       <th width="25">Description</th>
         <td>
@@ -444,13 +444,12 @@ There are three key capacity scaling indicators <%= vars.company_name %> recomme
     </tr>
 </table>
 
-### <a id="doppler-egress-dropped"></a> Doppler Egress Dropped Messages
-
 <table>
-  <tr><th colspan="2" style="text-align: center;">doppler.dropped, direction: egress</th></tr>
+  <tr><th id="doppler-egress-dropped" colspan="2" style="text-align: center;"><br>Doppler Egress Dropped Messages<br><br></th></tr>
     <tr>
       <th width="25">Description</th>
         <td>
+          doppler.dropped, direction: egress <br>
           Within <%= vars.app_runtime_abbr %>, logs and metrics enter Loggregator for transport and then egress through Doppler. Doppler drops messages when consumers of the RLP, such as monitoring tool nozzles, ingest the exiting stream of logs and metrics too slowly.
           <p class="note"><strong>Note:</strong> The <code>doppler.dropped</code> metric includes both <code>ingress</code> and <code>egress</code> directions. To differentiate between <code>ingress</code> and <code>egress</code>, refer to the <code>direction</code> tag on the metric.</p>
         </td>
@@ -458,6 +457,19 @@ There are three key capacity scaling indicators <%= vars.company_name %> recomme
     <tr>
       <th>Purpose</th>
         <td>This metric indicates that a consumer of logs and metrics from the RLP, such as a monitoring tool nozzle, is ingesting too slowly.</td>
+    </tr>
+    <tr>
+      <th>Source ID</th>
+        <td>
+          <code>doppler</code>
+        </td>
+    </tr>
+    <tr>
+      <th>Metrics</th>
+        <td>
+          <code>dropped</code><br>
+          <code>egress</code>
+        </td>
     </tr>
     <tr>
       <th>Recommended thresholds</th>
@@ -485,13 +497,12 @@ There is a single key capacity scaling indicator <%= vars.company_name %> recomm
 
 <p class="note"><strong>Note:</strong> These Syslog Drain scaling indicators are only relevant if your deployment contains apps using the syslog drain binding feature.</p>
 
-### <a id="syslog-agent-ksi"></a> Syslog Agent Loss Rate
-
 <table>
-  <tr><th colspan="2" style="text-align: center;">loggregator-agent.syslog_agent.dropped{direction:egress} / loggregator-agent.loggr-syslog-agent.ingress{scope:all_drains}</th></tr>
+  <tr><th id="syslog-agent-ksi" colspan="2" style="text-align: center;"><br>Syslog Agent Loss Rate<br><br></th></tr>
     <tr>
       <th width="25">Description</th>
         <td>
+          loggregator-agent.syslog_agent.dropped{direction:egress} / loggregator-agent.loggr-syslog-agent.ingress{scope:all_drains} <br>
           The loss rate of Syslog Agents. The loss rate of Syslog Agents is the messages dropped as a percentage of total message traffic through Syslog Agents. The message traffic through Syslog Agents includes logs for bound apps.<br><br>
 		      The Syslog Agent loss rate does not affect the Firehose loss rate. Message loss can occur in Syslog Agents without message loss occuring in the Firehose.
         </td>
@@ -499,6 +510,19 @@ There is a single key capacity scaling indicator <%= vars.company_name %> recomm
     <tr>
       <th>Purpose</th>
         <td>This metric indicates that the syslog drain consumer is ingesting logs from a syslog-drain-bound app too slowly.</td>
+    </tr>
+    <tr>
+      <th>Source ID</th>
+        <td>
+          <code>loggregator-agent</code>
+        </td>
+    </tr>
+    <tr>
+      <th>Metrics</th>
+        <td>
+          <code>dropped</code><br>
+          <code>ingress</code>
+        </td>
     </tr>
     <tr>
       <th>Recommended thresholds</th>
@@ -528,19 +552,29 @@ There is a single key capacity scaling indicator <%= vars.company_name %> recomm
 
 <%= vars.company_name %> recommends the following scaling indicator for monitoring the performance of Log Cache.
 
-### <a id="cache-duration"></a> Log Cache Caching Duration
-
 <table>
-  <tr><th colspan="2" style="text-align: center;">log_cache.log_cache_cache_period</th></tr>
+  <tr><th id="cache-duration" colspan="2" style="text-align: center;"><br>Log Cache Caching Duration<br><br></th></tr>
     <tr>
       <th width="25">Description</th>
-        <td>This metric indicates the age in milliseconds of the oldest data point stored in Log Cache.</td>
+        <td>log_cache.log_cache_cache_period <br>This metric indicates the age in milliseconds of the oldest data point stored in Log Cache.</td>
     </tr>
     <tr>
       <th>Purpose</th>
         <td>
           Log Cache stores all messages that are passed through the Firehose in an ephemeral in-memory store. The size of this store and the cache duration are dependent on the amount of memory available on the VM on which Log Cache runs. Some features of <%= vars.app_runtime_abbr %> rely on data being available in Log Cache, such as App Autoscaler.<br><br>
           <%= vars.company_name %> recommends scaling the VM on which Log Cache runs, so Log Cache can hold all messages that pass through Loggregator in the last 15 minutes, or 900000 milliseconds.
+        </td>
+    </tr>
+    <tr>
+      <th>Source ID</th>
+        <td>
+          <code>log_cache</code>
+        </td>
+    </tr>
+    <tr>
+      <th>Metrics</th>
+        <td>
+          <code>log_cache_cache_period</code>
         </td>
     </tr>
     <tr>
