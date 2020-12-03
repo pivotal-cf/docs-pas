@@ -115,8 +115,8 @@ There are three key capacity scaling indicators <%= vars.company_name %> recomme
     <tr>
       <th width="25%">Description</th>
         <td>
-          rep.CapacityRemainingContainers / rep.CapacityTotalContainers
-          Percentage of remaining container capacity for a given Diego Cell. Monitor this derived metric across all Diego Cells in a deployment.<br><br>
+          Divide the <code>CapacityRemainingContainers</code> metric by the <code>CapacityTotalContainers</code> metric to get the percentage of remaining container capacity for a given Diego Cell.
+          Monitor this derived metric across all Diego Cells in a deployment.<br><br>
           The metric <code>rep.CapacityRemainingContainers</code> indicates the remaining number of containers this Diego Cell can host.<br>
           The metric <code>rep.CapacityTotalContainer</code> indicates the total number of containers this Diego Cell can host.<br>
           A best practice deployment of <%= vars.app_runtime_abbr %> includes three availability zones (AZs). For these types of deployments, <%= vars.company_name %> recommends that you have enough capacity to suffer failure of an entire AZ.<br><br>
@@ -167,8 +167,8 @@ There are three key capacity scaling indicators <%= vars.company_name %> recomme
     <tr>
       <th width="25">Description</th>
         <td>
-          loggregator.doppler.dropped{direction=ingress} / loggregator.doppler.ingress
-          This derived value represents the loss rate occurring as messages are transported from the Loggregator Agent components through the Doppler components to the Firehose endpoints.<br><br>
+          Divide the <code>loggregator.doppler.dropped{direction=ingress}</code> metric by the <code>loggregator.doppler.ingress</code> metric to get the loss rate
+          occurring as messages that are transported from the Loggregator Agent components through the Doppler components to the Firehose endpoints.<br><br>
           Metric <code>loggregator.doppler.ingress</code> represents the number of messages entering Dopplers for transport through the Firehose, and <code>loggregator.doppler.dropped</code> represents the number of messages dropped without delivery.<br><br>
           Messages include the combined stream of logs from all apps and the metrics data from <%= vars.app_runtime_abbr %> components.<br><br>
           For more information about Loggregator components, see <a href="../../loggregator/architecture.html">Loggregator Architecture</a>.<br>
@@ -224,7 +224,8 @@ There are three key capacity scaling indicators <%= vars.company_name %> recomme
   <tr><th id="doppler-message-rate-ksi" colspan="2" style="text-align: center;">Doppler Message Rate Capacity</th></tr>
     <tr>
       <th width="25">Description</th>
-        <td> loggregator.doppler.ingress (sum across instances) / current number of Doppler instances. This derived value represents the average rate of envelopes (messages) per Doppler instance. Deriving this into a per-Doppler envelopes-per-second, or envelopes-per-minute, rate can indicate the need to scale when Doppler instances are at the maximum load <%= vars.company_name %> recommends.<br>
+        <td>Divide the <code>loggregator.doppler.ingress (sum across instances)</code> metric by the <code>current number of Doppler instances</code> to get the
+        average rate of envelopes (messages) per Doppler instance. Deriving this into a per-Doppler envelopes-per-second, or envelopes-per-minute, rate can indicate the need to scale when Doppler instances are at the maximum load <%= vars.company_name %> recommends.<br>
         The scaling indicator <%= vars.company_name %> recommends is to look at the average load on the Doppler instances, and increase the number of Doppler instances when the derived rate is 16,000 envelopes per second, or 1 million envelopes per minute.</td>
     </tr>
     <tr>
