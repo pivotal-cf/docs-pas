@@ -29,12 +29,7 @@ There are three key capacity scaling indicators <%= vars.company_name %> recomme
         <td>
           Divide the <code>CapacityRemainingMemory</code> metric with the <code>CapacityTotalMemory</code> to get the percentage of remaining memory capacity for a given Diego Cell. Monitor this derived metric across all Diego Cells in a deployment.<br><br>
           The metric <code>rep.CapacityRemainingMemory</code> indicates the remaining amount in MiB of memory available for this Diego Cell to allocate to containers.<br>
-          The metric <code>rep.CapacityTotalMemory</code> indicates the total amount in MiB of memory available for this Diego Cell to allocate to containers.
-        </td>
-    </tr>
-    <tr>
-      <th>Purpose</th>
-        <td>
+          The metric <code>rep.CapacityTotalMemory</code> indicates the total amount in MiB of memory available for this Diego Cell to allocate to containers.<br>
           A best practice deployment of <%= vars.app_runtime_abbr %> includes three availability zones (AZs). For these types of deployments, <%= vars.company_name %> recommends that you have enough capacity to suffer failure of an entire AZ.<br><br>
           The <em>Recommended threshold</em> assumes a three-AZ configuration. Adjust the threshold percentage if you have more or fewer AZs.
         </td>
@@ -81,12 +76,7 @@ There are three key capacity scaling indicators <%= vars.company_name %> recomme
         <td>
           Divide the <code>CapacityRemainingDisk</code> metric by the <code>CapacityTotalDisk</code> metric to get the percentage of remaining disk capacity for a given Diego Cell. Monitor this derived metric across all Diego Cells in a deployment.<br><br>
           The metric <code>rep.CapacityRemainingDisk</code> indicates the remaining amount in MiB of disk available for this Diego Cell to allocate to containers.<br>
-          The metric <code>rep.CapacityTotalDisk</code> indicates the total amount in MiB of disk available for this Diego Cell to allocate to containers.
-        </td>
-    </tr>
-    <tr>
-      <th>Purpose</th>
-        <td>
+          The metric <code>rep.CapacityTotalDisk</code> indicates the total amount in MiB of disk available for this Diego Cell to allocate to containers.<br>
           A best practice deployment of <%= vars.app_runtime_abbr %> includes three availability zones (AZs). For these types of deployments, <%= vars.company_name %> recommends that you have enough capacity to suffer failure of an entire AZ.<br><br>
           The <em>Recommended threshold</em> assumes a three-AZ configuration. Adjust the threshold percentage if you have more or fewer AZs.
         </td>
@@ -134,15 +124,10 @@ There are three key capacity scaling indicators <%= vars.company_name %> recomme
           rep.CapacityRemainingContainers / rep.CapacityTotalContainers
           Percentage of remaining container capacity for a given Diego Cell. Monitor this derived metric across all Diego Cells in a deployment.<br><br>
           The metric <code>rep.CapacityRemainingContainers</code> indicates the remaining number of containers this Diego Cell can host.<br>
-          The metric <code>rep.CapacityTotalContainer</code> indicates the total number of containers this Diego Cell can host.
-        </td>
-    <tr>
-      <th>Purpose</th>
-        <td>
+          The metric <code>rep.CapacityTotalContainer</code> indicates the total number of containers this Diego Cell can host.<br>
           A best practice deployment of <%= vars.app_runtime_abbr %> includes three availability zones (AZs). For these types of deployments, <%= vars.company_name %> recommends that you have enough capacity to suffer failure of an entire AZ.<br><br>
           The <em>Recommended threshold</em> assumes a three-AZ configuration. Adjust the threshold percentage if you have more or fewer AZs.
         </td>
-    </tr>
     <tr>
       <th>Source ID</th>
         <td>
@@ -192,13 +177,8 @@ There are three key capacity scaling indicators <%= vars.company_name %> recomme
           This derived value represents the loss rate occurring as messages are transported from the Loggregator Agent components through the Doppler components to the Firehose endpoints.<br><br>
           Metric <code>loggregator.doppler.ingress</code> represents the number of messages entering Dopplers for transport through the Firehose, and <code>loggregator.doppler.dropped</code> represents the number of messages dropped without delivery.<br><br>
           Messages include the combined stream of logs from all apps and the metrics data from <%= vars.app_runtime_abbr %> components.<br><br>
-          For more information about Loggregator components, see <a href="../../loggregator/architecture.html">Loggregator Architecture</a>.
-        </td>
-    </tr>
-    <tr>
-      <th>Purpose</th>
-        <td>
-          Excessive dropped messages can indicate the Dopplers or Traffic Controllers are not processing messages quickly enough.<br><br>
+          For more information about Loggregator components, see <a href="../../loggregator/architecture.html">Loggregator Architecture</a>.<br>
+          Excessive dropped messages can indicate the Dopplers or Traffic Controllers are not processing messages quickly enough.<br>
           The scaling indicator <%= vars.company_name %> recommends is a dropped message rate greater than <code>0.01</code>. This scaling indicator is calculated by expressing the total number of dropped messages as a percentage of the total throughput and scale.<br><br>
           Doppler emits two separate dropped metrics, one for ingress and one for egress. The envelopes have a <code>direction</code>. For this indicator, use the metric with a <code>direction</code> tag with a value of <code>ingress</code>.
         </td>
@@ -250,11 +230,8 @@ There are three key capacity scaling indicators <%= vars.company_name %> recomme
   <tr><th id="doppler-message-rate-ksi" colspan="2" style="text-align: center;">Doppler Message Rate Capacity</th></tr>
     <tr>
       <th width="25">Description</th>
-        <td> loggregator.doppler.ingress (sum across instances) / current number of Doppler instances. This derived value represents the average rate of envelopes (messages) per Doppler instance. Deriving this into a per-Doppler envelopes-per-second, or envelopes-per-minute, rate can indicate the need to scale when Doppler instances are at the maximum load <%= vars.company_name %> recommends.</td>
-    </tr>
-    <tr>
-      <th>Purpose</th>
-        <td>The scaling indicator <%= vars.company_name %> recommends is to look at the average load on the Doppler instances, and increase the number of Doppler instances when the derived rate is 16,000 envelopes per second, or 1 million envelopes per minute.</td>
+        <td> loggregator.doppler.ingress (sum across instances) / current number of Doppler instances. This derived value represents the average rate of envelopes (messages) per Doppler instance. Deriving this into a per-Doppler envelopes-per-second, or envelopes-per-minute, rate can indicate the need to scale when Doppler instances are at the maximum load <%= vars.company_name %> recommends.<br>
+        The scaling indicator <%= vars.company_name %> recommends is to look at the average load on the Doppler instances, and increase the number of Doppler instances when the derived rate is 16,000 envelopes per second, or 1 million envelopes per minute.</td>
     </tr>
     <tr>
       <th>Source ID</th>
@@ -296,12 +273,7 @@ There are three key capacity scaling indicators <%= vars.company_name %> recomme
       <th width="25">Description</th>
         <td>
           The loss rate of the reverse log proxies (RLP), or the total messages dropped as a percentage of the total traffic coming through the RLP. Total messages include only logs for bound apps.<br><br>
-          This loss rate is specific to the RLP and does not impact the Firehose loss rate. For example, you can suffer lossiness in the RLP while not suffering any lossiness in the Firehose.
-        </td>
-    </tr>
-    <tr>
-      <th>Purpose</th>
-        <td>
+          This loss rate is specific to the RLP and does not impact the Firehose loss rate. For example, you can suffer lossiness in the RLP while not suffering any lossiness in the Firehose.<br>
           Excessive dropped messages can indicate that the RLP is overloaded and that the Traffic Controllers need to be scaled.<br><br>
           The scaling indicator <%= vars.company_name %> recommends is to look at the maximum per minute loss rate over a 5-minute window and scale if the derived loss rate value grows greater than <code>0.1</code>.
         </td>
@@ -355,11 +327,7 @@ There are three key capacity scaling indicators <%= vars.company_name %> recomme
   <tr><th id="slow-consumer" colspan="2" style="text-align: center;"><br>Slow Consumer Drops<br><br></th></tr>
     <tr>
       <th width="25">Description</th>
-        <td>doppler_proxy.slow_consumer <br> Within <%= vars.app_runtime_abbr %>, metrics and logs enter the Firehose for transport and exit out of the platform via a consumer nozzle. If the consuming downstream system fails to keep up with the exiting stream of metrics, the Firehose is forced to close the connection to protect itself from back-pressure. The Firehose increments <code>slow_consumer</code> with each connection that it closes because a consumer could not keep up.</td>
-    </tr>
-    <tr>
-      <th>Purpose</th>
-        <td>This metric indicates that a Firehose consumer, such as a monitoring tool nozzle, is ingesting too slowly. If this number is anomalous, it may result in the downstream monitoring tool not having all expected data, even though that data was successfully transported through the Firehose.</td>
+        <td>doppler_proxy.slow_consumer <br> Within <%= vars.app_runtime_abbr %>, metrics and logs enter the Firehose for transport and exit out of the platform via a consumer nozzle. If the consuming downstream system fails to keep up with the exiting stream of metrics, the Firehose is forced to close the connection to protect itself from back-pressure. The Firehose increments <code>slow_consumer</code> with each connection that it closes because a consumer could not keep up.<br>This metric indicates that a Firehose consumer, such as a monitoring tool nozzle, is ingesting too slowly. If this number is anomalous, it may result in the downstream monitoring tool not having all expected data, even though that data was successfully transported through the Firehose.</td>
     </tr>
     <tr>
       <th>Source ID</th>
@@ -398,12 +366,9 @@ There are three key capacity scaling indicators <%= vars.company_name %> recomme
         <td>
           rlp.dropped, direction: egress<br>
           Within <%= vars.app_runtime_abbr %>, logs and metrics enter Loggregator for transport and then egress through the Reverse Log Proxy (RLP). The RLP drops messages when consumers of the RLP, such as monitoring tool nozzles, ingest the exiting stream of logs and metrics too slowly.
-          <p class="note"><strong>Note:</strong> The <code>rlp.dropped</code> metric includes both <code>ingress</code> and <code>egress</code> directions. To differentiate between <code>ingress</code> and <code>egress</code>, refer to the <code>direction</code> tag on the metric.</p>
+          <p class="note"><strong>Note:</strong> The <code>rlp.dropped</code> metric includes both <code>ingress</code> and <code>egress</code> directions. To differentiate between <code>ingress</code> and <code>egress</code>, refer to the <code>direction</code> tag on the metric.</p><br>
+          This metric indicates that a consumer of logs and metrics from the RLP, such as a monitoring tool nozzle, is ingesting RLP messages too slowly.
         </td>
-    </tr>
-    <tr>
-      <th>Purpose</th>
-        <td>This metric indicates that a consumer of logs and metrics from the RLP, such as a monitoring tool nozzle, is ingesting RLP messages too slowly.</td>
     </tr>
     <tr>
       <th>Source ID</th>
@@ -444,11 +409,8 @@ There are three key capacity scaling indicators <%= vars.company_name %> recomme
           doppler.dropped, direction: egress <br>
           Within <%= vars.app_runtime_abbr %>, logs and metrics enter Loggregator for transport and then egress through Doppler. Doppler drops messages when consumers of the RLP, such as monitoring tool nozzles, ingest the exiting stream of logs and metrics too slowly.
           <p class="note"><strong>Note:</strong> The <code>doppler.dropped</code> metric includes both <code>ingress</code> and <code>egress</code> directions. To differentiate between <code>ingress</code> and <code>egress</code>, refer to the <code>direction</code> tag on the metric.</p>
+          This metric indicates that a consumer of logs and metrics from the RLP, such as a monitoring tool nozzle, is ingesting too slowly.
         </td>
-    </tr>
-    <tr>
-      <th>Purpose</th>
-        <td>This metric indicates that a consumer of logs and metrics from the RLP, such as a monitoring tool nozzle, is ingesting too slowly.</td>
     </tr>
     <tr>
       <th>Source ID</th>
@@ -495,12 +457,9 @@ There is a single key capacity scaling indicator <%= vars.company_name %> recomm
         <td>
           loggregator-agent.syslog_agent.dropped{direction:egress} / loggregator-agent.loggr-syslog-agent.ingress{scope:all_drains} <br>
           The loss rate of Syslog Agents. The loss rate of Syslog Agents is the messages dropped as a percentage of total message traffic through Syslog Agents. The message traffic through Syslog Agents includes logs for bound apps.<br><br>
-		      The Syslog Agent loss rate does not affect the Firehose loss rate. Message loss can occur in Syslog Agents without message loss occuring in the Firehose.
+		      The Syslog Agent loss rate does not affect the Firehose loss rate. Message loss can occur in Syslog Agents without message loss occuring in the Firehose.<br>
+          This metric indicates that the syslog drain consumer is ingesting logs from a syslog-drain-bound app too slowly.
         </td>
-    </tr>
-    <tr>
-      <th>Purpose</th>
-        <td>This metric indicates that the syslog drain consumer is ingesting logs from a syslog-drain-bound app too slowly.</td>
     </tr>
     <tr>
       <th>Source ID</th>
@@ -546,13 +505,9 @@ There is a single key capacity scaling indicator <%= vars.company_name %> recomm
   <tr><th id="cache-duration" colspan="2" style="text-align: center;"><br>Log Cache Caching Duration<br><br></th></tr>
     <tr>
       <th width="25">Description</th>
-        <td>log_cache.log_cache_cache_period <br>This metric indicates the age in milliseconds of the oldest data point stored in Log Cache.</td>
-    </tr>
-    <tr>
-      <th>Purpose</th>
-        <td>
-          Log Cache stores all messages that are passed through the Firehose in an ephemeral in-memory store. The size of this store and the cache duration are dependent on the amount of memory available on the VM on which Log Cache runs. Some features of <%= vars.app_runtime_abbr %> rely on data being available in Log Cache, such as App Autoscaler.<br><br>
-          <%= vars.company_name %> recommends scaling the VM on which Log Cache runs, so Log Cache can hold all messages that pass through Loggregator in the last 15 minutes, or 900000 milliseconds.
+        <td>log_cache.log_cache_cache_period <br>This metric indicates the age in milliseconds of the oldest data point stored in Log Cache.<br>
+        Log Cache stores all messages that are passed through the Firehose in an ephemeral in-memory store. The size of this store and the cache duration are dependent on the amount of memory available on the VM on which Log Cache runs. Some features of <%= vars.app_runtime_abbr %> rely on data being available in Log Cache, such as App Autoscaler.<br><br>
+        <%= vars.company_name %> recommends scaling the VM on which Log Cache runs, so Log Cache can hold all messages that pass through Loggregator in the last 15 minutes, or 900000 milliseconds.
         </td>
     </tr>
     <tr>
@@ -596,14 +551,10 @@ There is one key capacity scaling indicator <%= vars.company_name %> recommends 
   <tr><th id="system.cpu.user" colspan="2" style="text-align: center;"><br>Gorouter VM CPU Utilization<br><br></th></tr>
     <tr>
       <th>Description</th>
-        <td>system.cpu.user of the Gorouter VM(s)<br>system_cpu_user of the Gorouter VM(s) <br>CPU utilization of the Gorouter VM(s)</td>
-    </tr>
-    <tr>
-      <th>Purpose</th>
-        <td>
-          High CPU utilization of the Gorouter VMs can increase latency and cause throughput, or requests per second, to level off. <%= vars.company_name %> recommends keeping the CPU utilization within a maximum range of 60-70% for best Gorouter performance.<br><br>
-          If you want to increase throughput capabilities while also keeping latency low, <%= vars.company_name %> recommends scaling the Gorouter while continuing to ensure that CPU utilization does not exceed the maximum range <%= vars.company_name %> recommends.
-          <p class="note"><strong>Note:</strong> At greater than 8 CPUs, vertical scaling is no longer beneficial for increasing throughput.</p>
+        <td>system.cpu.user of the Gorouter VM(s)<br>system_cpu_user of the Gorouter VM(s) <br>CPU utilization of the Gorouter VM(s)<br>
+        High CPU utilization of the Gorouter VMs can increase latency and cause throughput, or requests per second, to level off. <%= vars.company_name %> recommends keeping the CPU utilization within a maximum range of 60-70% for best Gorouter performance.<br><br>
+        If you want to increase throughput capabilities while also keeping latency low, <%= vars.company_name %> recommends scaling the Gorouter while continuing to ensure that CPU utilization does not exceed the maximum range <%= vars.company_name %> recommends.
+        <p class="note"><strong>Note:</strong> At greater than 8 CPUs, vertical scaling is no longer beneficial for increasing throughput.</p>
         </td>
     </tr>
     <tr>
@@ -652,13 +603,9 @@ There is one key capacity scaling indicator <%= vars.company_name %> recommends 
   <tr><th id="uaa-system.cpu.user" colspan="2" style="text-align: center;"><br>UAA VM CPU Utilization<br><br></th></tr>
     <tr>
       <th>Description</th>
-        <td>system.cpu.user of the UAA VM(s)<br>system_cpu_user of the UAA VM(s) <br>CPU utilization of the UAA VM(s)</td>
-    </tr>
-    <tr>
-      <th>Purpose</th>
-        <td>
-          High CPU utilization of the UAA VMs can increase latency and cause throughput, or requests per second, to level off. <%= vars.company_name %> recommends keeping the CPU utilization within a maximum range of 80-90% for best UAA performance.<br><br>
-          If you want to increase throughput capabilities while keeping latency low, <%= vars.company_name %> recommends scaling the UAA VMs and ensuring that CPU utilization does not exceed the maximum range <%= vars.company_name %> recommends.</td>
+        <td>system.cpu.user of the UAA VM(s)<br>system_cpu_user of the UAA VM(s) <br>CPU utilization of the UAA VM(s)<br>
+        High CPU utilization of the UAA VMs can increase latency and cause throughput, or requests per second, to level off. <%= vars.company_name %> recommends keeping the CPU utilization within a maximum range of 80-90% for best UAA performance.<br><br>
+        If you want to increase throughput capabilities while keeping latency low, <%= vars.company_name %> recommends scaling the UAA VMs and ensuring that CPU utilization does not exceed the maximum range <%= vars.company_name %> recommends.</td>
     </tr>
     <tr>
     <th>Source ID</th>
@@ -709,14 +656,9 @@ There is one key capacity scaling indicator for external S3 external storage.
   <tr><th colspan="2" style="text-align: center;"><br>system.disk.persistent.percent of NFS server VM(s)<br>system_disk_persistent_percent of NFS server VM(s)<br><br></th></tr>
     <tr>
       <th width="25%">Description</th>
-        <td><em>If applicable:</em> Monitor the percentage of persistent disk used on the VM for the NFS Server job.</td>
-    </tr>
-    <tr>
-      <th>Purpose</th>
-        <td>
-          If you do not use an external S3 repository for external storage with no capacity constraints, you must monitor the <%= vars.app_runtime_abbr %> object store to push new app and buildpacks.<br><br>
-          If you use an internal NFS/WebDAV backed blobstore, consider scaling the persistent disk when it reaches 75% capacity.
-        </td>
+        <td><em>If applicable:</em> Monitor the percentage of persistent disk used on the VM for the NFS Server job.<br>
+        If you do not use an external S3 repository for external storage with no capacity constraints, you must monitor the <%= vars.app_runtime_abbr %> object store to push new app and buildpacks.<br><br>
+        If you use an internal NFS/WebDAV backed blobstore, consider scaling the persistent disk when it reaches 75% capacity.</td>
     </tr>
     <tr>
     <th>Source ID</th>
