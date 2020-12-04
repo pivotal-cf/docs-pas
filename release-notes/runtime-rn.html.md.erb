@@ -22,7 +22,7 @@ on the Cloud Foundry website.
 ## <a id='releases'></a> Releases
 
 <%# DO NOT DELETE THIS LINE - robots use this to add new release notes %>
- 
+
 ### <a id='2.8.23'></a> 2.8.23
 
 **Release Date:** 11/17/2020
@@ -90,9 +90,9 @@ on the Cloud Foundry website.
     <tr><td>uaa</td><td>74.5.21</td></tr>
   </tbody>
 </table>
- 
- 
- 
+
+
+
 ### <a id='2.8.22'></a> 2.8.22 - Withdrawn
 
 <p class="note warning"><strong> Warning:</strong> This release has been removed from VMware Tanzu Network due to the <a href="#bosh-system-metrics-forwarder-regression">Bosh System Metrics Forwarder release v0.0.19 regresssion</a>.</p>
@@ -175,8 +175,8 @@ on the Cloud Foundry website.
     <tr><td>uaa</td><td>74.5.20</td></tr>
   </tbody>
 </table>
- 
- 
+
+
 
 ### <a id='2.8.21'></a> 2.8.21
 
@@ -2241,6 +2241,15 @@ in _Pivotal Platform v2.7 Breaking Changes_.
 
 For information about a known issue related to the metadata tags,
 see [Metadata Tags Not Updated if App, Org, or Space Name Changed](#metadata-tags-known-issue).
+
+### <a id='rolling-deployments'></a> Rolling App Deployments Is GA
+Rolling app deployments was released as a beta feature in <%= vars.app_runtime_abbr %> v2.4. This feature allows you to push updates to apps without incurring downtime.
+
+This feature is enabled by default. You can optionally disable it in the **Advanced Features** pane.
+
+Rolling App Deployments is GA through Apps Manager and v3 CC API. The rolling app deployments feature is still experimental on cf CLI v6. To use the feature as GA through the cf CLI, upgrade to TAS 2.10+
+
+For more information, see [Rolling App Deployments](https://docs.pivotal.io/platform/2-7/devguide/deploy-apps/rolling-deploy.html).
 
 ## <a id='breaking-changes'></a> Breaking Changes
 
