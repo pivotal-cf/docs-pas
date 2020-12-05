@@ -1602,6 +1602,14 @@ To use the Log and Metric Agent Architecture components, you must also configure
 
 For more information about the Log and Metric Agent Architecture, see [Log and Metric Agent Architecture (Beta)](https://docs.pivotal.io/application-service/2-9/loggregator/agent-architecture.html).
 
+### <a id='rolling-deployments'></a> Rolling App Deployments Is GA
+Rolling app deployments was released as a beta feature in <%= vars.app_runtime_abbr %> v2.4. This feature allows you to push updates to apps without incurring downtime.
+
+This feature is enabled by default. You can optionally disable it in the **Advanced Features** pane.
+
+Rolling App Deployments is GA through Apps Manager and v3 CC API. The rolling app deployments feature is still experimental on cf CLI v6. To use the feature as GA through the cf CLI, upgrade to TAS 2.10+
+
+For more information, see [Rolling App Deployments](https://docs.pivotal.io/platform/2-7/devguide/deploy-apps/rolling-deploy.html).
 
 ## <a id='breaking-changes'></a> Breaking Changes
 
