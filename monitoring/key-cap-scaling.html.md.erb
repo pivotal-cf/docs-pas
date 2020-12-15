@@ -2,8 +2,8 @@
 title: Key Capacity Scaling Indicators
 owner: PCF Metrics Platform Monitoring
 ---
-WHAT WILL THIS INDICATOR TELL ME? 
-WHAT IS THE INDICATOR? 
+WHAT WILL THIS INDICATOR TELL ME?
+WHAT IS THE INDICATOR?
 HOW DO I GET IT?
 
 This topic describes key capacity scaling indicators that operators monitor to determine when they need to scale their
@@ -230,8 +230,8 @@ There are three key capacity scaling indicators <%= vars.company_name %> recomme
   <tr><th id="doppler-message-rate-ksi" colspan="2" style="text-align: center;">Doppler Message Rate Capacity</th></tr>
     <tr>
       <th width="25">Description</th>
-        <td>The Doppler Message Rate Capacity indicator is the average rate of messages per Doppler instance. Divide the sum of <code>ingress</code> metrics across instances by the <code>current number of Doppler instances</code> to get the
-        average rate of messages per Doppler instance.</td>
+        <td>The Doppler Message Rate Capacity indicator is the average number of messages per Doppler instance. Divide the sum of <code>ingress</code> metrics across instances by the <code>current number of Doppler instances</code> to get this
+        average.</td>
     </tr>
     <tr>
       <th>Source ID</th>
@@ -272,7 +272,7 @@ There are three key capacity scaling indicators <%= vars.company_name %> recomme
     <tr>
       <th width="25">Description</th>
         <td>
-          The Reverse Log Proxy Loss Rate indicator is rate of logs for bound apps dropped from the Reverse Log Proxies (RLP). Divide the <code>dropped</code> metric by the <code>ingress</code> metric to get this indicator.<br><br>
+          The Reverse Log Proxy Loss Rate indicator is the rate of bound app logs dropped from the Reverse Log Proxies (RLP). Divide the <code>dropped</code> metric by the <code>ingress</code> metric to get this indicator.<br><br>
           This loss rate is specific to the RLP and does not impact the Firehose loss rate.<br>
         </td>
     </tr>
@@ -326,7 +326,8 @@ There are three key capacity scaling indicators <%= vars.company_name %> recomme
   <tr><th id="slow-consumer" colspan="2" style="text-align: center;"><br>Slow Consumer Drops<br><br></th></tr>
     <tr>
       <th width="25">Description</th>
-        <td>doppler_proxy.slow_consumer <br> Within <%= vars.app_runtime_abbr %>, metrics and logs enter the Firehose for transport and exit out of the platform via a consumer nozzle. If the consuming downstream system fails to keep up with the exiting stream of metrics, the Firehose is forced to close the connection to protect itself from back-pressure. The Firehose increments <code>slow_consumer</code> with each connection that it closes because a consumer could not keep up.<br>This metric indicates that a Firehose consumer, such as a monitoring tool nozzle, is ingesting too slowly. If this number is anomalous, it may result in the downstream monitoring tool not having all expected data, even though that data was successfully transported through the Firehose.</td>
+        <td>The Slow Consumer Drops indicator is the <code>slow_consumer</code> metric incremented for each connection the Firehose closes because a consumer could not keep up.<br>
+          This indicator shows how fast a Firehose consumer, such as a monitoring tool nozzle, is ingesting data. If this number is anomalous, it may result in the downstream monitoring tool not having all expected data, even though that data was successfully transported through the Firehose.</td>
     </tr>
     <tr>
       <th>Source ID</th>
@@ -363,10 +364,8 @@ There are three key capacity scaling indicators <%= vars.company_name %> recomme
     <tr>
       <th width="25">Description</th>
         <td>
-          rlp.dropped, direction: egress<br>
-          Within <%= vars.app_runtime_abbr %>, logs and metrics enter Loggregator for transport and then egress through the Reverse Log Proxy (RLP). The RLP drops messages when consumers of the RLP, such as monitoring tool nozzles, ingest the exiting stream of logs and metrics too slowly.
-          <p class="note"><strong>Note:</strong> The <code>rlp.dropped</code> metric includes both <code>ingress</code> and <code>egress</code> directions. To differentiate between <code>ingress</code> and <code>egress</code>, refer to the <code>direction</code> tag on the metric.</p><br>
-          This metric indicates that a consumer of logs and metrics from the RLP, such as a monitoring tool nozzle, is ingesting RLP messages too slowly.
+          rlp.dropped, direction: egress <br>
+          Within TAS for VMs, logs and metrics enter Loggregator for transport and then egress through the Reverse Log Proxy (RLP). The RLP drops messages when consumers of the RLP, such as monitoring tool nozzles, ingest the exiting stream of logs and metrics too slowly.
         </td>
     </tr>
     <tr>
@@ -378,8 +377,13 @@ There are three key capacity scaling indicators <%= vars.company_name %> recomme
     <tr>
       <th>Metrics</th>
         <td>
-          <code>dropped</code><br>
-          <code>egress</code>
+          <code>dropped</code>
+        </td>
+    </tr>
+    <tr>
+      <th>Label</th>
+        <td>
+          <code>direction: egress</code>
         </td>
     </tr>
     <tr>
