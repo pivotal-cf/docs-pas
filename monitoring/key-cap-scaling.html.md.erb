@@ -25,7 +25,7 @@ There are three key capacity scaling indicators <%= vars.company_name %> recomme
     <tr>
       <th width="25%">Description</th>
         <td>
-          The Diego Cell Memory Capacity indicator is the percentage of remaining memory your Diego cells can allocate to containers.<br>
+          The Diego Cell Memory Capacity indicator is the percentage of remaining memory your Diego Cells can allocate to containers.<br>
           Divide the <code>CapacityRemainingMemory</code> metric with the <code>CapacityTotalMemory</code> to get this percentage.<br>
           The metric <code>CapacityRemainingMemory</code> is the remaining memory, in MiB, available to a Diego Cell.<br>
           The metric <code>CapacityTotalMemory</code> is the total memory, in MiB, available to a Diego Cell.<br>
@@ -410,10 +410,9 @@ There are three key capacity scaling indicators <%= vars.company_name %> recomme
     <tr>
       <th width="25">Description</th>
         <td>
-          doppler.dropped, direction: egress <br>
-          Within <%= vars.app_runtime_abbr %>, logs and metrics enter Loggregator for transport and then egress through Doppler. Doppler drops messages when consumers of the RLP, such as monitoring tool nozzles, ingest the exiting stream of logs and metrics too slowly.
+          The Doppler Egress Dropped Messages indicator shows the number of messages that the Dopplers drop when consumers of the RLP, such as monitoring tool nozzles, ingest the exiting stream of logs and metrics too slowly.
+          For more information about how the Dopplers transport logs and metrics through Loggregator, see <a href="../loggregator/architecture.html#loggregator-architecture">Loggregator Architecture</a> in <em>Loggregator Architecture</em>.
           <p class="note"><strong>Note:</strong> The <code>doppler.dropped</code> metric includes both <code>ingress</code> and <code>egress</code> directions. To differentiate between <code>ingress</code> and <code>egress</code>, refer to the <code>direction</code> tag on the metric.</p>
-          This metric indicates that a consumer of logs and metrics from the RLP, such as a monitoring tool nozzle, is ingesting too slowly.
         </td>
     </tr>
     <tr>
@@ -427,6 +426,12 @@ There are three key capacity scaling indicators <%= vars.company_name %> recomme
         <td>
           <code>dropped</code><br>
           <code>egress</code>
+        </td>
+    </tr>
+    <tr>
+      <th>Label</th>
+        <td>
+          <code>direction: egress</code>
         </td>
     </tr>
     <tr>
