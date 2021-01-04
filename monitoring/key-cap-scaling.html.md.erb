@@ -365,8 +365,7 @@ There are three key capacity scaling indicators <%= vars.company_name %> recomme
     <tr>
       <th width="25">Description</th>
         <td>
-          rlp.dropped, direction: egress <br>
-          Within TAS for VMs, logs and metrics enter Loggregator for transport and then egress through the Reverse Log Proxy (RLP). The RLP drops messages when consumers of the RLP, such as monitoring tool nozzles, ingest the exiting stream of logs and metrics too slowly.
+          The Reverse Log Proxy Egress Dropped Messages indicator shows the number of messages dropped when consumers of the RLP, such as monitoring tool nozzles, ingest the exiting stream of logs and metrics too slowly. Within TAS for VMs, logs and metrics enter Loggregator for transport and then egress through the Reverse Log Proxy (RLP).
         </td>
     </tr>
     <tr>
@@ -464,10 +463,8 @@ There is a single key capacity scaling indicator <%= vars.company_name %> recomm
     <tr>
       <th width="25">Description</th>
         <td>
-          loggregator-agent.syslog_agent.dropped{direction:egress} / loggregator-agent.loggr-syslog-agent.ingress{scope:all_drains} <br>
-          The loss rate of Syslog Agents. The loss rate of Syslog Agents is the messages dropped as a percentage of total message traffic through Syslog Agents. The message traffic through Syslog Agents includes logs for bound apps.<br><br>
+          Divide the <code>loggregator-agent.syslog_agent.dropped{direction:egress}</code> metric by the <code>loggregator-agent.loggr-syslog-agent.ingress{scope:all_drains}</code> metric to get the rate of messages dropped as a percentage of total message traffic through Syslog Agents. The message traffic through Syslog Agents includes logs for bound apps.The loss rate of Syslog Agents indicates that the syslog drain consumer is ingesting logs from a syslog-drain-bound app too slowly.<br>
 		      The Syslog Agent loss rate does not affect the Firehose loss rate. Message loss can occur in Syslog Agents without message loss occuring in the Firehose.<br>
-          This metric indicates that the syslog drain consumer is ingesting logs from a syslog-drain-bound app too slowly.
         </td>
     </tr>
     <tr>
@@ -481,6 +478,13 @@ There is a single key capacity scaling indicator <%= vars.company_name %> recomm
         <td>
           <code>dropped</code><br>
           <code>ingress</code>
+        </td>
+    </tr>
+    <tr>
+      <th>Label</th>
+        <td>
+          <code>direction:egress</code><br>
+          <code>scope:all_drains</code>
         </td>
     </tr>
     <tr>
@@ -514,9 +518,8 @@ There is a single key capacity scaling indicator <%= vars.company_name %> recomm
   <tr><th id="cache-duration" colspan="2" style="text-align: center;"><br>Log Cache Caching Duration<br><br></th></tr>
     <tr>
       <th width="25">Description</th>
-        <td>log_cache.log_cache_cache_period <br>This metric indicates the age in milliseconds of the oldest data point stored in Log Cache.<br>
-        Log Cache stores all messages that are passed through the Firehose in an ephemeral in-memory store. The size of this store and the cache duration are dependent on the amount of memory available on the VM on which Log Cache runs. Some features of <%= vars.app_runtime_abbr %> rely on data being available in Log Cache, such as App Autoscaler.<br><br>
-        <%= vars.company_name %> recommends scaling the VM on which Log Cache runs, so Log Cache can hold all messages that pass through Loggregator in the last 15 minutes, or 900000 milliseconds.
+        <td>The <code>log_cache.log_cache_cache_period</code> indicator shows the age in milliseconds of the oldest data point stored in Log Cache.<br>
+        Log Cache stores all messages that are passed through the Firehose in an ephemeral in-memory store. The size of this store and the cache duration are dependent on the amount of memory available on the VM where Log Cache runs.
         </td>
     </tr>
     <tr>
