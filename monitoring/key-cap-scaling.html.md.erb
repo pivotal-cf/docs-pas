@@ -563,10 +563,7 @@ There is one key capacity scaling indicator <%= vars.company_name %> recommends 
   <tr><th id="system.cpu.user" colspan="2" style="text-align: center;"><br>Gorouter VM CPU Utilization<br><br></th></tr>
     <tr>
       <th>Description</th>
-        <td>system.cpu.user of the Gorouter VM(s)<br>system_cpu_user of the Gorouter VM(s) <br>CPU utilization of the Gorouter VM(s)<br>
-        High CPU utilization of the Gorouter VMs can increase latency and cause throughput, or requests per second, to level off. <%= vars.company_name %> recommends keeping the CPU utilization within a maximum range of 60-70% for best Gorouter performance.<br><br>
-        If you want to increase throughput capabilities while also keeping latency low, <%= vars.company_name %> recommends scaling the Gorouter while continuing to ensure that CPU utilization does not exceed the maximum range <%= vars.company_name %> recommends.
-        <p class="note"><strong>Note:</strong> At greater than 8 CPUs, vertical scaling is no longer beneficial for increasing throughput.</p>
+        <td>The <code>system.cpu.user</code> indicator shows the CPU utilization of the Gorouter VM(s). High CPU utilization of the Gorouter VMs can increase latency and cause throughput, or requests per second, to level off.
         </td>
     </tr>
     <tr>
@@ -592,7 +589,10 @@ There is one key capacity scaling indicator <%= vars.company_name %> recommends 
     </tr>
     <tr>
       <th>How to scale</th>
-        <td>Resolve high utilization by scaling the Gorouters horizontally or vertically by editing the <strong>Router</strong> VM in the <strong>Resource Config</strong> pane of the <%= vars.app_runtime_abbr %> tile.</td>
+        <td>Resolve high utilization by scaling the Gorouters horizontally or vertically by editing the <strong>Router</strong> VM in the <strong>Resource Config</strong> pane of the <%= vars.app_runtime_abbr %> tile. <%= vars.company_name %> recommends keeping the CPU utilization within a maximum range of 60-70% for best Gorouter performance.<br><br>
+        If you want to increase throughput capabilities while also keeping latency low, <%= vars.company_name %> recommends scaling the Gorouter while continuing to ensure that CPU utilization does not exceed the maximum range <%= vars.company_name %> recommends.
+        <p class="note"><strong>Note:</strong> At greater than 8 CPUs, vertical scaling is no longer beneficial for increasing throughput.</p>
+        </td>
     </tr>
     <tr>
       <th>Additional details</th>
@@ -615,9 +615,7 @@ There is one key capacity scaling indicator <%= vars.company_name %> recommends 
   <tr><th id="uaa-system.cpu.user" colspan="2" style="text-align: center;"><br>UAA VM CPU Utilization<br><br></th></tr>
     <tr>
       <th>Description</th>
-        <td>system.cpu.user of the UAA VM(s)<br>system_cpu_user of the UAA VM(s) <br>CPU utilization of the UAA VM(s)<br>
-        High CPU utilization of the UAA VMs can increase latency and cause throughput, or requests per second, to level off. <%= vars.company_name %> recommends keeping the CPU utilization within a maximum range of 80-90% for best UAA performance.<br><br>
-        If you want to increase throughput capabilities while keeping latency low, <%= vars.company_name %> recommends scaling the UAA VMs and ensuring that CPU utilization does not exceed the maximum range <%= vars.company_name %> recommends.</td>
+        <td>The <code>system.cpu.user of the UAA VM(s)</code> indicator shows the CPU utilization of the UAA VM(s). High CPU utilization of the UAA VMs can increase latency and cause throughput, or requests per second, to level off.</td>
     </tr>
     <tr>
     <th>Source ID</th>
@@ -642,7 +640,8 @@ There is one key capacity scaling indicator <%= vars.company_name %> recommends 
     </tr>
     <tr>
       <th>How to scale</th>
-        <td>Resolve high utilization by scaling UAA horizontally or vertically. To scale UAA, navigate to the <strong>Resource Config</strong> pane of the <%= vars.app_runtime_abbr %> tile and edit the number of your <strong>UAA</strong> VM instances or change the VM type to a type that utilizes more CPU cores.</td>
+        <td>Resolve high utilization by scaling UAA horizontally or vertically. To scale UAA, navigate to the <strong>Resource Config</strong> pane of the <%= vars.app_runtime_abbr %> tile and edit the number of your <strong>UAA</strong> VM instances or change the VM type to a type that utilizes more CPU cores.<br>
+        <%= vars.company_name %> recommends keeping the CPU utilization within a maximum range of 80-90% for best UAA performance.</td>
     </tr>
     <tr>
       <th>Additional details</th>
@@ -665,12 +664,12 @@ There is one key capacity scaling indicator for external S3 external storage.
 <p class= "note"><strong>Note:</strong> The following metric appears in the Firehose in two different formats. The below table lists both formats. For more information, see <a href="https://docs.pivotal.io/platform/2-8/pcf-release-notes/runtime-rn.html#duplicate-metrics">Duplicate Metrics Appear in the Firehose</a> in <em><%= vars.app_runtime_full %> v2.8 Release Notes</em>.</p>
 
 <table>
-  <tr><th colspan="2" style="text-align: center;"><br>system.disk.persistent.percent of NFS server VM(s)<br>system_disk_persistent_percent of NFS server VM(s)<br><br></th></tr>
+  <tr><th colspan="2" style="text-align: center;"><br>External S3 External Storage<br><br></th></tr>
     <tr>
       <th width="25%">Description</th>
-        <td><em>If applicable:</em> Monitor the percentage of persistent disk used on the VM for the NFS Server job.<br>
-        If you do not use an external S3 repository for external storage with no capacity constraints, you must monitor the <%= vars.app_runtime_abbr %> object store to push new app and buildpacks.<br><br>
-        If you use an internal NFS/WebDAV backed blobstore, consider scaling the persistent disk when it reaches 75% capacity.</td>
+        <td>The <code>system.disk.persistent.percent of NFS server VM(s)</code> indicator shows the percentage of persistent disk used. 
+        <em>If applicable:</em> Monitor the percentage of persistent disk used on the VM for the NFS Server job.<br>
+        If you do not use an external S3 repository for external storage with no capacity constraints, you must monitor the <%= vars.app_runtime_abbr %> object store to push new app and buildpacks.</td>
     </tr>
     <tr>
     <th>Source ID</th>
@@ -690,7 +689,7 @@ There is one key capacity scaling indicator for external S3 external storage.
     </tr>
     <tr>
       <th>How to scale</th>
-        <td>Give your NFS Server additional persistent disk resources.</td>
+        <td>Give your NFS Server additional persistent disk resources. If you use an internal NFS/WebDAV backed blobstore, consider scaling the persistent disk when it reaches 75% capacity.</td>
     </tr>
     <tr>
       <th>Additional details</th>
