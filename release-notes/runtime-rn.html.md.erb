@@ -2985,6 +2985,55 @@ Before upgrading to <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>, yo
 * Runtime CredHub property `credhub_key_encryption_passwords`
   - The `credhub_key_encryption_passwords` property is replaced by `credhub_hsm_provider_encryption_keys` for HSM-resident CredHub and `credhub_internal_provider_keys` for internal CredHub.
 
+### <a id='log-levels'></a> Updates to Gorouter Log Levels Affect Automation Scripts
+
+If you are upgrading to <%= vars.app_runtime_abbr %> v2.7.24 and use automation
+scripts that reference the following logs, update the log levels or remove
+references to these logs to avoid errors.
+
+<table>
+    <tr>
+        <th>Log Message</th>
+        <th>Old Log Level</th>
+        <th>New Log Level</th>
+    </tr>
+    <tr>
+        <td>
+            <code>register-route</code>
+        </td>
+        <td>
+            Info
+        </td>
+        <td>
+            Debug
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <code>unregister-route</code>
+        </td>
+        <td>
+            Info
+        </td>
+        <td>
+            Debug
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <code>endpoint-unregistered</code>
+        </td>
+        <td>
+            Debug
+        </td>
+        <td>
+            Info
+        </td>
+    </tr>
+  </table>
+
+For more details, see [routing-release](https://github.com/cloudfoundry/routing-release/releases/tag/0.207.0) in GitHub.
+
 ## <a id='known-issues'></a> Known Issues
 
 <%= vars.app_runtime_abbr %> <%= vars.v_major_version %> includes the following known issues:
