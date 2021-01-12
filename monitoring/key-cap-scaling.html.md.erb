@@ -2,10 +2,6 @@
 title: Key Capacity Scaling Indicators
 owner: PCF Metrics Platform Monitoring
 ---
-WHAT WILL THIS INDICATOR TELL ME?
-WHAT IS THE INDICATOR?
-HOW DO I GET IT?
-
 This topic describes key capacity scaling indicators that operators monitor to determine when they need to scale their
 <%= vars.app_runtime_full %> (<%= vars.app_runtime_abbr %>) deployments.
 
@@ -518,8 +514,8 @@ There is a single key capacity scaling indicator <%= vars.company_name %> recomm
   <tr><th id="cache-duration" colspan="2" style="text-align: center;"><br>Log Cache Caching Duration<br><br></th></tr>
     <tr>
       <th width="25">Description</th>
-        <td>The <code>log_cache.log_cache_cache_period</code> indicator shows the age in milliseconds of the oldest data point stored in Log Cache.<br>
-        Log Cache stores all messages that are passed through the Firehose in an ephemeral in-memory store. The size of this store and the cache duration are dependent on the amount of memory available on the VM where Log Cache runs.
+        <td> The Log Cache Caching Duration indicator shows the age in milliseconds of the oldest data point stored in Log Cache.<br>
+        Log Cache stores all messages that are passed through the Firehose in an ephemeral in-memory store. The size of this store and the cache duration are dependent on the amount of memory available on the VM where Log Cache runs. Typically, Log Cache runs on the Doppler VM. 
         </td>
     </tr>
     <tr>
@@ -536,11 +532,11 @@ There is a single key capacity scaling indicator <%= vars.company_name %> recomm
     </tr>
     <tr>
       <th>Recommended thresholds</th>
-        <td><strong>Scale indicator:</strong> Scale the VM on which Log Cache runs when the cache period drops below 15 minutes, or 900000 milliseconds. Typically, Log Cache runs on the Doppler VM.</td>
+        <td><strong>Scale indicator:</strong> Scale the VM on which Log Cache runs when the <code>log_cache_cache_period</code> metric drops below 900000 milliseconds.</td>
     </tr>
     <tr>
       <th>How to scale</th>
-        <td>Scale up the number of Doppler VMs or chose a VM type for Doppler that provides more memory.</td>
+        <td>Scale up the number of Doppler VMs or choose a VM type for Doppler that provides more memory.</td>
     </tr>
     <tr>
       <th>Additional details</th>
@@ -563,7 +559,8 @@ There is one key capacity scaling indicator <%= vars.company_name %> recommends 
   <tr><th id="system.cpu.user" colspan="2" style="text-align: center;"><br>Gorouter VM CPU Utilization<br><br></th></tr>
     <tr>
       <th>Description</th>
-        <td>The <code>system.cpu.user</code> indicator shows the CPU utilization of the Gorouter VM(s). High CPU utilization of the Gorouter VMs can increase latency and cause throughput, or requests per second, to level off.
+        <td>The Gorouter VM CPU Utilization indicator shows how much of a Gorouter VM's CPU is being used. 
+        High CPU utilization of the Gorouter VMs can increase latency and cause requests per second to decrease.
         </td>
     </tr>
     <tr>
@@ -589,9 +586,8 @@ There is one key capacity scaling indicator <%= vars.company_name %> recommends 
     </tr>
     <tr>
       <th>How to scale</th>
-        <td>Resolve high utilization by scaling the Gorouters horizontally or vertically by editing the <strong>Router</strong> VM in the <strong>Resource Config</strong> pane of the <%= vars.app_runtime_abbr %> tile. <%= vars.company_name %> recommends keeping the CPU utilization within a maximum range of 60-70% for best Gorouter performance.<br><br>
-        If you want to increase throughput capabilities while also keeping latency low, <%= vars.company_name %> recommends scaling the Gorouter while continuing to ensure that CPU utilization does not exceed the maximum range <%= vars.company_name %> recommends.
-        <p class="note"><strong>Note:</strong> At greater than 8 CPUs, vertical scaling is no longer beneficial for increasing throughput.</p>
+        <td>
+        Scale the Gorouters horizontally or vertically by editing the Router VM in the Resource Config pane of the TAS for VMs tile. At greater than 8 CPUs, vertical scaling is no longer beneficial for increasing throughput.
         </td>
     </tr>
     <tr>
@@ -615,7 +611,7 @@ There is one key capacity scaling indicator <%= vars.company_name %> recommends 
   <tr><th id="uaa-system.cpu.user" colspan="2" style="text-align: center;"><br>UAA VM CPU Utilization<br><br></th></tr>
     <tr>
       <th>Description</th>
-        <td>The <code>system.cpu.user of the UAA VM(s)</code> indicator shows the CPU utilization of the UAA VM(s). High CPU utilization of the UAA VMs can increase latency and cause throughput, or requests per second, to level off.</td>
+        <td>The UAA VM CPU Utilization indicator shows how much of the UAA VM's CPU is used. High CPU utilization of the UAA VMs can cause requests per second to decrease.</td>
     </tr>
     <tr>
     <th>Source ID</th>
@@ -640,8 +636,8 @@ There is one key capacity scaling indicator <%= vars.company_name %> recommends 
     </tr>
     <tr>
       <th>How to scale</th>
-        <td>Resolve high utilization by scaling UAA horizontally or vertically. To scale UAA, navigate to the <strong>Resource Config</strong> pane of the <%= vars.app_runtime_abbr %> tile and edit the number of your <strong>UAA</strong> VM instances or change the VM type to a type that utilizes more CPU cores.<br>
-        <%= vars.company_name %> recommends keeping the CPU utilization within a maximum range of 80-90% for best UAA performance.</td>
+        <td>Scale UAA horizontally or vertically. To scale UAA, navigate to the <strong>Resource Config</strong> pane of the <%= vars.app_runtime_abbr %> tile and edit the number of your <strong>UAA</strong> VM instances or change the VM type to a type that utilizes more CPU cores.<br>
+        </td>
     </tr>
     <tr>
       <th>Additional details</th>
@@ -667,7 +663,7 @@ There is one key capacity scaling indicator for external S3 external storage.
   <tr><th colspan="2" style="text-align: center;"><br>External S3 External Storage<br><br></th></tr>
     <tr>
       <th width="25%">Description</th>
-        <td>The <code>system.disk.persistent.percent of NFS server VM(s)</code> indicator shows the percentage of persistent disk used. 
+        <td>The External S3 External Storage indicator shows the percentage of persistent disk used. 
         <em>If applicable:</em> Monitor the percentage of persistent disk used on the VM for the NFS Server job.<br>
         If you do not use an external S3 repository for external storage with no capacity constraints, you must monitor the <%= vars.app_runtime_abbr %> object store to push new app and buildpacks.</td>
     </tr>
