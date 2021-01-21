@@ -945,7 +945,7 @@ For more information about configuring aggregate syslog drains, see [Configure S
 
 You can choose to prevent the Loggregator Firehose from emitting app logs but still allow the Firehose to emit app metrics. Disabling logs in the Firehose helps reduce the load on <%= vars.app_runtime_abbr %> by allowing you to scale down Doppler and Traffic Controller VMs.
 
-To configure the Firehose to receive only app metrics, you must select the **Disable logs in Firehose**, **Log Cache syslog ingestion**, **Enable V1 Firehose**, and **Enable V2 Firehose** checkboxes in the **System Logging** pane of the <%= vars.app_runtime_abbr %> tile. You must also configure **Aggregate log and metric drain destinations** in the **System Logging** pane of the <%= vars.app_runtime_abbr %> tile. For more information, see [Configure System Logging](http://docs-pcf-staging.cfapps.io/application-service/2-10/operating/configure-pas.html#sys-logging) in _Configuring <%= vars.app_runtime_abbr %>_.
+To configure the Firehose to receive only app metrics, you must select the **Disable logs in Firehose**, **Log Cache syslog ingestion**, **Enable V1 Firehose**, and **Enable V2 Firehose** checkboxes in the **System Logging** pane of the <%= vars.app_runtime_abbr %> tile. You must also configure **Aggregate log and metric drain destinations** in the **System Logging** pane of the <%= vars.app_runtime_abbr %> tile. For more information, see [Configure System Logging](https://docs.pivotal.io/application-service/2-10/operating/configure-pas.html#sys-logging) in _Configuring <%= vars.app_runtime_abbr %>_.
 
 ### <a id='timestamps'></a> Optionally Use Human-Readable Timestamps for Component Logs
 
@@ -954,9 +954,9 @@ To configure the Firehose to receive only app metrics, you must select the **Dis
 RFC3339-formatted timestamps follow the RFC3339 spec, include nine points of precision where possible, and are in UTC. For example:
 
 * 2019-11-21T22:16:18.750673404Z
-* 2019-11-21T22:16:18.750000000Z 
+* 2019-11-21T22:16:18.750000000Z
 
-For more information about configuring the **Timestamp format for component logs** field, see [System Logging](https://docs.pivotal.io/application-service/2-10/operating/configuring-pas.html) in _Configuring <%= vars.app_runtime_abbr %>_.
+For more information about configuring the **Timestamp format for component logs** field, see [System Logging](https://docs.pivotal.io/application-service/2-10/operating/configure-pas.html) in _Configuring <%= vars.app_runtime_abbr %>_.
 
 In <%= vars.app_runtime_abbr %> v2.10.0, if you select the **Converge to human-readable RFC3339 format** option under **Timestamp format for component logs**, then the following components and related jobs use RFC3339 timestamps: 
 
@@ -967,7 +967,7 @@ In <%= vars.app_runtime_abbr %> v2.10.0, if you select the **Converge to human-r
 | `diego` | `auctioneer`, `bbs`, `file_server`, `locket`, `rep`, `route_emitter`, `ssh_proxy` |
 | `garden-runc` | `garden` |
 | `pxc` | `pxc-mysql`, `proxy`, `galera-agent`, `gra-log-purger` |
-| `mysql-monitoring` | `mysql-metrics`, `replication-canary` | 
+| `mysql-monitoring` | `mysql-metrics`, `replication-canary` |
 
 Components not listed in the table above either do not support RFC3339 timestamps in <%= vars.app_runtime_abbr %> v2.10.0 or were already using the RFC3339 timestamp format. Selecting **Converge to human-readable RFC3339 format** ensures that any additional components that add support for RFC3339 timestamps in later releases of <%= vars.app_runtime_abbr %> v2.10 are automatically configured to use RFC3339 timestamps after you upgrade.
 
@@ -1041,7 +1041,7 @@ To avoid breaking changes associated with this update, you must:
 
 * If **RFC3339 timestamps** is selected for **Format of timestamps in Diego logs** before you upgrade to TAS for VMs v2.10, update any external monitoring configuration to account for RFC3339 timestamps in the logs for several TAS for VMs components. For a list of TAS for VMs components that support RFC3339 timestamps in TAS for VMs v2.10, see [Optionally Use Human-Readable Timestamps for Component Logs](#timestamps) below.
 
-For more information about configuring RFC3339 timestamps for component logs, see [System Logging](https://docs.pivotal.io/application-service/ating/configuring-pas.html) in _Configuring <%= vars.app_runtime_abbr %>_.
+For more information about configuring RFC3339 timestamps for component logs, see [System Logging](https://docs.pivotal.io/application-service/operating/configure-pas.html) in _Configuring <%= vars.app_runtime_abbr %>_.
 
 ### <a id='aggregate-drains-br'></a> Aggregate Syslog Drains Contain Logs Only
 
