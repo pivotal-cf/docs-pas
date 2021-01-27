@@ -946,7 +946,7 @@ These sections describe Diego Route Emitter metrics.
       <th width="25%">Description</th>
         <td>
           Time in ns that the active Route Emitter took to perform its synchronization pass.<br><br>
-          <strong>Use:</strong> Increases in this metric indicate that the Route Emitter may have trouble maintaining an accurate routing table to broadcast to the Gorouters. Tune alerting values to your deployment based on historical data and adjust based on observations over time. The suggested starting point is &ge; 5 for the yellow threshold and &ge; 10 for the critical threshold. <%= vars.company_name %> has observed on its Pivotal Web Services deployment that above 10 s, the BBS may be failing.<br><br>
+          <strong>Use:</strong> Increases in this metric indicate that the Route Emitter may have trouble maintaining an accurate routing table to broadcast to the Gorouters. Tune alerting values to your deployment based on historical data and adjust based on observations over time. The suggested starting point is &ge; 5 for the yellow threshold and &ge; 10 for the critical threshold.<br><br>
           <strong>Origin:</strong> Firehose<br>
           <strong>Type:</strong> Gauge (Float in ns)<br>
           <strong>Frequency:</strong> 60 s<br>
@@ -1004,7 +1004,7 @@ These sections describe Gorouter metrics.
           The Gorouter limits the number of file descriptors to 100,000 per job. Once the limit is met, the Gorouter is unable to establish any new connections.<br><br>
           To reduce the risk of DDoS attacks, <%= vars.company_name %> recommends doing one or both of the following:<br><br>
             <ul>
-              <li>Within <%= vars.app_runtime_abbr %>, set <strong>Maximum connections per back end</strong> to define how many requests can be routed to any particular app instance. This prevents a single app from using all Gorouter connections. The value specified should be determined by the operator based on the use cases for that foundation. For example, <%= vars.company_name %> sets the number of connections to 500 for Pivotal Web Services.</li>
+              <li>Within <%= vars.app_runtime_abbr %>, set <strong>Maximum connections per back end</strong> to define how many requests can be routed to any particular app instance. This prevents a single app from using all Gorouter connections. The value specified should be determined by the operator based on the use cases for that foundation.</li>
               <li>Add rate limiting at the load balancer level.</li>
             </ul>
           <strong>Origin:</strong> Firehose<br>
