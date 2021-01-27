@@ -951,7 +951,6 @@ These sections describe Diego Route Emitter metrics.
           <strong>Use:</strong> Increases in this metric indicate that the Route Emitter may have trouble maintaining an accurate routing table to broadcast to the Gorouters. Tune alerting values to your deployment based on historical data and adjust based on observations over time. The suggested starting point is &ge; 5 for the yellow threshold and &ge; 10 for the critical threshold. Pivotal has observed on its Pivotal Web Services deployment that above 10 s, the BBS may be failing.<br><br>
 =======
           <strong>Use:</strong> Increases in this metric indicate that the Route Emitter may have trouble maintaining an accurate routing table to broadcast to the Gorouters. Tune alerting values to your deployment based on historical data and adjust based on observations over time. The suggested starting point is &ge; 5 for the yellow threshold and &ge; 10 for the critical threshold.<br><br>
->>>>>>> f636848... [#176615636] removes PWS example.
           <strong>Origin:</strong> Firehose<br>
           <strong>Type:</strong> Gauge (Float in ns)<br>
           <strong>Frequency:</strong> 60 s<br>
@@ -1013,7 +1012,6 @@ These sections describe Gorouter metrics.
               <li>Within <%= vars.app_runtime_abbr %>, set <strong>Maximum connections per back end</strong> to define how many requests can be routed to any particular app instance. This prevents a single app from using all Gorouter connections. The value specified should be determined by the operator based on the use cases for that foundation. For example, Pivotal sets the number of connections to 500 for Pivotal Web Services.</li>
 =======
               <li>Within <%= vars.app_runtime_abbr %>, set <strong>Maximum connections per back end</strong> to define how many requests can be routed to any particular app instance. This prevents a single app from using all Gorouter connections. The value specified should be determined by the operator based on the use cases for that foundation.</li>
->>>>>>> f636848... [#176615636] removes PWS example.
               <li>Add rate limiting at the load balancer level.</li>
             </ul>
           <strong>Origin:</strong> Firehose<br>
