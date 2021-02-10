@@ -1208,6 +1208,15 @@ When upgrading to <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>, be a
 
 <%= vars.app_runtime_abbr %> <%= vars.v_major_version %> includes the following breaking changes:
 
+### <a id="dynamic-egress"></a> Dynamic Egress Policies Are Unsupported
+
+You cannot upgrade to <%= vars.app_runtime_abbr %> <%= vars.v_major_version %> if you are using Dynamic Egress policies.
+
+To see if you have Dynamic Egress policies, see [List Egress Policies](https://docs.pivotal.io/application-service/2-10/devguide/egress-policies.html#delete-egress-policies) in the <%= vars.app_runtime_abbr %> v2.10 documentation.
+
+To delete each of your policies, see [Delete an Egress Policy](https://docs.pivotal.io/application-service/2-10/devguide/egress-policies.html#delete-egress-policies) in the <%= vars.app_runtime_abbr %> v2.10 documentation.
+
+
 ## <a id='known-issues'></a> Known Issues
 
 <%= vars.app_runtime_abbr %> <%= vars.v_major_version %> includes the following known issues:
