@@ -18,7 +18,68 @@ on the Cloud Foundry website.
 ## <a id='releases'></a> Releases
 
 <%# DO NOT DELETE THIS LINE - robots use this to add new release notes %>
- 
+### <a id='2.11.0-alpha.15'></a> 2.11.0
+
+**Release Date:** TBD
+* See [New Features in <%= vars.app_runtime_abbr %> v2.11](#new-features).
+<table border="1" class="nice">
+  <thead>
+    <tr>
+      <th>Component</th>
+      <th>Version</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>ubuntu-xenial stemcell</td><td>621.94</td></tr>
+    <tr><td>backup-and-restore-sdk</td><td>1.18.0</td></tr>
+    <tr><td>binary-offline-buildpack</td><td>1.0.36</td></tr>
+    <tr><td>bosh-dns-aliases</td><td>0.0.3</td></tr>
+    <tr><td>bosh-system-metrics-forwarder</td><td>0.0.20</td></tr>
+    <tr><td>bpm</td><td>1.1.7</td></tr>
+    <tr><td>capi</td><td>1.103.0</td></tr>
+    <tr><td>cf-autoscaling</td><td>235</td></tr>
+    <tr><td>cf-cli</td><td>1.31.0</td></tr>
+    <tr><td>cf-networking</td><td>2.35.0</td></tr>
+    <tr><td>cflinuxfs3</td><td>0.216.0</td></tr>
+    <tr><td>credhub</td><td>2.9.0</td></tr>
+    <tr><td>diego</td><td>2.48.0</td></tr>
+    <tr><td>dotnet-core-offline-buildpack</td><td>2.3.19</td></tr>
+    <tr><td>garden-runc</td><td>1.19.18</td></tr>
+    <tr><td>go-offline-buildpack</td><td>1.9.23</td></tr>
+    <tr><td>haproxy</td><td>9.8.0</td></tr>
+    <tr><td>java-offline-buildpack</td><td>4.34</td></tr>
+    <tr><td>log-cache</td><td>2.9.0</td></tr>
+    <tr><td>loggregator-agent</td><td>6.1.3</td></tr>
+    <tr><td>loggregator</td><td>106.3.11</td></tr>
+    <tr><td>mapfs</td><td>1.2.6</td></tr>
+    <tr><td>metric-registrar</td><td>1.1.1</td></tr>
+    <tr><td>metrics-discovery</td><td>3.0.3</td></tr>
+    <tr><td>mysql-monitoring</td><td>9.15.0</td></tr>
+    <tr><td>nats</td><td>39</td></tr>
+    <tr><td>nfs-volume</td><td>7.1.1</td></tr>
+    <tr><td>nginx-offline-buildpack</td><td>1.1.19</td></tr>
+    <tr><td>nodejs-offline-buildpack</td><td>1.7.37</td></tr>
+    <tr><td>notifications-ui</td><td>40</td></tr>
+    <tr><td>notifications</td><td>61</td></tr>
+    <tr><td>php-offline-buildpack</td><td>4.4.27</td></tr>
+    <tr><td>push-apps-manager-release</td><td>673.0.0</td></tr>
+    <tr><td>push-usage-service-release</td><td>674.0.9</td></tr>
+    <tr><td>pxc</td><td>0.31.0</td></tr>
+    <tr><td>python-offline-buildpack</td><td>1.7.26</td></tr>
+    <tr><td>r-offline-buildpack</td><td>1.1.11</td></tr>
+    <tr><td>routing</td><td>0.210.0</td></tr>
+    <tr><td>ruby-offline-buildpack</td><td>1.8.27</td></tr>
+    <tr><td>silk</td><td>2.35.0</td></tr>
+    <tr><td>smb-volume</td><td>3.1.0</td></tr>
+    <tr><td>smoke-tests</td><td>2.2.0</td></tr>
+    <tr><td>staticfile-offline-buildpack</td><td>1.5.14</td></tr>
+    <tr><td>statsd-injector</td><td>1.11.15</td></tr>
+    <tr><td>syslog</td><td>11.6.1</td></tr>
+    <tr><td>system-metrics-scraper</td><td>3.2.2</td></tr>
+    <tr><td>uaa</td><td>74.5.21</td></tr>
+  </tbody>
+</table>
+
 ### <a id='2.11.0-alpha.15'></a> 2.11.0-alpha.15
 
 **Release Date:** 12/18/2020
@@ -1203,6 +1264,131 @@ When upgrading to <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>, be a
 ## <a id='new-features'></a> New Features in <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>
 
 <%= vars.app_runtime_abbr %> <%= vars.v_major_version %> includes the following major features:
+
+### <a id='timestamps'></a> Optionally Use Human-Readable Timestamps for Component Logs
+
+<%= vars.app_runtime_abbr %> v2.11 introduces RFC3339 log format support for several <%= vars.app_runtime_abbr %> components. You can configure these components to produce logs with human-readable RFC3339 timestamps with the **Timestamp format for component logs** configuration option in the <%= vars.app_runtime_abbr %> tile. Logs that use human-readable timestamps are often easier to debug.
+
+RFC3339-formatted timestamps follow the RFC3339 spec, include nine points of precision where possible, and are in UTC. For example:
+
+* 2019-11-21T22:16:18.750673404Z
+* 2019-11-21T22:16:18.750000000Z
+
+For more information about configuring the **Timestamp format for component logs** field, see [System Logging](https://docs.pivotal.io/application-service/2-10/operating/configure-pas.html) in _Configuring <%= vars.app_runtime_abbr %>_.
+
+In <%= vars.app_runtime_abbr %> v2.11.0, if you select the **Converge to human-readable RFC3339 format** option under **Timestamp format for component logs**, then the following components and related jobs use RFC3339 timestamps: 
+CAPI
+| Component | Jobs |
+| ------------ | ----- |
+| `CAPI` | `` |
+| `UAA` | `` |
+| `` | `Log Egress` |
+| `routing` | `gorouter` |
+| `silk` | `iptables logger`, `silk-daemon` |
+| `diego` | `auctioneer`, `bbs`, `file_server`, `locket`, `rep`, `route_emitter`, `ssh_proxy` |
+| `garden-runc` | `garden` |
+| `pxc` | `pxc-mysql`, `proxy`, `galera-agent`, `gra-log-purger` |
+| `mysql-monitoring` | `mysql-metrics`, `replication-canary` |
+
+Components not listed in the table above either do not support RFC3339 timestamps in <%= vars.app_runtime_abbr %> v2.11.0 or were already using the RFC3339 timestamp format. Selecting **Converge to human-readable RFC3339 format** ensures that any additional components that add support for RFC3339 timestamps in later releases of <%= vars.app_runtime_abbr %> v2.11 are automatically configured to use RFC3339 timestamps after you upgrade.
+
+To confirm which <%= vars.app_runtime_abbr %> components use RFC3339 timestamps:
+
+1. Go to the `debug/files` endpoint at `https://OPS-MANAGER-FQDN/debug/files`, where `OPS-MANAGER-FQDN` is the fully-qualified domain name of your Ops Manager instance.
+
+1. For each component, confirm that the `logging.format.timestamp` property is set to `rfc3339`.
+
+<p class='note breaking'><strong>Breaking Change:</strong> The <strong>Timestamp format for component logs</strong> feature replaces the <strong>Format of timestamps in Diego logs</strong> feature in the <strong>App Containers</strong> pane of the <%= vars.app_runtime_abbr %> tile. However, when you upgrade to <%= vars.app_runtime_abbr %> v2.10, the option that was selected under <strong>Format of timestamps in Diego logs</strong> in your previous deployment is applied to <strong>Timestamp format for component logs</strong>. For more information, see <a href='#timestamps'>Timestamp Format for Component Logs Replaces Timestamp Format for Diego Logs</a> below.</p>
+
+### <a id='sticky-cookies'></a> Configurable Sticky Session Cookie Names
+
+You can supply sticky session cookie names for the Gorouter to use when handling sticky sessions.
+The Gorouter uses these cookies to support session affinity, or _sticky sessions_.
+For more information, see [Session Affinity](https://docs.pivotal.io/platform/2-10/concepts/http-routing.html#sessions)
+in _HTTP Routing_.
+
+By default, the Gorouter uses `JSESSIONID`. Some apps require a different session name.
+For example, Spring WebFlux requires `SESSION` for the session cookie name.
+
+To supply cookie names, see [Configure Networking](https://docs.pivotal.io/application-service/2-10/operating/configure-pas.html#networking) in _Configuring <%= vars.app_runtime_abbr %>_.
+
+### <a id='autoscaler'></a>  Improvements to App Autoscaler
+
+<%= vars.app_runtime_abbr %> v2.10 includes the following improvements to App Autoscaler:
+
++ App Autoscaler no longer returns an error when you set an `executes_at` time that is in the past.
+  This lets you re-use scheduled limit changes through the Scheduler API.
+  App Autoscaler calculates future execution dates based on the past date.
++ You can use rules that are based on the HTTP throughput metric when the number of the requests is high.
+  For information about the metric, see [Default Metrics for Scaling
+  Rules](https://docs.pivotal.io/application-service/2-10/appsman-services/autoscaler/about-app-autoscaler.html#default-metrics).
+
+### <a id='cf-cli'></a>  TAS for VMs Is Compatible with cf CLI v7
+
+TAS for VMs v2.10 paired with cf CLI v7 allows you to do the following:
+
++ Push updates to apps without incurring downtime.
+  See [Rolling App Deployments](https://docs.pivotal.io/application-service/2-10/devguide/deploy-apps/rolling-deploy.html).
++ Exercise granular control over the `cf push` process.
+  See [Running cf push Sub-Step Commands](https://docs.pivotal.io/application-service/2-10/devguide/push-sub-commands.html).
++ Use a single command to push apps that run multiple processes.
+  See [Pushing an App with Multiple Processes](https://docs.pivotal.io/application-service/2-10/devguide/multiple-processes.html).
++ Run additional processes in the same container as your app.
+  See [Pushing Apps with Sidecar Processes](https://docs.pivotal.io/application-service/2-10/devguide/sidecars.html).
++ Add metadata to resources such as spaces and apps.
+  See [Using Metadata](https://docs.pivotal.io/application-service/2-10/adminguide/metadata.html).
+
+For more information about the GA release of cf CLI v7,
+see [Cloud Foundry Further Simplifies Modern App Development: An Inside Look at the New cf CLI v7]
+(https://www.cloudfoundry.org/blog/cloud-foundry-further-simplifies-modern-app-development-an-inside-look-at-the-new-cf-cli-v7/).
+
+## <a id='breaking-changes'></a> Breaking Changes
+
+<%= vars.app_runtime_abbr %> <%= vars.v_major_version %> includes the following breaking changes:
+
+### <a id='timestamps-br'></a> Timestamp Format for Component Logs Replaces Timestamp Format for Diego Logs
+
+The **Format of timestamps in Diego logs** feature is removed from the **App Containers** pane of the TAS for VMs tile. It is replaced by **Timestamp format for component logs** in the **System Logging** pane of the TAS for VMs tile.
+
+TAS for VMs v2.11 automatically configures **Timestamp format for component logs** based on how you configured **Format of timestamps in Diego logs** in TAS for VMs v2.11:
+
+* If the **RFC3339 timestamps** option for **Format of timestamps in Diego logs** is selected before you upgrade to TAS for VMs v2.11, then the **Converge to human-readable RFC3339 format** option for **Timestamp format for component logs** is selected in TAS for VMs v2.11 by default. **Converge to human-readable RFC3339 format** configures TAS for VMs to use RFC3339 timestamps in the logs of several TAS for VMs components.
+
+* If the **Seconds since the Unix epoch** option for **Format of timestamps in Diego logs** is selected before you upgrade to TAS for VMs v2.11, then the **Maintain previous format** option for **Timestamp format for component logs** is selected in TAS for VMs v2.11 by default.
+
+To avoid breaking changes associated with this update, you must:
+
+* Update any automation scripts that reference the removed **Format of timestamps in Diego logs** feature.
+
+* If **RFC3339 timestamps** is selected for **Format of timestamps in Diego logs** before you upgrade to TAS for VMs v2.11, update any external monitoring configuration to account for RFC3339 timestamps in the logs for several TAS for VMs components. For a list of TAS for VMs components that support RFC3339 timestamps in TAS for VMs v2.11, see [Optionally Use Human-Readable Timestamps for Component Logs](#timestamps) below.
+
+For more information about configuring RFC3339 timestamps for component logs, see [System Logging](https://docs.pivotal.io/application-service/operating/configure-pas.html) in _Configuring <%= vars.app_runtime_abbr %>_.
+
+### <a id='aggregate-drains-br'></a> Aggregate Syslog Drains Contain Logs Only
+
+In TAS for VMs v2.11, aggregate syslog drains contain only logs by default, and do not contain metrics. If you rely on metrics sent through aggregate syslog drains, you must add <code>?include-metrics-deprecated=true</code> to your aggregate drain URLs to continue to receive metrics in the drains.
+
+For more information, see <a href="https://docs.pivotal.io/platform/2-10/release-notes/runtime-rn.html#syslog-no-metrics">Aggregate Syslog Drains Contain Logs Only</a> in the _TAS for VMs v2.10 Release Notes_.
+
+## <a id='known-issues'></a> Known Issues
+
+<%= vars.app_runtime_abbr %> <%= vars.v_major_version %> includes the following known issues:
+
+### <a id='incompatible-stemcell'></a> Incompatible Stemcell Causes Job Failure
+
+If you use the NSX-T Container Plugin (NCP) tile v3.0.2 or earlier, do not
+upgrade to <%= vars.app_runtime_abbr %> 2.10.5. The stemcell in this patch is
+not compatible with the NCP tile v3.0.2 or earlier and causes the `openvswitch`
+job to fail when you deploy.
+
+### <a id='cf-cli-firehose-errors'></a> Errors Viewing App Logs after Disabling V1 Firehose
+
+<%= partial "/pcf/app-service-kis/cf_cli_errors_disable_firehose" %>
+
+### <a id="metric-registrar-1.2.1-issues"></a>Metric Registrar 1.2.1 Issues
+
+<%= partial "/pcf/app-service-kis/metrics-registrar-known-issues" %>
+
 
 ## <a id='breaking-changes'></a> Breaking Changes
 
