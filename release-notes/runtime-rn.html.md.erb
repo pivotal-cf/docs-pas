@@ -31,6 +31,7 @@ on the Cloud Foundry website.
 
 * **[Breaking Change]** Gorouter update to Golang v1.15 introduces stricter transfer-encoding header standards. Stricter header standards break Spring apps that incorrectly set the header. For more information, see [routing-release](https://github.com/cloudfoundry/routing-release/releases/tag/0.209.0) in GitHub.
 * **[Security Fix]** Bump garden-runc-release to address [CVE-2020-15257](https://nvd.nist.gov/vuln/detail/CVE-2020-15257)
+* **[Feature]** Operators can limit CAs that the gorouter trusts when validating client certs to a specified list. 
 * Bump ubuntu-xenial stemcell to version `621.94`
 * Bump cf-autoscaling to version `235`
 * Bump cf-networking to version `2.35.0`
