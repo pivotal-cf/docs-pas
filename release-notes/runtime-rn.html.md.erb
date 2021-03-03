@@ -18,7 +18,7 @@ on the Cloud Foundry website.
 ## <a id='releases'></a> Releases
 
 <%# DO NOT DELETE THIS LINE - robots use this to add new release notes %>
- 
+
 ### <a id='2.11.0-rc.1'></a> 2.11.0-rc.1
 
 **Release Date:** 02/19/2021
@@ -169,9 +169,9 @@ on the Cloud Foundry website.
     <tr><td>uaa</td><td>74.5.21</td></tr>
   </tbody>
 </table>
- 
- 
- 
+
+
+
 ### <a id='2.11.0-alpha.14'></a> 2.11.0-alpha.14
 
 **Release Date:** 11/18/2020
@@ -239,9 +239,9 @@ on the Cloud Foundry website.
     <tr><td>uaa</td><td>74.5.21</td></tr>
   </tbody>
 </table>
- 
- 
- 
+
+
+
 ### <a id='2.11.0-alpha.13'></a> 2.11.0-alpha.13
 
 **Release Date:** 11/04/2020
@@ -319,9 +319,9 @@ on the Cloud Foundry website.
     <tr><td>uaa</td><td>74.5.20</td></tr>
   </tbody>
 </table>
- 
- 
- 
+
+
+
 ### <a id='2.11.0-alpha.12'></a> 2.11.0-alpha.12
 
 **Release Date:** 10/26/2020
@@ -392,9 +392,9 @@ on the Cloud Foundry website.
     <tr><td>uaa</td><td>74.5.20</td></tr>
   </tbody>
 </table>
- 
- 
- 
+
+
+
 ### <a id='2.11.0-alpha.11'></a> 2.11.0-alpha.11
 
 **Release Date:** 10/19/2020
@@ -470,9 +470,9 @@ on the Cloud Foundry website.
     <tr><td>uaa</td><td>74.5.20</td></tr>
   </tbody>
 </table>
- 
- 
- 
+
+
+
 ### <a id='2.11.0-alpha.10'></a> 2.11.0-alpha.10
 
 **Release Date:** 10/09/2020
@@ -556,9 +556,9 @@ on the Cloud Foundry website.
     <tr><td>uaa</td><td>74.5.19</td></tr>
   </tbody>
 </table>
- 
- 
- 
+
+
+
 ### <a id='2.11.0-alpha.9'></a> 2.11.0-alpha.9
 
 **Release Date:** 09/21/2020
@@ -642,9 +642,9 @@ on the Cloud Foundry website.
     <tr><td>uaa</td><td>74.5.18</td></tr>
   </tbody>
 </table>
- 
- 
- 
+
+
+
 ### <a id='2.11.0-alpha.8'></a> 2.11.0-alpha.8
 
 **Release Date:** 09/09/2020
@@ -718,8 +718,8 @@ on the Cloud Foundry website.
     <tr><td>uaa</td><td>74.5.18</td></tr>
   </tbody>
 </table>
- 
- 
+
+
 
 ### <a id='2.11.0-alpha.7'></a> 2.11.0-alpha.7
 
@@ -1272,6 +1272,16 @@ When upgrading to <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>, be a
 
 <%= vars.app_runtime_abbr %> <%= vars.v_major_version %> includes the following major features:
 
+### <a id='lts'></a> Long-Term Support for <%= vars.app_runtime_abbr %> v2.11
+
+<%= vars.app_runtime_abbr %> v2.11 is a long-term supported (LTS) version of <%= vars.app_runtime_abbr %>. <%= vars.app_runtime_abbr %> v2.11 will be supported through April 2024.
+
+Over the lifecyle of <%= vars.app_runtime_abbr %> v2.11, <%= vars.company_name %> will release security patches that occasionally include feature enhancements and maintenance updates.
+<%= vars.company_name %> will also continue to release new versions of <%= vars.app_runtime_abbr %>.
+
+You can jump upgrade directly from previous versions of <%= vars.app_runtime_abbr %> to the LTS version of <%= vars.app_runtime_abbr %>. 
+For more information, see [Jump Upgrading to TAS for VMs v2.11](../../operating/jump-upgrades.html).
+
 ### <a id='timestamps'></a> Optionally Use Human-Readable Timestamps for Component Logs
 
 <%= vars.app_runtime_abbr %> v2.11 introduces RFC3339 log format support for all <%= vars.app_runtime_abbr %> components, except for `metrics egress`. You can configure these components to produce logs with human-readable RFC3339 timestamps with the **Timestamp format for component logs** configuration option in the <%= vars.app_runtime_abbr %> tile. Logs that use human-readable timestamps are often easier to debug.
@@ -1291,7 +1301,7 @@ This new feature is related to a breaking change. For more information, see <a h
 
 <%= vars.app_runtime_abbr %> <%= vars.v_major_version %> includes the following breaking changes:
 
-### <a id='timestamps-breaking-change'></a> Timestamps for Component Logs in Diego Logs when Upgrading 
+### <a id='timestamps-breaking-change'></a> Timestamps for Component Logs in Diego Logs when Upgrading
 
 The <strong>Timestamp format for component logs</strong> feature replaces the <strong>Format of timestamps in Diego logs</strong> feature in the <strong>App Containers</strong> pane of the <%= vars.app_runtime_abbr %> tile. However, when you upgrade to <%= vars.app_runtime_abbr %> v2.11, the option that was selected under <strong>Format of timestamps in Diego logs</strong> in your previous deployment is applied to <strong>Timestamp format for component logs</strong>. For more information, see <a href='#timestamps'>Timestamp Format for Component Logs Replaces Timestamp Format for Diego Logs</a>.
 
