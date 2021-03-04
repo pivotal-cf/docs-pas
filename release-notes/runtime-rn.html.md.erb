@@ -1284,7 +1284,7 @@ For more information, see [Jump Upgrading to TAS for VMs v2.11](../../operating/
 
 ### <a id='timestamps'></a> Optionally Use Human-Readable Timestamps for Component Logs
 
-<%= vars.app_runtime_abbr %> v2.11 introduces RFC3339 log format support for all <%= vars.app_runtime_abbr %> components, except for `metrics egress`. You can configure these components to produce logs with human-readable RFC3339 timestamps with the **Timestamp format for component logs** configuration option in the <%= vars.app_runtime_abbr %> tile. Logs that use human-readable timestamps are often easier to debug.
+<%= vars.app_runtime_abbr %> v2.11 introduces RFC3339 log format support for several <%= vars.app_runtime_abbr %> components. You can configure these components to produce logs with human-readable RFC3339 timestamps with the **Timestamp format for component logs** configuration option in the <%= vars.app_runtime_abbr %> tile. Logs that use human-readable timestamps are often easier to debug.
 
 RFC3339-formatted timestamps follow the RFC3339 spec, include nine points of precision where possible, and are in UTC. For example:
 
@@ -1293,7 +1293,13 @@ RFC3339-formatted timestamps follow the RFC3339 spec, include nine points of pre
 
 For more information about configuring the **Timestamp format for component logs** field, see [System Logging](https://docs.pivotal.io/application-service/operating/configure-pas.html#sys-logging) in _Configuring <%= vars.app_runtime_abbr %>_.
 
-Selecting **Converge to human-readable RFC3339 format** ensures that any additional components that add support for RFC3339 timestamps in later releases of <%= vars.app_runtime_abbr %> v2.11 are automatically configured to use RFC3339 timestamps after you upgrade.
+In <%= vars.app_runtime_abbr %> v2.11.0, if you select the **Converge to human-readable RFC3339 format** option under **Timestamp format for component logs**, then the following components and related jobs use RFC3339 timestamps: 
+
+| Component | Jobs |
+| ------------ | ----- |
+| `Logging` | `log-cache-nozzle`, `loggregator_agent`, `loggr-forwarder-agent`, `loggr-syslog-agent`, `prom_scraper`, `doppler`, `loggregator_trafficcontroller`, `reverse_log_proxy`, `reverse_log_proxy_gateway`, `log-cache-cf-auth-proxy`, `log-cache-gateway`, `log-cache-syslog-server`, `log-cache`, `loggr-syslog-binding-cache`, `loggr-upd-forwarder`, `syslog_forwarder` |
+| `CAPI` | `cc_deployment_updater`, `cc_uploader`, `cloud_controller_clock`, `cloud_controller_ng`, `cloud_controller_worker`, `rotate_cc_database_key`, `tps` |
+| `UAA` | `uaa` |
 
 This new feature is related to a breaking change. For more information, see <a href='#timestamps-breaking-change'>Timestamps for Component Logs in Diego Logs when Upgrading</a> below.
 
