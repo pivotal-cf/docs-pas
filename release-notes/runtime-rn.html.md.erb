@@ -18,7 +18,7 @@ on the Cloud Foundry website.
 ## <a id='releases'></a> Releases
 
 <%# DO NOT DELETE THIS LINE - robots use this to add new release notes %>
- 
+
 ### <a id='2.11.0-rc.2'></a> 2.11.0-rc.2
 
 **Release Date:** 03/05/2021
@@ -97,8 +97,8 @@ on the Cloud Foundry website.
     <tr><td>uaa</td><td>74.5.22</td></tr>
   </tbody>
 </table>
- 
- 
+
+
 
 ### <a id='2.11.0-rc.1'></a> 2.11.0-rc.1
 
@@ -1336,15 +1336,21 @@ on the Cloud Foundry website.
 
 ## <a id='upgrade'></a> How to Upgrade
 
-To upgrade to <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>, see [Upgrading <%= vars.platform_name %>](http://docs.pivotal.io/platform/<%= product_info['local_product_version'].to_s.sub('.','-') %>/customizing/upgrading-pcf.html).
+To upgrade to <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>, see [Configuring <%= vars.app_runtime_abbr %> for Upgrades](../../operating/configuring.html).
 
 When upgrading to <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>, be aware of the following upgrade considerations:
 
-* If you previously used an earlier version of <%= vars.app_runtime_abbr %>, you must first upgrade to <%= vars.app_runtime_abbr %> v2.8 to successfully upgrade to <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>.
+* <%= vars.app_runtime_abbr %> <%= vars.v_major_version %> is compatible with <%= vars.ops_manager %> v2.10. If you are using a previous version of <%= vars.ops_manager %>, you must upgrade to <%= vars.ops_manager %> v2.10 before you upgrade to <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>.
 
-* Some partner service tiles may be incompatible with <%= vars.platform_name %> <%= vars.v_major_version %>.
-  VMware is working with partners to ensure their tiles are updated to work with the latest versions of <%= vars.platform_name %>.
-  <br/><br/> For information about which partner service releases are currently compatible with <%= vars.platform_name %>
+* If you are upgrading from <%= vars.app_runtime_abbr %> v2.7 or later, you can upgrade directly to <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>.
+<%= vars.app_runtime_abbr %> v2.11 is an LTS version of <%= vars.app_runtime_abbr %>.
+See [Long-Term Support for <%= vars.app_runtime_abbr %> v2.11](#lts) below for more information.
+
+* If you are upgrading from <%= vars.app_runtime_abbr %> v2.6 or earlier, you must upgrade to <%= vars.app_runtime_abbr %> v2.7 before you upgrade to <%= vars.app_runtime_abbr %> v2.11.
+
+* Some partner service tiles may be incompatible with <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>.
+  VMware is working with partners to ensure their tiles are updated to work with the latest versions of <%= vars.app_runtime_abbr %>.
+  <br/><br/> For information about which partner service releases are currently compatible with <%= vars.app_runtime_abbr %>
   <%= vars.v_major_version %>, review the appropriate partners services release documentation
   at [https://docs.pivotal.io](https://docs.pivotal.io) or contact the partner organization that produces the tile.
 
@@ -1360,20 +1366,20 @@ When upgrading to <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>, be a
 Over the lifecyle of <%= vars.app_runtime_abbr %> v2.11, <%= vars.company_name %> will release security patches that occasionally include feature enhancements and maintenance updates.
 <%= vars.company_name %> will also continue to release new versions of <%= vars.app_runtime_abbr %>.
 
-You can jump upgrade directly from previous versions of <%= vars.app_runtime_abbr %> to the LTS version of <%= vars.app_runtime_abbr %>. 
+You can jump upgrade directly from previous versions of <%= vars.app_runtime_abbr %> to the LTS version of <%= vars.app_runtime_abbr %>.
 For more information, see [Jump Upgrading to TAS for VMs v2.11](../../operating/jump-upgrades.html).
 
 ### <a id='vcf-compatibility'></a> Deployment on VMware Cloud Foundation
 
 <%= vars.app_runtime_abbr %> v2.11 can be deployed on VMware Cloud Foundation (VCF). For
 instructions and more information, see
-[Deploying TAS for VMs to VCF](https://docs.pivotal.io/application-service/2-11/operating/vmc.html). 
+[Deploying TAS for VMs to VCF](https://docs.pivotal.io/application-service/2-11/operating/vmc.html).
 
 ### <a id='vmc-compatibility'></a> Deployment on VMware Cloud to Amazon Web Services
 
 <%= vars.app_runtime_abbr %> v2.11 can be deployed to VMware Cloud (VMC) on
 Amazon Web Services (AWS). For instructions and more information, see
-[Deploying TAS for VMs to VMC](https://docs.pivotal.io/application-service/2-11/operating/vcf.html). 
+[Deploying TAS for VMs to VMC](https://docs.pivotal.io/application-service/2-11/operating/vcf.html).
 
 ### <a id='timestamps'></a> Optionally Use Human-Readable Timestamps for Component Logs
 
@@ -1386,7 +1392,7 @@ RFC3339-formatted timestamps follow the RFC3339 spec, include nine points of pre
 
 For more information about configuring the **Timestamp format for component logs** field, see [System Logging](https://docs.pivotal.io/application-service/operating/configure-pas.html#sys-logging) in _Configuring <%= vars.app_runtime_abbr %>_.
 
-In <%= vars.app_runtime_abbr %> v2.11.0, if you select the **Converge to human-readable RFC3339 format** option under **Timestamp format for component logs**, then the following components and related jobs use RFC3339 timestamps: 
+In <%= vars.app_runtime_abbr %> v2.11.0, if you select the **Converge to human-readable RFC3339 format** option under **Timestamp format for component logs**, then the following components and related jobs use RFC3339 timestamps:
 
 | Component | Jobs |
 | ------------ | ----- |
