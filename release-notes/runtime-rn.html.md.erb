@@ -1402,6 +1402,17 @@ In <%= vars.app_runtime_abbr %> v2.11.0, if you select the **Converge to human-r
 
 This new feature is related to a breaking change. For more information, see <a href='#timestamps-breaking-change'>Timestamps for Component Logs in Diego Logs when Upgrading</a> below.
 
+## <a id='resolved-issues'></a> Resolved Issues
+
+<%= vars.app_runtime_abbr %> <%= vars.v_major_version %> includes the following resolved issues:
+
+### <a id='credhub-encryption-key'></a> CredHub Primary Encryption Key Verification
+
+When you configure the CredHub server for <%= vars.app_runtime_abbr %>, you must select a primary encryption key.
+In <%= vars.app_runtime_abbr %> v2.11, if you do not select a primary encryption key, or if you mark more than one key as the primary encryption key, deployment fails more quickly than in previous releases of <%= vars.app_runtime_abbr %>.
+
+For more information, see [Configure CredHub](../../operating/configure-pas.html#credhub) in _Configuring <%= vars.app_runtime_abbr %>_.
+
 ## <a id='breaking-changes'></a> Breaking Changes
 
 <%= vars.app_runtime_abbr %> <%= vars.v_major_version %> includes the following breaking changes:
