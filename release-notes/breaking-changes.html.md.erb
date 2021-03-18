@@ -34,6 +34,14 @@ After you successfully remove SCS v2.0.x or upgrade to SCS v2.1.x, you can proce
 
 See the following <%= vars.app_runtime_abbr %> breaking changes:
 
+### <a id='transfer-encoding-stricter'></a> Gorouter update to Golang v1.15 introduces stricter transfer-encoding header standards in <%= vars.app_runtime_abbr %> v2.7.30 and Later
+
+In <%= vars.app_runtime_abbr %> v2.7.30 and later, Stricter header standards break Spring apps that incorrectly set the header. For more information, see [routing-release](https://github.com/cloudfoundry/routing-release/releases/tag/0.209.0) in GitHub.
+
+<%= vars.app_runtime_abbr %> v2.7.31 was released that emits logs, emits metrics, and doesn't error when an app response contains a duplicate "Transfer-Encoding: chunked" header. This is a stop gap to discover which apps are sending invalid responses. This fix will be removed in the next patch release. Please see [this knowledge base](https://community.pivotal.io/s/article/Application-Chunked-Error?language=en_US) article for more details.
+
+Before you upgrade to <%= vars.app_runtime_abbr %> v2.7.32 or later, you must follow the above KB article to fix the apps.
+
 ### <a id='credhub-interpolate-with-https'></a> Incorrect HTTP(S) Proxy Configuration Breaks CredHub Interpolation for Apps in <%= vars.app_runtime_abbr %> v2.7.18 and Later
 
 In <%= vars.app_runtime_abbr %> v2.7.18 and later, apps that have an incorrect HTTP(S) Proxy configuration fail to stage or restart due to a CredHub interpolation error.
