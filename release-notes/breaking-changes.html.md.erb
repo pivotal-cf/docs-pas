@@ -15,6 +15,14 @@ see [Upgrading <%= vars.platform_name %>](https://docs.pivotal.io/platform/<%= p
 
 See the following <%= vars.app_runtime_abbr %> breaking changes:
 
+### <a id='transfer-encoding-stricter'></a> Gorouter update to Golang v1.15 introduces stricter transfer-encoding header standards in <%= vars.app_runtime_abbr %> v2.10.10 and Later
+
+In <%= vars.app_runtime_abbr %> v2.10.10 and later, Stricter header standards break Spring apps that incorrectly set the header. For more information, see [routing-release](https://github.com/cloudfoundry/routing-release/releases/tag/0.209.0) in GitHub.
+
+<%= vars.app_runtime_abbr %> v2.10.11 was released that emits logs, emits metrics, and doesn't error when an app response contains a duplicate "Transfer-Encoding: chunked" header. This is a stop gap to discover which apps are sending invalid responses. This fix will be removed in the next patch release. Please see [this knowledge base](https://community.pivotal.io/s/article/Application-Chunked-Error?language=en_US) article for more details.
+
+Before you upgrade to <%= vars.app_runtime_abbr %> v2.10.12 or later, you must follow the above KB article to fix the apps.
+
 ### <a id='timestamps'></a> Timestamp Format for Component Logs Replaces Timestamp Format for Diego Logs
 
 The **Format of timestamps in Diego logs** feature is removed from the **App Containers** pane of the TAS for VMs tile. It is replaced by **Timestamp format for component logs** in the **System Logging** pane of the TAS for VMs tile.
