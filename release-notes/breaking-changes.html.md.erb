@@ -34,13 +34,13 @@ After you successfully remove SCS v2.0.x or upgrade to SCS v2.1.x, you can proce
 
 See the following <%= vars.app_runtime_abbr %> breaking changes:
 
-### <a id='transfer-encoding-stricter'></a> Gorouter update to Golang v1.15 introduces stricter transfer-encoding header standards in <%= vars.app_runtime_abbr %> v2.7.30 and Later
+### <a id='transfer-encoding-stricter'></a> Gorouter Update to Golang v1.15 Introduces Stricter Transfer-Encoding Header Standards in <%= vars.app_runtime_abbr %> v2.7.30 and Later
 
-In <%= vars.app_runtime_abbr %> v2.7.30 and later, Stricter header standards break Spring apps that incorrectly set the header. For more information, see [routing-release](https://github.com/cloudfoundry/routing-release/releases/tag/0.209.0) in GitHub.
+In <%= vars.app_runtime_abbr %> v2.7.30 and later, stricter header standards break Spring apps that incorrectly set the header. For more information, see [routing-release](https://github.com/cloudfoundry/routing-release/releases/tag/0.209.0) in GitHub.
 
-<%= vars.app_runtime_abbr %> v2.7.31 was released that emits logs, emits metrics, and doesn't error when an app response contains a duplicate "Transfer-Encoding: chunked" header. This is a stop gap to discover which apps are sending invalid responses. This fix will be removed in the next patch release. Please see [this knowledge base](https://community.pivotal.io/s/article/Application-Chunked-Error?language=en_US) article for more details.
+<%= vars.app_runtime_abbr %> v2.7.31 includes a patch release to Gorouter that emits logs, emits metrics, and does not error out when an app response contains a duplicate <code>Transfer-Encoding: chunked</code> header. The v2.7.31 release includes a stop gap fix to discover which apps are sending invalid responses. This fix will be removed in the next patch release. For more details, see the [Applications on TAS for VMs get 502 chunked response error](https://community.pivotal.io/s/article/Application-Chunked-Error?language=en_US) knowledge base article.
 
-Before you upgrade to <%= vars.app_runtime_abbr %> v2.7.32 or later, you must follow the above KB article to fix the apps.
+Before you upgrade to <%= vars.app_runtime_abbr %> v2.7.32 or later, you must follow the resolution steps in the above referenced KB article to fix the apps.
 
 ### <a id='credhub-interpolate-with-https'></a> Incorrect HTTP(S) Proxy Configuration Breaks CredHub Interpolation for Apps in <%= vars.app_runtime_abbr %> v2.7.18 and Later
 
