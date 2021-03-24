@@ -606,6 +606,13 @@ To install <%= vars.segment_runtime_full %> <%= vars.v_major_version %>, you mus
 
 <%= vars.segment_runtime_full %> <%= vars.v_major_version %> includes the following major features:
 
+### <a id='gorouter-cas'></a>Configure Trusted CAs for Gorouter
+
+When validating requests using mutual TLS to back ends and route services, the Gorouter trusts multiple certificate authorities (CAs) by default.
+In <%= vars.segment_runtime_full %> v2.11, you can configure which CA certificates the Gorouter trusts.
+
+For more information, see [Configure Networking](../../operating/installing-pcf-is.html#networking) in _Installing <%= vars.segment_runtime_full %>_.
+
 ## <a id='breaking-changes'></a> Breaking Changes
 
 <%= vars.segment_runtime_full %> <%= vars.v_major_version %> includes the following breaking changes:
