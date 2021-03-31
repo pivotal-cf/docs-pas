@@ -111,7 +111,7 @@ on the Cloud Foundry website.
 
 **Release Date:** 02/19/2021
 
-* **[Bug Fix]** Gorouter - Emit log, emit metric, and don't error when an app response contains a duplicate "Transfer-Encoding: chunked" header. This is a stop gap to discover which apps are sending invalid responses. This fix will be removed in the next patch release. Please see [this knowledge base](https://community.pivotal.io/s/article/Application-Chunked-Error?language=en_US) article for more details.
+* **[Bug Fix]** Gorouter - Emit log, emit metric, and don't error when an app response contains a duplicate "Transfer-Encoding: chunked" header. This is a stop gap to discover which apps are sending invalid responses. For more information, see [Applications on TAS for VMs get 502 chunked response error](https://community.pivotal.io/s/article/Application-Chunked-Error?language=en_US) in the Knowledge Base.
 * **[Bug Fix]** Autoscaling - Reduce RabbitMQ overhead of RabbitMQ based autoscaling rules.
 * Bump ubuntu-xenial stemcell to version `456.137`
 * Bump cf-autoscaling to version `237`
