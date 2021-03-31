@@ -91,6 +91,7 @@ This topic contains release notes for <%= vars.segment_runtime_full %> <%= vars.
 
 **Release Date:** 12/18/2020
 
+* **[Breaking Change]** Gorouter update to Golang v1.15 introduces stricter transfer-encoding header standards. Stricter header standards break Spring apps that incorrectly set the header. Please see [this knowledge base article](https://community.pivotal.io/s/article/Application-Chunked-Error?language=en_US) for more details.
 * **[Security Fix]** Bump garden-runc-release to address [CVE-2020-15257](https://nvd.nist.gov/vuln/detail/CVE-2020-15257)
 * Bump ubuntu-xenial stemcell to version `621.94`
 * Bump cf-networking to version `2.35.0`
