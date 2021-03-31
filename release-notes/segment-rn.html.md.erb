@@ -77,44 +77,24 @@ For more information, see [Configure Networking](../../operating/installing-pcf-
 
 ## <a id='breaking-changes'></a> Breaking Changes
 
-### <a id='transfer-encoding-stricter'></a> Gorouter Update to Golang v1.15 Introduces Stricter Transfer-Encoding Header Standards in <%= vars.app_runtime_abbr %> v2.11.0 and Later
+### <a id='transfer-encoding-stricter'></a> Gorouter Update to Golang v1.15 Introduces Stricter Transfer-Encoding Header Standards in <%= vars.segment_runtime_full %> v2.11.0 and Later
 
 In <%= vars.segment_runtime_full %> v2.11.0 and later,
 stricter header standards break Spring apps
 that incorrectly set the header.
 
-For more details, see the
-[Applications on TAS for VMs get 502 chunked response error](https://community.pivotal.io/s/article/Application-Chunked-Error?language=en_US)
-knowledge base article.
+For information about how to avoid this breaking change,
+see [Applications on TAS for VMs get 502 chunked response error](https://community.pivotal.io/s/article/Application-Chunked-Error?language=en_US) in the Knowledge Base.
+You must complete the resolution steps described in this
+Knowledge Base article before you upgrade to
+<%= vars.segment_runtime_full %> v2.11.0 or later.
 
-This breaking change was _also present_
-in later patch versions of v2.7, v2.8, v2.9, and v2.10 of <%= vars.segment_runtime_full %>
-but is listed again here,
-because it is possible to jumpgrade
-directly from a pre-breaking-change patch to  v2.11.
-
-If you have not yet encountered this breaking change,
-you may be on a <%= vars.segment_runtime_full %> version prior to v2.7.30, v2.8.24, v2.9.20, or 2.10.10.
-
-If this is the case, you should upgrade to a version with a stop-gap version
-of the rouring release
-prior to upgrading to 2.11.0,
-so that you can determine if you have any effected apps.
-
-<%= vars.segment_runtime_full %> v2.7.31, v2.8.25, v2.9.21, and 2.10.11 include
-a patch release to Gorouter that emits logs,
-emits metrics, and does not error out
-when an app response contains a duplicate
-<code>Transfer-Encoding: chunked</code> header.
-These releases includes a stop-gap fix
-to discover which apps are sending invalid responses.
-This fix is not present in subsequent patch releases.
-For more details, see the
-[Applications on TAS for VMs get 502 chunked response error](https://community.pivotal.io/s/article/Application-Chunked-Error?language=en_US)
-knowledge base article.
-
-Before you upgrade to <%= vars.segment_runtime_full %> v2.11.00 or later,
-you must follow the resolution steps in the above referenced KB article to fix the apps.
+<p class="note"><strong>Note</strong>: This breaking change was also present in <%= vars.segment_runtime_full %> v2.7.30, v2.8.24, v2.9.18, and v2.10.10.
+If you are on any of these versions or earlier,
+you must upgrade to <%= vars.segment_runtime_full %> v2.7.31, v2.8.25, v2.9.19, or v2.10.11
+before upgrading or jump upgrading to <%= vars.segment_runtime_full %> 2.11.0 or later.
+For more information,
+see <a href="https://community.pivotal.io/s/article/Application-Chunked-Error?language=en_US">Applications on TAS for VMs get 502 chunked response error</a>.</p>
 
 ## <a id='known-issues'></a> Known Issues
 
