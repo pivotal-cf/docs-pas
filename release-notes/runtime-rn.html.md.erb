@@ -29,6 +29,7 @@ on the Cloud Foundry website.
 
 **Release Date:** 03/31/2021
 
+* **[Breaking Change]** <%= vars.app_runtime_abbr %> v2.10.12 specifies Java buildpack v4.36. This causes a breaking change if you use Tanzu GemFire for VMs v1.12 or earlier with Tomcat session state caching. For information about how to avoid this breaking change, see [Known Issues](https://docs.pivotal.io/p-cloud-cache/1-12/release-notes.html#known-issues) in the Tanzu GemFire for VMs documentation.
 * **[Security Fix]** Usage Service - Upgrade Nokogiri gem to address [CVE-2020-26247](https://nvd.nist.gov/vuln/detail/CVE-2020-26247)
 * **[Security Fix]** Usage Service - Upgrade Rails gem to address [CVE-2021-22880](https://nvd.nist.gov/vuln/detail/CVE-2021-22880)
 * **[Feature Improvement]** MySQL binlogs volume is capped at 33% of available disk storage
@@ -1194,6 +1195,12 @@ instructions and more information, see
 ## <a id='breaking-changes'></a> Breaking Changes
 
 <%= vars.app_runtime_abbr %> <%= vars.v_major_version %> includes the following breaking changes:
+
+### <a id=''></a> <%= vars.app_runtime_abbr %> v2.10.12 Incompatible with Tanzu GemFire for VMs
+
+### <a id='gemfire-tomcat-java-buildpack'></a> <%= vars.app_runtime_abbr %> v2.10.12 Incompatible with Tanzu GemFire for VMs v1.12 and Earlier with Tomcat Session State Cachine
+
+<%= vars.app_runtime_abbr %> v2.10.12 specifies Java buildpack v4.36. This causes a breaking change if you use Tanzu GemFire for VMs v1.12 or earlier with Tomcat session state caching. For information about how to avoid this breaking change, see [Known Issues](https://docs.pivotal.io/p-cloud-cache/1-12/release-notes.html#known-issues) in the Tanzu GemFire for VMs documentation.
 
 ### <a id='timestamps-br'></a> Timestamp Format for Component Logs Replaces Timestamp Format for Diego Logs
 
