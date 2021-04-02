@@ -110,6 +110,7 @@ on the Cloud Foundry website.
 
 **Release Date:** 02/19/2021
 
+* **[Breaking Change]** <%= vars.app_runtime_abbr %> v2.10.11 specifies Java buildpack v4.36. This causes a breaking change if you use Tanzu GemFire for VMs v1.12 or earlier with Tomcat session state caching. For information about how to avoid this breaking change, see [Known Issues](https://docs.pivotal.io/p-cloud-cache/1-12/release-notes.html#known-issues) in the Tanzu GemFire for VMs documentation.
 * **[Bug Fix]** Gorouter - Emit log, emit metric, and don't error when an app response contains a duplicate "Transfer-Encoding: chunked" header. This is a stop gap to discover which apps are sending invalid responses. For more information, see [Applications on TAS for VMs get 502 chunked response error](https://community.pivotal.io/s/article/Application-Chunked-Error?language=en_US) in the Knowledge Base.
 * **[Bug Fix]** Autoscaling - Reduce RabbitMQ overhead of RabbitMQ based autoscaling rules.
 * **[Bug Fix]** Diego and Cloud Controller no longer get out of sync when using TCP routes
@@ -1196,9 +1197,9 @@ instructions and more information, see
 
 <%= vars.app_runtime_abbr %> <%= vars.v_major_version %> includes the following breaking changes:
 
-### <a id='gemfire-tomcat-java-buildpack'></a> <%= vars.app_runtime_abbr %> v2.10.12 Incompatible with Tanzu GemFire for VMs v1.12 and Earlier with Tomcat Session State Caching
+### <a id='gemfire-tomcat-java-buildpack'></a> <%= vars.app_runtime_abbr %> v2.10.11 and Later Incompatible with Tanzu GemFire for VMs v1.12 and Earlier with Tomcat Session State Caching
 
-<%= vars.app_runtime_abbr %> v2.10.12 specifies Java buildpack v4.36. This causes a breaking change if you use Tanzu GemFire for VMs v1.12 or earlier with Tomcat session state caching. For information about how to avoid this breaking change, see [Known Issues](https://docs.pivotal.io/p-cloud-cache/1-12/release-notes.html#known-issues) in the Tanzu GemFire for VMs documentation.
+<%= vars.app_runtime_abbr %> v2.10.11 and Later specifies Java buildpack v4.36. This causes a breaking change if you use Tanzu GemFire for VMs v1.12 or earlier with Tomcat session state caching. For information about how to avoid this breaking change, see [Known Issues](https://docs.pivotal.io/p-cloud-cache/1-12/release-notes.html#known-issues) in the Tanzu GemFire for VMs documentation.
 
 ### <a id='timestamps-br'></a> Timestamp Format for Component Logs Replaces Timestamp Format for Diego Logs
 
