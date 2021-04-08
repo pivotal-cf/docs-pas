@@ -9,9 +9,9 @@ mr_fixed_version: 2.10.5
 
 This topic contains release notes for <%= vars.app_runtime_full %> (<%= vars.app_runtime_abbr %>) <%= vars.v_major_version %>.
 
-For the feature highlights of this release, 
-read the blog post [VMware Tanzu Application Service 2.10 Adds New CLI, Eases Upgrades with More Flexible Control Plane](https://tanzu.vmware.com/content/blog/vmware-tanzu-application-service-2-10-adds-a-new-cli-and-eases-upgrades-with-a-more-flexible-control-plane) 
-or see [New Features in <%= vars.app_runtime_abbr %> v2.10](#new-features). 
+For the feature highlights of this release,
+read the blog post [VMware Tanzu Application Service 2.10 Adds New CLI, Eases Upgrades with More Flexible Control Plane](https://tanzu.vmware.com/content/blog/vmware-tanzu-application-service-2-10-adds-a-new-cli-and-eases-upgrades-with-a-more-flexible-control-plane)
+or see [New Features in <%= vars.app_runtime_abbr %> v2.10](#new-features).
 
 <%= vars.platform_name %> is certified by the Cloud Foundry Foundation for <%= Date.today.year %>.
 
@@ -24,7 +24,7 @@ on the Cloud Foundry website.
 ## <a id='releases'></a> Releases
 
 <%# DO NOT DELETE THIS LINE - robots use this to add new release notes %>
- 
+
 ### <a id='2.10.12'></a> 2.10.12
 
 **Release Date:** 03/31/2021
@@ -103,9 +103,9 @@ on the Cloud Foundry website.
     <tr><td>uaa</td><td>74.5.22</td></tr>
   </tbody>
 </table>
- 
- 
- 
+
+
+
 ### <a id='2.10.11'></a> 2.10.11
 
 **Release Date:** 02/19/2021
@@ -273,9 +273,9 @@ on the Cloud Foundry website.
     <tr><td>uaa</td><td>74.5.21</td></tr>
   </tbody>
 </table>
- 
- 
- 
+
+
+
 ### <a id='2.10.9'></a> 2.10.9
 
 **Release Date:** 11/18/2020
@@ -348,9 +348,9 @@ on the Cloud Foundry website.
     <tr><td>uaa</td><td>74.5.21</td></tr>
   </tbody>
 </table>
- 
- 
- 
+
+
+
 ### <a id='2.10.8'></a> 2.10.8
 
 **Release Date:** 11/04/2020
@@ -431,9 +431,9 @@ on the Cloud Foundry website.
     <tr><td>uaa</td><td>74.5.20</td></tr>
   </tbody>
 </table>
- 
- 
- 
+
+
+
 ### <a id='2.10.7'></a> 2.10.7
 
 **Release Date:** 10/26/2020
@@ -504,9 +504,9 @@ on the Cloud Foundry website.
     <tr><td>uaa</td><td>74.5.20</td></tr>
   </tbody>
 </table>
- 
- 
- 
+
+
+
 ### <a id='2.10.6'></a> 2.10.6
 
 **Release Date:** 10/19/2020
@@ -582,9 +582,9 @@ on the Cloud Foundry website.
     <tr><td>uaa</td><td>74.5.18</td></tr>
   </tbody>
 </table>
- 
- 
- 
+
+
+
 ### <a id='2.10.5'></a> 2.10.5
 
 **Release Date:** 10/09/2020
@@ -666,9 +666,9 @@ on the Cloud Foundry website.
     <tr><td>uaa</td><td>74.5.18</td></tr>
   </tbody>
 </table>
- 
- 
- 
+
+
+
 ### <a id='2.10.4'></a> 2.10.4
 
 **Release Date:** 09/21/2020
@@ -747,9 +747,9 @@ on the Cloud Foundry website.
     <tr><td>uaa</td><td>74.5.18</td></tr>
   </tbody>
 </table>
- 
- 
- 
+
+
+
 ### <a id='2.10.3'></a> 2.10.3
 
 **Release Date:** 09/09/2020
@@ -829,8 +829,8 @@ on the Cloud Foundry website.
     <tr><td>uaa</td><td>74.5.18</td></tr>
   </tbody>
 </table>
- 
- 
+
+
 
 ### <a id='2.10.2'></a> 2.10.2
 
@@ -1193,15 +1193,20 @@ see [Cloud Foundry Further Simplifies Modern App Development: An Inside Look at 
 instructions and more information, see
 [Deploying <%= vars.app_runtime_abbr %> to VCF](../../operating/vcf.html).
 
+
 ## <a id='breaking-changes'></a> Breaking Changes
 
 <%= vars.app_runtime_abbr %> <%= vars.v_major_version %> includes the following breaking changes:
 
-### <a id='gemfire-tomcat-java-buildpack'></a> <%= vars.app_runtime_abbr %> v2.10.11 and Later Incompatible with Tanzu GemFire for VMs v1.12 and Earlier with Tomcat Session State Caching
+### <a id='transfer-encoding-stricter'></a> Gorouter Update to Golang v1.15 Introduces Stricter Transfer-Encoding Header Standards in <%= vars.app_runtime_abbr %> v2.10.10 and Later
 
-<%= vars.app_runtime_abbr %> v2.10.11 and later specifies Java buildpack v4.36. This causes a breaking change if you use Tanzu GemFire for VMs v1.12 or earlier with Tomcat session state caching. For information about how to avoid this breaking change, see [Known Issues](https://docs.pivotal.io/p-cloud-cache/1-12/release-notes.html#known-issues) in the Tanzu GemFire for VMs documentation.
+In <%= vars.app_runtime_abbr %> v2.10.10 and later, stricter header standards break Spring apps that incorrectly set the header. For more information, see [routing-release](https://github.com/cloudfoundry/routing-release/releases/tag/0.209.0) in GitHub.
 
-### <a id='timestamps-br'></a> Timestamp Format for Component Logs Replaces Timestamp Format for Diego Logs
+<%= vars.app_runtime_abbr %> v2.10.11 includes a patch release to Gorouter that emits logs, emits metrics, and does not error out when an app response contains a duplicate <code>Transfer-Encoding: chunked</code> header. The v2.10.11 release includes a stop gap fix to discover which apps are sending invalid responses. This fix will be removed in the next patch release. For more details, see the [Applications on TAS for VMs get 502 chunked response error](https://community.pivotal.io/s/article/Application-Chunked-Error?language=en_US) knowledge base article.
+
+Before you upgrade to <%= vars.app_runtime_abbr %> v2.10.12 or later, you must follow the resolution steps in the above referenced KB article to fix the apps.
+
+### <a id='timestamps'></a> Timestamp Format for Component Logs Replaces Timestamp Format for Diego Logs
 
 The **Format of timestamps in Diego logs** feature is removed from the **App Containers** pane of the TAS for VMs tile. It is replaced by **Timestamp format for component logs** in the **System Logging** pane of the TAS for VMs tile.
 
@@ -1215,15 +1220,20 @@ To avoid breaking changes associated with this update, you must:
 
 * Update any automation scripts that reference the removed **Format of timestamps in Diego logs** feature.
 
-* If **RFC3339 timestamps** is selected for **Format of timestamps in Diego logs** before you upgrade to TAS for VMs v2.10, update any external monitoring configuration to account for RFC3339 timestamps in the logs for several TAS for VMs components. For a list of TAS for VMs components that support RFC3339 timestamps in TAS for VMs v2.10, see [Optionally Use Human-Readable Timestamps for Component Logs](#timestamps) below.
+* If **RFC3339 timestamps** is selected for **Format of timestamps in Diego logs** before you upgrade to TAS for VMs v2.10, update any external monitoring configuration to account for RFC3339 timestamps in the logs for several TAS for VMs components. For a list of TAS for VMs components that support RFC3339 timestamps in TAS for VMs v2.10, see [Optionally Use Human-Readable Timestamps for Component Logs](runtime-rn.html#timestamps) in _VMware Tanzu Application Service for VMs v2.10 Release Notes_.
 
 For more information about configuring RFC3339 timestamps for component logs, see [System Logging](https://docs.pivotal.io/application-service/operating/configure-pas.html) in _Configuring <%= vars.app_runtime_abbr %>_.
 
-### <a id='aggregate-drains-br'></a> Aggregate Syslog Drains Contain Logs Only
+### <a id='aggregate-drains'></a> Aggregate Syslog Drains Contain Logs Only
 
 In TAS for VMs v2.10, aggregate syslog drains contain only logs by default, and do not contain metrics. If you rely on metrics sent through aggregate syslog drains, you must add <code>?include-metrics-deprecated=true</code> to your aggregate drain URLs to continue to receive metrics in the drains.
 
 For more information, see <a href="https://docs.pivotal.io/platform/2-10/release-notes/runtime-rn.html#syslog-no-metrics">Aggregate Syslog Drains Contain Logs Only</a> in the _TAS for VMs v2.10 Release Notes_.
+
+### <a id='gemfire-tomcat-java-buildpack'></a> <%= vars.app_runtime_abbr %> v2.10.11 and Later Incompatible with Tanzu GemFire for VMs v1.12 and Earlier with Tomcat Session State Caching
+
+<%= vars.app_runtime_abbr %> v2.10.11 and later specifies Java buildpack v4.36. This causes a breaking change if you use Tanzu GemFire for VMs v1.12 or earlier with Tomcat session state caching. For information about how to avoid this breaking change, see [Known Issues](https://docs.pivotal.io/p-cloud-cache/1-12/release-notes.html#known-issues) in the Tanzu GemFire for VMs documentation.
+
 
 ## <a id='known-issues'></a> Known Issues
 
@@ -1243,3 +1253,27 @@ job to fail when you deploy.
 ### <a id="metric-registrar-1.2.1-issues"></a>Metric Registrar 1.2.1 Issues
 
 <%= partial "/pcf/app-service-kis/metrics-registrar-known-issues" %>
+
+
+## <a id='end-of-life'></a> End-of-Life Components
+
+This section lists of components that are either at their end-of-life (EOL) or nearing EOL.
+
+### <a id='buildpack'></a> Buildpack Support Changes
+
+This section lists support changes to buildpacks associated with this release:
+
+* **NGINX Buildpack:** NGINX v1.16.x and v1.17.x are removed from the NGINX buildpack v1.1.12 and later because NGINX v1.16.x and v1.17.x are out of support.
+
+* **Node.js Buildpack:** Node.js v13.x is removed from the Node.js buildpack v1.7.22 and later because Node.js v13.x is out of support.
+
+* **PHP Buildpack:** NGINX v1.16.x and v1.17.x are removed from the PHP buildpack v4.4.20 and later because NGINX v1.16.x and v1.17.x are out of support.
+
+If your apps depend on any of these language distributions and use the buildpacks that are packaged with TAS for VMs,
+consider updating the apps and their dependencies before upgrading to TAS for VMs v2.10.
+
+### <a id='aws-path-deprecation'></a> AWS S3 Path-Based Access Model
+
+On September 30, 2020, AWS will no longer support the path-based model for accessing S3 buckets. Support for the path-based model will continue for S3 buckets created on or before September 30, 2020. S3 buckets created after that date must be accessed using the virtual-hosted model.
+
+For more information, see [Amazon S3 Path Deprecation Plan – The Rest of the Story](https://aws.amazon.com/blogs/aws/amazon-s3-path-deprecation-plan-the-rest-of-the-story/) on the AWS News Blog.
