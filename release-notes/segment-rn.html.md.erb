@@ -12,11 +12,12 @@ This topic contains release notes for <%= vars.segment_runtime_full %> <%= vars.
 ## <a id='releases'></a> Releases
 
 <%# DO NOT DELETE THIS LINE - robots use this to add new release notes %>
- 
+
 ### <a id='2.7.31'></a> 2.7.31
 
 **Release Date:** 03/31/2021
 
+* **[Breaking Change]** This restores the breaking change originally found in 2.7.29 and temporarily remediated in 2.7.30: Gorouter update to Golang v1.15 introduces stricter transfer-encoding header standards. Stricter header standards break Spring apps that incorrectly set the header. For more information, see [Applications on TAS for VMs get 502 chunked response error](https://community.pivotal.io/s/article/Application-Chunked-Error?language=en_US) in the Knowledge Base.
 * **[Feature]** gorouter - Operator can limit CAs gorouter trusts when validating client certs to a specified list
 * Bump ubuntu-xenial stemcell to version `456.152`
 * Bump cflinuxfs3 to version `0.227.0`
@@ -46,14 +47,14 @@ This topic contains release notes for <%= vars.segment_runtime_full %> <%= vars.
     <tr><td>syslog</td><td>11.6.1</td></tr>
   </tbody>
 </table>
- 
- 
- 
+
+
+
 ### <a id='2.7.30'></a> 2.7.30
 
 **Release Date:** 02/19/2021
 
-* **[Bug Fix]** Gorouter - Emit log, emit metric, and don't error when an app response contains a duplicate "Transfer-Encoding: chunked" header. This is a stop gap to discover which apps are sending invalid responses. For more information, see [Applications on TAS for VMs get 502 chunked response error](https://community.pivotal.io/s/article/Application-Chunked-Error?language=en_US) in the Knowledge Base.
+* **[Temporary Remediation]** Gorouter - Emit log, emit metric, and don't error when an app response contains a duplicate "Transfer-Encoding: chunked" header. This is a stop gap to discover which apps are sending invalid responses. For more information, see [Applications on TAS for VMs get 502 chunked response error](https://community.pivotal.io/s/article/Application-Chunked-Error?language=en_US) in the Knowledge Base.
 
 * Bump ubuntu-xenial stemcell to version `456.137`
 * Bump cflinuxfs3 to version `0.223.0`
