@@ -27,6 +27,7 @@ on the Cloud Foundry website.
 
 **Release Date:** 03/31/2021
 
+* **[Breaking Change]** This restores the breaking change originally found in 2.8.24 and temporarily remediated in 2.8.25: Gorouter update to Golang v1.15 introduces stricter transfer-encoding header standards. Stricter header standards break Spring apps that incorrectly set the header. For more information, see [Applications on TAS for VMs get 502 chunked response error](https://community.pivotal.io/s/article/Application-Chunked-Error?language=en_US) in the Knowledge Base.
 * **[Breaking Change]** <%= vars.app_runtime_abbr %> v2.8.26 specifies Java buildpack v4.36. This causes a breaking change if you use Tanzu GemFire for VMs v1.12 or earlier with Tomcat session state caching. For information about how to avoid this breaking change, see [Known Issues](https://docs.pivotal.io/p-cloud-cache/1-12/release-notes.html#known-issues) in the Tanzu GemFire for VMs documentation.
 * **[Security Fix]** Usage Service - Upgrade Nokogiri gem to address [CVE-2020-26247](https://nvd.nist.gov/vuln/detail/CVE-2020-26247)
 * **[Security Fix]** Usage Service - Upgrade Rails gem to address [CVE-2021-22880](https://nvd.nist.gov/vuln/detail/CVE-2021-22880)
@@ -111,7 +112,7 @@ on the Cloud Foundry website.
 **Release Date:** 02/19/2021
 
 * **[Breaking Change]** <%= vars.app_runtime_abbr %> v2.8.25 specifies Java buildpack v4.36. This causes a breaking change if you use Tanzu GemFire for VMs v1.12 or earlier with Tomcat session state caching. For information about how to avoid this breaking change, see [Known Issues](https://docs.pivotal.io/p-cloud-cache/1-12/release-notes.html#known-issues) in the Tanzu GemFire for VMs documentation.
-* **[Bug Fix]** Gorouter - Emit log, emit metric, and don't error when an app response contains a duplicate "Transfer-Encoding: chunked" header. This is a stop gap to discover which apps are sending invalid responses. For more information, see [Applications on TAS for VMs get 502 chunked response error](https://community.pivotal.io/s/article/Application-Chunked-Error?language=en_US) in the Knowledge Base.
+* **[Temporary Remediation]** Gorouter - Emit log, emit metric, and don't error when an app response contains a duplicate "Transfer-Encoding: chunked" header. This is a stop gap to discover which apps are sending invalid responses. For more information, see [Applications on TAS for VMs get 502 chunked response error](https://community.pivotal.io/s/article/Application-Chunked-Error?language=en_US) in the Knowledge Base.
 * **[Bug Fix]** Autoscaling - Reduce RabbitMQ overhead of RabbitMQ based autoscaling rules.
 * Bump ubuntu-xenial stemcell to version `621.101`
 * Bump cf-autoscaling to version `237`
