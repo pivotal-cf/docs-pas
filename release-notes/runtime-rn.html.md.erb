@@ -24,11 +24,8 @@ on the Cloud Foundry website.
 **Release Date:** March 30, 2021
 
 - See [New Features in <%= vars.app_runtime_abbr %> v2.11](#new-features)
+- See [Resolved Issues](#resolved-issues)
 - See [Breaking Changes](#breaking-changes)
-
-* **[Bug Fix]** Use non-experimental V2 endpoint instead of experimental V3 endpoint for CAPI for stability
-* **[Bug Fix]** Disabled service plans are handled gracefully in the UI.
-* Bump push-apps-manager-release to version 674.0.2
 
 <table border="1" class="nice">
   <thead>
@@ -163,6 +160,7 @@ This new feature is related to a breaking change. For more information, see <a h
 time when working with services. Use the Cloud Foundry V3 API endpoints when listing, creating, or
 modifying any service that works with <%= vars.app_runtime_abbr %> v2.11 and later.
 
+
 ## <a id='resolved-issues'></a> Resolved Issues
 
 <%= vars.app_runtime_abbr %> v2.11 includes the following resolved issues:
@@ -173,6 +171,17 @@ When you configure the CredHub server for <%= vars.app_runtime_abbr %>, you must
 In <%= vars.app_runtime_abbr %> v2.11, if you do not select a primary encryption key, or if you mark more than one key as the primary encryption key, deployment fails more quickly than in previous releases of <%= vars.app_runtime_abbr %>.
 
 For more information, see [Configure CredHub](../../operating/configure-pas.html#credhub) in _Configuring <%= vars.app_runtime_abbr %>_.
+
+* **[Bug Fix]** Disabled service plans are handled gracefully in the UI.
+
+### <a id='capi-v2'><</a> Apps Manager Uses the CAPI V2 Endpoint
+
+For greater stability, Apps Manager uses the Cloud Controller API (CAPI) V2 endpoint instead of experimental V3 endpoint.
+
+### <a id='appsman-services'></a> Improved Handling for Disabled Service Plans in Apps Manager
+
+In <%= vars.app_runtime_abbr %>, disabled service plans are handled gracefully in the Apps Manager UI.
+
 
 ## <a id='breaking-changes'></a> Breaking Changes
 
