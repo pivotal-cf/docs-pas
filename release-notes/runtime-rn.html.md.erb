@@ -185,15 +185,20 @@ In <%= vars.app_runtime_abbr %>, disabled service plans are handled gracefully i
 
 <%= vars.app_runtime_abbr %> v2.11 includes the following breaking changes:
 
-### <a id='disable-ssl-certificate-verification-removed'></a> "Disable SSL certificate verification for this environment" option removed
+### <a id='disable-ssl-certificate-verification-removed'></a> Option Removed: Disable SSL Certificate Verification for this Environment
 
-In <%= vars.app_runtime_abbr %> v2.11.0 and later the option to disable SSL certificate verification has been removed.
+In <%= vars.app_runtime_abbr %> v2.11.0 and later, the option to disable SSL certificate verification for an environment is removed.
 
-Attempts to upgrade to v2.11.0+ with 'Disable SSL certificate verification for this environment' selected will fail with the following error:
+Before you upgrade to <%= vars.app_runtime_abbr %> v2.11, you must deselect the option to disable SSL certificate verification in the **Networking** pane of the <%= vars.app_runtime_abbr %> tile.
+For more information, see _Configure Networking_ in [Configuring <%= vars.app_runtime_abbr %>](../../operating/configure-pas.html#networking).
 
-```
-attempt to upgrade to PAS 2.11+ with Skip SSL Verification enabled, please disable Skip SSL Verification prior to upgrade by un-checking "Disable SSL certificate verification for this environment" under "Networking"
-```
+If the **Disable SSL certificate verification for this environment** option is enabled when you try to upgrade to <%= vars.app_runtime_abbr %>, the upgrade fails with the following error:
+
+<pre class="terminal">
+attempt to upgrade to PAS 2.11+ with Skip SSL Verification enabled, please disable
+Skip SSL Verification prior to upgrade by un-checking "Disable SSL certificate
+verification for this environment" under "Networking"
+</pre>
 
 ### <a id='transfer-encoding-stricter'></a> Gorouter Update to Golang v1.15 Introduces Stricter Transfer-Encoding Header Standards in <%= vars.app_runtime_abbr %> v2.11.0 and Later
 
