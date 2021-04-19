@@ -77,6 +77,20 @@ For more information, see [Configure Networking](../../operating/installing-pcf-
 
 ## <a id='breaking-changes'></a> Breaking Changes
 
+### <a id='disable-ssl-certificate-verification-removed'></a> Option Removed: Disable SSL Certificate Verification for this Environment
+
+In <%= vars.segment_runtime_full %> v2.11.0 and later, the option to disable SSL certificate verification for an environment is removed.
+
+Before you upgrade to <%= vars.segment_runtime_full %> v2.11, you must deselect the option to disable SSL certificate verification in the **Networking** pane of the <%= vars.segment_runtime_full %> tile.
+
+If the **Disable SSL certificate verification for this environment** option is enabled when you try to upgrade to <%= vars.segment_runtime_full %>, the upgrade fails with the following error:
+
+<pre class="terminal">
+attempt to upgrade to IST 2.11+ with Skip SSL Verification enabled, please disable
+Skip SSL Verification prior to upgrade by un-checking "Disable SSL certificate
+verification for this environment" under "Networking"
+</pre>
+
 ### <a id='transfer-encoding-stricter'></a> Gorouter Update to Golang v1.15 Introduces Stricter Transfer-Encoding Header Standards in <%= vars.segment_runtime_full %> v2.11.0 and Later
 
 In <%= vars.segment_runtime_full %> v2.11.0 and later,
