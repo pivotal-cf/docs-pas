@@ -200,7 +200,7 @@ Skip SSL Verification prior to upgrade by un-checking "Disable SSL certificate
 verification for this environment" under "Networking"
 </pre>
 
-Customers who are automating the installation of <%= vars.app_runtime_abbr %> 2.11 must remove references to the corresponding property `.ha_proxy.skip_cert_verify`.
+If you plan to automate the installation of <%= vars.app_runtime_abbr %> v2.11, you must remove references to the corresponding property `.ha_proxy.skip_cert_verify`.
 
 ### <a id='transfer-encoding-stricter'></a> Gorouter Update to Golang v1.15 Introduces Stricter Transfer-Encoding Header Standards in <%= vars.app_runtime_abbr %> v2.11.0 and Later
 
