@@ -180,8 +180,9 @@ For greater stability, Apps Manager uses the Cloud Controller API (CAPI) V2 endp
 
 In <%= vars.app_runtime_abbr %>, disabled service plans are handled gracefully in the Apps Manager UI.
 
-### <a id='autoscaler-rabbitmq'></a> App Autoscaler has less overhead when using RabbitMQ based autoscaling rules
-App Autoscaler uses less resource intensive RabbitMQ endpoints when available to reduce load on RabbitMQ.
+### <a id='autoscaler-rabbitmq'></a> Improved App Autoscaler Handling of RabbitMQ-Based Autoscaling Rules
+
+In <%= vars.app_runtime_abbr %> v2.11, App Autoscaler uses fewer resource-intensive RabbitMQ endpoints when available to reduce load on RabbitMQ.
 
 ## <a id='breaking-changes'></a> Breaking Changes
 
