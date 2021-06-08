@@ -40,6 +40,7 @@ on the Cloud Foundry website.
 * **[Feature Improvement]**  Improve metric-registrar to handle unreachable CC more gracefully, delete smoke-test app in the case of failure, and integrate CUPS caching
 * **[Feature Improvement]** Adds per request metrics reporting, which makes metric frequency proportional to request frequency
 * **[Bug Fix]** Smoke Test allows the operator to provide the apps_domain property when deploying TAS and also properly configures user provided space when deploying an isolation segment
+* **[Bug Fix]** Fix race condition and prevent network policy mysql database from being able to get into an invalid state.
 * Bump binary-offline-buildpack to version `1.0.38`
 * Bump bpm to version `1.1.11`
 * Bump cf-networking to version `2.36.0`
