@@ -256,6 +256,17 @@ This new feature is related to a breaking change. For more information, see <a h
 time when working with services. Use the Cloud Foundry V3 API endpoints when listing, creating, or
 modifying any service that works with <%= vars.app_runtime_abbr %> v2.11 and later.
 
+### <a id='stemcell-upgrade'></a> Looser Stemcell Version Requirements when Upgrading <%= vars.app_runtime_abbr %> v2.11.1 and Later
+
+<%= vars.app_runtime_abbr %> v2.11.1 and later have loosened minor version restrictions for stemcells.
+This allows you to upgrade to a newer <%= vars.app_runtime_abbr %> patch without upgrading the stemcell.
+
+When you stage <%= vars.app_runtime_abbr %> for deployment, <%= vars.ops_manager %> installs <%= vars.app_runtime_abbr %> using the latest stemcell by default.
+
+In <%= vars.app_runtime_abbr %> v2.11.0 and earlier, if the latest stemcell was different from the stemcell that was used when installing <%= vars.app_runtime_abbr %> previously, then <%= vars.ops_manager %> re-created all of the VMs in your <%= vars.app_runtime_abbr %> installation during the upgrade.
+
+In <%= vars.app_runtime_abbr %> v2.11.1 and later, you can upgrade to later patches of <%= vars.app_runtime_abbr %> without upgrading the stemcell or re-creating all VMs.
+
 
 ## <a id='resolved-issues'></a> Resolved Issues
 
