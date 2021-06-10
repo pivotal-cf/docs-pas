@@ -59,7 +59,7 @@ This topic contains release notes for <%= vars.segment_runtime_full %> <%= vars.
 **Release Date:** 03/31/2021
 
 * **[Breaking Change]** This restores the breaking change originally found in 2.7.29 and temporarily remediated in 2.7.30: Gorouter update to Golang v1.15 introduces stricter transfer-encoding header standards. Stricter header standards break Spring apps that incorrectly set the header. For more information, see [Applications on TAS for VMs get 502 chunked response error](https://community.pivotal.io/s/article/Application-Chunked-Error?language=en_US) in the Knowledge Base.
-* **[Feature]** gorouter - Operator can limit CAs gorouter trusts when validating client certs to a specified list. See the [install documentation](https://docs.pivotal.io/application-service/2-7/operating/installing-pcf-is.html#networking) for more information.
+* **[Feature]** gorouter - Operator can limit CAs gorouter trusts when validating client certs to a specified list. For more information, see [Configure Networking](../operating/installing-pcf-is.html#networking).
 * Bump ubuntu-xenial stemcell to version `456.152`
 * Bump cflinuxfs3 to version `0.227.0`
 * Bump routing to version `0.212.0`
