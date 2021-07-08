@@ -20,7 +20,7 @@ For the feature highlights of this release,
 read the blog post [VMware Tanzu Application Service 2.9: Key Enhancements for Transformation at Scale](https://tanzu.vmware.com/content/blog/vmware-tanzu-application-service-2-9-key-enhancements-for-transformation-at-scale),
 or see [New Features in <%= vars.ops_manager %> v2.9](#major-features).
 
-<%= vars.platform_name %> is certified by the Cloud Foundry Foundation for <%= Date.today.year %>.
+TAS for VMs is certified by the Cloud Foundry Foundation for <%= Date.today.year %>.
 
 For more information about the Cloud Foundry Certified Provider Program, see
 [How Do I Become a Certified Provider?](https://www.cloudfoundry.org/certified-platforms-how-to/)
@@ -34,7 +34,7 @@ releasing a MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> contai
 ## <a id='releases'></a> Releases
 
 <%# DO NOT DELETE THIS LINE - robots use this to add new release notes %>
- 
+
 ### <a id='2.9.22'></a> 2.9.22
 
 **Release Date:** 06/22/2021
@@ -114,8 +114,8 @@ releasing a MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> contai
     <tr><td>uaa</td><td>74.5.22</td></tr>
   </tbody>
 </table>
- 
- 
+
+
 
 ### <a id='2.9.21'></a> 2.9.21
 
@@ -1911,15 +1911,15 @@ The stemcell in this patch is not compatible with the NCP tile v3.0.1 and causes
 
 ## <a id='upgrade'></a> How to Upgrade
 
-To upgrade to <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>, see [Upgrading <%= vars.platform_name %>](https://docs.pivotal.io/platform/<%= product_info['local_product_version'].to_s.sub('.','-') %>/customizing/upgrading-pcf.html).
+To upgrade to <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>, see [Upgrading Ops Manager](https://docs.pivotal.io/ops-manager/2-9/install/upgrading-pcf.html).
 
 When upgrading to <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>, be aware of the following upgrade considerations:
 
 * If you previously used an earlier version of <%= vars.app_runtime_abbr %>, you must first upgrade to <%= vars.app_runtime_abbr %> v2.8 to successfully upgrade to <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>.
 
-* Some partner service tiles may be incompatible with <%= vars.platform_name %> <%= vars.v_major_version %>.
-  VMware is working with partners to ensure their tiles are updated to work with the latest versions of <%= vars.platform_name %>.
-  <br/><br/> For information about which partner service releases are currently compatible with <%= vars.platform_name %>
+* Some partner service tiles may be incompatible with TAS for VMs <%= vars.v_major_version %>.
+  VMware is working with partners to ensure their tiles are updated to work with the latest versions of TAS for VMs.
+  <br/><br/> For information about which partner service releases are currently compatible with TAS for VMs
   <%= vars.v_major_version %>, review the appropriate partners services release documentation
   at [https://docs.pivotal.io](https://docs.pivotal.io) or contact the partner organization that produces the tile.
 
