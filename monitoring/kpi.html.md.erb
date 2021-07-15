@@ -12,7 +12,11 @@ The KPIs in this topic are provided for operators to give general guidance on mo
 
 This alerting and response guidance has been shown to apply to most deployments. <%= vars.recommended_by %> recommends that operators continue to fine-tune the alert measures to their deployment by observing historical trends. <%= vars.recommended_by %> also recommends that operators expand beyond this guidance and create new, deployment-specific monitoring metrics, thresholds, and alerts based on learning from their deployments.
 
-<p class="note"><strong>Note:</strong> Thresholds noted as "dynamic" in the tables below indicate that while a metric is highly important to watch, the relative numbers to set threshold warnings at are specific to a given <%= vars.app_runtime_abbr %> deployment and its use cases. These dynamic thresholds should be occasionally revisited because the <%= vars.platform_name %> foundation and its usage continue to evolve. For more information, see <a href="metrics.html#thresholds">Warning and Critical Thresholds</a> in <em>Selecting and Configuring a Monitoring System</em>.</p>
+<p class="note"><strong>Note:</strong> Thresholds noted as "dynamic" in the tables below indicate that while a metric is highly important to watch, the relative numbers to set threshold warnings at are specific to a given <%= vars.app_runtime_abbr %> deployment and its use cases. These dynamic thresholds should be occasionally revisited because the foundation and its usage continue to evolve. For more information, see <a href="metrics.html#thresholds">Warning and Critical Thresholds</a> in <em>Selecting and Configuring a Monitoring System</em>.</p>
+
+While the performance impact on <%= vars.app_runtime_abbr %> is considered when building new features, <%= vars.company_name %> does not perform discrete load and scale testing on a regular basis.
+It is impossible to test each configuration of <%= vars.app_runtime_abbr %> with every type of infrastructure and app workload.
+Therefore, <%= vars.company_name %> recommends using the following KPIs to identify when to scale your system.
 
 For more information about accessing metrics used in these key performance indicators, see <a href="https://docs.pivotal.io/application-service/2-8/loggregator/data-sources.html">Overview of Logging and Metrics</a>.
 
@@ -1139,7 +1143,7 @@ These sections describe Gorouter metrics.
               <li>First inspect logs for network issues and indications of misbehaving back ends.</li>
               <li>If it appears that the Gorouter needs to scale due to ongoing traffic congestion, do not scale on the latency metric alone. You should also look at the CPU utilization of the Gorouter VMs and keep it within a maximum 60-70% range.</li>
               <li>Resolve high utilization by scaling the Gorouter.</li>
-	      <li>Follow steps in the doc <a href="https://docs.cloudfoundry.org/adminguide/troubleshooting_slow_requests.html">Troubleshooting Slow Requests in CF</a>. 
+	      <li>Follow steps in the doc <a href="https://docs.cloudfoundry.org/adminguide/troubleshooting_slow_requests.html">Troubleshooting Slow Requests in CF</a>.
             </ol>
         </td>
     </tr>
