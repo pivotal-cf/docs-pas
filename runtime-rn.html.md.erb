@@ -597,6 +597,10 @@ To see if you have Dynamic Egress policies, see [List Egress Policies](https://d
 
 To delete each of your policies, see [Delete an Egress Policy](https://docs.pivotal.io/application-service/2-10/devguide/egress-policies.html#delete-egress-policies) in the <%= vars.app_runtime_abbr %> v2.10 documentation.
 
+### <a id="cloud-controller-service-bindings"></a> Cloud Controller Enforces Uniqueness of Service Bindings
+
+When upgrading to <%= vars.app_runtime_abbr %> 2.11, Cloud Controller introduces a database migration that enforces uniqueness of service bindings between service instances and applications. This migration will fail while upgrading if duplicates exist, so duplicate bindings should be deleted prior to upgrading.
+
 ## <a id='known-issues'></a> Known Issues
 
 <%= vars.app_runtime_abbr %> v2.11 includes the following known issue:
