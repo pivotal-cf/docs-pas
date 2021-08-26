@@ -599,7 +599,9 @@ To delete each of your policies, see [Delete an Egress Policy](https://docs.pivo
 
 ### <a id="cloud-controller-service-bindings"></a> Cloud Controller Enforces Uniqueness of Service Bindings
 
-When upgrading to <%= vars.app_runtime_abbr %> 2.11, Cloud Controller introduces a database migration that enforces uniqueness of service bindings between service instances and applications. This migration will fail while upgrading if duplicates exist, so duplicate bindings should be deleted prior to upgrading.
+When you upgrade to <%= vars.app_runtime_abbr %> v2.11, Cloud Controller introduces a database migration that forces service bindings between service instances and apps to be unique.
+If duplicate service bindings exist when you upgrade, the migration fails.
+To work around this issue, you must delete any duplicate bindings before you upgrade.
 
 ## <a id='known-issues'></a> Known Issues
 
