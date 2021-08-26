@@ -21,7 +21,7 @@ releasing a MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> contai
 ## <a id='releases'></a> Releases
 
 <%# DO NOT DELETE THIS LINE - robots use this to add new release notes %>
- 
+
 ### <a id='2.12.0-alpha.5'></a> 2.12.0-alpha.5
 
 **Release Date:** 07/15/2021
@@ -112,8 +112,8 @@ releasing a MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> contai
     <tr><td>uaa</td><td>74.5.24</td></tr>
   </tbody>
 </table>
- 
- 
+
+
 
 ### <a id='2.12.0-alpha.4'></a> 2.12.0-alpha.4
 
@@ -465,6 +465,19 @@ You can find the current version of <%= vars.app_runtime_abbr %> in the footer o
 ## <a id='breaking-changes'></a> Breaking Changes
 
 <%= vars.app_runtime_abbr %> <%= vars.v_major_version %> includes the following breaking changes:
+
+### <a id='gorouter-tls'></a>Gorouter Uses TLS v1.3 by Default
+
+In <%= vars.app_runtime_abbr %> v2.12, the Gorouter supports TLS v1.3.
+You can select which versions of TLS that the Gorouter uses when you configure <%= vars.app_runtime_abbr %>.
+
+If you are upgrading to <%= vars.app_runtime_abbr %> v2.12, the Gorouter uses TLS v1.2 by default.
+New installations of <%= vars.app_runtime_abbr %> use TLS v1.3 for the Gorouter by default.
+
+TLS v1.3 is not compatible with some versions of Java.
+If you configure <%= vars.app_runtime_abbr %> to support TLS v1.3 only, anything in your deployment that does not support TLS v1.3 fails.
+
+The tile property that controls the TLS version in <%= vars.app_runtime_abbr %> changes in <%= vars.app_runtime_abbr %> v2.12. You must update any stored configuration files to reflect the change.
 
 ## <a id='known-issues'></a> Known Issues
 
