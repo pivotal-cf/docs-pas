@@ -489,6 +489,9 @@ Users with the Space Supporter role cannot do any of the following:
 - Create or update services
 - Delete apps or services
 
+The Space Supporter role is only available for the Cloud Controller V3 API.
+If a user with this role tries to access a V2 endpoint, the API returns a 403.
+
 For more information, see [User Roles](../concepts/roles.html#roles) in _Orgs, Spaces, Roles, and Permissions_.
 
 ### <a id='version-in-apps-manager'></a> <%= vars.app_runtime_abbr %> Version is in Apps Manager UI
