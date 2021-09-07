@@ -469,6 +469,27 @@ Selecting support for TLS v1.3 only is a beta feature in <%= vars.app_runtime_ab
 
 For more information, see [(Beta) Gorouter Supports TLS v1.3 Connections Only](#tls-v1.3-only) in the _Breaking Changes_ section.
 
+### <a id='space-supporter'></a>Space Supporter Role
+
+<%= vars.app_runtime_abbr %> v2.12 includes the new Space Supporter role.
+Users with the Space Supporter role can do the following:
+
+- View app logs and audit events
+- Start, stop, and restart apps
+- Scale apps
+- Read, bind, and unbind existing service instances
+
+Users with the Space Supporter role cannot do any of the following:
+
+- View credentials or app data
+- Edit app source code
+- SSH into app instances
+- View the app environment
+- Create or access service keys
+- Create or update services
+- Delete apps or services
+
+For more information, see [User Roles](../concepts/roles.html#roles) in _Orgs, Spaces, Roles, and Permissions_.
 
 ### <a id='version-in-apps-manager'></a> <%= vars.app_runtime_abbr %> Version is in Apps Manager UI
 
