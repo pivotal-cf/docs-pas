@@ -570,6 +570,8 @@ For information about configuring support for HTTP/2 in TAS for VMs, see [Suppor
 
 For information about routing HTTP/2 traffic to your <%= vars.app_runtime_abbr %> apps, see [Routing HTTP/2 and gRPC Traffic to Apps](../devguide/http2-protocol.html).
 
+See [Diego Container Proxy (Envoy) Advertises HTTP/2 Support via ALPN](#envoy-http2-alpn) in the _Breaking Changes_ section.
+
 ### <a id='tls-v1.3'></a>Gorouter Supports TLS v1.3
 
 In <%= vars.app_runtime_abbr %> v2.12, the Gorouter supports TLS v1.3.
@@ -621,6 +623,12 @@ If you configure <%= vars.app_runtime_abbr %> to support TLS v1.3 only, you migh
 For more information, see [JSSE Client does not accept status_request extension in CertificateRequest messages for TLS 1.3](https://bugs.openjdk.java.net/browse/JDK-8236039) in the JDK Bug System.
 
 The tile property that controls the TLS version in <%= vars.app_runtime_abbr %> changes in <%= vars.app_runtime_abbr %> v2.12. You must update any stored configuration files to reflect the change.
+
+### <a id='envoy-http2-alpn'></a>Diego Container Proxy (Envoy) Advertises HTTP/2 Support via ALPN
+
+The Diego container proxy, Envoy, now advertises HTTP/2 support via Application-Layer Protocol Negotiation (ALPN) for all applications.
+Internal clients hitting the Envoy TLS port (typically 61001) directly will need to negotiate down to HTTP/1.1 for applications that do not support HTTP/2.
+Clients connecting to applications via the Gorouter will not be affected.
 
 ## <a id='known-issues'></a> Known Issues
 
