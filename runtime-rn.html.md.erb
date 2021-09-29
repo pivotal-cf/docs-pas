@@ -126,6 +126,16 @@ When upgrading to <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>, be a
 
 <%= vars.app_runtime_abbr %> <%= vars.v_major_version %> includes the following major features:
 
+### <a id='cf-cli'></a><%= vars.app_runtime_abbr %> Is Compatible with cf CLI v8
+
+<%= vars.app_runtime_abbr %> <%= vars.v_major_version %> paired with cf CLI v8 allows you to do the following:
+
+- Push apps with end-to-end HTTP/2 routing
+- Assign the Space Supporter role to users
+- Manage services asynchronously
+
+For more information, see [Upgrading to cf CLI v8](../cf-cli/v8.html).
+
 ### <a id='http2'></a>Gorouter Supports HTTP/2
 
 <p class="note breaking"><strong>Breaking Change</strong>: See <a href="#envoy-http2-alpn">Envoy Advertises HTTP/2 Support Over ALPN</a> in the <em>Breaking Changes</em> section.</p>
@@ -186,6 +196,8 @@ For more information, see [User Roles](../concepts/roles.html#roles) in _Orgs, S
 ### <a id='version-in-apps-manager'></a> <%= vars.app_runtime_abbr %> Version is in Apps Manager UI
 
 You can find the current version of <%= vars.app_runtime_abbr %> in the footer of the Apps Manager UI.
+
+
 
 ## <a id='breaking-changes'></a> Breaking Changes
 
