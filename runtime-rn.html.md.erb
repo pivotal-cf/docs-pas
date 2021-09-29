@@ -197,7 +197,12 @@ For more information, see [User Roles](../concepts/roles.html#roles) in _Orgs, S
 
 You can find the current version of <%= vars.app_runtime_abbr %> in the footer of the Apps Manager UI.
 
+### <a id='secure-metric-registrar'></a> Secure Endpoint for Metric Registrar
 
+<%= vars.app_runtime_abbr %> <%= vars.v_major_version %> allows operators to register a secure endpoint for the Metric Registrar CLI plugin to ingest app metrics.
+You can use the `cf register-metrics-endpoint` command to specify an internal port in your app when you register the endpoint to the metric registrar.
+
+For more information, see [Register a Metrics Endpoint](../metric-registrar/using.html#register-endpoint) in _Using Metric Registrar_.
 
 ## <a id='breaking-changes'></a> Breaking Changes
 
