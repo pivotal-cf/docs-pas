@@ -3,7 +3,7 @@ title: Isolation Segment v2.12 Release Notes
 owner: Release Engineering
 ---
 
-This topic contains release notes for <%= vars.segment_runtime_full %> <%= vars.v_major_version %>.
+This topic contains release notes for Isolation Segment v2.12.
 
 Because VMware uses the Percona Distribution for MySQL, expect a time lag between Oracle
 releasing a MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> containing that patch.
@@ -13,16 +13,13 @@ releasing a MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> contai
 ## <a id='releases'></a> Releases
 
 <%# DO NOT DELETE THIS LINE - robots use this to add new release notes %>
- 
-### <a id='2.12.0-rc.2'></a> 2.12.0-rc.2
 
-**Release Date:** 09/27/2021
+### <a id='2.12.0'></a> 2.12.0
 
-* **[Security Fix]** Fixes an issue where BBS socket connections could be kept alive unnecessarily
-* **[Feature]** Configure HTTP/2 Support
-* Bump cflinuxfs3 to version `0.259.0`
-* Bump diego to version `2.53.0`
-* Bump haproxy to version `11.4.4`
+**Release Date:** October 4, 2021
+
+* See [New Features in Isolation Segment v2.12](#new-features)
+* See [Breaking Changes](#breaking-changes)
 
 <table border="1" class="nice">
   <thead>
@@ -50,277 +47,82 @@ releasing a MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> contai
     <tr><td>syslog</td><td>11.7.5</td></tr>
   </tbody>
 </table>
- 
- 
- 
-### <a id='2.12.0-rc.1'></a> 2.12.0-rc.1
-
-**Release Date:** 09/13/2021
-
-* **[Feature]** Adds TLS 1.3 support
-* Bump bpm to version `1.1.13`
-* Bump cflinuxfs3 to version `0.255.0`
-* Bump diego to version `2.52.0`
-* Bump garden-runc to version `1.19.30`
-* Bump haproxy to version `11.3.0`
-* Bump loggregator-agent to version `6.3.4`
-* Bump routing to version `0.224.0`
-
-<table border="1" class="nice">
-  <thead>
-    <tr>
-      <th>Component</th>
-      <th>Version</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr><td>ubuntu-xenial stemcell</td><td>621.0</td></tr>
-    <tr><td>bpm</td><td>1.1.13</td></tr>
-    <tr><td>cf-networking</td><td>2.38.0</td></tr>
-    <tr><td>cflinuxfs3</td><td>0.255.0</td></tr>
-    <tr><td>diego</td><td>2.52.0</td></tr>
-    <tr><td>garden-runc</td><td>1.19.30</td></tr>
-    <tr><td>haproxy</td><td>11.3.0</td></tr>
-    <tr><td>loggregator-agent</td><td>6.3.4</td></tr>
-    <tr><td>mapfs</td><td>1.2.6</td></tr>
-    <tr><td>metrics-discovery</td><td>3.0.6</td></tr>
-    <tr><td>nfs-volume</td><td>7.1.1</td></tr>
-    <tr><td>routing</td><td>0.224.0</td></tr>
-    <tr><td>silk</td><td>2.38.0</td></tr>
-    <tr><td>smb-volume</td><td>3.1.0</td></tr>
-    <tr><td>smoke-tests</td><td>4.3.0</td></tr>
-    <tr><td>syslog</td><td>11.7.5</td></tr>
-  </tbody>
-</table>
- 
- 
- 
-### <a id='2.12.0-alpha.5'></a> 2.12.0-alpha.5
-
-**Release Date:** 07/15/2021
-
-* **[Feature Improvement]** garden-runc - Enable usage of .NET diagnostic tools
-* **[Bug Fix]** Prevent tcp routes from using system component ports.
-* Bump cf-networking to version `2.38.0`
-* Bump cflinuxfs3 to version `0.249.0`
-* Bump metrics-discovery to version `3.0.6`
-* Bump routing to version `0.216.0`
-* Bump silk to version `2.38.0`
-* Bump syslog to version `11.7.5`
-
-<table border="1" class="nice">
-  <thead>
-    <tr>
-      <th>Component</th>
-      <th>Version</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr><td>ubuntu-xenial stemcell</td><td>621.0</td></tr>
-    <tr><td>bpm</td><td>1.1.12</td></tr>
-    <tr><td>cf-networking</td><td>2.38.0</td></tr>
-    <tr><td>cflinuxfs3</td><td>0.249.0</td></tr>
-    <tr><td>diego</td><td>2.50.0</td></tr>
-    <tr><td>garden-runc</td><td>1.19.28</td></tr>
-    <tr><td>haproxy</td><td>9.8.0</td></tr>
-    <tr><td>loggregator-agent</td><td>6.3.3</td></tr>
-    <tr><td>mapfs</td><td>1.2.6</td></tr>
-    <tr><td>metrics-discovery</td><td>3.0.6</td></tr>
-    <tr><td>nfs-volume</td><td>7.1.1</td></tr>
-    <tr><td>routing</td><td>0.216.0</td></tr>
-    <tr><td>silk</td><td>2.38.0</td></tr>
-    <tr><td>smb-volume</td><td>3.1.0</td></tr>
-    <tr><td>smoke-tests</td><td>4.3.0</td></tr>
-    <tr><td>syslog</td><td>11.7.5</td></tr>
-  </tbody>
-</table>
- 
- 
- 
-### <a id='2.12.0-alpha.4'></a> 2.12.0-alpha.4
-
-**Release Date:** 06/22/2021
-
-* **[Security Fix]** Bump some dependencies to resolve security vulnerabilities
-* Bump bpm to version `1.1.12`
-* Bump cf-networking to version `2.37.0`
-* Bump cflinuxfs3 to version `0.243.0`
-* Bump garden-runc to version `1.19.28`
-* Bump loggregator-agent to version `6.3.3`
-* Bump metrics-discovery to version `3.0.5`
-* Bump silk to version `2.37.0`
-
-<table border="1" class="nice">
-  <thead>
-    <tr>
-      <th>Component</th>
-      <th>Version</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr><td>ubuntu-xenial stemcell</td><td>621.0</td></tr>
-    <tr><td>bpm</td><td>1.1.12</td></tr>
-    <tr><td>cf-networking</td><td>2.37.0</td></tr>
-    <tr><td>cflinuxfs3</td><td>0.243.0</td></tr>
-    <tr><td>diego</td><td>2.50.0</td></tr>
-    <tr><td>garden-runc</td><td>1.19.28</td></tr>
-    <tr><td>haproxy</td><td>9.8.0</td></tr>
-    <tr><td>loggregator-agent</td><td>6.3.3</td></tr>
-    <tr><td>mapfs</td><td>1.2.6</td></tr>
-    <tr><td>metrics-discovery</td><td>3.0.5</td></tr>
-    <tr><td>nfs-volume</td><td>7.1.1</td></tr>
-    <tr><td>routing</td><td>0.213.0</td></tr>
-    <tr><td>silk</td><td>2.37.0</td></tr>
-    <tr><td>smb-volume</td><td>3.1.0</td></tr>
-    <tr><td>smoke-tests</td><td>4.3.0</td></tr>
-    <tr><td>syslog</td><td>11.7.0</td></tr>
-  </tbody>
-</table>
- 
- 
- 
-### <a id='2.12.0-alpha.3'></a> 2.12.0-alpha.3
-
-**Release Date:** 05/27/2021
-
-* **[Feature Improvement]** Patch versions can be upgraded without a stemcell upgrade
-* **[Bug Fix]** Smoke Test allows the operator to provide the apps_domain property when deploying TAS and also properly configures user provided space when deploying an isolation segment
-* Bump bpm to version `1.1.11`
-* Bump cf-networking to version `2.36.0`
-* Bump cflinuxfs3 to version `0.238.0`
-* Bump diego to version `2.50.0`
-* Bump garden-runc to version `1.19.25`
-* Bump loggregator-agent to version `6.2.1`
-* Bump routing to version `0.213.0`
-* Bump silk to version `2.36.0`
-* Bump smoke-tests to version `4.3.0`
-
-<table border="1" class="nice">
-  <thead>
-    <tr>
-      <th>Component</th>
-      <th>Version</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr><td>ubuntu-xenial stemcell</td><td>621.0</td></tr>
-    <tr><td>bpm</td><td>1.1.11</td></tr>
-    <tr><td>cf-networking</td><td>2.36.0</td></tr>
-    <tr><td>cflinuxfs3</td><td>0.238.0</td></tr>
-    <tr><td>diego</td><td>2.50.0</td></tr>
-    <tr><td>garden-runc</td><td>1.19.25</td></tr>
-    <tr><td>haproxy</td><td>9.8.0</td></tr>
-    <tr><td>loggregator-agent</td><td>6.2.1</td></tr>
-    <tr><td>mapfs</td><td>1.2.6</td></tr>
-    <tr><td>metrics-discovery</td><td>3.0.3</td></tr>
-    <tr><td>nfs-volume</td><td>7.1.1</td></tr>
-    <tr><td>routing</td><td>0.213.0</td></tr>
-    <tr><td>silk</td><td>2.36.0</td></tr>
-    <tr><td>smb-volume</td><td>3.1.0</td></tr>
-    <tr><td>smoke-tests</td><td>4.3.0</td></tr>
-    <tr><td>syslog</td><td>11.7.0</td></tr>
-  </tbody>
-</table>
- 
- 
-
-### <a id='2.12.0-alpha.2'></a> 2.12.0-alpha.2
-
-**Release Date:** 03/31/2021
-
-* **[Feature]** gorouter - Operator can limit CAs gorouter trusts when validating client certs to a specified list
-* Bump ubuntu-xenial stemcell to version `621.115`
-* Bump cflinuxfs3 to version `0.229.0`
-
-<table border="1" class="nice">
-  <thead>
-    <tr>
-      <th>Component</th>
-      <th>Version</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr><td>ubuntu-xenial stemcell</td><td>621.115</td></tr>
-    <tr><td>bpm</td><td>1.1.7</td></tr>
-    <tr><td>cf-networking</td><td>2.35.0</td></tr>
-    <tr><td>cflinuxfs3</td><td>0.229.0</td></tr>
-    <tr><td>diego</td><td>2.49.0</td></tr>
-    <tr><td>garden-runc</td><td>1.19.19</td></tr>
-    <tr><td>haproxy</td><td>9.8.0</td></tr>
-    <tr><td>loggregator-agent</td><td>6.2.0</td></tr>
-    <tr><td>mapfs</td><td>1.2.6</td></tr>
-    <tr><td>metrics-discovery</td><td>3.0.3</td></tr>
-    <tr><td>nfs-volume</td><td>7.1.1</td></tr>
-    <tr><td>routing</td><td>0.212.0</td></tr>
-    <tr><td>silk</td><td>2.35.0</td></tr>
-    <tr><td>smb-volume</td><td>3.1.0</td></tr>
-    <tr><td>smoke-tests</td><td>2.2.0</td></tr>
-    <tr><td>syslog</td><td>11.7.0</td></tr>
-  </tbody>
-</table>
 
 
+## <a id='intro'></a> About Isolation Segment
 
-### <a id='2.12.0-alpha.1'></a> 2.12.0-alpha.1
+The Isolation Segment v2.12 tile is available for installation with Ops Manager v2.10.
 
-**Release Date:** 03/08/2021
-
-* **[Feature Improvement]** Logging components respect "Timestamp format for component log" setting
-* Bump garden-runc to version `1.19.19`
-* Bump routing to version `0.212.0`
-
-<table border="1" class="nice">
-  <thead>
-    <tr>
-      <th>Component</th>
-      <th>Version</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr><td>ubuntu-xenial stemcell</td><td>621.101</td></tr>
-    <tr><td>bpm</td><td>1.1.7</td></tr>
-    <tr><td>cf-networking</td><td>2.35.0</td></tr>
-    <tr><td>cflinuxfs3</td><td>0.227.0</td></tr>
-    <tr><td>diego</td><td>2.49.0</td></tr>
-    <tr><td>garden-runc</td><td>1.19.19</td></tr>
-    <tr><td>haproxy</td><td>9.8.0</td></tr>
-    <tr><td>loggregator-agent</td><td>6.2.0</td></tr>
-    <tr><td>mapfs</td><td>1.2.6</td></tr>
-    <tr><td>metrics-discovery</td><td>3.0.3</td></tr>
-    <tr><td>nfs-volume</td><td>7.1.1</td></tr>
-    <tr><td>routing</td><td>0.212.0</td></tr>
-    <tr><td>silk</td><td>2.35.0</td></tr>
-    <tr><td>smb-volume</td><td>3.1.0</td></tr>
-    <tr><td>smoke-tests</td><td>2.2.0</td></tr>
-    <tr><td>syslog</td><td>11.7.0</td></tr>
-  </tbody>
-</table>
-
-
-## <a id='intro'></a> About <%= vars.segment_runtime_full %>
-
-The <%= vars.segment_runtime_full %> <%= vars.v_major_version %> tile is available for installation with <%= vars.ops_manager %> v2.10.
-
-Isolation segments provide dedicated pools of resources where you can deploy apps and isolate workloads. Using isolation segments separates app resources as completely as if they were in different deployments but avoids redundant management and network complexity. For more information about isolation segments, see [Isolation Segments](../../concepts/security.html#isolation-segments) in _<%= vars.app_runtime_abbr %> Security_.
+Isolation segments provide dedicated pools of resources where you can deploy apps and isolate workloads. Using isolation segments separates app resources as completely as if they were in different deployments but avoids redundant management and network complexity. For more information about isolation segments, see [Isolation Segments](../../concepts/security.html#isolation-segments) in _TAS for VMs Security_.
 
 For more information about using isolation segments in your deployment, see [Managing Isolation Segments](https://docs.pivotal.io/application-service/2-12/adminguide/isolation-segments.html).
 
 
 ## <a id='install'></a> How to Install
 
-To install <%= vars.segment_runtime_full %> <%= vars.v_major_version %>, see [Installing <%= vars.segment_runtime_full %>](https://docs.pivotal.io/application-service/2-12/operating/installing-pcf-is.html).
+To install Isolation Segment v2.12, see [Installing Isolation Segment](https://docs.pivotal.io/application-service/2-12/operating/installing-pcf-is.html).
 
-To install <%= vars.segment_runtime_full %> <%= vars.v_major_version %>, you must first install <%= vars.ops_manager %> v2.10.
-For more information, see the [<%= vars.ops_manager %>](https://docs.pivotal.io/ops-manager/2-10/index.html) documentation.
+To install Isolation Segment v2.12, you must first install Ops Manager v2.10.
+For more information, see the [Ops Manager](https://docs.pivotal.io/ops-manager/2-10/index.html) documentation.
 
-## <a id='new-features'></a> New Features in <%= vars.segment_runtime_full %> <%= vars.v_major_version %>
 
-<%= vars.segment_runtime_full %> <%= vars.v_major_version %> includes the following major features:
+## <a id='new-features'></a> New Features in Isolation Segment v2.12
+
+Isolation Segment v2.12 includes the following major features:
+
+### <a id='tls-v1.3'></a>Gorouter Supports TLS v1.3
+
+In Isolation Segment v2.12, the Gorouter supports TLS v1.3.
+New installations of Isolation Segment use TLS v1.3 for the Gorouter by default.
+If you are upgrading to Isolation Segment v2.12, the Gorouter uses TLS v1.2 by default.
+
+You can select which versions of TLS that the Gorouter uses when you configure Isolation Segment.
+Selecting support for TLS v1.3 only is a beta feature in Isolation Segment v2.12.
+
+For more information, see [(Beta) Gorouter Can Support TLS v1.3 Connections Only](#tls-v1.3-only) in the _Breaking Changes_ section.
+
+### <a id='http2'></a>Gorouter Supports HTTP/2
+
+<p class="note breaking"><strong>Breaking Change</strong>: See <a href="#envoy-http2-alpn">Envoy Advertises HTTP/2 Support Over ALPN</a> in the <em>Breaking Changes</em> section.</p>
+
+In TAS for VMs v2.12 and later, HTTP/2 support is enabled by default.
+HTTP/2 is the second major version of the the HTTP protocol.
+
+HTTP/2 features the following improvements over HTTP/1.1:
+
+* Uses a binary data format instead of plain text
+* Compresses headers
+* Multiplexes multiple HTTP requests over a single TCP connection
+
+Together, these improvements can improve response times for some apps.
+
+For more information about the HTTP/2 protocol, see [RFC 7540](https://datatracker.ietf.org/doc/html/rfc7540).
+
+For information about configuring support for HTTP/2 in TAS for VMs, see [Configuring HTTP/2 Support](http://docs.pivotal.io/application-service/2-12/adminguide/supporting-http2.html).
+
+For information about routing HTTP/2 traffic to your TAS for VMs apps, see [Routing HTTP/2 and gRPC Traffic to Apps](../devguide/http2-protocol.html).
+
 
 ## <a id='breaking-changes'></a> Breaking Changes
 
-<%= vars.segment_runtime_full %> <%= vars.v_major_version %> includes the following breaking changes:
+Isolation Segment v2.12 includes the following breaking changes:
+
+### <a id='tls-v1.3-only'></a>(Beta) Gorouter Can Support TLS v1.3 Connections Only
+
+TLS v1.3 is not compatible with some versions of Java.
+If you configure Isolation Segment to support TLS v1.3 only, you might encounter errors with Java apps.
+For more information, see [JSSE Client does not accept status_request extension in CertificateRequest messages for TLS 1.3](https://bugs.openjdk.java.net/browse/JDK-8236039) in the JDK Bug System.
+
+The tile property that controls the TLS version in Isolation Segment changes in TAS for VMs v2.12. You must update any stored configuration files to reflect the change.
+
+### <a id='envoy-http2-alpn'></a>Envoy Advertises HTTP/2 Support Over ALPN
+
+Envoy, the Diego container proxy, advertises HTTP/2 support using Application-Layer Protocol Negotiation (ALPN) for all apps.
+Internal clients that access the Envoy TLS port directly must negotiate down to HTTP/1.1 for apps that do not support HTTP/2.
+The Envoy TLS port is typically 61001.
+Clients that connect to apps using the Gorouter are not affected.
+
 
 ## <a id='known-issues'></a> Known Issues
 
-<%= vars.segment_runtime_full %> <%= vars.v_major_version %> includes the following known issues:
+Isolation Segment v2.12 includes no known issues.
