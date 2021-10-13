@@ -22,12 +22,13 @@ releasing a MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> contai
 
 <%# DO NOT DELETE THIS LINE - robots use this to add new release notes %>
 
-### <a id='2.12.0'></a> 2.12.0
+### <a id='2.13.0-alpha.2'></a> 2.13.0-alpha.2
 
-**Release Date:** October 4, 2021
+**Release Date:** 10/13/2021
 
-* See [New Features in <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>](#new-features)
-* See [Breaking Changes](#breaking-changes)
+* **[Feature]** Configure HTTP/2 Support
+* **[Feature Improvement]** Add secure internal network metric scraping for metric registrar
+* No BOSH release bumps
 
 <table border="1" class="nice">
   <thead>
@@ -38,16 +39,16 @@ releasing a MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> contai
   </thead>
   <tbody>
     <tr><td>ubuntu-xenial stemcell</td><td>621.0</td></tr>
-    <tr><td>backup-and-restore-sdk</td><td>1.18.18</td></tr>
+    <tr><td>backup-and-restore-sdk</td><td>1.18.21</td></tr>
     <tr><td>binary-offline-buildpack</td><td>1.0.40</td></tr>
     <tr><td>bosh-dns-aliases</td><td>0.0.4</td></tr>
     <tr><td>bosh-system-metrics-forwarder</td><td>0.0.20</td></tr>
     <tr><td>bpm</td><td>1.1.13</td></tr>
-    <tr><td>capi</td><td>1.117.0</td></tr>
+    <tr><td>capi</td><td>1.119.0</td></tr>
     <tr><td>cf-autoscaling</td><td>239</td></tr>
-    <tr><td>cf-cli</td><td>1.33.0</td></tr>
+    <tr><td>cf-cli</td><td>1.34.0</td></tr>
     <tr><td>cf-networking</td><td>2.38.0</td></tr>
-    <tr><td>cflinuxfs3</td><td>0.259.0</td></tr>
+    <tr><td>cflinuxfs3</td><td>0.261.0</td></tr>
     <tr><td>credhub</td><td>2.9.1</td></tr>
     <tr><td>diego</td><td>2.53.0</td></tr>
     <tr><td>dotnet-core-offline-buildpack</td><td>2.3.34</td></tr>
@@ -55,7 +56,7 @@ releasing a MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> contai
     <tr><td>go-offline-buildpack</td><td>1.9.34</td></tr>
     <tr><td>haproxy</td><td>11.4.4</td></tr>
     <tr><td>java-offline-buildpack</td><td>4.42</td></tr>
-    <tr><td>log-cache</td><td>2.11.2</td></tr>
+    <tr><td>log-cache</td><td>2.11.3</td></tr>
     <tr><td>loggregator-agent</td><td>6.3.4</td></tr>
     <tr><td>loggregator</td><td>106.6.0</td></tr>
     <tr><td>mapfs</td><td>1.2.6</td></tr>
@@ -64,26 +65,26 @@ releasing a MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> contai
     <tr><td>mysql-monitoring</td><td>9.15.0</td></tr>
     <tr><td>nats</td><td>40</td></tr>
     <tr><td>nfs-volume</td><td>7.1.1</td></tr>
-    <tr><td>nginx-offline-buildpack</td><td>1.1.31</td></tr>
-    <tr><td>nodejs-offline-buildpack</td><td>1.7.57</td></tr>
+    <tr><td>nginx-offline-buildpack</td><td>1.1.32</td></tr>
+    <tr><td>nodejs-offline-buildpack</td><td>1.7.62</td></tr>
     <tr><td>notifications-ui</td><td>40</td></tr>
     <tr><td>notifications</td><td>62</td></tr>
-    <tr><td>php-offline-buildpack</td><td>4.4.45</td></tr>
+    <tr><td>php-offline-buildpack</td><td>4.4.46</td></tr>
     <tr><td>push-apps-manager-release</td><td>675.0.1</td></tr>
-    <tr><td>push-usage-service-release</td><td>674.0.20</td></tr>
-    <tr><td>pxc</td><td>0.37.0</td></tr>
-    <tr><td>python-offline-buildpack</td><td>1.7.45</td></tr>
-    <tr><td>r-offline-buildpack</td><td>1.1.21</td></tr>
-    <tr><td>routing</td><td>0.224.0</td></tr>
-    <tr><td>ruby-offline-buildpack</td><td>1.8.46</td></tr>
+    <tr><td>push-usage-service-release</td><td>674.0.22</td></tr>
+    <tr><td>pxc</td><td>0.39.0</td></tr>
+    <tr><td>python-offline-buildpack</td><td>1.7.46</td></tr>
+    <tr><td>r-offline-buildpack</td><td>1.1.22</td></tr>
+    <tr><td>routing</td><td>0.225.0</td></tr>
+    <tr><td>ruby-offline-buildpack</td><td>1.8.47</td></tr>
     <tr><td>silk</td><td>2.38.0</td></tr>
     <tr><td>smb-volume</td><td>3.1.0</td></tr>
     <tr><td>smoke-tests</td><td>4.3.0</td></tr>
-    <tr><td>staticfile-offline-buildpack</td><td>1.5.24</td></tr>
+    <tr><td>staticfile-offline-buildpack</td><td>1.5.25</td></tr>
     <tr><td>statsd-injector</td><td>1.11.16</td></tr>
     <tr><td>syslog</td><td>11.7.5</td></tr>
     <tr><td>system-metrics-scraper</td><td>3.2.3</td></tr>
-    <tr><td>uaa</td><td>74.5.25</td></tr>
+    <tr><td>uaa</td><td>74.5.26</td></tr>
   </tbody>
 </table>
 
@@ -108,115 +109,10 @@ When upgrading to <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>, be a
 
 <%= vars.app_runtime_abbr %> <%= vars.v_major_version %> includes the following major features:
 
-### <a id='cf-cli'></a><%= vars.app_runtime_abbr %> Is Compatible with cf CLI v8
-
-<%= vars.app_runtime_abbr %> <%= vars.v_major_version %> paired with cf CLI v8 allows you to do the following:
-
-- Push apps with end-to-end HTTP/2 routing
-- Assign the Space Supporter role to users
-- Manage services asynchronously
-
-For more information, see [Upgrading to cf CLI v8](../cf-cli/v8.html).
-
-### <a id='http2'></a>Gorouter Supports HTTP/2
-
-<p class="note breaking"><strong>Breaking Change</strong>: See <a href="#envoy-http2-alpn">Envoy Advertises HTTP/2 Support Over ALPN</a> in the <em>Breaking Changes</em> section.</p>
-
-In <%= vars.app_runtime_abbr %> <%= vars.v_major_version %> and later, HTTP/2 support is enabled by default.
-HTTP/2 is the second major version of the the HTTP protocol.
-
-HTTP/2 features the following improvements over HTTP/1.1:
-
-* Uses a binary data format instead of plain text
-* Compresses headers
-* Multiplexes multiple HTTP requests over a single TCP connection
-
-Together, these improvements can improve response times for some apps.
-
-For more information about the HTTP/2 protocol, see [RFC 7540](https://datatracker.ietf.org/doc/html/rfc7540).
-
-For information about configuring support for HTTP/2 in <%= vars.app_runtime_abbr %>, see [Configuring HTTP/2 Support](http://docs.pivotal.io/application-service/2-12/adminguide/supporting-http2.html).
-
-For information about routing HTTP/2 traffic to your <%= vars.app_runtime_abbr %> apps, see [Routing HTTP/2 and gRPC Traffic to Apps](../devguide/http2-protocol.html).
-
-### <a id='tls-v1.3'></a>Gorouter Supports TLS v1.3
-
-In <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>, the Gorouter supports TLS v1.3.
-New installations of <%= vars.app_runtime_abbr %> use TLS v1.3 for the Gorouter by default.
-If you are upgrading to <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>, the Gorouter uses TLS v1.2 by default.
-
-You can select which versions of TLS that the Gorouter uses when you configure <%= vars.app_runtime_abbr %>.
-Selecting support for TLS v1.3 only is a beta feature in <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>.
-
-For more information, see [(Beta) Gorouter Can Support TLS v1.3 Connections Only](#tls-v1.3-only) in the _Breaking Changes_ section.
-
-### <a id='space-supporter'></a>New User Role: Space Supporter
-
-<%= vars.app_runtime_abbr %> <%= vars.v_major_version %> introduces the Space Supporter role.
-Users with the Space Supporter role can do the following:
-
-- View app logs and audit events
-- Start, stop, and restart apps
-- Scale apps
-- Read, bind, and unbind existing service instances
-
-Users with the Space Supporter role cannot do any of the following:
-
-- View credentials or app data
-- Edit app source code
-- SSH into app instances
-- View the app environment
-- Create or access service keys
-- Create or update services
-- Delete apps or services
-
-The Space Supporter role is only available for the Cloud Controller V3 API.
-If a user with this role tries to access a V2 endpoint, the API returns a 403.
-
-For more information, see [User Roles](../concepts/roles.html#roles) in _Orgs, Spaces, Roles, and Permissions_.
-
-### <a id='version-in-apps-manager'></a> <%= vars.app_runtime_abbr %> Version is in Apps Manager UI
-
-You can find the current version of <%= vars.app_runtime_abbr %> in the footer of the Apps Manager UI.
-
-### <a id='secure-metric-registrar'></a> Secure Endpoint for Metric Registrar
-
-<%= vars.app_runtime_abbr %> <%= vars.v_major_version %> allows operators to register a secure endpoint for the Metric Registrar CLI plugin to ingest app metrics.
-You can use the `cf register-metrics-endpoint` command to specify an internal port in your app when you register the endpoint to the metric registrar.
-
-For more information, see [Register a Metrics Endpoint](../metric-registrar/using.html#register-endpoint) in _Using Metric Registrar_.
-
-### <a id='drain-metadata'></a> Reduce Traffic to Syslog Drains
-
-<%= vars.app_runtime_abbr %> <%= vars.v_major_version %> includes an option to control how much deployment metadata is sent in app and aggregate syslog drains.
-
-If you select the **Default loggregator drain metadata** checkbox, then <%= vars.app_runtime_abbr %> sends all metadata from your deployment to syslog drains.
-
-If you do not select this option, then <%= vars.app_runtime_abbr %> sends a reduced amount of metadata.
-This can reduce your external database logs by up to 50 percent.
-
-For more information, see [(Optional) Configure System Logging](https://docs.pivotal.io/application-service/2-12/operating/configure-pas.html#sys-logging) in _Configuring <%= vars.app_runtime_abbr %>_.
-
-
 ## <a id='breaking-changes'></a> Breaking Changes
 
 <%= vars.app_runtime_abbr %> <%= vars.v_major_version %> includes the following breaking changes:
 
-### <a id='tls-v1.3-only'></a>(Beta) Gorouter Can Support TLS v1.3 Connections Only
-
-TLS v1.3 is not compatible with some versions of Java.
-If you configure <%= vars.app_runtime_abbr %> to support TLS v1.3 only, you might encounter errors with Java apps.
-For more information, see [JSSE Client does not accept status_request extension in CertificateRequest messages for TLS 1.3](https://bugs.openjdk.java.net/browse/JDK-8236039) in the JDK Bug System.
-
-The tile property that controls the TLS version in <%= vars.app_runtime_abbr %> changes in <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>. You must update any stored configuration files to reflect the change.
-
-### <a id='envoy-http2-alpn'></a>Envoy Advertises HTTP/2 Support Over ALPN
-
-Envoy, the Diego container proxy, advertises HTTP/2 support using Application-Layer Protocol Negotiation (ALPN) for all apps.
-Internal clients that access the Envoy TLS port directly must negotiate down to HTTP/1.1 for apps that do not support HTTP/2.
-The Envoy TLS port is typically 61001.
-Clients that connect to apps using the Gorouter are not affected.
-
 ## <a id='known-issues'></a> Known Issues
 
-<%= vars.app_runtime_abbr %> <%= vars.v_major_version %> includes no known issues.
+<%= vars.app_runtime_abbr %> <%= vars.v_major_version %> includes the following known issues:
