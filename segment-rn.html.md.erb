@@ -1,9 +1,17 @@
 ---
-title: Isolation Segment v2.12 Release Notes
+title: <%= vars.app_runtime_abbr %> <%= vars.v_major_version %> Release Notes
 owner: Release Engineering
 ---
 
-This topic contains release notes for Isolation Segment v2.12.
+<% current_page.data.title = vars.app_runtime_full + " " + vars.v_major_version + " Release Notes" %>
+
+This topic contains release notes for <%= vars.app_runtime_first %> <%= vars.v_major_version %>.
+
+<%= vars.app_runtime_abbr %> is certified by the Cloud Foundry Foundation for <%= Date.today.year %>.
+
+For more information about the Cloud Foundry Certified Provider Program, see
+[How Do I Become a Certified Provider?](https://www.cloudfoundry.org/certified-platforms-how-to/)
+on the Cloud Foundry website.
 
 Because VMware uses the Percona Distribution for MySQL, expect a time lag between Oracle
 releasing a MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> containing that patch.
@@ -14,12 +22,13 @@ releasing a MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> contai
 
 <%# DO NOT DELETE THIS LINE - robots use this to add new release notes %>
 
-### <a id='2.12.0'></a> 2.12.0
+### <a id='2.13.0-alpha.3'></a> 2.13.0-alpha.3
 
-**Release Date:** October 4, 2021
+**Release Date:** 10/13/2021
 
-* See [New Features in Isolation Segment v2.12](#new-features)
-* See [Breaking Changes](#breaking-changes)
+* **[Feature]** Configure HTTP/2 Support
+* Bump cflinuxfs3 to version `0.261.0`
+* Bump routing to version `0.225.0`
 
 <table border="1" class="nice">
   <thead>
@@ -32,7 +41,7 @@ releasing a MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> contai
     <tr><td>ubuntu-xenial stemcell</td><td>621.0</td></tr>
     <tr><td>bpm</td><td>1.1.13</td></tr>
     <tr><td>cf-networking</td><td>2.38.0</td></tr>
-    <tr><td>cflinuxfs3</td><td>0.259.0</td></tr>
+    <tr><td>cflinuxfs3</td><td>0.261.0</td></tr>
     <tr><td>diego</td><td>2.53.0</td></tr>
     <tr><td>garden-runc</td><td>1.19.30</td></tr>
     <tr><td>haproxy</td><td>11.4.4</td></tr>
@@ -40,7 +49,7 @@ releasing a MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> contai
     <tr><td>mapfs</td><td>1.2.6</td></tr>
     <tr><td>metrics-discovery</td><td>3.0.6</td></tr>
     <tr><td>nfs-volume</td><td>7.1.1</td></tr>
-    <tr><td>routing</td><td>0.224.0</td></tr>
+    <tr><td>routing</td><td>0.225.0</td></tr>
     <tr><td>silk</td><td>2.38.0</td></tr>
     <tr><td>smb-volume</td><td>3.1.0</td></tr>
     <tr><td>smoke-tests</td><td>4.3.0</td></tr>
@@ -48,81 +57,30 @@ releasing a MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> contai
   </tbody>
 </table>
 
+## <a id='upgrade'></a> How to Upgrade
 
-## <a id='intro'></a> About Isolation Segment
+To upgrade to <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>, see [Configuring <%= vars.app_runtime_abbr %> for Upgrades](https://docs.pivotal.io/application-service/2-12/operating/configuring.html).
 
-The Isolation Segment v2.12 tile is available for installation with Ops Manager v2.10.
-
-Isolation segments provide dedicated pools of resources where you can deploy apps and isolate workloads. Using isolation segments separates app resources as completely as if they were in different deployments but avoids redundant management and network complexity. For more information about isolation segments, see [Isolation Segments](../../concepts/security.html#isolation-segments) in _TAS for VMs Security_.
-
-For more information about using isolation segments in your deployment, see [Managing Isolation Segments](https://docs.pivotal.io/application-service/2-12/adminguide/isolation-segments.html).
+When upgrading to <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>, be aware of the following upgrade considerations:
 
 
-## <a id='install'></a> How to Install
+* If you previously used an earlier version of <%= vars.app_runtime_abbr %>, you must first upgrade to <%= vars.app_runtime_abbr %> v2.11 to successfully upgrade to <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>.
 
-To install Isolation Segment v2.12, see [Installing Isolation Segment](https://docs.pivotal.io/application-service/2-12/operating/installing-pcf-is.html).
+* Some partner service tiles may be incompatible with <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>.
+  VMware is working with partners to ensure their tiles are updated to work with the latest versions of <%= vars.app_runtime_abbr %>.
+  <br/><br/> For information about which partner service releases are currently compatible with <%= vars.app_runtime_abbr %>
+  <%= vars.v_major_version %>, review the appropriate partners services release documentation
+  at [https://docs.pivotal.io](https://docs.pivotal.io) or contact the partner organization that produces the tile.
 
-To install Isolation Segment v2.12, you must first install Ops Manager v2.10.
-For more information, see the [Ops Manager](https://docs.pivotal.io/ops-manager/2-10/index.html) documentation.
 
+## <a id='new-features'></a> New Features in <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>
 
-## <a id='new-features'></a> New Features in Isolation Segment v2.12
-
-Isolation Segment v2.12 includes the following major features:
-
-### <a id='tls-v1.3'></a>Gorouter Supports TLS v1.3
-
-In Isolation Segment v2.12, the Gorouter supports TLS v1.3.
-New installations of Isolation Segment use TLS v1.3 for the Gorouter by default.
-If you are upgrading to Isolation Segment v2.12, the Gorouter uses TLS v1.2 by default.
-
-You can select which versions of TLS that the Gorouter uses when you configure Isolation Segment.
-Selecting support for TLS v1.3 only is a beta feature in Isolation Segment v2.12.
-
-For more information, see [(Beta) Gorouter Can Support TLS v1.3 Connections Only](#tls-v1.3-only) in the _Breaking Changes_ section.
-
-### <a id='http2'></a>Gorouter Supports HTTP/2
-
-<p class="note breaking"><strong>Breaking Change</strong>: See <a href="#envoy-http2-alpn">Envoy Advertises HTTP/2 Support Over ALPN</a> in the <em>Breaking Changes</em> section.</p>
-
-In TAS for VMs v2.12 and later, HTTP/2 support is enabled by default.
-HTTP/2 is the second major version of the the HTTP protocol.
-
-HTTP/2 features the following improvements over HTTP/1.1:
-
-* Uses a binary data format instead of plain text
-* Compresses headers
-* Multiplexes multiple HTTP requests over a single TCP connection
-
-Together, these improvements can improve response times for some apps.
-
-For more information about the HTTP/2 protocol, see [RFC 7540](https://datatracker.ietf.org/doc/html/rfc7540).
-
-For information about configuring support for HTTP/2 in TAS for VMs, see [Configuring HTTP/2 Support](http://docs.pivotal.io/application-service/2-12/adminguide/supporting-http2.html).
-
-For information about routing HTTP/2 traffic to your TAS for VMs apps, see [Routing HTTP/2 and gRPC Traffic to Apps](../devguide/http2-protocol.html).
-
+<%= vars.app_runtime_abbr %> <%= vars.v_major_version %> includes the following major features:
 
 ## <a id='breaking-changes'></a> Breaking Changes
 
-Isolation Segment v2.12 includes the following breaking changes:
-
-### <a id='tls-v1.3-only'></a>(Beta) Gorouter Can Support TLS v1.3 Connections Only
-
-TLS v1.3 is not compatible with some versions of Java.
-If you configure Isolation Segment to support TLS v1.3 only, you might encounter errors with Java apps.
-For more information, see [JSSE Client does not accept status_request extension in CertificateRequest messages for TLS 1.3](https://bugs.openjdk.java.net/browse/JDK-8236039) in the JDK Bug System.
-
-The tile property that controls the TLS version in Isolation Segment changes in TAS for VMs v2.12. You must update any stored configuration files to reflect the change.
-
-### <a id='envoy-http2-alpn'></a>Envoy Advertises HTTP/2 Support Over ALPN
-
-Envoy, the Diego container proxy, advertises HTTP/2 support using Application-Layer Protocol Negotiation (ALPN) for all apps.
-Internal clients that access the Envoy TLS port directly must negotiate down to HTTP/1.1 for apps that do not support HTTP/2.
-The Envoy TLS port is typically 61001.
-Clients that connect to apps using the Gorouter are not affected.
-
+<%= vars.app_runtime_abbr %> <%= vars.v_major_version %> includes the following breaking changes:
 
 ## <a id='known-issues'></a> Known Issues
 
-Isolation Segment v2.12 includes no known issues.
+<%= vars.app_runtime_abbr %> <%= vars.v_major_version %> includes the following known issues:
