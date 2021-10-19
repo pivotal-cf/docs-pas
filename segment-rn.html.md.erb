@@ -175,7 +175,7 @@ releasing a MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> contai
 
 * **[Feature Improvement]** garden-runc - Enable usage of .NET diagnostic tools
 * **[Bug Fix]** Prevent tcp routes from using system component ports.
-* **[Breaking Change]** Gorouter no longer "de-chunks" chunked responses. For more information, see [Clients receive responses with no Content-Length header and a chunked encoded body after upgrading Tanzu Application Service for VMs](https://community.pivotal.io/s/article/Clients-receive-responses-with-no-Content-Length-header-and-a-chunked-encoded-body-after-upgrading-Tanzu-Application-Service-for-VMs) in the Knowledge Base.
+* **[Breaking Change]** All Gorouter responses are chunked. For more information, see [Clients receive responses with no Content-Length header and a chunked encoded body after upgrading Tanzu Application Service for VMs](https://community.pivotal.io/s/article/Clients-receive-responses-with-no-Content-Length-header-and-a-chunked-encoded-body-after-upgrading-Tanzu-Application-Service-for-VMs) in the Knowledge Base.
 * Bump cf-networking to version `2.38.0`
 * Bump cflinuxfs3 to version `0.249.0`
 * Bump garden-runc to version `1.19.28`
