@@ -135,6 +135,7 @@ releasing a MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> contai
 
 * **[Security Fix]** Gorouter built with Go 1.16.7 to address [CVE-2021-36221](https://nvd.nist.gov/vuln/detail/CVE-2021-36221)
 * **[Bug Fix]** garden-runc - recover after cell restarts
+* **[Breaking Change]** [added 10/20/2021] Some Gorouter responses are now sent with transfer-encoded chunked which previously would not have been. For more information, see [Clients receive responses with no Content-Length header and a chunked encoded body after upgrading Tanzu Application Service for VMs](https://community.pivotal.io/s/article/Clients-receive-responses-with-no-Content-Length-header-and-a-chunked-encoded-body-after-upgrading-Tanzu-Application-Service-for-VMs) in the Knowledge Base.
 * Bump bpm to version `1.1.13`
 * Bump cflinuxfs3 to version `0.252.0`
 * Bump garden-runc to version `1.19.29`
