@@ -33,6 +33,7 @@ releasing a MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> contai
 **Release Date:** 10/20/2021
 
 * **[Security Fix]** CAPI - Cap label selectors at 50 in queries and improve label selector performance to mitigate DOS
+* **[Security Fix]** CAPI - Address service broker SSRF [CVE-2021-22099](https://www.cloudfoundry.org/blog/cve-2021-22099-server-side-request-forgery-in-cloud-controller/)
 * **[Feature Improvement]** Set default for System metrics scrape interval to 15s
 * **[Bug Fix]** CAPI - Default staging apps to use process memory and disk in v3
 * **[Bug Fix]** Fix certificate rotation by fixing CredHub's import of concatenated certificates
