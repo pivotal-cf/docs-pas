@@ -20,7 +20,7 @@ releasing a MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> contai
 ## <a id='releases'></a> Releases
 
 <%# DO NOT DELETE THIS LINE - robots use this to add new release notes %>
- 
+
 ### <a id='2.9.26'></a> 2.9.26
 
 **Release Date:** 10/18/2021
@@ -57,9 +57,9 @@ releasing a MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> contai
     <tr><td>syslog</td><td>11.6.1</td></tr>
   </tbody>
 </table>
- 
- 
- 
+
+
+
 ### <a id='2.9.25'></a> 2.9.25
 
 **Release Date:** 09/29/2021
@@ -96,9 +96,9 @@ releasing a MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> contai
     <tr><td>syslog</td><td>11.6.1</td></tr>
   </tbody>
 </table>
- 
- 
- 
+
+
+
 ### <a id='2.9.24'></a> 2.9.24
 
 **Release Date:** 09/16/2021
@@ -134,15 +134,16 @@ releasing a MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> contai
     <tr><td>syslog</td><td>11.6.1</td></tr>
   </tbody>
 </table>
- 
- 
- 
+
+
+
 ### <a id='2.9.23'></a> 2.9.23
 
 **Release Date:** 09/09/2021
 
 * **[Security Fix]** Gorouter built with Go 1.16.7 to address [CVE-2021-36221](https://nvd.nist.gov/vuln/detail/CVE-2021-36221)
 * **[Bug Fix]** garden-runc - recover after cell restarts
+* **[Breaking Change]** Gorouter sends all responses with transfer-encoded chunks. Some responses that were not chunked in previous versions now use transfer-encoded chunks. For more information, see [Clients receive responses with no Content-Length header and a chunked encoded body after upgrading Tanzu Application Service for VMs](https://community.pivotal.io/s/article/Clients-receive-responses-with-no-Content-Length-header-and-a-chunked-encoded-body-after-upgrading-Tanzu-Application-Service-for-VMs) in the Knowledge Base. _(edited 20 Oct 2021)_
 * Bump bpm to version `1.1.13`
 * Bump cflinuxfs3 to version `0.252.0`
 * Bump garden-runc to version `1.19.29`
@@ -215,9 +216,9 @@ releasing a MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> contai
     <tr><td>syslog</td><td>11.6.1</td></tr>
   </tbody>
 </table>
- 
- 
- 
+
+
+
 ### <a id='2.9.21'></a> 2.9.21
 
 **Release Date:** 06/22/2021
@@ -256,9 +257,9 @@ releasing a MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> contai
     <tr><td>syslog</td><td>11.6.1</td></tr>
   </tbody>
 </table>
- 
- 
- 
+
+
+
 ### <a id='2.9.20'></a> 2.9.20
 
 **Release Date:** 05/27/2021
@@ -301,9 +302,9 @@ releasing a MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> contai
     <tr><td>syslog</td><td>11.6.1</td></tr>
   </tbody>
 </table>
- 
- 
- 
+
+
+
 ### <a id='2.9.19'></a> 2.9.19
 
 **Release Date:** 03/31/2021
@@ -341,8 +342,8 @@ releasing a MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> contai
     <tr><td>syslog</td><td>11.6.1</td></tr>
   </tbody>
 </table>
- 
- 
+
+
 
 ### <a id='2.9.18'></a> 2.9.18
 
@@ -419,9 +420,9 @@ releasing a MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> contai
     <tr><td>syslog</td><td>11.6.1</td></tr>
   </tbody>
 </table>
- 
- 
- 
+
+
+
 ### <a id='2.9.16'></a> 2.9.16
 
 **Release Date:** 11/17/2020
@@ -454,9 +455,9 @@ releasing a MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> contai
     <tr><td>syslog</td><td>11.6.1</td></tr>
   </tbody>
 </table>
- 
- 
- 
+
+
+
 ### <a id='2.9.15'></a> 2.9.15
 
 **Release Date:** 11/04/2020
@@ -490,9 +491,9 @@ releasing a MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> contai
     <tr><td>syslog</td><td>11.6.1</td></tr>
   </tbody>
 </table>
- 
- 
- 
+
+
+
 ### <a id='2.9.14'></a> 2.9.14
 
 **Release Date:** 10/26/2020
@@ -531,9 +532,9 @@ releasing a MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> contai
     <tr><td>syslog</td><td>11.6.1</td></tr>
   </tbody>
 </table>
- 
- 
- 
+
+
+
 ### <a id='2.9.13'></a> 2.9.13
 
 **Release Date:** 10/09/2020
@@ -569,9 +570,9 @@ releasing a MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> contai
     <tr><td>syslog</td><td>11.6.1</td></tr>
   </tbody>
 </table>
- 
- 
- 
+
+
+
 ### <a id='2.9.12'></a> 2.9.12
 
 **Release Date:** 09/21/2020
@@ -606,9 +607,9 @@ releasing a MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> contai
     <tr><td>syslog</td><td>11.6.1</td></tr>
   </tbody>
 </table>
- 
- 
- 
+
+
+
 ### <a id='2.9.11'></a> 2.9.11
 
 **Release Date:** 09/09/2020
@@ -648,8 +649,8 @@ releasing a MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> contai
     <tr><td>syslog</td><td>11.6.1</td></tr>
   </tbody>
 </table>
- 
- 
+
+
 
 ### <a id='2.9.10'></a> 2.9.10
 
