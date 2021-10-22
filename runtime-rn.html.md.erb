@@ -21,7 +21,7 @@ releasing a MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> contai
 ## <a id='releases'></a> Releases
 
 <%# DO NOT DELETE THIS LINE - robots use this to add new release notes %>
- 
+
 ### <a id='2.11.8'></a> 2.11.8
 
 **Release Date:** 10/19/2021
@@ -102,9 +102,9 @@ releasing a MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> contai
     <tr><td>uaa</td><td>74.5.26</td></tr>
   </tbody>
 </table>
- 
- 
- 
+
+
+
 ### <a id='2.11.7'></a> 2.11.7
 
 **Release Date:** 09/30/2021
@@ -182,9 +182,9 @@ releasing a MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> contai
     <tr><td>uaa</td><td>74.5.26</td></tr>
   </tbody>
 </table>
- 
- 
- 
+
+
+
 ### <a id='2.11.6'></a> 2.11.6
 
 **Release Date:** 09/16/2021
@@ -257,9 +257,9 @@ releasing a MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> contai
     <tr><td>uaa</td><td>74.5.25</td></tr>
   </tbody>
 </table>
- 
- 
- 
+
+
+
 ### <a id='2.11.5'></a> 2.11.5
 
 **Release Date:** 09/09/2021
@@ -411,9 +411,9 @@ releasing a MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> contai
     <tr><td>uaa</td><td>74.5.24</td></tr>
   </tbody>
 </table>
- 
- 
- 
+
+
+
 ### <a id='2.11.3'></a> 2.11.3
 
 **Release Date:** 07/15/2021
@@ -423,7 +423,7 @@ releasing a MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> contai
 * **[Bug Fix]** Prevent TCP routes from using system component ports. For more information, see [TCP Routes Stop Working](https://community.pivotal.io/s/article/Known-Issue-TCP-Routes-Stop-Working?language=en_US) in the Knowledge Base. If you try to create or update a router group to include system component ports, the Routing API returns an error. Current invalid router groups that include system component ports are not changed, but a warning is logged. In TAS for VMs v2.12.0, invalid router groups cause a deploy failure. For more information, see [Check and fix invalid router groups before TAS 2.12](https://community.pivotal.io/s/article/Check-and-fix-invalid-router-groups-before-TAS-2-12?language=en_US) in the Knowledge Base.
 * **[Bug Fix]** Fix metric-registrar crashing when non-url formatted drains exist
 * **[Bug Fix]** Add an option to remove extra metadata from syslog drains
-* **[Breaking Change]** [added 10/20/2021] Some Gorouter responses are now sent with transfer-encoded chunked which previously would not have been. For more information, see [Clients receive responses with no Content-Length header and a chunked encoded body after upgrading Tanzu Application Service for VMs](https://community.pivotal.io/s/article/Clients-receive-responses-with-no-Content-Length-header-and-a-chunked-encoded-body-after-upgrading-Tanzu-Application-Service-for-VMs) in the Knowledge Base.
+* **[Breaking Change]** Gorouter sends all responses with transfer-encoded chunks. Some responses that were not chunked in previous versions now use transfer-encoded chunks. For more information, see [Clients receive responses with no Content-Length header and a chunked encoded body after upgrading Tanzu Application Service for VMs](https://community.pivotal.io/s/article/Clients-receive-responses-with-no-Content-Length-header-and-a-chunked-encoded-body-after-upgrading-Tanzu-Application-Service-for-VMs) in the Knowledge Base. _(edited 20 Oct 2021)_
 * Bump binary-offline-buildpack to version `1.0.39`
 * Bump cf-networking to version `2.38.0`
 * Bump cflinuxfs3 to version `0.249.0`
@@ -504,8 +504,8 @@ releasing a MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> contai
     <tr><td>uaa</td><td>74.5.24</td></tr>
   </tbody>
 </table>
- 
- 
+
+
 
 ### <a id='2.11.2'></a> 2.11.2
 

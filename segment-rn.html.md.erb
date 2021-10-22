@@ -13,7 +13,7 @@ releasing a MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> contai
 ## <a id='releases'></a> Releases
 
 <%# DO NOT DELETE THIS LINE - robots use this to add new release notes %>
- 
+
 ### <a id='2.11.7'></a> 2.11.7
 
 **Release Date:** 10/19/2021
@@ -50,9 +50,9 @@ releasing a MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> contai
     <tr><td>syslog</td><td>11.7.5</td></tr>
   </tbody>
 </table>
- 
- 
- 
+
+
+
 ### <a id='2.11.6'></a> 2.11.6
 
 **Release Date:** 09/30/2021
@@ -88,9 +88,9 @@ releasing a MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> contai
     <tr><td>syslog</td><td>11.7.5</td></tr>
   </tbody>
 </table>
- 
- 
- 
+
+
+
 ### <a id='2.11.5'></a> 2.11.5
 
 **Release Date:** 09/16/2021
@@ -126,8 +126,8 @@ releasing a MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> contai
     <tr><td>syslog</td><td>11.7.5</td></tr>
   </tbody>
 </table>
- 
- 
+
+
 
 ### <a id='2.11.4'></a> 2.11.4
 
@@ -175,7 +175,7 @@ releasing a MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> contai
 
 * **[Feature Improvement]** garden-runc - Enable usage of .NET diagnostic tools
 * **[Bug Fix]** Prevent tcp routes from using system component ports.
-* **[Breaking Change]** [added 10/20/2021] Some Gorouter responses are now sent with transfer-encoded chunked which previously would not have been. For more information, see [Clients receive responses with no Content-Length header and a chunked encoded body after upgrading Tanzu Application Service for VMs](https://community.pivotal.io/s/article/Clients-receive-responses-with-no-Content-Length-header-and-a-chunked-encoded-body-after-upgrading-Tanzu-Application-Service-for-VMs) in the Knowledge Base.
+* **[Breaking Change]** Gorouter sends all responses with transfer-encoded chunks. Some responses that were not chunked in previous versions now use transfer-encoded chunks. For more information, see [Clients receive responses with no Content-Length header and a chunked encoded body after upgrading Tanzu Application Service for VMs](https://community.pivotal.io/s/article/Clients-receive-responses-with-no-Content-Length-header-and-a-chunked-encoded-body-after-upgrading-Tanzu-Application-Service-for-VMs) in the Knowledge Base. _(edited 20 Oct 2021)_
 * Bump cf-networking to version `2.38.0`
 * Bump cflinuxfs3 to version `0.249.0`
 * Bump garden-runc to version `1.19.28`
@@ -210,9 +210,9 @@ releasing a MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> contai
     <tr><td>syslog</td><td>11.7.5</td></tr>
   </tbody>
 </table>
- 
- 
- 
+
+
+
 ### <a id='2.11.2'></a> 2.11.2
 
 **Release Date:** 06/22/2021
@@ -251,9 +251,9 @@ releasing a MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> contai
     <tr><td>syslog</td><td>11.7.0</td></tr>
   </tbody>
 </table>
- 
- 
- 
+
+
+
 ### <a id='2.11.1'></a> 2.11.1
 
 **Release Date:** 05/27/2021
@@ -300,8 +300,8 @@ releasing a MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> contai
     <tr><td>syslog</td><td>11.7.0</td></tr>
   </tbody>
 </table>
- 
- 
+
+
 
 ### <a id='2.11.0'></a> 2.11.0
 
