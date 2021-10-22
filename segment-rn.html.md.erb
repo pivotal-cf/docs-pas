@@ -14,7 +14,7 @@ releasing a MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> contai
 ## <a id='releases'></a> Releases
 
 <%# DO NOT DELETE THIS LINE - robots use this to add new release notes %>
- 
+
 ### <a id='2.10.18'></a> 2.10.18
 
 **Release Date:** 10/20/2021
@@ -50,9 +50,9 @@ releasing a MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> contai
     <tr><td>syslog</td><td>11.6.1</td></tr>
   </tbody>
 </table>
- 
- 
- 
+
+
+
 ### <a id='2.10.17'></a> 2.10.17
 
 **Release Date:** 09/29/2021
@@ -88,9 +88,9 @@ releasing a MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> contai
     <tr><td>syslog</td><td>11.6.1</td></tr>
   </tbody>
 </table>
- 
- 
- 
+
+
+
 ### <a id='2.10.16'></a> 2.10.16
 
 **Release Date:** 09/16/2021
@@ -126,16 +126,16 @@ releasing a MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> contai
     <tr><td>syslog</td><td>11.6.1</td></tr>
   </tbody>
 </table>
- 
- 
- 
+
+
+
 ### <a id='2.10.15'></a> 2.10.15
 
 **Release Date:** 09/09/2021
 
 * **[Security Fix]** Gorouter built with Go 1.16.7 to address [CVE-2021-36221](https://nvd.nist.gov/vuln/detail/CVE-2021-36221)
 * **[Bug Fix]** garden-runc - recover after cell restarts
-* **[Breaking Change]** [added 10/20/2021] Some Gorouter responses are now sent with transfer-encoded chunked which previously would not have been. For more information, see [Clients receive responses with no Content-Length header and a chunked encoded body after upgrading Tanzu Application Service for VMs](https://community.pivotal.io/s/article/Clients-receive-responses-with-no-Content-Length-header-and-a-chunked-encoded-body-after-upgrading-Tanzu-Application-Service-for-VMs) in the Knowledge Base.
+* **[Breaking Change]** Gorouter sends all responses with transfer-encoded chunks. Some responses that were not chunked in previous versions now use transfer-encoded chunks. For more information, see [Clients receive responses with no Content-Length header and a chunked encoded body after upgrading Tanzu Application Service for VMs](https://community.pivotal.io/s/article/Clients-receive-responses-with-no-Content-Length-header-and-a-chunked-encoded-body-after-upgrading-Tanzu-Application-Service-for-VMs) in the Knowledge Base. _(edited 20 Oct 2021)_
 * Bump bpm to version `1.1.13`
 * Bump cflinuxfs3 to version `0.252.0`
 * Bump garden-runc to version `1.19.29`
@@ -207,9 +207,9 @@ releasing a MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> contai
     <tr><td>syslog</td><td>11.6.1</td></tr>
   </tbody>
 </table>
- 
 
- 
+
+
 ### <a id='2.10.13'></a> 2.10.13
 
 **Release Date:** 06/22/2021
@@ -248,9 +248,9 @@ releasing a MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> contai
     <tr><td>syslog</td><td>11.6.1</td></tr>
   </tbody>
 </table>
- 
- 
- 
+
+
+
 ### <a id='2.10.12'></a> 2.10.12
 
 **Release Date:** 05/27/2021
@@ -293,9 +293,9 @@ releasing a MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> contai
     <tr><td>syslog</td><td>11.6.1</td></tr>
   </tbody>
 </table>
- 
- 
- 
+
+
+
 ### <a id='2.10.11'></a> 2.10.11
 
 **Release Date:** 03/31/2021
@@ -333,9 +333,9 @@ releasing a MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> contai
     <tr><td>syslog</td><td>11.6.1</td></tr>
   </tbody>
 </table>
- 
- 
- 
+
+
+
 ### <a id='2.10.10'></a> 2.10.10
 
 **Release Date:** 02/19/2021
@@ -411,9 +411,9 @@ releasing a MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> contai
     <tr><td>syslog</td><td>11.6.1</td></tr>
   </tbody>
 </table>
- 
- 
- 
+
+
+
 ### <a id='2.10.8'></a> 2.10.8
 
 **Release Date:** 11/18/2020
@@ -446,9 +446,9 @@ releasing a MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> contai
     <tr><td>syslog</td><td>11.6.1</td></tr>
   </tbody>
 </table>
- 
- 
- 
+
+
+
 ### <a id='2.10.7'></a> 2.10.7
 
 **Release Date:** 11/04/2020
@@ -483,9 +483,9 @@ releasing a MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> contai
     <tr><td>syslog</td><td>11.6.1</td></tr>
   </tbody>
 </table>
- 
- 
- 
+
+
+
 ### <a id='2.10.6'></a> 2.10.6
 
 **Release Date:** 10/26/2020
@@ -524,9 +524,9 @@ releasing a MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> contai
     <tr><td>syslog</td><td>11.6.1</td></tr>
   </tbody>
 </table>
- 
- 
- 
+
+
+
 ### <a id='2.10.5'></a> 2.10.5
 
 **Release Date:** 10/09/2020
@@ -563,9 +563,9 @@ releasing a MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> contai
     <tr><td>syslog</td><td>11.6.1</td></tr>
   </tbody>
 </table>
- 
- 
- 
+
+
+
 ### <a id='2.10.4'></a> 2.10.4
 
 **Release Date:** 09/21/2020
@@ -600,8 +600,8 @@ releasing a MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> contai
     <tr><td>syslog</td><td>11.6.1</td></tr>
   </tbody>
 </table>
- 
- 
+
+
 
 ### <a id='2.10.3'></a> 2.10.3
 
