@@ -1,13 +1,13 @@
 ---
-title: <%= vars.app_runtime_abbr %> <%= vars.v_major_version %> Release Notes
+title: Isolation Segment v2.13 Release Notes
 owner: Release Engineering
 ---
 
-<% current_page.data.title = vars.app_runtime_full + " " + vars.v_major_version + " Release Notes" %>
+<% current_page.data.title = vars.segment_runtime_full + " " + vars.v_major_version + " Release Notes" %>
 
-This topic contains release notes for <%= vars.app_runtime_first %> <%= vars.v_major_version %>.
+This topic contains release notes for <%= vars.segment_runtime_full %> <%= vars.v_major_version %>.
 
-<%= vars.app_runtime_abbr %> is certified by the Cloud Foundry Foundation for <%= Date.today.year %>.
+<%= vars.app_runtime_first %> is certified by the Cloud Foundry Foundation for <%= Date.today.year %>.
 
 For more information about the Cloud Foundry Certified Provider Program, see
 [How Do I Become a Certified Provider?](https://www.cloudfoundry.org/certified-platforms-how-to/)
@@ -96,30 +96,22 @@ releasing a MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> contai
   </tbody>
 </table>
 
-## <a id='upgrade'></a> How to Upgrade
+## <a id='install'></a> How to Install
 
-To upgrade to <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>, see [Configuring <%= vars.app_runtime_abbr %> for Upgrades](https://docs.pivotal.io/application-service/2-12/operating/configuring.html).
+To install <%= vars.segment_runtime_full %> <%= vars.v_major_version %>, see [Installing Isolation Segment](https://docs.pivotal.io/application-service/2-13/operating/installing-pcf-is.html).
 
-When upgrading to <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>, be aware of the following upgrade considerations:
-
-
-* If you previously used an earlier version of <%= vars.app_runtime_abbr %>, you must first upgrade to <%= vars.app_runtime_abbr %> v2.11 to successfully upgrade to <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>.
-
-* Some partner service tiles may be incompatible with <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>.
-  VMware is working with partners to ensure their tiles are updated to work with the latest versions of <%= vars.app_runtime_abbr %>.
-  <br/><br/> For information about which partner service releases are currently compatible with <%= vars.app_runtime_abbr %>
-  <%= vars.v_major_version %>, review the appropriate partners services release documentation
-  at [https://docs.pivotal.io](https://docs.pivotal.io) or contact the partner organization that produces the tile.
+To install <%= vars.segment_runtime_full %> <%= vars.v_major_version %>, you must first install Ops Manager v2.10.
+For more information, see the [Ops Manager](https://docs.pivotal.io/ops-manager/2-10/index.html) documentation.
 
 
-## <a id='new-features'></a> New Features in <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>
+## <a id='new-features'></a> New Features in <%= vars.segment_runtime_full %> <%= vars.v_major_version %>
 
-<%= vars.app_runtime_abbr %> <%= vars.v_major_version %> includes the following major features:
+<%= vars.segment_runtime_full %> <%= vars.v_major_version %> includes the following major features:
 
 ## <a id='breaking-changes'></a> Breaking Changes
 
-<%= vars.app_runtime_abbr %> <%= vars.v_major_version %> includes the following breaking changes:
+<%= vars.segment_runtime_full %> <%= vars.v_major_version %> includes the following breaking changes:
 
 ## <a id='known-issues'></a> Known Issues
 
-<%= vars.app_runtime_abbr %> <%= vars.v_major_version %> includes the following known issues:
+<%= vars.segment_runtime_full %> <%= vars.v_major_version %> includes the following known issues:
