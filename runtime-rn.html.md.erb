@@ -302,15 +302,8 @@ Internal clients that access the Envoy TLS port directly must negotiate down to 
 The Envoy TLS port is typically 61001.
 Clients that connect to apps using the Gorouter are not affected.
 
-### <a id='chunked-vs-content-length'></a>Gorouter No Longer De-chunks Short Chunked Responses
+<%= partial "/pcf/tas/known-issues/gorouter-chunking" %>
 
-In previous versions of <%= vars.app_runtime_abbr %>, the Gorouter de-chunked short chunked responses, set a Content-Length header, and sent a traditional body.
-This capability was available when Gorouter used Golang v1.15, which is out of support.
-
-For versions of <%= vars.app_runtime_abbr %> that contain routing-release v0.214.0 and later, the Gorouter uses Golang v1.16 which sends a chunked response.
-If your clients or proxies that access apps cannot handle a chunked response, or expect a Content-Length header, they break.
-
-For more information, see [Clients receive responses with no Content-Length header and a chunked encoded body after upgrading Tanzu Application Service for VMs](https://community.pivotal.io/s/article/Clients-receive-responses-with-no-Content-Length-header-and-a-chunked-encoded-body-after-upgrading-Tanzu-Application-Service-for-VMs) in the Knowledge Base.
 
 ## <a id='known-issues'></a> Known Issues
 
