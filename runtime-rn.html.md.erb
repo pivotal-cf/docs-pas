@@ -269,6 +269,8 @@ When upgrading to <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>, be a
 
 * If you previously used an earlier version of <%= vars.app_runtime_abbr %>, you must first upgrade to <%= vars.app_runtime_abbr %> v2.11 to successfully upgrade to <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>.
 
+* To minimize downtime for developers pushing applications, platform upgrades should be completed from patch versions of <%= vars.app_runtime_abbr %> 2.11.9 or greater. Upgrading from earlier patch versions may result in an `Unknown Error` when pushing applications.
+
 * Some partner service tiles may be incompatible with <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>.
   VMware is working with partners to ensure their tiles are updated to work with the latest versions of <%= vars.app_runtime_abbr %>.
   <br/><br/> For information about which partner service releases are currently compatible with <%= vars.app_runtime_abbr %>
