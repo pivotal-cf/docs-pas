@@ -32,10 +32,10 @@ releasing a MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> contai
 
 
   <p class="note">
-    This vulnerability in TAS UAA and CredHub, was previously mitigatable via a manual process documented <a href="https://community.pivotal.io/s/article/Workaround-instructions-to-address-CVE-2021-44228-in-Tanzu-Application-Service-2-7-through-2-12?language=en_US">here</a>. If you are for any reason unable to consume this release, apply the linked mitigation process as soon as possible. The mitigation document also has guidance around using TAS platform features to mitigate impacted applications on the platform.
+    <a href="https://nvd.nist.gov/vuln/detail/CVE-2021-44228">This vulnerability</a> in TAS UAA and CredHub, was previously mitigatable via a manual process documented <a href="https://community.pivotal.io/s/article/Workaround-instructions-to-address-CVE-2021-44228-in-Tanzu-Application-Service-2-7-through-2-12?language=en_US">here</a>. If you are for any reason unable to consume this release, apply the linked mitigation process as soon as possible. The mitigation document also has guidance around using TAS platform features to mitigate impacted applications on the platform.
   </p>
   <p class="note warning">
-    <strong>Warning:</strong> Note that this release <em>does not containa bump to the Java buildpack, which also contains affected third party dependencies;</em> when the independent <a href="https://network.pivotal.io/products/tanzu-java-buildpack/">Java Buildpack</a> release is made available, TAS users will need to manually bump the buildpack, a process documented here.
+    <strong>Warning:</strong> This release <em>does not contain the Java buildpack bump, which is affected by the aforementioned vulnerability.</em> Manually bump the Java buildpack from <a href="https://network.pivotal.io/products/java-buildpack/#/releases/1013593">here</a> and lock it.
   </p>
   <p class="note">
     Ops Manager was also impacted. <a href="https://network.pivotal.io/products/ops-manager/">Ops Manager 2.10.23</a> is available and should also be deployed as soon as possible.
