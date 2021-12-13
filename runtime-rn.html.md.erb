@@ -24,16 +24,15 @@ releasing a MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> contai
 
 ### <a id='2.12.3'></a> 2.12.3
 
-
-  <p class="note">
-    <a href="https://nvd.nist.gov/vuln/detail/CVE-2021-44228">This vulnerability</a> in TAS UAA and CredHub, was previously mitigatable via a manual process documented <a href="https://community.pivotal.io/s/article/Workaround-instructions-to-address-CVE-2021-44228-in-Tanzu-Application-Service-2-7-through-2-12?language=en_US">here</a>. If you are for any reason unable to consume this release, apply the linked mitigation process as soon as possible. The mitigation document also has guidance around using TAS platform features to mitigate impacted applications on the platform.
-  </p>
-  <p class="note warning">
-    <strong>Warning:</strong> This release <em>does not contain the Java buildpack bump, which is affected by the aforementioned vulnerability.</em> Manually bump the Java buildpack from <a href="https://network.pivotal.io/products/java-buildpack/#/releases/1013593">here</a> and lock it.
-  </p>
-  <p class="note">
-    Ops Manager was also impacted. <a href="https://network.pivotal.io/products/ops-manager/">Ops Manager 2.10.23</a> is available and should also be deployed as soon as possible.
-  </p>
+<div class="note warning"><strong>Warning:</strong>
+  <p>See the following warnings:</p>
+    <ul>
+      <li>VMware recommends upgrading to this <%= vars.app_runtime_abbr %> patch as soon as possible to address
+    <a href="https://nvd.nist.gov/vuln/detail/CVE-2021-44228">CVE-2021-44228</a>. If you are unable to upgrade, you can mitigate this CVE manually. See <a href="https://community.pivotal.io/s/article/Workaround-instructions-to-address-CVE-2021-44228-in-Tanzu-Application-Service-2-7-through-2-12?language=en_US">Instructions to address CVE-2021-44228 in Tanzu Application Service (2.7 through 2.12)</a>.</li>
+      <li>This release does not contain the Java buildpack bump for this vulnerability. You must manually bump the Java buildpack and lock the version. Download the updated buildpack from <a href="https://network.pivotal.io/products/java-buildpack/#/releases/1013593">VMware Tanzu Network</a>.</li>
+      <li>This vulnerability also affects Ops Manager. VMware recommends upgrading to Ops Manager v2.10.23 as soon as possible. For more information, see the <a href="https://docs.pivotal.io/ops-manager/2-10/release-notes.html#2-10-23">Ops Manager v2.10.23 release notes</a>.</li>
+    </ul>
+  </div>
 
 * **[Security Fix]** UAA and CredHub - Fix remote code execution vulnerability related to Log4j ([CVE-2021-44228](https://nvd.nist.gov/vuln/detail/CVE-2021-44228))
 * **[Bug Fix]** Diego - Envoy 1.19 should use original TCP connection pool, so that it can accept more than 1024 downstream connections
