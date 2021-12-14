@@ -20,6 +20,7 @@ releasing a MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> contai
 **Release Date:** 12/14/2021
 
 * **[Bug Fix]** Fix "pre-start scripts failed. Failed Jobs: policy-server" error Upgrading to CF Networking Release 2.40.0
+* **[Bug Fix]** Diego - Envoy 1.19 should use original TCP connection pool, so that it can accept more than 1024 downstream connections
 * Bump cf-networking to version `2.42.0`
 * Bump cflinuxfs3 to version `0.268.0`
 * Bump diego to version `2.54.0`
