@@ -2112,3 +2112,14 @@ consider updating the apps and their dependencies before upgrading to TAS for VM
 On September 30, 2020, AWS will no longer support the path-based model for accessing S3 buckets. Support for the path-based model will continue for S3 buckets created on or before September 30, 2020. S3 buckets created after that date must be accessed using the virtual-hosted model.
 
 For more information, see [Amazon S3 Path Deprecation Plan – The Rest of the Story](https://aws.amazon.com/blogs/aws/amazon-s3-path-deprecation-plan-the-rest-of-the-story/) on the AWS News Blog.
+
+### <a id="stored-procedure"></a> Pre-start scripts fail on policy-server job.
+
+When upgrading to 2.10.21, the policy-server pre-start script runs a database migration drops
+a stored proedure that is no longer needed. If your `networkpolicyserver` database does not have the
+stored procedure in question however, you will see the following error in `diego_database` policy-server
+stdout logs, `PROCEDURE networkpolicyserver.drop_destination_index does not exist handling 66`.
+
+The mitigation for this error is to add migration to your `networkpolicyserver.gorp_migrations` table
+and skip the migration. [Details here.](https://community.pivotal.io/s/article/TAS-upgrade-to-version-including-cf-networking-release-2-40-0-may-fail-policy-server-job-pre-start-job?language=en_US) A mitigation in TAS is forthcoming.
+
