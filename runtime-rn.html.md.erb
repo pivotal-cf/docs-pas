@@ -21,7 +21,7 @@ releasing a MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> contai
 ## <a id='releases'></a> Releases
 
 <%# DO NOT DELETE THIS LINE - robots use this to add new release notes %>
- 
+
 ### <a id='2.13.0-alpha.4'></a> 2.13.0-alpha.4
 
 **Release Date:** 11/23/2021
@@ -50,61 +50,219 @@ releasing a MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> contai
     <tr>
       <th>Component</th>
       <th>Version</th>
+      <th>Release Notes</th>
     </tr>
   </thead>
   <tbody>
-    <tr><td>ubuntu-xenial stemcell</td><td>621.0</td></tr>
-    <tr><td>backup-and-restore-sdk</td><td>1.18.22</td></tr>
-    <tr><td>binary-offline-buildpack</td><td>1.0.40</td></tr>
-    <tr><td>bosh-dns-aliases</td><td>0.0.4</td></tr>
-    <tr><td>bosh-system-metrics-forwarder</td><td>0.0.20</td></tr>
-    <tr><td>bpm</td><td>1.1.15</td></tr>
-    <tr><td>capi</td><td>1.119.0</td></tr>
-    <tr><td>cf-autoscaling</td><td>241</td></tr>
-    <tr><td>cf-cli</td><td>1.34.0</td></tr>
-    <tr><td>cf-networking</td><td>2.40.0</td></tr>
-    <tr><td>cflinuxfs3</td><td>0.264.0</td></tr>
-    <tr><td>credhub</td><td>2.9.4</td></tr>
-    <tr><td>diego</td><td>2.53.0</td></tr>
-    <tr><td>dotnet-core-offline-buildpack</td><td>2.3.36</td></tr>
-    <tr><td>garden-runc</td><td>1.19.31</td></tr>
-    <tr><td>go-offline-buildpack</td><td>1.9.37</td></tr>
-    <tr><td>haproxy</td><td>11.6.0</td></tr>
-    <tr><td>java-offline-buildpack</td><td>4.42</td></tr>
-    <tr><td>log-cache</td><td>2.11.4</td></tr>
-    <tr><td>loggregator-agent</td><td>6.3.4</td></tr>
-    <tr><td>loggregator</td><td>106.6.1</td></tr>
-    <tr><td>mapfs</td><td>1.2.6</td></tr>
-    <tr><td>metric-registrar</td><td>1.2.2</td></tr>
-    <tr><td>metrics-discovery</td><td>3.0.6</td></tr>
-    <tr><td>mysql-monitoring</td><td>9.15.0</td></tr>
-    <tr><td>nats</td><td>40</td></tr>
-    <tr><td>nfs-volume</td><td>7.1.1</td></tr>
-    <tr><td>nginx-offline-buildpack</td><td>1.1.32</td></tr>
-    <tr><td>nodejs-offline-buildpack</td><td>1.7.63</td></tr>
-    <tr><td>notifications-ui</td><td>40</td></tr>
-    <tr><td>notifications</td><td>62</td></tr>
-    <tr><td>php-offline-buildpack</td><td>4.4.48</td></tr>
-    <tr><td>push-apps-manager-release</td><td>675.0.1</td></tr>
-    <tr><td>push-usage-service-release</td><td>674.0.23</td></tr>
-    <tr><td>pxc</td><td>0.39.0</td></tr>
-    <tr><td>python-offline-buildpack</td><td>1.7.47</td></tr>
-    <tr><td>r-offline-buildpack</td><td>1.1.23</td></tr>
-    <tr><td>routing</td><td>0.225.0</td></tr>
-    <tr><td>ruby-offline-buildpack</td><td>1.8.48</td></tr>
-    <tr><td>silk</td><td>2.40.0</td></tr>
-    <tr><td>smb-volume</td><td>3.1.0</td></tr>
-    <tr><td>smoke-tests</td><td>4.3.0</td></tr>
-    <tr><td>staticfile-offline-buildpack</td><td>1.5.26</td></tr>
-    <tr><td>statsd-injector</td><td>1.11.16</td></tr>
-    <tr><td>syslog</td><td>11.7.5</td></tr>
-    <tr><td>system-metrics-scraper</td><td>3.2.3</td></tr>
-    <tr><td>uaa</td><td>74.5.26</td></tr>
+    <tr><td>ubuntu-xenial stemcell</td><td>~621</td><td></td></tr>
+    <tr><td>backup-and-restore-sdk</td><td>1.18.22</td><td></td></tr>
+    <tr><td>binary-offline-buildpack</td><td>1.0.40</td><td></td></tr>
+    <tr><td>bosh-dns-aliases</td><td>0.0.4</td><td></td></tr>
+    <tr><td>bosh-system-metrics-forwarder</td><td>0.0.20</td><td></td></tr>
+    <tr><td>bpm</td><td>1.1.15</td>
+      <td>
+        <details>
+          <summary>v1.1.15</summary>
+          <pre>
+  **Full Changelog**: https://github.com/cloudfoundry/bpm-release/compare/v1.1.14...v1.1.15
+  * Bumped go to 1.17
+          </pre>
+        </details>
+      </td>
+    </tr>
+    <tr><td>capi</td><td>1.119.0</td><td></td></tr>
+    <tr><td>cf-autoscaling</td><td>241</td>
+      <td>
+        <details>
+          <summary>v241</summary>
+          <pre>
+  * Log on errors instead of panicking in scheduling director
+          </pre>
+        </details>
+      </td>
+    </tr>
+    <tr><td>cf-cli</td><td>1.34.0</td><td></td></tr>
+    <tr><td>cf-networking</td><td>2.40.0</td>
+      <td>
+        <details>
+          <summary>2.40.0</summary>
+          <pre>
+  ## Release Highlights
+  - Make a [v66 migration](https://github.com/cloudfoundry/cf-networking-release/blob/release/src/code.cloudfoundry.org/policy-server/store/migrations/v0066.go) to remove old stored procedure
+  - Tested with [silk-release](https://code.cloudfoundry.org/silk-release) v2.40.0
+  ### ✨ Built with golang `1.16.9`
+          </pre>
+        </details>
+      </td>
+    </tr>
+    <tr><td>cflinuxfs3</td><td>0.264.0</td>
+      <td>
+        <details>
+          <summary>0.264.0</summary>
+          <pre>
+  Notably, this release addresses:
+  [USN-5133-1](https://ubuntu.com/security/notices/USN-5133-1/) USN-5133-1: ICU vulnerability:
+  * [CVE-2020-21913](https://ubuntu.com//security/CVE-2020-21913):  International Components for Unicode (ICU-20850) v66.1 was discovered to contain a use after free bug in the pkg_createWithAssemblyCode function in the file tools/pkgdata/pkgdata.cpp.
+  ```
+  -ii  bind9-host             1:9.11.3+dfsg-1ubuntu1.15 amd64 DNS lookup utility (deprecated)
+  +ii  bind9-host             1:9.11.3+dfsg-1ubuntu1.16 amd64 DNS lookup utility (deprecated)
+  -ii  dnsutils               1:9.11.3+dfsg-1ubuntu1.15 amd64 Clients provided with BIND
+  +ii  dnsutils               1:9.11.3+dfsg-1ubuntu1.16 amd64 Clients provided with BIND
+  -ii  icu-devtools           60.2-3ubuntu3.1           amd64 Development utilities for International Components for Unicode
+  +ii  icu-devtools           60.2-3ubuntu3.2           amd64 Development utilities for International Components for Unicode
+  -ii  libbind9-160:amd64     1:9.11.3+dfsg-1ubuntu1.15 amd64 BIND9 Shared Library used by BIND
+  +ii  libbind9-160:amd64     1:9.11.3+dfsg-1ubuntu1.16 amd64 BIND9 Shared Library used by BIND
+  -ii  libdns-export1100      1:9.11.3+dfsg-1ubuntu1.15 amd64 Exported DNS Shared Library
+  -ii  libdns1100:amd64       1:9.11.3+dfsg-1ubuntu1.15 amd64 DNS Shared Library used by BIND
+  +ii  libdns-export1100      1:9.11.3+dfsg-1ubuntu1.16 amd64 Exported DNS Shared Library
+  +ii  libdns1100:amd64       1:9.11.3+dfsg-1ubuntu1.16 amd64 DNS Shared Library used by BIND
+  -ii  libicu-dev             60.2-3ubuntu3.1           amd64 Development files for International Components for Unicode
+  +ii  libicu-dev             60.2-3ubuntu3.2           amd64 Development files for International Components for Unicode
+  -ii  libicu60:amd64         60.2-3ubuntu3.1           amd64 International Components for Unicode
+  -ii  libiculx60:amd64       60.2-3ubuntu3.1           amd64 International Components for Unicode
+  +ii  libicu60:amd64         60.2-3ubuntu3.2           amd64 International Components for Unicode
+  +ii  libiculx60:amd64       60.2-3ubuntu3.2           amd64 International Components for Unicode
+  -ii  libirs160:amd64        1:9.11.3+dfsg-1ubuntu1.15 amd64 DNS Shared Library used by BIND
+  -ii  libisc-export169:amd64 1:9.11.3+dfsg-1ubuntu1.15 amd64 Exported ISC Shared Library
+  -ii  libisc169:amd64        1:9.11.3+dfsg-1ubuntu1.15 amd64 ISC Shared Library used by BIND
+  -ii  libisccc160:amd64      1:9.11.3+dfsg-1ubuntu1.15 amd64 Command Channel Library used by BIND
+  -ii  libisccfg160:amd64     1:9.11.3+dfsg-1ubuntu1.15 amd64 Config File Handling Library used by BIND
+  +ii  libirs160:amd64        1:9.11.3+dfsg-1ubuntu1.16 amd64 DNS Shared Library used by BIND
+  +ii  libisc-export169:amd64 1:9.11.3+dfsg-1ubuntu1.16 amd64 Exported ISC Shared Library
+  +ii  libisc169:amd64        1:9.11.3+dfsg-1ubuntu1.16 amd64 ISC Shared Library used by BIND
+  +ii  libisccc160:amd64      1:9.11.3+dfsg-1ubuntu1.16 amd64 Command Channel Library used by BIND
+  +ii  libisccfg160:amd64     1:9.11.3+dfsg-1ubuntu1.16 amd64 Config File Handling Library used by BIND
+  -ii  liblwres160:amd64      1:9.11.3+dfsg-1ubuntu1.15 amd64 Lightweight Resolver Library used by BIND
+  +ii  liblwres160:amd64      1:9.11.3+dfsg-1ubuntu1.16 amd64 Lightweight Resolver Library used by BIND
+  -ii  linux-base             4.5ubuntu1.6              all   Linux image base package
+  +ii  linux-base             4.5ubuntu1.7              all   Linux image base package
+  -ii  tzdata                 2021a-2ubuntu0.18.04      all   time zone and daylight-saving time data
+  -ii  ubuntu-advantage-tools 27.2.2~18.04.1            amd64 management tools for Ubuntu Advantage
+  +ii  tzdata                 2021e-0ubuntu0.18.04      all   time zone and daylight-saving time data
+  +ii  ubuntu-advantage-tools 27.3~18.04.1              amd64 management tools for Ubuntu Advantage
+  ```
+          </pre>
+        </details>
+        <details>
+          <summary>0.263.0</summary>
+          <pre>
+  Notably, this release addresses:
+  [USN-5124-1](https://ubuntu.com/security/notices/USN-5124-1/) USN-5124-1: GNU binutils vulnerabilities:
+  * [CVE-2021-3487](https://people.canonical.com/~ubuntu-security/cve/CVE-2021-3487):  There&#39;s a flaw in the BFD library of binutils in versions before 2.36. An attacker who supplies a crafted file to an application linked with BFD, and using the DWARF functionality, could cause an impact to system availability by way of excessive memory consumption.
+  * [CVE-2020-16592](https://people.canonical.com/~ubuntu-security/cve/CVE-2020-16592):  A use after free issue exists in the Binary File Descriptor (BFD) library (aka libbfd) in GNU Binutils 2.34 in bfd_hash_lookup, as demonstrated in nm-new, that can cause a denial of service via a crafted file.
+  ```
+  -ii  binutils                  2.30-21ubuntu1~18.04.5 amd64 GNU assembler, linker and binary utilities
+  -ii  binutils-common:amd64     2.30-21ubuntu1~18.04.5 amd64 Common files for the GNU assembler, linker and binary utilities
+  -ii  binutils-x86-64-linux-gnu 2.30-21ubuntu1~18.04.5 amd64 GNU binary utilities, for x86-64-linux-gnu target
+  +ii  binutils                  2.30-21ubuntu1~18.04.7 amd64 GNU assembler, linker and binary utilities
+  +ii  binutils-common:amd64     2.30-21ubuntu1~18.04.7 amd64 Common files for the GNU assembler, linker and binary utilities
+  +ii  binutils-x86-64-linux-gnu 2.30-21ubuntu1~18.04.7 amd64 GNU binary utilities, for x86-64-linux-gnu target
+  -ii  distro-info-data          0.37ubuntu0.12         all   information about the distributions' releases (data files)
+  +ii  distro-info-data          0.37ubuntu0.13         all   information about the distributions' releases (data files)
+  -ii  libbinutils:amd64         2.30-21ubuntu1~18.04.5 amd64 GNU binary utilities (private shared library)
+  +ii  libbinutils:amd64         2.30-21ubuntu1~18.04.7 amd64 GNU binary utilities (private shared library)
+  -ii  linux-libc-dev:amd64      4.15.0-159.167         amd64 Linux Kernel Headers for development
+  +ii  linux-libc-dev:amd64      4.15.0-161.169         amd64 Linux Kernel Headers for development
+  ```
+          </pre>
+        </details>
+      </td>
+    </tr>
+    <tr><td>credhub</td><td>2.9.4</td><td></td></tr>
+    <tr><td>diego</td><td>2.53.0</td><td></td></tr>
+    <tr><td>dotnet-core-offline-buildpack</td><td>2.3.36</td><td></td></tr>
+    <tr><td>garden-runc</td><td>1.19.31</td>
+      <td>
+        <details>
+          <summary>v1.19.31</summary>
+          <pre>
+  Changes:
+  * #205 Bump Go to v1.17
+          </pre>
+        </details>
+      </td>
+    </tr>
+    <tr><td>go-offline-buildpack</td><td>1.9.37</td><td></td></tr>
+    <tr><td>haproxy</td><td>11.6.0</td>
+      <td>
+        <details>
+          <summary>v11.6.0</summary>
+          <pre>
+  # New Features
+  - New property `disable_backend_http2_websockets` to force backend websocket connections to use HTTP/1.1 (default `false`) #263 / #261
+  - Support for `alpn` property in crt-list was added #262
+  # Acknowledgements
+  Thanks @46bit and @b1tamara!
+  ### Deployment
+  ```yaml
+  releases:
+  - name: haproxy
+  version: 11.6.0
+  url: https://github.com/cloudfoundry-incubator/haproxy-boshrelease/releases/download/v11.6.0/haproxy-11.6.0.tgz
+  sha1: 0fe345b021790430defeb6a49f67322dea59f632
+  ```
+          </pre>
+        </details>
+        <details>
+          <summary>v11.5.0</summary>
+          <pre>
+  # Fixes
+  - `X-SSL-*` headers that could previously contain non-standard ASCII characters are now base64 encoded. These include `X-SSL-Client-Subject-CN`, `X-SSL-Client-Subject-DN`, `X-SSL-Client-Issuer-DN`. Client certificates may contain non ASCII characters and when these were added to the `X-SSL-*` headers it was breaking some backend server implementation that have strict checks for HTTP header RFC compliance. Note this is a breaking change.
+  ### Deployment
+  ```yaml
+  releases:
+  - name: haproxy
+  version: 11.5.0
+  url: https://github.com/cloudfoundry-incubator/haproxy-boshrelease/releases/download/v11.5.0/haproxy-11.5.0.tgz
+  sha1: ef212c666d281a2b7297d3cfad23eed00d3e7b1a
+  ```
+          </pre>
+        </details>
+      </td>
+    </tr>
+    <tr><td>java-offline-buildpack</td><td>4.42</td><td></td></tr>
+    <tr><td>log-cache</td><td>2.11.4</td><td></td></tr>
+    <tr><td>loggregator</td><td>106.6.1</td><td></td></tr>
+    <tr><td>loggregator-agent</td><td>6.3.4</td><td></td></tr>
+    <tr><td>mapfs</td><td>1.2.6</td><td></td></tr>
+    <tr><td>metric-registrar</td><td>1.2.2</td><td></td></tr>
+    <tr><td>metrics-discovery</td><td>3.0.6</td><td></td></tr>
+    <tr><td>mysql-monitoring</td><td>9.15.0</td><td></td></tr>
+    <tr><td>nats</td><td>40</td><td></td></tr>
+    <tr><td>nfs-volume</td><td>7.1.1</td><td></td></tr>
+    <tr><td>nginx-offline-buildpack</td><td>1.1.32</td><td></td></tr>
+    <tr><td>nodejs-offline-buildpack</td><td>1.7.63</td><td></td></tr>
+    <tr><td>notifications</td><td>62</td><td></td></tr>
+    <tr><td>notifications-ui</td><td>40</td><td></td></tr>
+    <tr><td>php-offline-buildpack</td><td>4.4.48</td><td></td></tr>
+    <tr><td>push-apps-manager-release</td><td>675.0.1</td><td></td></tr>
+    <tr><td>push-usage-service-release</td><td>674.0.23</td><td></td></tr>
+    <tr><td>pxc</td><td>0.39.0</td><td></td></tr>
+    <tr><td>python-offline-buildpack</td><td>1.7.47</td><td></td></tr>
+    <tr><td>r-offline-buildpack</td><td>1.1.23</td><td></td></tr>
+    <tr><td>routing</td><td>0.225.0</td><td></td></tr>
+    <tr><td>ruby-offline-buildpack</td><td>1.8.48</td><td></td></tr>
+    <tr><td>silk</td><td>2.40.0</td>
+      <td>
+        <details>
+          <summary>2.40.0</summary>
+          <pre>
+  ## Release Highlights
+  - Tested with [cf-networking-release](https://code.cloudfoundry.org/cf-networking-release) v2.40.0
+  ### ✨ Built with golang `1.16.8`
+          </pre>
+        </details>
+      </td>
+    </tr>
+    <tr><td>smb-volume</td><td>3.1.0</td><td></td></tr>
+    <tr><td>smoke-tests</td><td>4.3.0</td><td></td></tr>
+    <tr><td>staticfile-offline-buildpack</td><td>1.5.26</td><td></td></tr>
+    <tr><td>statsd-injector</td><td>1.11.16</td><td></td></tr>
+    <tr><td>syslog</td><td>11.7.5</td><td></td></tr>
+    <tr><td>system-metrics-scraper</td><td>3.2.3</td><td></td></tr>
+    <tr><td>uaa</td><td>74.5.26</td><td></td></tr>
   </tbody>
 </table>
- 
- 
- 
 ### <a id='2.13.0-alpha.3'></a> 2.13.0-alpha.3
 
 **Release Date:** 10/20/2021
@@ -181,9 +339,6 @@ releasing a MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> contai
     <tr><td>uaa</td><td>74.5.26</td></tr>
   </tbody>
 </table>
- 
- 
-
 ### <a id='2.13.0-alpha.2'></a> 2.13.0-alpha.2
 
 **Release Date:** 10/13/2021
