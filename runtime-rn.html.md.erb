@@ -35,6 +35,81 @@ releasing a MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> contai
 
 <%# DO NOT DELETE THIS LINE - robots use this to add new release notes %>
 
+### <a id='2.9.30'></a> 2.9.30
+
+**Release Date:** 12/16/2021
+
+  <p class="note">
+    <a href="https://nvd.nist.gov/vuln/detail/CVE-2021-45046">This vulnerability</a> in TAS Credhub, UAA, and Java, PHP Buildpacks, was previously mitigatable via a manual process documented <a href="New KB article link here">here</a>. If you are for any reason unable to consume this release, apply the linked mitigation process as soon as possible. The mitigation document also has guidance around using TAS platform features to mitigate impacted applications on the platform.
+  </p>
+
+* **[Security Fix]** Fix remote code execution vulnerability related to Log4j ([CVE-2021-45046](https://nvd.nist.gov/vuln/detail/CVE-2021-45046))
+* Bump credhub to version `2.9.7`
+* Bump java-offline-buildpack to version `4.45`
+* Bump php-offline-buildpack to version `4.4.53`
+* Bump uaa to version `74.5.29`
+
+<table border="1" class="nice">
+  <thead>
+    <tr>
+      <th>Component</th>
+      <th>Version</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>ubuntu-xenial stemcell</td><td>~621</td></tr>
+    <tr><td>backup-and-restore-sdk</td><td>1.18.22</td></tr>
+    <tr><td>binary-offline-buildpack</td><td>1.0.40</td></tr>
+    <tr><td>bosh-dns-aliases</td><td>0.0.3</td></tr>
+    <tr><td>bosh-system-metrics-forwarder</td><td>0.0.20</td></tr>
+    <tr><td>bpm</td><td>1.1.15</td></tr>
+    <tr><td>capi</td><td>1.90.15</td></tr>
+    <tr><td>cf-autoscaling</td><td>241</td></tr>
+    <tr><td>cf-cli</td><td>1.32.0</td></tr>
+    <tr><td>cf-networking</td><td>2.42.0</td></tr>
+    <tr><td>cflinuxfs3</td><td>0.262.0</td></tr>
+    <tr><td>credhub</td><td>2.9.7</td></tr>
+    <tr><td>diego</td><td>2.54.0</td></tr>
+    <tr><td>dotnet-core-offline-buildpack</td><td>2.3.36</td></tr>
+    <tr><td>garden-runc</td><td>1.19.30</td></tr>
+    <tr><td>go-offline-buildpack</td><td>1.9.37</td></tr>
+    <tr><td>haproxy</td><td>9.8.0</td></tr>
+    <tr><td>istio</td><td>1.3.0</td></tr>
+    <tr><td>java-offline-buildpack</td><td>4.45</td></tr>
+    <tr><td>log-cache</td><td>2.6.18</td></tr>
+    <tr><td>loggregator</td><td>106.3.12</td></tr>
+    <tr><td>loggregator-agent</td><td>5.3.14</td></tr>
+    <tr><td>mapfs</td><td>1.2.4</td></tr>
+    <tr><td>metric-registrar</td><td>1.1.9</td></tr>
+    <tr><td>metrics-discovery</td><td>3.0.6</td></tr>
+    <tr><td>mysql-monitoring</td><td>9.10.0</td></tr>
+    <tr><td>nats</td><td>40</td></tr>
+    <tr><td>nfs-volume</td><td>7.0.4</td></tr>
+    <tr><td>nginx-offline-buildpack</td><td>1.1.32</td></tr>
+    <tr><td>nodejs-offline-buildpack</td><td>1.7.63</td></tr>
+    <tr><td>notifications</td><td>62</td></tr>
+    <tr><td>notifications-ui</td><td>40</td></tr>
+    <tr><td>php-offline-buildpack</td><td>4.4.53</td></tr>
+    <tr><td>push-apps-manager-release</td><td>672.0.18</td></tr>
+    <tr><td>push-usage-service-release</td><td>672.0.30</td></tr>
+    <tr><td>pxc</td><td>0.39.0</td></tr>
+    <tr><td>python-offline-buildpack</td><td>1.7.47</td></tr>
+    <tr><td>r-offline-buildpack</td><td>1.1.23</td></tr>
+    <tr><td>routing</td><td>0.227.0</td></tr>
+    <tr><td>ruby-offline-buildpack</td><td>1.8.48</td></tr>
+    <tr><td>silk</td><td>2.40.0</td></tr>
+    <tr><td>smb-volume</td><td>3.0.1</td></tr>
+    <tr><td>smoke-tests</td><td>3.2.0</td></tr>
+    <tr><td>staticfile-offline-buildpack</td><td>1.5.26</td></tr>
+    <tr><td>statsd-injector</td><td>1.11.16</td></tr>
+    <tr><td>syslog</td><td>11.7.5</td></tr>
+    <tr><td>system-metrics-scraper</td><td>2.0.14</td></tr>
+    <tr><td>uaa</td><td>74.5.29</td></tr>
+  </tbody>
+</table>
+
+
+
 ### <a id='2.9.29'></a> 2.9.29
 
 **Release Date:** 12/15/2021
