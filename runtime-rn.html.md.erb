@@ -4527,13 +4527,17 @@ To resolve this issue:
 
 <%= partial "/pcf/app-service-kis/metrics-registrar-known-issues" %>
 
-### <a id="stored-procedure"></a> Pre-start scripts fail on policy-server job.
+### <a id="stored-procedure"></a> Pre-Start Scripts Fail on policy-server Job
 
-When upgrading to 2.10.21, the policy-server pre-start script runs a database migration that drops
-a stored proedure that is no longer needed. If your `networkpolicyserver` database does not have the
-stored procedure in question, you will see the following error in `diego_database` policy-server
-stdout logs, `PROCEDURE networkpolicyserver.drop_destination_index does not exist handling 66`.
+When upgrading to <%= vars.app_runtime_abbr %> v2.10.21, the policy-server pre-start script runs a database migration that drops
+a stored procedure that is no longer needed. If your `networkpolicyserver` database does not have the
+stored procedure, you might see the following error in `diego_database` policy-server
+stdout logs:
 
-The mitigation for this error is to add migration to your `networkpolicyserver.gorp_migrations` table
-and skip the migration. [Details here.](https://community.pivotal.io/s/article/TAS-upgrade-to-version-including-cf-networking-release-2-40-0-may-fail-policy-server-job-pre-start-job?language=en_US) A mitigation in TAS is forthcoming.
+```console
+PROCEDURE networkpolicyserver.drop_destination_index does not exist handling 66
+```
 
+To work around this error, add the migration to your `networkpolicyserver.gorp_migrations` table and skip the migration.
+
+For more information, see ["pre-start scripts failed. Failed Jobs: policy-server" error Upgrading to CF Networking Release 2.40.0 in Tanzu Application Service for VMs](https://community.pivotal.io/s/article/TAS-upgrade-to-version-including-cf-networking-release-2-40-0-may-fail-policy-server-job-pre-start-job?language=en_US) in the Knowledge Base.
