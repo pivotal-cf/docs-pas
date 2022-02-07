@@ -26,6 +26,8 @@ releasing a MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> contai
 
 **Release Date:** 02/07/2022
 
+<%= partial "/pcf/tas/known-issues/gorouter-spanid-note" %>
+
 * **[Security Fix]** Diego - Bump containerd to v1.5.9 to fix CVE-2021-43816
 * **[Feature]** Monit thresholds for Cloud Controller Worker are configurable
 * **[Feature Improvement]** Apps manager HTTP2 Support
@@ -125,10 +127,6 @@ releasing a MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> contai
 </table>
 
 
-## <a id='known-issues'></a> Known Issues
-
-<%= partial "/pcf/tas/known-issues/gorouter-spanid" %>
-
 ### <a id='2.12.6'></a> 2.12.6
 
 **Release Date:** 12/21/2021
@@ -140,6 +138,8 @@ releasing a MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> contai
     <li>This vulnerability also affects <%= vars.ops_manager %>. VMware recommends upgrading to <%= vars.ops_manager %> v2.10.24 as soon as possible. For more information, see the <a href="https://docs.pivotal.io/ops-manager/2-10/release-notes.html#2-10-24"><%= vars.ops_manager %> v2.10.24 release notes</a>.</li>
   </ul>
 </div>
+
+<%= partial "/pcf/tas/known-issues/gorouter-spanid-note" %>
 
 * **[Security Fix]** Fix uncontrolled recursion related to Log4j ([CVE-2021-45105](https://nvd.nist.gov/vuln/detail/CVE-2021-45105))
 * **[Bug Fix]** Cloud Controller Worker: PruneExcessAppRevisions job is now more memory efficient
@@ -208,10 +208,6 @@ releasing a MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> contai
 </table>
 
 
-## <a id='known-issues'></a> Known Issues
-
-<%= partial "/pcf/tas/known-issues/gorouter-spanid" %>
-
 ### <a id='2.12.5'></a> 2.12.5
 
 **Release Date:** 12/16/2021
@@ -223,6 +219,8 @@ releasing a MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> contai
     <li>This vulnerability also affects <%= vars.ops_manager %>. VMware recommends upgrading to <%= vars.ops_manager %> v2.10.24 as soon as possible. For more information, see the <a href="https://docs.pivotal.io/ops-manager/2-10/release-notes.html#2-10-24"><%= vars.ops_manager %> v2.10.24 release notes</a>.</li>
   </ul>
 </div>
+
+<%= partial "/pcf/tas/known-issues/gorouter-spanid-note" %>
 
 * **[Security Fix]** Fix remote code execution vulnerability related to Log4j ([CVE-2021-45046](https://nvd.nist.gov/vuln/detail/CVE-2021-45046))
 * Bump credhub to version `2.9.7` which has Log4j `2.16.0`
@@ -288,13 +286,11 @@ releasing a MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> contai
   </tbody>
 </table>
 
-## <a id='known-issues'></a> Known Issues
-
-<%= partial "/pcf/tas/known-issues/gorouter-spanid" %>
-
 ### <a id='2.12.4'></a> 2.12.4
 
 **Release Date:** 12/15/2021
+
+<%= partial "/pcf/tas/known-issues/gorouter-spanid-note" %>
 
 <div class="note warning"><strong>Warning:</strong>
   <p>See the following warnings:</p>
@@ -376,10 +372,6 @@ releasing a MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> contai
   </tbody>
 </table>
 
-
-## <a id='known-issues'></a> Known Issues
-
-<%= partial "/pcf/tas/known-issues/gorouter-spanid" %>
 
 ### <a id='2.12.3'></a> 2.12.3
 
