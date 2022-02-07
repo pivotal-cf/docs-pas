@@ -19,6 +19,8 @@ releasing a MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> contai
 
 **Release Date:** 02/07/2022
 
+<%= partial "/pcf/tas/known-issues/gorouter-spanid-note" %>
+
 * **[Feature Improvement]** Per Golang 1.17's new and stricter IP parsing standards, any IP addrs with leading zeros in any octets will result in a BOSH template failure to allow operators to remove the leading zeros and try again (affects properties fed into cf-networking-release and silk-release)
 
 <table border="1" class="nice">
@@ -53,6 +55,8 @@ releasing a MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> contai
 ### <a id='2.10.20'></a> 2.10.20
 
 **Release Date:** 12/15/2021
+
+<%= partial "/pcf/tas/known-issues/gorouter-spanid-note" %>
 
 * **[Bug Fix]** Fix "pre-start scripts failed. Failed Jobs: policy-server" error Upgrading to CF Networking Release 2.40.0
 * **[Bug Fix]** Enabling audit logging file rotation to reduce IO load during log rotation
@@ -937,4 +941,8 @@ There are no breaking changes in this release of <%= vars.segment_runtime_full %
 
 ## <a id='known-issues'></a> Known Issues
 
-There are no known issues for <%= vars.segment_runtime_full %> <%= vars.v_major_version %> at this time.
+<%= vars.segment_runtime_full %> <%= vars.v_major_version %> includes the following known issues:
+
+### <a id='gorouter-incorrect-span-id'></a>Gorouter Sets an Invalid X-B3-SpanID Header
+
+<%= partial "/pcf/tas/known-issues/gorouter-spanid" %>
