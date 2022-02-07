@@ -18,6 +18,8 @@ releasing a MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> contai
 
 **Release Date:** 02/07/2022
 
+* **[Feature Improvement]** Per Golang 1.17's new and stricter IP parsing standards, any IP addrs with leading zeros in any octets will result in a BOSH template failure to allow operators to remove the leading zeros and try again (affects properties fed into cf-networking-release and silk-release)
+
 * Bump bpm to version `1.1.16`
 * Bump cf-networking to version `2.43.0`
 * Bump cflinuxfs3 to version `0.272.0`
