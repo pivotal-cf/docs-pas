@@ -19,6 +19,8 @@ releasing a MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> contai
 
 **Release Date:** 02/04/2022
 
+<%= partial "/pcf/tas/known-issues/gorouter-spanid-note" %>
+
 * **[Feature Improvement]** Per Golang 1.17's new and stricter IP parsing standards, any IP addrs with leading zeros in any octets will result in a BOSH template failure to allow operators to remove the leading zeros and try again (affects properties fed into cf-networking-release and silk-release)
 
 * Bump bpm to version `1.1.16`
@@ -60,6 +62,8 @@ releasing a MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> contai
 ### <a id='2.7.40'></a> 2.7.40
 
 **Release Date:** 12/15/2021
+
+<%= partial "/pcf/tas/known-issues/gorouter-spanid-note" %>
 
 * **[Bug Fix]** Fix "pre-start scripts failed. Failed Jobs: policy-server" error Upgrading to CF Networking Release 2.40.0
 * **[Bug Fix]** Diego - Envoy 1.19 should use original TCP connection pool, so that it can accept more than 1024 downstream connections
@@ -1749,3 +1753,7 @@ To resolve this issue, do one of the following:
   to assign more CPU instances.
 
 For more information about the related issue in PAS, see the [Applications failing to stage after upgrading to PAS 2.7.13 or 2.7.14](https://community.pivotal.io/s/article/apps-failed-to-stage-after-upgrading-PAS-tile?language=en_US) Knowledge Base article.
+
+### <a id='gorouter-incorrect-span-id'></a>Gorouter Sets an Invalid X-B3-SpanID Header
+
+<%= partial "/pcf/tas/known-issues/gorouter-spanid" %>
