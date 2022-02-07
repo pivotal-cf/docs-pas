@@ -860,3 +860,7 @@ PROCEDURE networkpolicyserver.drop_destination_index does not exist handling 66
 To work around this error, add the migration to your `networkpolicyserver.gorp_migrations` table and skip the migration.
 
 For more information, see ["pre-start scripts failed. Failed Jobs: policy-server" error Upgrading to CF Networking Release 2.40.0 in Tanzu Application Service for VMs](https://community.pivotal.io/s/article/TAS-upgrade-to-version-including-cf-networking-release-2-40-0-may-fail-policy-server-job-pre-start-job?language=en_US) in the Knowledge Base.
+
+### <a id='gorouter-incorrect-span-id'></a>Gorouter Sets an Invalid X-B3-SpanID Header
+
+<%= partial "/pcf/tas/known-issues/gorouter-spanid" %>

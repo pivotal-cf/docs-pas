@@ -13,10 +13,12 @@ releasing a MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> contai
 ## <a id='releases'></a> Releases
 
 <%# DO NOT DELETE THIS LINE - robots use this to add new release notes %>
- 
+
 ### <a id='2.12.4'></a> 2.12.4
 
 **Release Date:** 02/07/2022
+
+<%= partial "/pcf/tas/known-issues/gorouter-spanid-note" %>
 
 * **[Feature Improvement]** Per Golang 1.17's new and stricter IP parsing standards, any IP addrs with leading zeros in any octets will result in a BOSH template failure to allow operators to remove the leading zeros and try again (affects properties fed into cf-networking-release and silk-release)
 
@@ -59,13 +61,11 @@ releasing a MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> contai
 </table>
 
 
-## <a id='known-issues'></a> Known Issues
-
-<%= partial "/pcf/tas/known-issues/gorouter-spanid" %>
-
 ### <a id='2.12.3'></a> 2.12.3
 
 **Release Date:** 12/15/2021
+
+<%= partial "/pcf/tas/known-issues/gorouter-spanid-note" %>
 
 * **[Bug Fix]** Fix "pre-start scripts failed. Failed Jobs: policy-server" error Upgrading to CF Networking Release 2.40.0
 * **[Bug Fix]** Diego - Envoy 1.19 should use original TCP connection pool, so that it can accept more than 1024 downstream connections
@@ -106,10 +106,6 @@ releasing a MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> contai
   </tbody>
 </table>
 
-
-## <a id='known-issues'></a> Known Issues
-
-<%= partial "/pcf/tas/known-issues/gorouter-spanid" %>
 
 ### <a id='2.12.2'></a> 2.12.2
 
@@ -305,3 +301,7 @@ Clients that connect to apps using the Gorouter are not affected.
 ### <a id="haproxy-http2"></a> HAProxy Does Not Support HTTP/2
 
 <%= partial "/pcf/tas/known-issues/haproxy-http2" %>
+
+### <a id='gorouter-incorrect-span-id'></a>Gorouter Sets an Invalid X-B3-SpanID Header
+
+<%= partial "/pcf/tas/known-issues/gorouter-spanid" %>
