@@ -26,6 +26,8 @@ releasing a MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> contai
 
 **Release Date:** 02/07/2022
 
+<%= partial "/pcf/tas/known-issues/gorouter-spanid-note" %>
+
 * **[Security Fix]** Diego - Bump containerd to v1.5.9 to fix CVE-2021-43816
 * **[Feature]** Monit thresholds for Cloud Controller Worker are configurable
 * **[Feature Improvement]** Per Golang 1.17's new and stricter IP parsing standards, any IP addrs with leading zeros in any octets will result in a BOSH template failure to allow operators to remove the leading zeros and try again (affects properties fed into cf-networking-release and silk-release)
@@ -136,6 +138,8 @@ releasing a MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> contai
   </ul>
 </div>
 
+<%= partial "/pcf/tas/known-issues/gorouter-spanid-note" %>
+
 * **[Security Fix]** Fix uncontrolled recursion related to Log4j ([CVE-2021-45105](https://nvd.nist.gov/vuln/detail/CVE-2021-45105))
 * Bump credhub to version `2.9.8` which has Log4j `2.17.0`
 * Bump java-offline-buildpack to version `4.47`
@@ -212,6 +216,8 @@ releasing a MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> contai
     <li>This vulnerability also affects <%= vars.ops_manager %>. VMware recommends upgrading to <%= vars.ops_manager %> v2.10.24 as soon as possible. For more information, see the <a href="https://docs.pivotal.io/ops-manager/2-10/release-notes.html#2-10-24"><%= vars.ops_manager %> v2.10.24 release notes</a>.</li>
   </ul>
 </div>
+
+<%= partial "/pcf/tas/known-issues/gorouter-spanid-note" %>
 
 * **[Security Fix]** Fix remote code execution vulnerability related to Log4j ([CVE-2021-45046](https://nvd.nist.gov/vuln/detail/CVE-2021-45046))
 * Bump credhub to version `2.9.7` which has Log4j `2.16.0`
@@ -290,6 +296,8 @@ releasing a MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> contai
     <li>This vulnerability also affects <%= vars.ops_manager %>. VMware recommends upgrading to <%= vars.ops_manager %> v2.10.24 as soon as possible. For more information, see the <a href="https://docs.pivotal.io/ops-manager/2-10/release-notes.html#2-10-24"><%= vars.ops_manager %> v2.10.24 release notes</a>.</li>
   </ul>
 </div>
+
+<%= partial "/pcf/tas/known-issues/gorouter-spanid-note" %>
 
 * **[Security Fix]** Java and PHP Buildpacks - Fix remote code execution vulnerability related to Log4j ([CVE-2021-44228](https://nvd.nist.gov/vuln/detail/CVE-2021-44228))
 * **[Bug Fix]** Fix "pre-start scripts failed. Failed Jobs: policy-server" error Upgrading to CF Networking Release 2.40.0
@@ -1437,7 +1445,7 @@ To work around this issue, you must delete any duplicate bindings before you upg
 
 ## <a id='known-issues'></a> Known Issues
 
-<%= vars.app_runtime_abbr %> v2.11 includes the following known issue:
+<%= vars.app_runtime_abbr %> v2.11 includes the following known issues:
 
 ### <a id="rolling-timeout"></a> Rolling App Deployment Does Not Timeout
 
@@ -1457,3 +1465,7 @@ PROCEDURE networkpolicyserver.drop_destination_index does not exist handling 66
 To work around this error, add the migration to your `networkpolicyserver.gorp_migrations` table and skip the migration.
 
 For more information, see ["pre-start scripts failed. Failed Jobs: policy-server" error Upgrading to CF Networking Release 2.40.0 in Tanzu Application Service for VMs](https://community.pivotal.io/s/article/TAS-upgrade-to-version-including-cf-networking-release-2-40-0-may-fail-policy-server-job-pre-start-job?language=en_US) in the Knowledge Base.
+
+### <a id='gorouter-incorrect-span-id'></a>Gorouter Sets an Invalid X-B3-SpanID Header
+
+<%= partial "/pcf/tas/known-issues/gorouter-spanid" %>
