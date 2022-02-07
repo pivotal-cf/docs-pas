@@ -34,6 +34,7 @@ releasing a MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> contai
 
 * **[Security Fix]** Diego - Bump containerd to v1.5.9 to fix CVE-2021-43816
 * **[Feature]** Monit thresholds for Cloud Controller Worker are configurable
+* **[Feature Improvement]** Per Golang 1.17's new and stricter IP parsing standards, any IP addrs with leading zeros in any octets will result in a BOSH template failure to allow operators to remove the leading zeros and try again (affects properties fed into cf-networking-release and silk-release)
 * **[Bug Fix]** Cloud Controller Worker - PruneExcessAppRevisions job is more memory efficient
 * Bump backup-and-restore-sdk to version `1.18.31`
 * Bump binary-offline-buildpack to version `1.0.42`
