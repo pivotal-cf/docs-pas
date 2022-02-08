@@ -34,6 +34,7 @@ releasing a MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> contai
 * **[Feature Improvement]** Space Supporter role implementation in Apps Manager
 * **[Feature Improvement]** Golang v1.17 contains stricter IP parsing standards, so IP addresses with leading zeros in any octets cause a BOSH template failure. Operators can remove the leading zeros and try deploying again. This affects properties that feed into cf-networking-release and silk-release.
 * **[Bug Fix]** Adds the ability to parse the cost object in service plan
+* **[Bug Fix]** Fix race conditions in autoscaler which could cause autoscaler to crash
 * Bump backup-and-restore-sdk to version `1.18.32`
 * Bump binary-offline-buildpack to version `1.0.42`
 * Bump bosh-system-metrics-forwarder to version `0.0.21`
