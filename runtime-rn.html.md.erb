@@ -34,12 +34,12 @@ releasing a MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> contai
 
 <%= partial "/pcf/tas/known-issues/gorouter-spanid-note" %>
 
-* **[Security Fix]** Diego - Bump containerd to v1.5.9 to fix ([CVE-2021-43816](https://nvd.nist.gov/vuln/detail/CVE-2021-43816))
+* **[Security Fix]** Diego - Bump containerd to v1.5.9 to address ([CVE-2021-43816](https://nvd.nist.gov/vuln/detail/CVE-2021-43816))
 * **[Security Fix]** Bump routing release to 0.228.0 to address ([CVE-2021-44716](https://nvd.nist.gov/vuln/detail/CVE-2021-44716))
-* **[Feature]** Monit thresholds for Cloud Controller Worker are configurable
-* **[Feature Improvement]** Golang v1.17 contains stricter IP parsing standards, so IP addresses with leading zeros in any octets cause a BOSH template failure. Operators can remove the leading zeros and try deploying again. This affects properties that feed into cf-networking-release, silk-release, loggregator-agent-release, and syslog-release. Syslog drains and metric registrar endpoints registered via user provided services may also be affected.
-* **[Bug Fix]** Cloud Controller Worker - PruneExcessAppRevisions job is more memory efficient
-* **[Bug Fix]** Fix race conditions in autoscaler which could cause autoscaler to crash
+* **[Feature]** Monit thresholds for the Cloud Controller worker are configurable
+* **[Feature Improvement]** Golang v1.17 contains stricter IP parsing standards, so IP addresses with leading zeros in any octets cause a BOSH template failure. Operators can remove the leading zeros and try deploying again. This affects properties that feed into cf-networking-release, silk-release, loggregator-agent-release, and syslog-release. Syslog drains and metric registrar endpoints registered using user-provided services might also be affected.
+* **[Bug Fix]** Cloud Controller worker PruneExcessAppRevisions job is more memory efficient
+* **[Bug Fix]** Fix race conditions that could cause Autoscaler to crash
 * Bump backup-and-restore-sdk to version `1.18.31`
 * Bump binary-offline-buildpack to version `1.0.42`
 * Bump bosh-system-metrics-forwarder to version `0.0.21`
@@ -315,7 +315,7 @@ releasing a MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> contai
 
 * **[Security Fix]** Java and PHP Buildpacks - Fix remote code execution vulnerability related to Log4j ([CVE-2021-44228](https://nvd.nist.gov/vuln/detail/CVE-2021-44228))
 * **[Bug Fix]** Fix "pre-start scripts failed. Failed Jobs: policy-server" error Upgrading to CF Networking Release 2.40.0
-* **[Bug Fix]** Enabling audit logging file rotation to reduce IO load during log rotation
+* **[Bug Fix]** Enable audit logging file rotation to reduce I/O load during log rotation
 * **[Breaking Change]** Gorouter: zipkin `trace-id` size now complies with w3 standard of 16 bytes opposed to the previous 8 bytes.
 * Bump backup-and-restore-sdk to version `1.18.28`
 * Bump cf-autoscaling to version `242`
@@ -404,7 +404,7 @@ releasing a MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> contai
 </div>
 
 * **[Security Fix]** UAA and CredHub - Fix remote code execution vulnerability related to Log4j ([CVE-2021-44228](https://nvd.nist.gov/vuln/detail/CVE-2021-44228))
-* **[Bug Fix]** Diego - Envoy 1.19 should use original TCP connection pool, so that it can accept more than 1024 downstream connections
+* **[Bug Fix]** Diego - Envoy v1.19 uses the original TCP connection pool so that it can accept more than 1024 downstream connections
 * Bump credhub to version `2.5.14` which has Log4j `2.15.0`
 * Bump diego to version `2.54.0`
 * Bump uaa to version `73.4.34` which has Log4j `2.15.0`
@@ -475,7 +475,7 @@ releasing a MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> contai
 
 **Release Date:** 11/23/2021
 
-* **[Bug Fix]** Breaking Change: Any customers with gorouter certificates lacking a SubjectAltName extension will experience failures upon deployment. As a workaround to complete deployment while new certificates are procured, enable the "Enable temporary workaround for certs without SANs" property in the Networking section of the TAS tile. For more information on updating certs, see https://community.pivotal.io/s/article/Routing-and-golang-1-15-X-509-CommonName-deprecation?language=en_US
+* **[Breaking Change]** All Gorouter certificates require a SubjectAltName extension. If any Gorouter certificates lack a SubjectAltName, deployment fails. If you need to complete a deployment before configuring new Gorouter certificates, select **Enable temporary workaround for certs without SANs** in the **Networking** pane of the <%= vars.app_runtime_abbr %> tile. For more information about updating certificates, see [Routing and Golang 1.15 X.509 CommonName deprecation](https://community.pivotal.io/s/article/Routing-and-golang-1-15-X-509-CommonName-deprecation) in the Knowledge Base.
 * **[Bug Fix]** Cloud Controller - Ensure app lifecycle_type is not nil when determining app lifecycle
 * Bump backup-and-restore-sdk to version `1.18.26`
 * Bump bpm to version `1.1.15`
