@@ -28,16 +28,16 @@ releasing a MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> contai
 
 <%= partial "/pcf/tas/known-issues/gorouter-spanid-note" %>
 
-* **[Security Fix]** Diego - Bump containerd to v1.5.9 to fix ([CVE-2021-43816](https://nvd.nist.gov/vuln/detail/CVE-2021-43816))
-* **[Security Fix]** Bump routing release to 0.228.0 to address ([CVE-2021-44716](https://nvd.nist.gov/vuln/detail/CVE-2021-44716))
-* **[Feature]** Monit thresholds for Cloud Controller Worker are configurable
-* **[Feature]** Applications are sortable by status in Apps Manager
-* **[Feature]** Apps can be step scaled up or down in Autoscaler. See [About App Autoscaler](https://docs.pivotal.io/application-service/2-12/appsman-services/autoscaler/about-app-autoscaler.html).
-* **[Feature Improvement]** Apps Manager HTTP2 Support
-* **[Feature Improvement]** Space Supporter role implementation in Apps Manager
-* **[Feature Improvement]** Golang v1.17 contains stricter IP parsing standards, so IP addresses with leading zeros in any octets cause a BOSH template failure. Operators can remove the leading zeros and try deploying again. This affects properties that feed into cf-networking-release, silk-release, loggregator-agent-release, and syslog-release. Syslog drains and metric registrar endpoints registered via user provided services may also be affected.
+* **[Security Fix]** Diego - Bump containerd to v1.5.9 to address ([CVE-2021-43816](https://nvd.nist.gov/vuln/detail/CVE-2021-43816))
+* **[Security Fix]** Bump routing release to v0.228.0 to address ([CVE-2021-44716](https://nvd.nist.gov/vuln/detail/CVE-2021-44716))
+* **[Feature]** Monit thresholds for the Cloud Controller worker are configurable
+* **[Feature]** Operators can sort apps by status in Apps Manager
+* **[Feature]** Apps can be step-scaled up or down in Autoscaler. See [About App Autoscaler](https://docs.pivotal.io/application-service/2-12/appsman-services/autoscaler/about-app-autoscaler.html).
+* **[Feature Improvement]** Apps Manager supports HTTP/2
+* **[Feature Improvement]** Operators can assign the Space Supporter role in Apps Manager
+* **[Feature Improvement]** Golang v1.17 contains stricter IP parsing standards, so IP addresses with leading zeros in any octets cause a BOSH template failure. Operators can remove the leading zeros and try deploying again. This affects properties that feed into cf-networking-release, silk-release, loggregator-agent-release, and syslog-release. Syslog drains and metric registrar endpoints registered using user-provided services might also be affected.
 * **[Bug Fix]** Adds the ability to parse the cost object in service plan
-* **[Bug Fix]** Fix race conditions in autoscaler which could cause autoscaler to crash
+* **[Bug Fix]** Fix race conditions that could cause Autoscaler to crash
 * Bump backup-and-restore-sdk to version `1.18.32`
 * Bump binary-offline-buildpack to version `1.0.42`
 * Bump bosh-system-metrics-forwarder to version `0.0.21`
@@ -146,8 +146,8 @@ releasing a MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> contai
 <%= partial "/pcf/tas/known-issues/gorouter-spanid-note" %>
 
 * **[Security Fix]** Fix uncontrolled recursion related to Log4j ([CVE-2021-45105](https://nvd.nist.gov/vuln/detail/CVE-2021-45105))
-* **[Bug Fix]** Cloud Controller Worker: PruneExcessAppRevisions job is now more memory efficient
-* **[Breaking Change]** Gorouter: zipkin `trace-id` size now complies with w3 standard of 16 bytes opposed to the previous 8 bytes.
+* **[Bug Fix]** Cloud Controller Worker: PruneExcessAppRevisions job is more memory efficient
+* **[Breaking Change]** Gorouter: zipkin `trace-id` size complies with w3 standard of 16 bytes opposed to the previous 8 bytes.
 * Bump credhub to version `2.9.8` which has Log4j `2.17.0`
 * Bump java-offline-buildpack to version `4.47`
 * Bump routing to version `0.227.0`
@@ -305,8 +305,8 @@ releasing a MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> contai
 </div>
 
 * **[Security Fix]** Java and PHP Buildpacks - Fix remote code execution vulnerability related to Log4j ([CVE-2021-44228](https://nvd.nist.gov/vuln/detail/CVE-2021-44228))
-* **[Bug Fix]** Fix "pre-start scripts failed. Failed Jobs: policy-server" error Upgrading to CF Networking Release 2.40.0
-* **[Bug Fix]** Enabling audit logging file rotation to reduce IO load during log rotation
+* **[Bug Fix]** Fix "pre-start scripts failed. Failed Jobs: policy-server" error Upgrading to CF Networking Release v2.40.0
+* **[Bug Fix]** Enables audit logging file rotation to reduce I/O load during log rotation
 * **[Bug Fix]** Smoke Tests uses specified domain for Isolation Segments
 * **[Feature Improvement]** Cloud Controller - Allow operators to configure the Cloud Controller monit healthcheck timeout
 * Bump capi to version `1.117.2`
@@ -392,7 +392,7 @@ releasing a MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> contai
   </div>
 
 * **[Security Fix]** UAA and CredHub - Fix remote code execution vulnerability related to Log4j ([CVE-2021-44228](https://nvd.nist.gov/vuln/detail/CVE-2021-44228))
-* **[Bug Fix]** Diego - Envoy 1.19 should use original TCP connection pool, so that it can accept more than 1024 downstream connections
+* **[Bug Fix]** Diego - Envoy v1.19 uses the original TCP connection pool so that it can accept more than 1024 downstream connections
 * Bump credhub to version `2.9.6` which has Log4j `2.15.0`
 * Bump diego to version `2.54.0`
 * Bump uaa to version `74.5.28` which has Log4j `2.15.0`
@@ -546,7 +546,7 @@ releasing a MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> contai
 
 * **[Security Fix]** CAPI - Cap label selectors at 50 in queries and improve label selector performance to mitigate DOS vulnerability [CVE-2021-22101](https://www.cloudfoundry.org/blog/cve-2021-22101-cloud-controller-is-vulnerable-to-unauthenticated-denial-of-service/)
 * **[Feature Improvement]** HTTP/2 toggle disables Diego container proxy ALPN
-* **[Feature Improvement]** Set default for System metrics scrape interval to 15s
+* **[Feature Improvement]** Set default for system metrics scrape interval to 15 seconds
 * **[Bug Fix]** CAPI - Some metrics for CAPI were not being properly emitted
 * **[Bug Fix]** Fix certificate rotation by fixing CredHub's import of concatenated certificates
 * **[Bug Fix]** Fix "System metrics scrape interval" configuration in manifest
