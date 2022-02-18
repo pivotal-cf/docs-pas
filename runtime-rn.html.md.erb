@@ -650,6 +650,7 @@ Some things to keep in mind are:
 * With log-cache on a seperate vm, you should be able to reduce your memory usage of doppler accordingly.
 * You may expirience temporary difficulties in getting logs from the cli for apps being pushed while it is being deployed. This should not effect whether or not the app is able to be deployed. This happens occasionally during regular deploys.
 * Service metrics may not be retrievable using the log-cache cli.
+* may expirience higher cpu usage on diego-cells with high logging usage
 * If you are using a old version of the cf cli, you may expirience difficulties getting logs.
 
 <%= vars.app_runtime_abbr %> <%= vars.v_major_version %> includes the following breaking changes:
