@@ -637,23 +637,27 @@ This errand pushes an offline docs app that can be used in air-gapped environmen
 
 ## <a id='breaking-changes'></a> Breaking Changes
 
-### <a id='seperate-log-cache'></a>Log Cache moved to seperate instance
+<%= vars.app_runtime_abbr %> <%= vars.v_major_version %> includes the following breaking changes:
 
-In 2.13 log-cache has been moved from the doppler instance to it's own instance group. This was done to:
-* allow scaling log-cache higher, avoiding the doppler and traffic controller throughput and connection based scaling limits by using aggregate syslog drains
-* to allow the use of more memory to store logs and metrics over more vms
-* to signal our commitment to short term log/metric storage on the platform for use by operators, developers, and internal services like autoscaler
+### <a id='seperate-log-cache'></a>Separate Log Cache from Doppler
+
+In 2.13, Log Cache moves from the doppler instance to its own instance group, log-cache. Additionally, syslog ingress is turned on by default. This was done to:
+
+* provide more memory for storing logs and metrics
+  * by avoiding Doppler and Traffic Controller's throughput and connection-based horizontal scaling limits
+  * by removing the dependency on Doppler CPU requirements from vertical scaling considerations for Log Cache
+* reduce the number of network hops required for logs/metrics to get to Log Cache
+* signal our commitment to short term log/metric storage on the platform for use by operators, developers, and internal services like autoscaler
 
 Some things to keep in mind are:
 
-* Be sure to scale up your log-cache instances. The same number and memory as your previous doppler instances would be a safe start. Underscaled log-cache instance groups can fail via Out of memory errors, which will lock your bosh director. Starting larger and then adjusting for actual use is safer then failing a deploy.
-* With log-cache on a seperate vm, you should be able to reduce your memory usage of doppler accordingly.
-* You may expirience temporary difficulties in getting logs from the cli for apps being pushed while it is being deployed. This should not effect whether or not the app is able to be deployed. This happens occasionally during regular deploys.
-* Service metrics may not be retrievable using the log-cache cli.
-* may expirience higher cpu usage on diego-cells with high logging usage
-* If you are using a old version of the cf cli, you may expirience difficulties getting logs.
-
-<%= vars.app_runtime_abbr %> <%= vars.v_major_version %> includes the following breaking changes:
+* Be sure to scale up your log-cache instances. The same number and memory as your previous doppler instances would be a safe start.
+  Underscaled log-cache instances can fail via Out of Memory errors, which will lock your bosh director. Starting larger and then adjusting for actual use is safer then failing a deploy.
+* With Log Cache on a seperate VM, you should be able to reduce the memory allocation for doppler instances accordingly.
+* Temporary difficulties getting logs from the cf CLI for apps that are pushed during this upgrade may be longer than usual.
+  This should not effect whether or not the app is able to be deployed.
+* Service metrics may not be retrievable using the log-cache cf CLI plugin.
+* Diego Cells with high logging volume may experience higher CPU usage than prior to this change.
 
 ## <a id='known-issues'></a> Known Issues
 
