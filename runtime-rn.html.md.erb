@@ -639,24 +639,22 @@ This errand pushes an offline docs app that can be used in air-gapped environmen
 
 <%= vars.app_runtime_abbr %> <%= vars.v_major_version %> includes the following breaking changes:
 
-### <a id='seperate-log-cache'></a>Separate Log Cache Out From Doppler Instances
+### <a id='separate-log-cache'></a>Separate Log Cache Out From Doppler Instances
 
 In 2.13, the Log Cache component is separated out from the Doppler instances to its own "Log Cache" instances. Additionally, syslog ingress is turned on by default. This was done to:
 
-* provide more memory for storing logs and metrics
-  * by avoiding Doppler and Traffic Controller's throughput and connection-based horizontal scaling limits
-  * by removing the dependency on Doppler CPU requirements from vertical scaling considerations for Log Cache
+* allow scaling Log Cache independently from Doppler, for example, to provide more memory for storing logs and metrics
+* can scale log-cache higher then 40 vms by avoiding Doppler and Traffic Controller's throughput and connection-based horizontal scaling limits
 * reduce the number of network hops required for logs/metrics to get to Log Cache
-* signal our commitment to short term log/metric storage on the platform for use by operators, developers, and internal services like App Autoscaler
 
 Some things to keep in mind are:
 
 * Be sure to scale up your Log Cache instance count. The same number and memory as your Doppler instance count (before the upgrade) would be a safe start.
   Underscaled Log Cache instances can fail via Out of Memory errors, which will lock your bosh director. Starting larger and then adjusting for actual use is safer then failing a deploy.
 * With Log Cache separated out, you should be able to reduce the memory allocation for Doppler instances accordingly.
-* Temporary difficulties getting logs from the cf CLI for apps that are pushed during this upgrade may be longer than usual.
-  This should not effect whether or not the app is able to be deployed.
-* Service metrics may not be retrievable using the log-cache cf CLI plugin.
+* Temporary difficulties getting logs and metrics from the cf CLI for apps that are pushed during this upgrade may be longer than usual.
+  This should not affect whether or not the app is able to be deployed.
+* Service instance metrics may not be retrievable using the log-cache cf CLI plugin.
 * Diego Cells with high logging volume may experience higher CPU usage than prior to this change.
 
 ## <a id='known-issues'></a> Known Issues
