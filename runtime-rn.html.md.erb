@@ -735,7 +735,7 @@ When upgrading to <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>, be a
 <%= vars.app_runtime_abbr %> <%= vars.v_major_version %> adds the post-deploy **Offline Docs Errand**.
 This errand pushes an offline docs app that can be used in air-gapped environments.
 
-### <a id='separate-log-cache'></a>Log Cache Has Its Own Instance Group
+### <a id='separate-log-cache'></a>Log Cache Uses Its Own Instance Group
 
 In <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>, the Log Cache component runs on its own Log Cache instance group. Log Cache is no longer part of Doppler instances. Additionally, syslog ingress is enabled by default.
 
@@ -751,13 +751,13 @@ For important information, see the related [Breaking Change](#separate-log-cache
 
 <%= vars.app_runtime_abbr %> <%= vars.v_major_version %> includes the following breaking changes:
 
-### <a id='separate-log-cache-breaking'></a>Log Cache Has Its Own Instance Group
+### <a id='separate-log-cache-breaking'></a>Log Cache Uses Its Own Instance Group
 
 In <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>, the Log Cache component runs on its own Log Cache instance group. Log Cache is no longer part of Doppler instances.
 
-This change comes with the following considerations when you upgrade to <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>
+This change comes with the following considerations when you upgrade to <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>:
 
-* Be sure to scale up your Log Cache instance count. VMware recommends scaling up to use the same number of VMs and amount of memory as your Doppler instances before the upgrade.
+* Be sure to scale up your Log Cache instance count. VMware recommends scaling up to match the number of VMs and amount of memory as your Doppler instances before the upgrade.
   Underscaled Log Cache instances can fail with `Out of Memory` errors, which locks the BOSH Director. Starting larger and then adjusting for actual use is safer than a deployment failure.
 * With Log Cache as its own instance group, you can reduce the memory allocation for Doppler instances.
 * You might experience temporary difficulties getting logs and metrics from the cf CLI for apps that are pushed during this upgrade.
