@@ -730,32 +730,40 @@ When upgrading to <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>, be a
 
 <%= vars.app_runtime_abbr %> <%= vars.v_major_version %> includes the following major features:
 
-### <a id='offline-docs-errand'></a>New Post-Deploy Errand for Offline Docs
+### <a id='offline-docs-errand'></a>Post-Deploy Errand for Offline Docs
 
 <%= vars.app_runtime_abbr %> <%= vars.v_major_version %> adds the post-deploy **Offline Docs Errand**.
 This errand pushes an offline docs app that can be used in air-gapped environments.
+
+### <a id='separate-log-cache'></a>Log Cache Has Its Own Instance Group
+
+In <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>, the Log Cache component runs on its own Log Cache instance group. Log Cache is no longer part of Doppler instances. Additionally, syslog ingress is enabled by default.
+
+This change allows <%= vars.app_runtime_abbr %> to do the following:
+
+* Enable Log Cache to scale independently from Doppler. For example, to provide more memory for storing logs and metrics.
+* Scale Log Cache to more than 40 VMs, because it is no longer limited by Doppler and TrafficController's throughput and connection-based horizontal scaling limits.
+* Reduce the number of network hops required for logs and metrics to get to Log Cache.
+
+For important information, see the related [Breaking Change](#separate-log-cache-breaking).
 
 ## <a id='breaking-changes'></a> Breaking Changes
 
 <%= vars.app_runtime_abbr %> <%= vars.v_major_version %> includes the following breaking changes:
 
-### <a id='separate-log-cache'></a>Separate Log Cache Out From Doppler Instances
+### <a id='separate-log-cache-breaking'></a>Log Cache Has Its Own Instance Group
 
-In 2.13, the Log Cache component is separated out from the Doppler instances to its own "Log Cache" instances. Additionally, syslog ingress is turned on by default. This was done to:
+In <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>, the Log Cache component runs on its own Log Cache instance group. Log Cache is no longer part of Doppler instances.
 
-* allow scaling Log Cache independently from Doppler, for example, to provide more memory for storing logs and metrics
-* can scale log-cache higher then 40 vms by avoiding Doppler and Traffic Controller's throughput and connection-based horizontal scaling limits
-* reduce the number of network hops required for logs/metrics to get to Log Cache
+This change comes with the following considerations when you upgrade to <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>
 
-Some things to keep in mind are:
-
-* Be sure to scale up your Log Cache instance count. The same number and memory as your Doppler instance count (before the upgrade) would be a safe start.
-  Underscaled Log Cache instances can fail via Out of Memory errors, which will lock your bosh director. Starting larger and then adjusting for actual use is safer then failing a deploy.
-* With Log Cache separated out, you should be able to reduce the memory allocation for Doppler instances accordingly.
-* Temporary difficulties getting logs and metrics from the cf CLI for apps that are pushed during this upgrade may be longer than usual.
+* Be sure to scale up your Log Cache instance count. VMware recommends scaling up to use the same number of VMs and amount of memory as your Doppler instances before the upgrade.
+  Underscaled Log Cache instances can fail with `Out of Memory` errors, which locks the BOSH Director. Starting larger and then adjusting for actual use is safer than a deployment failure.
+* With Log Cache as its own instance group, you can reduce the memory allocation for Doppler instances.
+* You might experience temporary difficulties getting logs and metrics from the cf CLI for apps that are pushed during this upgrade.
   This should not affect whether or not the app is able to be deployed.
-* Service instance metrics may not be retrievable using the log-cache cf CLI plugin.
-* Diego Cells with high logging volume may experience higher CPU usage than prior to this change.
+* Service instance metrics might not be retrievable using the `log-cache` cf CLI plugin.
+* Diego Cells with high logging volume might experience higher CPU usage than they did prior to this change.
 
 ## <a id='known-issues'></a> Known Issues
 
