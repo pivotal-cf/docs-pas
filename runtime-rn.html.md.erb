@@ -16,9 +16,9 @@ on the Cloud Foundry website.
 Because VMware uses the Percona Distribution for MySQL, expect a time lag between Oracle
 releasing a MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> containing that patch.
 
-**Required Cloud Foundry Command-Line Interface (cf CLI) version**: You must install cf CLI v8 when upgrading to or using TAS for VMs v2.12.
+**Required Cloud Foundry Command-Line Interface (cf CLI) version**: You must install cf CLI v7 or cf CLI v8 when upgrading to or using TAS for VMs v2.12.
 
-For more information, see [Upgrading to cf CLI v8](../cf-cli/v8.html).
+For more information, see [Upgrading to cf CLI v7](../cf-cli/v7.html) [Upgrading to cf CLI v8](../cf-cli/v8.html).
 
 <hr>
 
@@ -789,7 +789,7 @@ When upgrading to <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>, be a
 
 * If you previously used an earlier version of <%= vars.app_runtime_abbr %>, you must first upgrade to <%= vars.app_runtime_abbr %> v2.11 to successfully upgrade to <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>.
 
-* Upgrade the cf CLI to either the latest cf CLI v8 release or the commercial cf CLI distribution available on [<%= vars.product_network %>](https://network.pivotal.io/products/elastic-runtime/).
+* Upgrade the cf CLI to the latest cf CLI v7 release, the latest cf CLI v8 release, or the commercial cf CLI distribution available on [<%= vars.product_network %>](https://network.pivotal.io/products/elastic-runtime/).
 
 * To minimize downtime for developers pushing apps, upgrade from <%= vars.app_runtime_abbr %> v2.11.9 or later. Upgrading from earlier patch versions can result in an `Unknown Error` when pushing apps.
 
@@ -806,7 +806,6 @@ When upgrading to <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>, be a
 
 ### <a id='cf-cli'></a><%= vars.app_runtime_abbr %> Is Compatible with cf CLI v8
 
-<%= vars.app_runtime_abbr %> <%= vars.v_major_version %> requires cf CLI v8.
 <%= vars.app_runtime_abbr %> <%= vars.v_major_version %> paired with cf CLI v8 allows you to do the following:
 
 - Push apps with end-to-end HTTP/2 routing
