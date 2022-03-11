@@ -16,6 +16,10 @@ on the Cloud Foundry website.
 Because VMware uses the Percona Distribution for MySQL, expect a time lag between Oracle
 releasing a MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> containing that patch.
 
+**Required Cloud Foundry Command-Line Interface (cf CLI) version**: You must install cf CLI v8 when upgrading to or using TAS for VMs v2.12.
+
+For more information, see [Upgrading to cf CLI v8](../cf-cli/v8.html).
+
 <hr>
 
 ## <a id='releases'></a> Releases
@@ -802,6 +806,7 @@ When upgrading to <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>, be a
 
 ### <a id='cf-cli'></a><%= vars.app_runtime_abbr %> Is Compatible with cf CLI v8
 
+<%= vars.app_runtime_abbr %> <%= vars.v_major_version %> requires cf CLI v8.
 <%= vars.app_runtime_abbr %> <%= vars.v_major_version %> paired with cf CLI v8 allows you to do the following:
 
 - Push apps with end-to-end HTTP/2 routing
