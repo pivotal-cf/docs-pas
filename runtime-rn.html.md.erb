@@ -34,7 +34,6 @@ releasing a MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> contai
 
 * **[Feature Improvement]** Due to routing-release now being built with Golang 1.17, all certificates provided MUST contain SAN entries on them. The previous workaround of setting "Enable temporary workaround for certs without SANs" will no longer function.
 * **[Feature Improvement]** Per Golang 1.17's new and stricter IP parsing standards, any IP addrs with leading zeros in any octets will result in a BOSH template failure to allow operators to remove the leading zeros and try again (affects properties fed into diego-release, garden-runc-release, winc-release, nats-release, and routing-release),.
-* **[Bug Fix]** Cloud Controller Worker - PruneExcessAppRevisions job is more memory efficient
 * **[Bug Fix]** Fix default metric registrar blocked tags to include 'ip' and remove 'id'
 * **[Bug Fix]** Fixes an issue related to the parsing of the X-B3-TraceId and X-B3-SpanId HTTP headers
 * **[Bug Fix]** Restore missing networking and garden metrics
@@ -150,7 +149,7 @@ releasing a MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> contai
 * **[Security Fix]** Bump routing release to 0.228.0 to address ([CVE-2021-44716](https://nvd.nist.gov/vuln/detail/CVE-2021-44716))
 * **[Feature]** Monit thresholds for the Cloud Controller worker are configurable
 * **[Feature Improvement]** Golang v1.17 contains stricter IP parsing standards, so IP addresses with leading zeros in any octets cause a BOSH template failure. Operators can remove the leading zeros and try deploying again. This affects properties that feed into cf-networking-release, silk-release, loggregator-agent-release, and syslog-release. Syslog drains and metric registrar endpoints registered using user-provided services might also be affected.
-* **[Bug Fix]** Cloud Controller worker PruneExcessAppRevisions job is more memory efficient
+* **[Bug Fix]** Cloud Controller worker - PruneExcessAppRevisions job is more memory efficient
 * **[Bug Fix]** Fix race conditions that could cause Autoscaler to crash
 * Bump backup-and-restore-sdk to version `1.18.31`
 * Bump binary-offline-buildpack to version `1.0.42`
