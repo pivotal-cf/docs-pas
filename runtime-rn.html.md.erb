@@ -98,7 +98,6 @@ releasing a MySQL patch and VMware releasing TAS for VMs containing that patch.
 
 * **[Feature Improvement]** AppsManager - CfCli installers now can be downloaded in airgapped envs
 * **[Feature Improvement]** Log cache split out into different instance group
-* **[Feature Improvement]** UAA is compatible with MySQL 8
 * **[Feature Improvement]** Apps manager HTTP2 Support
 * **[Feature Improvement]** Cloud Controller - Allow operators to configure the Cloud Controller monit healthcheck timeout
 * **[Feature Improvement]** Enable HTTP/2 for HAProxy
@@ -162,6 +161,12 @@ This change allows TAS for VMs to do the following:
 * Reduce the number of network hops required for logs and metrics to get to Log Cache.
 
 For important information, see the related [Breaking Change](#separate-log-cache-breaking).
+
+### <a id='mysql-8'></a> TAS for VMs is Compatible with MySQL 8
+
+TAS for VMs v2.13 supports MySQL 8 for external databases.
+Previous versions of TAS for VMs supported MySQL 5.7, which is expected to go out of support in 2023.
+If you use an external MySQL database with TAS for VMs v2.13, use a MySQL 8 database for improved security and a longer window of support.
 
 ## <a id='breaking-changes'></a> Breaking Changes
 
