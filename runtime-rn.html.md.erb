@@ -94,7 +94,6 @@ releasing a MySQL patch and VMware releasing TAS for VMs containing that patch.
 * **[Feature]** AppsManager - Ability to update destination protocol
 * **[Feature]** Monit thresholds for Cloud Controller Worker are configurable
 * **[Feature]** Cloud Controller - Allow operators to configure whether audit events are output to the system logs
-* **[Feature]** Add push-offline-docs errand
 * **[Feature]** Configure HTTP/2 Support
 
 * **[Feature Improvement]** AppsManager - CfCli installers now can be downloaded in airgapped envs
@@ -107,7 +106,6 @@ releasing a MySQL patch and VMware releasing TAS for VMs containing that patch.
 * **[Feature Improvement]** Add secure internal network metric scraping for metric registrar
 
 * **[Bug Fix]** Assign cloud_controller.read and cloud_controller.write scopes to service brokers created using CF CLI v8
-* **[Bug fix]** Remove x509ignoreCN option in Gorouter
 * **[Bug Fix]** Fix default metric registrar blocked tags to include 'ip' and remove 'id'
 * **[Bug Fix]** Fix metric-registrar blocked tags configuration
 * **[Bug Fix]** Restore missing networking and garden metrics
@@ -117,13 +115,8 @@ releasing a MySQL patch and VMware releasing TAS for VMs containing that patch.
 * **[Bug Fix]** Fix log cache nozzle metrics
 * **[Bug Fix]** Cloud Controller - Ensure app lifecycle_type is not nil when determining app lifecycle
 * **[Bug Fix]** Fix certificate rotation by fixing CredHub's import of concatenated certificates
-* **[Bug Fix]** Fix "System metrics scrape interval" configuration in manifest
+* **[Bug Fix]** Fix "System metrics scrape interval" configuration in manifest%>
 
-* **[Security Fix]** Diego - Bump containerd to v1.5.9 to fix ([CVE-2021-43816](https://nvd.nist.gov/vuln/detail/CVE-2021-43816))
-* **[Security Fix]** Bump routing release to 0.228.0 to address ([CVE-2021-44716](https://nvd.nist.gov/vuln/detail/CVE-2021-44716))
-* **[Security Fix]** Fix uncontrolled recursion related to Log4j ([CVE-2021-45105](https://nvd.nist.gov/vuln/detail/CVE-2021-45105))
-* **[Security Fix]** Fix remote code execution vulnerability related to Log4j ([CVE-2021-45046](https://nvd.nist.gov/vuln/detail/CVE-2021-45046))
-* **[Security Fix]** Fix remote code execution vulnerability related to Log4j ([CVE-2021-44228](https://nvd.nist.gov/vuln/detail/CVE-2021-44228))
 
 
 ## <a id='upgrade'></a> How to Upgrade
@@ -138,12 +131,26 @@ When upgrading to TAS for VMs v2.13, be aware of the following upgrade considera
   VMware is working with partners to ensure their tiles are updated to work with the latest versions of TAS for VMs.
   <br/><br/> For information about which partner service releases are currently compatible with TAS for VMs
   v2.13, review the appropriate partners services release documentation
-  at [https://docs.pivotal.io](https://docs.pivotal.io) or contact the partner organization that produces the tile.%>
+  at [https://docs.pivotal.io](https://docs.pivotal.io) or contact the partner organization that produces the tile.
 
 
 ## <a id='new-features'></a> New Features in TAS for VMs v2.13
 
 TAS for VMs v2.13 includes the following major features:
+
+### <a id='scaling-factors'><a/>Configure Scaling Factors for App Autoscaler
+
+In TAS for VMs v2.13.0, App Autoscaler can scale apps by one or more app instances based on autoscaling rules.
+In previous releases of TAS for VMs, App Autoscaler only scaled app instances up or down by one instance at a time.
+You can configure scaling factors using the App Autoscaler API, the App Autoscaler CLI plugin, or Apps Manager.
+
+To configure scaling factors using the API, see [Update an App Binding](https://docs.pivotal.io/application-service/2-13/appsman-services/autoscaler/using-autoscaler-api.html#update-app) in _Using the App Autoscaler API_.
+
+To configure scaling factors using the App Autoscaler CLI plugin, see [Update Scaling Factors](https://docs.pivotal.io/application-service/2-13/appsman-services/autoscaler/using-autoscaler-cli.html#updating-scaling-factors) in _Using the App Autoscaler CLI_.
+
+To configure scaling factors using Apps Manager, see [Configure Autoscaling for an App](https://docs.pivotal.io/application-service/2-13/appsman-services/autoscaler/using-autoscaler.html#config) in _Scaling an App Using App Autoscaler_.
+
+For more information, see [About App Autoscaler](https://docs.pivotal.io/application-service/2-13/appsman-services/autoscaler/about-app-autoscaler.html).
 
 ### <a id='offline-docs-errand'></a>Post-Deploy Errand for Offline Docs
 
