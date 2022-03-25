@@ -222,7 +222,7 @@ TAS for VMs v2.13 includes the following breaking changes:
 ### <a id='certs-require-san'></a> Gorouter Certificates Require a SAN Extension
 
 In TAS for VMs v2.13, all Gorouter certificates require a valid SubjectAltName (SAN) extension.
-If any Gorouter certificates lack a SubjectAltName, Go clients cannot connect to servers and deployment fails.
+If any Gorouter certificates lack a SAN, Go clients cannot connect to servers and deployment fails.
 
 Before you upgrade to TAS for VMs v2.13, you must:
 
