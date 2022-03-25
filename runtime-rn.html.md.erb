@@ -226,8 +226,8 @@ If any Gorouter certificates lack a SAN, Go clients cannot connect to servers an
 
 Before you upgrade to TAS for VMs v2.13, you must:
 
-  1. Verify that all of your certificates in Ops Manager use a valid SAN. If they do not, rotate your certificates using valid SAN.
-  1. Verify that all external systems that the Gorouter connects to also have certificates with a valid SAN. If you use route services, this includes either the route services themselves or the load balancer in front of the route service.
+  1. Verify that all certificates in Ops Manager use a valid SAN. If they do not, rotate your certificates using a valid SAN.
+  1. Verify that all external systems that the Gorouter connects to have certificates with a valid SAN. If you use route services, this includes either the route services themselves or the load balancer in front of the route service.
 
 If you need to complete a deployment before configuring new Gorouter certificates, select **Enable temporary workaround for certs without SANs** in the **Networking** pane of the TAS for VMs tile.
 
