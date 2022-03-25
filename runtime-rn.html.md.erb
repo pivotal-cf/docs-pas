@@ -20,11 +20,12 @@ releasing a MySQL patch and VMware releasing TAS for VMs containing that patch.
 
 <%# DO NOT DELETE THIS LINE - robots use this to add new release notes %>
 
-### <a id='2.13.0-rc.2'></a> 2.13.0-rc.2
+### <a id='2.13.0'></a> 2.13.0
 
-**Release Date:** 03/22/2022
+**Release Date:** March 29, 2022
 
 * See [New Features in TAS for VMs v2.13](#new-features).
+* See [Resolved Issues](#resolved-issues).
 * See [Breaking Changes](#breaking-changes).
 * See [Known Issues](#known-issues).
 
@@ -124,7 +125,6 @@ releasing a MySQL patch and VMware releasing TAS for VMs containing that patch.
 * **[Security Fix]** Fix remote code execution vulnerability related to Log4j ([CVE-2021-45046](https://nvd.nist.gov/vuln/detail/CVE-2021-45046))
 * **[Security Fix]** Fix remote code execution vulnerability related to Log4j ([CVE-2021-44228](https://nvd.nist.gov/vuln/detail/CVE-2021-44228))
 
-* **[Breaking Change]** All Gorouter certificates require a SubjectAltName extension. If any Gorouter certificates lack a SubjectAltName, deployment fails. If you need to complete a deployment before configuring new Gorouter certificates, select **Enable temporary workaround for certs without SANs** in the **Networking** pane of the TAS for VMs tile. For more information about updating certificates, see [Routing and Golang 1.15 X.509 CommonName deprecation](https://community.pivotal.io/s/article/Routing-and-golang-1-15-X-509-CommonName-deprecation) in the Knowledge Base.
 
 ## <a id='upgrade'></a> How to Upgrade
 
@@ -147,12 +147,12 @@ TAS for VMs v2.13 includes the following major features:
 
 ### <a id='offline-docs-errand'></a>Post-Deploy Errand for Offline Docs
 
-TAS for VMs v2.13 adds the post-deploy **Offline Docs Errand**.
+TAS for VMs v2.13.0 adds the post-deploy **Offline Docs Errand**.
 This errand pushes an offline docs app that can be used in air-gapped environments.
 
 ### <a id='separate-log-cache'></a>Log Cache Uses Its Own Instance Group
 
-In TAS for VMs v2.13, the Log Cache component runs on its own Log Cache instance group. Log Cache is no longer part of Doppler instances. Additionally, syslog ingress is enabled by default.
+In TAS for VMs v2.13.0, the Log Cache component runs on its own Log Cache instance group. Log Cache is no longer part of Doppler instances. Additionally, syslog ingress is enabled by default.
 
 This change allows TAS for VMs to do the following:
 
@@ -164,13 +164,67 @@ For important information, see the related [Breaking Change](#separate-log-cache
 
 ### <a id='mysql-8'></a> TAS for VMs is Compatible with MySQL 8
 
-TAS for VMs v2.13 supports MySQL 8 for external databases.
+TAS for VMs v2.13.0 supports MySQL 8 for external databases.
 Previous versions of TAS for VMs supported MySQL 5.7, which is expected to go out of support in 2023.
 If you use an external MySQL database with TAS for VMs v2.13, use a MySQL 8 database for improved security and a longer window of support.
+
+### <a id='golang-1-17'></a> TAS for VMs Components Use Golang v1.17
+
+In TAS for VMs v2.13.0, several TAS for VMs components use Golang v1.17.
+
+The following table lists the component releases that have been upgraded to use Golang v1.17:
+
+<table>
+  <tr>
+    <th>Release Name</th>
+    <th>First version that uses Golang v1.17</th>
+  </tr>
+  <tr>
+    <td>CF Networking</td>
+    <td>2.43.0</td>
+  </tr>
+  <tr>
+    <td>Silk</td>
+    <td>2.43.0</td>
+  </tr>
+  <tr>
+    <td>Diego</td>
+    <td>2.53.1</td>
+  </tr>
+  <tr>
+    <td>NATS</td>
+    <td>41</td>
+  </tr>
+  <tr>
+    <td>Garden-runc</td>
+    <td>1.19.31</td>
+  </tr>
+  <tr>
+    <td>Routing</td>
+    <td>0.229.0</td>
+  </tr>
+</table>
+
+For important information, see [Gorouter Certificates Require a SAN Extension](#certs-require-san) in the _Breaking Changes_ section.
+
 
 ## <a id='breaking-changes'></a> Breaking Changes
 
 TAS for VMs v2.13 includes the following breaking changes:
+
+### <a id='certs-require-san'></a> Gorouter Certificates Require a SAN Extension
+
+In TAS for VMs v2.13, all Gorouter certificates require a valid SubjectAltName (SAN) extension.
+If any Gorouter certificates lack a SubjectAltName, Go clients cannot connect to servers and deployment fails.
+
+Before you upgrade to TAS for VMs v2.13, you must:
+
+  1. Verify that all of your certificates in Ops Manager use a valid SAN. If they do not, rotate your certificates using valid SAN.
+  1. Verify that all external systems that the Gorouter connects to also have certificates with a valid SAN. If you use route services, this includes either the route services themselves or the load balancer in front of the route service.
+
+If you need to complete a deployment before configuring new Gorouter certificates, select **Enable temporary workaround for certs without SANs** in the **Networking** pane of the TAS for VMs tile.
+
+For more information about updating certificates, see [Routing and Golang 1.15 X.509 CommonName deprecation](https://community.pivotal.io/s/article/Routing-and-golang-1-15-X-509-CommonName-deprecation) in the Knowledge Base.
 
 ### <a id='separate-log-cache-breaking'></a>Log Cache Uses Its Own Instance Group
 
@@ -187,6 +241,7 @@ This change comes with the following considerations when you upgrade to TAS for 
   This should not affect whether or not the app is able to be deployed.
 * Service instance metrics might not be retrievable using the `log-cache` cf CLI plugin.
 * Diego Cells with high logging volume might experience higher CPU usage than they did prior to this change.
+
 
 ## <a id='known-issues'></a> Known Issues
 
