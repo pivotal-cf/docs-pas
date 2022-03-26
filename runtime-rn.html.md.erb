@@ -215,12 +215,17 @@ For important information, see the related [Breaking Change](#separate-log-cache
 
 ### <a id='no-recreate'></a>Rotate the Root CA and NATS CA Without Re-Creating All VMs
 
-Operators can rotate the root certificate authority (CA) or NATS CA without re-creating all VMs.
+In [Ops Manager v2.10.20](https://docs.pivotal.io/ops-manager/2-10/release-notes.html#2-10-20) and later, operators can rotate the root certificate authority (CA) or NATS CA without re-creating all VMs.
 If you rotate these certificates in Ops Manager and click **Apply Changes**, Ops Manager updates the certificates on the VMs without re-creating the VMs.
 
-For more information, see [Rotating CAs and Leaf Certificates](https://docs.pivotal.io/ops-manager/2-10/security/pcf-infrastructure/rotate-cas-and-leaf-certs.html) and the [Ops Manager v2.10.20 release notes](https://docs.pivotal.io/ops-manager/2-10/release-notes.html#2-10-20).
+For more information, see [Rotating CAs and Leaf Certificates](https://docs.pivotal.io/ops-manager/2-10/security/pcf-infrastructure/rotate-cas-and-leaf-certs.html) in the Ops Manager documentation.
 
-<%# IMDSv2 %>
+### <a id='imdsv2'></a>Enable IMDSv2 in Ops Manager on AWS
+
+Operators can configure [Ops Manager v2.10.23](https://docs.pivotal.io/ops-manager/2-10/release-notes.html#2-10-23) and later to require IMDSv2 on all BOSH-deployed VMs in Amazon Web Services (AWS).
+This Ops Manager feature is compatible with installations of TAS for VMs v2.13.0 and later.
+
+For more information, see [Enable IMDSv2 in Ops Manager](https://docs.pivotal.io/ops-manager/2-10/security/security-adjacent/security-guidelines-iaas.html#aws-imds-v2) in the Ops Manager documentation.
 
 <%# One way TLS %>
 
