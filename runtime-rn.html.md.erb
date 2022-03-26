@@ -236,12 +236,27 @@ Developers can continue to serve HTTP traffic on port 8080, and Envoy listens on
 Envoy proxies this port to port 8080 inside the container.
 When a new route is mapped to the app, the certificate without requiring an app restart.
 
-### <a id='offline-docs-errand'></a>Post-Deploy Errand for Offline Docs
+### <a id='offline-tools'></a>Download Offline Tools in Air-Gapped Environments
 
+In TAS for VMs v2.13.0, you can include documentation and cf CLI packages in Apps Manager that operators and developers can download in air-gapped environments.
 TAS for VMs v2.13.0 adds the post-deploy **Offline Docs Errand**.
-This errand pushes an offline docs app that can be used in air-gapped environments.
 
-<%# Improved template rendering %>
+To enable access to offline tools in air-gapped environments:
+
+1. Navigate to the Installation Dashboard and click the TAS for VMs tile.
+1. Select **Apps Manager**.
+1. Under **Configure how developers access documentation, tools and pluggins when unable to connect to the internet**, select the checkbox for **Enable access to offline tools**.
+1. Under **Choose which CF CLI packages to include**, select either **CF CLI V7** or **CF CLI V8**.
+1. Click **Save**.
+1. Select **Errands**.
+1. Under **Offline Docs Errand**, select **On** from the dropdown.
+1. Click **Save**.
+1. Return to the Installation Dashboard.
+1. Click **Review Pending Changes**.
+1. Review the changes, and then click **Apply Changes**.
+
+For more information, see [(Optional) Configure Custom Branding and Apps Manager](https://docs.pivotal.io/application-service/2-13/operating/configure-pas.html#customize-apps-man) in _Configuring TAS for VMs_.
+
 
 ## <a id='breaking-changes'></a> Breaking Changes
 
