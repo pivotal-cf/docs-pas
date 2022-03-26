@@ -270,8 +270,8 @@ This change comes with the following considerations when you upgrade to TAS for 
 * Be sure to scale up your Log Cache instance count. VMware recommends scaling up to match the number of VMs and amount of memory as your Doppler instances before the upgrade.
   Underscaled Log Cache instances can fail with `Out of Memory` errors, which locks the BOSH Director. Starting larger and then adjusting for actual use is safer than a deployment failure.
 * With Log Cache as its own instance group, you can reduce the memory allocation for Doppler instances.
-* Log Cache uses syslog ingress by default. Confirm that your Diego Cells, including any Isolation Segment Diego Cells, are permitted to establish connections to Log Cache nodes on port 6067.
-  You might need to update firewall rules to allow logs to flow directly from your Diego Cells to the Log Cache Syslog Server.
+* Log Cache uses syslog ingress by default. Confirm that your instances, including those within Isolation Segments, are permitted to establish connections to Log Cache nodes on port 6067.
+  You might need to update firewall rules to allow logs to flow directly from your instances to the Log Cache Syslog Server.
 * You might experience temporary difficulties getting logs and metrics from the cf CLI for apps that are pushed during this upgrade.
   This should not affect whether or not the app is able to be deployed.
 * Service instance metrics might not be retrievable using the `log-cache` cf CLI plugin.
