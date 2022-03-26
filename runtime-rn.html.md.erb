@@ -213,7 +213,12 @@ This change allows TAS for VMs to do the following:
 
 For important information, see the related [Breaking Change](#separate-log-cache-breaking).
 
-<%# Recreate VMs (NATS improvement) %>
+### <a id='no-recreate'></a>Rotate the Root CA and NATS CA Without Re-Creating All VMs
+
+Operators can rotate the root certificate authority (CA) or NATS CA without re-creating all VMs.
+If you rotate these certificates in Ops Manager and click **Apply Changes**, Ops Manager updates the certificates on the VMs without re-creating the VMs.
+
+For more information, see [Rotating CAs and Leaf Certificates](https://docs.pivotal.io/ops-manager/2-10/security/pcf-infrastructure/rotate-cas-and-leaf-certs.html) and the [Ops Manager v2.10.20 release notes](https://docs.pivotal.io/ops-manager/2-10/release-notes.html#2-10-20).
 
 <%# IMDSv2 %>
 
