@@ -227,7 +227,14 @@ This Ops Manager feature is compatible with installations of TAS for VMs v2.13.0
 
 For more information, see [Enable IMDSv2 in Ops Manager](https://docs.pivotal.io/ops-manager/2-10/security/security-adjacent/security-guidelines-iaas.html#aws-imds-v2) in the Ops Manager documentation.
 
-<%# One way TLS %>
+### <a id='tls-c2c'></a>Enable One-Way TLS for Container-to-Container Communication
+
+In TAS for VMs v2.13.0, developers can enable TLS for communication between app containers. <%# how? %>
+
+When you enable this feature, TLS is terminated at Envoy.
+Developers can continue to serve HTTP traffic on port 8080, and Envoy listens on port 61443 with a TLS certificate with a SAN that includes app internal routes.
+Envoy proxies this port to port 8080 inside the container.
+When a new route is mapped to the app, the certificate without requiring an app restart.
 
 ### <a id='offline-docs-errand'></a>Post-Deploy Errand for Offline Docs
 
