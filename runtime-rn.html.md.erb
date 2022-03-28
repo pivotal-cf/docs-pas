@@ -88,36 +88,6 @@ releasing a MySQL patch and VMware releasing TAS for VMs containing that patch.
   </tbody>
 </table>
 
-<%# To do: organize and expand bulleted release notes
-
-* **[Feature]** Allows operators to enable Dynamic ASG updates, so that apps can inherit new and updated ASGs without requiring a restart
-* **[Feature]** AppsManager - Ability to update destination protocol
-* **[Feature]** Monit thresholds for Cloud Controller Worker are configurable
-* **[Feature]** Cloud Controller - Allow operators to configure whether audit events are output to the system logs
-* **[Feature]** Configure HTTP/2 Support
-
-* **[Feature Improvement]** AppsManager - CfCli installers now can be downloaded in airgapped envs
-* **[Feature Improvement]** Log cache split out into different instance group
-* **[Feature Improvement]** Apps manager HTTP2 Support
-* **[Feature Improvement]** Cloud Controller - Allow operators to configure the Cloud Controller monit healthcheck timeout
-* **[Feature Improvement]** Enable HTTP/2 for HAProxy
-* **[Feature Improvement]** Set default for System metrics scrape interval to 15s
-* **[Feature Improvement]** HTTP/2 toggle disables Diego container proxy ALPN
-* **[Feature Improvement]** Add secure internal network metric scraping for metric registrar
-
-* **[Bug Fix]** Assign cloud_controller.read and cloud_controller.write scopes to service brokers created using CF CLI v8
-* **[Bug Fix]** Fix default metric registrar blocked tags to include 'ip' and remove 'id'
-* **[Bug Fix]** Fix metric-registrar blocked tags configuration
-* **[Bug Fix]** Restore missing networking and garden metrics
-* **[Bug Fix]** Smoke tests support for TLSv1.3 only option
-* **[Bug Fix]** Smoke Tests uses specified domain for Isolation Segments
-* **[Bug Fix]** Enabling audit logging file rotation to reduce IO load during log rotation
-* **[Bug Fix]** Fix log cache nozzle metrics
-* **[Bug Fix]** Cloud Controller - Ensure app lifecycle_type is not nil when determining app lifecycle
-* **[Bug Fix]** Fix certificate rotation by fixing CredHub's import of concatenated certificates
-* **[Bug Fix]** Fix "System metrics scrape interval" configuration in manifest%>
-
-
 
 ## <a id='upgrade'></a> How to Upgrade
 
@@ -205,7 +175,7 @@ In TAS for VMs v2.13.0, the Log Cache component runs on its own Log Cache instan
 
 This change allows TAS for VMs to do the following:
 
-* Enable Log Cache to scale independently from Doppler. For example, to provide more memory for storing logs and metrics.
+* Enable Log Cache to scale independently from Doppler. For example, to provide more memory for storing logs and metrics. You can reduce the memory allocation for Doppler instances.
 * Scale Log Cache to more than 40 VMs, because it is no longer limited by Doppler and TrafficController's throughput and connection-based horizontal scaling limits.
 * Reduce the number of network hops required for logs and metrics to get to Log Cache.
 
@@ -260,9 +230,46 @@ For more information, see [(Optional) Configure Custom Branding and Apps Manager
 
 TAS for VMs v2.13 includes the following breaking changes:
 
+### <a id='log-metric-topology'></a>Log and Metric Topology Changes
+
+In TAS for VMs v2.13, the Log Cache component runs on its own Log Cache instance group. Log Cache is no longer part of Doppler instances.
+
+This change comes with the following considerations when you upgrade to TAS for VMs v2.13:
+
+<table>
+  <tr>
+    <th>Breaking Change</th>
+    <th>Recommended Action</th>
+  </tr>
+  <tr>
+    <td>You might experience a small amount of downtime during an upgrade to TAS for VMs v2.13. Downtime is more likely if you use Isolation Segments, or if your Ops Manager version is earlier than 2.7.30, 2.8.16, 2.9.18, or 2.10.9.</td>
+    <td>Upgrade Ops Manager version to 2.7.30, 2.8.16, 2.9.18, or 2.10.9 or later. For more information, see <a href="https://community.pivotal.io/s/article/How-to-Verify-Bosh-DNS-Certificates-Have-Correct-SAN-Fields?language=en_US">How to Verify Bosh DNS Certificates Have Correct SAN Fields</a>.</td>
+  </tr>
+  <tr>
+    <td>Log Cache uses syslog ingress by default.</td>
+    <td>Confirm that your instances, including those within Isolation Segments, are permitted to establish connections to Log Cache nodes on port 6067. You might need to update firewall rules to allow logs to flow directly from your instances to the Log Cache syslog server.</td>
+  </tr>
+  <tr>
+    <td>Underscaled Log Cache instances can fail with <code>Out of Memory</code> errors, which locks the BOSH Director.</td>
+    <td>Scale up your Log Cache instance count. VMware recommends scaling up to match the number of VMs and amount of memory as your Doppler instances before the upgrade. Starting larger and then adjusting for actual use is safer than a deployment failure.</td>
+  </tr>
+  <tr>
+    <td>Service instance metrics might not be retrievable using the <code>log-cache</code> cf CLI plugin.</td>
+    <td>Use V2-based <code>log-cache</code> ingress to retrieve service metrics.</td>
+  </tr>
+  <tr>
+    <td>You might experience temporary difficulties getting logs and metrics from the cf CLI for apps that are pushed during an upgrade to TAS for VMs v2.13. This should not affect whether or not the app is able to be deployed.</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>Diego Cells with high logging volume might experience higher CPU usage than they did prior to this change.</td>
+    <td></td>
+  </tr>
+</table>
+
 ### <a id='certs-require-san'></a> Gorouter Certificates Require a SAN Extension
 
-In TAS for VMs v2.13, all Gorouter certificates require a valid SubjectAltName (SAN) extension.
+In TAS for VMs v2.13, all Gorouter certificates require a valid subjectAltName (SAN) extension.
 If any Gorouter certificates lack a SAN, Go clients cannot connect to servers and deployment fails.
 
 Before you upgrade to TAS for VMs v2.13, you must:
@@ -274,23 +281,24 @@ If you need to complete a deployment before configuring new Gorouter certificate
 
 For more information about updating certificates, see [Routing and Golang 1.15 X.509 CommonName deprecation](https://community.pivotal.io/s/article/Routing-and-golang-1-15-X-509-CommonName-deprecation) in the Knowledge Base.
 
-### <a id='separate-log-cache-breaking'></a>Log Cache Uses Its Own Instance Group
+### <a id='ip-leading-zero'></a>Golang v1.17 Rejects IP Addresses with Leading Zeros
 
-In TAS for VMs v2.13, the Log Cache component runs on its own Log Cache instance group. Log Cache is no longer part of Doppler instances.
+Golang v1.17 contains stricter IP parsing standards, so IP addresses with leading zeros in any octets cause a BOSH template failure.
+Operators can remove the leading zeros and try deploying again.
+This affects properties that feed into all releases that use Golang v1.17.
+For a complete list, see [TAS for VMs Components Use Golang v1.17](#golang-1-17) above.
+Syslog drains and metric registrar endpoints that are registered using user-provided services might also be affected.
 
-This change comes with the following considerations when you upgrade to TAS for VMs v2.13:
+### <a id='cf-cli-v6'></a>cf CLI v6 is Not Supported
 
-* Be sure to scale up your Log Cache instance count. VMware recommends scaling up to match the number of VMs and amount of memory as your Doppler instances before the upgrade.
-  Underscaled Log Cache instances can fail with `Out of Memory` errors, which locks the BOSH Director. Starting larger and then adjusting for actual use is safer than a deployment failure.
-* With Log Cache as its own instance group, you can reduce the memory allocation for Doppler instances.
-* Log Cache uses syslog ingress by default. Confirm that your instances, including those within Isolation Segments, are permitted to establish connections to Log Cache nodes on port 6067.
-  You might need to update firewall rules to allow logs to flow directly from your instances to the Log Cache Syslog Server.
-* You might experience temporary difficulties getting logs and metrics from the cf CLI for apps that are pushed during this upgrade.
-  This should not affect whether or not the app is able to be deployed.
-* Service instance metrics might not be retrievable using the `log-cache` cf CLI plugin.
-* Diego Cells with high logging volume might experience higher CPU usage than they did prior to this change.
+TAS for VMs v2.13 does not support cf CLI v6. You must upgrade to cf CLI v7 or cf CLI v8.
+
+To upgrade to a supported cf CLI version, see one of the following:
+
+- [Upgrading to cf CLI v7](https://docs.pivotal.io/application-service/2-13/cf-cli/v7.html)
+- [Upgrading to cf CLI v8](https://docs.pivotal.io/application-service/2-13/cf-cli/v8.html)
 
 
-## <a id='known-issues'></a> Known Issues
+<%# ## <a id='known-issues'></a> Known Issues
 
-TAS for VMs v2.13 includes the following known issues:
+TAS for VMs v2.13 includes the following known issues:%>
