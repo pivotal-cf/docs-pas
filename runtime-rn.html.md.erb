@@ -108,7 +108,34 @@ When upgrading to TAS for VMs v2.13, be aware of the following upgrade considera
 
 TAS for VMs v2.13 includes the following major features:
 
-<%# App developer can update the destination protocol %>
+### <a id='app-protocol'></a> Update the Destination App Protocol for Routes
+
+With cf CLI v8, developers can update the destination protocol for app routes.
+After the destination protocol is updated, the app uses that protocol for all incoming and outgoing communications.
+
+To update the destination app protocol:
+
+```
+cf update-destination --app-protocol PROTOCOL APP-NAME APP-DOMAIN --hostname HOSTNAME
+```
+
+Where:
+
+- `PROTOCOL` is the app protocol you want to use. You can use `http1` or `http2`.
+- `APP-NAME` is the name of your app. For example, `my-app`.
+- `APP-DOMAIN` is the domain name of your app. For example, `app-domain.com`.
+- `HOSTNAME` is the hostname of your app. For example, `my-hostname`.
+
+For example:
+
+<pre class="terminal">
+  $ cf update-destination --app-protocol http2 my-app app-domain.com --hostname my-hostname
+
+  Destination-protocol changed to http2
+  OK
+</pre>
+
+The command above updates the destination protocol for "my-app" to HTTP/2.
 
 ### <a id='mysql-8'></a> TAS for VMs is Compatible with MySQL 8
 
@@ -157,7 +184,7 @@ For important information, see [Gorouter Certificates Require a SAN Extension](#
 
 <%# Dynamic ASG %>
 
-### <a id='scaling-factors'></a>Configure Scaling Factors for App Autoscaler
+### <a id='scaling-factors'></a> Configure Scaling Factors for App Autoscaler
 
 In TAS for VMs v2.13.0, App Autoscaler can scale apps by one or more app instances based on autoscaling rules.
 In previous releases of TAS for VMs, App Autoscaler only scaled app instances up or down by one instance at a time.
@@ -169,7 +196,7 @@ To configure scaling factors using the App Autoscaler CLI plugin, see [Update Sc
 
 For more information, see [About App Autoscaler](https://docs.pivotal.io/application-service/2-13/appsman-services/autoscaler/about-app-autoscaler.html).
 
-### <a id='separate-log-cache'></a>Log Cache Uses Its Own Instance Group
+### <a id='separate-log-cache'></a> Log Cache Uses Its Own Instance Group
 
 In TAS for VMs v2.13.0, the Log Cache component runs on its own Log Cache instance group. Log Cache is no longer part of Doppler instances. Additionally, syslog ingress is enabled by default.
 
@@ -181,21 +208,21 @@ This change allows TAS for VMs to do the following:
 
 For important information, see the related [Breaking Change](#separate-log-cache-breaking).
 
-### <a id='no-recreate'></a>Rotate the Root CA and NATS CA Without Re-Creating All VMs
+### <a id='no-recreate'></a> Rotate the Root CA and NATS CA Without Re-Creating All VMs
 
 In [Ops Manager v2.10.20](https://docs.pivotal.io/ops-manager/2-10/release-notes.html#2-10-20) and later, operators can rotate the root certificate authority (CA) or NATS CA without re-creating all VMs.
 If you rotate these certificates in Ops Manager and click **Apply Changes**, Ops Manager updates the certificates on the VMs without re-creating the VMs.
 
 For more information, see [Rotating CAs and Leaf Certificates](https://docs.pivotal.io/ops-manager/2-10/security/pcf-infrastructure/rotate-cas-and-leaf-certs.html) in the Ops Manager documentation.
 
-### <a id='imdsv2'></a>Enable IMDSv2 in Ops Manager on AWS
+### <a id='imdsv2'></a> Enable IMDSv2 in Ops Manager on AWS
 
 Operators can configure [Ops Manager v2.10.23](https://docs.pivotal.io/ops-manager/2-10/release-notes.html#2-10-23) and later to require IMDSv2 on all BOSH-deployed VMs in Amazon Web Services (AWS).
 This Ops Manager feature is compatible with installations of TAS for VMs v2.13.0 and later.
 
 For more information, see [Enable IMDSv2 in Ops Manager](https://docs.pivotal.io/ops-manager/2-10/security/security-adjacent/security-guidelines-iaas.html#aws-imds-v2) in the Ops Manager documentation.
 
-### <a id='tls-c2c'></a>Enable One-Way TLS for Container-to-Container Communication
+### <a id='tls-c2c'></a> Enable One-Way TLS for Container-to-Container Communication
 
 In TAS for VMs v2.13.0, developers can enable TLS for communication between app containers. <%# how? %>
 
@@ -204,7 +231,7 @@ Developers can continue to serve HTTP traffic on port 8080, and Envoy listens on
 Envoy proxies this port to port 8080 inside the container.
 When a new route is mapped to the app, the certificate without requiring an app restart.
 
-### <a id='offline-tools'></a>Download Offline Tools in Air-Gapped Environments
+### <a id='offline-tools'></a> Download Offline Tools in Air-Gapped Environments
 
 In TAS for VMs v2.13.0, you can include documentation and cf CLI packages in Apps Manager that operators and developers can download in air-gapped environments.
 TAS for VMs v2.13.0 adds the post-deploy **Offline Docs Errand**.
@@ -230,7 +257,7 @@ For more information, see [(Optional) Configure Custom Branding and Apps Manager
 
 TAS for VMs v2.13 includes the following breaking changes:
 
-### <a id='log-metric-topology'></a>Log and Metric Topology Changes
+### <a id='log-metric-topology'></a> Log and Metric Topology Changes
 
 In TAS for VMs v2.13, the Log Cache component runs on its own Log Cache instance group. Log Cache is no longer part of Doppler instances.
 
@@ -281,7 +308,7 @@ If you need to complete a deployment before configuring new Gorouter certificate
 
 For more information about updating certificates, see [Routing and Golang 1.15 X.509 CommonName deprecation](https://community.pivotal.io/s/article/Routing-and-golang-1-15-X-509-CommonName-deprecation) in the Knowledge Base.
 
-### <a id='ip-leading-zero'></a>Golang v1.17 Rejects IP Addresses with Leading Zeros
+### <a id='ip-leading-zero'></a> Golang v1.17 Rejects IP Addresses with Leading Zeros
 
 Golang v1.17 contains stricter IP parsing standards, so IP addresses with leading zeros in any octets cause a BOSH template failure.
 Operators can remove the leading zeros and try deploying again.
@@ -289,7 +316,7 @@ This affects properties that feed into all releases that use Golang v1.17.
 For a complete list, see [TAS for VMs Components Use Golang v1.17](#golang-1-17) above.
 Syslog drains and metric registrar endpoints that are registered using user-provided services might also be affected.
 
-### <a id='cf-cli-v6'></a>cf CLI v6 is Not Supported
+### <a id='cf-cli-v6'></a cf CLI v6 is Not Supported
 
 TAS for VMs v2.13 does not support cf CLI v6. You must upgrade to cf CLI v7 or cf CLI v8.
 
