@@ -222,7 +222,7 @@ This change allows TAS for VMs to do the following:
 * Scale Log Cache to more than 40 VMs, because it is no longer limited by Doppler and TrafficController's throughput and connection-based horizontal scaling limits.
 * Reduce the number of network hops required for logs and metrics to get to Log Cache.
 
-For important information, see the related [Breaking Change](#log-metric-topology).
+For important information, see the related [Breaking Change](#log-metric-topology) and [Known Issue](#upgrade-downtime).
 
 ### <a id='no-recreate'></a> Rotate the Root CA and NATS CA Without Re-Creating All VMs
 
@@ -281,6 +281,7 @@ As a result of this change, Diego Cells with high logging volume might experienc
 
 When you upgrade to TAS for VMs v2.13, you might experience temporary difficulties getting logs and metrics from the cf CLI for apps that are pushed during the upgrade.
 This should not affect whether or not the app is able to be deployed.
+See the related [Known Issue](#upgrade-downtime).
 
 This change comes with the following considerations when you upgrade to TAS for VMs v2.13:
 
@@ -339,7 +340,7 @@ TAS for VMs v2.13 includes the following known issue:
 
 ### <a id='upgrade-downtime'></a> Possible Downtime When Upgrading from Certain TAS for VMs Versions
 
-If you are upgrading from one of the following TAS for VMs versions, you might experience a small amount of downtime during an upgrade to TAS for VMs v2.13. Downtime is more likely if you use Isolation Segments:
+If you are upgrading from one of the following TAS for VMs versions, you might experience a small amount of log and metric downtime during an upgrade to TAS for VMs v2.13. This downtime is more likely if you use Isolation Segments:
 
-- TAS for VMs v2.11.5 or earlier
+- TAS for VMs v2.11.15 or earlier
 - TAS for VMs v2.12.8 or earlier
