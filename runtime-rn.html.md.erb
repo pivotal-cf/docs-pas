@@ -181,7 +181,17 @@ The following table lists the component releases that have been upgraded to use 
 
 For important information, see [Gorouter Certificates Require a SAN Extension](#certs-require-san) in the _Breaking Changes_ section.
 
-<%# Dynamic ASG %>
+### <a id='dynamic-asg'></a> Dynamic App Security Group Rules
+
+TAS for VMs v2.13 introduces dynamic App Security Groups (ASGs).
+
+ASGs are a collection of egress rules that specify the protocols, ports, and IP address ranges where app or task instances send traffic.
+Previously, updating an existing ASG required you to restart the app before the ASG went into effect.
+
+Dynamic ASGs can automatically update security groups without requiring an app restart.
+If you have existing ASGs, you can run any of the security group cf CLI commands, including `cf bind-security-group` and `update-security-group`, and the changes apply automatically to any running apps.
+
+For more information about ASGs, see [App Security Groups](../concepts/asg.html).
 
 ### <a id='scaling-factors'></a> Configure Scaling Factors for App Autoscaler
 
