@@ -290,10 +290,6 @@ This change comes with the following considerations when you upgrade to TAS for 
     <th>Recommended Action</th>
   </tr>
   <tr>
-    <td>You might experience a small amount of downtime during an upgrade to TAS for VMs v2.13. Downtime is more likely if you use Isolation Segments.</td>
-    <td></td>
-  </tr>
-  <tr>
     <td>Log Cache uses syslog ingress by default.</td>
     <td>Confirm that your instances, including those within Isolation Segments, are permitted to establish connections to Log Cache nodes on port 6067. You might need to update firewall rules to allow logs to flow directly from your instances to the Log Cache syslog server.</td>
   </tr>
@@ -339,4 +335,11 @@ To upgrade to a supported cf CLI version, see one of the following:
 
 ## <a id='known-issues'></a> Known Issues
 
-TAS for VMs v2.13 currently has no known issues.
+TAS for VMs v2.13 includes the following known issue:
+
+### <a id='upgrade-downtime'></a> Possible Downtime When Upgrading from Certain TAS for VMs Versions
+
+If you are upgrading from one of the following TAS for VMs versions, you might experience a small amount of downtime during an upgrade to TAS for VMs v2.13. Downtime is more likely if you use Isolation Segments:
+
+- TAS for VMs v2.11.5 or earlier
+- TAS for VMs v2.12.8 or earlier
