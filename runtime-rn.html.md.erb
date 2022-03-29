@@ -128,13 +128,13 @@ Where:
 For example:
 
 <pre class="terminal">
-  $ cf update-destination --app-protocol http2 my-app app-domain.com --hostname my-hostname
+$ cf update-destination --app-protocol http2 my-app app-domain.com --hostname my-hostname
 
-  Destination-protocol changed to http2
-  OK
+Destination-protocol changed to http2
+OK
 </pre>
 
-The command above updates the destination protocol for "my-app" to HTTP/2.
+The command above updates the destination protocol for my-app to HTTP/2.
 
 ### <a id='mysql-8'></a> TAS for VMs is Compatible with MySQL 8
 
@@ -146,11 +146,11 @@ If you use an external MySQL database with TAS for VMs v2.13, use a MySQL 8 data
 
 In TAS for VMs v2.13.0, several TAS for VMs components use Golang v1.17.
 
-The following table lists the component releases that have been upgraded to use Golang v1.17:
+The following table lists the component releases that have been updated to use Golang v1.17:
 
 <table class="nice">
   <tr>
-    <th>Release Name</th>
+    <th>Release</th>
     <th>First version that uses Golang v1.17</th>
   </tr>
   <tr>
@@ -189,7 +189,14 @@ ASGs are a collection of egress rules that specify the protocols, ports, and IP 
 Previously, updating an existing ASG required you to restart the app before the ASG went into effect.
 
 Dynamic ASGs can automatically update security groups without requiring an app restart.
-If you have existing ASGs, you can run any of the security group cf CLI commands, including `cf bind-security-group` and `update-security-group`, and the changes apply automatically to any running apps.
+If you have existing ASGs, you can run any of the security group cf CLI commands, including `cf bind-security-group` and `cf update-security-group`, and the changes apply automatically to any running apps.
+
+To enable dynamic ASGs:
+
+1. Navigate to the Ops Manager Installation Dashboard and click the TAS for VMs tile.
+1. Select **Networking**.
+1. Select the **Enable dynamic application security group changes** checkbox.
+1. Click **Save**.
 
 For more information about ASGs, see [App Security Groups](../concepts/asg.html).
 
@@ -309,8 +316,6 @@ Before you upgrade to TAS for VMs v2.13, you must:
 
   1. Verify that all certificates in Ops Manager use a valid SAN. If they do not, rotate your certificates using a valid SAN.
   1. Verify that all external systems that the Gorouter connects to have certificates with a valid SAN. If you use route services, this includes either the route services themselves or the load balancer in front of the route service.
-
-If you need to complete a deployment before configuring new Gorouter certificates, select **Enable temporary workaround for certs without SANs** in the **Networking** pane of the TAS for VMs tile.
 
 For more information about updating certificates, see [Routing and Golang 1.15 X.509 CommonName deprecation](https://community.pivotal.io/s/article/Routing-and-golang-1-15-X-509-CommonName-deprecation) in the Knowledge Base.
 
