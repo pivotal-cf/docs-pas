@@ -245,7 +245,7 @@ In TAS for VMs v2.13.0, developers can enable TLS for communication between app 
 When you enable this feature, TLS is terminated at Envoy.
 Developers can continue to serve HTTP traffic on port 8080, and Envoy listens on port 61443 with a TLS certificate with a SAN that includes app internal routes.
 Envoy proxies this port to port 8080 inside the container.
-When a new route is mapped to the app, the certificate without requiring an app restart.
+When a new route is mapped to the app, the certificate is updated without requiring an app restart.
 
 ### <a id='offline-tools'></a> Download Offline Tools in Air-Gapped Environments
 
@@ -291,7 +291,7 @@ This change comes with the following considerations when you upgrade to TAS for 
   </tr>
   <tr>
     <td>You might experience a small amount of downtime during an upgrade to TAS for VMs v2.13. Downtime is more likely if you use Isolation Segments.</td>
-    <td>Upgrade to the latest TAS for VMs patch.</td>
+    <td></td>
   </tr>
   <tr>
     <td>Log Cache uses syslog ingress by default.</td>
