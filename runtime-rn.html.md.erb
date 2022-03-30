@@ -109,10 +109,14 @@ TAS for VMs v2.13 includes the following major features:
 
 ### <a id='app-protocol'></a> Update the Destination App Protocol for Routes
 
-With cf CLI v8, developers can update the destination protocol for app routes.
+In TAS for VMs v2.13.0, developers can update the destination protocol for app routes.
 After the destination protocol is updated, the app uses that protocol for all incoming and outgoing communications.
 
-To update the destination app protocol:
+You can update the destination protocol using Apps Manager or cf CLI v8.
+
+To update the destination app protocol using Apps Manager, see [Change the Destination Protocol for a Route](https://docs.pivotal.io/application-service/2-13/console/manage-apps.html#route-protocol) in _Managing Apps and Service Instances Using Apps Manager_.
+
+To update the destination app protocol using cf CLI v8:
 
 ```
 cf update-destination --app-protocol PROTOCOL APP-NAME APP-DOMAIN --hostname HOSTNAME
