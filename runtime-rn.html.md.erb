@@ -114,7 +114,10 @@ After the destination protocol is updated, the app uses that protocol for all in
 
 You can update the destination protocol using Apps Manager or cf CLI v8.
 
-To update the destination app protocol using Apps Manager, see [Change the Destination Protocol for a Route](https://docs.pivotal.io/application-service/2-13/console/manage-apps.html#route-protocol) in _Managing Apps and Service Instances Using Apps Manager_.
+Before you can update the destination app protocol, you must enable HTTP/2 ingress and egress for the Gorouter.
+This option is enabled by default in the **Networking** pane of the TAS for VMs tile.
+
+To update the destination app protocol in Apps Manager, see [Change the Destination Protocol for a Route](https://docs.pivotal.io/application-service/2-13/console/manage-apps.html#route-protocol) in _Managing Apps and Service Instances Using Apps Manager_.
 
 To update the destination app protocol using cf CLI v8:
 
