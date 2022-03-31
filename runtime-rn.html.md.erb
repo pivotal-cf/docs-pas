@@ -109,7 +109,7 @@ releasing a MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> contai
       <td>
         <details>
           <summary>0.231.0</summary>
-          <pre>
+          <pre style="max-width: 30em">
   ## Bug Fixes
   - Removed the x509ignoreCN property. Now that `gorouter` is built on golang 1.17, it no longer has any effect on gorouter behavior, and was only adding to confusion in the properties
   - Resolve an issue with route-registrar using the same TTL as it's RegistrationInterval for tcp routes, leading to unnecessary churn of pruned + re-registered routes.
@@ -126,7 +126,7 @@ releasing a MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> contai
         </details>
         <details>
           <summary>0.230.0</summary>
-          <pre>
+          <pre style="max-width: 30em">
   ## Feature
   * update gorouter for prometheus scraping by @Benjamintf1 in https://github.com/cloudfoundry/routing-release/pull/258
   ## Bug Fix
