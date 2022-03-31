@@ -26,6 +26,179 @@ For more information, see [Upgrading to cf CLI v7](../cf-cli/v7.html).
 
 <%# DO NOT DELETE THIS LINE - robots use this to add new release notes %>
 
+### <a id='2.11.16'></a> 2.11.16
+
+**Release Date:** 03/31/2022
+
+* **[Feature Improvement]** Move aggregate drains to the syslog-binding cache to improve deploy speed and reduce errors.
+* **[Bug Fix]** Assign cloud_controller.read and cloud_controller.write scopes to service brokers created using CF CLI v8
+* **[Bug Fix]** CAPI: Quota metrics are no longer filtered when syslog ingress is turned on
+* **[Bug Fix]** Propagate updated user provided service environment variables to bound applications for CF CLI v8
+* **[Bug Fix]** Resolve an issue resulting in tcp-router repeatedly respawning haproxy until it hits a forked process limit
+* **[Bug Fix]** Resolves an issue where invalid seeded router group values should caused breaking changes
+* **[Bug fix]** Remove x509ignoreCN option in Gorouter
+* Bump capi to version `1.109.7`
+* Bump cf-autoscaling to version `249`
+* Bump cf-networking to version `3.3.0`
+* Bump cflinuxfs3 to version `0.279.0`
+* Bump credhub to version `2.12.1`
+* Bump diego to version `2.61.0`
+* Bump dotnet-core-offline-buildpack to version `2.3.40`
+* Bump garden-runc to version `1.20.3`
+* Bump go-offline-buildpack to version `1.9.41`
+* Bump java-offline-buildpack to version `4.48.1`
+* Bump log-cache to version `2.11.6`
+* Bump loggregator to version `106.6.3`
+* Bump loggregator-agent to version `6.3.10`
+* Bump metric-registrar to version `1.1.12`
+* Bump metrics-discovery to version `3.0.9`
+* Bump nginx-offline-buildpack to version `1.1.36`
+* Bump nodejs-offline-buildpack to version `1.7.67`
+* Bump php-offline-buildpack to version `4.4.57`
+* Bump python-offline-buildpack to version `1.7.51`
+* Bump r-offline-buildpack to version `1.1.27`
+* Bump routing to version `0.231.0`
+* Bump ruby-offline-buildpack to version `1.8.52`
+* Bump silk to version `3.3.0`
+* Bump staticfile-offline-buildpack to version `1.5.29`
+* Bump uaa to version `74.5.35`
+
+<table border="1" class="nice">
+  <thead>
+    <tr>
+      <th>Component</th>
+      <th>Version</th>
+      <th>Release Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>ubuntu-xenial stemcell</td><td>621.224</td><td></td></tr>
+    <tr><td>backup-and-restore-sdk</td><td>1.18.34</td><td></td></tr>
+    <tr><td>binary-offline-buildpack</td><td>1.0.42</td><td></td></tr>
+    <tr><td>bosh-dns-aliases</td><td>0.0.3</td><td></td></tr>
+    <tr><td>bosh-system-metrics-forwarder</td><td>0.0.21</td><td></td></tr>
+    <tr><td>bpm</td><td>1.1.16</td><td></td></tr>
+    <tr><td>capi</td><td>1.109.7</td><td></td></tr>
+    <tr><td>cf-autoscaling</td><td>249</td><td></td></tr>
+    <tr><td>cf-cli</td><td>1.32.0</td><td></td></tr>
+    <tr><td>cf-networking</td><td>3.3.0</td><td></td></tr>
+    <tr><td>cflinuxfs3</td><td>0.279.0</td><td></td></tr>
+    <tr><td>credhub</td><td>2.12.1</td>
+      <td>
+        <details>
+          <summary>2.12.1</summary>
+          <pre>
+  ### Security Fixes
+  - Bump various dependencies.
+          </pre>
+        </details>
+        <details>
+          <summary>2.12.0</summary>
+          <pre>
+  ### Security Fixes
+  - Bump various dependencies.
+  ### Bug Fixes
+  - Fixes an issue where CredHub experiences downtime during certificate rotation process by making CredHub properly load concatenated mTLS CA certificates.
+  ### Features
+  - CredHub is now compatible with Postgres 13, 14.
+          </pre>
+        </details>
+        <details>
+          <summary>2.11.1</summary>
+          <pre>
+  ### Dependency Bumps
+  - Bumps log4j2 to 2.17.1
+          </pre>
+        </details>
+        <details>
+          <summary>2.11.0</summary>
+          <pre>
+  ### Security Fixes
+  - Further addresses [CVE with Log4j library](https://github.com/advisories/GHSA-jfh8-c2jp-5v3q) and [its prior incomplete fix](https://github.com/advisories/GHSA-7rjr-3q55-vv33) by bumping to log4j2 2.16.0.
+          </pre>
+        </details>
+        <details>
+          <summary>2.10.0</summary>
+          <pre>
+  ### Security Fixes
+  - Addresses [CVE with Log4j library](https://github.com/advisories/GHSA-jfh8-c2jp-5v3q)
+  ### Features
+  - Adds a minimum duration server-level configuration fields for leaf and CA certificates: `certificates.leaf_minimum_duration_in_days` and `certificates.ca_minimum_duration_in_days`. When these fields are configured, if a request to generate or regenerate a certificate has a duration lower than the minimum, then the minimum duration is used instead. (https://github.com/cloudfoundry/credhub/pull/201)
+          </pre>
+        </details>
+      </td>
+    </tr>
+    <tr><td>diego</td><td>2.61.0</td><td></td></tr>
+    <tr><td>dotnet-core-offline-buildpack</td><td>2.3.40</td><td></td></tr>
+    <tr><td>garden-runc</td><td>1.20.3</td><td></td></tr>
+    <tr><td>go-offline-buildpack</td><td>1.9.41</td><td></td></tr>
+    <tr><td>haproxy</td><td>9.8.0</td><td></td></tr>
+    <tr><td>java-offline-buildpack</td><td>4.48.1</td><td></td></tr>
+    <tr><td>log-cache</td><td>2.11.6</td><td></td></tr>
+    <tr><td>loggregator</td><td>106.6.3</td><td></td></tr>
+    <tr><td>loggregator-agent</td><td>6.3.10</td><td></td></tr>
+    <tr><td>mapfs</td><td>1.2.6</td><td></td></tr>
+    <tr><td>metric-registrar</td><td>1.1.12</td><td></td></tr>
+    <tr><td>metrics-discovery</td><td>3.0.9</td><td></td></tr>
+    <tr><td>mysql-monitoring</td><td>9.15.0</td><td></td></tr>
+    <tr><td>nats</td><td>42</td><td></td></tr>
+    <tr><td>nfs-volume</td><td>5.0.12</td><td></td></tr>
+    <tr><td>nginx-offline-buildpack</td><td>1.1.36</td><td></td></tr>
+    <tr><td>nodejs-offline-buildpack</td><td>1.7.67</td><td></td></tr>
+    <tr><td>notifications</td><td>62</td><td></td></tr>
+    <tr><td>notifications-ui</td><td>40</td><td></td></tr>
+    <tr><td>php-offline-buildpack</td><td>4.4.57</td><td></td></tr>
+    <tr><td>push-apps-manager-release</td><td>674.0.6</td><td></td></tr>
+    <tr><td>push-usage-service-release</td><td>674.0.23</td><td></td></tr>
+    <tr><td>pxc</td><td>0.41.0</td><td></td></tr>
+    <tr><td>python-offline-buildpack</td><td>1.7.51</td><td></td></tr>
+    <tr><td>r-offline-buildpack</td><td>1.1.27</td><td></td></tr>
+    <tr><td>routing</td><td>0.231.0</td>
+      <td>
+        <details>
+          <summary>0.231.0</summary>
+          <pre>
+  ## Bug Fixes
+  - Removed the x509ignoreCN property. Now that `gorouter` is built on golang 1.17, it no longer has any effect on gorouter behavior, and was only adding to confusion in the properties
+  - Resolve an issue with route-registrar using the same TTL as it's RegistrationInterval for tcp routes, leading to unnecessary churn of pruned + re-registered routes.
+  - Resolve an issue with Routing API where upserts to tcp routes were causing change events to be emitted when the only change was a bump in TTL. This led to an issue where tcp-router was constantly reloading haproxy with every route's heartbeat registration call.
+  ## Manifest Property Changes
+  | Job | Property | 0.230.0 | 0.231.0 |
+  | --- | --- | --- | --- |
+  | `gorouter` | `golang.x509ignoreCN` | false | No longer exists |
+  |  `route_registrar` | `golang.x509ignoreCN` | false | No longer exists |
+  | `tcp_router` | `golang.x509ignoreCN` | false | No longer exists |
+  ### ✨ Built with golang 1.17.8
+  **Full Changelog**: https://github.com/cloudfoundry/routing-release/compare/0.230.0...0.231.0
+          </pre>
+        </details>
+        <details>
+          <summary>0.230.0</summary>
+          <pre>
+  ## Feature
+  * update gorouter for prometheus scraping by @Benjamintf1 in https://github.com/cloudfoundry/routing-release/pull/258
+  ## Bug Fix
+  * Invalid seeded router group manifest values should no longer cause breaking changes by default by @ameowlia in https://github.com/cloudfoundry/routing-release/pull/261
+  ### ✨ Built with golang 1.17.7
+  **Full Changelog**: https://github.com/cloudfoundry/routing-release/compare/0.229.0...0.230.0
+          </pre>
+        </details>
+      </td>
+    </tr>
+    <tr><td>ruby-offline-buildpack</td><td>1.8.52</td><td></td></tr>
+    <tr><td>silk</td><td>3.3.0</td><td></td></tr>
+    <tr><td>smb-volume</td><td>3.1.0</td><td></td></tr>
+    <tr><td>smoke-tests</td><td>4.5.0</td><td></td></tr>
+    <tr><td>staticfile-offline-buildpack</td><td>1.5.29</td><td></td></tr>
+    <tr><td>statsd-injector</td><td>1.11.18</td><td></td></tr>
+    <tr><td>syslog</td><td>11.7.7</td><td></td></tr>
+    <tr><td>system-metrics-scraper</td><td>3.2.4</td><td></td></tr>
+    <tr><td>uaa</td><td>74.5.35</td><td></td></tr>
+  </tbody>
+</table>
+
+
+
 ### <a id='2.11.15'></a> 2.11.15
 
 **Release Date:** 02/28/2022
