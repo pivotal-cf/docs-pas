@@ -14,6 +14,10 @@ on the Cloud Foundry website.
 Because VMware uses the Percona Distribution for MySQL, expect a time lag between Oracle
 releasing a MySQL patch and VMware releasing TAS for VMs containing that patch.
 
+**Required Cloud Foundry Command-Line Interface (cf CLI) version**: You must install cf CLI v7 or cf CLI v8 when upgrading to or using TAS for VMs v2.13.
+
+For more information, see [Upgrading to cf CLI v7](https://docs.pivotal.io/application-service/2-13/cf-cli/v7.html) and [Upgrading to cf CLI v8](https://docs.pivotal.io/application-service/2-13/cf-cli/v8.html).
+
 <hr>
 
 ## <a id='releases'></a> Releases
@@ -44,7 +48,7 @@ releasing a MySQL patch and VMware releasing TAS for VMs containing that patch.
     <tr><td>bpm</td><td>1.1.16</td></tr>
     <tr><td>capi</td><td>1.127.0</td></tr>
     <tr><td>cf-autoscaling</td><td>248</td></tr>
-    <tr><td>cf-cli</td><td>1.38.0</td></tr>
+    <tr><td>cf-cli (v7/v8)<sup>*</sup></td><td>1.38.0</td></tr>
     <tr><td>cf-networking</td><td>3.3.0</td></tr>
     <tr><td>cflinuxfs3</td><td>0.274.0</td></tr>
     <tr><td>credhub</td><td>2.9.9</td></tr>
@@ -86,7 +90,7 @@ releasing a MySQL patch and VMware releasing TAS for VMs containing that patch.
     <tr><td>uaa</td><td>74.5.34</td></tr>
   </tbody>
 </table>
-
+<sup>*</sup> The `cf-cli` version corresponds to the commercial distribution on <%= vars.product_network %>.
 
 ## <a id='upgrade'></a> How to Upgrade
 
@@ -95,6 +99,8 @@ To upgrade to TAS for VMs v2.13, see [Configuring TAS for VMs for Upgrades](http
 When upgrading to TAS for VMs v2.13, be aware of the following upgrade considerations:
 
 * If you previously used an earlier version of TAS for VMs, you must first upgrade to TAS for VMs v2.11 to successfully upgrade to TAS for VMs v2.13.
+
+* Upgrade the cf CLI to the latest cf CLI v7 release, the latest cf CLI v8 release, or the commercial cf CLI distribution available on [VMware Tanzu Network](https://network.pivotal.io/products/elastic-runtime/).
 
 * Some partner service tiles might be incompatible with TAS for VMs v2.13.
   VMware is working with partners to ensure their tiles are updated to work with the latest versions of TAS for VMs.
