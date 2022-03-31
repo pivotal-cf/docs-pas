@@ -307,7 +307,7 @@ This change comes with the following considerations when you upgrade to TAS for 
   </tr>
   <tr>
     <td>Service instance metrics might not be retrievable using the <code>log-cache</code> cf CLI plugin.</td>
-    <td>Use V2-based <code>log-cache</code> ingress to retrieve service metrics.</td>
+    <td>Syslog ingestion is recommended. However, you can uncheck "Enable Log Cache syslog ingestion" in the **System Logging** pane to retrieve metrics from versions of service tiles that do not support this feature.</td>
   </tr>
 </table>
 
