@@ -15,6 +15,78 @@ releasing a MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> contai
 ## <a id='releases'></a> Releases
 
 <%# DO NOT DELETE THIS LINE - robots use this to add new release notes %>
+### <a id='2.7.43'></a> 2.7.43
+
+**Release Date:** 03/31/2022
+
+* **[Bug Fix]** Resolve an issue resulting in tcp-router repeatedly respawning haproxy until it hits a forked process limit
+* **[Bug Fix]** Resolves an issue where invalid seeded router group values should caused breaking changes
+* **[Bug fix]** Remove x509ignoreCN option in Gorouter
+* Bump cflinuxfs3 to version `0.279.0`
+* Bump diego to version `2.61.0`
+* Bump garden-runc to version `1.20.3`
+* Bump loggregator-agent to version `3.21.21`
+* Bump routing to version `0.231.0`
+
+<table border="1" class="nice">
+  <thead>
+    <tr>
+      <th>Component</th>
+      <th>Version</th>
+      <th>Release Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>ubuntu-xenial stemcell</td><td>456.252</td><td></td></tr>
+    <tr><td>bpm</td><td>1.1.16</td><td></td></tr>
+    <tr><td>cf-networking</td><td>2.43.0</td><td></td></tr>
+    <tr><td>cflinuxfs3</td><td>0.279.0</td><td></td></tr>
+    <tr><td>diego</td><td>2.61.0</td><td></td></tr>
+    <tr><td>garden-runc</td><td>1.20.3</td><td></td></tr>
+    <tr><td>haproxy</td><td>9.6.1</td><td></td></tr>
+    <tr><td>loggregator-agent</td><td>3.21.21</td><td></td></tr>
+    <tr><td>mapfs</td><td>1.2.4</td><td></td></tr>
+    <tr><td>nfs-volume</td><td>2.3.10</td><td></td></tr>
+    <tr><td>routing</td><td>0.231.0</td>
+      <td>
+        <details>
+          <summary>0.231.0</summary>
+          <pre>
+  ## Bug Fixes
+  - Removed the x509ignoreCN property. Now that `gorouter` is built on golang 1.17, it no longer has any effect on gorouter behavior, and was only adding to confusion in the properties
+  - Resolve an issue with route-registrar using the same TTL as it's RegistrationInterval for tcp routes, leading to unnecessary churn of pruned + re-registered routes.
+  - Resolve an issue with Routing API where upserts to tcp routes were causing change events to be emitted when the only change was a bump in TTL. This led to an issue where tcp-router was constantly reloading haproxy with every route's heartbeat registration call.
+  ## Manifest Property Changes
+  | Job | Property | 0.230.0 | 0.231.0 |
+  | --- | --- | --- | --- |
+  | `gorouter` | `golang.x509ignoreCN` | false | No longer exists |
+  |  `route_registrar` | `golang.x509ignoreCN` | false | No longer exists |
+  | `tcp_router` | `golang.x509ignoreCN` | false | No longer exists |
+  ### ✨ Built with golang 1.17.8
+  **Full Changelog**: https://github.com/cloudfoundry/routing-release/compare/0.230.0...0.231.0
+          </pre>
+        </details>
+        <details>
+          <summary>0.230.0</summary>
+          <pre>
+  ## Feature
+  * update gorouter for prometheus scraping by @Benjamintf1 in https://github.com/cloudfoundry/routing-release/pull/258
+  ## Bug Fix
+  * Invalid seeded router group manifest values should no longer cause breaking changes by default by @ameowlia in https://github.com/cloudfoundry/routing-release/pull/261
+  ### ✨ Built with golang 1.17.7
+  **Full Changelog**: https://github.com/cloudfoundry/routing-release/compare/0.229.0...0.230.0
+          </pre>
+        </details>
+      </td>
+    </tr>
+    <tr><td>silk</td><td>2.43.0</td><td></td></tr>
+    <tr><td>smb-volume</td><td>3.0.1</td><td></td></tr>
+    <tr><td>syslog</td><td>11.7.7</td><td></td></tr>
+  </tbody>
+</table>
+
+
+
 ### <a id='2.7.42'></a> 2.7.42
 
 **Release Date:** 02/28/2022
