@@ -1130,6 +1130,11 @@ This can reduce your external database logs by up to 50 percent.
 
 For more information, see [(Optional) Configure System Logging](https://docs.pivotal.io/application-service/2-12/operating/configure-pas.html#sys-logging) in _Configuring <%= vars.app_runtime_abbr %>_.
 
+### <a id='aggregate-drain-binding-cache'></a> Move aggregate drains to the syslog-binding cache to improve deploy speed and reduce errors
+
+Aggregate drains are now stored and retreived from the syslog binding cache. This means that deploys that change aggregate drains only should only deploy on the binding cache/clock vm.
+It will not deploy all vms on the system. This also removes the log-cache drain when not in use, reducing bosh error logs when syslog ingestion for log-cache is not in use.
+
 ### <a id='cli-container-image'></a>Supported cf CLI Container Images
 
 VMware supports the following container images that contain the cf CLI:
