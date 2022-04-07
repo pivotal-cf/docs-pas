@@ -32,6 +32,7 @@ releasing a MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> contai
 
 **Release Date:** 04/06/2022
 
+* **[Security Fix]** This release fixes [CVE-2022-22965](https://tanzu.vmware.com/security/cve-2022-22965); note that the "fix" in the immediately prior version did not actually address the vulnerability, as Spring framework dependencies in UAA that should have been updated, were not. We have confirmed this version actually contains the dependency bumps, and that it is no longer vulnerable to our confirmed exploit. We consider this patch necessary for secure operation; see the VMware Security Advisory [here](https://www.vmware.com/security/advisories/VMSA-2022-0010.html) for more details. This release also includes a new version of the Java Buildpack.
 * Bump java-offline-buildpack to version `4.48.2`
 * Bump uaa to version `74.5.37`
 
@@ -100,7 +101,7 @@ releasing a MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> contai
 
 **Release Date:** 03/31/2022
 
-* **[Security Fix]** This release fixes ([CVE-2022-22965](https://tanzu.vmware.com/security/cve-2022-22965)). We now consider this update necessary for secure operation, and recommend installation ASAP.
+* **[Security Fix]** This release was intended to address [CVE-2022-22965](https://tanzu.vmware.com/security/cve-2022-22965), but did not actually update the vulnerable dependencies. Upgrade to a more recent patch version instead. See the VMware Security Advisory [here](https://www.vmware.com/security/advisories/VMSA-2022-0010.html) for more details.
 * Bump uaa to version `74.5.36`
 
 <table border="1" class="nice">
