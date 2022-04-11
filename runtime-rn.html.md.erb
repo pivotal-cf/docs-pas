@@ -1201,8 +1201,11 @@ For more information, see [(Optional) Configure System Logging](https://docs.piv
 
 ### <a id='aggregate-drain-binding-cache'></a> Move aggregate drains to the syslog-binding cache to improve deploy speed and reduce errors
 
-Aggregate drains are now stored and retreived from the syslog binding cache. This means that deploys that change aggregate drains only should only deploy on the binding cache/clock vm.
-It will not deploy all vms on the system. This also removes the log-cache drain when not in use, reducing bosh error logs when syslog ingestion for log-cache is not in use.
+Aggregate drains are now stored and retrieved from the syslog binding cache.
+This means that deployments that change aggregate drains only deploy on the binding cache/clock VM.
+It does not deploy all VMs on the system.
+This also removes the log-cache drain when not in use,
+reducing BOSH error logs when syslog ingestion for log-cache is not in use.
 
 ### <a id='cli-container-image'></a>Supported cf CLI Container Images
 
