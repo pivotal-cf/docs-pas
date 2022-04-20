@@ -497,6 +497,7 @@ releasing a MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> contai
 * **[Feature Improvement]** Due to routing-release now being built with Golang 1.17, all certificates provided MUST contain SAN entries on them. The previous workaround of setting "Enable temporary workaround for certs without SANs" will no longer function.
 * **[Feature Improvement]** Per Golang 1.17's new and stricter IP parsing standards, any IP addrs with leading zeros in any octets will result in a BOSH template failure to allow operators to remove the leading zeros and try again (affects properties fed into diego-release, garden-runc-release, winc-release, nats-release, and routing-release),.
 * **[Feature Improvement]** UAA is compatible with MySQL 8
+* **[Feature Improvement]** Enable TLS for container-to-container communication. See docs [here](https://docs.pivotal.io/application-service/2-10/concepts/understand-cf-networking.html#-securing-container-to-container-traffic) for more info. Warning: this feature introduces a migration to the bbs database. Rolling back from this release will cause database issues.
 * **[Bug Fix]** Cloud Controller Worker - PruneExcessAppRevisions job is more memory efficient
 * **[Bug Fix]** Fix default metric registrar blocked tags to include 'ip' and remove 'id'
 * **[Bug Fix]** Fixes an issue related to the parsing of the X-B3-TraceId and X-B3-SpanId HTTP headers
