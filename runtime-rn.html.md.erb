@@ -2748,6 +2748,7 @@ When upgrading to <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>, be a
 
 * Some partner service tiles may be incompatible with <%= vars.platform_name %> <%= vars.v_major_version %>. Pivotal is working with partners to ensure their tiles are updated to work with the latest versions of <%= vars.platform_name %>.<br/><br/> For information about which partner service releases are currently compatible with <%= vars.platform_name %> <%= vars.v_major_version %>, review the appropriate partners services release documentation at [https://docs.pivotal.io](https://docs.pivotal.io), or contact the partner organization that produces the tile.
 
+* If using NSX-T, ensure that any firewall rules configured to restrict traffic between the `diego_brain` and app containers for App SSH are updated from port `2222` to `61002`.
 
 ## <a id='new-features'></a> New Features in <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>
 
@@ -3013,6 +3014,10 @@ If you disabled Agent-based syslog egress in PAS v2.7.7 or later, then you must 
 Agent-based syslog egress is always enabled in PAS v2.8.0.
 Agent-based syslog egress was enabled by default in PAS v2.7.0, but you could optionally disable the egress in PAS v2.7.7 and later.
 For more information, see [Agent-Based Syslog Egress Is Enabled by Default](https://docs.pivotal.io/platform/2-7/release-notes/runtime-rn.html#agent-based-syslog-egress) in the Pivotal Application Service v2.7 Release Notes.
+
+### <a id="ssh-proxy-port"></a> App SSH Container Port Change
+
+The port used on app containers during App SSH has changed from 2222 to 61002.
 
 ## <a id='known-issues'></a> Known Issues
 
