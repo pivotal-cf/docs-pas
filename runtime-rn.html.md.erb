@@ -1887,6 +1887,7 @@ See [Long-Term Support for <%= vars.app_runtime_abbr %> v2.11](#lts) below for m
   v2.11, review the appropriate partners services release documentation
   at [https://docs.pivotal.io](https://docs.pivotal.io) or contact the partner organization that produces the tile.
 
+* If upgrading from PAS 2.7.x, NSX-T app-firewall rules may need to be adjusted. App containers now use port 61002 for inbound App SSH (previously this was over port 2222).
 
 ## <a id='new-features'></a> New Features in <%= vars.app_runtime_abbr %> v2.11
 
