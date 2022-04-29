@@ -28,6 +28,8 @@ For more information, see [Upgrading to cf CLI v7](https://docs.pivotal.io/appli
 
 **Release Date:** 04/21/2022
 
+<%= partial "/pcf/tas/known-issues/icmp-dynamic-asg-note" %>
+
 * Bump capi to version `1.127.1`
 * Bump credhub to version `2.12.4`
 
@@ -156,6 +158,8 @@ For more information, see [Upgrading to cf CLI v7](https://docs.pivotal.io/appli
 <p class="note warning"><strong> Warning:</strong> This release has been removed from VMware Tanzu Network due to an issue with the version of capi release included in the patch.</p>
 
 **Release Date:** 04/20/2022
+
+<%= partial "/pcf/tas/known-issues/icmp-dynamic-asg-note" %>
 
 * **[Security Fix]** This release fixes [CVE-2022-23806](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-23806) and [CVE-2022-23772](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-23772).
 * **[Feature Improvement]** Add option to configure CC BBR health check timeout
@@ -290,6 +294,8 @@ For more information, see [Upgrading to cf CLI v7](https://docs.pivotal.io/appli
 
 **Release Date:** 04/06/2022
 
+<%= partial "/pcf/tas/known-issues/icmp-dynamic-asg-note" %>
+
 * **[Security Fix]** This release fixes [CVE-2022-22965](https://tanzu.vmware.com/security/cve-2022-22965); note that the "fix" in the immediately prior version did not actually address the vulnerability, as Spring framework dependencies in UAA that should have been updated, were not. We have confirmed this version actually contains the dependency bumps, and that it is no longer vulnerable to our confirmed exploit. We consider this patch necessary for secure operation; see the VMware Security Advisory [here](https://www.vmware.com/security/advisories/VMSA-2022-0010.html) for more details. This release also includes a new version of the Java Buildpack.
 * Bump java-offline-buildpack to version `4.48.2`
 * Bump uaa to version `74.5.37`
@@ -359,6 +365,8 @@ For more information, see [Upgrading to cf CLI v7](https://docs.pivotal.io/appli
 
 **Release Date:** 03/31/2022
 
+<%= partial "/pcf/tas/known-issues/icmp-dynamic-asg-note" %>
+
 * **[Security Fix]** This release was intended to address [CVE-2022-22965](https://tanzu.vmware.com/security/cve-2022-22965), but did not actually update the vulnerable dependencies. Upgrade to a more recent patch version instead. See the VMware Security Advisory [here](https://www.vmware.com/security/advisories/VMSA-2022-0010.html) for more details.
 * Bump uaa to version `74.5.36`
 
@@ -426,6 +434,8 @@ For more information, see [Upgrading to cf CLI v7](https://docs.pivotal.io/appli
 ### <a id='2.13.0'></a> 2.13.0
 
 **Release Date:** March 29, 2022
+
+<%= partial "/pcf/tas/known-issues/icmp-dynamic-asg-note" %>
 
 * See [New Features in TAS for VMs v2.13](#new-features).
 * See [Breaking Changes](#breaking-changes).
@@ -750,7 +760,7 @@ To upgrade to a supported cf CLI version, see one of the following:
 
 ## <a id='known-issues'></a> Known Issues
 
-TAS for VMs v2.13 includes the following known issue:
+TAS for VMs v2.13 includes the following known issues:
 
 ### <a id='upgrade-downtime'></a> Possible Downtime When Upgrading from Certain TAS for VMs Versions
 
@@ -758,3 +768,11 @@ If you are upgrading from one of the following TAS for VMs versions, you might e
 
 - TAS for VMs v2.11.15 or earlier
 - TAS for VMs v2.12.8 or earlier
+
+
+### <a id='icmp-dynamic-asgs'></a> Apps Stop Running After Deploy when Using Dynamic ASGs with ICMP Any Rules
+
+When dynamic ASGs are enabled, the vxlan policy agent is unable to clean up ASGs with ICMP any rules.
+Undocumented iptables behavior with ICMP any rules causes a cleanup failure, which causes a container creation failure, which prevents any apps from starting.
+This results in a vxlan policy agent error `iptables: Bad rule (does a matching rule exist in that chain?)` or `exit status 1: iptables: No chain/target/match by that name`.
+Read more details about this issue and how to mitigate [here](https://community.pivotal.io/s/article/Apps-stop-running-after-a-deploy-when-using-dynamic-ASGs-with-icmp-any-rule?language=en_US).
