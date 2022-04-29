@@ -775,7 +775,11 @@ If you are upgrading from one of the following TAS for VMs versions, you might e
 When dynamic ASGs are enabled, the vxlan policy agent is unable to clean up ASGs with ICMP any rules.
 Undocumented iptables behavior with ICMP any rules causes a cleanup failure,
 which causes a container creation failure, which prevents any apps from starting.
-This results in a vxlan policy agent error `iptables: Bad rule (does a matching rule exist in that chain?)`
-or `exit status 1: iptables: No chain/target/match by that name`.
+
+This results in a vxlan policy agent error:
+* `iptables: Bad rule (does a matching rule exist in that chain?)`
+or
+* `exit status 1: iptables: No chain/target/match by that name`.
+
 For more information this issue and how to mitigate it, see
 [Apps stop running after a deploy when using dynamic ASGs with icmp any rule](https://community.pivotal.io/s/article/Apps-stop-running-after-a-deploy-when-using-dynamic-ASGs-with-icmp-any-rule?language=en_US") in the Knowledge Base.
