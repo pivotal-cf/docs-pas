@@ -777,8 +777,11 @@ Undocumented iptables behavior with ICMP any rules causes a cleanup failure,
 which causes a container creation failure, which prevents any apps from starting.
 
 This results in a vxlan policy agent error:
+
 * `iptables: Bad rule (does a matching rule exist in that chain?)`
+
 or
+
 * `exit status 1: iptables: No chain/target/match by that name`.
 
 For more information this issue and how to mitigate it, see
