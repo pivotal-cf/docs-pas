@@ -660,14 +660,19 @@ This Ops Manager feature is compatible with installations of TAS for VMs v2.13.0
 
 For more information, see [Enable IMDSv2 in Ops Manager](https://docs.pivotal.io/ops-manager/2-10/security/security-adjacent/security-guidelines-iaas.html#aws-imds-v2) in the Ops Manager documentation.
 
-### <a id='tls-c2c'></a> Enable One-Way TLS for Container-to-Container Communication
+### <a id='tls-c2c'></a> One-Way TLS for Container-to-Container Communication
 
-In TAS for VMs v2.13.0, developers can enable TLS for communication between app containers. <%# how? %>
+In TAS for VMs v2.13.0, developers can utilize TLS for communication between app containers.
 
-When you enable this feature, TLS is terminated at Envoy.
+Client applications can now send HTTPS requests to port 61443 of the destination application. In that case TLS is terminated at Envoy.
 Developers can continue to serve HTTP traffic on port 8080, and Envoy listens on port 61443 with a TLS certificate with a SAN that includes app internal routes.
 Envoy proxies this port to port 8080 inside the container.
 When a new route is mapped to the app, the certificate is updated without requiring an app restart.
+Network policy should be added to allow container-to-container communication over port 61443:
+
+```
+cf add-network-policy source-app-name --destination-app destination-app-name --protocol tcp --port 61443
+```
 
 Warning: this feature introduces a migration to the bbs database. Rolling back from this release will cause database issues.
 
