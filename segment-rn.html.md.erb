@@ -18,6 +18,7 @@ releasing a MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> contai
 
 **Release Date:** 04/20/2022
 
+* **[Breaking Change]** Syslog drains configured to use TLS now [reject certificates signed with the SHA-1 hash function](https://go.dev/doc/go1.18#sha1).
 * Bump cflinuxfs3 to version `0.285.0`
 * Bump diego to version `2.62.0`
 * Bump loggregator-agent to version `6.3.11`
