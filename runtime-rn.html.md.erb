@@ -33,6 +33,7 @@ For more information, see [Upgrading to cf CLI v7](../cf-cli/v7.html).
 * **[Feature Improvement]** Add option to configure CC BBR health check timeout
 * **[Feature Improvement]** Enforce service name uniqueness in shared services in spaces
 * **[Bug Fix]** Service offerings now appear to users in orgs/spaces with the appropriate service access
+* **[Breaking Change]** Syslog drains configured to use TLS now [reject certificates signed with the SHA-1 hash function](https://go.dev/doc/go1.18#sha1).
 * Bump backup-and-restore-sdk to version `1.18.39`
 * Bump binary-offline-buildpack to version `1.0.43`
 * Bump capi to version `1.109.9`
