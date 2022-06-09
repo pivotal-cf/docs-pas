@@ -31,6 +31,7 @@ releasing a MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> contai
 * **[Bug Fix]** Fix metric registrar secure scraping with isolation segments
 * **[Bug Fix]** Resolves [an issue with Dynamic ASGs](https://community.pivotal.io/s/article/Apps-stop-running-after-a-deploy-when-using-dynamic-ASGs-with-icmp-any-rule) and ASG containing 'ICMP any' rules causing apps not to start
 * **[Bug Fix]** Sticky sessions no longer break when used with route-services that return HTTP 4xx/5xx responses
+* **[Breaking Change]** Syslog drains configured to use TLS now [reject certificates signed with the SHA-1 hash function](https://go.dev/doc/go1.18#sha1).
 * Bump bpm to version `1.1.18`
 * Bump cf-networking to version `3.6.0`
 * Bump cflinuxfs3 to version `0.301.0`
