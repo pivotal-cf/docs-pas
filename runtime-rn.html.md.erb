@@ -32,7 +32,7 @@ releasing a MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> contai
 
 **Release Date:** 06/23/2022
 
-<p class="note warning"><strong> Warning: Upcoming reduction in maintenance and security release coverage!</strong> In future patches, no sooner than July 1st 2022, some TAS components will become more strict about the protocols used in TLS communications, causing integrations with systems using older, insecure protocols to fail. Specifically, components built using the Go programming language will no longer support TLS 1.0 or 1.1, or certificates using SHA-1. In order to avoid breaking changes in this version line, (which has reached its End of General Support,) these components will no longer be updated with bug and security fixes in any patches that may be released. To continue receiving maintenance and security releases, upgrade to a version of TAS that remains in general support.</p>
+<p class="note warning"><strong style="text-transform: none">Warning: Upcoming reduction in maintenance and security release coverage</strong><br> In future patches, no sooner than July 1st 2022, some TAS components will become more strict about the protocols used in TLS communications, causing integrations with systems using older, insecure protocols to fail. Specifically, components that use Go will no longer support TLS 1.0 or 1.1, or certificates using SHA-1. Use supported TLS protocols to avoid breaking changes and continue receiving maintenance and security releases.</p>
 
 * Bump diego to version `2.62.0`
 
@@ -101,7 +101,8 @@ releasing a MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> contai
 ### <a id='2.7.50'></a> 2.7.50
 
 **Release Date:** 06/09/2022
-<p class="note warning"><strong> Warning: Breaking change.</strong> This version contains Diego 2.64.0, which bumps to Go 1.18. Go 1.18 no longer supports TLS 1.0 and 1.1 connections or certificates with a SHA-1 checksum. This is most likely to affect connections with external databases. We stated earlier that we wouldn't bump to Go 1.18 until July 1, 2022. This TAS release with Diego 2.64.0 breaks that promise. We apologize. We are rolling back to Diego 2.62.0.  If you already successfully deployed to this TAS release with Diego 2.64.0, then you are safe to continue using it.</p>
+<p class="note warning"><strong style="text-transform: none;">Warning: Breaking change</strong><br>
+This version contains Diego 2.64.0, which bumps to Go 1.18. Go 1.18 no longer supports TLS 1.0 and 1.1 connections or certificates with a SHA-1 checksum. This is most likely to affect connections with external databases. We stated earlier that we wouldn't bump to Go 1.18 until July 1, 2022. This TAS release with Diego 2.64.0 breaks that promise. We apologize. We are rolling back to Diego 2.62.0.  If you already successfully deployed to this TAS release with Diego 2.64.0, then you are safe to continue using it.</p>
 
 
 * **[Security Fix]** Added Content-Security-Policy headers in UAA responses
