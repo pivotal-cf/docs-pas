@@ -107,6 +107,7 @@ This version contains Diego 2.64.0, which bumps to Go 1.18. Go 1.18 no longer su
 * **[Bug Fix]** Resolves [an issue with Dynamic ASGs](https://community.pivotal.io/s/article/Apps-stop-running-after-a-deploy-when-using-dynamic-ASGs-with-icmp-any-rule) and ASG containing 'ICMP any' rules causing apps not to start
 * **[Bug Fix]** Sticky sessions no longer break when used with route-services that return HTTP 4xx/5xx responses
 * **[Breaking Change]** Syslog drains configured to use TLS now [reject certificates signed with the SHA-1 hash function](https://go.dev/doc/go1.18#sha1).
+* **[Breaking Change]** App Autoscaler: customers who followed the instructions in [this knowledge base article](https://community.pivotal.io/s/article/Autoscale-application-errors-with-MySQL-Deadlock) to manually add a database index will experience an error on upgrade if the index is not dropped prior to upgrading.
 * **[Bug Fix/Improvement]** Stop emitting debug metrics for agents and log-cache by default. Reduces load on logging system by >=720 metrics per vm per minute
 * Bump backup-and-restore-sdk to version `1.18.42`
 * Bump binary-offline-buildpack to version `1.0.45`
