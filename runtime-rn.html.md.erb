@@ -105,6 +105,7 @@ This version contains Diego 2.64.0, which bumps to Go 1.18. Go 1.18 no longer su
 * **[Bug Fix]** Fix metric registrar secure scraping with isolation segments
 * **[Bug Fix]** Sticky sessions no longer break when used with route-services that return HTTP 4xx/5xx responses
 * **[Bug Fix/Improvement]** Stop emitting debug metrics for agents and log-cache by default. Reduces load on logging system by >=720 metrics per vm per minute
+* **[Breaking Change]** If you followed the procedure in [Autoscale application fails with MySQL Deadlock errors](https://community.pivotal.io/s/article/Autoscale-application-errors-with-MySQL-Deadlock) to manually add an index to an Autoscale database, and the index is not dropped before you upgrade to TAS for VMs v2.12.13, upgrading causes an error.
 * Bump backup-and-restore-sdk to version `1.18.42`
 * Bump binary-offline-buildpack to version `1.0.45`
 * Bump bosh-system-metrics-forwarder to version `0.0.22`
