@@ -28,6 +28,138 @@ releasing a MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> contai
 
 <%# DO NOT DELETE THIS LINE - robots use this to add new release notes %>
 
+### <a id='2.10.34'></a> 2.10.34
+
+**Release Date:** 07/18/2022
+
+* **[Feature Improvement]** Deprecate Spring Cloud Connectors & Spring Auto Configuration support in Java Buildpack.
+* Bump backup-and-restore-sdk to version `1.18.46`
+* Bump cf-autoscaling to version `249.0.13`
+* Bump cf-networking to version `3.9.0`
+* Bump cflinuxfs3 to version `0.309.0`
+* Bump credhub to version `2.12.6`
+* Bump diego to version `2.62.0`
+* Bump dotnet-core-offline-buildpack to version `2.3.43`
+* Bump go-offline-buildpack to version `1.9.47`
+* Bump nginx-offline-buildpack to version `1.1.39`
+* Bump php-offline-buildpack to version `4.4.63`
+* Bump pxc to version `0.43.0`
+* Bump python-offline-buildpack to version `1.7.55`
+* Bump r-offline-buildpack to version `1.1.30`
+* Bump routing to version `0.235.0`
+* Bump ruby-offline-buildpack to version `1.8.55`
+* Bump silk to version `3.9.0`
+* Bump staticfile-offline-buildpack to version `1.5.31`
+* Bump syslog to version `12.0.1`
+* Bump uaa to version `74.5.45`
+
+<table border="1" class="nice">
+  <thead>
+    <tr>
+      <th>Component</th>
+      <th>Version</th>
+      <th>Release Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>ubuntu-xenial stemcell</td><td>621.252</td><td></td></tr>
+    <tr><td>backup-and-restore-sdk</td><td>1.18.46</td><td></td></tr>
+    <tr><td>binary-offline-buildpack</td><td>1.0.45</td><td></td></tr>
+    <tr><td>bosh-dns-aliases</td><td>0.0.3</td><td></td></tr>
+    <tr><td>bosh-system-metrics-forwarder</td><td>0.0.22</td><td></td></tr>
+    <tr><td>bpm</td><td>1.1.18</td><td></td></tr>
+    <tr><td>capi</td><td>1.95.13</td><td></td></tr>
+    <tr><td>cf-autoscaling</td><td>249.0.13</td><td></td></tr>
+    <tr><td>cf-cli</td><td>1.32.0</td><td></td></tr>
+    <tr><td>cf-networking</td><td>3.9.0</td><td></td></tr>
+    <tr><td>cflinuxfs3</td><td>0.309.0</td><td></td></tr>
+    <tr><td>credhub</td><td>2.12.6</td>
+      <td>
+        <details>
+          <summary>2.12.6</summary>
+          <pre style="max-width: 30em">
+  ### Security Fixes
+  - Bump various dependencies
+          </pre>
+        </details>
+        <details>
+          <summary>2.12.5</summary>
+          <pre style="max-width: 30em">
+  ### Security Fixes
+  - Bump various dependencies
+  ### Bug Fixes
+  - Fix for URL path handling on Windows ([cloudfoundry/credhub issue 266](https://github.com/cloudfoundry/credhub/issues/266))
+  ### Features
+  - CredHub now logs as info instead of error when a credential isn't found
+  - Added support for jammy-based stemcells that have openssl 3 ([pivotal/credhub-release issue 65](https://github.com/pivotal/credhub-release/issues/65))
+          </pre>
+        </details>
+      </td>
+    </tr>
+    <tr><td>diego</td><td>2.62.0</td><td></td></tr>
+    <tr><td>dotnet-core-offline-buildpack</td><td>2.3.43</td><td></td></tr>
+    <tr><td>garden-runc</td><td>1.20.6</td><td></td></tr>
+    <tr><td>go-offline-buildpack</td><td>1.9.47</td><td></td></tr>
+    <tr><td>haproxy</td><td>9.8.0</td><td></td></tr>
+    <tr><td>istio</td><td>1.3.0</td><td></td></tr>
+    <tr><td>java-offline-buildpack</td><td>4.49</td><td></td></tr>
+    <tr><td>log-cache</td><td>2.8.6</td><td></td></tr>
+    <tr><td>loggregator</td><td>106.3.16</td><td></td></tr>
+    <tr><td>loggregator-agent</td><td>6.0.10</td><td></td></tr>
+    <tr><td>mapfs</td><td>1.2.4</td><td></td></tr>
+    <tr><td>metric-registrar</td><td>1.1.13</td><td></td></tr>
+    <tr><td>metrics-discovery</td><td>3.0.13</td><td></td></tr>
+    <tr><td>mysql-monitoring</td><td>9.12.0</td><td></td></tr>
+    <tr><td>nats</td><td>42</td><td></td></tr>
+    <tr><td>nfs-volume</td><td>7.0.4</td><td></td></tr>
+    <tr><td>nginx-offline-buildpack</td><td>1.1.39</td><td></td></tr>
+    <tr><td>nodejs-offline-buildpack</td><td>1.7.70</td><td></td></tr>
+    <tr><td>notifications</td><td>62</td><td></td></tr>
+    <tr><td>notifications-ui</td><td>40</td><td></td></tr>
+    <tr><td>php-offline-buildpack</td><td>4.4.63</td><td></td></tr>
+    <tr><td>push-apps-manager-release</td><td>673.0.6</td><td></td></tr>
+    <tr><td>push-usage-service-release</td><td>673.0.27</td><td></td></tr>
+    <tr><td>pxc</td><td>0.43.0</td><td></td></tr>
+    <tr><td>python-offline-buildpack</td><td>1.7.55</td><td></td></tr>
+    <tr><td>r-offline-buildpack</td><td>1.1.30</td><td></td></tr>
+    <tr><td>routing</td><td>0.235.0</td>
+      <td>
+        <details>
+          <summary>0.235.0</summary>
+          <pre style="max-width: 30em">
+  ## What's Changed
+  * Gorouter healthchecker retries connection instead of monit (https://github.com/cloudfoundry/routing-release/pull/275)
+  ## ✨  Built with go 1.17.11
+  **Full Changelog**: https://github.com/cloudfoundry/routing-release/compare/0.234.0...0.235.0
+          </pre>
+        </details>
+        <details>
+          <summary>0.234.0</summary>
+          <pre style="max-width: 30em">
+  ## What's Changed
+  * Gorouter: the metrics package now uses `lsof` to monitor file descriptors on MacOS @domdom82 https://github.com/cloudfoundry/gorouter/pull/312
+  * 🐛 Bumped the `lager` dependency to resolve issues where the timeFormat flag was not honored, resulting in epoch timestamps vs human readable. Thanks @ameowlia!
+  * Now tested with the bionic stemcell in CI
+  ## ✨  Built with go 1.17.11
+  **Full Changelog**: https://github.com/cloudfoundry/routing-release/compare/0.233.0...0.234.0
+          </pre>
+        </details>
+      </td>
+    </tr>
+    <tr><td>ruby-offline-buildpack</td><td>1.8.55</td><td></td></tr>
+    <tr><td>silk</td><td>3.9.0</td><td></td></tr>
+    <tr><td>smb-volume</td><td>3.0.1</td><td></td></tr>
+    <tr><td>smoke-tests</td><td>4.5.0</td><td></td></tr>
+    <tr><td>staticfile-offline-buildpack</td><td>1.5.31</td><td></td></tr>
+    <tr><td>statsd-injector</td><td>1.11.19</td><td></td></tr>
+    <tr><td>syslog</td><td>12.0.1</td><td></td></tr>
+    <tr><td>system-metrics-scraper</td><td>2.0.16</td><td></td></tr>
+    <tr><td>uaa</td><td>74.5.45</td><td></td></tr>
+  </tbody>
+</table>
+
+
+
 ### <a id='2.10.33'></a> 2.10.33
 
 **Release Date:** 06/23/2022
