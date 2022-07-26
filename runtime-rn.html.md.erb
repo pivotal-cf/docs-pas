@@ -205,9 +205,6 @@ For more information, see [Upgrading to cf CLI v7](../cf-cli/v7.html) and [Upgra
 ### <a id='2.12.13'></a> 2.12.13
 
 **Release Date:** 06/09/2022
-<p class="note warning"><strong style="text-transform: none;">Warning: Breaking change</strong><br>
-This version contains Diego 2.64.0, which bumps to Go 1.18. Go 1.18 no longer supports TLS 1.0 and 1.1 connections or certificates with a SHA-1 checksum. This is most likely to affect connections with external databases. We stated earlier that we wouldn't bump to Go 1.18 until July 1, 2022. This TAS release with Diego 2.64.0 breaks that promise. We apologize. We are rolling back to Diego 2.62.0.  If you already successfully deployed to this TAS release with Diego 2.64.0, then you are safe to continue using it.</p>
-
 
 * **[Security Fix]** Added Content-Security-Policy headers in UAA responses
 * **[Bug Fix]** Fix metric registrar secure scraping with isolation segments
