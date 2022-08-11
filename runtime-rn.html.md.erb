@@ -924,6 +924,11 @@ releasing a MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> contai
 
 <%= vars.app_runtime_abbr %> <%= vars.v_major_version %> includes the following breaking changes:
 
+### <a id='custum-iptables'></a> Custom IpTables Rules requires `iptables-legacy`
+
+On ubuntu jammy, `iptables-legacy` lives alongside `iptables` (`nfttables`). Custom rules that a user sets on diego-cells using the `iptables` command might be ignored on jammy. 
+We are not yet able to migrate to `iptables` (`nftables`) in order to support xenial and bionic. If users have custom rules, they should set them with `iptables-legacy` until we are able to migrate.
+
 ### <a id='system-metrics'></a> System Metrics Changes
 
 Support for the deprecated BOSH System Metrics Server has been removed. System metrics with the prefix 'system.' are no longer emitted.
