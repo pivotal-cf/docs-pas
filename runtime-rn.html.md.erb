@@ -195,9 +195,9 @@ For more information, see [Upgrading to cf CLI v7](../cf-cli/v7.html) and [Upgra
 * **[Bug Fix]** Fix share domain with organization screen from erroring out
 * **[Bug Fix]** Resolves an issue with HAProxy log rotation creating null bytes and not freeing disk space after rotation
 * **[Bug Fix]** Use Content-Disposition header as heapdump filename
-* **[Bug Fix]** Autoscaler now allows specifying rabbitmq instance for rabbitmq rules. If specified, autoscaler will only request metrics for the instance specified.
-* **[Bug Fix]** Fix Autoscaler migration to correctly handle manually created service bindings index
-* **[Bug Fix]** Fix Autoscaler edgecase when using http_throughput rules with scaling factor larger then 1
+* **[Bug Fix]** When using the RabbitMQ metric in an Autoscaler rule, user now can specify a RabbitMQ service instance. If a service instance is specified, Autoscaler will only request metrics for that service instance.
+* **[Bug Fix]** Fix Autoscaler migration to correctly handle manually created service bindings index.
+* **[Bug Fix]** Fix Autoscaler edge case when using `http_throughput` rules with scaling factor larger than 1.
 * Bump backup-and-restore-sdk to version `1.18.43`
 * Bump cf-autoscaling to version `249.0.13`
 * Bump cf-cli to version `1.38.0`
