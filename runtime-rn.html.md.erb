@@ -924,10 +924,16 @@ releasing a MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> contai
 
 <%= vars.app_runtime_abbr %> <%= vars.v_major_version %> includes the following breaking changes:
 
-### <a id='custum-iptables'></a> Custom IpTables Rules requires `iptables-legacy`
+### <a id='custum-iptables'></a> Custom IpTables Rules requires `/sbin/iptables` for porper viewing.
 
-On ubuntu jammy, `iptables-legacy` lives alongside `iptables` (`nfttables`). Custom rules that a user sets on diego-cells using the `iptables` command might be ignored on jammy. 
-We are not yet able to migrate to `iptables` (`nftables`) in order to support xenial and bionic. If users have custom rules, they should set them with `iptables-legacy` until we are able to migrate.
+On ubuntu jammy, `iptables` is now powered by  (`nftables`). Custom rules that a user sets on diego-cells
+using the `/var/vcap/packages/iptables/sbin/iptables*` binaries won't show up when running `iptables -L`.
+
+To resolve this, either update the mechanism setting the custom rules to use `/sbin/iptables*`, or use
+either `iptable-legacy` or `/var/vcap/packages/iptable/sbin/iptables*` to view the rules.
+
+Regardless of how rules are set, they should still take effect. This change only affects the ease of
+viewing all rules in the same place.
 
 ### <a id='system-metrics'></a> System Metrics Changes
 
