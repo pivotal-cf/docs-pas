@@ -779,7 +779,7 @@ releasing a MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> contai
 
 * **[Feature]** Allows operators to enable Dynamic ASG updates, so that apps can inherit new and updated ASGs without requiring a restart
 * **[Feature]** AppsManager - Ability to update destination protocol
-* **[Feature Improvement]** AppsManager - CfCli installers now can be downloaded in airgapped envs 
+* **[Feature Improvement]** AppsManager - CfCli installers now can be downloaded in airgapped envs
 * **[Feature Improvement]** Log cache split out into different instance group
 * **[Bug Fix]** Assign cloud_controller.read and cloud_controller.write scopes to service brokers created using CF CLI v8
 * **[Bug fix]** Remove x509ignoreCN option in Gorouter
@@ -924,10 +924,10 @@ releasing a MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> contai
 
 <%= vars.app_runtime_abbr %> <%= vars.v_major_version %> includes the following breaking changes:
 
-### <a id='custum-iptables'></a> Custom IpTables Rules requires `/sbin/iptables` for porper viewing.
+### <a id='custom-iptables'></a> Custom IpTables Rules Require `/sbin/iptables` for Proper Viewing.
 
 On ubuntu jammy, `iptables` is now powered by  (`nftables`). Custom rules that a user sets on diego-cells
-using the `/var/vcap/packages/iptables/sbin/iptables*` binaries won't show up when running `iptables -L`.
+using the `/var/vcap/packages/iptables/sbin/iptables*` binaries will not show up when running `iptables -L`.
 
 To resolve this, either update the mechanism setting the custom rules to use `/sbin/iptables*`, or use
 either `iptable-legacy` or `/var/vcap/packages/iptable/sbin/iptables*` to view the rules.
