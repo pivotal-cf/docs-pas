@@ -147,9 +147,10 @@ For more information, see [Upgrading to cf CLI v7](https://docs.pivotal.io/appli
 * **[Bug Fix]** Fix share domain with organization screen from erroring out
 * **[Bug Fix]** Resolves an issue with HAProxy log rotation creating null bytes and not freeing disk space after rotation
 * **[Bug Fix]** Use Content-Disposition header as heapdump filename
-* **[Bug Fix]** When using the RabbitMQ metric in an Autoscaler rule, user now can specify a RabbitMQ service instance. If a service instance is specified, Autoscaler will only request metrics from that service instance.
-* **[Bug Fix]** Fix Autoscaler migration to correctly handle manually created service bindings index.
-* **[Bug Fix]** Fix Autoscaler edge case when using `http_throughput` rules with scaling factor larger than 1.
+* **[Bug Fix]** When Autoscaler is configured to use the **RabbitMQ Queue Depth** scaling metric in an autoscaling rule, you can specify a RabbitMQ service
+instance. If you specify a service instance, Autoscaler only requests metrics from that service instance.
+* **[Bug Fix]** Autoscaler migration correctly handles manually-created service bindings index.
+* **[Bug Fix]** Fixes Autoscaler edge case when using `http_throughput` rules with scaling factor larger than `1`.
 * Bump backup-and-restore-sdk to version `1.18.46`
 * Bump cf-autoscaling to version `249.0.13`
 * Bump cf-networking to version `3.9.0`
