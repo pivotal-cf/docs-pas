@@ -1015,6 +1015,11 @@ Operators should change any alerting or dashboards to use the replacement metric
 
 The source_id for the supported metrics is `system_metrics_agent` instead of the deprecated `bosh-system-metrics-forwarder`. Any queries which reference the old source_id must be updated.
 
+### <a id='line-based-log-rate-limiting'></a> Change of Behavior for Line Based Log Rate Limiting
+
+The beta feature for a global line-based log rate limit has been deprecated in favor of the new byte-based log rate limit, and will be removed in a future release.
+If still using the line-based limit, please note the behavior has been changed. Previously, logs were buffered and released at the allowed rate. Now, logs exceeding the limit will be dropped immediately.
+
 ## <a id='known-issues'></a> Known Issues
 
 <%= vars.app_runtime_abbr %> <%= vars.v_major_version %> includes the following known issues:

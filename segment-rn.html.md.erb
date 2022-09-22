@@ -496,6 +496,12 @@ Isolation Segment <%= vars.v_major_version %> includes the following major featu
 
 Isolation Segment <%= vars.v_major_version %> includes the following breaking changes:
 
+### <a id='line-based-log-rate-limiting'></a> Change of Behavior for Line Based Log Rate Limiting
+
+The beta feature for a global line-based log rate limit has been deprecated in favor of the new byte-based log rate limit, and will be removed in a future release.
+If still using the line-based limit, please note the behavior has been changed. Previously, logs were buffered and released at the allowed rate. Now, logs exceeding the limit will be dropped immediately.
+
+
 ## <a id='known-issues'></a> Known Issues
 
 Isolation Segment <%= vars.v_major_version %> includes the following known issues:
