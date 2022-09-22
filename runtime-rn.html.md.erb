@@ -35,6 +35,7 @@ For more information, see [Upgrading to cf CLI v7](../cf-cli/v7.html).
 * **[Feature]** Enables TLS for all internal MySQL galera and monitoring components
 * **[Feature Improvement]** Bump golang to 1.18.2+ for diego, garden-runc, mapfs, mysql-monitoring, cf-networking, and silk
 * **[Feature Improvement]** Use the latest version of nats-release (built on golang 1.18.5)
+* **[Breaking Change]** A change in behavior to line-based log rate limits has been made. Previously, logs were buffered and released at the allowed rate, now logs exceeding the limit will be dropped.
 * Bump backup-and-restore-sdk to version `1.18.50`
 * Bump bosh-system-metrics-forwarder to version `0.0.24`
 * Bump bpm to version `1.1.19`
