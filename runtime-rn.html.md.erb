@@ -9,12 +9,11 @@ This topic contains release notes for <%= vars.app_runtime_first %> <%= vars.v_m
 
 <%= vars.app_runtime_abbr %> is certified by the Cloud Foundry Foundation for <%= Date.today.year %>.
 
-For more information about the Cloud Foundry Certified Provider Program, see
-[How Do I Become a Certified Provider?](https://www.cloudfoundry.org/certified-platforms-how-to/)
-on the Cloud Foundry website.
+For more information about the Cloud Foundry Certified Provider Program, see [How Do I Become a Certified
+Provider?](https://www.cloudfoundry.org/certified-platforms-how-to/) on the Cloud Foundry website.
 
-Because VMware uses the Percona Distribution for MySQL, expect a time lag between Oracle
-releasing a MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> containing that patch.
+Because VMware uses the Percona Distribution for MySQL, expect a time lag between Oracle releasing a MySQL patch and VMware releasing
+<%= vars.app_runtime_abbr %> containing that patch.
 
 <hr>
 
@@ -986,6 +985,7 @@ releasing a MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> contai
 
 <%= vars.app_runtime_abbr %> <%= vars.v_major_version %> includes the following major features:
 
+
 ## <a id='breaking-changes'></a> Breaking Changes
 
 <%= vars.app_runtime_abbr %> <%= vars.v_major_version %> includes the following breaking changes:
@@ -1015,10 +1015,19 @@ Operators should change any alerting or dashboards to use the replacement metric
 
 The source_id for the supported metrics is `system_metrics_agent` instead of the deprecated `bosh-system-metrics-forwarder`. Any queries which reference the old source_id must be updated.
 
-### <a id='line-based-log-rate-limiting'></a> Change of Behavior for Line Based Log Rate Limiting
+### <a id='global-log-rate-limit'></a> Global Log Rate Limit is Deprecated
 
-The beta feature for a global line-based log rate limit has been deprecated in favor of the new byte-based log rate limit, and will be removed in a future release.
-If still using the line-based limit, please note the behavior has been changed. Previously, logs were buffered and released at the allowed rate. Now, logs exceeding the limit will be dropped immediately.
+The global log rate limit that measures app log rates in lines per second is deprecated in favor of per-app log rate limits that measure app log rates in
+bytes per second.
+
+If you have configured a global log rate limit in lines per second, <%= vars.company_name %> recommends that you re-configure your apps to use log rate limits
+in bytes per second.
+
+If you still want to use the global log rate limit, logs that exceed the log rate limit are immediately dropped. Previously, logs that exceeded the log rate
+limit were buffered and released at the configured log rate.
+
+For more information about app log rate limits, see [App Log Rate Limiting](../loggregator/app-log-rate-limits.html).
+
 
 ## <a id='known-issues'></a> Known Issues
 
