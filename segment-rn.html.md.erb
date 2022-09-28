@@ -19,7 +19,8 @@ releasing a MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> contai
 **Release Date:** 09/20/2022
 
 * **[Feature Improvement]** Bump golang to 1.18 for diego, routing, cf-networking, and silk
-* **[Breaking Change]** A change in behavior to line-based log rate limits has been made. Previously, logs were buffered and released at the allowed rate, now logs exceeding the limit will be dropped.
+* **[Breaking Change]** The global log rate limit that measures app log rates in lines per second is deprecated in favor of per-app log rate limits that
+measure app log rates in bytes per second. For more information, see [Global Log Rate Limit is Deprecated](#global-log-rate-limit) below.
 * Bump bpm to version `1.1.19`
 * Bump cf-networking to version `3.12.0`
 * Bump cflinuxfs3 to version `0.319.0`
@@ -1087,6 +1088,8 @@ For more information, see [Configure Networking](../../operating/installing-pcf-
 
 ## <a id='breaking-changes'></a> Breaking Changes
 
+<%= vars.segment_runtime_full %> <%= vars.v_major_version %> includes the following breaking changes:
+
 ### <a id='disable-ssl-certificate-verification-removed'></a> Option Removed: Disable SSL Certificate Verification for this Environment
 
 In <%= vars.segment_runtime_full %> v2.11.0 and later, the option to disable SSL certificate verification for an environment is removed.
@@ -1103,6 +1106,19 @@ verification for this environment" under "Networking"
 </pre>
 
 If you plan to automate the installation of <%= vars.segment_runtime_full %> v2.11, you must remove references to the corresponding property `.properties.skip_cert_verify`.
+
+### <a id='global-log-rate-limit'></a> Global Log Rate Limit is Deprecated
+
+The global log rate limit that measures app log rates in lines per second is deprecated in favor of per-app log rate limits that measure app log rates in
+bytes per second.
+
+If you have configured a global log rate limit in lines per second, <%= vars.company_name %> recommends that you re-configure your apps to use log rate limits
+in bytes per second.
+
+If you still want to use the global log rate limit, logs that exceed the log rate limit are immediately dropped. Previously, logs that exceeded the log rate
+limit were buffered and released at the configured log rate.
+
+For more information about app log rate limits, see [App Log Rate Limiting](../loggregator/app-log-rate-limits.html).
 
 ### <a id='transfer-encoding-stricter'></a> Gorouter Update to Golang v1.15 Introduces Stricter Transfer-Encoding Header Standards in <%= vars.segment_runtime_full %> v2.11.0 and Later
 

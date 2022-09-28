@@ -30,12 +30,13 @@ For more information, see [Upgrading to cf CLI v7](../cf-cli/v7.html).
 
 **Release Date:** 09/20/2022
 
-* **[Security Fix]** Bump Cloud Controller Ruby version to 2.7.6 and Go to 1.18.5 
+* **[Security Fix]** Bump Cloud Controller Ruby version to 2.7.6 and Go to 1.18.5
 * **[Security Fix]** Bump golang to 1.17.12 in routing release
 * **[Feature]** Enables TLS for all internal MySQL galera and monitoring components
 * **[Feature Improvement]** Bump golang to 1.18.2+ for diego, garden-runc, mapfs, mysql-monitoring, cf-networking, and silk
 * **[Feature Improvement]** Use the latest version of nats-release (built on golang 1.18.5)
-* **[Breaking Change]** A change in behavior to line-based log rate limits has been made. Previously, logs were buffered and released at the allowed rate, now logs exceeding the limit will be dropped.
+* **[Breaking Change]** The global log rate limit that measures app log rates in lines per second is deprecated in favor of per-app log rate limits that
+measure app log rates in bytes per second. For more information, see [Global Log Rate Limit is Deprecated](#global-log-rate-limit) below.
 * Bump backup-and-restore-sdk to version `1.18.50`
 * Bump bosh-system-metrics-forwarder to version `0.0.24`
 * Bump bpm to version `1.1.19`
@@ -2761,6 +2762,19 @@ verification for this environment" under "Networking"
 </pre>
 
 If you plan to automate the installation of <%= vars.app_runtime_abbr %> v2.11, you must remove references to the corresponding property `.ha_proxy.skip_cert_verify`.
+
+### <a id='global-log-rate-limit'></a> Global Log Rate Limit is Deprecated
+
+The global log rate limit that measures app log rates in lines per second is deprecated in favor of per-app log rate limits that measure app log rates in
+bytes per second.
+
+If you have configured a global log rate limit in lines per second, <%= vars.company_name %> recommends that you re-configure your apps to use log rate limits
+in bytes per second.
+
+If you still want to use the global log rate limit, logs that exceed the log rate limit are immediately dropped. Previously, logs that exceeded the log rate
+limit were buffered and released at the configured log rate.
+
+For more information about app log rate limits, see [App Log Rate Limiting](../loggregator/app-log-rate-limits.html).
 
 ### <a id='transfer-encoding-stricter'></a> Gorouter Update to Golang v1.15 Introduces Stricter Transfer-Encoding Header Standards in <%= vars.app_runtime_abbr %> v2.11.0 and Later
 
