@@ -976,7 +976,57 @@ Because VMware uses the Percona Distribution for MySQL, expect a time lag betwee
 
 <%= vars.app_runtime_abbr %> <%= vars.v_major_version %> includes the following breaking changes:
 
-### <a id='custom-iptables'></a> Viewing Custom iptables Rules Requires /sbin/iptables
+### <a id='opsver'></a> Switch to Operational Versioning and new Lifecycle Policy
+
+#### Operational Versioning
+
+TAS 3.0 is the first TAS version to increment the Major Version Line in several years,
+but it won't be the last.
+As of 3.0, TAS is using a new versioining schema we're calling "Operational Versioning" or "opsver."
+
+The version number format will remain semver 2.0 parseable,
+but there are some differeces in meaning from Semantic Versioning.
+
+The very short version is that our twice-a-year TAS releases will be be new Major Version Lines;
+the basic content and character of these releases will be as it has been: roadmap features,
+significant improvements, and deprecations and removals as technology evolves.
+
+Patch versions are intended to be safe for automatic, uncritical consumption,
+containing no changes that would disrupt or concern an operator of the platform.
+Patches will be rapidly replaced in any cases where we discover we have not met this standard.
+
+We hope to avoid Minor Version lines as much as possible in the future,
+but will use them if necessary to denote necessary but disruptive changes within a Major Version Line.
+
+#### New TAS Lifecycle Policy
+TAS's new lifecycle policy gurantees support durations in terms of overlap with subsequent Version Lines.
+Major Version Lines, such as this one, must overlap in support with general availability of the subsequent Major Version Line
+for at least six months.
+
+Long Term Support Track (LTS-T) Major Version Lines must further overlap
+with the subsequent LTS-T Major Version Line for a full year.
+LTS-T status is indicated in the version number by `+LTS-T` metadata at the end of the version number.
+
+#### TAS Release and Upgrade Policies
+
+TAS 3.0 is not an LTS-T release, but 2.13 has retroactively been designated LTS-T retroactively,
+and 4.0, planned for Spring 2023, will be.
+
+TAS LTS-T versions can be expected annually in spring, on even Major Version Line numbers.
+
+It is supported to upgrade to the latest patch version in any supported Major Version Line
+from the latest patch version from the latest Minor Version Line in the previous Major Version Line.
+It is further supported to jump directly from one LTS-T Major Version Line to another,
+as if they were adjacent Major Version Lines.
+
+Please note that other TAS Ecosystem products, such as Operations Manager,
+will be adopting Operational Versioning and the TAS Lifecycyle Policy,
+but will be publishing their own Release and Upgrade policies,
+and continue to be versioned and released indepently.
+
+This note will be updated with additional links as resources around this new policy become available.
+
+### <a id='custom-iptables'></a> Viewing Custom iptables Rules Requires /sbin/iptables due to Jammy stemcell line
 
 On Ubuntu 22.04 LTS ("Jammy Jellyfish"), the `iptables` command refers to nftables. If you use the `/var/vcap/packages/iptables/sbin/iptables*` binaries to set custom rules on Diego Cells, these rules take effect, but are not listed by the `iptables -L` command.
 
@@ -988,7 +1038,7 @@ To resolve this issue, you can do one of the following:
 
 This change does not prevent custom rules from taking effect, regardless of how they are set.
 
-### <a id='system-metrics'></a> System Metrics Changes
+### <a id='system-metrics'></a> BOSH System Metrics Changes
 
 Support for the deprecated BOSH System Metrics Server has been removed. System metrics with the prefix 'system.' are no longer emitted.
 
@@ -1001,7 +1051,7 @@ Operators should change any alerting or dashboards to use the replacement metric
 
 The source_id for the supported metrics is `system_metrics_agent` instead of the deprecated `bosh-system-metrics-forwarder`. Any queries which reference the old source_id must be updated.
 
-### <a id='global-log-rate-limit'></a> Global Log Rate Limit is Deprecated
+### <a id='global-log-rate-limit'></a> Global Log Rate Limit is Deprecated and will be Removed in a Future Version Line
 
 The global log rate limit that measures app log rates in lines per second is deprecated in favor of per-app log rate limits that measure app log rates in
 bytes per second.
@@ -1013,6 +1063,7 @@ If you still want to use the global log rate limit, logs that exceed the log rat
 limit were buffered and released at the configured log rate.
 
 For more information about app log rate limits, see [App Log Rate Limiting](../loggregator/app-log-rate-limits.html).
+
 
 
 ## <a id='known-issues'></a> Known Issues
