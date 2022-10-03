@@ -482,6 +482,16 @@ Isolation Segment <%= vars.v_major_version %> includes the following major featu
 
 Isolation Segment <%= vars.v_major_version %> includes the following breaking changes:
 
+### <a id='haproxy-removed'></a> HAProxy Removed
+
+If you have set the `TLS termination point` option in the Networking pane to `HAProxy`, before upgrading, you need to change that option to `Gorouter`.
+
+If you have configured the `HAProxy IPs` field in the Networking pane, you may also need to configure `Gorouter IPs`. 
+
+If you have configured load balancers for the HAProxy job in the Resource Config pane, you need to move the load balancers to the Router job. 
+
+For information about configuring network access, see the [VMware Tanzu Application Service documentation](https://docs.vmware.com/en/VMware-Tanzu-Application-Service/index.html).
+
 ### <a id='global-log-rate-limit'></a> Global Log Rate Limit is Deprecated
 
 The global log rate limit that measures app log rates in lines per second is deprecated in favor of per-app log rate limits that measure app log rates in
@@ -494,7 +504,6 @@ If you still want to use the global log rate limit, logs that exceed the log rat
 limit were buffered and released at the configured log rate.
 
 For more information about app log rate limits, see [App Log Rate Limiting](../loggregator/app-log-rate-limits.html).
-
 
 ## <a id='known-issues'></a> Known Issues
 

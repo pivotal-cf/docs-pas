@@ -1051,6 +1051,16 @@ Operators should change any alerting or dashboards to use the replacement metric
 
 The source_id for the supported metrics is `system_metrics_agent` instead of the deprecated `bosh-system-metrics-forwarder`. Any queries which reference the old source_id must be updated.
 
+### <a id='haproxy-removed'></a> HAProxy Removed
+
+If you have set the `TLS termination point` option in the Networking pane to `HAProxy`, before upgrading, you need to change that option to `Gorouter`.
+
+If you have configured load balancers for the HAProxy job in the Resource Config pane, you need to move the load balancers to the Router job. You may also need to configure load balancers for the TCP Router job if you enable the TCP routing feature. You may also need to configure load balancers for the Diego Brain (Control for Small Footprint TAS) job if you enable the `Allow SSH access to app containers` option.
+
+If you have configured the `HAProxy IPs` field in the Networking pane, you may also need to configure `Gorouter IPs`, `SSH Proxy IPs` (if you enable the `Allow SSH access to app containers` option), and `TCP router IPs` (if you enable the TCP routing feature). 
+
+For information about configuring network access, see the [VMware Tanzu Application Service documentation](https://docs.vmware.com/en/VMware-Tanzu-Application-Service/index.html).
+
 ### <a id='global-log-rate-limit'></a> Global Log Rate Limit is Deprecated and will be Removed in a Future Version Line
 
 The global log rate limit that measures app log rates in lines per second is deprecated in favor of per-app log rate limits that measure app log rates in
@@ -1063,8 +1073,6 @@ If you still want to use the global log rate limit, logs that exceed the log rat
 limit were buffered and released at the configured log rate.
 
 For more information about app log rate limits, see [App Log Rate Limiting](../loggregator/app-log-rate-limits.html).
-
-
 
 ## <a id='known-issues'></a> Known Issues
 
