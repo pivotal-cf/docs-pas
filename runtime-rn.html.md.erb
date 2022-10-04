@@ -1046,6 +1046,26 @@ of periods. For example, the metric named `system.cpu.sys` in previous versions 
 To avoid deployment, platform automation, or data collection failures, you must re-configure all alerting or observability dashboards that collect metric data
 from your <%= vars.app_runtime_abbr %> deployment to use the new format for metric names.
 
+### <a id='haproxy-removed'></a> HAProxy is Removed
+
+In <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>, HAProxy is removed.
+
+If you are upgrading to <%= vars.app_runtime_abbr %> <%= vars.v_major_version %> from <%= vars.app_runtime_abbr %> v2.13 or earlier, you must re-configure the
+following settings in the <%= vars.app_runtime_abbr %> tile before you upgrade:
+
+* In the **Networking** pane:
+  * If you previously selected **HAProxy** under **TLS termination point**, you must select **Gorouter** instead.
+  * If you previously configured the **HAProxy IPs** field, you may need to configure the **Gorouter IPs** field instead. Depending on how you configured the
+  **Allow SSH access to app containers** and **TCP routing** settings, you may also need to configure the **SSH Proxy IPs** or **TCP router IPs** fields.
+
+* In the **Resource Config** pane:
+  * If you previously configured load balancers under the **HAProxy**, you must configure load balancers under the **Router** job instead. Depending on how
+  you configured the **Allow SSH access to app containers** and **TCP routing** settings in the **Networking** pane, you may also need to configure load
+  balancers under the **Diego Brain** or **TCP Router** jobs.
+
+For more information about configuring these settings, see [Configure Networking](../operating/configure-pas.html#networking) and [Configure
+Resources](../operating/configure-pas.html#resources) in _Configuring <%= vars.app_runtime_abbr %>_.
+
 ### <a id='global-log-rate-limit'></a> Global Log Rate Limit is Deprecated
 
 The global log rate limit that measures app log rates in lines per second is deprecated in favor of per-app log rate limits that measure app log rates in
