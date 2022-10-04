@@ -84,7 +84,7 @@ Because VMware uses the Percona Distribution for MySQL, expect a time lag betwee
   </tbody>
 </table>
 
-### <a id='2.14.0'></a> 2.14.0
+### <a id='2-14-0'></a> 2.14.0
 
 **Release Date:** 08/10/2022
 
@@ -210,13 +210,13 @@ Because VMware uses the Percona Distribution for MySQL, expect a time lag betwee
   </tbody>
 </table>
 
-### <a id='2.14.0-alpha.5'></a> 2.14.0-alpha.5
+### <a id='2-14-0-alpha-5'></a> 2.14.0-alpha.5
 
 **Release Date:** 07/19/2022
 
 * **[Security Fix]** Update Content-Security-Policy
 * **[Feature]** Enable telemetry for iptables rules on Diego cells
-* **[Feature]** Remove the Obsolete windows2012R2 & windows2016 stacks and their associated buildpacks from TAS
+* **[Feature]** Remove the obsolete windows2012R2 & windows2016 stacks and their associated buildpacks from TAS
 * **[Feature]** Removed deprecated BOSH System Metrics Forwarder in favor of metrics provided by System Metrics Agent
 * **[Feature]** User has the ability to manage step up scaling app instances using Apps Manager
 * **[Feature Improvement]** Deprecate Spring Cloud Connectors & Spring Auto Configuration support in Java Buildpack.
@@ -225,7 +225,7 @@ Because VMware uses the Percona Distribution for MySQL, expect a time lag betwee
 * **[Bug Fix]** Fix share domain with organization screen from erroring out
 * **[Bug Fix]** Resolves an issue with HAProxy log rotation creating null bytes and not freeing disk space after rotation
 * **[Bug Fix]** Use Content-Disposition header as heapdump filename
-* **[Feature]** Allow operators to enable CPU burst optimization. When this feature is enabled, apps that stay within their CPU entitlements (on average) will be prioritized when bursting.
+* **[Feature]** Allow operators to enable CPU burst optimization. When this feature is enabled, apps that stay within their CPU entitlements (on average) are prioritized when bursting.
 * Bump backup-and-restore-sdk to version `1.18.46`
 * Bump capi to version `1.131.0`
 * Bump cf-autoscaling to version `249.0.13`
@@ -357,7 +357,7 @@ Because VMware uses the Percona Distribution for MySQL, expect a time lag betwee
   </tbody>
 </table>
 
-### <a id='2.14.0-alpha.4'></a> 2.14.0-alpha.4
+### <a id='2-14-0-alpha-4'></a> 2.14.0-alpha.4
 
 **Release Date:** 06/23/2022
 
@@ -496,7 +496,7 @@ Because VMware uses the Percona Distribution for MySQL, expect a time lag betwee
   </tbody>
 </table>
 
-### <a id='2.14.0-alpha.3'></a> 2.14.0-alpha.3
+### <a id='2-14-0-alpha-3'></a> 2.14.0-alpha.3
 
 **Release Date:** 06/09/2022
 
@@ -640,7 +640,7 @@ Because VMware uses the Percona Distribution for MySQL, expect a time lag betwee
   </tbody>
 </table>
 
-### <a id='2.14.0-alpha.2'></a> 2.14.0-alpha.2
+### <a id='2-14-0-alpha-2'></a> 2.14.0-alpha.2
 
 **Release Date:** 04/25/2022
 
@@ -825,7 +825,7 @@ Because VMware uses the Percona Distribution for MySQL, expect a time lag betwee
   </tbody>
 </table>
 
-### <a id='2.14.0-alpha.1'></a> 2.14.0-alpha.1
+### <a id='2-14-0-alpha-1'></a> 2.14.0-alpha.1
 
 **Release Date:** 04/04/2022
 
@@ -971,117 +971,123 @@ Because VMware uses the Percona Distribution for MySQL, expect a time lag betwee
 
 <%= vars.app_runtime_abbr %> <%= vars.v_major_version %> includes the following major features:
 
+### <a id='opsver'></a> Operational Versioning and New Lifecycle Policy
+
+#### Operational Versioning
+
+<%= vars.app_runtime_abbr %> <%= vars.v_major_version %> is the first version of <%= vars.app_runtime_abbr %> to increment the Major Version Line in several years, but it won't be the last. As of 3.0, <%= vars.app_runtime_abbr %> is using a new versioining schema we're calling "Operational Versioning" or "opsver."
+
+The version number format will remain semver 2.0 parseable, but there are some differeces in meaning from Semantic Versioning.
+
+The very short version is that our twice-a-year <%= vars.app_runtime_abbr %> releases will be be new Major Version Lines; the basic content and character of these releases will be as it has been: roadmap features, significant improvements, and deprecations and removals as technology evolves.
+
+Patch versions are intended to be safe for automatic, uncritical consumption, containing no changes that would disrupt or concern an operator of the platform. Patches will be rapidly replaced in any cases where we discover we have not met this standard.
+
+We hope to avoid Minor Version lines as much as possible in the future, but will use them if necessary to denote necessary but disruptive changes within a Major Version Line.
+
+#### New <%= vars.app_runtime_abbr %> Lifecycle Policy
+<%= vars.app_runtime_abbr %>'s new lifecycle policy gurantees support durations in terms of overlap with subsequent Version Lines. Major Version Lines, such as this one, must overlap in support with general availability of the subsequent Major Version Line for at least six months.
+
+Long Term Support Track (LTS-T) Major Version Lines must further overlap with the subsequent LTS-T Major Version Line for a full year. LTS-T status is indicated in the version number by `+LTS-T` metadata at the end of the version number.
+
+#### <%= vars.app_runtime_abbr %> Release and Upgrade Policies
+
+<%= vars.app_runtime_abbr %> 3.0 is not an LTS-T release, but 2.13 has retroactively been designated LTS-T, and 4.0, planned for Spring 2023, will be.
+
+<%= vars.app_runtime_abbr %> LTS-T versions can be expected annually in spring, on even Major Version Line numbers.
+
+It is supported to upgrade to the latest patch version in any supported Major Version Line from the latest patch version from the latest Minor Version Line in the previous Major Version Line. It is further supported to jump directly from one LTS-T Major Version Line to another, as if they were adjacent Major Version Lines.
+
+Please note that other <%= vars.app_runtime_abbr %> Ecosystem products, such as Operations Manager, will be adopting Operational Versioning and the <%= vars.app_runtime_abbr %> Lifecycyle Policy, but will be publishing their own Release and Upgrade policies, and continue to be versioned and released indepently.
+
+This note will be updated with additional links as resources around this new policy become available.
+
+### <a id='org-member-search'></a> Search for Org Members in Apps Manager
+
+In <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>, the **Members** page for each org in Apps Manager includes a search box that you can use to
+search for org members by name.
+
+For more information about managing org members in Apps Manager, see [Manage Members](../console/manage-spaces.html#manage-members-org) in _Managing Orgs and
+Spaces Using Apps Manager_.
+
 
 ## <a id='breaking-changes'></a> Breaking Changes
 
 <%= vars.app_runtime_abbr %> <%= vars.v_major_version %> includes the following breaking changes:
 
-### <a id='opsver'></a> Switch to Operational Versioning and new Lifecycle Policy
-
-#### Operational Versioning
-
-TAS 3.0 is the first TAS version to increment the Major Version Line in several years,
-but it won't be the last.
-As of 3.0, TAS is using a new versioining schema we're calling "Operational Versioning" or "opsver."
-
-The version number format will remain semver 2.0 parseable,
-but there are some differeces in meaning from Semantic Versioning.
-
-The very short version is that our twice-a-year TAS releases will be be new Major Version Lines;
-the basic content and character of these releases will be as it has been: roadmap features,
-significant improvements, and deprecations and removals as technology evolves.
-
-Patch versions are intended to be safe for automatic, uncritical consumption,
-containing no changes that would disrupt or concern an operator of the platform.
-Patches will be rapidly replaced in any cases where we discover we have not met this standard.
-
-We hope to avoid Minor Version lines as much as possible in the future,
-but will use them if necessary to denote necessary but disruptive changes within a Major Version Line.
-
-#### New TAS Lifecycle Policy
-TAS's new lifecycle policy gurantees support durations in terms of overlap with subsequent Version Lines.
-Major Version Lines, such as this one, must overlap in support with general availability of the subsequent Major Version Line
-for at least six months.
-
-Long Term Support Track (LTS-T) Major Version Lines must further overlap
-with the subsequent LTS-T Major Version Line for a full year.
-LTS-T status is indicated in the version number by `+LTS-T` metadata at the end of the version number.
-
-#### TAS Release and Upgrade Policies
-
-TAS 3.0 is not an LTS-T release, but 2.13 has retroactively been designated LTS-T retroactively,
-and 4.0, planned for Spring 2023, will be.
-
-TAS LTS-T versions can be expected annually in spring, on even Major Version Line numbers.
-
-It is supported to upgrade to the latest patch version in any supported Major Version Line
-from the latest patch version from the latest Minor Version Line in the previous Major Version Line.
-It is further supported to jump directly from one LTS-T Major Version Line to another,
-as if they were adjacent Major Version Lines.
-
-Please note that other TAS Ecosystem products, such as Operations Manager,
-will be adopting Operational Versioning and the TAS Lifecycyle Policy,
-but will be publishing their own Release and Upgrade policies,
-and continue to be versioned and released indepently.
-
-This note will be updated with additional links as resources around this new policy become available.
-
-### <a id='custom-iptables'></a> Viewing Custom iptables Rules Requires /sbin/iptables due to Jammy stemcell line
+### <a id='custom-iptables'></a> Viewing Custom iptables Rules Requires /sbin/iptables
 
 On Ubuntu 22.04 LTS ("Jammy Jellyfish"), the `iptables` command refers to nftables. If you use the `/var/vcap/packages/iptables/sbin/iptables*` binaries to set custom rules on Diego Cells, these rules take effect, but are not listed by the `iptables -L` command.
 
-To resolve this issue, you can do one of the following:
+To resolve this issue, do one of the following:
 
 * Update your custom iptables logic to use the `/sbin/iptables*` binaries.
-* Use the `iptables-legacy` command to view your rules.
+
+* In a terminal window, run `iptables-legacy` to view your rules.
+
 * Use `/var/vcap/packages/iptables/sbin/iptables*` binaries to view your rules.
 
-This change does not prevent custom rules from taking effect, regardless of how they are set.
+This change does not prevent custom rules from taking effect, regardless of how they are configured.
 
-### <a id='system-metrics'></a> BOSH System Metrics Changes
+### <a id='system-metrics-server'></a> BOSH System Metrics Server is Removed
 
-Support for the deprecated BOSH System Metrics Server has been removed. System metrics with the prefix 'system.' are no longer emitted.
+The BOSH System Metrics Server is removed from <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>. To continue receiving system metrics, you must
+activate the **Enable additional System Metrics** checkbox in the **Director Config** pane of the BOSH Director tile.
 
-To continue to receive system metrics Operators must ensure that the "Enable System Metrics (recommended)" option is selected under the BOSH Director configuration
-in Ops Manager.
+To avoid deployment, platform automation, or data collection failures, you must update any queries that reference `bosh-system-metrics-forwarder` as the
+`source_id` for metrics to reference `system_metrics_agent` instead.
 
-Metric names will now be emitted with periods replaced by underscores. For example the previous `system.cpu.sys` metric will now be emitted as `system_cpu_sys`.
+### <a id='system-metrics-names'></a> BOSH System Metric Naming Convention is Changed
 
-Operators should change any alerting or dashboards to use the replacement metrics of the form `system_cpu_sys`.
+BOSH-deployed VMs no longer emit system metrics that include the prefix `system.` in their names. Additionally, metric names now include underscores instead
+of periods. For example, the metric named `system.cpu.sys` in previous versions of <%= vars.app_runtime_abbr %> is named `system_cpu_sys` in
+<%= vars.app_runtime_abbr %> <%= vars.v_major_version %>.
 
-The source_id for the supported metrics is `system_metrics_agent` instead of the deprecated `bosh-system-metrics-forwarder`. Any queries which reference the old source_id must be updated.
+To avoid deployment, platform automation, or data collection failures, you must re-configure all alerting or observability dashboards that collect metric data
+from your <%= vars.app_runtime_abbr %> deployment to use the new format for metric names.
 
-### <a id='haproxy-removed'></a> HAProxy Removed
+### <a id='haproxy-removed'></a> HAProxy is Removed
 
-If you have set the `TLS termination point` option in the Networking pane to `HAProxy`, before upgrading, you need to change that option to `Gorouter`.
+In <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>, HAProxy is removed.
 
-If you have configured load balancers for the HAProxy job in the Resource Config pane, you need to move the load balancers to the Router job. You may also need to configure load balancers for the TCP Router job if you enable the TCP routing feature. You may also need to configure load balancers for the Diego Brain (Control for Small Footprint TAS) job if you enable the `Allow SSH access to app containers` option.
+If you are upgrading to <%= vars.app_runtime_abbr %> <%= vars.v_major_version %> from <%= vars.app_runtime_abbr %> v2.13 or earlier, you must re-configure the
+following settings in the <%= vars.app_runtime_abbr %> tile before you upgrade:
 
-If you have configured the `HAProxy IPs` field in the Networking pane, you may also need to configure `Gorouter IPs`, `SSH Proxy IPs` (if you enable the `Allow SSH access to app containers` option), and `TCP router IPs` (if you enable the TCP routing feature). 
+* In the **Networking** pane:
+  * If you previously selected **HAProxy** under **TLS termination point**, you must select **Gorouter** instead.
+  * If you previously configured the **HAProxy IPs** field, you may need to configure the **Gorouter IPs** field instead. Depending on how you configured the
+  **Allow SSH access to app containers** and **TCP routing** settings, you may also need to configure the **SSH Proxy IPs** or **TCP router IPs** fields.
 
-For information about configuring network access, see the [VMware Tanzu Application Service documentation](https://docs.vmware.com/en/VMware-Tanzu-Application-Service/index.html).
+* In the **Resource Config** pane:
+  * If you previously configured load balancers under the **HAProxy**, you must configure load balancers under the **Router** job instead. Depending on how
+  you configured the **Allow SSH access to app containers** and **TCP routing** settings in the **Networking** pane, you may also need to configure load
+  balancers under the **Diego Brain** or **TCP Router** jobs.
 
-### <a id='global-log-rate-limit'></a> Global Log Rate Limit is Deprecated and will be Removed in a Future Version Line
+For more information about configuring these settings, see [Configure Networking](../operating/configure-pas.html#networking) and [Configure
+Resources](../operating/configure-pas.html#resources) in _Configuring <%= vars.app_runtime_abbr %>_.
+
+### <a id='global-log-rate-limit'></a> Global Log Rate Limit is Deprecated
 
 The global log rate limit that measures app log rates in lines per second is deprecated in favor of per-app log rate limits that measure app log rates in
 bytes per second.
 
-If you have configured a global log rate limit in lines per second, <%= vars.company_name %> recommends that you re-configure your apps to use log rate limits
-in bytes per second.
+If you have configured a global log rate limit in lines per second, <%= vars.recommended_by %> recommends that you re-configure your apps to use log rate
+limits in bytes per second.
 
 If you still want to use the global log rate limit, logs that exceed the log rate limit are immediately dropped. Previously, logs that exceeded the log rate
 limit were buffered and released at the configured log rate.
 
 For more information about app log rate limits, see [App Log Rate Limiting](../loggregator/app-log-rate-limits.html).
 
+
 ## <a id='known-issues'></a> Known Issues
+
+<%= vars.app_runtime_abbr %> <%= vars.v_major_version %> includes the following known issues:
 
 ### <a id='stemcell-certification'></a> Stemcell Compliance Certification
 
-The Ubuntu 22.04 LTS ("Jammy Jellyfish") stemcell is not yet CIS or STIG certified. This is an upstream issue and will be resolved once those certifications are available.
+The Ubuntu 22.04 long-term support (LTS) stemcell, Jammy Jellyfish, is not yet CIS- or STIG-certified.
 
-### <a id='ncp-compatibility'></a> VMware NSX-T Container Plug-in Stemcell Compatibility
+### <a id='ncp-compatibility'></a> VMware NSX-T Container Plug-In Stemcell Compatibility
 
-The VMware NSX-T Container Plug-in has not yet been validated on the Ubuntu 22.04 LTS ("Jammy Jellyfish") stemcell. This will be resolved once compatibility is validated.
-
-<%= vars.app_runtime_abbr %> <%= vars.v_major_version %> includes the following known issues:
+The VMware NSX-T Container Plug-in is not yet validated on the Jammy Jellyfish stemcell.
