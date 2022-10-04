@@ -21,7 +21,7 @@ Because VMware uses the Percona Distribution for MySQL, expect a time lag betwee
 
 <%# DO NOT DELETE THIS LINE - robots use this to add new release notes %>
 
-### <a id='3.0.0'></a> 3.0.0
+### <a id='3-0-0'></a> 3.0.0
 
 **Release Date:** 09/20/2022
 
@@ -971,36 +971,78 @@ Because VMware uses the Percona Distribution for MySQL, expect a time lag betwee
 
 <%= vars.app_runtime_abbr %> <%= vars.v_major_version %> includes the following major features:
 
-### <a id='opsver'></a> Operational Versioning and New Lifecycle Policy
+### <a id='new-policies'></a> New Policies for <%= vars.app_runtime_abbr %>
 
-#### Operational Versioning
+As of <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>, <%= vars.app_runtime_abbr %> is transitioning to a new versioning scheme, support lifecycle
+policy, and release and upgrade policy. For more information, see the sections below:
 
-<%= vars.app_runtime_abbr %> <%= vars.v_major_version %> is the first version of <%= vars.app_runtime_abbr %> to increment the Major Version Line in several years, but it won't be the last. As of 3.0, <%= vars.app_runtime_abbr %> is using a new versioining schema we're calling "Operational Versioning" or "opsver."
+* [Operational Versioning](#opsver)
 
-The version number format will remain semver 2.0 parseable, but there are some differeces in meaning from Semantic Versioning.
+* [Support Lifecycle Policy](#support-policy)
 
-The very short version is that our twice-a-year <%= vars.app_runtime_abbr %> releases will be be new Major Version Lines; the basic content and character of these releases will be as it has been: roadmap features, significant improvements, and deprecations and removals as technology evolves.
+* [Release and Upgrade Policies](#release-upgrade-policies)
 
-Patch versions are intended to be safe for automatic, uncritical consumption, containing no changes that would disrupt or concern an operator of the platform. Patches will be rapidly replaced in any cases where we discover we have not met this standard.
+Other Tanzu products, such as VMware Tanzu Operations Manager, are to adopt the same versioning scheme and lifecycle policy as <%= vars.app_runtime_abbr %>
+<%= vars.v_major_version %>. However, they are to follow separate release and upgrade policies, as well as continue to be versioned and released
+independently.
 
-We hope to avoid Minor Version lines as much as possible in the future, but will use them if necessary to denote necessary but disruptive changes within a Major Version Line.
+#### <a id='opsver'></a> Operational Versioning
 
-#### New <%= vars.app_runtime_abbr %> Lifecycle Policy
-<%= vars.app_runtime_abbr %>'s new lifecycle policy gurantees support durations in terms of overlap with subsequent Version Lines. Major Version Lines, such as this one, must overlap in support with general availability of the subsequent Major Version Line for at least six months.
+As of <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>, <%= vars.app_runtime_abbr %> is transitioning to a new versioning scheme called _operational
+versioning_.
 
-Long Term Support Track (LTS-T) Major Version Lines must further overlap with the subsequent LTS-T Major Version Line for a full year. LTS-T status is indicated in the version number by `+LTS-T` metadata at the end of the version number.
+The version number format for <%= vars.app_runtime_abbr %> is the same as that of semantic versioning, the previous versioning scheme used. However, the
+meaning of these version numbers differs from semantic versioning. The following list describes the types of versions to be released moving forward:
 
-#### <%= vars.app_runtime_abbr %> Release and Upgrade Policies
+* A new major version of <%= vars.app_runtime_abbr %> is to be released every six months. Major versions include new features, significant feature
+improvements, and deprecations and removals of old features.
 
-<%= vars.app_runtime_abbr %> 3.0 is not an LTS-T release, but 2.13 has retroactively been designated LTS-T, and 4.0, planned for Spring 2023, will be.
+* Minor versions of <%= vars.app_runtime_abbr %> are to be released as rarely as possible. Minor versions include breaking changes, which are necessary but
+disruptive changes within a major version line.
 
-<%= vars.app_runtime_abbr %> LTS-T versions can be expected annually in spring, on even Major Version Line numbers.
+* Patch versions are to be released as necessary. Patch versions include security fixes and other small changes that do not disrupt operation or require any
+attention from an operator of <%= vars.app_runtime_abbr %>. Patches that are determined to fall short of this standard are to be quickly replaced.
 
-It is supported to upgrade to the latest patch version in any supported Major Version Line from the latest patch version from the latest Minor Version Line in the previous Major Version Line. It is further supported to jump directly from one LTS-T Major Version Line to another, as if they were adjacent Major Version Lines.
+### <a id='support-policy'></a> Support Lifecycle Policy
 
-Please note that other <%= vars.app_runtime_abbr %> Ecosystem products, such as Operations Manager, will be adopting Operational Versioning and the <%= vars.app_runtime_abbr %> Lifecycyle Policy, but will be publishing their own Release and Upgrade policies, and continue to be versioned and released indepently.
+As of <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>, the new support lifecycle policy for <%= vars.app_runtime_abbr %> guarantees overlapping
+support durations with subsequent major version lines. After a new major version line is made generally available, the previous major version line must remain
+supported for at least six months.
 
-This note will be updated with additional links as resources around this new policy become available.
+Some major version lines are designated as being on a _long-term support track_ (LTS-T). After a new LTS-T major version line is made generally available, the
+previous LTS-T major version line must remain supported for one full year. LTS-T major version lines include "+LTS-T" at the end of the version number. For
+example, <%= vars.app_runtime_abbr %> v2.13+LTS-T.
+
+#### <a id='release-upgrade-policies'></a> Release and Upgrade Policies
+
+<%= vars.app_runtime_abbr %> v2.13 is now designated as an LTS-T release. Currently, <%= vars.app_runtime_abbr %> v4.0 is intended to be released as an LTS-T
+release in the spring of 2023. <%= vars.app_runtime_abbr %> LTS-T versions are to be released annually each spring.
+
+You can upgrade to a newer version of <%= vars.app_runtime_abbr %> in the following ways:
+
+* From the latest patch version in the latest minor version in the previous major version line to the latest patch version in any supported major version
+line. For example, if you are currently using the latest <%= vars.app_runtime_abbr %> v2.13.x patch release, you can upgrade to the latest
+<%= vars.app_runtime_abbr %> v3.0.x release.
+
+* From an earlier LTS-T major version line to a later LTS-T major version line. For example, if you are currently using Pivotal Application Service (PAS)
+v2.7+LTS-T, you can upgrade to <%= vars.app_runtime_abbr %> v2.13+LTS-T.
+
+### <a id='ubuntu-jammy'></a> Jammy Jellyfish Stemcell Support
+
+The following components of <%= vars.app_runtime_abbr %> v3.0 use Jammy Jellyfish, a Jammy stemcell based on Ubuntu 22.04:
+
+* Cloud Foundry Command-Line Interface (cf CLI)
+
+* Apps Manager
+
+* Usage Service
+
+If you are upgrading to <%= vars.app_runtime_abbr %> <%= vars.v_major_version %> from <%= vars.app_runtime_abbr %> v2.13 or earlier, you can upgrade the
+above components from Xenial stemcells to Jammy Jellyfish stemcells.
+
+The previously-supported Xenial Xerus stemcells were based on Ubuntu 16.04. These stemcells are due to reach end of general support (EOGS) and stop receiving
+security updates in April 2024. You can still use Xenial stemcells in conjunction with compatible <%= vars.app_runtime_abbr %> components until they reach
+EOGS.
 
 ### <a id='org-member-search'></a> Search for Org Members in Apps Manager
 
@@ -1014,20 +1056,6 @@ Spaces Using Apps Manager_.
 ## <a id='breaking-changes'></a> Breaking Changes
 
 <%= vars.app_runtime_abbr %> <%= vars.v_major_version %> includes the following breaking changes:
-
-### <a id='custom-iptables'></a> Viewing Custom iptables Rules Requires /sbin/iptables
-
-On Ubuntu 22.04 LTS ("Jammy Jellyfish"), the `iptables` command refers to nftables. If you use the `/var/vcap/packages/iptables/sbin/iptables*` binaries to set custom rules on Diego Cells, these rules take effect, but are not listed by the `iptables -L` command.
-
-To resolve this issue, do one of the following:
-
-* Update your custom iptables logic to use the `/sbin/iptables*` binaries.
-
-* In a terminal window, run `iptables-legacy` to view your rules.
-
-* Use `/var/vcap/packages/iptables/sbin/iptables*` binaries to view your rules.
-
-This change does not prevent custom rules from taking effect, regardless of how they are configured.
 
 ### <a id='system-metrics-server'></a> BOSH System Metrics Server is Removed
 
@@ -1043,8 +1071,8 @@ BOSH-deployed VMs no longer emit system metrics that include the prefix `system.
 of periods. For example, the metric named `system.cpu.sys` in previous versions of <%= vars.app_runtime_abbr %> is named `system_cpu_sys` in
 <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>.
 
-To avoid deployment, platform automation, or data collection failures, you must re-configure all alerting or observability dashboards that collect metric data
-from your <%= vars.app_runtime_abbr %> deployment to use the new format for metric names.
+To avoid deployment or data collection failures, you must re-configure all alerting or observability dashboards that collect metric data from your
+<%= vars.app_runtime_abbr %> deployment to use the new format for metric names.
 
 ### <a id='haproxy-removed'></a> HAProxy is Removed
 
@@ -1078,6 +1106,20 @@ If you still want to use the global log rate limit, logs that exceed the log rat
 limit were buffered and released at the configured log rate.
 
 For more information about app log rate limits, see [App Log Rate Limiting](../loggregator/app-log-rate-limits.html).
+
+### <a id='custom-iptables'></a> Viewing Custom iptables Rules Requires /sbin/iptables Binaries
+
+On the Jammy Jellyfish stemcell, the `iptables` command uses the nftables framework instead of the iptables firewall. This change does not prevent custom
+rules from taking effect, regardless of how they are configured.
+
+If you use the binaries located in your `/var/vcap/packages/iptables/sbin/iptables*` directory to configure custom iptables rules on Diego Cells, the rules
+that you configure still take effect, but do not appear when you run the `iptables -L` command.
+
+To resolve this issue, do either of the following:
+
+* Update your custom iptables logic to use the `/sbin/iptables*` binaries.
+
+* In a terminal window, view your custom iptables rules by running either `iptables-legacy` or `/var/vcap/packages/iptables/sbin/iptables*`.
 
 
 ## <a id='known-issues'></a> Known Issues
