@@ -486,6 +486,12 @@ To resolve this issue, do either of the following:
 
 * In a terminal window, view your custom iptables rules by running either `iptables-legacy` or `/var/vcap/packages/iptables/sbin/iptables*`.
 
+### <a id='mysql-8-internal'></a> Internal Databases use MySQL8
+
+The internal platform databases have been upgraded to MySQL8.
+Any integrations targeting or using the internal database may be impacted.
+Tiles declaring compatability with <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>
+should not be impacted.
 
 ## <a id='known-issues'></a> Known Issues
 
