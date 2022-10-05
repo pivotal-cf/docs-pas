@@ -365,20 +365,14 @@ line. For example, if you are currently using the latest <%= vars.app_runtime_ab
 
 ### <a id='ubuntu-jammy'></a> Jammy Jellyfish Stemcell Support
 
-The following components of <%= vars.app_runtime_abbr %> v3.0 use Jammy Jellyfish, a Jammy stemcell based on Ubuntu 22.04:
+<%= vars.app_runtime_abbr %> <%= vars.v_major_version %> uses a stemcell line
+based on Canonical Ubuntu's 22.04 "Jammy Jellyfish" distribution.
 
-* Cloud Foundry Command-Line Interface (cf CLI)
+The previously-used Ubuntu 16.04 "Xenial Xerus" stemcells will reach end of general support (EOGS)
+and stop receiving security updates in April 2024.
 
-* Apps Manager
-
-* Usage Service
-
-If you are upgrading to <%= vars.app_runtime_abbr %> <%= vars.v_major_version %> from <%= vars.app_runtime_abbr %> v2.13 or earlier, you can upgrade the
-above components from Xenial stemcells to Jammy Jellyfish stemcells.
-
-The previously-supported Xenial Xerus stemcells were based on Ubuntu 16.04. These stemcells are due to reach end of general support (EOGS) and stop receiving
-security updates in April 2024. You can still use Xenial stemcells in conjunction with compatible <%= vars.app_runtime_abbr %> components until they reach
-EOGS.
+Please see the [Breaking Changes section](#breaking-changes)
+for details about potentially disruptive implications of this change.
 
 ### <a id='org-member-search'></a> Search for Org Members in Apps Manager
 
@@ -392,6 +386,15 @@ Spaces Using Apps Manager_.
 ## <a id='breaking-changes'></a> Breaking Changes
 
 <%= vars.app_runtime_abbr %> <%= vars.v_major_version %> includes the following breaking changes:
+
+### Jammy Stemcell Lines
+
+All of the VMs deployed in <%= vars.app_runtime_abbr %> now run on a Jammy Jellyfish stemcell line,
+as described in the [Jammy Jellyfish section] above (#ubuntu-jammy).
+This means that any addons colocated on these VMs,
+either from other tiles or direct BOSH configuration,
+will not function unless they support Jammy Jellyfish.
+Tiles that declare compatability with <%= vars.app_runtime_abbr %> <%= vars.v_major_version %> work with Jammy stemcells.
 
 ### <a id='system-metrics-server'></a> BOSH System Metrics Server is Removed
 
