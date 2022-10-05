@@ -23,9 +23,9 @@ Because VMware uses the Percona Distribution for MySQL, expect a time lag betwee
 
 ### <a id='3-0-0'></a> 3.0.0
 
-**Release Date:** 10/04/2022
+**Release Date:** 10/06/2022
 
-* **[Feature Improvement]** Bump component releases in time for TAS 3.0
+* **[Feature Improvement]** Bump component releases in time for <%= vars.segment_runtime_full %> <%= vars.v_major_version %>
 * **[Feature Improvement]** Bump golang to 1.18 for diego, routing, cf-networking, and silk
 * **[Feature Improvement]** Gorouter Metrics Toggle
 * **[Breaking Change]** HAProxy removed
@@ -123,10 +123,10 @@ There are no new features for <%= vars.segment_runtime_full %> <%= vars.v_major_
 
 ### <a id='haproxy-removed'></a> HAProxy is Removed
 
-In <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>, HAProxy is removed.
+In <%= vars.segment_runtime_full %> <%= vars.v_major_version %>, HAProxy is removed.
 
-If you are upgrading to <%= vars.app_runtime_abbr %> <%= vars.v_major_version %> from <%= vars.app_runtime_abbr %> v2.13 or earlier, you must re-configure the
-following settings in the <%= vars.app_runtime_abbr %> tile before you upgrade:
+If you are upgrading to <%= vars.segment_runtime_full %> <%= vars.v_major_version %> from <%= vars.segment_runtime_full %> v2.13 or earlier, you must
+re-configure the following settings in the <%= vars.segment_runtime_full %> tile before you upgrade:
 
 * In the **Networking** pane:
   * If you previously selected **HAProxy** under **TLS termination point**, you must select **Gorouter** instead.
@@ -138,8 +138,8 @@ following settings in the <%= vars.app_runtime_abbr %> tile before you upgrade:
   you configured the **Allow SSH access to app containers** and **TCP routing** settings in the **Networking** pane, you may also need to configure load
   balancers under the **Diego Brain** or **TCP Router** jobs.
 
-For more information about configuring these settings, see [Configure Networking](../operating/configure-pas.html#networking) and [Configure
-Resources](../operating/configure-pas.html#resources) in _Configuring <%= vars.app_runtime_abbr %>_.
+For more information about configuring these settings, see [Configure Networking](../operating/installing-pcf-is.html#networking) and [Configure
+Resources](../operating/installing-pcf-is.html#resources) in _Installing <%= vars.segment_runtime_full %>_.
 
 ### <a id='global-log-rate-limit'></a> Global Log Rate Limit is Deprecated
 

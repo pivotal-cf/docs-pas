@@ -23,14 +23,15 @@ Because VMware uses the Percona Distribution for MySQL, expect a time lag betwee
 
 ### <a id='3-0-0'></a> 3.0.0
 
-**Release Date:** 10/04/2022
+**Release Date:** 10/06/2022
 
-* **[Feature]** Allow operators to specify isolation segments that should be routable through TAS routers
-* **[Feature]** Bump CAPI and add Default app log rate limit configuration
+* **[Feature]** Allow operators to specify isolation segments that should be routable through <%= vars.app_runtime_abbr %> routers
+* **[Feature]** Bump CAPI and add default app log rate limit configuration
 * **[Feature]** Developers can quickly find specific org members in Apps Manager
-* **[Feature]** Dynamic ASGs are now enabled by default. If you wish to keep them off, you will need to manually disable them via the tile properties prior to deploying.
+* **[Feature]** Dynamic ASGs are now allowed by default. If you wish to keep them off, you must manually disallow them through the
+<%= vars.app_runtime_abbr %> tile before deploying.
 * **[Feature Improvement]** Add Java Buildpack for cflinuxfs4
-* **[Feature Improvement]** Bump component releases in time for TAS 3.0
+* **[Feature Improvement]** Bump component releases in time for <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>
 * **[Feature Improvement]** Bump golang to 1.18 for diego, routing, cf-networking, and silk
 * **[Feature Improvement]** Bump to latest pxc-release with Percona XtraDB Cluster 8.0.29
 * **[Feature Improvement]** Gorouter Metrics Toggle
