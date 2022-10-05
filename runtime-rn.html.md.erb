@@ -383,7 +383,7 @@ search for org members by name.
 For more information about managing org members in Apps Manager, see [Manage Members](../console/manage-spaces.html#manage-members-org) in _Managing Orgs and
 Spaces Using Apps Manager_.
 
-### <a id='cflinuxfs4'></a> Jammy Jellyfish Stack Support
+### <a id='cflinuxfs4'></a> BETA: Jammy Jellyfish Stack Support
 
 In addition to the existing cflinuxfs3 stack based on Ubuntu 18.04 "Bionic Beaver",
 <%= vars.app_runtime_abbr %> <%= vars.v_major_version %> includes the cflinuxfs4 stack,
@@ -391,10 +391,12 @@ based on Ubuntu 22.04 "Jammy Jellyfish."
 
 The presence of the new stack will allow developers to begin using cflinuxfs4
 in advance of the future deprecation and removal of cflinuxfs3.
+Note that the cflinuxfs4 stack is currently a BETA feature.
 
 Not all buildpacks currently offer support for the new stack.
 
-Buildpack coverage will increase in future patch releases.
+Buildpack coverage will increase in future patch releases,
+and the feature may be designated final in a future patch, minor, or major release.
 
 ## <a id='breaking-changes'></a> Breaking Changes
 
