@@ -382,12 +382,24 @@ search for org members by name.
 For more information about managing org members in Apps Manager, see [Manage Members](../console/manage-spaces.html#manage-members-org) in _Managing Orgs and
 Spaces Using Apps Manager_.
 
+### <a id='cflinuxfs4'></a> Jammy Jellyfish Stack Support
+
+In addition to the existing cflinuxfs3 stack based on Ubuntu 18.04 "Bionic Beaver",
+<%= vars.app_runtime_abbr %> <%= vars.v_major_version %> includes the cflinuxfs4 stack,
+based on Ubuntu 22.04 "Jammy Jellyfish."
+
+The presence of the new stack will allow developers to begin using cflinuxfs4
+in advance of the future deprecation and removal of cflinuxfs3.
+
+Not all buildpacks currently offer support for the new stack.
+
+Buildpack coverage will increase in future patch releases.
 
 ## <a id='breaking-changes'></a> Breaking Changes
 
 <%= vars.app_runtime_abbr %> <%= vars.v_major_version %> includes the following breaking changes:
 
-### Jammy Stemcell Lines
+### Jammy Stemcell Used For All Instance Groups
 
 All of the VMs deployed in <%= vars.app_runtime_abbr %> now run on a Jammy Jellyfish stemcell line,
 as described in the [Jammy Jellyfish section] above (#ubuntu-jammy).
@@ -403,6 +415,17 @@ activate the **Enable additional System Metrics** checkbox in the **Director Con
 
 To avoid deployment, platform automation, or data collection failures, you must update any queries that reference `bosh-system-metrics-forwarder` as the
 `source_id` for metrics to reference `system_metrics_agent` instead.
+
+### linuxfs4 in Stack List with Partial Buildpack Support
+The new linuxfs4 stack being available can cause it to be used prematurely
+if application-pushing systems are setup to find and use the latest stack.
+(In the absence of such particular logic, existing applications will not change stacks.)
+
+In addition to other issues that might arise from an unintentional stack change,
+not all buildpacks currently offer support for cflinuxfs4.
+This can cause failures to push for apps switching to the stack without the necessary buildpack coverage.
+
+Future patches will expand buildpack coverage for linuxfs4.
 
 ### <a id='system-metrics-names'></a> BOSH System Metric Naming Convention is Changed
 
