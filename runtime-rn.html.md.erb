@@ -10,8 +10,8 @@ This topic contains release notes for <%= vars.app_runtime_first %> <%= vars.v_m
 For more information about the Cloud Foundry Certified Provider Program, see [How Do I Become a Certified
 Provider?](https://www.cloudfoundry.org/certified-platforms-how-to/) on the Cloud Foundry website.
 
-Because VMware uses the Percona Distribution for MySQL, expect a time lag between Oracle
-releasing a MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> containing that patch.
+Because VMware uses the Percona Distribution for MySQL, expect a time lag between Oracle releasing a MySQL patch and VMware releasing
+<%= vars.app_runtime_abbr %> containing that patch.
 
 **Required Cloud Foundry Command-Line Interface (cf CLI) version:** You must install cf CLI v7 or cf CLI v8 when upgrading to or using
 <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>. For more information, see [Upgrading to cf CLI v7](../../cf-cli/v7.html) and [Upgrading to cf CLI
@@ -29,8 +29,8 @@ v8](../../cf-cli/v8.html).
 
 * **[Security Fix]** Bump Cloud Controller Ruby version to 2.7.6 and Go to 1.18.5
 * **[Security Fix]** Update Content-Security-Policy
-* **[Feature]** <%= vars.app_runtime_abbr %> <%= vars.v_major_version %> is a long-term support track (LTS-T) release. It is to be supported through March of
-2024. The version number is to receive a `+LTS-T` metadata addition in a future patch.
+* **[Feature]** <%= vars.app_runtime_abbr %> <%= vars.v_major_version %> is a long-term support track (LTS-T) release, to be supported through March of 2024.
+The version number is to receive a `+LTS-T` metadata addition in a future patch.
 * **[Feature]** Enables jumpgrade from <%= vars.app_runtime_abbr %> v2.11, attendant to LTS-T status.
 * **[Feature]** Enables TLS for all internal MySQL galera and monitoring components
 * **[Feature Improvement]** Bump golang to 1.18 for diego, routing, cf-networking, and silk
@@ -1187,8 +1187,8 @@ Upgrades](../../operating/configuring.html).
 
 When upgrading to <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>, be aware of the following upgrade considerations:
 
-* If you previously used an earlier version of <%= vars.app_runtime_abbr %>, you must first upgrade to <%= vars.app_runtime_abbr %> v2.11 to successfully
-upgrade to <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>.
+* If you previously used <%= vars.app_runtime_abbr %> v2.10 or earlier, you must first upgrade to <%= vars.app_runtime_abbr %> v2.11 to successfully upgrade
+to <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>.
 
 * Upgrade the cf CLI to the latest cf CLI v7 release, the latest cf CLI v8 release, or the commercial cf CLI distribution available on [VMware Tanzu
 Network](https://network.pivotal.io/products/elastic-runtime/).
@@ -1484,7 +1484,7 @@ upgrading to <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>:
 
 * <%= vars.app_runtime_abbr %> v2.11.16 or earlier
 
-* <%= vars.app_runtime_abbr %> v2.12.8 or earlier.
+* <%= vars.app_runtime_abbr %> v2.12.8 or earlier
 
 ### <a id='icmp-dynamic-asgs'></a> Apps Stop Running After Deploy when Using Dynamic ASGs with ICMP Any Rules
 
