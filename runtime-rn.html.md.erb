@@ -2603,11 +2603,11 @@ When upgrading to <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>, be a
 * Upgrade the cf CLI to either the latest cf CLI v7 release or the commercial cf CLI distribution available on
 [<%= vars.product_network %>](https://network.pivotal.io/products/elastic-runtime/).
 
-* If you are upgrading from Pivotal Application Service (PAS) v2.7 or <%= vars.app_runtime_abbr %> v2.8 and later, you can upgrade directly to
+* If you are upgrading from Pivotal Application Service (PAS) v2.7 or <%= vars.app_runtime_abbr %> v2.9 and later, you can upgrade directly to
 <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>. <%= vars.app_runtime_abbr %> <%= vars.v_major_version %> is a long-term support (LTS) version of
 <%= vars.app_runtime_abbr %>. For more information, see [Long-Term Support for <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>](#lts) below.
 
-* To minimize downtime for developers pushing apps, upgrade from PAS v2.7.41 or later, or <%= vars.app_runtime_abbr %> v2.10.21 or later. Upgrading from
+* To minimize downtime for developers pushing apps, upgrade from PAS v2.7.41 or later or <%= vars.app_runtime_abbr %> v2.10.21 or later. Upgrading from
 earlier patch versions can result in an `Unknown Error` when pushing apps.
 
 * If you are upgrading from PAS v2.6 or earlier, you must upgrade to PAS v2.7 before you upgrade to <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>.
@@ -2628,7 +2628,7 @@ port `2222`.
 ### <a id='lts'></a> Long-Term Support for <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>
 
 <%= vars.app_runtime_abbr %> <%= vars.v_major_version %> is a long-term support (LTS) version of <%= vars.app_runtime_abbr %>. <%= vars.app_runtime_abbr %>
-<%= vars.v_major_version %> will be supported through April 2024.
+<%= vars.v_major_version %> is to be supported through April 2024.
 
 Over the lifecycle of <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>, <%= vars.company_name %> will release security patches that occasionally
 include feature enhancements and maintenance updates. <%= vars.company_name %> will also continue to release new versions of <%= vars.app_runtime_abbr %>.
@@ -2650,7 +2650,7 @@ information, see [Deploying <%= vars.app_runtime_abbr %> to VMC](../../operating
 
 <%= vars.app_runtime_abbr %> <%= vars.v_major_version %> introduces RFC3339 log format support for several <%= vars.app_runtime_abbr %> components. You can
 configure these components to produce logs with human-readable RFC3339 timestamps with the **Timestamp format for component logs** configuration option in the
-<%= vars.app_runtime_abbr %> tile. Logs that use human-readable timestamps are often easier to debug.
+**System Logging** pane of the <%= vars.app_runtime_abbr %> tile. Logs that use human-readable timestamps are often easier to debug.
 
 RFC3339-formatted timestamps follow the RFC3339 spec, include nine points of precision where possible, and are in UTC. For example:
 
@@ -2658,10 +2658,10 @@ RFC3339-formatted timestamps follow the RFC3339 spec, include nine points of pre
 
 * 2019-11-21T22:16:18.750000000Z
 
-For more information about configuring the **Timestamp format for component logs** field, see [System Logging](../../operating/configure-pas.html#sys-logging)
-in _Configuring <%= vars.app_runtime_abbr %>_.
+For more information about configuring the **Timestamp format for component logs** field, see [(Optional) Configure System
+Logging](../../operating/configure-pas.html#sys-logging) in _Configuring <%= vars.app_runtime_abbr %>_.
 
-In <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>.0, if you select the **Converge to human-readable RFC3339 format** option under **Timestamp format
+In <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>, if you select the **Converge to human-readable RFC3339 format** option under **Timestamp format
 for component logs**, then the following components and related jobs use RFC3339 timestamps:
 
 | Component | Jobs |
@@ -2679,8 +2679,7 @@ Upgrading](#timestamps-breaking-change) below.
 the Cloud Foundry V3 API endpoints when listing, creating, or modifying any service that works with <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>
 and later.
 
-### <a id='stemcell-upgrade'></a> Stemcell Version Requirements Less Strict when Upgrading <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>.1 and
-Later
+### <a id='stemcell-upgrade'></a> Stemcell Version Requirements Less Strict When Upgrading <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>.1 and Later
 
 <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>.1 and later have fewer minor version restrictions for stemcells. This allows you to upgrade to a
 newer <%= vars.app_runtime_abbr %> patch without upgrading the stemcell.
@@ -2690,7 +2689,7 @@ default.
 
 In <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>.0 and earlier, if the latest stemcell was different from the stemcell that was used when
 installing <%= vars.app_runtime_abbr %> previously, then <%= vars.ops_manager %> re-created all of the VMs in your <%= vars.app_runtime_abbr %> deployment
-during the upgrade.
+during an upgrade.
 
 In <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>.1 and later, you can upgrade to later patches of <%= vars.app_runtime_abbr %> without upgrading
 the stemcell or re-creating all VMs.
@@ -2702,8 +2701,7 @@ the stemcell or re-creating all VMs.
 
 ### <a id='disable-ssl-certificate-verification-removed'></a> Option Removed: Disable SSL Certificate Verification for this Environment
 
-In <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>.0 and later, the **Disable SSL certificate verification for this environment** checkbox is
-removed.
+In <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>, the **Disable SSL certificate verification for this environment** checkbox is removed.
 
 Before you upgrade to <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>, you must deactivate the **Disable SSL certificate verification for this
 environment** checkbox in the **Networking** pane of the <%= vars.app_runtime_abbr %> tile. For more information, see _Configure Networking_ in [Configuring
@@ -2735,19 +2733,18 @@ on app log output or increase the app log rate limit.
 
 For more information about app log rate limits, see [App Log Rate Limiting](../loggregator/app-log-rate-limits.html).
 
-### <a id='transfer-encoding-stricter'></a> Gorouter Update to Golang v1.15 Introduces Stricter Transfer-Encoding Header Standards in
-<%= vars.app_runtime_abbr %> <%= vars.v_major_version %>.0 and Later
+### <a id='transfer-encoding-stricter'></a> Gorouter Update to Golang v1.15 Introduces Stricter Transfer-Encoding Header Standards
 
-In <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>.0 and later, stricter header standards break Spring apps that incorrectly set the header.
+In <%= vars.app_runtime_abbr %> <%= vars.v_major_version %> and later, stricter header standards break Spring apps that incorrectly set the header.
 
 To avoid this breaking change, see [Applications on TAS for VMs get 502 chunked response
 error](https://community.pivotal.io/s/article/Application-Chunked-Error?language=en_US) in the Knowledge Base. You must complete the resolution procedure
-described in this Knowledge Base article before you upgrade to <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>.0 or later.
+described in this Knowledge Base article before you upgrade to <%= vars.app_runtime_abbr %> <%= vars.v_major_version %> or later.
 
 <p class='note'><strong>Note:</strong> This breaking change is also present in PAS v2.7.30, PAS v2.8.24, <%= vars.app_runtime_abbr %> v2.9.18, and
   <%= vars.app_runtime_abbr %> v2.10.10. If you are using any of these versions or earlier, you must upgrade to PAS v2.7.31, PAS v2.8.25,
   <%= vars.app_runtime_abbr %> v2.9.21, or <%= vars.app_runtime_abbr %> v2.10.11 before upgrading or jump upgrading to <%= vars.app_runtime_abbr %>
-  <%= vars.v_major_version %>.0 or later. For more information, see
+  <%= vars.v_major_version %>. For more information, see
   <a href="https://community.pivotal.io/s/article/Application-Chunked-Error?language=en_US">Applications on TAS for VMs get 502 chunked response error</a> in
   the Knowledge Base.</p>
 
@@ -2755,8 +2752,9 @@ described in this Knowledge Base article before you upgrade to <%= vars.app_runt
 
 The **Timestamp format for component logs** feature replaces the **Format of timestamps in Diego logs** feature in the **App Containers** pane of the
 <%= vars.app_runtime_abbr %> tile. However, when you upgrade to <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>, the option that was selected under
-**Format of timestamps in Diego logs** in your previous deployment is applied to **Timestamp format for component logs**. For more information, see [Timestamp
-Format for Component Logs Replaces Timestamp Format for Diego Logs](#timestamps) above.
+**Format of timestamps in Diego logs** in your previous deployment is applied to **Timestamp format for component logs**.
+
+For more information, see [Timestamp Format for Component Logs Replaces Timestamp Format for Diego Logs](#timestamps) above.
 
 ### <a id='dynamic-egress'></a> Dynamic Egress Policies Are Removed
 

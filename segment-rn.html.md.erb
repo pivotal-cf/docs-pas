@@ -1042,8 +1042,8 @@ For more information about using isolation segments in your deployment, see [Man
 The <%= vars.segment_runtime_full %> <%= vars.v_major_version %> tile is available with the release of <%= vars.ops_manager %> v2.10. For more information,
 see the [<%= vars.ops_manager %>](https://docs.pivotal.io/ops-manager/2-10/index.html) documentation.
 
-To use the <%= vars.segment_runtime_full %> <%= vars.v_major_version %> tile, you must install <%= vars.ops_manager %> v2.10 and <%= vars.app_runtime_full %>
-(<%= vars.app_runtime_abbr %>) <%= vars.v_major_version %> or later.
+To use the <%= vars.segment_runtime_full %> <%= vars.v_major_version %> tile, you must install <%= vars.ops_manager %> v2.10 and <%= vars.app_runtime_first %>
+<%= vars.v_major_version %> or later.
 
 To install <%= vars.segment_runtime_full %> <%= vars.v_major_version %>, see [Installing
 <%= vars.segment_runtime_full %>](../../operating/installing-pcf-is.html).
@@ -1051,7 +1051,7 @@ To install <%= vars.segment_runtime_full %> <%= vars.v_major_version %>, see [In
 
 ## <a id='new-features'></a> New Features in <%= vars.segment_runtime_full %> <%= vars.v_major_version %>
 
-<%= vars.segment_runtime_full %> <%= vars.v_major_version %> includes the following major features:
+<%= vars.segment_runtime_full %> <%= vars.v_major_version %> includes the following major feature:
 
 ### <a id='gorouter-cas'></a> Configure Trusted CAs for Gorouter
 
@@ -1067,13 +1067,13 @@ For more information, see [Configure Networking](../../operating/installing-pcf-
 
 ### <a id='disable-ssl-certificate-verification-removed'></a> Option Removed: Disable SSL Certificate Verification for this Environment
 
-In <%= vars.segment_runtime_full %> <%= vars.v_major_version %>.0 and later, the option to disable SSL certificate verification for an environment is removed.
+In <%= vars.segment_runtime_full %> <%= vars.v_major_version %>, the option to disable SSL certificate verification for an environment is removed.
 
-Before you upgrade to <%= vars.segment_runtime_full %> <%= vars.v_major_version %>, you must deselect the option to disable SSL certificate verification in
-the **Networking** pane of the <%= vars.app_runtime_abbr %> tile. For more information, see _Configure Networking_ in [Configuring
-<%= vars.app_runtime_abbr %>](../../operating/configure-pas.html#networking).
+Before you upgrade to <%= vars.segment_runtime_full %> <%= vars.v_major_version %>, you must deactivate the **Disable SSL certificate verification** checkbox
+in the **Networking** pane of the <%= vars.app_runtime_abbr %> tile. For more information, see [Configure
+Networking](../../operating/configure-pas.html#networking) in _Configuring <%= vars.app_runtime_abbr %>_.
 
-If the **Disable SSL certificate verification for this environment** option is enabled when you try to upgrade to <%= vars.segment_runtime_full %>, the
+If the **Disable SSL certificate verification for this environment** checkbox is activated when you try to upgrade to <%= vars.segment_runtime_full %>, the
 upgrade fails with the following error:
 
 <pre class='terminal'>
@@ -1085,10 +1085,9 @@ verification for this environment" under "Networking"
 If you plan to automate the installation of <%= vars.segment_runtime_full %> <%= vars.v_major_version %>, you must remove references to the corresponding
 property `.properties.skip_cert_verify`.
 
-### <a id='transfer-encoding-stricter'></a> Gorouter Update to Golang v1.15 Introduces Stricter Transfer-Encoding Header Standards in
-<%= vars.segment_runtime_full %> <%= vars.v_major_version %>.0 and Later
+### <a id='transfer-encoding-stricter'></a> Gorouter Update to Golang v1.15 Introduces Stricter Transfer-Encoding Header Standards
 
-In <%= vars.segment_runtime_full %> <%= vars.v_major_version %>.0 and later, stricter header standards break Spring apps that incorrectly set the header.
+In <%= vars.segment_runtime_full %> <%= vars.v_major_version %>, stricter header standards break Spring apps that incorrectly set the header.
 
 To avoid this breaking change, see [Applications on TAS for VMs get 502 chunked response
 error](https://community.pivotal.io/s/article/Application-Chunked-Error?language=en_US) in the Knowledge Base. You must complete the resolution procedure
@@ -1097,7 +1096,7 @@ described in this Knowledge Base article before you upgrade to <%= vars.segment_
 <p class='note'><strong>Note:</strong> This breaking change is also present in Pivotal Isolation Segment v2.7.30, Pivotal Isolation Segment v2.8.24,
   <%= vars.segment_runtime_full %> v2.9.18, and <%= vars.segment_runtime_full %> v2.10.10. If you are using any of these versions or earlier, you must upgrade
   to Pivotal Isolation Segment v2.7.31, Pivotal Isolation Segment v2.8.25, <%= vars.segment_runtime_full %> v2.9.19, or <%= vars.segment_runtime_full %>
-  v2.10.11 before upgrading or jump upgrading to <%= vars.segment_runtime_full %> <%= vars.v_major_version %>.0 or later. For more information, see
+  v2.10.11 before upgrading or jump upgrading to <%= vars.segment_runtime_full %> <%= vars.v_major_version %>. For more information, see
   <a href="https://community.pivotal.io/s/article/Application-Chunked-Error?language=en_US">Applications on TAS for VMs get 502 chunked response error</a> in
   the Knowledge Base.</p>
 
@@ -1118,7 +1117,7 @@ For more information about app log rate limits, see [App Log Rate Limiting](../l
 
 ## <a id='known-issues'></a> Known Issues
 
-<%= vars.segment_runtime_full %> <%= vars.v_major_version %> includes the following known issues:
+<%= vars.segment_runtime_full %> <%= vars.v_major_version %> includes the following known issue:
 
 ### <a id='gorouter-incorrect-span-id'></a> Gorouter Sets an Invalid X-B3-SpanID Header
 
