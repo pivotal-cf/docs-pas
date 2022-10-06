@@ -360,20 +360,17 @@ You can upgrade to a newer version of <%= vars.app_runtime_abbr %> in the follow
 line. For example, if you are currently using the latest <%= vars.app_runtime_abbr %> v2.13.x patch release, you can upgrade to the latest
 <%= vars.app_runtime_abbr %> v3.0.x release.
 
-* From the prior LTS-T Major Version Line to the following LTS-T major version line.
-  For example, if you are currently using Pivotal Application Service (PAS)
-  v2.11+LTS-T, you can upgrade to <%= vars.app_runtime_abbr %> v2.13+LTS-T.
+* From an earlier LTS-T major version line to a later LTS-T major version line. For example, if you are currently using <%= vars.app_runtime_abbr %>
+v2.11+LTS-T, you can upgrade to <%= vars.app_runtime_abbr %> v2.13+LTS-T.
 
 ### <a id='ubuntu-jammy'></a> Jammy Jellyfish Stemcell Support
 
-<%= vars.app_runtime_abbr %> <%= vars.v_major_version %> uses a stemcell line
-based on Canonical Ubuntu's 22.04 "Jammy Jellyfish" distribution.
+<%= vars.app_runtime_abbr %> <%= vars.v_major_version %> uses a stemcell line based on Canonical Ubuntu's 22.04 "Jammy Jellyfish" distribution.
 
-The previously-used Ubuntu 16.04 "Xenial Xerus" stemcells will reach end of general support (EOGS)
-and stop receiving security updates in April 2024.
+The previously-used Ubuntu 16.04 "Xenial Xerus" stemcells are to reach end of general support (EOGS) and stop receiving security updates in April 2024.
 
-Please see the [Breaking Changes section](#breaking-changes)
-for details about potentially disruptive implications of this change.
+For information about how this change may disrupt your <%= vars.app_runtime_abbr %> deployment, see [Jammy Stemcell Used For All Instance
+Groups](#jammy-instance-groups) below.
 
 ### <a id='org-member-search'></a> Search for Org Members in Apps Manager
 
@@ -383,20 +380,18 @@ search for org members by name.
 For more information about managing org members in Apps Manager, see [Manage Members](../console/manage-spaces.html#manage-members-org) in _Managing Orgs and
 Spaces Using Apps Manager_.
 
-### <a id='cflinuxfs4'></a> BETA: Jammy Jellyfish Stack Support
+### <a id='cflinuxfs4'></a> Jammy Jellyfish Stack Support (Beta)
 
-In addition to the existing cflinuxfs3 stack based on Ubuntu 18.04 "Bionic Beaver",
-<%= vars.app_runtime_abbr %> <%= vars.v_major_version %> includes the cflinuxfs4 stack,
-based on Ubuntu 22.04 "Jammy Jellyfish."
+In addition to the existing `cflinuxfs3` stack based on the Ubuntu 18.04 "Bionic Beaver" stemcell, <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>
+includes the `cflinuxfs4` stack based on the Jammy Jellyfish stemcell as a beta feature.
 
-The presence of the new stack will allow developers to begin using cflinuxfs4
-in advance of the future deprecation and removal of cflinuxfs3.
-Note that the cflinuxfs4 stack is currently a BETA feature.
+The `cflinuxfs4` stack allows developers to begin using `cflinuxfs4` before `cflinux4s3` is deprecated and eventually removed from future versions of
+<%= vars.app_runtime_abbr %>.
 
-Not all buildpacks currently offer support for the new stack.
+Not all buildpacks support using the `cflinuxfs4` stack at this time. Future patch releases of <%= vars.app_runtime_abbr %> <%= vars.v_major_version %> may
+include `cflinuxfs4` stack support in more buildpacks. A future patch, minor, or major release of <%= vars.app_runtime_abbr %> may include the `cflinuxfs4`
+stack as a final feature.
 
-Buildpack coverage will increase in future patch releases,
-and the feature may be designated final in a future patch, minor, or major release.
 
 ## <a id='breaking-changes'></a> Breaking Changes
 
@@ -404,12 +399,11 @@ and the feature may be designated final in a future patch, minor, or major relea
 
 ### <a id='jammy-instance-groups'></a> Jammy Stemcell Used For All Instance Groups
 
-All of the VMs deployed in <%= vars.app_runtime_abbr %> now run on a Jammy Jellyfish stemcell line,
-as described in the [Jammy Jellyfish section] above (#ubuntu-jammy).
-This means that any addons colocated on these VMs,
-either from other tiles or direct BOSH configuration,
-will not function unless they support Jammy Jellyfish.
-Tiles that declare compatability with <%= vars.app_runtime_abbr %> <%= vars.v_major_version %> work with Jammy stemcells.
+All VMs that <%= vars.app_runtime_abbr %> <%= vars.v_major_version %> deploys run on the Jammy Jellyfish stemcell described in [Jammy Jellyfish Stemcell
+Support](#ubuntu-jammy) above. Because of this, any add-ons from other tiles or configured in the BOSH Director that are colocated on
+<%= vars.app_runtime_abbr %> VMs do not function unless they support the Jammy Jellyfish stemcell.
+
+Tiles that are compatible <%= vars.app_runtime_abbr %> <%= vars.v_major_version %> already work with Jammy Jellyfish stemcells.
 
 ### <a id='system-metrics-server'></a> BOSH System Metrics Server is Removed
 
@@ -419,16 +413,22 @@ activate the **Enable additional System Metrics** checkbox in the **Director Con
 To avoid deployment, platform automation, or data collection failures, you must update any queries that reference `bosh-system-metrics-forwarder` as the
 `source_id` for metrics to reference `system_metrics_agent` instead.
 
-### linuxfs4 in Stack List with Partial Buildpack Support
-The new linuxfs4 stack being available can cause it to be used prematurely
-if application-pushing systems are setup to find and use the latest stack.
-(In the absence of such particular logic, existing applications will not change stacks.)
+### <a id='cflinuxfs4'></a> cflinuxfs4 in Stack List with Partial Buildpack Support
 
-In addition to other issues that might arise from an unintentional stack change,
-not all buildpacks currently offer support for cflinuxfs4.
-This can cause failures to push for apps switching to the stack without the necessary buildpack coverage.
+If you configure your app-pushing systems [Are we just talking about
+TAS here, or are there other systems that TAS users might be using in
+conjunction with TAS? Or does this refer to the apps themselves?] to
+find and use the latest stack, they may switch to using the `cflinuxfs4`
+stack prematurely.
 
-Future patches will expand buildpack coverage for linuxfs4.
+In the absence of such particular logic [meaning being configured to find
+and use the latest stack, or to find and use the latest `cflinuxfs` stack
+specifically?], existing apps do not change stacks.
+
+In addition to other issues that an unintentional stack change can cause, not all buildpacks currently support using the `cflinuxfs4` stack. As a result, apps
+that switch to the `cflinuxfs` stack without the necessary buildpack support may fail to push.
+
+Future patch releases of <%= vars.app_runtime_abbr %> <%= vars.v_major_version %> may include `cflinuxfs4` stack support in more buildpacks.
 
 ### <a id='system-metrics-names'></a> BOSH System Metric Naming Convention is Changed
 
@@ -486,12 +486,13 @@ To resolve this issue, do either of the following:
 
 * In a terminal window, view your custom iptables rules by running either `iptables-legacy` or `/var/vcap/packages/iptables/sbin/iptables*`.
 
-### <a id='mysql-8-internal'></a> Internal Databases use MySQL8
+### <a id='mysql-8-internal'></a> Internal Databases Use MySQL 8
 
-The internal platform databases have been upgraded to MySQL8.
-Any integrations targeting or using the internal database may be impacted.
-Tiles declaring compatability with <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>
-should not be impacted.
+The internal databases in <%= vars.app_runtime_abbr %> <%= vars.v_major_version %> have been upgraded to MySQL 8. This may impact any integrations that target
+or use the internal database.
+
+This upgrade is not currently known to impact tiles that are compatible with <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>.
+
 
 ## <a id='known-issues'></a> Known Issues
 
@@ -505,8 +506,9 @@ The Ubuntu 22.04 long-term support (LTS) stemcell, Jammy Jellyfish, is not yet C
 
 The VMware NSX-T Container Plug-in is not yet validated on the Jammy Jellyfish stemcell.
 
-### <a id='uaa-sso-copy'></a> UAA Single Sign On Copy Button Broken
+### <a id='uaa-sso-copy'></a> UAA Single Sign-On Copy Button Broken
 
-The button intended to copy single-sign-on codes in the UAA UI does not work.
-The workaround is to manually copy and paste the displayed code as you would in the absence of the button.
-This will be corrected in the next patch.
+In the UAA UI [is this the **UAA** config pane?], the [button name?]
+button that copies single-sign-on codes does not work. To work around
+this issue, you must manually copy and paste the displayed code [displayed
+where?] in the [which field?].
