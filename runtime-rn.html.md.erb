@@ -1,5 +1,5 @@
 ---
-title: <%= vars.app_runtime_abbr %> <%= vars.v_major_version %> Release Notes
+title: VMware Tanzu Application Service v2.12 Release Notes
 owner: Release Engineering
 ---
 
@@ -9,16 +9,13 @@ This topic contains release notes for <%= vars.app_runtime_first %> <%= vars.v_m
 
 <%= vars.app_runtime_abbr %> is certified by the Cloud Foundry Foundation for <%= Date.today.year %>.
 
-For more information about the Cloud Foundry Certified Provider Program, see
-[How Do I Become a Certified Provider?](https://www.cloudfoundry.org/certified-platforms-how-to/)
-on the Cloud Foundry website.
+For more information about the Cloud Foundry Certified Provider Program, see [How Do I Become a Certified
+Provider?](https://www.cloudfoundry.org/certified-platforms-how-to/) on the Cloud Foundry website.
 
-Because VMware uses the Percona Distribution for MySQL, expect a time lag between Oracle
-releasing a MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> containing that patch.
+Because VMware uses the Percona Distribution for MySQL, expect a time lag between Oracle releasing a MySQL patch and VMware releasing
+<%= vars.app_runtime_abbr %> containing that patch.
 
-**Required Cloud Foundry Command-Line Interface (cf CLI) version**: You must install cf CLI v7 or cf CLI v8 when upgrading to or using TAS for VMs v2.12.
-
-For more information, see [Upgrading to cf CLI v7](../cf-cli/v7.html) and [Upgrading to cf CLI v8](../cf-cli/v8.html).
+**Required Cloud Foundry Command-Line Interface (cf CLI) version:** You must install cf CLI v7 or cf CLI v8 when upgrading to or using <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>. For more information, see [Upgrading to cf CLI v7](../cf-cli/v7.html) and [Upgrading to cf CLI v8](../cf-cli/v8.html).
 
 <hr>
 
@@ -26,11 +23,11 @@ For more information, see [Upgrading to cf CLI v7](../cf-cli/v7.html) and [Upgra
 
 <%# DO NOT DELETE THIS LINE - robots use this to add new release notes %>
 
-### <a id='2.12.17'></a> 2.12.17
+### <a id='2-12-17'></a> v2.12.17
 
 **Release Date:** 09/21/2022
 
-* **[Security Fix]** Bump Cloud Controller Ruby version to 2.7.6 and Go to 1.18.5 
+* **[Security Fix]** Bump Cloud Controller Ruby version to 2.7.6 and Go to 1.18.5
 * **[Security Fix]** Update Content-Security-Policy
 * **[Feature]** Enables TLS for all internal MySQL galera and monitoring components
 * **[Feature Improvement]** Bump golang to 1.18 for diego, routing, cf-networking, and silk
@@ -242,9 +239,7 @@ For more information, see [Upgrading to cf CLI v7](../cf-cli/v7.html) and [Upgra
   </tbody>
 </table>
 
-
-
-### <a id='2.12.16'></a> 2.12.16
+### <a id='2-12-16'></a> v2.12.16
 
 **Release Date:** 08/10/2022
 
@@ -397,9 +392,7 @@ For more information, see [Upgrading to cf CLI v7](../cf-cli/v7.html) and [Upgra
   </tbody>
 </table>
 
-
-
-### <a id='2.12.15'></a> 2.12.15
+### <a id='2-12-15'></a> v2.12.15
 
 **Release Date:** 07/19/2022
 
@@ -509,13 +502,11 @@ instance. If you specify a service instance, Autoscaler only requests metrics fr
   </tbody>
 </table>
 
-
-
-### <a id='2.12.14'></a> 2.12.14
+### <a id='2-12-14'></a> v2.12.14
 
 **Release Date:** 06/23/2022
 
-<p class="note warning"><strong style="text-transform: none">Warning: Upcoming reduction in maintenance and security release coverage</strong><br> In future patches, no sooner than July 1st 2022, some TAS components will become more strict about the protocols used in TLS communications, causing integrations with systems using older, insecure protocols to fail. Specifically, components that use Go will no longer support TLS 1.0 or 1.1, or certificates using SHA-1. Use supported TLS protocols to avoid breaking changes and continue receiving maintenance and security releases.</p>
+<p class='note warning'><strong>Warning: Upcoming reduction in maintenance and security release coverage</strong><br> In future patches, no sooner than July 1st 2022, some TAS components will become more strict about the protocols used in TLS communications, causing integrations with systems using older, insecure protocols to fail. Specifically, components that use Go will no longer support TLS 1.0 or 1.1, or certificates using SHA-1. Use supported TLS protocols to avoid breaking changes and continue receiving maintenance and security releases.</p>
 
 * Bump diego to version `2.62.0`
 
@@ -577,9 +568,7 @@ instance. If you specify a service instance, Autoscaler only requests metrics fr
   </tbody>
 </table>
 
-
-
-### <a id='2.12.13'></a> 2.12.13
+### <a id='2-12-13'></a> v2.12.13
 
 **Release Date:** 06/09/2022
 
@@ -587,7 +576,7 @@ instance. If you specify a service instance, Autoscaler only requests metrics fr
 * **[Bug Fix]** Fix metric registrar secure scraping with isolation segments
 * **[Bug Fix]** Sticky sessions no longer break when used with route-services that return HTTP 4xx/5xx responses
 * **[Bug Fix/Improvement]** Stop emitting debug metrics for agents and log-cache by default. Reduces load on logging system by >=720 metrics per vm per minute
-* **[Breaking Change]** If you followed the procedure in [Autoscale application fails with MySQL Deadlock errors](https://community.pivotal.io/s/article/Autoscale-application-errors-with-MySQL-Deadlock) to manually add an index to an Autoscale database, and the index is not dropped before you upgrade to TAS for VMs v2.12.13, upgrading causes an error.
+* **[Breaking Change]** If you followed the procedure in [Autoscale application fails with MySQL Deadlock errors](https://community.pivotal.io/s/article/Autoscale-application-errors-with-MySQL-Deadlock) to manually add an index to an Autoscale database, and the index is not dropped before you upgrade to <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>.13, upgrading causes an error.
 * Bump backup-and-restore-sdk to version `1.18.42`
 * Bump binary-offline-buildpack to version `1.0.45`
 * Bump bosh-system-metrics-forwarder to version `0.0.22`
@@ -698,9 +687,7 @@ instance. If you specify a service instance, Autoscaler only requests metrics fr
   </tbody>
 </table>
 
-
-
-### <a id='2.12.12'></a> 2.12.12
+### <a id='2-12-12'></a> v2.12.12
 
 **Release Date:** 04/20/2022
 
@@ -890,9 +877,7 @@ instance. If you specify a service instance, Autoscaler only requests metrics fr
   </tbody>
 </table>
 
-
-
-### <a id='2.12.11'></a> 2.12.11
+### <a id='2-12-11'></a> v2.12.11
 
 **Release Date:** 04/06/2022
 
@@ -958,9 +943,7 @@ instance. If you specify a service instance, Autoscaler only requests metrics fr
   </tbody>
 </table>
 
-
-
-### <a id='2.12.10'></a> 2.12.10
+### <a id='2-12-10'></a> v2.12.10
 
 **Release Date:** 03/31/2022
 
@@ -1025,9 +1008,7 @@ instance. If you specify a service instance, Autoscaler only requests metrics fr
   </tbody>
 </table>
 
-
-
-### <a id='2.12.9'></a> 2.12.9
+### <a id='2-12-9'></a> v2.12.9
 
 **Release Date:** 03/31/2022
 
@@ -1196,9 +1177,7 @@ instance. If you specify a service instance, Autoscaler only requests metrics fr
   </tbody>
 </table>
 
-
-
-### <a id='2.12.8'></a> 2.12.8
+### <a id='2-12-8'></a> v2.12.8
 
 **Release Date:** 02/28/2022
 
@@ -1284,7 +1263,7 @@ instance. If you specify a service instance, Autoscaler only requests metrics fr
 </table>
 <sup>*</sup> The `cf-cli` version corresponds to the commercial distribution on <%= vars.product_network %>.
 
-### <a id='2.12.7'></a> 2.12.7
+### <a id='2-12-7'></a> v2.12.7
 
 **Release Date:** 02/07/2022
 
@@ -1393,7 +1372,7 @@ instance. If you specify a service instance, Autoscaler only requests metrics fr
 </table>
 <sup>*</sup> The `cf-cli` version corresponds to the commercial distribution on <%= vars.product_network %>.
 
-### <a id='2.12.6'></a> 2.12.6
+### <a id='2-12-6'></a> v2.12.6
 
 **Release Date:** 12/21/2021
 
@@ -1474,7 +1453,7 @@ instance. If you specify a service instance, Autoscaler only requests metrics fr
 </table>
 <sup>*</sup> The `cf-cli` version corresponds to the commercial distribution on <%= vars.product_network %>.
 
-### <a id='2.12.5'></a> 2.12.5
+### <a id='2-12-5'></a> v2.12.5
 
 **Release Date:** 12/16/2021
 
@@ -1553,7 +1532,7 @@ instance. If you specify a service instance, Autoscaler only requests metrics fr
 </table>
 <sup>*</sup> The `cf-cli` version corresponds to the commercial distribution on <%= vars.product_network %>.
 
-### <a id='2.12.4'></a> 2.12.4
+### <a id='2-12-4'></a> v2.12.4
 
 **Release Date:** 12/15/2021
 
@@ -1640,7 +1619,7 @@ instance. If you specify a service instance, Autoscaler only requests metrics fr
 </table>
 <sup>*</sup> The `cf-cli` version corresponds to the commercial distribution on <%= vars.product_network %>.
 
-### <a id='2.12.3'></a> 2.12.3
+### <a id='2-12-3'></a> v2.12.3
 
 **Release Date:** 12/13/2021
 
@@ -1650,7 +1629,7 @@ instance. If you specify a service instance, Autoscaler only requests metrics fr
       <li>VMware recommends upgrading <%= vars.app_runtime_abbr %> as soon as possible to address
     <a href="https://nvd.nist.gov/vuln/detail/CVE-2021-44228">CVE-2021-44228</a>. If you are unable to upgrade, you can mitigate this CVE manually. See <a href="https://community.pivotal.io/s/article/Workaround-instructions-to-address-CVE-2021-44228-in-Tanzu-Application-Service-2-7-through-2-12?language=en_US">Instructions to address CVE-2021-44228 in Tanzu Application Service (2.7 through 2.12)</a>.</li>
       <li>This release does not contain the Java buildpack bump for this vulnerability. You must manually bump the Java buildpack and lock the version. Download the updated buildpack from <a href="https://network.pivotal.io/products/java-buildpack/#/releases/1013593">VMware Tanzu Network</a>.</li>
-      <li>This vulnerability also affects Ops Manager. VMware recommends upgrading to Ops Manager v2.10.24 as soon as possible. For more information, see the <a href="https://docs.pivotal.io/ops-manager/2-10/release-notes.html#2-10-24">Ops Manager v2.10.24 release notes</a>.</li>
+      <li>This vulnerability also affects <%= vars.ops_manager %>. VMware recommends upgrading to <%= vars.ops_manager %> v2.10.24 as soon as possible. For more information, see the <a href="https://docs.pivotal.io/ops-manager/2-10/release-notes.html#2-10-24"><%= vars.ops_manager %> v2.10.24 release notes</a>.</li>
     </ul>
   </div>
 
@@ -1719,8 +1698,7 @@ instance. If you specify a service instance, Autoscaler only requests metrics fr
 </table>
 <sup>*</sup> The `cf-cli` version corresponds to the commercial distribution on <%= vars.product_network %>.
 
-
-### <a id='2.12.2'></a> 2.12.2
+### <a id='2-12-2'></a> v2.12.2
 
 **Release Date:** 11/23/2021
 
@@ -1802,8 +1780,7 @@ instance. If you specify a service instance, Autoscaler only requests metrics fr
 </table>
 <sup>*</sup> The `cf-cli` version corresponds to the commercial distribution on <%= vars.product_network %>.
 
-
-### <a id='2.12.1'></a> 2.12.1
+### <a id='2-12-1'></a> v2.12.1
 
 **Release Date:** 10/20/2021
 
@@ -1887,8 +1864,7 @@ instance. If you specify a service instance, Autoscaler only requests metrics fr
 </table>
 <sup>*</sup> The `cf-cli` version corresponds to the commercial distribution on <%= vars.product_network %>.
 
-
-### <a id='2.12.0'></a> 2.12.0
+### <a id='2-12-0'></a> v2.12.0
 
 **Release Date:** October 4, 2021
 
@@ -1954,23 +1930,27 @@ instance. If you specify a service instance, Autoscaler only requests metrics fr
 </table>
 <sup>*</sup> The `cf-cli` version corresponds to the commercial distribution on <%= vars.product_network %>.
 
+
 ## <a id='upgrade'></a> How to Upgrade
 
-To upgrade to <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>, see [Configuring <%= vars.app_runtime_abbr %> for Upgrades](https://docs.pivotal.io/application-service/2-12/operating/configuring.html).
+To upgrade to <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>, see [Configuring <%= vars.app_runtime_abbr %> for
+Upgrades](../../operating/configuring.html).
 
 When upgrading to <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>, be aware of the following upgrade considerations:
 
-* If you previously used an earlier version of <%= vars.app_runtime_abbr %>, you must first upgrade to <%= vars.app_runtime_abbr %> v2.11 to successfully upgrade to <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>.
+* If you previously used an earlier version of <%= vars.app_runtime_abbr %>, you must first upgrade to <%= vars.app_runtime_abbr %> v2.11 to successfully
+upgrade to <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>.
 
-* Upgrade the cf CLI to the latest cf CLI v7 release, the latest cf CLI v8 release, or the commercial cf CLI distribution available on [<%= vars.product_network %>](https://network.pivotal.io/products/elastic-runtime/).
+* Upgrade the cf CLI to the latest cf CLI v7 release, the latest cf CLI v8 release, or the commercial cf CLI distribution available on
+[<%= vars.product_network %>](https://network.pivotal.io/products/elastic-runtime/).
 
-* To minimize downtime for developers pushing apps, upgrade from <%= vars.app_runtime_abbr %> v2.11.9 or later. Upgrading from earlier patch versions can result in an `Unknown Error` when pushing apps.
+* To minimize downtime for developers pushing apps, upgrade from <%= vars.app_runtime_abbr %> v2.11.9 or later. Upgrading from earlier patch versions can
+result in an `Unknown Error` when pushing apps.
 
-* Some partner service tiles may be incompatible with <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>.
-  VMware is working with partners to ensure their tiles are updated to work with the latest versions of <%= vars.app_runtime_abbr %>.
-  <br/><br/> For information about which partner service releases are currently compatible with <%= vars.app_runtime_abbr %>
-  <%= vars.v_major_version %>, review the appropriate partners services release documentation
-  at [https://docs.pivotal.io](https://docs.pivotal.io) or contact the partner organization that produces the tile.
+* Some partner service tiles may be incompatible with <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>. VMware is working with partners to ensure
+their tiles are updated to work with the latest versions of <%= vars.app_runtime_abbr %>. For information about which partner service releases are currently
+compatible with <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>, review the appropriate partners services release documentation at
+[https://docs.pivotal.io](https://docs.pivotal.io) or contact the partner organization that produces the tile.
 
 
 ## <a id='new-features'></a> New Features in <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>
@@ -1981,66 +1961,79 @@ When upgrading to <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>, be a
 
 <%= vars.app_runtime_abbr %> <%= vars.v_major_version %> paired with cf CLI v8 allows you to do the following:
 
-- Push apps with end-to-end HTTP/2 routing
-- Assign the Space Supporter role to users
-- Manage services asynchronously
+* Push apps with end-to-end HTTP/2 routing
+
+* Assign the Space Supporter role to users
+
+* Manage services asynchronously
 
 For more information, see [Upgrading to cf CLI v8](../cf-cli/v8.html).
 
-### <a id='http2'></a>Gorouter Supports HTTP/2
+### <a id='http2'></a> Gorouter Supports HTTP/2
 
-<p class="note breaking"><strong>Breaking Change</strong>: See <a href="#envoy-http2-alpn">Envoy Advertises HTTP/2 Support Over ALPN</a> in the <em>Breaking Changes</em> section.</p>
+<p class='note breaking'><strong>Breaking Change:</strong>: See <a href="#envoy-http2-alpn">Envoy Advertises HTTP/2 Support Over ALPN</a> below.</p>
 
-In <%= vars.app_runtime_abbr %> <%= vars.v_major_version %> and later, HTTP/2 support is enabled by default.
-HTTP/2 is the second major version of the the HTTP protocol.
+In <%= vars.app_runtime_abbr %> <%= vars.v_major_version %> and later, HTTP/2 support is enabled by default. HTTP/2 is the second major version of the the
+HTTP protocol.
 
 HTTP/2 features the following improvements over HTTP/1.1:
 
 * Uses a binary data format instead of plain text
+
 * Compresses headers
+
 * Multiplexes multiple HTTP requests over a single TCP connection
 
 Together, these improvements can improve response times for some apps.
 
 For more information about the HTTP/2 protocol, see [RFC 7540](https://datatracker.ietf.org/doc/html/rfc7540).
 
-For information about configuring support for HTTP/2 in <%= vars.app_runtime_abbr %>, see [Configuring HTTP/2 Support](http://docs.pivotal.io/application-service/2-12/adminguide/supporting-http2.html).
+For information about configuring support for HTTP/2 in <%= vars.app_runtime_abbr %>, see [Configuring HTTP/2
+Support](../../adminguide/supporting-http2.html).
 
-For information about routing HTTP/2 traffic to your <%= vars.app_runtime_abbr %> apps, see [Routing HTTP/2 and gRPC Traffic to Apps](../devguide/http2-protocol.html).
+For information about routing HTTP/2 traffic to your <%= vars.app_runtime_abbr %> apps, see [Routing HTTP/2 and gRPC Traffic to
+Apps](../devguide/http2-protocol.html).
 
-### <a id='tls-v1.3'></a>Gorouter Supports TLS v1.3
+### <a id='tls-v1.3'></a> Gorouter Supports TLS v1.3
 
-In <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>, the Gorouter supports TLS v1.3.
-New installations of <%= vars.app_runtime_abbr %> use TLS v1.3 for the Gorouter by default.
-If you are upgrading to <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>, the Gorouter uses TLS v1.2 by default.
+In <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>, the Gorouter supports TLS v1.3. New installations of <%= vars.app_runtime_abbr %> use TLS v1.3
+for the Gorouter by default. If you are upgrading to <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>, the Gorouter uses TLS v1.2 by default.
 
-You can select which versions of TLS that the Gorouter uses when you configure <%= vars.app_runtime_abbr %>.
-Selecting support for TLS v1.3 only is a beta feature in <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>.
+You can select which versions of TLS that the Gorouter uses when you configure <%= vars.app_runtime_abbr %>. Selecting support for TLS v1.3 only is a beta
+feature in <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>.
 
-For more information, see [(Beta) Gorouter Can Support TLS v1.3 Connections Only](#tls-v1.3-only) in the _Breaking Changes_ section.
+For more information, see [(Beta) Gorouter Can Support TLS v1.3 Connections Only](#tls-v1.3-only) below.
 
-### <a id='space-supporter'></a>New User Role: Space Supporter
+### <a id='space-supporter'></a> New User Role: Space Supporter
 
-<%= vars.app_runtime_abbr %> <%= vars.v_major_version %> introduces the Space Supporter role.
-Users with the Space Supporter role can do the following:
+<%= vars.app_runtime_abbr %> <%= vars.v_major_version %> introduces the Space Supporter role. Users with the Space Supporter role can do the following:
 
-- View app logs and audit events
-- Start, stop, and restart apps
-- Scale apps
-- Read, bind, and unbind existing service instances
+* View app logs and audit events
+
+* Start, stop, and restart apps
+
+* Scale apps
+
+* Read, bind, and unbind existing service instances
 
 Users with the Space Supporter role cannot do any of the following:
 
-- View credentials or app data
-- Edit app source code
-- SSH into app instances
-- View the app environment
-- Create or access service keys
-- Create or update services
-- Delete apps or services
+* View credentials or app data
 
-The Space Supporter role is only available for the Cloud Controller V3 API.
-If a user with this role tries to access a V2 endpoint, the API returns a 403.
+* Edit app source code
+
+* SSH into app instances
+
+* View the app environment
+
+* Create or access service keys
+
+* Create or update services
+
+* Delete apps or services
+
+The Space Supporter role is only available for the Cloud Controller V3 API. If a user with this role tries to access a V2 endpoint, the API returns a `403`
+error.
 
 For more information, see [User Roles](../concepts/roles.html#roles) in _Orgs, Spaces, Roles, and Permissions_.
 
@@ -2048,77 +2041,79 @@ For more information, see [User Roles](../concepts/roles.html#roles) in _Orgs, S
 
 You can find the current version of <%= vars.app_runtime_abbr %> in the footer of the Apps Manager UI.
 
-### <a id='secure-metric-registrar'></a> Secure Endpoint for Metric Registrar
+### <a id='secure-metric-registrar'></a> Secure Endpoint for the Metric Registrar
 
-<%= vars.app_runtime_abbr %> <%= vars.v_major_version %> allows operators to register a secure endpoint for the Metric Registrar CLI plugin to ingest app metrics.
-You can use the `cf register-metrics-endpoint` command to specify an internal port in your app when you register the endpoint to the metric registrar.
+<%= vars.app_runtime_abbr %> <%= vars.v_major_version %> allows operators to register a secure endpoint for the Metric Registrar CLI plugin to ingest app
+metrics. You can use the `cf register-metrics-endpoint` command to specify an internal port in your app when you register the endpoint to the Metric
+Registrar.
 
 For more information, see [Register a Metrics Endpoint](../metric-registrar/using.html#register-endpoint) in _Using Metric Registrar_.
 
 ### <a id='drain-metadata'></a> Reduce Traffic to Syslog Drains
 
-<%= vars.app_runtime_abbr %> <%= vars.v_major_version %> includes an option to control how much deployment metadata is sent in app and aggregate syslog drains.
+In <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>, the **System Logging** pane includes the **Default Loggregator drain metadata** checkbox. This
+configuration setting controls how much deployment metadata <%= vars.app_runtime_abbr %> sends in app and aggregate syslog drains.
 
-If you select the **Default loggregator drain metadata** checkbox, then <%= vars.app_runtime_abbr %> sends all metadata from your deployment to syslog drains.
+If you activate this checkbox, <%= vars.app_runtime_abbr %> sends all metadata from your deployment to syslog drains.
 
-If you do not select this option, then <%= vars.app_runtime_abbr %> sends a reduced amount of metadata.
-This can reduce your external database logs by up to 50 percent.
+If you deactivate this checkbox, <%= vars.app_runtime_abbr %> sends a reduced amount of metadata. This can reduce your external database logs by up to 50%.
 
-For more information, see [(Optional) Configure System Logging](https://docs.pivotal.io/application-service/2-12/operating/configure-pas.html#sys-logging) in _Configuring <%= vars.app_runtime_abbr %>_.
+For more information, see [(Optional) Configure System Logging](../../operating/configure-pas.html#sys-logging) in _Configuring <%= vars.app_runtime_abbr %>_.
 
-### <a id='aggregate-drain-binding-cache'></a> Move aggregate drains to the syslog-binding cache to improve deploy speed and reduce errors
+### <a id='aggregate-drain-binding-cache'></a> Aggregate Drains are Moved to the Syslog Binding Cache
 
-Aggregate drains are now stored and retrieved from the syslog binding cache.
-This means that deployments that change aggregate drains only deploy on the binding cache/clock VM.
-It does not deploy all VMs on the system.
-This also removes the log-cache drain when not in use,
-reducing BOSH error logs when syslog ingestion for log-cache is not in use.
+Aggregate drains are now stored and retrieved from the syslog binding cache. This means that <%= vars.app_runtime_abbr %> deployments that change aggregate
+drains only deploy on the binding cache/clock VM. <%= vars.app_runtime_abbr %> does not deploy all VMs on the system. As a result,
+<%= vars.app_runtime_abbr %> deploys more quickly.
 
-### <a id='cli-container-image'></a>Supported cf CLI Container Images
+This change also removes the Log Cache drain when not in use, reducing BOSH error logs when syslog ingestion for Log Cache is not in use.
+
+### <a id='cli-container-image'></a> Supported cf CLI Container Images
 
 VMware supports the following container images that contain the cf CLI:
 
-- [cloudfoundry/cli:8.0.0](https://hub.docker.com/layers/cloudfoundry/cli/8.0.0/images/sha256-fce4897a00d40df87a60b3e92fa64dd2ac12c5f7ffd023e13d321e0e50a6716d?context=explore)
-- [cloudfoundry/cli:7.3.0](https://hub.docker.com/layers/cloudfoundry/cli/7.3.0/images/sha256-03e3a825dacdde874cc470d41aff18a9a81204d63bf0f785be60670d2ceb8176?context=explore)
+* [cloudfoundry/cli:8.0.0](https://hub.docker.com/layers/cloudfoundry/cli/8.0.0/images/sha256-fce4897a00d40df87a60b3e92fa64dd2ac12c5f7ffd023e13d321e0e50a6716d?context=explore)
+
+* [cloudfoundry/cli:7.3.0](https://hub.docker.com/layers/cloudfoundry/cli/7.3.0/images/sha256-03e3a825dacdde874cc470d41aff18a9a81204d63bf0f785be60670d2ceb8176?context=explore)
 
 VMware maintains these container images and updates them with the latest security patches.
+
 
 ## <a id='breaking-changes'></a> Breaking Changes
 
 <%= vars.app_runtime_abbr %> <%= vars.v_major_version %> includes the following breaking changes:
 
-### <a id='tls-v1.3-only'></a>(Beta) Gorouter Can Support TLS v1.3 Connections Only
+### <a id='tls-v1.3-only'></a> (Beta) Gorouter Can Support TLS v1.3 Connections Only
 
-TLS v1.3 is not compatible with some versions of Java.
-If you configure <%= vars.app_runtime_abbr %> to support TLS v1.3 only, you might encounter errors with Java apps.
-For more information, see [JSSE Client does not accept status_request extension in CertificateRequest messages for TLS 1.3](https://bugs.openjdk.java.net/browse/JDK-8236039) in the JDK Bug System.
+TLS v1.3 is not compatible with some versions of Java. If you configure <%= vars.app_runtime_abbr %> to support TLS v1.3 only, you might encounter errors with
+Java apps. For more information, see [JSSE Client does not accept status_request extension in CertificateRequest messages for TLS
+1.3](https://bugs.openjdk.java.net/browse/JDK-8236039) in the JDK Bug System.
 
-The tile property that controls the TLS version in <%= vars.app_runtime_abbr %> changes in <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>. You must update any stored configuration files to reflect the change.
+The tile property that controls the TLS version in <%= vars.app_runtime_abbr %> changes in <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>. You must
+update any stored configuration files to reflect the change.
 
-### <a id='envoy-http2-alpn'></a>Envoy Advertises HTTP/2 Support Over ALPN
+### <a id='envoy-http2-alpn'></a> Envoy Advertises HTTP/2 Support Over ALPN
 
-Envoy, the Diego container proxy, advertises HTTP/2 support using Application-Layer Protocol Negotiation (ALPN) for all apps.
-Internal clients that access the Envoy TLS port directly must negotiate down to HTTP/1.1 for apps that do not support HTTP/2.
-The Envoy TLS port is typically 61001.
-Clients that connect to apps using the Gorouter are not affected.
+Envoy, the Diego container proxy, advertises HTTP/2 support using Application-Layer Protocol Negotiation (ALPN) for all apps. Internal clients that access the
+Envoy TLS port directly must negotiate down to HTTP/1.1 for apps that do not support HTTP/2. The Envoy TLS port is typically `61001`. Clients that connect to
+apps using the Gorouter are not affected.
 
 <%= partial "/pcf/tas/known-issues/gorouter-chunking" %>
 
 
 ## <a id='known-issues'></a> Known Issues
 
-<%= vars.app_runtime_abbr %> v2.12 includes the following known issue:
+<%= vars.app_runtime_abbr %> <%= vars.v_major_version %> includes the following known issue:
 
-### <a id="haproxy-http2"></a> HAProxy Does Not Support HTTP/2
+### <a id='haproxy-http2'></a> HAProxy Does Not Support HTTP/2
 
 <%= partial "/pcf/tas/known-issues/haproxy-http2" %>
 
-### <a id="stored-procedure"></a> Pre-Start Scripts Fail on policy-server Job
+### <a id='stored-procedure'></a> Pre-Start Scripts Fail on the policy-server Job
 
-When upgrading to <%= vars.app_runtime_abbr %> v2.12.2, the policy-server pre-start script runs a database migration that drops
-a stored procedure that is no longer needed. If your `networkpolicyserver` database does not have the
-stored procedure, you might see the following error in `diego_database` policy-server
-stdout logs:
+When upgrading to <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>.2, the `policy-server` pre-start script runs a database migration that drops a
+stored procedure that is no longer needed. If your `networkpolicyserver` database does not have the stored procedure, you might see the following error in
+`diego_database` `policy-server` stdout logs:
 
 ```console
 PROCEDURE networkpolicyserver.drop_destination_index does not exist handling 66
@@ -2126,8 +2121,10 @@ PROCEDURE networkpolicyserver.drop_destination_index does not exist handling 66
 
 To work around this error, add the migration to your `networkpolicyserver.gorp_migrations` table and skip the migration.
 
-For more information, see ["pre-start scripts failed. Failed Jobs: policy-server" error Upgrading to CF Networking Release 2.40.0 in Tanzu Application Service for VMs](https://community.pivotal.io/s/article/TAS-upgrade-to-version-including-cf-networking-release-2-40-0-may-fail-policy-server-job-pre-start-job?language=en_US) in the Knowledge Base.
+For more information, see ["pre-start scripts failed. Failed Jobs: policy-server" error Upgrading to CF Networking Release 2.40.0 in Tanzu Application Service
+for VMs](https://community.pivotal.io/s/article/TAS-upgrade-to-version-including-cf-networking-release-2-40-0-may-fail-policy-server-job-pre-start-job?language=en_US)
+in the Knowledge Base.
 
-### <a id='gorouter-incorrect-span-id'></a>Gorouter Sets an Invalid X-B3-SpanID Header
+### <a id='gorouter-incorrect-span-id'></a> Gorouter Sets an Invalid X-B3-SpanID Header
 
 <%= partial "/pcf/tas/known-issues/gorouter-spanid" %>

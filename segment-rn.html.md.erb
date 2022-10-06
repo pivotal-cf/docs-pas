@@ -3,10 +3,10 @@ title: Isolation Segment v2.12 Release Notes
 owner: Release Engineering
 ---
 
-This topic contains release notes for Isolation Segment v2.12.
+This topic contains release notes for <%= vars.segment_runtime_full %> <%= vars.v_major_version %>.
 
-Because VMware uses the Percona Distribution for MySQL, expect a time lag between Oracle
-releasing a MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> containing that patch.
+Because VMware uses the Percona Distribution for MySQL, expect a time lag between Oracle releasing a MySQL patch and VMware releasing
+<%= vars.app_runtime_first %> containing that patch.
 
 <hr>
 
@@ -14,7 +14,7 @@ releasing a MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> contai
 
 <%# DO NOT DELETE THIS LINE - robots use this to add new release notes %>
 
-### <a id='2.12.12'></a> 2.12.12
+### <a id='2-12-12'></a> v2.12.12
 
 **Release Date:** 09/21/2022
 
@@ -54,9 +54,7 @@ releasing a MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> contai
   </tbody>
 </table>
 
-
-
-### <a id='2.12.11'></a> 2.12.11
+### <a id='2-12-11'></a> v2.12.11
 
 **Release Date:** 08/10/2022
 
@@ -147,9 +145,7 @@ releasing a MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> contai
   </tbody>
 </table>
 
-
-
-### <a id='2.12.10'></a> 2.12.10
+### <a id='2-12-10'></a> v2.12.10
 
 **Release Date:** 07/19/2022
 
@@ -189,13 +185,11 @@ releasing a MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> contai
   </tbody>
 </table>
 
-
-
-### <a id='2.12.9'></a> 2.12.9
+### <a id='2-12-9'></a> v2.12.9
 
 **Release Date:** 06/23/2022
 
-<p class="note warning"><strong> Warning:Upcoming breaking changes!</strong> In future patches, no sooner than July 1st 2022, some components will become more strict about the protocols used in TLS communications, causing integrations with systems using older, insecure protocols to fail. Specifically, components using the Go programming language will be updated to Go 1.18, and will no longer support TLS 1.0 and 1.1 connections or certificates with a SHA-1 checksum. This is most likely to affect connections with external databases. However, the pre-existing configuration for "TLS versions supported by the Gorouter" will still work. This change may not arrive all at once, as Go is used in systems throughout TAS. There will be a VMware Knowledge Base article about this change published prior to the changes rolling out. These changes will be clearly designated in the release notes of the versions they ship in; a version of this warning will appear on all patch versions until we are confident no systems remain to be updated.</p>
+<p class='note warning'><strong> Warning:</strong> Upcoming breaking changes! In future patches, no sooner than July 1st 2022, some components will become more strict about the protocols used in TLS communications, causing integrations with systems using older, insecure protocols to fail. Specifically, components using the Go programming language will be updated to Go 1.18, and will no longer support TLS 1.0 and 1.1 connections or certificates with a SHA-1 checksum. This is most likely to affect connections with external databases. However, the pre-existing configuration for "TLS versions supported by the Gorouter" will still work. This change may not arrive all at once, as Go is used in systems throughout TAS. There will be a VMware Knowledge Base article about this change published prior to the changes rolling out. These changes will be clearly designated in the release notes of the versions they ship in; a version of this warning will appear on all patch versions until we are confident no systems remain to be updated.</p>
 
 * Bump diego to version `2.62.0`
 
@@ -226,13 +220,10 @@ releasing a MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> contai
   </tbody>
 </table>
 
-
-
-### <a id='2.12.8'></a> 2.12.8
+### <a id='2-12-8'></a> v2.12.8
 
 **Release Date:** 06/09/2022
-<p class="note warning"><strong> Warning: Breaking change.</strong> This version contains Diego 2.64.0, which bumps to Go 1.18. Go 1.18 no longer supports TLS 1.0 and 1.1 connections or certificates with a SHA-1 checksum. This is most likely to affect connections with external databases. We stated earlier that we wouldn't bump to Go 1.18 until July 1, 2022. This TAS release with Diego 2.64.0 breaks that promise. We apologize. We are rolling back to Diego 2.62.0.  If you already successfully deployed to this TAS release with Diego 2.64.0, then you are safe to continue using it.</p>
-
+<p class='note warning'><strong> Warning:</strong> Breaking change. This version contains Diego 2.64.0, which bumps to Go 1.18. Go 1.18 no longer supports TLS 1.0 and 1.1 connections or certificates with a SHA-1 checksum. This is most likely to affect connections with external databases. We stated earlier that we wouldn't bump to Go 1.18 until July 1, 2022. This TAS release with Diego 2.64.0 breaks that promise. We apologize. We are rolling back to Diego 2.62.0.  If you already successfully deployed to this TAS release with Diego 2.64.0, then you are safe to continue using it.</p>
 
 * **[Bug Fix]** Fix metric registrar secure scraping with isolation segments
 * **[Bug Fix]** Sticky sessions no longer break when used with route-services that return HTTP 4xx/5xx responses
@@ -294,9 +285,7 @@ releasing a MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> contai
   </tbody>
 </table>
 
-
-
-### <a id='2.12.7'></a> 2.12.7
+### <a id='2-12-7'></a> v2.12.7
 
 **Release Date:** 04/20/2022
 
@@ -354,9 +343,7 @@ releasing a MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> contai
   </tbody>
 </table>
 
-
-
-### <a id='2.12.6'></a> 2.12.6
+### <a id='2-12-6'></a> v2.12.6
 
 **Release Date:** 03/31/2022
 
@@ -432,9 +419,7 @@ releasing a MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> contai
   </tbody>
 </table>
 
-
-
-### <a id='2.12.5'></a> 2.12.5
+### <a id='2-12-5'></a> v2.12.5
 
 **Release Date:** 02/28/2022
 
@@ -477,9 +462,7 @@ releasing a MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> contai
   </tbody>
 </table>
 
-
-
-### <a id='2.12.4'></a> 2.12.4
+### <a id='2-12-4'></a> v2.12.4
 
 **Release Date:** 02/07/2022
 
@@ -487,7 +470,6 @@ releasing a MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> contai
 
 * **[Security Fix]** Bump routing release to v0.228.0 to address ([CVE-2021-44716](https://nvd.nist.gov/vuln/detail/CVE-2021-44716))
 * **[Feature Improvement]** Golang v1.17 contains stricter IP parsing standards, so IP addresses with leading zeros in any octets cause a BOSH template failure. Operators can remove the leading zeros and try deploying again. This affects properties that feed into cf-networking-release, silk-release, loggregator-agent-release, and syslog-release. Syslog drains and metric registrar endpoints registered using user-provided services might also be affected.
-
 * Bump bpm to version `1.1.16`
 * Bump cf-networking to version `2.43.0`
 * Bump cflinuxfs3 to version `0.272.0`
@@ -526,8 +508,7 @@ releasing a MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> contai
   </tbody>
 </table>
 
-
-### <a id='2.12.3'></a> 2.12.3
+### <a id='2-12-3'></a> v2.12.3
 
 **Release Date:** 12/15/2021
 
@@ -572,8 +553,7 @@ releasing a MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> contai
   </tbody>
 </table>
 
-
-### <a id='2.12.2'></a> 2.12.2
+### <a id='2-12-2'></a> v2.12.2
 
 **Release Date:** 11/23/2021
 
@@ -613,7 +593,8 @@ releasing a MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> contai
     <tr><td>syslog</td><td>11.7.5</td></tr>
   </tbody>
 </table>
-### <a id='2.12.1'></a> 2.12.1
+
+### <a id='2-12-1'></a> v2.12.1
 
 **Release Date:** 10/20/2021
 
@@ -648,13 +629,11 @@ releasing a MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> contai
   </tbody>
 </table>
 
-
-
-### <a id='2.12.0'></a> 2.12.0
+### <a id='2-12-0'></a> v2.12.0
 
 **Release Date:** October 4, 2021
 
-* See [New Features in Isolation Segment v2.12](#new-features)
+* See [New Features in <%= vars.segment_runtime_full %> <%= vars.v_major_version %>](#new-features)
 * See [Breaking Changes](#breaking-changes)
 
 <table border="1" class="nice">
@@ -685,89 +664,96 @@ releasing a MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> contai
 </table>
 
 
-## <a id='intro'></a> About Isolation Segment
+## <a id='intro'></a> About <%= vars.segment_runtime_full %>
 
-The Isolation Segment v2.12 tile is available for installation with Ops Manager v2.10.
+The <%= vars.segment_runtime_full %> <%= vars.v_major_version %> tile is available for installation with <%= vars.ops_manager %> v2.10.
 
-Isolation segments provide dedicated pools of resources where you can deploy apps and isolate workloads. Using isolation segments separates app resources as completely as if they were in different deployments but avoids redundant management and network complexity. For more information about isolation segments, see [Isolation Segments](../../concepts/security.html#isolation-segments) in _TAS for VMs Security_.
+Isolation segments provide dedicated pools of resources where you can deploy apps and isolate workloads. Using isolation segments separates app resources as
+completely as if they were in different deployments but avoids redundant management and network complexity. For more information about isolation segments, see
+[Isolation Segments](../../concepts/security.html#isolation-segments) in _<%= vars.app_runtime_abbr %> Security_.
 
-For more information about using isolation segments in your deployment, see [Managing Isolation Segments](https://docs.pivotal.io/application-service/2-12/adminguide/isolation-segments.html).
+For more information about using isolation segments in your deployment, see [Managing Isolation Segments](../../adminguide/isolation-segments.html).
 
 
 ## <a id='install'></a> How to Install
 
-To install Isolation Segment v2.12, see [Installing Isolation Segment](https://docs.pivotal.io/application-service/2-12/operating/installing-pcf-is.html).
+To install <%= vars.segment_runtime_full %> <%= vars.v_major_version %>, see [Installing
+<%= vars.segment_runtime_full %>](../../operating/installing-pcf-is.html).
 
-To install Isolation Segment v2.12, you must first install Ops Manager v2.10.
-For more information, see the [Ops Manager](https://docs.pivotal.io/ops-manager/2-10/index.html) documentation.
+To install <%= vars.segment_runtime_full %> <%= vars.v_major_version %>, you must first install <%= vars.ops_manager %> v2.10. For more information, see the
+[<%= vars.ops_manager %> documentation](https://docs.pivotal.io/ops-manager/2-10/index.html).
 
 
-## <a id='new-features'></a> New Features in Isolation Segment v2.12
+## <a id='new-features'></a> New Features in <%= vars.segment_runtime_full %> <%= vars.v_major_version %>
 
-Isolation Segment v2.12 includes the following major features:
+<%= vars.segment_runtime_full %> <%= vars.v_major_version %> includes the following major features:
 
-### <a id='tls-v1.3'></a>Gorouter Supports TLS v1.3
+### <a id='tls-v1.3'></a> Gorouter Supports TLS v1.3
 
-In Isolation Segment v2.12, the Gorouter supports TLS v1.3.
-New installations of Isolation Segment use TLS v1.3 for the Gorouter by default.
-If you are upgrading to Isolation Segment v2.12, the Gorouter uses TLS v1.2 by default.
+In <%= vars.segment_runtime_full %> <%= vars.v_major_version %>, the Gorouter supports TLS v1.3. New installations of <%= vars.segment_runtime_full %> use TLS
+v1.3 for the Gorouter by default. If you are upgrading to <%= vars.segment_runtime_full %> <%= vars.v_major_version %>, the Gorouter uses TLS v1.2 by default.
 
-You can select which versions of TLS that the Gorouter uses when you configure Isolation Segment.
-Selecting support for TLS v1.3 only is a beta feature in Isolation Segment v2.12.
+You can select which versions of TLS that the Gorouter uses when you configure <%= vars.segment_runtime_full %>. Selecting support for TLS v1.3 only is a beta
+feature in <%= vars.segment_runtime_full %> <%= vars.v_major_version %>.
 
-For more information, see [(Beta) Gorouter Can Support TLS v1.3 Connections Only](#tls-v1.3-only) in the _Breaking Changes_ section.
+For more information, see [(Beta) Gorouter Can Support TLS v1.3 Connections Only](#tls-v1.3-only) below.
 
-### <a id='http2'></a>Gorouter Supports HTTP/2
+### <a id='http2'></a> Gorouter Supports HTTP/2
 
-<p class="note breaking"><strong>Breaking Change</strong>: See <a href="#envoy-http2-alpn">Envoy Advertises HTTP/2 Support Over ALPN</a> in the <em>Breaking Changes</em> section.</p>
+<p class='note breaking'><strong>Breaking Change:</strong> See <a href="#envoy-http2-alpn">Envoy Advertises HTTP/2 Support Over ALPN</a> below.</p>
 
-In TAS for VMs v2.12 and later, HTTP/2 support is enabled by default.
-HTTP/2 is the second major version of the the HTTP protocol.
+In <%= vars.app_runtime_abbr %> <%= vars.v_major_version %> and later, HTTP/2 support is enabled by default. HTTP/2 is the second major version of the the
+HTTP protocol.
 
 HTTP/2 features the following improvements over HTTP/1.1:
 
 * Uses a binary data format instead of plain text
+
 * Compresses headers
+
 * Multiplexes multiple HTTP requests over a single TCP connection
 
 Together, these improvements can improve response times for some apps.
 
 For more information about the HTTP/2 protocol, see [RFC 7540](https://datatracker.ietf.org/doc/html/rfc7540).
 
-For information about configuring support for HTTP/2 in TAS for VMs, see [Configuring HTTP/2 Support](http://docs.pivotal.io/application-service/2-12/adminguide/supporting-http2.html).
+For information about configuring support for HTTP/2 in <%= vars.app_runtime_abbr %>, see [Configuring HTTP/2
+Support](../../adminguide/supporting-http2.html).
 
-For information about routing HTTP/2 traffic to your TAS for VMs apps, see [Routing HTTP/2 and gRPC Traffic to Apps](../devguide/http2-protocol.html).
+For information about routing HTTP/2 traffic to your <%= vars.app_runtime_abbr %> apps, see [Routing HTTP/2 and gRPC Traffic to
+Apps](../devguide/http2-protocol.html).
 
 
 ## <a id='breaking-changes'></a> Breaking Changes
 
-Isolation Segment v2.12 includes the following breaking changes:
+<%= vars.segment_runtime_full %> <%= vars.v_major_version %> includes the following breaking changes:
 
-### <a id='tls-v1.3-only'></a>(Beta) Gorouter Can Support TLS v1.3 Connections Only
+### <a id='tls-v1.3-only'></a> (Beta) Gorouter Can Support TLS v1.3 Connections Only
 
-TLS v1.3 is not compatible with some versions of Java.
-If you configure Isolation Segment to support TLS v1.3 only, you might encounter errors with Java apps.
-For more information, see [JSSE Client does not accept status_request extension in CertificateRequest messages for TLS 1.3](https://bugs.openjdk.java.net/browse/JDK-8236039) in the JDK Bug System.
+TLS v1.3 is not compatible with some versions of Java. If you configure <%= vars.segment_runtime_full %> to support TLS v1.3 only, you might encounter errors
+with Java apps. For more information, see [JSSE Client does not accept status_request extension in CertificateRequest messages for TLS
+1.3](https://bugs.openjdk.java.net/browse/JDK-8236039) in the JDK Bug System.
 
-The tile property that controls the TLS version in Isolation Segment changes in TAS for VMs v2.12. You must update any stored configuration files to reflect the change.
+The tile property that controls the TLS version in <%= vars.segment_runtime_full %> changes in <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>. You
+must update any stored configuration files to reflect the change.
 
 ### <a id='envoy-http2-alpn'></a>Envoy Advertises HTTP/2 Support Over ALPN
 
-Envoy, the Diego container proxy, advertises HTTP/2 support using Application-Layer Protocol Negotiation (ALPN) for all apps.
-Internal clients that access the Envoy TLS port directly must negotiate down to HTTP/1.1 for apps that do not support HTTP/2.
-The Envoy TLS port is typically 61001.
-Clients that connect to apps using the Gorouter are not affected.
+Envoy, the Diego container proxy, advertises HTTP/2 support using Application-Layer Protocol Negotiation (ALPN) for all apps. Internal clients that access the
+Envoy TLS port directly must negotiate down to HTTP/1.1 for apps that do not support HTTP/2. The Envoy TLS port is typically `61001`. Clients that connect to
+apps using the Gorouter are not affected.
 
 <%= partial "/pcf/tas/known-issues/gorouter-chunking" %>
 
+
 ## <a id='known-issues'></a> Known Issues
 
-<%= vars.segment_runtime_full %> v2.12 includes the following known issue:
+<%= vars.segment_runtime_full %> <%= vars.v_major_version %> includes the following known issue:
 
-### <a id="haproxy-http2"></a> HAProxy Does Not Support HTTP/2
+### <a id='haproxy-http2'></a> HAProxy Does Not Support HTTP/2
 
 <%= partial "/pcf/tas/known-issues/haproxy-http2" %>
 
-### <a id='gorouter-incorrect-span-id'></a>Gorouter Sets an Invalid X-B3-SpanID Header
+### <a id='gorouter-incorrect-span-id'></a> Gorouter Sets an Invalid X-B3-SpanID Header
 
 <%= partial "/pcf/tas/known-issues/gorouter-spanid" %>
