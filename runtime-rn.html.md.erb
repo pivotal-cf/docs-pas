@@ -3,20 +3,19 @@ title: VMware Tanzu Application Service for VMs v2.13 Release Notes
 owner: Release Engineering
 ---
 
-This topic contains release notes for VMware Tanzu Application Service for VMs (TAS for VMs) v2.13.
+This topic contains release notes for <%= vars.app_runtime_first %> <%= vars.v_major_version %>.
 
-TAS for VMs is certified by the Cloud Foundry Foundation for <%= Date.today.year %>.
+<%= vars.app_runtime_abbr %> is certified by the Cloud Foundry Foundation for <%= Date.today.year %>.
 
-For more information about the Cloud Foundry Certified Provider Program, see
-[How Do I Become a Certified Provider?](https://www.cloudfoundry.org/certified-platforms-how-to/)
-on the Cloud Foundry website.
+For more information about the Cloud Foundry Certified Provider Program, see [How Do I Become a Certified
+Provider?](https://www.cloudfoundry.org/certified-platforms-how-to/) on the Cloud Foundry website.
 
 Because VMware uses the Percona Distribution for MySQL, expect a time lag between Oracle
-releasing a MySQL patch and VMware releasing TAS for VMs containing that patch.
+releasing a MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> containing that patch.
 
-**Required Cloud Foundry Command-Line Interface (cf CLI) version**: You must install cf CLI v7 or cf CLI v8 when upgrading to or using TAS for VMs v2.13.
-
-For more information, see [Upgrading to cf CLI v7](https://docs.pivotal.io/application-service/2-13/cf-cli/v7.html) and [Upgrading to cf CLI v8](https://docs.pivotal.io/application-service/2-13/cf-cli/v8.html).
+**Required Cloud Foundry Command-Line Interface (cf CLI) version:** You must install cf CLI v7 or cf CLI v8 when upgrading to or using
+<%= vars.app_runtime_abbr %> <%= vars.v_major_version %>. For more information, see [Upgrading to cf CLI v7](../../cf-cli/v7.html) and [Upgrading to cf CLI
+v8](../../cf-cli/v8.html).
 
 <hr>
 
@@ -24,14 +23,15 @@ For more information, see [Upgrading to cf CLI v7](https://docs.pivotal.io/appli
 
 <%# DO NOT DELETE THIS LINE - robots use this to add new release notes %>
 
-### <a id='2.13.9'></a> 2.13.9
+### <a id='2-13-9'></a> v2.13.9
 
 **Release Date:** 09/21/2022
 
 * **[Security Fix]** Bump Cloud Controller Ruby version to 2.7.6 and Go to 1.18.5
 * **[Security Fix]** Update Content-Security-Policy
-* **[Feature]** 2.13 is now a Long Term Support Track (LTS-T) release. It will be supported through March of 2024. Note that the version number will recieve a `+LTS-T' metadata addition in a future patch.
-* **[Feature]** Enables jumpgrade from TAS 2.11, attendant to LTS-T status.
+* **[Feature]** <%= vars.app_runtime_abbr %> <%= vars.v_major_version %> is a long-term support track (LTS-T) release. It is to be supported through March of
+2024. The version number is to receive a `+LTS-T' metadata addition in a future patch.
+* **[Feature]** Enables jumpgrade from <%= vars.app_runtime_abbr %> v2.11, attendant to LTS-T status.
 * **[Feature]** Enables TLS for all internal MySQL galera and monitoring components
 * **[Feature Improvement]** Bump golang to 1.18 for diego, routing, cf-networking, and silk
 * **[Feature Improvement]** Use the latest version of nats-release
@@ -245,9 +245,7 @@ For more information, see [Upgrading to cf CLI v7](https://docs.pivotal.io/appli
   </tbody>
 </table>
 
-
-
-### <a id='2.13.8'></a> 2.13.8
+### <a id='2-13-8'></a> v2.13.8
 
 **Release Date:** 08/10/2022
 
@@ -354,9 +352,7 @@ For more information, see [Upgrading to cf CLI v7](https://docs.pivotal.io/appli
   </tbody>
 </table>
 
-
-
-### <a id='2.13.7'></a> 2.13.7
+### <a id='2-13-7'></a> v2.13.7
 
 **Release Date:** 07/19/2022
 
@@ -501,9 +497,7 @@ instance. If you specify a service instance, Autoscaler only requests metrics fr
   </tbody>
 </table>
 
-
-
-### <a id='2.13.6'></a> 2.13.6
+### <a id='2-13-6'></a> v2.13.6
 
 **Release Date:** 06/24/2022
 
@@ -568,22 +562,18 @@ instance. If you specify a service instance, Autoscaler only requests metrics fr
   </tbody>
 </table>
 
-
-
-### <a id='2.13.5'></a> 2.13.5
+### <a id='2-13-5'></a> v2.13.5
 
 **Release Date:** 06/09/2022
 
-<p class="note warning"><strong style="text-transform: none;">Warning: Breaking change</strong><br>
-This version contains Diego 2.64.0, which bumps to Go 1.18. Go 1.18 no longer supports TLS 1.0 and 1.1 connections or certificates with a SHA-1 checksum. This is most likely to affect connections with external databases. We stated earlier that we wouldn't bump to Go 1.18 until July 1, 2022. This TAS release with Diego 2.64.0 breaks that promise. We apologize. We are rolling back to Diego 2.62.0.  If you already successfully deployed to this TAS release with Diego 2.64.0, then you are safe to continue using it.</p>
-
+<p class='note warning'><strong style="text-transform: none;">Warning:</strong> Breaking change. This version contains Diego 2.64.0, which bumps to Go 1.18. Go 1.18 no longer supports TLS 1.0 and 1.1 connections or certificates with a SHA-1 checksum. This is most likely to affect connections with external databases. We stated earlier that we wouldn't bump to Go 1.18 until July 1, 2022. This <%= vars.app_runtime_abbr %> release with Diego 2.64.0 breaks that promise. We apologize. We are rolling back to Diego 2.62.0.  If you already successfully deployed to this <%= vars.app_runtime_abbr %> release with Diego 2.64.0, then you are safe to continue using it.</p>
 
 * **[Security Fix]** Added Content-Security-Policy headers in UAA responses
 * **[Bug Fix]** Fix metric registrar secure scraping with isolation segments
 * **[Bug Fix]** Resolves [an issue with Dynamic ASGs](https://community.pivotal.io/s/article/Apps-stop-running-after-a-deploy-when-using-dynamic-ASGs-with-icmp-any-rule) and ASG containing 'ICMP any' rules causing apps not to start
 * **[Bug Fix]** Sticky sessions no longer break when used with route-services that return HTTP 4xx/5xx responses
 * **[Breaking Change]** Syslog drains configured to use TLS now [reject certificates signed with the SHA-1 hash function](https://go.dev/doc/go1.18#sha1).
-* **[Breaking Change]** If you followed the procedure in [Autoscale application fails with MySQL Deadlock errors](https://community.pivotal.io/s/article/Autoscale-application-errors-with-MySQL-Deadlock) to manually add an index to an Autoscale database, and the index is not dropped before you upgrade to TAS for VMs v2.13.5, upgrading causes an error.
+* **[Breaking Change]** If you followed the procedure in [Autoscale application fails with MySQL Deadlock errors](https://community.pivotal.io/s/article/Autoscale-application-errors-with-MySQL-Deadlock) to manually add an index to an Autoscale database, and the index is not dropped before you upgrade to <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>.5, upgrading causes an error.
 * **[Bug Fix/Improvement]** Stop emitting debug metrics for agents and log-cache by default. Reduces load on logging system by >=720 metrics per vm per minute
 * Bump backup-and-restore-sdk to version `1.18.42`
 * Bump binary-offline-buildpack to version `1.0.45`
@@ -719,9 +709,7 @@ This version contains Diego 2.64.0, which bumps to Go 1.18. Go 1.18 no longer su
   </tbody>
 </table>
 
-
-
-### <a id='2.13.4'></a> 2.13.4
+### <a id='2-13-4'></a> v2.13.4
 
 **Release Date:** 04/21/2022
 
@@ -848,11 +836,10 @@ This version contains Diego 2.64.0, which bumps to Go 1.18. Go 1.18 no longer su
   </tbody>
 </table>
 
+### <a id='2-13-3'></a> v2.13.3 - Withdrawn
 
-
-### <a id='2.13.3'></a> 2.13.3 - Withdrawn
-
-<p class="note warning"><strong> Warning:</strong> This release has been removed from VMware Tanzu Network due to an issue with the version of capi release included in the patch.</p>
+<p class='note warning'><strong>Warning:</strong> This release has been removed from VMware Tanzu Network due to an issue with the version of CAPI included in
+  the patch.</p>
 
 **Release Date:** 04/20/2022
 
@@ -985,9 +972,7 @@ This version contains Diego 2.64.0, which bumps to Go 1.18. Go 1.18 no longer su
   </tbody>
 </table>
 
-
-
-### <a id='2.13.2'></a> 2.13.2
+### <a id='2-13-2'></a> v2.13.2
 
 **Release Date:** 04/06/2022
 
@@ -1056,9 +1041,7 @@ This version contains Diego 2.64.0, which bumps to Go 1.18. Go 1.18 no longer su
   </tbody>
 </table>
 
-
-
-### <a id='2.13.1'></a> 2.13.1
+### <a id='2-13-1'></a> v2.13.1
 
 **Release Date:** 03/31/2022
 
@@ -1126,17 +1109,15 @@ This version contains Diego 2.64.0, which bumps to Go 1.18. Go 1.18 no longer su
   </tbody>
 </table>
 
-
-
-### <a id='2.13.0'></a> 2.13.0
+### <a id='2-13-0'></a> v2.13.0
 
 **Release Date:** March 29, 2022
 
 <%= partial "/pcf/tas/known-issues/icmp-dynamic-asg-note" %>
 
-* See [New Features in TAS for VMs v2.13](#new-features).
-* See [Breaking Changes](#breaking-changes).
-* See [Known Issues](#known-issues).
+* See [New Features in <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>](#new-features) below.
+* See [Breaking Changes](#breaking-changes) below.
+* See [Known Issues](#known-issues) below.
 
 <table border="1" class="nice">
   <thead>
@@ -1198,72 +1179,72 @@ This version contains Diego 2.64.0, which bumps to Go 1.18. Go 1.18 no longer su
 </table>
 <sup>*</sup> The `cf-cli` version corresponds to the commercial distribution on <%= vars.product_network %>.
 
+
 ## <a id='upgrade'></a> How to Upgrade
 
-To upgrade to TAS for VMs v2.13, see [Configuring TAS for VMs for Upgrades](https://docs.pivotal.io/application-service/2-12/operating/configuring.html).
+To upgrade to <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>, see [Configuring <%= vars.app_runtime_abbr %> for
+Upgrades](../../operating/configuring.html).
 
-When upgrading to TAS for VMs v2.13, be aware of the following upgrade considerations:
+When upgrading to <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>, be aware of the following upgrade considerations:
 
-* If you previously used an earlier version of TAS for VMs, you must first upgrade to TAS for VMs v2.11 to successfully upgrade to TAS for VMs v2.13.
+* If you previously used an earlier version of <%= vars.app_runtime_abbr %>, you must first upgrade to <%= vars.app_runtime_abbr %> v2.11 to successfully
+upgrade to <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>.
 
-* Upgrade the cf CLI to the latest cf CLI v7 release, the latest cf CLI v8 release, or the commercial cf CLI distribution available on [VMware Tanzu Network](https://network.pivotal.io/products/elastic-runtime/).
+* Upgrade the cf CLI to the latest cf CLI v7 release, the latest cf CLI v8 release, or the commercial cf CLI distribution available on [VMware Tanzu
+Network](https://network.pivotal.io/products/elastic-runtime/).
 
-* Some partner service tiles might be incompatible with TAS for VMs v2.13.
-  VMware is working with partners to ensure their tiles are updated to work with the latest versions of TAS for VMs.
-  <br/><br/> For information about which partner service releases are currently compatible with TAS for VMs
-  v2.13, review the appropriate partners services release documentation
-  at [https://docs.pivotal.io](https://docs.pivotal.io) or contact the partner organization that produces the tile.
+* Some partner service tiles might be incompatible with <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>. VMware is working with partners to ensure
+that their tiles are updated to work with the latest versions of <%= vars.app_runtime_abbr %>. For information about which partner service releases are
+currently compatible with <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>, review the appropriate partners services release documentation at
+[https://docs.pivotal.io](https://docs.pivotal.io) or contact the partner organization that produces the tile.
 
 
-## <a id='new-features'></a> New Features in TAS for VMs v2.13
+## <a id='new-features'></a> New Features in <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>
 
-TAS for VMs v2.13 includes the following major features:
+<%= vars.app_runtime_abbr %> <%= vars.v_major_version %> includes the following major features:
 
 ### <a id='app-protocol'></a> Update the Destination App Protocol for Routes
 
-In TAS for VMs v2.13.0, developers can update the destination protocol for app routes.
-After the destination protocol is updated, the app uses that protocol for all incoming and outgoing communications.
+In <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>, developers can update the destination protocol for app routes. After the destination protocol is
+updated, the app uses that protocol for all incoming and outgoing communications.
 
 You can update the destination protocol using Apps Manager or cf CLI v8.
 
-Before you can update the destination app protocol, you must enable HTTP/2 ingress and egress for the Gorouter.
-This option is enabled by default in the **Networking** pane of the TAS for VMs tile.
+Before you can update the destination app protocol, you must activate HTTP/2 ingress and egress for the Gorouter. This option is activate by default in the
+**Networking** pane of the <%= vars.app_runtime_abbr %> tile.
 
-To update the destination app protocol in Apps Manager, see [Change the Destination Protocol for a Route](https://docs.pivotal.io/application-service/2-13/console/manage-apps.html#route-protocol) in _Managing Apps and Service Instances Using Apps Manager_.
+To update the destination app protocol in Apps Manager, see [Change the Destination Protocol for a Route](../../console/manage-apps.html#route-protocol) in
+_Managing Apps and Service Instances Using Apps Manager_.
 
 To update the destination app protocol using cf CLI v8:
 
-```
-cf update-destination --app-protocol PROTOCOL APP-NAME APP-DOMAIN --hostname HOSTNAME
-```
+1. Run:
 
-Where:
+    ```
+    cf update-destination --app-protocol PROTOCOL APP-NAME APP-DOMAIN --hostname HOSTNAME
+    ```
+    Where:
+    * `PROTOCOL` is the app protocol you want to use. Valid values are `http1` or `http2`.
+    * `APP-NAME` is the name of your app.
+    * `APP-DOMAIN` is the domain name of your app.
+    * `HOSTNAME` is the hostname of your app.
+    <br>
+    <br>
+    The following example command updates the destination protocol for `example-app` to HTTP/2:
 
-- `PROTOCOL` is the app protocol you want to use. You can use `http1` or `http2`.
-- `APP-NAME` is the name of your app. For example, `my-app`.
-- `APP-DOMAIN` is the domain name of your app. For example, `app-domain.com`.
-- `HOSTNAME` is the hostname of your app. For example, `my-hostname`.
+    ```
+    cf update-destination --app-protocol http2 example-app app-domain.com --hostname example-hostname
+    ```
 
-For example:
+### <a id='mysql-8'></a> <%= vars.app_runtime_abbr %> is Compatible with MySQL 8
 
-<pre class="terminal">
-$ cf update-destination --app-protocol http2 my-app app-domain.com --hostname my-hostname
+<%= vars.app_runtime_abbr %> <%= vars.v_major_version %> supports MySQL 8 for external databases. Previous versions of <%= vars.app_runtime_abbr %> supported
+MySQL 5.7, which is expected to reach end of general support (EOGS) in 2023. If you use an external MySQL database with <%= vars.app_runtime_abbr %>
+<%= vars.v_major_version %>, use a MySQL 8 database for improved security and a longer window of support.
 
-Destination-protocol changed to http2
-OK
-</pre>
+### <a id='golang-1-17'></a> <%= vars.app_runtime_abbr %> Components Use Golang v1.17
 
-The command above updates the destination protocol for my-app to HTTP/2.
-
-### <a id='mysql-8'></a> TAS for VMs is Compatible with MySQL 8
-
-TAS for VMs v2.13.0 supports MySQL 8 for external databases.
-Previous versions of TAS for VMs supported MySQL 5.7, which is expected to go out of support in 2023.
-If you use an external MySQL database with TAS for VMs v2.13, use a MySQL 8 database for improved security and a longer window of support.
-
-### <a id='golang-1-17'></a> TAS for VMs Components Use Golang v1.17
-
-In TAS for VMs v2.13.0, several TAS for VMs components use Golang v1.17.
+In <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>, several <%= vars.app_runtime_abbr %> components use Golang v1.17.
 
 The following table lists the component releases that have been updated to use Golang v1.17:
 
@@ -1298,113 +1279,147 @@ The following table lists the component releases that have been updated to use G
   </tr>
 </table>
 
-For important information, see [Gorouter Certificates Require a SAN Extension](#certs-require-san) in the _Breaking Changes_ section.
+For important information, see [Gorouter Certificates Require a SAN Extension](#certs-require-san) below.
 
 ### <a id='dynamic-asg'></a> Dynamic App Security Group Rules
 
-TAS for VMs v2.13 introduces dynamic App Security Groups (ASGs).
+<%= vars.app_runtime_abbr %> <%= vars.v_major_version %> introduces dynamic App Security Groups (ASGs).
 
-ASGs are a collection of egress rules that specify the protocols, ports, and IP address ranges where app or task instances send traffic.
-Previously, updating an existing ASG required you to restart the app before the ASG went into effect.
+ASGs are a collection of egress rules that specify the protocols, ports, and IP address ranges where app or task instances send traffic. Previously, updating
+an existing ASG required you to restart the app before the ASG went into effect.
 
-Dynamic ASGs can automatically update security groups without requiring an app restart.
-If you have existing ASGs, you can run any of the security group cf CLI commands, including `cf bind-security-group` and `cf update-security-group`, and the changes apply automatically to any running apps.
+Dynamic ASGs can automatically update security groups without requiring an app restart. If you have existing ASGs, you can run any of the security group cf
+CLI commands, including `cf bind-security-group` and `cf update-security-group`, and the changes apply automatically to any running apps.
 
 To enable dynamic ASGs:
 
-1. Navigate to the Ops Manager Installation Dashboard and click the TAS for VMs tile.
+1. Navigate to the <%= vars.ops_manager %> Installation Dashboard.
+
+1. Click the <%= vars.app_runtime_abbr %> tile.
+
 1. Select **Networking**.
+
 1. Select the **Enable dynamic application security group changes** checkbox.
+
 1. Click **Save**.
 
 For more information about ASGs, see [App Security Groups](../concepts/asg.html).
 
 ### <a id='scaling-factors'></a> Configure Scaling Factors for App Autoscaler
 
-In TAS for VMs v2.13.0, App Autoscaler can scale apps by one or more app instances based on autoscaling rules.
-In previous releases of TAS for VMs, App Autoscaler only scaled app instances up or down by one instance at a time.
-You can configure scaling factors using the App Autoscaler API or the App Autoscaler CLI plugin.
+In <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>, App Autoscaler can scale apps by one or more app instances based on autoscaling rules. In
+previous releases of <%= vars.app_runtime_abbr %>, App Autoscaler only scaled app instances up or down by one instance at a time. You can configure scaling
+factors using the App Autoscaler API or the App Autoscaler CLI plugin.
 
-To configure scaling factors using the API, see [Update an App Binding](https://docs.pivotal.io/application-service/2-13/appsman-services/autoscaler/using-autoscaler-api.html#update-app) in _Using the App Autoscaler API_.
+To configure scaling factors using the API, see [Update an App Binding](../../appsman-services/autoscaler/using-autoscaler-api.html#update-app) in _Using the
+App Autoscaler API_.
 
-To configure scaling factors using the App Autoscaler CLI plugin, see [Update Scaling Factors](https://docs.pivotal.io/application-service/2-13/appsman-services/autoscaler/using-autoscaler-cli.html#updating-scaling-factors) in _Using the App Autoscaler CLI_.
+To configure scaling factors using the App Autoscaler CLI plugin, see [Update Scaling
+Factors](../../appsman-services/autoscaler/using-autoscaler-cli.html#updating-scaling-factors) in _Using the App Autoscaler CLI_.
 
-For more information, see [About App Autoscaler](https://docs.pivotal.io/application-service/2-13/appsman-services/autoscaler/about-app-autoscaler.html).
+For more information, see [About App Autoscaler](../../appsman-services/autoscaler/about-app-autoscaler.html).
 
 ### <a id='separate-log-cache'></a> Log Cache Uses Its Own Instance Group
 
-In TAS for VMs v2.13.0, the Log Cache component runs on its own Log Cache instance group. Log Cache is no longer part of Doppler instances. Additionally, syslog ingress is enabled by default.
+In <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>, the Log Cache component runs on its own Log Cache instance group. Log Cache is no longer part of
+Doppler instances. Additionally, syslog ingress is enabled by default.
 
-This change allows TAS for VMs to do the following:
+This change allows <%= vars.app_runtime_abbr %> to do the following:
 
-* Enable Log Cache to scale independently from Doppler. For example, to provide more memory for storing logs and metrics. You can reduce the memory allocation for Doppler instances.
-* Scale Log Cache to more than 40 VMs, because it is no longer limited by Doppler and TrafficController's throughput and connection-based horizontal scaling limits.
+* Allow Log Cache to scale independently from Doppler. For example, to provide more memory for storing logs and metrics. You can reduce the memory allocation
+for Doppler instances.
+
+* Scale Log Cache to more than 40 VMs, because it is no longer limited by Doppler and Traffic Controller's throughput and connection-based horizontal scaling
+limits.
+
 * Reduce the number of network hops required for logs and metrics to get to Log Cache.
 
-For important information, see the related [Breaking Change](#log-metric-topology) and [Known Issue](#upgrade-downtime).
+For important information regarding this feature, see the sections below:
+
+* [Log and Metric Topology Changes](#log-metric-topology)
+
+* [Possible Downtime When Upgrading from Certain <%= vars.app_runtime_abbr %> Versions](#upgrade-downtime).
 
 ### <a id='no-recreate'></a> Rotate the Root CA and NATS CA Without Re-Creating All VMs
 
-In [Ops Manager v2.10.20](https://docs.pivotal.io/ops-manager/2-10/release-notes.html#2-10-20) and later, operators can rotate the root certificate authority (CA) or NATS CA without re-creating all VMs.
-If you rotate these certificates in Ops Manager and click **Apply Changes**, Ops Manager updates the certificates on the VMs without re-creating the VMs.
+In <%= vars.ops_manager %> v2.10.20 and later, operators can rotate the root certificate authority (CA) or NATS CA without re-creating all VMs. If you rotate
+these certificates and re-deploy <%= vars.ops_manager %>, <%= vars.ops_manager %> updates the certificates on the VMs without re-creating the VMs.
 
-For more information, see [Rotating CAs and Leaf Certificates](https://docs.pivotal.io/ops-manager/2-10/security/pcf-infrastructure/rotate-cas-and-leaf-certs.html) in the Ops Manager documentation.
+For more information, see the [<%= vars.ops_manager %>
+documentation](https://docs.pivotal.io/ops-manager/2-10/security/pcf-infrastructure/rotate-cas-and-leaf-certs.html).
 
-### <a id='imdsv2'></a> Enable IMDSv2 in Ops Manager on AWS
+### <a id='imdsv2'></a> Enable IMDSv2 in <%= vars.ops_manager %> on AWS
 
-Operators can configure [Ops Manager v2.10.23](https://docs.pivotal.io/ops-manager/2-10/release-notes.html#2-10-23) and later to require IMDSv2 on all BOSH-deployed VMs in Amazon Web Services (AWS).
-This Ops Manager feature is compatible with installations of TAS for VMs v2.13.0 and later.
+Operators can configure <%= vars.ops_manager %> v2.10.23 and later to require IMDSv2 on all BOSH-deployed VMs in Amazon Web Services (AWS). This
+<%= vars.ops_manager %> feature is compatible with installations of <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>.
 
-For more information, see [Enable IMDSv2 in Ops Manager](https://docs.pivotal.io/ops-manager/2-10/security/security-adjacent/security-guidelines-iaas.html#aws-imds-v2) in the Ops Manager documentation.
+For more information, see the [<%= vars.ops_manager %>
+documentation](https://docs.pivotal.io/ops-manager/2-10/security/security-adjacent/security-guidelines-iaas.html#aws-imds-v2).
 
-### <a id='tls-c2c'></a> Enable One-Way TLS for Container-to-Container Communication
+### <a id='tls-c2c'></a> One-Way TLS for Container-to-Container Communication
 
-In TAS for VMs v2.13.0, developers can enable TLS for communication between app containers. <%# how? %>
+In <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>, developers can configure app containers to communicate with each other over one-way TLS.
+<%# how? %>
 
-When you enable this feature, TLS is terminated at Envoy.
-Developers can continue to serve HTTP traffic on port 8080, and Envoy listens on port 61443 with a TLS certificate with a SAN that includes app internal routes.
-Envoy proxies this port to port 8080 inside the container.
-When a new route is mapped to the app, the certificate is updated without requiring an app restart.
+When you configure this feature, TLS is terminated at Envoy. Developers can continue to serve HTTP traffic on port `8080`, and Envoy listens on port `61443`
+with a TLS certificate with a SAN that includes app internal routes. Envoy proxies this port to port `8080` inside the container. When a new route is mapped
+to the app, the certificate is updated without requiring an app restart.
 
-Warning: this feature introduces a migration to the bbs database. Rolling back from this release will cause database issues.
+<p class='note warning'><strong>Warning:</strong> This feature introduces a migration to the BBS database. Rolling back from this release causes database
+  issues.</p>
 
 ### <a id='offline-tools'></a> Download Offline Tools in Air-Gapped Environments
 
-In TAS for VMs v2.13.0, you can include documentation and cf CLI packages in Apps Manager that operators and developers can download in air-gapped environments.
-TAS for VMs v2.13.0 adds the post-deploy **Offline Docs Errand**.
+In <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>, you can include documentation and cf CLI packages in Apps Manager that operators and developers
+can download in air-gapped environments. <%= vars.app_runtime_abbr %> <%= vars.v_major_version %> adds the post-deploy **Offline Docs Errand**.
 
-To enable access to offline tools in air-gapped environments:
+To allow access to offline tools in air-gapped environments:
 
-1. Navigate to the Installation Dashboard and click the TAS for VMs tile.
+1. Navigate to the <%= vars.ops_manager %> Installation Dashboard.
+
+1. Click the <%= vars.app_runtime_abbr %> tile.
+
 1. Select **Apps Manager**.
-1. Under **Configure how developers access documentation, tools and pluggins when unable to connect to the internet**, select the checkbox for **Enable access to offline tools**.
-1. Under **Choose which CF CLI packages to include**, select either **CF CLI V7** or **CF CLI V8**.
-1. Click **Save**.
-1. Select **Errands**.
-1. Under **Offline Docs Errand**, select **On** from the dropdown.
-1. Click **Save**.
-1. Return to the Installation Dashboard.
-1. Click **Review Pending Changes**.
-1. Review the changes, and then click **Apply Changes**.
 
-For more information, see [(Optional) Configure Custom Branding and Apps Manager](https://docs.pivotal.io/application-service/2-13/operating/configure-pas.html#customize-apps-man) in _Configuring TAS for VMs_.
+1. Under **Configure how developers access documentation, tools and pluggins when unable to connect to the internet**, activate the **Enable access to offline
+tools** checkbox.
+
+1. Under **Choose which CF CLI packages to include**, select either **CF CLI V7** or **CF CLI V8**.
+
+1. Click **Save**.
+
+1. Select **Errands**.
+
+1. From the **Offline Docs Errand** dropdown, select **On**.
+
+1. Click **Save**.
+
+1. Return to the <%= vars.ops_manager %> Installation Dashboard.
+
+1. Click **Review Pending Changes**.
+
+1. Click **Apply Changes**.
+
+For more information, see [(Optional) Configure Custom Branding and Apps Manager](../../operating/configure-pas.html#customize-apps-man) in _Configuring
+<%= vars.app_runtime_abbr %>_.
 
 
 ## <a id='breaking-changes'></a> Breaking Changes
 
-TAS for VMs v2.13 includes the following breaking changes:
+<%= vars.app_runtime_abbr %> <%= vars.v_major_version %> includes the following breaking changes:
 
 ### <a id='log-metric-topology'></a> Log and Metric Topology Changes
 
-In TAS for VMs v2.13, the Log Cache component runs on its own Log Cache instance group. Log Cache is no longer part of Doppler instances.
+In <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>, the Log Cache component runs on its own Log Cache instance group. Log Cache is no longer part of
+Doppler instances.
 
 As a result of this change, Diego Cells with high logging volume might experience higher CPU usage than they did prior to this change.
 
-When you upgrade to TAS for VMs v2.13, you might experience temporary difficulties getting logs and metrics from the cf CLI for apps that are pushed during the upgrade.
-This should not affect whether or not the app is able to be deployed.
-See the related [Known Issue](#upgrade-downtime).
+When you upgrade to <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>, you might experience temporary difficulties getting logs and metrics from the cf
+CLI for apps that are pushed during the upgrade. This should not affect whether or not the app is able to be deployed. For more information, see [Possible
+Downtime When Upgrading from Certain <%= vars.app_runtime_abbr %> Versions](#upgrade-downtime) below.
 
-This change comes with the following considerations when you upgrade to TAS for VMs v2.13:
+This change comes with the following considerations when you upgrade to <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>:
 
 <table>
   <tr>
@@ -1413,73 +1428,75 @@ This change comes with the following considerations when you upgrade to TAS for 
   </tr>
   <tr>
     <td>Log Cache uses syslog ingress by default.</td>
-    <td>Confirm that your instances, including those within Isolation Segments, are permitted to establish connections to Log Cache nodes on port 6067. You might need to update firewall rules to allow logs to flow directly from your instances to the Log Cache syslog server.</td>
+    <td>Confirm that your instances, including those within isolation segments, are permitted to establish connections to Log Cache nodes on port
+      <code>6067</code>. You may need to update firewall rules to allow logs to flow directly from your instances to the Log Cache syslog server.</td>
   </tr>
   <tr>
     <td>Underscaled Log Cache instances can fail with <code>Out of Memory</code> errors, which locks the BOSH Director.</td>
-    <td>Scale up your Log Cache instance count. VMware recommends scaling up to match the number of VMs and amount of memory as your Doppler instances before the upgrade. Starting larger and then adjusting for actual use is safer than a deployment failure.</td>
+    <td>Scale up your Log Cache instance count. <%= vars.recommended_by %> recommends scaling up to match the number of VMs and amount of memory as your
+      Doppler instances before the upgrade. Starting larger and then adjusting for actual use is safer than a deployment failure.</td>
   </tr>
   <tr>
-    <td>Service instance metrics might not be retrievable using the <code>log-cache</code> cf CLI plugin.</td>
-    <td>Syslog ingestion is recommended. If you need to retrieve metrics from service tiles that do not support this feature, in the <strong>System Logging</strong> pane of the TAS for VMs tile, deselect the <strong>Enable Log Cache syslog ingestion</strong> checkbox.</td>
+    <td>Service instance metrics might not be retrievable using the Log Cache cf CLI plugin.</td>
+    <td><%= vars.recommended_by %> recommends configuring syslog ingestion. If you need to retrieve metrics from service tiles that do not support this
+      feature, deactivate the <strong>Enable Log Cache syslog ingestion</strong> checkbox in the <strong>System Logging</strong> pane of the
+      <%= vars.app_runtime_abbr %> tile.</td>
   </tr>
 </table>
 
 ### <a id='certs-require-san'></a> Gorouter Certificates Require a SAN Extension
 
-In TAS for VMs v2.13, all Gorouter certificates require a valid subjectAltName (SAN) extension.
-If any Gorouter certificates lack a SAN, Go clients cannot connect to servers and deployment fails.
+In <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>, all Gorouter certificates require a valid subjectAltName (SAN) extension. If any Gorouter
+certificates lack a SAN, Go clients cannot connect to servers and deployment fails.
 
-Before you upgrade to TAS for VMs v2.13, you must:
+Before you upgrade to <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>, you must do the following:
 
-  1. Verify that all certificates in Ops Manager use a valid SAN. If they do not, rotate your certificates using a valid SAN.
-  1. Verify that all external systems that the Gorouter connects to have certificates with a valid SAN. If you use route services, this includes either the route services themselves or the load balancer in front of the route service.
+1. Verify that all certificates in <%= vars.ops_manager %> use a valid SAN. If they do not, rotate your certificates using a valid SAN.
 
-For more information about updating certificates, see [Routing and Golang 1.15 X.509 CommonName deprecation](https://community.pivotal.io/s/article/Routing-and-golang-1-15-X-509-CommonName-deprecation) in the Knowledge Base.
+1. Verify that all external systems that the Gorouter connects to have certificates with a valid SAN. If you use route services, this includes either the
+route services themselves or the load balancer in front of the route service.
+
+For more information about updating certificates, see [Routing and Golang 1.15 X.509 CommonName
+deprecation](https://community.pivotal.io/s/article/Routing-and-golang-1-15-X-509-CommonName-deprecation) in the Knowledge Base.
 
 ### <a id='ip-leading-zero'></a> Golang v1.17 Rejects IP Addresses with Leading Zeros
 
-Golang v1.17 contains stricter IP parsing standards, so IP addresses with leading zeros in any octets cause a BOSH template failure.
-Operators can remove the leading zeros and try deploying again.
-This affects properties that feed into all releases that use Golang v1.17.
-For a complete list, see [TAS for VMs Components Use Golang v1.17](#golang-1-17) above.
-Syslog drains and metric registrar endpoints that are registered using user-provided services might also be affected.
+Golang v1.17 contains stricter IP parsing standards, so IP addresses with leading zeros in any octets cause a BOSH template failure. Operators can remove the
+leading zeros and try deploying again. This affects properties that feed into all releases that use Golang v1.17. For a complete list, see
+[<%= vars.app_runtime_abbr %> Components Use Golang v1.17](#golang-1-17) above. Syslog drains and Metric Registrar endpoints that are registered using
+user-provided services might also be affected.
 
 ### <a id='cf-cli-v6'></a> cf CLI v6 is Not Supported
 
-TAS for VMs v2.13 does not support cf CLI v6. You must upgrade to cf CLI v7 or cf CLI v8.
+<%= vars.app_runtime_abbr %> <%= vars.v_major_version %> does not support cf CLI v6. You must upgrade to cf CLI v7 or cf CLI v8.
 
-To upgrade to a supported cf CLI version, see one of the following:
-
-- [Upgrading to cf CLI v7](https://docs.pivotal.io/application-service/2-13/cf-cli/v7.html)
-- [Upgrading to cf CLI v8](https://docs.pivotal.io/application-service/2-13/cf-cli/v8.html)
+To upgrade to a supported cf CLI version, see [Upgrading to cf CLI v7](../../cf-cli/v7.html) or [Upgrading to cf CLI v8](../../cf-cli/v8.html).
 
 
 ## <a id='known-issues'></a> Known Issues
 
-TAS for VMs v2.13 includes the following known issues:
+<%= vars.app_runtime_abbr %> <%= vars.v_major_version %> includes the following known issues:
 
-### <a id='upgrade-downtime'></a> Possible Downtime When Upgrading from Certain TAS for VMs Versions
+### <a id='upgrade-downtime'></a> Possible Downtime When Upgrading from Certain <%= vars.app_runtime_abbr %> Versions
 
-If you are upgrading from one of the following TAS for VMs versions, you might experience a small amount of log and metric downtime during an upgrade to TAS for VMs v2.13. This downtime is more likely if you use Isolation Segments:
+If you are upgrading from one of the following <%= vars.app_runtime_abbr %> versions, you might experience a small amount of log and metric downtime when
+upgrading to <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>:
 
-- TAS for VMs v2.11.16 or earlier
-- TAS for VMs v2.12.8 or earlier
+* <%= vars.app_runtime_abbr %> v2.11.16 or earlier
 
+* <%= vars.app_runtime_abbr %> v2.12.8 or earlier.
 
 ### <a id='icmp-dynamic-asgs'></a> Apps Stop Running After Deploy when Using Dynamic ASGs with ICMP Any Rules
 
-When dynamic ASGs are enabled, the vxlan policy agent is unable to clean up ASGs with ICMP any rules.
-Undocumented iptables behavior with ICMP any rules causes a cleanup failure,
-which causes a container creation failure, which prevents any apps from starting.
+When dynamic ASGs are enabled, the Virtual Extensible LAN (VXLAN) policy agent is unable to clean up ASGs with ICMP any rules. Undocumented iptables behavior
+with ICMP any rules causes a cleanup failure. This cleanup failure causes a container creation failure, which prevents any apps from starting.
 
-This results in a vxlan policy agent error:
+This causes one of the following VXLAN policy agent errors:
 
 * `iptables: Bad rule (does a matching rule exist in that chain?)`
 
-or
-
 * `exit status 1: iptables: No chain/target/match by that name`.
 
-For more information this issue and how to mitigate it, see
-[Apps stop running after a deploy when using dynamic ASGs with icmp any rule](https://community.pivotal.io/s/article/Apps-stop-running-after-a-deploy-when-using-dynamic-ASGs-with-icmp-any-rule?language=en_US") in the Knowledge Base.
+For more information this issue and how to mitigate it, see [Apps stop running after a deploy when using dynamic ASGs with icmp any
+rule](https://community.pivotal.io/s/article/Apps-stop-running-after-a-deploy-when-using-dynamic-ASGs-with-icmp-any-rule?language=en_US) in the Knowledge
+Base.

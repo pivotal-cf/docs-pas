@@ -5,16 +5,15 @@ owner: Release Engineering
 
 <% current_page.data.title = "Isolation Segment" + " " + vars.v_major_version + " Release Notes" %>
 
-This topic contains release notes for Isolation Segment <%= vars.v_major_version %>.
+This topic contains release notes for <%= vars.segment_runtime_full %> <%= vars.v_major_version %>.
 
 <%= vars.app_runtime_first %> is certified by the Cloud Foundry Foundation for <%= Date.today.year %>.
 
-For more information about the Cloud Foundry Certified Provider Program, see
-[How Do I Become a Certified Provider?](https://www.cloudfoundry.org/certified-platforms-how-to/)
-on the Cloud Foundry website.
+For more information about the Cloud Foundry Certified Provider Program, see [How Do I Become a Certified
+Provider?](https://www.cloudfoundry.org/certified-platforms-how-to/) on the Cloud Foundry website.
 
-Because VMware uses the Percona Distribution for MySQL, expect a time lag between Oracle
-releasing a MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> containing that patch.
+Because VMware uses the Percona Distribution for MySQL, expect a time lag between Oracle releasing a MySQL patch and VMware releasing
+<%= vars.app_runtime_abbr %> containing that patch.
 
 <hr>
 
@@ -22,11 +21,12 @@ releasing a MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> contai
 
 <%# DO NOT DELETE THIS LINE - robots use this to add new release notes %>
 
-### <a id='2.13.6'></a> 2.13.6
+### <a id='2-13-6'></a> v2.13.6
 
 **Release Date:** 09/21/2022
 
-* **[Feature]** 2.13 is now a Long Term Support Track (LTS-T) release. It will be supported through March of 2024. Note that the version number will recieve a `+LTS-T' metadata addition in a future patch.
+* **[Feature]** <%= vars.app_runtime_abbr %> <%= vars.v_major_version %> is a long-term support track (LTS-T) release. It is to be supported through March of
+2024. The version number is to receive a `+LTS-T' metadata addition in a future patch.
 * **[Feature]** Enables jumpgrade from TAS 2.11, attendant to LTS-T status.
 * **[Feature Improvement]** Bump golang to 1.18 for diego, routing, cf-networking, and silk
 * Bump bpm to version `1.1.19`
@@ -66,9 +66,7 @@ releasing a MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> contai
   </tbody>
 </table>
 
-
-
-### <a id='2.13.5'></a> 2.13.5
+### <a id='2-13-5'></a> v2.13.5
 
 **Release Date:** 08/10/2022
 
@@ -121,9 +119,7 @@ releasing a MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> contai
   </tbody>
 </table>
 
-
-
-### <a id='2.13.4'></a> 2.13.4
+### <a id='2-13-4'></a> v2.13.4
 
 **Release Date:** 07/19/2022
 
@@ -190,12 +186,11 @@ releasing a MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> contai
   </tbody>
 </table>
 
-
-
-### <a id='2.13.3'></a> 2.13.3
+### <a id='2-13-3'></a> v2.13.3
 
 **Release Date:** 06/24/2022
-<p class="note warning"><strong> Warning: Upcoming reduction in maintenance and security release coverage!</strong> In future patches, no sooner than July 1st 2022, some TAS components will become more strict about the protocols used in TLS communications, causing integrations with systems using older, insecure protocols to fail. Specifically, components built using the Go programming language will no longer support TLS 1.0 or 1.1, or certificates using SHA-1. In order to avoid breaking changes in this version line, (which has reached its End of General Support,) these components will no longer be updated with bug and security fixes in any patches that may be released. To continue receiving maintenance and security releases, upgrade to a version of TAS that remains in general support.</p>
+
+<p class='note warning'><strong>Warning: Upcoming reduction in maintenance and security release coverage!</strong> In future patches, no sooner than July 1st 2022, some TAS components will become more strict about the protocols used in TLS communications, causing integrations with systems using older, insecure protocols to fail. Specifically, components built using the Go programming language will no longer support TLS 1.0 or 1.1, or certificates using SHA-1. In order to avoid breaking changes in this version line, (which has reached its End of General Support,) these components will no longer be updated with bug and security fixes in any patches that may be released. To continue receiving maintenance and security releases, upgrade to a version of TAS that remains in general support.</p>
 
 * Bump diego to version `2.62.0`
 
@@ -226,14 +221,11 @@ releasing a MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> contai
   </tbody>
 </table>
 
-
-
-### <a id='2.13.2'></a> 2.13.2
+### <a id='2-13-2'></a> v2.13.2
 
 **Release Date:** 06/09/2022
 
-<p class="note warning"><strong> Warning: Breaking change.</strong> This version contains Diego 2.64.0, which bumps to Go 1.18. Go 1.18 no longer supports TLS 1.0 and 1.1 connections or certificates with a SHA-1 checksum. This is most likely to affect connections with external databases. We stated earlier that we wouldn't bump to Go 1.18 until July 1, 2022. This TAS release with Diego 2.64.0 breaks that promise. We apologize. We are rolling back to Diego 2.62.0.  If you already successfully deployed to this TAS release with Diego 2.64.0, then you are safe to continue using it.</p>
-
+<p class='note warning'><strong> Warning:</strong> Breaking change. This version contains Diego 2.64.0, which bumps to Go 1.18. Go 1.18 no longer supports TLS 1.0 and 1.1 connections or certificates with a SHA-1 checksum. This is most likely to affect connections with external databases. We stated earlier that we wouldn't bump to Go 1.18 until July 1, 2022. This TAS release with Diego 2.64.0 breaks that promise. We apologize. We are rolling back to Diego 2.62.0.  If you already successfully deployed to this TAS release with Diego 2.64.0, then you are safe to continue using it.</p>
 
 * **[Bug Fix]** Fix metric registrar secure scraping with isolation segments
 * **[Bug Fix]** Resolves [an issue with Dynamic ASGs](https://community.pivotal.io/s/article/Apps-stop-running-after-a-deploy-when-using-dynamic-ASGs-with-icmp-any-rule) and ASG containing 'ICMP any' rules causing apps not to start
@@ -316,13 +308,12 @@ releasing a MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> contai
   </tbody>
 </table>
 
-
-
-### <a id='2.13.1'></a> 2.13.1
+### <a id='2-13-1'></a> v2.13.1
 
 **Release Date:** 04/20/2022
 
-* **[Security Fix]** This release fixes [CVE-2022-23806](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-23806) and [CVE-2022-23772](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-23772).
+* **[Security Fix]** This release fixes [CVE-2022-23806](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-23806) and
+[CVE-2022-23772](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-23772).
 * Bump cflinuxfs3 to version `0.285.0`
 * Bump diego to version `2.62.0`
 * Bump garden-runc to version `1.20.3`
@@ -355,15 +346,13 @@ releasing a MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> contai
   </tbody>
 </table>
 
-
-
-### <a id='2.13.0'></a> 2.13.0
+### <a id='2-13-0'></a> v2.13.0
 
 **Release Date:** March 29, 2022
 
-* See [New Features in Isolation Segment v2.13](#new-features).
-* See [Breaking Changes](#breaking-changes).
-* See [Known Issues](#known-issues).
+* See [New Features in <%= vars.segment_runtime_full %> <%= vars.v_major_version %>](#new-features) below.
+* See [Breaking Changes](#breaking-changes) below.
+* See [Known Issues](#known-issues) below.
 
 <table border="1" class="nice">
   <thead>
@@ -395,56 +384,62 @@ releasing a MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> contai
 
 ## <a id='install'></a> How to Install
 
-To install Isolation Segment <%= vars.v_major_version %>, see [Installing Isolation Segment](https://docs.pivotal.io/application-service/2-13/operating/installing-pcf-is.html).
+To install <%= vars.segment_runtime_full %> <%= vars.v_major_version %>, see [Installing
+<%= vars.segment_runtime_full %>](../../operating/installing-pcf-is.html).
 
-To install Isolation Segment <%= vars.v_major_version %>, you must first install Ops Manager v2.10.
-For more information, see the [Ops Manager](https://docs.pivotal.io/ops-manager/2-10/index.html) documentation.
+To install <%= vars.segment_runtime_full %> <%= vars.v_major_version %>, you must first install <%= vars.ops_manager %> v2.10. For more information, see the
+[<%= vars.ops_manager %> documentation](https://docs.pivotal.io/ops-manager/2-10/index.html).
 
 
-## <a id='new-features'></a> New Features in Isolation Segment <%= vars.v_major_version %>
+## <a id='new-features'></a> New Features in <%= vars.segment_runtime_full %> <%= vars.v_major_version %>
 
-Isolation Segment <%= vars.v_major_version %> includes the following major features:
+<%= vars.segment_runtime_full %> <%= vars.v_major_version %> includes the following major features:
 
 ### <a id='dynamic-asg'></a> Dynamic App Security Group Rules
 
-TAS for VMs v2.13 introduces dynamic App Security Groups (ASGs).
+<%= vars.app_runtime_abbr %> <%= vars.v_major_version %> introduces dynamic App Security Groups (ASGs).
 
-ASGs are a collection of egress rules that specify the protocols, ports, and IP address ranges where app or task instances send traffic.
-Previously, updating an existing ASG required you to restart the app before the ASG went into effect.
+ASGs are a collection of egress rules that specify the protocols, ports, and IP address ranges where app or task instances send traffic. Previously, updating
+an existing ASG required you to restart the app before the ASG went into effect.
 
-Dynamic ASGs can automatically update security groups without requiring an app restart.
-If you have existing ASGs, you can run any of the security group cf CLI commands, including `cf bind-security-group` and `update-security-group`, and the changes apply automatically to any running apps.
+Dynamic ASGs can automatically update security groups without requiring an app restart. If you have existing ASGs, you can run any of the security group cf
+CLI commands, including `cf bind-security-group` and `update-security-group`, and the changes apply automatically to any running apps.
 
-For more information about ASGs, see [App Security Groups](../concepts/asg.html).
+For more information about ASGs, see [App Security Groups](../../concepts/asg.html).
 
 
 ## <a id='breaking-changes'></a> Breaking Changes
 
-Isolation Segment <%= vars.v_major_version %> includes the following breaking changes:
+<%= vars.segment_runtime_full %> <%= vars.v_major_version %> includes the following breaking changes:
 
 ### <a id='certs-require-san'></a> Gorouter Certificates Require a SAN Extension
 
-In Isolation Segment v2.13, all Gorouter certificates require a valid subjectAltName (SAN) extension.
-If any Gorouter certificates lack a SAN, Go clients cannot connect to servers and deployment fails.
+In <%= vars.segment_runtime_full %> <%= vars.v_major_version %>, all Gorouter certificates require a valid subjectAltName (SAN) extension. If any Gorouter
+certificates lack a SAN, Go clients cannot connect to servers and deployment fails.
 
-Before you upgrade to Isolation Segment v2.13, you must:
+Before you upgrade to <%= vars.segment_runtime_full %> <%= vars.v_major_version %>, you must do the following:
 
-  1. Verify that all certificates in Ops Manager use a valid SAN. If they do not, rotate your certificates using a valid SAN.
-  1. Verify that all external systems that the Gorouter connects to have certificates with a valid SAN. If you use route services, this includes either the route services themselves or the load balancer in front of the route service.
+1. Verify that all certificates in <%= vars.ops_manager %> use a valid SAN. If they do not, rotate your certificates using a valid SAN.
 
-If you need to complete a deployment before configuring new Gorouter certificates, select **Enable temporary workaround for certs without SANs** in the **Networking** pane of the TAS for VMs tile.
+1. Verify that all external systems that the Gorouter connects to have certificates with a valid SAN. If you use route services, this includes either the
+route services themselves or the load balancer in front of the route service.
 
-For more information about updating certificates, see [Routing and Golang 1.15 X.509 CommonName deprecation](https://community.pivotal.io/s/article/Routing-and-golang-1-15-X-509-CommonName-deprecation) in the Knowledge Base.
+If you need to complete a deployment before configuring new Gorouter certificates, activate the **Enable temporary workaround for certs without SANs**
+checkbox in the **Networking** pane of the <%= vars.app_runtime_abbr %> tile.
+
+For more information about updating certificates, see [Routing and Golang 1.15 X.509 CommonName
+deprecation](https://community.pivotal.io/s/article/Routing-and-golang-1-15-X-509-CommonName-deprecation) in the Knowledge Base.
 
 ### <a id='ip-leading-zero'></a> Golang v1.17 Rejects IP Addresses with Leading Zeros
 
-Golang v1.17 contains stricter IP parsing standards, so IP addresses with leading zeros in any octets cause a BOSH template failure.
-Operators can remove the leading zeros and try deploying again.
-This affects properties that feed into all releases that use Golang v1.17.
-For a complete list, see [TAS for VMs Components Use Golang v1.17](runtime-rn.html#golang-1-17).
+Golang v1.17 contains stricter IP parsing standards, so IP addresses with leading zeros in any octets cause a BOSH template failure. Operators can remove the
+leading zeros and try deploying again. This affects properties that feed into all releases that use Golang v1.17. For a complete list, see
+[<%= vars.app_runtime_abbr %> Components Use Golang v1.17](runtime-rn.html#golang-1-17) in _<%= vars.app_runtime_full %> <%= vars.v_major_version %> Release
+Notes_.
 
 Syslog drains and metric registrar endpoints that are registered using user-provided services might also be affected.
 
+
 ## <a id='known-issues'></a> Known Issues
 
-Isolation Segment <%= vars.v_major_version %> currently has no known issues.
+<%= vars.segment_runtime_full %> <%= vars.v_major_version %> currently has no known issues.
