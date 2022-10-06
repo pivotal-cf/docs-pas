@@ -14,14 +14,16 @@ Because VMware uses the Percona Distribution for MySQL, expect a time lag betwee
 
 <%# DO NOT DELETE THIS LINE - robots use this to add new release notes %>
 
-### <a id='2-11-20'></a> 2.11.20
+### <a id='2-11-20'></a> v2.11.20
 
 **Release Date:** 09/20/2022
 
-* **[Feature]** As of Isolation Segment 2.13.6/TAS 2.13.9, the 2.13 version line is a valid jumpgrade target from 2.11. This is noted here for convenience; see 2.13 release notes for details.
+* **[Feature]** As of <%= vars.segment_runtime_full %> v2.13.6 and <%= vars.app_runtime_abbr %> v2.13.9, you can jump upgrade to <%= vars.app_runtime_abbr %>
+and <%= vars.segment_runtime_full %> v2.13 from <%= vars.app_runtime_abbr %> and <%= vars.segment_runtime_full %> <%= vars.v_major_version %>. For more
+information, see the [<%= vars.app_runtime_abbr %> v2.13 documentation](https://docs.pivotal.io/application-service/2-13/operating/jump-upgrades.html).
 * **[Feature Improvement]** Bump golang to 1.18 for diego, routing, cf-networking, and silk
-* **[Breaking Change]** The global log rate limit that measures app log rates in lines per second is deprecated in favor of per-app log rate limits that
-measure app log rates in bytes per second. For more information, see [Global Log Rate Limit is Deprecated](#global-log-rate-limit) below.
+* **[Breaking Change]** If you have configured an app log rate limit that measures app log rates in lines per second, Diego immediately drops app logs that
+exceed the app log rate limit. For more information, see [Diego Drops App Logs That Exceed the App Log Rate Limit](#dropped-app-logs) below.
 * Bump bpm to version `1.1.19`
 * Bump cf-networking to version `3.12.0`
 * Bump cflinuxfs3 to version `0.319.0`
@@ -169,7 +171,7 @@ measure app log rates in bytes per second. For more information, see [Global Log
   </tbody>
 </table>
 
-### <a id='2-11-17'></a> 2.11.17
+### <a id='2-11-17'></a> v2.11.17
 
 **Release Date:** 08/10/2022
 
@@ -221,7 +223,7 @@ measure app log rates in bytes per second. For more information, see [Global Log
   </tbody>
 </table>
 
-### <a id='2-11-16'></a> 2.11.16
+### <a id='2-11-16'></a> v2.11.16
 
 **Release Date:** 07/18/2022
 
@@ -287,11 +289,11 @@ measure app log rates in bytes per second. For more information, see [Global Log
   </tbody>
 </table>
 
-### <a id='2-11-15'></a> 2.11.15
+### <a id='2-11-15'></a> v2.11.15
 
 **Release Date:** 06/23/2022
 
-<p class="note warning"><strong> Warning:Upcoming breaking changes!</strong> In future patches, no sooner than July 1st 2022, some components will become more strict about the protocols used in TLS communications, causing integrations with systems using older, insecure protocols to fail. Specifically, components using the Go programming language will be updated to Go 1.18, and will no longer support TLS 1.0 and 1.1 connections or certificates with a SHA-1 checksum. This is most likely to affect connections with external databases. However, the pre-existing configuration for "TLS versions supported by the Gorouter" will still work. This change may not arrive all at once, as Go is used in systems throughout TAS. There will be a VMware Knowledge Base article about this change published prior to the changes rolling out. These changes will be clearly designated in the release notes of the versions they ship in; a version of this warning will appear on all patch versions until we are confident no systems remain to be updated.</p>
+<p class="note warning"><strong> Warning:Upcoming breaking changes!</strong> In future patches, no sooner than July 1st 2022, some components will become more strict about the protocols used in TLS communications, causing integrations with systems using older, insecure protocols to fail. Specifically, components using the Go programming language will be updated to Go 1.18, and will no longer support TLS 1.0 and 1.1 connections or certificates with a SHA-1 checksum. This is most likely to affect connections with external databases. However, the pre-existing configuration for "TLS versions supported by the Gorouter" will still work. This change may not arrive all at once, as Go is used in systems throughout <%= vars.app_runtime_abbr %>. There will be a VMware Knowledge Base article about this change published prior to the changes rolling out. These changes will be clearly designated in the release notes of the versions they ship in; a version of this warning will appear on all patch versions until we are confident no systems remain to be updated.</p>
 
 * Bump diego to version `2.62.0`
 
@@ -322,10 +324,10 @@ measure app log rates in bytes per second. For more information, see [Global Log
   </tbody>
 </table>
 
-### <a id='2-11-14'></a> 2.11.14
+### <a id='2-11-14'></a> v2.11.14
 
 **Release Date:** 06/09/2022
-<p class="note warning"><strong> Warning: Breaking change.</strong> This version contains Diego 2.64.0, which bumps to Go 1.18. Go 1.18 no longer supports TLS 1.0 and 1.1 connections or certificates with a SHA-1 checksum. This is most likely to affect connections with external databases. We stated earlier that we wouldn't bump to Go 1.18 until July 1, 2022. This TAS release with Diego 2.64.0 breaks that promise. We apologize. We are rolling back to Diego 2.62.0.  If you already successfully deployed to this TAS release with Diego 2.64.0, then you are safe to continue using it.</p>
+<p class="note warning"><strong> Warning: Breaking change.</strong> This version contains Diego 2.64.0, which bumps to Go 1.18. Go 1.18 no longer supports TLS 1.0 and 1.1 connections or certificates with a SHA-1 checksum. This is most likely to affect connections with external databases. We stated earlier that we wouldn't bump to Go 1.18 until July 1, 2022. This <%= vars.app_runtime_abbr %> release with Diego 2.64.0 breaks that promise. We apologize. We are rolling back to Diego 2.62.0.  If you already successfully deployed to this <%= vars.app_runtime_abbr %> release with Diego 2.64.0, then you are safe to continue using it.</p>
 
 
 * **[Bug Fix]** Sticky sessions no longer break when used with route-services that return HTTP 4xx/5xx responses
@@ -406,7 +408,7 @@ measure app log rates in bytes per second. For more information, see [Global Log
   </tbody>
 </table>
 
-### <a id='2-11-13'></a> 2.11.13
+### <a id='2-11-13'></a> v2.11.13
 
 **Release Date:** 04/20/2022
 
@@ -464,7 +466,7 @@ measure app log rates in bytes per second. For more information, see [Global Log
   </tbody>
 </table>
 
-### <a id='2-11-12'></a> 2.11.12
+### <a id='2-11-12'></a> v2.11.12
 
 **Release Date:** 03/31/2022
 
@@ -541,7 +543,7 @@ measure app log rates in bytes per second. For more information, see [Global Log
   </tbody>
 </table>
 
-### <a id='2-11-11'></a> 2.11.11
+### <a id='2-11-11'></a> v2.11.11
 
 **Release Date:** 02/28/2022
 
@@ -584,7 +586,7 @@ measure app log rates in bytes per second. For more information, see [Global Log
   </tbody>
 </table>
 
-### <a id='2-11-10'></a> 2.11.10
+### <a id='2-11-10'></a> v2.11.10
 
 **Release Date:** 02/07/2022
 
@@ -631,7 +633,7 @@ measure app log rates in bytes per second. For more information, see [Global Log
   </tbody>
 </table>
 
-### <a id='2-11-9'></a> 2.11.9
+### <a id='2-11-9'></a> v2.11.9
 
 **Release Date:** 12/15/2021
 
@@ -677,7 +679,7 @@ measure app log rates in bytes per second. For more information, see [Global Log
   </tbody>
 </table>
 
-### <a id='2-11-8'></a> 2.11.8
+### <a id='2-11-8'></a> v2.11.8
 
 **Release Date:** 11/23/2021
 
@@ -714,7 +716,7 @@ measure app log rates in bytes per second. For more information, see [Global Log
     <tr><td>syslog</td><td>11.7.5</td></tr>
   </tbody>
 </table>
-### <a id='2-11-7'></a> 2.11.7
+### <a id='2-11-7'></a> v2.11.7
 
 **Release Date:** 10/19/2021
 
@@ -751,7 +753,7 @@ measure app log rates in bytes per second. For more information, see [Global Log
   </tbody>
 </table>
 
-### <a id='2-11-6'></a> 2.11.6
+### <a id='2-11-6'></a> v2.11.6
 
 **Release Date:** 09/30/2021
 
@@ -787,7 +789,7 @@ measure app log rates in bytes per second. For more information, see [Global Log
   </tbody>
 </table>
 
-### <a id='2-11-5'></a> 2.11.5
+### <a id='2-11-5'></a> v2.11.5
 
 **Release Date:** 09/16/2021
 
@@ -823,7 +825,7 @@ measure app log rates in bytes per second. For more information, see [Global Log
   </tbody>
 </table>
 
-### <a id='2-11-4'></a> 2.11.4
+### <a id='2-11-4'></a> v2.11.4
 
 **Release Date:** 09/09/2021
 
@@ -862,7 +864,7 @@ measure app log rates in bytes per second. For more information, see [Global Log
   </tbody>
 </table>
 
-### <a id='2-11-3'></a> 2.11.3
+### <a id='2-11-3'></a> v2.11.3
 
 **Release Date:** 07/15/2021
 
@@ -904,7 +906,7 @@ measure app log rates in bytes per second. For more information, see [Global Log
   </tbody>
 </table>
 
-### <a id='2-11-2'></a> 2.11.2
+### <a id='2-11-2'></a> v2.11.2
 
 **Release Date:** 06/22/2021
 
@@ -943,7 +945,7 @@ measure app log rates in bytes per second. For more information, see [Global Log
   </tbody>
 </table>
 
-### <a id='2-11-1'></a> 2.11.1
+### <a id='2-11-1'></a> v2.11.1
 
 **Release Date:** 05/27/2021
 
@@ -951,7 +953,7 @@ measure app log rates in bytes per second. For more information, see [Global Log
 * **[Feature Improvement]** Patch versions can be upgraded without a stemcell upgrade
 * **[Feature Improvement]** Adds support for SNI routes
 * **[Feature Improvement]** Adds per request metrics reporting, which makes metric frequency proportional to request frequency
-* **[Bug Fix]** Smoke Test allows the operator to provide the apps_domain property when deploying TAS and also properly configures user provided space when deploying an isolation segment
+* **[Bug Fix]** Smoke Test allows the operator to provide the apps_domain property when deploying <%= vars.app_runtime_abbr %> and also properly configures user provided space when deploying an isolation segment
 * Bump bpm to version `1.1.11`
 * Bump cf-networking to version `2.36.0`
 * Bump cflinuxfs3 to version `0.238.0`
@@ -990,11 +992,11 @@ measure app log rates in bytes per second. For more information, see [Global Log
   </tbody>
 </table>
 
-### <a id='2-11-0'></a> 2.11.0
+### <a id='2-11-0'></a> v2.11.0
 
 **Release Date:** March 30, 2021
 
-- See [New Features in <%= vars.segment_runtime_full %> v2.11](#new-features)
+- See [New Features in <%= vars.segment_runtime_full %> <%= vars.v_major_version %>](#new-features).
 
 <table border="1" class="nice">
   <thead>
@@ -1028,18 +1030,23 @@ measure app log rates in bytes per second. For more information, see [Global Log
 
 The <%= vars.segment_runtime_full %> <%= vars.v_major_version %> tile is available for installation with <%= vars.ops_manager %> v2.10.
 
-Isolation segments provide dedicated pools of resources where you can deploy apps and isolate workloads. Using isolation segments separates app resources as completely as if they were in different deployments but avoids redundant management and network complexity. For more information about isolation segments, see [Isolation Segments](../../concepts/security.html#isolation-segments) in _<%= vars.app_runtime_abbr %> Security_.
+Isolation segments provide dedicated pools of resources where you can deploy apps and isolate workloads. Using isolation segments separates app resources as
+completely as if they were in different deployments but avoids redundant management and network complexity. For more information about isolation segments, see
+[Isolation Segments](../../concepts/security.html#isolation-segments) in _<%= vars.app_runtime_abbr %> Security_.
 
 For more information about using isolation segments in your deployment, see [Managing Isolation Segments](../../adminguide/isolation-segments.html).
 
 
 ## <a id='install'></a> How to Install
 
-The <%= vars.segment_runtime_full %> v2.11 tile is available with the release of <%= vars.ops_manager %> v2.10. For more information, see the [<%= vars.ops_manager %>](https://docs.pivotal.io/ops-manager/2-10/index.html) documentation.
+The <%= vars.segment_runtime_full %> <%= vars.v_major_version %> tile is available with the release of <%= vars.ops_manager %> v2.10. For more information,
+see the [<%= vars.ops_manager %>](https://docs.pivotal.io/ops-manager/2-10/index.html) documentation.
 
-To use the <%= vars.segment_runtime_full %> v2.11 tile, you must install <%= vars.ops_manager %> v2.10 and <%= vars.app_runtime_full %> (<%= vars.app_runtime_abbr %>) <%= vars.v_major_version %> or later.
+To use the <%= vars.segment_runtime_full %> <%= vars.v_major_version %> tile, you must install <%= vars.ops_manager %> v2.10 and <%= vars.app_runtime_full %>
+(<%= vars.app_runtime_abbr %>) <%= vars.v_major_version %> or later.
 
-To install <%= vars.segment_runtime_full %> <%= vars.v_major_version %>, see [Installing <%= vars.segment_runtime_full %>](../../operating/installing-pcf-is.html).
+To install <%= vars.segment_runtime_full %> <%= vars.v_major_version %>, see [Installing
+<%= vars.segment_runtime_full %>](../../operating/installing-pcf-is.html).
 
 
 ## <a id='new-features'></a> New Features in <%= vars.segment_runtime_full %> <%= vars.v_major_version %>
@@ -1048,7 +1055,8 @@ To install <%= vars.segment_runtime_full %> <%= vars.v_major_version %>, see [In
 
 ### <a id='gorouter-cas'></a> Configure Trusted CAs for Gorouter
 
-When validating requests using mutual TLS to back ends and route services, the Gorouter trusts multiple certificate authorities (CAs) by default. In <%= vars.segment_runtime_full %> v2.11, you can configure which CA certificates the Gorouter trusts.
+When validating requests using mutual TLS to back ends and route services, the Gorouter trusts multiple certificate authorities (CAs) by default. In
+<%= vars.segment_runtime_full %> <%= vars.v_major_version %>, you can configure which CA certificates the Gorouter trusts.
 
 For more information, see [Configure Networking](../../operating/installing-pcf-is.html#networking) in _Installing <%= vars.segment_runtime_full %>_.
 
@@ -1059,45 +1067,58 @@ For more information, see [Configure Networking](../../operating/installing-pcf-
 
 ### <a id='disable-ssl-certificate-verification-removed'></a> Option Removed: Disable SSL Certificate Verification for this Environment
 
-In <%= vars.segment_runtime_full %> v2.11.0 and later, the option to disable SSL certificate verification for an environment is removed.
+In <%= vars.segment_runtime_full %> <%= vars.v_major_version %>.0 and later, the option to disable SSL certificate verification for an environment is removed.
 
-Before you upgrade to <%= vars.segment_runtime_full %> v2.11, you must deselect the option to disable SSL certificate verification in the **Networking** pane of the <%= vars.segment_runtime_full %> tile. For more information, see _Configure Networking_ in [Configuring <%= vars.segment_runtime_full %>](../../operating/configure-pas.html#networking).
+Before you upgrade to <%= vars.segment_runtime_full %> <%= vars.v_major_version %>, you must deselect the option to disable SSL certificate verification in
+the **Networking** pane of the <%= vars.app_runtime_abbr %> tile. For more information, see _Configure Networking_ in [Configuring
+<%= vars.app_runtime_abbr %>](../../operating/configure-pas.html#networking).
 
-If the **Disable SSL certificate verification for this environment** option is enabled when you try to upgrade to <%= vars.segment_runtime_full %>, the upgrade fails with the following error:
+If the **Disable SSL certificate verification for this environment** option is enabled when you try to upgrade to <%= vars.segment_runtime_full %>, the
+upgrade fails with the following error:
 
-<pre class="terminal">
+<pre class='terminal'>
 attempt to upgrade to IST 2.11+ with Skip SSL Verification enabled, please disable
 Skip SSL Verification prior to upgrade by un-checking "Disable SSL certificate
 verification for this environment" under "Networking"
 </pre>
 
-If you plan to automate the installation of <%= vars.segment_runtime_full %> v2.11, you must remove references to the corresponding property `.properties.skip_cert_verify`.
+If you plan to automate the installation of <%= vars.segment_runtime_full %> <%= vars.v_major_version %>, you must remove references to the corresponding
+property `.properties.skip_cert_verify`.
 
-### <a id='global-log-rate-limit'></a> Global Log Rate Limit is Deprecated
+### <a id='transfer-encoding-stricter'></a> Gorouter Update to Golang v1.15 Introduces Stricter Transfer-Encoding Header Standards in
+<%= vars.segment_runtime_full %> <%= vars.v_major_version %>.0 and Later
 
-The global log rate limit that measures app log rates in lines per second is deprecated in favor of per-app log rate limits that measure app log rates in
-bytes per second.
+In <%= vars.segment_runtime_full %> <%= vars.v_major_version %>.0 and later, stricter header standards break Spring apps that incorrectly set the header.
 
-If you have configured a global log rate limit in lines per second, <%= vars.company_name %> recommends that you re-configure your apps to use log rate limits
-in bytes per second.
+To avoid this breaking change, see [Applications on TAS for VMs get 502 chunked response
+error](https://community.pivotal.io/s/article/Application-Chunked-Error?language=en_US) in the Knowledge Base. You must complete the resolution procedure
+described in this Knowledge Base article before you upgrade to <%= vars.segment_runtime_full %> <%= vars.v_major_version %>.0 or later.
 
-If you still want to use the global log rate limit, logs that exceed the log rate limit are immediately dropped. Previously, logs that exceeded the log rate
-limit were buffered and released at the configured log rate.
+<p class='note'><strong>Note:</strong> This breaking change is also present in Pivotal Isolation Segment v2.7.30, Pivotal Isolation Segment v2.8.24,
+  <%= vars.segment_runtime_full %> v2.9.18, and <%= vars.segment_runtime_full %> v2.10.10. If you are using any of these versions or earlier, you must upgrade
+  to Pivotal Isolation Segment v2.7.31, Pivotal Isolation Segment v2.8.25, <%= vars.segment_runtime_full %> v2.9.19, or <%= vars.segment_runtime_full %>
+  v2.10.11 before upgrading or jump upgrading to <%= vars.segment_runtime_full %> <%= vars.v_major_version %>.0 or later. For more information, see
+  <a href="https://community.pivotal.io/s/article/Application-Chunked-Error?language=en_US">Applications on TAS for VMs get 502 chunked response error</a> in
+  the Knowledge Base.</p>
+
+### <a id='dropped-app-logs'></a> Diego Drops App Logs That Exceed the App Log Rate Limit
+
+As of <%= vars.segment_runtime_full %> <%= vars.v_major_version %>.20, if you have configured an app log rate limit that measures app log rates in lines per
+second, Diego immediately drops app logs that exceed the app log rate limit.
+
+In <%= vars.segment_runtime_full %> <%= vars.v_major_version %>.19 and earlier, Diego buffers and releases approximately 5&nbsp;MB to 10&nbsp;MB of app logs
+that exceed the app log rate limit. This behavior has changed in <%= vars.segment_runtime_full %> <%= vars.v_major_version %>.20 because Diego has been
+upgraded to a newer version.
+
+If this change in behavior causes parts of your deployment to fail, <%= vars.company_name %> recommends that you either modify any automated scripts that rely
+on app log output or increase the app log rate limit.
 
 For more information about app log rate limits, see [App Log Rate Limiting](../loggregator/app-log-rate-limits.html).
-
-### <a id='transfer-encoding-stricter'></a> Gorouter Update to Golang v1.15 Introduces Stricter Transfer-Encoding Header Standards in <%= vars.segment_runtime_full %> v2.11.0 and Later
-
-In <%= vars.segment_runtime_full %> v2.11.0 and later, stricter header standards break Spring apps that incorrectly set the header.
-
-For information about how to avoid this breaking change, see [Applications on TAS for VMs get 502 chunked response error](https://community.pivotal.io/s/article/Application-Chunked-Error?language=en_US) in the Knowledge Base. You must complete the resolution steps described in this Knowledge Base article before you upgrade to <%= vars.segment_runtime_full %> v2.11.0 or later.
-
-<p class='note'><strong>Note:</strong> This breaking change was also present in <%= vars.segment_runtime_full %> v2.7.30, v2.8.24, v2.9.18, and v2.10.10. If you are on any of these versions or earlier, you must upgrade to <%= vars.segment_runtime_full %> v2.7.31, v2.8.25, v2.9.19, or v2.10.11 before upgrading or jump upgrading to <%= vars.segment_runtime_full %> 2.11.0 or later. For more information, see <a href="https://community.pivotal.io/s/article/Application-Chunked-Error?language=en_US">Applications on TAS for VMs get 502 chunked response error</a>.</p>
 
 
 ## <a id='known-issues'></a> Known Issues
 
-<%= vars.app_runtime_abbr %> v2.11 includes the following known issues:
+<%= vars.segment_runtime_full %> <%= vars.v_major_version %> includes the following known issues:
 
 ### <a id='gorouter-incorrect-span-id'></a> Gorouter Sets an Invalid X-B3-SpanID Header
 

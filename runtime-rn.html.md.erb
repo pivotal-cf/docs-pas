@@ -5,9 +5,9 @@ owner: Release Engineering
 
 <% current_page.data.title = vars.app_runtime_full + " " + vars.v_major_version + " Release Notes" %>
 
-This topic contains release notes for <%= vars.app_runtime_full %> (<%= vars.app_runtime_abbr %>) v2.11.
+This topic contains release notes for <%= vars.app_runtime_full %> (<%= vars.app_runtime_abbr %>) <%= vars.v_major_version %>.
 
-TAS for VMs is certified by the Cloud Foundry Foundation for <%= Date.today.year %>.
+<%= vars.app_runtime_abbr %> is certified by the Cloud Foundry Foundation for <%= Date.today.year %>.
 
 For more information about the Cloud Foundry Certified Provider Program, see [How Do I Become a Certified
 Provider?](https://www.cloudfoundry.org/certified-platforms-how-to/) on the Cloud Foundry website.
@@ -15,9 +15,8 @@ Provider?](https://www.cloudfoundry.org/certified-platforms-how-to/) on the Clou
 Because VMware uses the Percona Distribution for MySQL, expect a time lag between Oracle releasing a MySQL patch and VMware releasing
 <%= vars.app_runtime_abbr %> containing that patch.
 
-**Required Cloud Foundry Command-Line Interface (cf CLI) version**: You must install cf CLI v7 when upgrading to or using TAS for VMs v2.11.
-
-For more information, see [Upgrading to cf CLI v7](../cf-cli/v7.html).
+**Required Cloud Foundry Command-Line Interface (cf CLI) version:** You must install cf CLI v7 when upgrading to or using <%= vars.app_runtime_abbr %>
+<%= vars.v_major_version %>. For more information, see [Upgrading to cf CLI v7](../cf-cli/v7.html).
 
 <hr>
 
@@ -25,18 +24,20 @@ For more information, see [Upgrading to cf CLI v7](../cf-cli/v7.html).
 
 <%# DO NOT DELETE THIS LINE - robots use this to add new release notes %>
 
-### <a id='2-11-26'></a> 2.11.26
+### <a id='2-11-26'></a> v2.11.26
 
 **Release Date:** 09/20/2022
 
 * **[Security Fix]** Bump Cloud Controller Ruby version to 2.7.6 and Go to 1.18.5
 * **[Security Fix]** Bump golang to 1.17.12 in routing release
-* **[Feature]** As of 2.13.9, the 2.13 version line is a valid jumpgrade target from 2.11. This is noted here for convenience; see 2.13 release notes for details.
+* **[Feature]** As of <%= vars.app_runtime_abbr %> v2.13.9, you can jump upgrade to <%= vars.app_runtime_abbr %> v2.13 from <%= vars.app_runtime_abbr %>
+<%= vars.v_major_version %>. For more information, see the [<%= vars.app_runtime_abbr %> v2.13
+documentation](https://docs.pivotal.io/application-service/2-13/operating/jump-upgrades.html).
 * **[Feature]** Enables TLS for all internal MySQL galera and monitoring components
 * **[Feature Improvement]** Bump golang to 1.18.2+ for diego, garden-runc, mapfs, mysql-monitoring, cf-networking, and silk
 * **[Feature Improvement]** Use the latest version of nats-release (built on golang 1.18.5)
-* **[Breaking Change]** The global log rate limit that measures app log rates in lines per second is deprecated in favor of per-app log rate limits that
-measure app log rates in bytes per second. For more information, see [Global Log Rate Limit is Deprecated](#global-log-rate-limit) below.
+* **[Breaking Change]** If you have configured an app log rate limit that measures app log rates in lines per second, Diego immediately drops app logs that
+exceed the app log rate limit. For more information, see [Diego Drops App Logs That Exceed the App Log Rate Limit](#dropped-app-logs) below.
 * Bump backup-and-restore-sdk to version `1.18.50`
 * Bump bosh-system-metrics-forwarder to version `0.0.24`
 * Bump bpm to version `1.1.19`
@@ -324,7 +325,7 @@ measure app log rates in bytes per second. For more information, see [Global Log
   </tbody>
 </table>
 
-### <a id='2-11-23'></a> 2.11.23
+### <a id='2-11-23'></a> v2.11.23
 
 **Release Date:** 08/10/2022
 
@@ -427,7 +428,7 @@ measure app log rates in bytes per second. For more information, see [Global Log
   </tbody>
 </table>
 
-### <a id='2-11-22'></a> 2.11.22
+### <a id='2-11-22'></a> v2.11.22
 
 **Release Date:** 07/18/2022
 
@@ -575,7 +576,7 @@ instance. If you specify a service instance, Autoscaler only requests metrics fr
   </tbody>
 </table>
 
-### <a id='2-11-21'></a> 2.11.21
+### <a id='2-11-21'></a> v2.11.21
 
 **Release Date:** 06/23/2022
 
@@ -639,15 +640,15 @@ instance. If you specify a service instance, Autoscaler only requests metrics fr
   </tbody>
 </table>
 
-### <a id='2-11-20'></a> 2.11.20
+### <a id='2-11-20'></a> v2.11.20
 
 **Release Date:** 06/09/2022
-<p class='note warning'><strong style="text-transform: none;">Warning:</strong> Breaking change This version contains Diego 2.64.0, which bumps to Go 1.18. Go 1.18 no longer supports TLS 1.0 and 1.1 connections or certificates with a SHA-1 checksum. This is most likely to affect connections with external databases. We stated earlier that we wouldn't bump to Go 1.18 until July 1, 2022. This TAS release with Diego 2.64.0 breaks that promise. We apologize. We are rolling back to Diego 2.62.0.  If you already successfully deployed to this TAS release with Diego 2.64.0, then you are safe to continue using it.</p>
+<p class='note warning'><strong style="text-transform: none;">Warning:</strong> Breaking change This version contains Diego 2.64.0, which bumps to Go 1.18. Go 1.18 no longer supports TLS 1.0 and 1.1 connections or certificates with a SHA-1 checksum. This is most likely to affect connections with external databases. We stated earlier that we wouldn't bump to Go 1.18 until July 1, 2022. This <%= vars.app_runtime_abbr %> release with Diego 2.64.0 breaks that promise. We apologize. We are rolling back to Diego 2.62.0.  If you already successfully deployed to this <%= vars.app_runtime_abbr %> release with Diego 2.64.0, then you are safe to continue using it.</p>
 
 * **[Security Fix]** Added Content-Security-Policy headers in UAA responses
 * **[Bug Fix]** Sticky sessions no longer break when used with route-services that return HTTP 4xx/5xx responses
 * **[Bug Fix/Improvement]** Stop emitting debug metrics for agents and log-cache by default. Reduces load on logging system by >=720 metrics per vm per minute
-* **[Breaking Change]** If you followed the procedure in [Autoscale application fails with MySQL Deadlock errors](https://community.pivotal.io/s/article/Autoscale-application-errors-with-MySQL-Deadlock) to manually add an index to an Autoscale database, and the index is not dropped before you upgrade to TAS for VMs v2.11.20, upgrading causes an error.
+* **[Breaking Change]** If you followed the procedure in [Autoscale application fails with MySQL Deadlock errors](https://community.pivotal.io/s/article/Autoscale-application-errors-with-MySQL-Deadlock) to manually add an index to an Autoscale database, and the index is not dropped before you upgrade to <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>.20, upgrading causes an error.
 * Bump backup-and-restore-sdk to version `1.18.42`
 * Bump binary-offline-buildpack to version `1.0.45`
 * Bump bosh-system-metrics-forwarder to version `0.0.22`
@@ -778,7 +779,7 @@ instance. If you specify a service instance, Autoscaler only requests metrics fr
   </tbody>
 </table>
 
-### <a id='2-11-19'></a> 2.11.19
+### <a id='2-11-19'></a> v2.11.19
 
 **Release Date:** 04/20/2022
 
@@ -962,7 +963,7 @@ instance. If you specify a service instance, Autoscaler only requests metrics fr
   </tbody>
 </table>
 
-### <a id='2-11-18'></a> 2.11.18
+### <a id='2-11-18'></a> v2.11.18
 
 **Release Date:** 04/06/2022
 
@@ -1028,7 +1029,7 @@ instance. If you specify a service instance, Autoscaler only requests metrics fr
   </tbody>
 </table>
 
-### <a id='2-11-17'></a> 2.11.17
+### <a id='2-11-17'></a> v2.11.17
 
 **Release Date:** 03/31/2022
 
@@ -1093,7 +1094,7 @@ instance. If you specify a service instance, Autoscaler only requests metrics fr
   </tbody>
 </table>
 
-### <a id='2-11-16'></a> 2.11.16
+### <a id='2-11-16'></a> v2.11.16
 
 **Release Date:** 03/31/2022
 
@@ -1265,7 +1266,7 @@ instance. If you specify a service instance, Autoscaler only requests metrics fr
   </tbody>
 </table>
 
-### <a id='2-11-15'></a> 2.11.15
+### <a id='2-11-15'></a> v2.11.15
 
 **Release Date:** 02/28/2022
 
@@ -1351,7 +1352,7 @@ instance. If you specify a service instance, Autoscaler only requests metrics fr
 </table>
 <sup>*</sup> The `cf-cli` version corresponds to the commercial distribution on <%= vars.product_network %>.
 
-### <a id='2-11-14'></a> 2.11.14
+### <a id='2-11-14'></a> v2.11.14
 
 **Release Date:** 02/07/2022
 
@@ -1457,7 +1458,7 @@ instance. If you specify a service instance, Autoscaler only requests metrics fr
 </table>
 <sup>*</sup> The `cf-cli` version corresponds to the commercial distribution on <%= vars.product_network %>.
 
-### <a id='2-11-13'></a> 2.11.13
+### <a id='2-11-13'></a> v2.11.13
 
 **Release Date:** 12/21/2021
 
@@ -1534,7 +1535,7 @@ instance. If you specify a service instance, Autoscaler only requests metrics fr
 </table>
 <sup>*</sup> The `cf-cli` version corresponds to the commercial distribution on <%= vars.product_network %>.
 
-### <a id='2-11-12'></a> 2.11.12
+### <a id='2-11-12'></a> v2.11.12
 
 **Release Date:** 12/16/2021
 
@@ -1612,7 +1613,7 @@ instance. If you specify a service instance, Autoscaler only requests metrics fr
 </table>
 <sup>*</sup> The `cf-cli` version corresponds to the commercial distribution on <%= vars.product_network %>.
 
-### <a id='2-11-11'></a> 2.11.11
+### <a id='2-11-11'></a> v2.11.11
 
 **Release Date:** 12/15/2021
 
@@ -1699,7 +1700,7 @@ instance. If you specify a service instance, Autoscaler only requests metrics fr
 </table>
 <sup>*</sup> The `cf-cli` version corresponds to the commercial distribution on <%= vars.product_network %>.
 
-### <a id='2-11-10'></a> 2.11.10
+### <a id='2-11-10'></a> v2.11.10
 
 **Release Date:** 12/13/2021
 
@@ -1781,7 +1782,7 @@ instance. If you specify a service instance, Autoscaler only requests metrics fr
 </table>
 <sup>*</sup> The `cf-cli` version corresponds to the commercial distribution on <%= vars.product_network %>.
 
-### <a id='2-11-9'></a> 2.11.9
+### <a id='2-11-9'></a> v2.11.9
 
 **Release Date:** 11/23/2021
 
@@ -1865,7 +1866,7 @@ instance. If you specify a service instance, Autoscaler only requests metrics fr
 </table>
 <sup>*</sup> The `cf-cli` version corresponds to the commercial distribution on <%= vars.product_network %>.
 
-### <a id='2-11-8'></a> 2.11.8
+### <a id='2-11-8'></a> v2.11.8
 
 **Release Date:** 10/19/2021
 
@@ -1948,7 +1949,7 @@ instance. If you specify a service instance, Autoscaler only requests metrics fr
 </table>
 <sup>*</sup> The `cf-cli` version corresponds to the commercial distribution on <%= vars.product_network %>.
 
-### <a id='2-11-7'></a> 2.11.7
+### <a id='2-11-7'></a> v2.11.7
 
 **Release Date:** 09/30/2021
 
@@ -2027,7 +2028,7 @@ instance. If you specify a service instance, Autoscaler only requests metrics fr
 </table>
 <sup>*</sup> The `cf-cli` version corresponds to the commercial distribution on <%= vars.product_network %>.
 
-### <a id='2-11-6'></a> 2.11.6
+### <a id='2-11-6'></a> v2.11.6
 
 **Release Date:** 09/16/2021
 
@@ -2101,7 +2102,7 @@ instance. If you specify a service instance, Autoscaler only requests metrics fr
 </table>
 <sup>*</sup> The `cf-cli` version corresponds to the commercial distribution on <%= vars.product_network %>.
 
-### <a id='2-11-5'></a> 2.11.5
+### <a id='2-11-5'></a> v2.11.5
 
 **Release Date:** 09/09/2021
 
@@ -2179,7 +2180,7 @@ instance. If you specify a service instance, Autoscaler only requests metrics fr
 </table>
 <sup>*</sup> The `cf-cli` version corresponds to the commercial distribution on <%= vars.product_network %>.
 
-### <a id='2-11-4'></a> 2.11.4
+### <a id='2-11-4'></a> v2.11.4
 
 **Release Date:** 07/20/2021
 
@@ -2254,13 +2255,13 @@ instance. If you specify a service instance, Autoscaler only requests metrics fr
 </table>
 <sup>*</sup> The `cf-cli` version corresponds to the commercial distribution on <%= vars.product_network %>.
 
-### <a id='2-11-3'></a> 2.11.3
+### <a id='2-11-3'></a> v2.11.3
 
 **Release Date:** 07/15/2021
 
 * **[Security Fix]** Fixed context path 404 vulnerability
 * **[Security Fix]** UAA - Bump dependencies and address CVEs
-* **[Bug Fix]** Prevent TCP routes from using system component ports. For more information, see [TCP Routes Stop Working](https://community.pivotal.io/s/article/Known-Issue-TCP-Routes-Stop-Working?language=en_US) in the Knowledge Base. If you try to create or update a router group to include system component ports, the Routing API returns an error. Current invalid router groups that include system component ports are not changed, but a warning is logged. In TAS for VMs v2.12.0, invalid router groups cause a deploy failure. For more information, see [Check and fix invalid router groups before TAS 2.12](https://community.pivotal.io/s/article/Check-and-fix-invalid-router-groups-before-TAS-2-12?language=en_US) in the Knowledge Base.
+* **[Bug Fix]** Prevent TCP routes from using system component ports. For more information, see [TCP Routes Stop Working](https://community.pivotal.io/s/article/Known-Issue-TCP-Routes-Stop-Working?language=en_US) in the Knowledge Base. If you try to create or update a router group to include system component ports, the Routing API returns an error. Current invalid router groups that include system component ports are not changed, but a warning is logged. In <%= vars.app_runtime_abbr %> v2.12.0, invalid router groups cause a deploy failure. For more information, see [Check and fix invalid router groups before TAS 2.12](https://community.pivotal.io/s/article/Check-and-fix-invalid-router-groups-before-TAS-2-12?language=en_US) in the Knowledge Base.
 * **[Bug Fix]** Fix metric-registrar crashing when non-url formatted drains exist
 * **[Bug Fix]** Add an option to remove extra metadata from syslog drains
 * **[Breaking Change]** Gorouter sends all responses with transfer-encoded chunks. Some responses that were not chunked in previous versions now use transfer-encoded chunks. For more information, see [Clients receive responses with no Content-Length header and a chunked encoded body after upgrading Tanzu Application Service for VMs](https://community.pivotal.io/s/article/Clients-receive-responses-with-no-Content-Length-header-and-a-chunked-encoded-body-after-upgrading-Tanzu-Application-Service-for-VMs) in the Knowledge Base. _(edited 20 Oct 2021)_
@@ -2346,7 +2347,7 @@ instance. If you specify a service instance, Autoscaler only requests metrics fr
 </table>
 <sup>*</sup> The `cf-cli` version corresponds to the commercial distribution on <%= vars.product_network %>.
 
-### <a id='2-11-2'></a> 2.11.2
+### <a id='2-11-2'></a> v2.11.2
 
 **Release Date:** 06/22/2021
 
@@ -2425,17 +2426,17 @@ instance. If you specify a service instance, Autoscaler only requests metrics fr
 </table>
 <sup>*</sup> The `cf-cli` version corresponds to the commercial distribution on <%= vars.product_network %>.
 
-### <a id='2-11-1'></a> 2.11.1
+### <a id='2-11-1'></a> v2.11.1
 
 **Release Date:** 05/27/2021
 
 * **[Security Fix]** Usage Service - Upgrade Rails gem to address [CVE-2021-22880](https://nvd.nist.gov/vuln/detail/CVE-2021-22880)
-* **[Feature Improvement]** Patch versions can be upgraded without a stemcell upgrade. See [Looser Stemcell Version Requirements when Upgrading <%= vars.app_runtime_abbr %> v2.11.1 and Later](#stemcell-upgrade).
+* **[Feature Improvement]** Patch versions can be upgraded without a stemcell upgrade. See [Looser Stemcell Version Requirements when Upgrading <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>.1 and Later](#stemcell-upgrade).
 * **[Feature Improvement]** MySQL binlogs volume is capped at 33% of available disk storage
 * **[Feature Improvement]**  Improve metric-registrar to handle unreachable CC more gracefully, delete smoke-test app in the case of failure, and integrate CUPS caching
 * **[Feature Improvement]** Adds support for SNI routes
 * **[Feature Improvement]** Adds per request metrics reporting, which makes metric frequency proportional to request frequency
-* **[Bug Fix]** Smoke Test allows the operator to provide the apps_domain property when deploying TAS and also properly configures user provided space when deploying an isolation segment
+* **[Bug Fix]** Smoke Test allows the operator to provide the apps_domain property when deploying <%= vars.app_runtime_abbr %> and also properly configures user provided space when deploying an isolation segment
 * **[Bug Fix]** Fix race condition and prevent network policy MySQL database from being able to get into an invalid state.
 * Bump binary-offline-buildpack to version `1.0.38`
 * Bump bpm to version `1.1.11`
@@ -2521,11 +2522,11 @@ instance. If you specify a service instance, Autoscaler only requests metrics fr
 </table>
 <sup>*</sup> The `cf-cli` version corresponds to the commercial distribution on <%= vars.product_network %>.
 
-### <a id='2-11-0'></a> 2.11.0
+### <a id='2-11-0'></a> v2.11.0
 
 **Release Date:** March 30, 2021
 
-- See [New Features in <%= vars.app_runtime_abbr %> v2.11](#new-features)
+- See [New Features in <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>](#new-features)
 - See [Resolved Issues](#resolved-issues)
 - See [Breaking Changes](#breaking-changes)
 
@@ -2591,60 +2592,77 @@ instance. If you specify a service instance, Autoscaler only requests metrics fr
 
 ## <a id='upgrade'></a> How to Upgrade
 
-To upgrade to <%= vars.app_runtime_abbr %> v2.11, see [Configuring <%= vars.app_runtime_abbr %> for Upgrades](../../operating/configuring.html).
+To upgrade to <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>, see [Configuring <%= vars.app_runtime_abbr %> for
+Upgrades](../../operating/configuring.html).
 
-When upgrading to <%= vars.app_runtime_abbr %> v2.11, be aware of the following upgrade considerations:
+When upgrading to <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>, be aware of the following upgrade considerations:
 
-* <%= vars.app_runtime_abbr %> v2.11 is compatible with <%= vars.ops_manager %> v2.10. If you are using a previous version of <%= vars.ops_manager %>, you must upgrade to <%= vars.ops_manager %> v2.10 before you upgrade to <%= vars.app_runtime_abbr %> v2.11.
+* <%= vars.app_runtime_abbr %> <%= vars.v_major_version %> is compatible with <%= vars.ops_manager %> v2.10. If you are using a previous version of
+<%= vars.ops_manager %>, you must upgrade to <%= vars.ops_manager %> v2.10 before you upgrade to <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>.
 
-* Upgrade the cf CLI to either the latest cf CLI v7 release or the commercial cf CLI distribution available on [<%= vars.product_network %>](https://network.pivotal.io/products/elastic-runtime/).
+* Upgrade the cf CLI to either the latest cf CLI v7 release or the commercial cf CLI distribution available on
+[<%= vars.product_network %>](https://network.pivotal.io/products/elastic-runtime/).
 
-* If you are upgrading from Pivotal Application Service (PAS) v2.7 or <%= vars.app_runtime_abbr %> v2.8 and later, you can upgrade directly to <%= vars.app_runtime_abbr %> v2.11.
-<%= vars.app_runtime_abbr %> v2.11 is an LTS version of <%= vars.app_runtime_abbr %>.
-See [Long-Term Support for <%= vars.app_runtime_abbr %> v2.11](#lts) below for more information.
+* If you are upgrading from Pivotal Application Service (PAS) v2.7 or <%= vars.app_runtime_abbr %> v2.8 and later, you can upgrade directly to
+<%= vars.app_runtime_abbr %> <%= vars.v_major_version %>. <%= vars.app_runtime_abbr %> <%= vars.v_major_version %> is a long-term support (LTS) version of
+<%= vars.app_runtime_abbr %>. For more information, see [Long-Term Support for <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>](#lts) below.
 
-* To minimize downtime for developers pushing apps, upgrade from PAS v2.7.41 or later, or <%= vars.app_runtime_abbr %> v2.10.21 or later. Upgrading from earlier patch versions can result in an `Unknown Error` when pushing apps.
+* To minimize downtime for developers pushing apps, upgrade from PAS v2.7.41 or later, or <%= vars.app_runtime_abbr %> v2.10.21 or later. Upgrading from
+earlier patch versions can result in an `Unknown Error` when pushing apps.
 
-* If you are upgrading from PAS v2.6 or earlier, you must upgrade to PAS v2.7 before you upgrade to <%= vars.app_runtime_abbr %> v2.11.
+* If you are upgrading from PAS v2.6 or earlier, you must upgrade to PAS v2.7 before you upgrade to <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>.
 
-* Some partner service tiles may be incompatible with <%= vars.app_runtime_abbr %> v2.11. VMware is working with partners to ensure their tiles are updated to work with the latest versions of <%= vars.app_runtime_abbr %>. For information about which partner service releases are currently compatible with <%= vars.app_runtime_abbr %> v2.11, review the appropriate partners services release documentation at [https://docs.pivotal.io](https://docs.pivotal.io) or contact the partner organization that produces the tile.
+* Some partner service tiles may be incompatible with <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>. VMware is working with partners to ensure
+that their tiles are updated to work with the latest versions of <%= vars.app_runtime_abbr %>. For information about which partner service releases are
+currently compatible with <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>, review the appropriate partners services release documentation at
+[https://docs.pivotal.io](https://docs.pivotal.io) or contact the partner organization that produces the tile.
 
-* If upgrading from PAS v2.7, NSX-T app-firewall rules may need to be adjusted. App containers now use port 61002 for inbound App SSH (previously this was over port 2222).
+* If upgrading from PAS v2.7, NSX-T app-firewall rules may need to be adjusted. App containers now use port `61002` for inbound app SSH. Previously, apps used
+port `2222`.
 
 
-## <a id='new-features'></a> New Features in <%= vars.app_runtime_abbr %> v2.11
+## <a id='new-features'></a> New Features in <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>
 
-<%= vars.app_runtime_abbr %> v2.11 includes the following major features:
+<%= vars.app_runtime_abbr %> <%= vars.v_major_version %> includes the following major features:
 
-### <a id='lts'></a> Long-Term Support for <%= vars.app_runtime_abbr %> v2.11
+### <a id='lts'></a> Long-Term Support for <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>
 
-<%= vars.app_runtime_abbr %> v2.11 is a long-term supported (LTS) version of <%= vars.app_runtime_abbr %>. <%= vars.app_runtime_abbr %> v2.11 will be supported through April 2024.
+<%= vars.app_runtime_abbr %> <%= vars.v_major_version %> is a long-term support (LTS) version of <%= vars.app_runtime_abbr %>. <%= vars.app_runtime_abbr %>
+<%= vars.v_major_version %> will be supported through April 2024.
 
-Over the lifecycle of <%= vars.app_runtime_abbr %> v2.11, <%= vars.company_name %> will release security patches that occasionally include feature enhancements and maintenance updates. <%= vars.company_name %> will also continue to release new versions of <%= vars.app_runtime_abbr %>.
+Over the lifecycle of <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>, <%= vars.company_name %> will release security patches that occasionally
+include feature enhancements and maintenance updates. <%= vars.company_name %> will also continue to release new versions of <%= vars.app_runtime_abbr %>.
 
-You can jump upgrade directly from previous versions of <%= vars.app_runtime_abbr %> to the LTS version of <%= vars.app_runtime_abbr %>.
-For more information, see [Jump Upgrading to TAS for VMs v2.11](../../operating/jump-upgrades.html).
+You can jump upgrade directly from previous versions of <%= vars.app_runtime_abbr %> to the LTS version of <%= vars.app_runtime_abbr %>. For more information,
+see [Jump Upgrading to <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>](../../operating/jump-upgrades.html).
 
 ### <a id='vcf-compatibility'></a> Deployment on VMware Cloud Foundation
 
-<%= vars.app_runtime_abbr %> v2.11 can be deployed on VMware Cloud Foundation (VCF) v4.1. For instructions and more information, see [Deploying TAS for VMs to VCF](../../operating/vmc.html).
+<%= vars.app_runtime_abbr %> <%= vars.v_major_version %> can be deployed on VMware Cloud Foundation (VCF) v4.1. For instructions and more information, see
+[Deploying <%= vars.app_runtime_abbr %> to VCF](../../operating/vmc.html).
 
 ### <a id='vmc-compatibility'></a> Deployment on VMware Cloud on Amazon Web Services
 
-<%= vars.app_runtime_abbr %> v2.11 can be deployed to VMware Cloud (VMC) on Amazon Web Services (AWS). For instructions and more information, see [Deploying TAS for VMs to VMC](../../operating/vcf.html).
+<%= vars.app_runtime_abbr %> <%= vars.v_major_version %> can be deployed to VMware Cloud (VMC) on Amazon Web Services (AWS). For instructions and more
+information, see [Deploying <%= vars.app_runtime_abbr %> to VMC](../../operating/vcf.html).
 
-### <a id='timestamps'></a> Optionally Use Human-Readable Timestamps for Component Logs
+### <a id='timestamps'></a> Timestamp Format for Component Logs Replaces Timestamp Format for Diego Logs
 
-<%= vars.app_runtime_abbr %> v2.11 introduces RFC3339 log format support for several <%= vars.app_runtime_abbr %> components. You can configure these components to produce logs with human-readable RFC3339 timestamps with the **Timestamp format for component logs** configuration option in the <%= vars.app_runtime_abbr %> tile. Logs that use human-readable timestamps are often easier to debug.
+<%= vars.app_runtime_abbr %> <%= vars.v_major_version %> introduces RFC3339 log format support for several <%= vars.app_runtime_abbr %> components. You can
+configure these components to produce logs with human-readable RFC3339 timestamps with the **Timestamp format for component logs** configuration option in the
+<%= vars.app_runtime_abbr %> tile. Logs that use human-readable timestamps are often easier to debug.
 
 RFC3339-formatted timestamps follow the RFC3339 spec, include nine points of precision where possible, and are in UTC. For example:
 
 * 2019-11-21T22:16:18.750673404Z
+
 * 2019-11-21T22:16:18.750000000Z
 
-For more information about configuring the **Timestamp format for component logs** field, see [System Logging](https://docs.pivotal.io/application-service/operating/configure-pas.html#sys-logging) in _Configuring <%= vars.app_runtime_abbr %>_.
+For more information about configuring the **Timestamp format for component logs** field, see [System Logging](../../operating/configure-pas.html#sys-logging)
+in _Configuring <%= vars.app_runtime_abbr %>_.
 
-In <%= vars.app_runtime_abbr %> v2.11.0, if you select the **Converge to human-readable RFC3339 format** option under **Timestamp format for component logs**, then the following components and related jobs use RFC3339 timestamps:
+In <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>.0, if you select the **Converge to human-readable RFC3339 format** option under **Timestamp format
+for component logs**, then the following components and related jobs use RFC3339 timestamps:
 
 | Component | Jobs |
 | ------------ | ----- |
@@ -2652,30 +2670,152 @@ In <%= vars.app_runtime_abbr %> v2.11.0, if you select the **Converge to human-r
 | `CAPI` | `cc_deployment_updater`, `cc_uploader`, `cloud_controller_clock`, `cloud_controller_ng`, `cloud_controller_worker`, `rotate_cc_database_key`, `tps` |
 | `UAA` | `uaa` |
 
-This new feature is related to a breaking change. For more information, see [Timestamps for Component Logs in Diego Logs when Upgrading](#timestamps-breaking-change) below.
+This new feature is related to a breaking change. For more information, see [Timestamps for Component Logs in Diego Logs When
+Upgrading](#timestamps-breaking-change) below.
 
 ### <a id='cloud-foundry-v3-api-availability'></a> Cloud Foundry V3 APIs Availability
 
-<%= vars.app_runtime_abbr %> v2.11 supports Cloud Foundry V3 APIs. This feature improves response time when working with services. Use the Cloud Foundry V3 API endpoints when listing, creating, or modifying any service that works with <%= vars.app_runtime_abbr %> v2.11 and later.
+<%= vars.app_runtime_abbr %> <%= vars.v_major_version %> supports Cloud Foundry V3 APIs. This feature improves response time when working with services. Use
+the Cloud Foundry V3 API endpoints when listing, creating, or modifying any service that works with <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>
+and later.
 
-### <a id='stemcell-upgrade'></a> Stemcell Version Requirements Less Strict when Upgrading <%= vars.app_runtime_abbr %> v2.11.1 and Later
+### <a id='stemcell-upgrade'></a> Stemcell Version Requirements Less Strict when Upgrading <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>.1 and
+Later
 
-<%= vars.app_runtime_abbr %> v2.11.1 and later have fewer minor version restrictions for stemcells. This allows you to upgrade to a newer <%= vars.app_runtime_abbr %> patch without upgrading the stemcell.
+<%= vars.app_runtime_abbr %> <%= vars.v_major_version %>.1 and later have fewer minor version restrictions for stemcells. This allows you to upgrade to a
+newer <%= vars.app_runtime_abbr %> patch without upgrading the stemcell.
 
-When you stage <%= vars.app_runtime_abbr %> for deployment, <%= vars.ops_manager %> installs <%= vars.app_runtime_abbr %> using the latest stemcell by default.
+When you stage <%= vars.app_runtime_abbr %> for deployment, <%= vars.ops_manager %> installs <%= vars.app_runtime_abbr %> using the latest stemcell by
+default.
 
-In <%= vars.app_runtime_abbr %> v2.11.0 and earlier, if the latest stemcell was different from the stemcell that was used when installing <%= vars.app_runtime_abbr %> previously, then <%= vars.ops_manager %> re-created all of the VMs in your <%= vars.app_runtime_abbr %> installation during the upgrade.
+In <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>.0 and earlier, if the latest stemcell was different from the stemcell that was used when
+installing <%= vars.app_runtime_abbr %> previously, then <%= vars.ops_manager %> re-created all of the VMs in your <%= vars.app_runtime_abbr %> deployment
+during the upgrade.
 
-In <%= vars.app_runtime_abbr %> v2.11.1 and later, you can upgrade to later patches of <%= vars.app_runtime_abbr %> without upgrading the stemcell or re-creating all VMs.
+In <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>.1 and later, you can upgrade to later patches of <%= vars.app_runtime_abbr %> without upgrading
+the stemcell or re-creating all VMs.
+
+
+## <a id='breaking-changes'></a> Breaking Changes
+
+<%= vars.app_runtime_abbr %> <%= vars.v_major_version %> includes the following breaking changes:
+
+### <a id='disable-ssl-certificate-verification-removed'></a> Option Removed: Disable SSL Certificate Verification for this Environment
+
+In <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>.0 and later, the **Disable SSL certificate verification for this environment** checkbox is
+removed.
+
+Before you upgrade to <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>, you must deactivate the **Disable SSL certificate verification for this
+environment** checkbox in the **Networking** pane of the <%= vars.app_runtime_abbr %> tile. For more information, see _Configure Networking_ in [Configuring
+<%= vars.app_runtime_abbr %>](../../operating/configure-pas.html#networking).
+
+If the **Disable SSL certificate verification for this environment** checkbox is activated when you try to upgrade to <%= vars.app_runtime_abbr %>, the
+upgrade fails with the following error:
+
+<pre class="terminal">
+attempt to upgrade to PAS 2.11+ with Skip SSL Verification enabled, please disable
+Skip SSL Verification prior to upgrade by un-checking "Disable SSL certificate
+verification for this environment" under "Networking"
+</pre>
+
+If you plan to automate the installation of <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>, you must remove references to the corresponding property
+`.ha_proxy.skip_cert_verify`.
+
+### <a id='dropped-app-logs'></a> Diego Drops App Logs That Exceed the App Log Rate Limit
+
+As of <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>.26, if you have configured an app log rate limit that measures app log rates in lines per
+second, Diego immediately drops app logs that exceed the app log rate limit.
+
+In <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>.25 and earlier, Diego buffers and releases approximately 5&nbsp;MB to 10&nbsp;MB of app logs
+that exceed the app log rate limit. This behavior has changed in <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>.26 because Diego has been upgraded
+to a newer version.
+
+If this change in behavior causes parts of your deployment to fail, <%= vars.company_name %> recommends that you either modify any automated scripts that rely
+on app log output or increase the app log rate limit.
+
+For more information about app log rate limits, see [App Log Rate Limiting](../loggregator/app-log-rate-limits.html).
+
+### <a id='transfer-encoding-stricter'></a> Gorouter Update to Golang v1.15 Introduces Stricter Transfer-Encoding Header Standards in
+<%= vars.app_runtime_abbr %> <%= vars.v_major_version %>.0 and Later
+
+In <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>.0 and later, stricter header standards break Spring apps that incorrectly set the header.
+
+To avoid this breaking change, see [Applications on TAS for VMs get 502 chunked response
+error](https://community.pivotal.io/s/article/Application-Chunked-Error?language=en_US) in the Knowledge Base. You must complete the resolution procedure
+described in this Knowledge Base article before you upgrade to <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>.0 or later.
+
+<p class='note'><strong>Note:</strong> This breaking change is also present in PAS v2.7.30, PAS v2.8.24, <%= vars.app_runtime_abbr %> v2.9.18, and
+  <%= vars.app_runtime_abbr %> v2.10.10. If you are using any of these versions or earlier, you must upgrade to PAS v2.7.31, PAS v2.8.25,
+  <%= vars.app_runtime_abbr %> v2.9.21, or <%= vars.app_runtime_abbr %> v2.10.11 before upgrading or jump upgrading to <%= vars.app_runtime_abbr %>
+  <%= vars.v_major_version %>.0 or later. For more information, see
+  <a href="https://community.pivotal.io/s/article/Application-Chunked-Error?language=en_US">Applications on TAS for VMs get 502 chunked response error</a> in
+  the Knowledge Base.</p>
+
+### <a id='timestamps-breaking-change'></a> Timestamps for Component Logs in Diego Logs When Upgrading
+
+The **Timestamp format for component logs** feature replaces the **Format of timestamps in Diego logs** feature in the **App Containers** pane of the
+<%= vars.app_runtime_abbr %> tile. However, when you upgrade to <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>, the option that was selected under
+**Format of timestamps in Diego logs** in your previous deployment is applied to **Timestamp format for component logs**. For more information, see [Timestamp
+Format for Component Logs Replaces Timestamp Format for Diego Logs](#timestamps) above.
+
+### <a id='dynamic-egress'></a> Dynamic Egress Policies Are Removed
+
+You cannot upgrade to <%= vars.app_runtime_abbr %> <%= vars.v_major_version %> if you are using dynamic egress policies.
+
+To see if you have dynamic egress policies, see [List Egress
+Policies](https://docs.pivotal.io/application-service/2-10/devguide/egress-policies.html#list-egress-policies) in the <%= vars.app_runtime_abbr %> v2.10
+documentation.
+
+To delete each of your policies, see [Delete an Egress
+Policy](https://docs.pivotal.io/application-service/2-10/devguide/egress-policies.html#delete-egress-policies) in the <%= vars.app_runtime_abbr %> v2.10
+documentation.
+
+### <a id='cloud-controller-service-bindings'></a> Cloud Controller Enforces Uniqueness of Service Bindings
+
+When you upgrade to <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>, Cloud Controller introduces a database migration that forces service bindings
+between service instances and apps to be unique. If duplicate service bindings exist when you upgrade, the migration fails.
+
+To work around this issue, you must delete any duplicate bindings before you upgrade.
+
+
+## <a id='known-issues'></a> Known Issues
+
+<%= vars.app_runtime_abbr %> <%= vars.v_major_version %> includes the following known issues:
+
+### <a id='rolling-timeout'></a> Rolling App Deployment Does Not Timeout
+
+<%= partial "/pcf/tas/known-issues/rolling-timeout" %>
+
+### <a id='stored-procedure'></a> Pre-Start Scripts Fail on the policy-server Job
+
+When upgrading to <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>.9, the `policy-server` pre-start script runs a database migration that drops a
+stored procedure that is no longer needed. If your `networkpolicyserver` database does not have the stored procedure, you might see the following error in
+`diego_database` `policy-server` stdout logs:
+
+```console
+PROCEDURE networkpolicyserver.drop_destination_index does not exist handling 66
+```
+
+To work around this error, add the migration to your `networkpolicyserver.gorp_migrations` table and skip the migration.
+
+For more information, see ["pre-start scripts failed. Failed Jobs: policy-server" error Upgrading to CF Networking Release 2.40.0 in Tanzu Application Service
+for VMs](https://community.pivotal.io/s/article/TAS-upgrade-to-version-including-cf-networking-release-2-40-0-may-fail-policy-server-job-pre-start-job?language=en_US)
+in the Knowledge Base.
+
+### <a id='gorouter-incorrect-span-id'></a> Gorouter Sets an Invalid X-B3-SpanID Header
+
+<%= partial "/pcf/tas/known-issues/gorouter-spanid" %>
 
 
 ## <a id='resolved-issues'></a> Resolved Issues
 
-<%= vars.app_runtime_abbr %> v2.11 includes the following resolved issues:
+<%= vars.app_runtime_abbr %> <%= vars.v_major_version %> includes the following resolved issues:
 
 ### <a id='credhub-encryption-key'></a> CredHub Primary Encryption Key Verification
 
-When you configure the CredHub server for <%= vars.app_runtime_abbr %>, you must select a primary encryption key. In <%= vars.app_runtime_abbr %> v2.11, if you do not select a primary encryption key, or if you mark more than one key as the primary encryption key, deployment fails more quickly than in previous releases of <%= vars.app_runtime_abbr %>.
+When you configure the CredHub server for <%= vars.app_runtime_abbr %>, you must select a primary encryption key. In <%= vars.app_runtime_abbr %>
+<%= vars.v_major_version %>, if you do not select a primary encryption key, or if you mark more than one key as the primary encryption key, deployment fails
+more quickly than in previous releases of <%= vars.app_runtime_abbr %>.
 
 For more information, see [Configure CredHub](../../operating/configure-pas.html#credhub) in _Configuring <%= vars.app_runtime_abbr %>_.
 
@@ -2689,87 +2829,5 @@ In <%= vars.app_runtime_abbr %>, disabled service plans are handled gracefully i
 
 ### <a id='autoscaler-rabbitmq'></a> Improved App Autoscaler Handling of RabbitMQ-Based Autoscaling Rules
 
-In <%= vars.app_runtime_abbr %> v2.11, App Autoscaler uses fewer resource-intensive RabbitMQ endpoints when available to reduce load on RabbitMQ.
-
-
-## <a id='breaking-changes'></a> Breaking Changes
-
-<%= vars.app_runtime_abbr %> v2.11 includes the following breaking changes:
-
-### <a id='disable-ssl-certificate-verification-removed'></a> Option Removed: Disable SSL Certificate Verification for this Environment
-
-In <%= vars.app_runtime_abbr %> v2.11.0 and later, the option to disable SSL certificate verification for an environment is removed.
-
-Before you upgrade to <%= vars.app_runtime_abbr %> v2.11, you must deselect the option to disable SSL certificate verification in the **Networking** pane of the <%= vars.app_runtime_abbr %> tile. For more information, see _Configure Networking_ in [Configuring <%= vars.app_runtime_abbr %>](../../operating/configure-pas.html#networking).
-
-If the **Disable SSL certificate verification for this environment** option is enabled when you try to upgrade to <%= vars.app_runtime_abbr %>, the upgrade fails with the following error:
-
-<pre class="terminal">
-attempt to upgrade to PAS 2.11+ with Skip SSL Verification enabled, please disable
-Skip SSL Verification prior to upgrade by un-checking "Disable SSL certificate
-verification for this environment" under "Networking"
-</pre>
-
-If you plan to automate the installation of <%= vars.app_runtime_abbr %> v2.11, you must remove references to the corresponding property `.ha_proxy.skip_cert_verify`.
-
-### <a id='global-log-rate-limit'></a> Global Log Rate Limit is Deprecated
-
-The global log rate limit that measures app log rates in lines per second is deprecated in favor of per-app log rate limits that measure app log rates in
-bytes per second.
-
-If you have configured a global log rate limit in lines per second, <%= vars.company_name %> recommends that you re-configure your apps to use log rate limits
-in bytes per second.
-
-If you still want to use the global log rate limit, logs that exceed the log rate limit are immediately dropped. Previously, logs that exceeded the log rate
-limit were buffered and released at the configured log rate.
-
-For more information about app log rate limits, see [App Log Rate Limiting](../loggregator/app-log-rate-limits.html).
-
-### <a id='transfer-encoding-stricter'></a> Gorouter Update to Golang v1.15 Introduces Stricter Transfer-Encoding Header Standards in <%= vars.app_runtime_abbr %> v2.11.0 and Later
-
-In <%= vars.app_runtime_abbr %> v2.11.0 and later, stricter header standards break Spring apps that incorrectly set the header.
-
-For information about how to avoid this breaking change, see [Applications on TAS for VMs get 502 chunked response error](https://community.pivotal.io/s/article/Application-Chunked-Error?language=en_US) in the Knowledge Base. You must complete the resolution steps described in this Knowledge Base article before you upgrade to <%= vars.app_runtime_abbr %> v2.11.0 or later.
-
-<p class='note'><strong>Note:</strong> This breaking change was also present in Pivotal Application Service (PAS) v2.7.30, PAS v2.8.24, <%= vars.app_runtime_abbr %> v2.9.18, and <%= vars.app_runtime_abbr %> v2.10.10. If you are on any of these versions or earlier, you must upgrade to v2.7.31, v2.8.25, v2.9.21, or v2.10.11 before upgrading or jump upgrading to 2.11.0 or later. For more information, see <a href="https://community.pivotal.io/s/article/Application-Chunked-Error?language=en_US">Applications on TAS for VMs get 502 chunked response error</a>.</p>
-
-### <a id='timestamps-breaking-change'></a> Timestamps for Component Logs in Diego Logs when Upgrading
-
-The <strong>Timestamp format for component logs</strong> feature replaces the <strong>Format of timestamps in Diego logs</strong> feature in the <strong>App Containers</strong> pane of the <%= vars.app_runtime_abbr %> tile. However, when you upgrade to <%= vars.app_runtime_abbr %> v2.11, the option that was selected under <strong>Format of timestamps in Diego logs</strong> in your previous deployment is applied to <strong>Timestamp format for component logs</strong>. For more information, see <a href='#timestamps'>Timestamp Format for Component Logs Replaces Timestamp Format for Diego Logs</a>.
-
-### <a id='dynamic-egress'></a> Dynamic Egress Policies Are Removed
-
-You cannot upgrade to <%= vars.app_runtime_abbr %> v2.11 if you are using Dynamic Egress policies.
-
-To see if you have Dynamic Egress policies, see [List Egress Policies](https://docs.pivotal.io/application-service/2-10/devguide/egress-policies.html#list-egress-policies) in the <%= vars.app_runtime_abbr %> v2.10 documentation.
-
-To delete each of your policies, see [Delete an Egress Policy](https://docs.pivotal.io/application-service/2-10/devguide/egress-policies.html#delete-egress-policies) in the <%= vars.app_runtime_abbr %> v2.10 documentation.
-
-### <a id='cloud-controller-service-bindings'></a> Cloud Controller Enforces Uniqueness of Service Bindings
-
-When you upgrade to <%= vars.app_runtime_abbr %> v2.11, Cloud Controller introduces a database migration that forces service bindings between service instances and apps to be unique. If duplicate service bindings exist when you upgrade, the migration fails. To work around this issue, you must delete any duplicate bindings before you upgrade.
-
-
-## <a id='known-issues'></a> Known Issues
-
-<%= vars.app_runtime_abbr %> v2.11 includes the following known issues:
-
-### <a id='rolling-timeout'></a> Rolling App Deployment Does Not Timeout
-
-<%= partial "/pcf/tas/known-issues/rolling-timeout" %>
-
-### <a id='stored-procedure'></a> Pre-Start Scripts Fail on policy-server Job
-
-When upgrading to <%= vars.app_runtime_abbr %> v2.11.9, the policy-server pre-start script runs a database migration that drops a stored procedure that is no longer needed. If your `networkpolicyserver` database does not have the stored procedure, you might see the following error in `diego_database` policy-server stdout logs:
-
-```console
-PROCEDURE networkpolicyserver.drop_destination_index does not exist handling 66
-```
-
-To work around this error, add the migration to your `networkpolicyserver.gorp_migrations` table and skip the migration.
-
-For more information, see ["pre-start scripts failed. Failed Jobs: policy-server" error Upgrading to CF Networking Release 2.40.0 in Tanzu Application Service for VMs](https://community.pivotal.io/s/article/TAS-upgrade-to-version-including-cf-networking-release-2-40-0-may-fail-policy-server-job-pre-start-job?language=en_US) in the Knowledge Base.
-
-### <a id='gorouter-incorrect-span-id'></a> Gorouter Sets an Invalid X-B3-SpanID Header
-
-<%= partial "/pcf/tas/known-issues/gorouter-spanid" %>
+In <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>, App Autoscaler uses fewer resource-intensive RabbitMQ endpoints when possible, in order to reduce
+load on RabbitMQ.
