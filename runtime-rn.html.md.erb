@@ -311,6 +311,14 @@ The previously-used Ubuntu 16.04 "Xenial Xerus" stemcells are to reach end of ge
 For information about how this change may disrupt your <%= vars.app_runtime_abbr %> deployment, see [Jammy Stemcell Used For All Instance
 Groups](#jammy-instance-groups) below.
 
+### <a id='log-rate-limiting'></a> Mute noisy application logs
+
+Operators can now configure logging quotas at the org and space level and log rate limits for applications to overcome the noisy neighbor problem. This will
+stop a handful of noisy apps from overwhelming the entire logging infrastructure and provide yet another mechanism for operators to differentiate their highly
+mission-critical apps from others that are less critical.
+
+Additionally, cost savings may be achieved by reducing the overall volume sent to third-party logging platforms.
+
 ### <a id='org-member-search'></a> Search for Org Members in Apps Manager
 
 In <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>, the **Members** page for each org in Apps Manager includes a search box that you can use to
