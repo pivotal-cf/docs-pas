@@ -30,12 +30,13 @@ Because VMware uses the Percona Distribution for MySQL, expect a time lag betwee
 * **[Feature]** Developers can quickly find specific org members in Apps Manager
 * **[Feature]** Dynamic ASGs are now allowed by default. If you wish to keep them off, you must manually disallow them through the
 <%= vars.app_runtime_abbr %> tile before deploying.
-* **[Feature Improvement]** Add Java Buildpack for cflinuxfs4
+* **[Feature Improvement]** Add Java Buildpack for `cflinuxfs4`
 * **[Feature Improvement]** Bump component releases in time for <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>
-* **[Feature Improvement]** Bump golang to 1.18 for diego, routing, cf-networking, and silk
-* **[Feature Improvement]** Bump to latest pxc-release with Percona XtraDB Cluster 8.0.29
+* **[Feature Improvement]** The `diego`, `routing`, `cf-networking`, and `silk` components use Golang v1.18.
+* **[Feature Improvement]** Bump to latest `pxc-release` with Percona XtraDB Cluster 8.0.29
 * **[Feature Improvement]** Gorouter Metrics Toggle
-* **[Breaking Change]** HAProxy removed
+* **[Breaking Change]** HAProxy is removed from <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>. For more information, see [HAProxy is
+Removed](#haproxy-removed) below.
 * Bump capi to version `1.139.0`
 * Bump cf-cli to version `1.41.0`
 * Bump garden-runc to version `1.22.2`
