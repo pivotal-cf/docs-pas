@@ -311,13 +311,14 @@ The previously-used Ubuntu 16.04 "Xenial Xerus" stemcells are to reach end of ge
 For information about how this change may disrupt your <%= vars.app_runtime_abbr %> deployment, see [Jammy Stemcell Used For All Instance
 Groups](#jammy-instance-groups) below.
 
-### <a id='log-rate-limiting'></a> Mute noisy application logs
+### <a id='log-rate-limiting'></a> App Log Rate Limits for Orgs, Spaces, and Individual Apps
 
-Operators can now configure logging quotas at the org and space level and log rate limits for applications to overcome the noisy neighbor problem. This will
-stop a handful of noisy apps from overwhelming the entire logging infrastructure and provide yet another mechanism for operators to differentiate their highly
-mission-critical apps from others that are less critical.
+Operators can configure app log rate quotas for each org and space in a <%= vars.app_runtime_abbr %> <%= vars.v_major_version %> deployment, as well as app
+log rate limits for individual apps. This prevents a few noisy apps from overwhelming Loggregator with app logs. If you configure your
+<%= vars.app_runtime_abbr %> deployment to send app logs to a third-party log management service, reducing the overall volume of app logs can also save costs.
 
-Additionally, cost savings may be achieved by reducing the overall volume sent to third-party logging platforms.
+For more information, see [Creating and Modifying Quota Plans](../adminguide/quota-plans.html) and [App Log Rate
+Limiting](../loggregator/app-log-rate-limits.html).
 
 ### <a id='org-member-search'></a> Search for Org Members in Apps Manager
 
@@ -360,7 +361,7 @@ activate the **Enable additional System Metrics** checkbox in the **Director Con
 To avoid deployment, platform automation, or data collection failures, you must update any queries that reference `bosh-system-metrics-forwarder` as the
 `source_id` for metrics to reference `system_metrics_agent` instead.
 
-### <a id='cflinuxfs4'></a> cflinuxfs4 May Cause
+### <a id='cflinuxfs4'></a> cflinuxfs4 May Cause App Push Failure
 
 If you have configured your apps to find and use the latest stack when pushing to production, they may switch to the `cflinuxfs4` stack prematurely.
 
