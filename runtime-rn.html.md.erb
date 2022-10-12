@@ -22,6 +22,195 @@ Because VMware uses the Percona Distribution for MySQL, expect a time lag betwee
 
 ## <a id='releases'></a> Releases
 
+### <a id='2.11.27'></a> 2.11.27
+
+**Release Date:** 10/12/2022
+
+* **[Feature]** Allow operators to specify isolation segments that should be routable through TAS routers
+* **[Bug Fix]** Fixes UAA's compatibility with Amazon Aurora MySQL
+* Bump capi to version `1.109.12`
+* Bump cf-cli to version `1.41.0`
+* Bump mysql-monitoring to version `9.21.0`
+* Bump push-usage-service-release to version `674.0.25`
+* Bump routing to version `0.239.0`
+* Bump uaa to version `74.5.49`
+
+<table border="1" class="nice">
+  <thead>
+    <tr>
+      <th>Component</th>
+      <th>Version</th>
+      <th>Release Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>ubuntu-xenial stemcell</td><td>621.265</td><td></td></tr>
+    <tr><td>backup-and-restore-sdk</td><td>1.18.50</td><td></td></tr>
+    <tr><td>binary-offline-buildpack</td><td>1.0.45</td><td></td></tr>
+    <tr><td>bosh-dns-aliases</td><td>0.0.3</td><td></td></tr>
+    <tr><td>bosh-system-metrics-forwarder</td><td>0.0.24</td><td></td></tr>
+    <tr><td>bpm</td><td>1.1.19</td><td></td></tr>
+    <tr><td>capi</td><td>1.109.12</td><td></td></tr>
+    <tr><td>cf-autoscaling</td><td>249.0.17</td><td></td></tr>
+    <tr><td>cf-cli</td><td>1.41.0</td>
+      <td>
+        <details>
+          <summary>v1.41.0</summary>
+          <pre style="max-width: 30em">
+  ### This release contains the following versions of the CF CLI
+  | Major version  | Prior version | Current version |
+  | ------------- | ------------- | ------------- |
+  | **v8** | **8.4.0** | [8.5.0](https://github.com/cloudfoundry/cli/releases/tag/v8.5.0) |
+  | **v7**  | **7.5.0** | [7.5.0](https://github.com/cloudfoundry/cli/releases/tag/v7.5.0) |
+  | **v6**  | **6.53.0**  | **[6.53.0](https://github.com/cloudfoundry/cli/releases/tag/v6.53.0)** |
+          </pre>
+        </details>
+        <details>
+          <summary>v1.39.0</summary>
+          <pre style="max-width: 30em">
+  ### This release contains the following versions of the CF CLI
+  | Major version  | Prior version | Current version |
+  | ------------- | ------------- | ------------- |
+  | **v8** | **8.3.0** | [8.4.0](https://github.com/cloudfoundry/cli/releases/tag/v8.4.0) |
+  |  **v7**  | **7.4.0** | [7.5.0](https://github.com/cloudfoundry/cli/releases/tag/v7.5.0) |
+  | **v6**  | **6.53.0**  | **[6.53.0](https://github.com/cloudfoundry/cli/releases/tag/v6.53.0)** |
+          </pre>
+        </details>
+      </td>
+    </tr>
+    <tr><td>cf-networking</td><td>3.12.0</td><td></td></tr>
+    <tr><td>cflinuxfs3</td><td>0.319.0</td><td></td></tr>
+    <tr><td>credhub</td><td>2.12.8</td><td></td></tr>
+    <tr><td>diego</td><td>2.66.3</td><td></td></tr>
+    <tr><td>dotnet-core-offline-buildpack</td><td>2.4.0</td><td></td></tr>
+    <tr><td>garden-runc</td><td>1.22.0</td><td></td></tr>
+    <tr><td>go-offline-buildpack</td><td>1.9.49</td><td></td></tr>
+    <tr><td>haproxy</td><td>9.8.0</td><td></td></tr>
+    <tr><td>java-offline-buildpack</td><td>4.50</td><td></td></tr>
+    <tr><td>log-cache</td><td>2.11.13</td><td></td></tr>
+    <tr><td>loggregator</td><td>106.6.9</td><td></td></tr>
+    <tr><td>loggregator-agent</td><td>6.4.4</td><td></td></tr>
+    <tr><td>mapfs</td><td>1.2.11</td><td></td></tr>
+    <tr><td>metric-registrar</td><td>1.1.16</td><td></td></tr>
+    <tr><td>metrics-discovery</td><td>3.1.2</td><td></td></tr>
+    <tr><td>mysql-monitoring</td><td>9.21.0</td>
+      <td>
+        <details>
+          <summary>v9.21.0</summary>
+          <pre style="max-width: 30em">
+  - Build with Go 1.19.1
+          </pre>
+        </details>
+        <details>
+          <summary>v9.19.0</summary>
+          <pre style="max-width: 30em">
+  **New Features**
+  The `mysql-metrics` job now supports a `mysql-metrics.port` option to specify the MySQL port when scraping database metrics. This port defaults to 3306 but may be configured to a non-standard port.
+          </pre>
+        </details>
+      </td>
+    </tr>
+    <tr><td>nats</td><td>50</td><td></td></tr>
+    <tr><td>nfs-volume</td><td>5.0.18</td><td></td></tr>
+    <tr><td>nginx-offline-buildpack</td><td>1.1.42</td><td></td></tr>
+    <tr><td>nodejs-offline-buildpack</td><td>1.7.73</td><td></td></tr>
+    <tr><td>notifications</td><td>62</td><td></td></tr>
+    <tr><td>notifications-ui</td><td>40</td><td></td></tr>
+    <tr><td>php-offline-buildpack</td><td>4.4.65</td><td></td></tr>
+    <tr><td>push-apps-manager-release</td><td>674.0.9</td><td></td></tr>
+    <tr><td>push-usage-service-release</td><td>674.0.25</td>
+      <td>
+        <details>
+          <summary>v674.0.25</summary>
+          <pre style="max-width: 30em">
+  ## Changes
+  * Bump src/app-usage-service from [`99b5b7a`](https://github.com/pivotal-cf/app-usage-service/commit/99b5b7aa4e32a14293418f5b5237e54ec74ee07d) to [`aad81af`](https://github.com/pivotal-cf/app-usage-service/commit/aad81af5ada02ff2795e5ac69bba94e7591752ab)
+  * Remove dependabot configs for legacy support branches (https://github.com/pivotal-cf/usage-service-release/pull/252)
+          </pre>
+        </details>
+      </td>
+    </tr>
+    <tr><td>pxc</td><td>0.44.0</td><td></td></tr>
+    <tr><td>python-offline-buildpack</td><td>1.7.57</td><td></td></tr>
+    <tr><td>r-offline-buildpack</td><td>1.1.32</td><td></td></tr>
+    <tr><td>routing</td><td>0.239.0</td>
+      <td>
+        <details>
+          <summary>v0.239.0</summary>
+          <pre style="max-width: 30em">
+  ## What's Changed
+  - Bumped Golang to 1.18.6 to mitigate [CVE-2022-27664](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-27664)
+  **Full Changelog**: https://github.com/cloudfoundry/routing-release/compare/v0.238.0...v0.239.0
+  ## ✨  Built with go 1.18.6
+          </pre>
+        </details>
+        <details>
+          <summary>v0.238.0</summary>
+          <pre style="max-width: 30em">
+  ## What's Changed
+  - Gorouter once again supports hairpinning for route-service requests, for more information, see [the proposed update.](https://github.com/cloudfoundry/routing-release/issues/281) `router.route_services_internal_lookup_allowlist` can be used to control which domains of route services can be hairpinned. Thanks @peanball!!
+  - Gorouter has a new websocket-specific dial timeout (`websocket_dial_timeout`), configurable separately from the default endpoint dial timeout. Thanks @peanball  for this one too!!
+  **Full Changelog**: https://github.com/cloudfoundry/routing-release/compare/v0.237.0...v0.238.0
+  ## Manifest Property Changes
+  | Job | Property | 0.237.0 | 0.238.0 |
+  | --- | --- | --- | --- |
+  | `gorouter` | `websocket_dial_timeout_in_seconds` | didn't exist | Defaults to `endpoint_dial_timeout_in_seconds`'s value |
+  | `gorouter` | `router.route_services_internal_lookup_allowlist` | didn't exist | No internal lookups allowed for route services. |
+  ## ✨  Built with go 1.18.5
+          </pre>
+        </details>
+        <details>
+          <summary>v0.237.0</summary>
+          <pre style="max-width: 30em">
+  ## What's Changed
+  - ⚠️ Bump to golang 1.18 🎉
+  **Breaking Changes:** The routing components are now more strict about the protocols used in TLS communications, causing integrations with systems using older, insecure protocols to fail. These components have been updated to Go 1.18, and will no longer support TLS 1.0 and 1.1 connections or certificates with a SHA-1 checksum. This is most likely to affect connections with external databases.
+  Please see this golang 1.18 release notes [section](https://tip.golang.org/doc/go1.18#tls10) for more information about the golang 1.18 change.
+  ###
+  * Update uaa-go-client; by @joergdw in https://github.com/cloudfoundry/routing-release/pull/277
+  * updated spec files to match packages by @ebroberson in https://github.com/cloudfoundry/routing-release/pull/282
+  **Full Changelog**: https://github.com/cloudfoundry/routing-release/compare/v0.236.0...v0.237.0
+  ## New Contributors
+  * @joergdw made their first contribution in https://github.com/cloudfoundry/routing-release/pull/277
+  * @ebroberson made their first contribution in https://github.com/cloudfoundry/routing-release/pull/282
+  ## ✨  Built with go 1.18.4
+          </pre>
+        </details>
+      </td>
+    </tr>
+    <tr><td>ruby-offline-buildpack</td><td>1.8.57</td><td></td></tr>
+    <tr><td>silk</td><td>3.12.0</td><td></td></tr>
+    <tr><td>smb-volume</td><td>3.1.5</td><td></td></tr>
+    <tr><td>smoke-tests</td><td>4.5.0</td><td></td></tr>
+    <tr><td>staticfile-offline-buildpack</td><td>1.5.33</td><td></td></tr>
+    <tr><td>statsd-injector</td><td>1.11.21</td><td></td></tr>
+    <tr><td>syslog</td><td>11.8.2</td><td></td></tr>
+    <tr><td>system-metrics-scraper</td><td>3.2.8</td><td></td></tr>
+    <tr><td>uaa</td><td>74.5.49</td>
+      <td>
+        <details>
+          <summary>v74.5.49</summary>
+          <pre style="max-width: 30em">
+  ### Features
+  - Add `uaa.database.additionalParameters` to set additional parameters in the database connection url. Operators can enable compatibility with Amazon Aurora for MySQL by adding this config:
+  ```
+  uaa:
+  database:
+  additionalParameters:
+  usePipelineAuth: "false"
+  useBatchMultiSend: "false"
+  ```
+  ### Dependency bumps
+  - Various dependency bumps.
+          </pre>
+        </details>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+
+
 <%# DO NOT DELETE THIS LINE - robots use this to add new release notes %>
 
 ### <a id='2-11-26'></a> v2.11.26
