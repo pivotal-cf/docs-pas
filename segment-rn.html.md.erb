@@ -105,8 +105,10 @@ Because VMware uses the Percona Distribution for MySQL, expect a time lag betwee
 
 ## <a id='install'></a> How to Install
 
+<% if not vars.platform_code == 'TAS' %>
 To install <%= vars.segment_runtime_full %> <%= vars.v_major_version %>, see [Installing
 <%= vars.segment_runtime_full %>](../operating/installing-pcf-is.html).
+<% end %>
 
 To install <%= vars.segment_runtime_full %> <%= vars.v_major_version %>, you must first install Ops Manager <%= vars.v_major_version %>. For more information,
 see the [Ops Manager documentation](https://docs.pivotal.io/ops-manager/index.html).
@@ -138,8 +140,10 @@ re-configure the following settings in the <%= vars.segment_runtime_full %> tile
   you configured the **Allow SSH access to app containers** and **TCP routing** settings in the **Networking** pane, you may also need to configure load
   balancers under the **Diego Brain** or **TCP Router** jobs.
 
+<% if not vars.platform_code == 'TAS' %>
 For more information about configuring these settings, see [Configure Networking](../operating/installing-pcf-is.html#networking) and [Configure
 Resources](../operating/installing-pcf-is.html#resources) in _Installing <%= vars.segment_runtime_full %>_.
+<% end %>
 
 ### <a id='global-log-rate-limit'></a> Global Log Rate Limit is Deprecated
 
