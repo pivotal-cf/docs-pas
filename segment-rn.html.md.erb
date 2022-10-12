@@ -121,6 +121,16 @@ There are no new features for <%= vars.segment_runtime_full %> <%= vars.v_major_
 
 ## <a id='breaking-changes'></a> Breaking Changes
 
+### <a id='jammy-instance-groups'></a> Jammy Stemcell Used For All Instance Groups
+
+All VMs that <%= vars.app_runtime_abbr %> <%= vars.v_major_version %> deploys run on the Jammy Jellyfish stemcell described in [Jammy Jellyfish Stemcell
+Support](#ubuntu-jammy) above. Because of this, any add-ons from other tiles or configured in the BOSH Director that are colocated on
+<%= vars.app_runtime_abbr %> VMs do not function unless they support the Jammy Jellyfish stemcell.
+
+Tiles that are compatible <%= vars.app_runtime_abbr %> <%= vars.v_major_version %> already work with Jammy Jellyfish stemcells.
+
+Further, the use of the Jammy Stemcell means TAS now requires an Ops Manager with Jammy support, which means Ops Manager version 2.10.33 or greater.
+
 <%= vars.segment_runtime_full %> <%= vars.v_major_version %> includes the following breaking changes:
 
 ### <a id='haproxy-removed'></a> HAProxy is Removed
