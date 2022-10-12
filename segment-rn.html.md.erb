@@ -12,6 +12,96 @@ Because VMware uses the Percona Distribution for MySQL, expect a time lag betwee
 
 ## <a id='releases'></a> Releases
 
+### <a id='2.11.21'></a> 2.11.21
+
+**Release Date:** 10/12/2022
+
+* Bump routing to version `0.239.0`
+* Bump smoke-tests to version `4.7.0`
+
+<table border="1" class="nice">
+  <thead>
+    <tr>
+      <th>Component</th>
+      <th>Version</th>
+      <th>Release Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>ubuntu-xenial stemcell</td><td>621.265</td><td></td></tr>
+    <tr><td>bpm</td><td>1.1.19</td><td></td></tr>
+    <tr><td>cf-networking</td><td>3.12.0</td><td></td></tr>
+    <tr><td>cflinuxfs3</td><td>0.319.0</td><td></td></tr>
+    <tr><td>diego</td><td>2.66.3</td><td></td></tr>
+    <tr><td>garden-runc</td><td>1.22.0</td><td></td></tr>
+    <tr><td>haproxy</td><td>9.8.0</td><td></td></tr>
+    <tr><td>loggregator-agent</td><td>6.4.4</td><td></td></tr>
+    <tr><td>mapfs</td><td>1.2.11</td><td></td></tr>
+    <tr><td>metrics-discovery</td><td>3.1.2</td><td></td></tr>
+    <tr><td>nfs-volume</td><td>5.0.18</td><td></td></tr>
+    <tr><td>routing</td><td>0.239.0</td>
+      <td>
+        <details>
+          <summary>v0.239.0</summary>
+          <pre style="max-width: 30em">
+  ## What's Changed
+  - Bumped Golang to 1.18.6 to mitigate [CVE-2022-27664](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-27664)
+  **Full Changelog**: https://github.com/cloudfoundry/routing-release/compare/v0.238.0...v0.239.0
+  ## ✨  Built with go 1.18.6
+          </pre>
+        </details>
+        <details>
+          <summary>v0.238.0</summary>
+          <pre style="max-width: 30em">
+  ## What's Changed
+  - Gorouter once again supports hairpinning for route-service requests, for more information, see [the proposed update.](https://github.com/cloudfoundry/routing-release/issues/281) `router.route_services_internal_lookup_allowlist` can be used to control which domains of route services can be hairpinned. Thanks @peanball!!
+  - Gorouter has a new websocket-specific dial timeout (`websocket_dial_timeout`), configurable separately from the default endpoint dial timeout. Thanks @peanball  for this one too!!
+  **Full Changelog**: https://github.com/cloudfoundry/routing-release/compare/v0.237.0...v0.238.0
+  ## Manifest Property Changes
+  | Job | Property | 0.237.0 | 0.238.0 |
+  | --- | --- | --- | --- |
+  | `gorouter` | `websocket_dial_timeout_in_seconds` | didn't exist | Defaults to `endpoint_dial_timeout_in_seconds`'s value |
+  | `gorouter` | `router.route_services_internal_lookup_allowlist` | didn't exist | No internal lookups allowed for route services. |
+  ## ✨  Built with go 1.18.5
+          </pre>
+        </details>
+        <details>
+          <summary>v0.237.0</summary>
+          <pre style="max-width: 30em">
+  ## What's Changed
+  - ⚠️ Bump to golang 1.18 🎉
+  **Breaking Changes:** The routing components are now more strict about the protocols used in TLS communications, causing integrations with systems using older, insecure protocols to fail. These components have been updated to Go 1.18, and will no longer support TLS 1.0 and 1.1 connections or certificates with a SHA-1 checksum. This is most likely to affect connections with external databases.
+  Please see this golang 1.18 release notes [section](https://tip.golang.org/doc/go1.18#tls10) for more information about the golang 1.18 change.
+  ###
+  * Update uaa-go-client; by @joergdw in https://github.com/cloudfoundry/routing-release/pull/277
+  * updated spec files to match packages by @ebroberson in https://github.com/cloudfoundry/routing-release/pull/282
+  **Full Changelog**: https://github.com/cloudfoundry/routing-release/compare/v0.236.0...v0.237.0
+  ## New Contributors
+  * @joergdw made their first contribution in https://github.com/cloudfoundry/routing-release/pull/277
+  * @ebroberson made their first contribution in https://github.com/cloudfoundry/routing-release/pull/282
+  ## ✨  Built with go 1.18.4
+          </pre>
+        </details>
+      </td>
+    </tr>
+    <tr><td>silk</td><td>3.12.0</td><td></td></tr>
+    <tr><td>smb-volume</td><td>3.1.5</td><td></td></tr>
+    <tr><td>smoke-tests</td><td>4.7.0</td>
+      <td>
+        <details>
+          <summary>4.7.0</summary>
+          <pre style="max-width: 30em">
+  Create bosh final release 4.7.0
+          </pre>
+        </details>
+      </td>
+    </tr>
+    <tr><td>syslog</td><td>11.8.2</td><td></td></tr>
+  </tbody>
+</table>
+
+
+
 <%# DO NOT DELETE THIS LINE - robots use this to add new release notes %>
 
 ### <a id='2-11-20'></a> v2.11.20
