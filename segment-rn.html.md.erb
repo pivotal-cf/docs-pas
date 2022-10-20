@@ -1,5 +1,5 @@
 ---
-title: Isolation Segment v3.0 Release Notes
+title: Isolation Segment v4.0 Release Notes
 owner: Release Engineering
 ---
 
@@ -21,88 +21,6 @@ Because VMware uses the Percona Distribution for MySQL, expect a time lag betwee
 
 <%# DO NOT DELETE THIS LINE - robots use this to add new release notes %>
 
-### <a id='3-0-0'></a> v3.0.0
-
-**Release Date:** 10/06/2022
-
-* **[Feature Improvement]** Bump component releases in time for <%= vars.segment_runtime_full %> <%= vars.v_major_version %>
-* **[Feature Improvement]** Bump golang to 1.18 for diego, routing, cf-networking, and silk
-* **[Feature Improvement]** Gorouter Metrics Toggle
-* **[Breaking Change]** HAProxy removed
-* Bump garden-runc to version `1.22.2`
-* Bump metrics-discovery to version `3.2.0`
-* Bump smoke-tests to version `4.7.0`
-
-<table border="1" class="nice">
-  <thead>
-    <tr>
-      <th>Component</th>
-      <th>Version</th>
-      <th>Release Notes</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr><td>ubuntu-jammy stemcell</td><td>1.8</td><td></td></tr>
-    <tr><td>bpm</td><td>1.1.19</td><td></td></tr>
-    <tr><td>cf-networking</td><td>3.12.0</td><td></td></tr>
-    <tr><td>cflinuxfs3</td><td>0.321.0</td><td></td></tr>
-    <tr><td>cflinuxfs4</td><td>0.28.0</td><td></td></tr>
-    <tr><td>diego</td><td>2.66.3</td><td></td></tr>
-    <tr><td>garden-runc</td><td>1.22.2</td><td></td></tr>
-    <tr><td>loggregator-agent</td><td>6.5.0</td><td></td></tr>
-    <tr><td>mapfs</td><td>1.2.11</td><td></td></tr>
-    <tr><td>metrics-discovery</td><td>3.2.0</td><td></td></tr>
-    <tr><td>nfs-volume</td><td>7.1.6</td><td></td></tr>
-    <tr><td>routing</td><td>0.239.0</td><td></td></tr>
-    <tr><td>silk</td><td>3.12.0</td><td></td></tr>
-    <tr><td>smb-volume</td><td>3.1.5</td><td></td></tr>
-    <tr><td>smoke-tests</td><td>4.7.0</td>
-      <td>
-        <details>
-          <summary>4.7.0</summary>
-          <pre style="max-width: 30em">
-  Create bosh final release 4.7.0
-          </pre>
-        </details>
-      </td>
-    </tr>
-    <tr><td>syslog</td><td>12.0.4</td><td></td></tr>
-  </tbody>
-</table>
-
-### <a id='3-0-0-rc-1'></a> v3.0.0-rc.1
-
-**Release Date:** 09/20/2022
-
-<table border="1" class="nice">
-  <thead>
-    <tr>
-      <th>Component</th>
-      <th>Version</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr><td>ubuntu-jammy stemcell</td><td>1.8</td></tr>
-    <tr><td>bpm</td><td>1.1.19</td></tr>
-    <tr><td>cf-networking</td><td>3.12.0</td></tr>
-    <tr><td>cflinuxfs3</td><td>0.321.0</td></tr>
-    <tr><td>cflinuxfs4</td><td>0.28.0</td></tr>
-    <tr><td>diego</td><td>2.66.3</td></tr>
-    <tr><td>garden-runc</td><td>1.22.0</td></tr>
-    <tr><td>haproxy</td><td>11.13.0</td></tr>
-    <tr><td>loggregator-agent</td><td>6.5.0</td></tr>
-    <tr><td>mapfs</td><td>1.2.11</td></tr>
-    <tr><td>metrics-discovery</td><td>3.1.2</td></tr>
-    <tr><td>nfs-volume</td><td>7.1.6</td></tr>
-    <tr><td>routing</td><td>0.239.0</td></tr>
-    <tr><td>silk</td><td>3.12.0</td></tr>
-    <tr><td>smb-volume</td><td>3.1.5</td></tr>
-    <tr><td>smoke-tests</td><td>4.5.0</td></tr>
-    <tr><td>syslog</td><td>12.0.4</td></tr>
-  </tbody>
-</table>
-
-
 ## <a id='install'></a> How to Install
 
 <% if not vars.platform_code == 'OFFLINE' %>
@@ -113,61 +31,16 @@ To install <%= vars.segment_runtime_full %> <%= vars.v_major_version %>, see [In
 To install <%= vars.segment_runtime_full %> <%= vars.v_major_version %>, you must first install Ops Manager <%= vars.v_major_version %>. For more information,
 see the [Ops Manager documentation](https://docs.pivotal.io/ops-manager/index.html).
 
-
 ## <a id='new-features'></a> New Features in <%= vars.segment_runtime_full %> <%= vars.v_major_version %>
-
-There are no new features for <%= vars.segment_runtime_full %> <%= vars.v_major_version %>.
-
 
 ## <a id='breaking-changes'></a> Breaking Changes
 
-### <a id='jammy-instance-groups'></a> Jammy Stemcell Used For All Instance Groups
-
-All VMs that <%= vars.app_runtime_abbr %> <%= vars.v_major_version %> deploys run on the Jammy Jellyfish stemcell described in [Jammy Jellyfish Stemcell
-Support](#ubuntu-jammy) above. Because of this, any add-ons from other tiles or configured in the BOSH Director that are colocated on
-<%= vars.app_runtime_abbr %> VMs do not function unless they support the Jammy Jellyfish stemcell.
-
-Tiles that are compatible <%= vars.app_runtime_abbr %> <%= vars.v_major_version %> already work with Jammy Jellyfish stemcells.
-
-Further, the use of the Jammy Stemcell means TAS now requires an Ops Manager with Jammy support, which means Ops Manager version 2.10.33 or greater.
-
-<%= vars.segment_runtime_full %> <%= vars.v_major_version %> includes the following breaking changes:
-
-### <a id='haproxy-removed'></a> HAProxy is Removed
-
-In <%= vars.segment_runtime_full %> <%= vars.v_major_version %>, HAProxy is removed.
-
-If you are upgrading to <%= vars.segment_runtime_full %> <%= vars.v_major_version %> from <%= vars.segment_runtime_full %> v2.13 or earlier, you must
-re-configure the following settings in the <%= vars.segment_runtime_full %> tile before you upgrade:
-
-* In the **Networking** pane:
-  * If you previously selected **HAProxy** under **TLS termination point**, you must select **Gorouter** instead.
-  * If you previously configured the **HAProxy IPs** field, you may need to configure the **Gorouter IPs** field instead. Depending on how you configured the
-  **Allow SSH access to app containers** and **TCP routing** settings, you may also need to configure the **SSH Proxy IPs** or **TCP router IPs** fields.
-
-* In the **Resource Config** pane:
-  * If you previously configured load balancers under the **HAProxy**, you must configure load balancers under the **Router** job instead. Depending on how
-  you configured the **Allow SSH access to app containers** and **TCP routing** settings in the **Networking** pane, you may also need to configure load
-  balancers under the **Diego Brain** or **TCP Router** jobs.
-
-<% if not vars.platform_code == 'OFFLINE' %>
-For more information about configuring these settings, see [Configure Networking](../operating/installing-pcf-is.html#networking) and [Configure
-Resources](../operating/installing-pcf-is.html#resources) in _Installing <%= vars.segment_runtime_full %>_.
-<% end %>
-
-### <a id='global-log-rate-limit'></a> Global Log Rate Limit is Deprecated
-
-The global log rate limit that measures app log rates in lines per second is deprecated in favor of per-app log rate limits that measure app log rates in
-bytes per second.
-
-If you have configured a global log rate limit in lines per second, <%= vars.recommended_by %> recommends that you re-configure your apps to use log rate
-limits in bytes per second.
-
-If you still want to use the global log rate limit, logs that exceed the log rate limit are immediately dropped. Previously, logs that exceeded the log rate
-limit were buffered and released at the configured log rate.
-
-For more information about app log rate limits, see [App Log Rate Limiting](../loggregator/app-log-rate-limits.html).
-
+### Max Request Header Size Now Defaults to 48kb
+Upgrading to TAS 4.0 will automatically set **Max request header size in kb** to 48,
+unless the pre-existing configuration was already lower. Lowering this value establishes
+a better security posture for TAS for VMs and applications. This value can still be configured
+back up to 1024kb in the Networking tab if necessary.  Any requests with headers larger than
+this value will receive a 431 status code.
 
 ## <a id='known-issues'></a> Known Issues
 
