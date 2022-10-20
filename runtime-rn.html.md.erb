@@ -31,6 +31,14 @@ Because VMware uses the Percona Distribution for MySQL, expect a time lag betwee
 
 <%= vars.app_runtime_abbr %> <%= vars.v_major_version %> includes the following breaking changes:
 
+### Max Request Header Size Now Defaults to 48kb
+
+Upgrading to TAS 4.0 will automatically set **Max request header size in kb** to 48,
+unless the pre-existing configuration was already lower. Lowering this value establishes
+a better security posture for TAS for VMs and applications. This value can still be configured
+back up to 1024kb in the Networking tab if necessary. Any requests with headers larger
+than this value will receive a 431 status code.
+
 ## <a id='known-issues'></a> Known Issues
 
 <%= vars.app_runtime_abbr %> <%= vars.v_major_version %> includes the following known issues:
