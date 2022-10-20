@@ -12,6 +12,222 @@ Because VMware uses the Percona Distribution for MySQL, expect a time lag betwee
 
 ## <a id='releases'></a> Releases
 
+### <a id='2.12.13'></a> 2.12.13
+
+**Release Date:** 10/19/2022
+
+* Bump cf-networking to version `3.13.0`
+* Bump cflinuxfs3 to version `0.328.0`
+* Bump diego to version `2.69.0`
+* Bump garden-runc to version `1.22.4`
+* Bump loggregator-agent to version `6.5.1`
+* Bump mapfs to version `1.2.11`
+* Bump metrics-discovery to version `3.2.1`
+* Bump nfs-volume to version `7.1.3`
+* Bump routing to version `0.242.0`
+* Bump silk to version `3.14.0`
+* Bump smb-volume to version `3.1.5`
+* Bump smoke-tests to version `4.7.0`
+* Bump syslog to version `11.8.3`
+
+<table border="1" class="nice">
+  <thead>
+    <tr>
+      <th>Component</th>
+      <th>Version</th>
+      <th>Release Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>ubuntu-xenial stemcell</td><td>621.296</td><td></td></tr>
+    <tr><td>bpm</td><td>1.1.19</td><td></td></tr>
+    <tr><td>cf-networking</td><td>3.13.0</td><td></td></tr>
+    <tr><td>cflinuxfs3</td><td>0.328.0</td><td></td></tr>
+    <tr><td>diego</td><td>2.69.0</td><td></td></tr>
+    <tr><td>garden-runc</td><td>1.22.4</td><td></td></tr>
+    <tr><td>haproxy</td><td>11.10.2</td><td></td></tr>
+    <tr><td>loggregator-agent</td><td>6.5.1</td><td></td></tr>
+    <tr><td>mapfs</td><td>1.2.11</td>
+      <td>
+        <details>
+          <summary>v1.2.11</summary>
+          <pre style="max-width: 30em">
+  ## Changes
+  * Update vendored package golang-1-linux (#21)
+          </pre>
+        </details>
+        <details>
+          <summary>v1.2.8</summary>
+          <pre style="max-width: 30em">
+  ## What's Changed
+  * Bump src/mapfs to `0ee84aa` #18
+          </pre>
+        </details>
+        <details>
+          <summary>v1.2.7</summary>
+          <pre style="max-width: 30em">
+  - [Bumps mapfs submodule to master@1600494](https://github.com/cloudfoundry/mapfs/commit/160049400a47577b0f3a8b2948974bc38ce76f18)
+  - [Bump golang from 1.13 to 1.17](https://github.com/cloudfoundry/mapfs-release/commit/c287adda5cbdf345ff1b4985ae93cb72f1618f95)
+          </pre>
+        </details>
+      </td>
+    </tr>
+    <tr><td>metrics-discovery</td><td>3.2.1</td><td></td></tr>
+    <tr><td>nfs-volume</td><td>7.1.3</td><td></td></tr>
+    <tr><td>routing</td><td>0.242.0</td>
+      <td>
+        <details>
+          <summary>v0.242.0</summary>
+          <pre style="max-width: 30em">
+  ## What's Changed
+  -  `tcp_router` is now more verbose when running `haproxy_reloader` to assist in diagnosting failed reloads. Thanks @geofffranks! 🎉 ([PR 9](https://github.com/cloudfoundry/cf-tcp-router/pull/9))
+  - `gorouter` will now truncate access logs that exceed loggregator + UDP packet limits, so that we no longer drop access log messages sent to the firehose. Thanks @ameowlia @ebroberson! 😻 ([PR 328](https://github.com/cloudfoundry/gorouter/pull/328) and [PR 329](https://github.com/cloudfoundry/gorouter/pull/329))
+  **Full Changelog**: https://github.com/cloudfoundry/routing-release/compare/v0.241.0...v0.242.0
+  ## ✨  Built with go 1.19.1
+          </pre>
+        </details>
+        <details>
+          <summary>v0.241.0</summary>
+          <pre style="max-width: 30em">
+  🎉 Bumped to go1.19.1
+  * @plowin submitted [gorouter PR 327](https://github.com/cloudfoundry/gorouter/pull/327) to adjust endpoint-not-unregistered log-level to 'info'
+  **Full Changelog**: https://github.com/cloudfoundry/routing-release/compare/v0.240.0...v0.241.0
+          </pre>
+        </details>
+        <details>
+          <summary>v0.240.0</summary>
+          <pre style="max-width: 30em">
+  ## What's Changed
+  * @geofffranks and @ameowlia added property `router.max_header_bytes` to the gorouter job.
+  * This value controls the maximum number of bytes the gorouter will read parsing the request header's keys and values, including the request line.
+  * It does not limit the size of the request body.
+  * An additional padding of 4096 bytes is added to this value by go.
+  * Requests with larger headers will result in a 431 status code.
+  **Full Changelog**: https://github.com/cloudfoundry/routing-release/compare/v0.239.0...v0.240.0
+  ## Manifest Property Changes
+  | Job | Property | 0.237.0 | 0.238.0 |
+  | --- | --- | --- | --- |
+  | `gorouter` | `router.max_header_bytes` | didn't exist | 1048576 (1MB) |
+  ## ✨  Built with go 1.18.6
+          </pre>
+        </details>
+        <details>
+          <summary>v0.239.0</summary>
+          <pre style="max-width: 30em">
+  ## What's Changed
+  - Bumped Golang to 1.18.6 to mitigate [CVE-2022-27664](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-27664)
+  **Full Changelog**: https://github.com/cloudfoundry/routing-release/compare/v0.238.0...v0.239.0
+  ## ✨  Built with go 1.18.6
+          </pre>
+        </details>
+        <details>
+          <summary>v0.238.0</summary>
+          <pre style="max-width: 30em">
+  ## What's Changed
+  - Gorouter once again supports hairpinning for route-service requests, for more information, see [the proposed update.](https://github.com/cloudfoundry/routing-release/issues/281) `router.route_services_internal_lookup_allowlist` can be used to control which domains of route services can be hairpinned. Thanks @peanball!!
+  - Gorouter has a new websocket-specific dial timeout (`websocket_dial_timeout`), configurable separately from the default endpoint dial timeout. Thanks @peanball  for this one too!!
+  **Full Changelog**: https://github.com/cloudfoundry/routing-release/compare/v0.237.0...v0.238.0
+  ## Manifest Property Changes
+  | Job | Property | 0.237.0 | 0.238.0 |
+  | --- | --- | --- | --- |
+  | `gorouter` | `websocket_dial_timeout_in_seconds` | didn't exist | Defaults to `endpoint_dial_timeout_in_seconds`'s value |
+  | `gorouter` | `router.route_services_internal_lookup_allowlist` | didn't exist | No internal lookups allowed for route services. |
+  ## ✨  Built with go 1.18.5
+          </pre>
+        </details>
+        <details>
+          <summary>v0.237.0</summary>
+          <pre style="max-width: 30em">
+  ## What's Changed
+  - ⚠️ Bump to golang 1.18 🎉
+  **Breaking Changes:** The routing components are now more strict about the protocols used in TLS communications, causing integrations with systems using older, insecure protocols to fail. These components have been updated to Go 1.18, and will no longer support TLS 1.0 and 1.1 connections or certificates with a SHA-1 checksum. This is most likely to affect connections with external databases.
+  Please see this golang 1.18 release notes [section](https://tip.golang.org/doc/go1.18#tls10) for more information about the golang 1.18 change.
+  ###
+  * Update uaa-go-client; by @joergdw in https://github.com/cloudfoundry/routing-release/pull/277
+  * updated spec files to match packages by @ebroberson in https://github.com/cloudfoundry/routing-release/pull/282
+  **Full Changelog**: https://github.com/cloudfoundry/routing-release/compare/v0.236.0...v0.237.0
+  ## New Contributors
+  * @joergdw made their first contribution in https://github.com/cloudfoundry/routing-release/pull/277
+  * @ebroberson made their first contribution in https://github.com/cloudfoundry/routing-release/pull/282
+  ## ✨  Built with go 1.18.4
+          </pre>
+        </details>
+      </td>
+    </tr>
+    <tr><td>silk</td><td>3.14.0</td><td></td></tr>
+    <tr><td>smb-volume</td><td>3.1.5</td>
+      <td>
+        <details>
+          <summary>v3.1.5</summary>
+          <pre style="max-width: 30em">
+  ## Changes
+  * Update vendored package golang-1-linux (#58)
+          </pre>
+        </details>
+        <details>
+          <summary>v3.1.4</summary>
+          <pre style="max-width: 30em">
+  ## Release Notes
+  - Fix issue when multiple cf versions are included  (#55)
+  ## Dependencies
+  - The `smbbrokerpush` and `bbr-smbbroker` errands require either the `cf-cli-7-linux` or `cf-cli-6-linux` job from [cf-cli-release](https://bosh.io/releases/github.com/bosh-packages/cf-cli-release?all=1) to be colocated on the errand VM.
+          </pre>
+        </details>
+        <details>
+          <summary>v3.1.3</summary>
+          <pre style="max-width: 30em">
+  ## Release Notes
+  - Added support for CF CLI v8 to errands (#45)
+  - Fixed Jammy compilation issues (#53)
+  ## Dependencies
+  - Bump [src/code.cloudfoundry.org/smbbroker](https://github.com/cloudfoundry/smbbroker) (#41, #50)
+  - Bump [src/code.cloudfoundry.org/smbdriver](https://github.com/cloudfoundry/smbdriver) (#47, #48, #51)
+          </pre>
+        </details>
+        <details>
+          <summary>v3.1.2</summary>
+          <pre style="max-width: 30em">
+  ## Release Notes
+  - Support Bionic Stemcell #16
+  - Add blobs for the `keyutils` package for both `bionic` and `jammy`.
+  - We now install this package on any VM that runs the `smbdriver` bosh job iff that VM uses a `bionic` or `jammy` stemcell
+  - This should allow the `smbdriver` to reliably mount SMB volumes on those stemcells, as discussed in #16
+  ## Dependencies
+  - The `smbbrokerpush` and `bbr-smbbroker` errands require either the `cf-cli-7-linux` or `cf-cli-6-linux` job from [cf-cli-release](https://bosh.io/releases/github.com/bosh-packages/cf-cli-release?all=1) to be colocated on the errand VM.
+          </pre>
+        </details>
+        <details>
+          <summary>v3.1.1</summary>
+          <pre style="max-width: 30em">
+  ## Release Notes
+  * Bumps [bosh-template](https://github.com/cloudfoundry/bosh) from 2.2.0 to 2.2.1 (#22)
+  * Bumps [rspec-its](https://github.com/rspec/rspec-its) from 1.2.0 to 1.3.0 (#23)
+  * Bumps [rspec](https://github.com/rspec/rspec-metagem) to 3.11.0. (#37)
+  * Bumps [src/code.cloudfoundry.org/smbdriver](https://github.com/cloudfoundry/smbdriver) to `1e97c5d` (#34)
+  * Bumps [src/code.cloudfoundry.org/smbbroker](https://github.com/cloudfoundry/smbbroker) to `64ba567` (#36)
+  * Bumps automake from 1.15 to 1.15.1 (#43 - fixes Bionic compilation)
+  ## Dependencies
+  - The `smbbrokerpush` and `bbr-smbbroker` errands require either the `cf-cli-7-linux` or `cf-cli-6-linux` job from [cf-cli-release](https://bosh.io/releases/github.com/bosh-packages/cf-cli-release?all=1) to be colocated on the errand VM.
+          </pre>
+        </details>
+      </td>
+    </tr>
+    <tr><td>smoke-tests</td><td>4.7.0</td>
+      <td>
+        <details>
+          <summary>4.7.0</summary>
+          <pre style="max-width: 30em">
+  Create bosh final release 4.7.0
+          </pre>
+        </details>
+      </td>
+    </tr>
+    <tr><td>syslog</td><td>11.8.3</td><td></td></tr>
+  </tbody>
+</table>
+
+
+
 <%# DO NOT DELETE THIS LINE - robots use this to add new release notes %>
 
 ### <a id='2-12-12'></a> v2.12.12
