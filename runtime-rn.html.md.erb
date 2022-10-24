@@ -406,6 +406,14 @@ For more information about configuring these settings, see [Configure Networking
 Resources](../operating/configure-pas.html#resources) in _Configuring <%= vars.app_runtime_abbr %>_.
 <% end %>
 
+### <a id='log-cache-nozzle-ingestion-removed'></a> Log Cache Nozzle Ingestion Removed
+
+The configuration option to use nozzle ingestion for Log Cache has been removed. Log Cache will now always use syslog ingestion.
+
+Operators should confirm that instances, including those within isolation segments, are permitted to establish
+connections to Log Cache nodes on port 6067. You may need to update firewall rules to allow logs to flow directly from
+your instances to the Log Cache syslog server.
+
 ### <a id='global-log-rate-limit'></a> Global Log Rate Limit is Deprecated
 
 The global log rate limit that measures app log rates in lines per second is deprecated in favor of per-app log rate limits that measure app log rates in
