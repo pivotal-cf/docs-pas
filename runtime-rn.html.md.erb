@@ -22,7 +22,9 @@ Because VMware uses the Percona Distribution for MySQL, expect a time lag betwee
 
 ## <a id='releases'></a> Releases
 
-### <a id='2.11.27'></a> 2.11.27
+<%# DO NOT DELETE THIS LINE - robots use this to add new release notes %>
+
+### <a id='2-11-27'></a> v2.11.27
 
 **Release Date:** 10/12/2022
 
@@ -208,10 +210,6 @@ Because VMware uses the Percona Distribution for MySQL, expect a time lag betwee
     </tr>
   </tbody>
 </table>
-
-
-
-<%# DO NOT DELETE THIS LINE - robots use this to add new release notes %>
 
 ### <a id='2-11-26'></a> v2.11.26
 
@@ -2809,8 +2807,8 @@ that their tiles are updated to work with the latest versions of <%= vars.app_ru
 currently compatible with <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>, review the appropriate partners services release documentation at
 [https://docs.pivotal.io](https://docs.pivotal.io) or contact the partner organization that produces the tile.
 
-* If upgrading from PAS v2.7, NSX-T app-firewall rules may need to be adjusted. App containers now use port `61002` for inbound app SSH. Previously, apps used
-port `2222`.
+* In <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>, app containers use port `61002` for inbound SSH traffic. In PAS v2.7 and earlier, apps use port
+`2222` for inbound SSH traffic. If you are upgrading from PAS v2.7, you may need to adjust the NSX-T firewall rules for your apps.
 
 
 ## <a id='new-features'></a> New Features in <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>
