@@ -1465,7 +1465,7 @@ instance. If you specify a service instance, Autoscaler only requests metrics fr
 * **[Feature Improvement]** You can configure container-to-container traffic to use TLS. For more information, see [Securing Container-to-Container
 Traffic](../concepts/understand-cf-networking.html#securing-traffic) in _Container-to-Container Networking_.
   <p class='note warning'><strong>Warning:</strong> This feature introduces a migration to the BBS database. Rolling your <%= vars.app_runtime_abbr %>
-    deployment back to a v2.11.14 or older causes database issues.</p>
+    deployment back to v2.11.14 or earlier causes database issues.</p>
 * **[Bug Fix]** Cloud Controller Worker - PruneExcessAppRevisions job is more memory efficient
 * **[Bug Fix]** Fix default metric registrar blocked tags to include 'ip' and remove 'id'
 * **[Bug Fix]** Fixes an issue related to the parsing of the X-B3-TraceId and X-B3-SpanId HTTP headers
