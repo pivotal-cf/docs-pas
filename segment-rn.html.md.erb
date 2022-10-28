@@ -16,6 +16,7 @@ Because VMware uses the Percona Distribution for MySQL, expect a time lag betwee
 
 **Release Date:** 10/19/2022
 
+* **[Breaking Change]** A change in behavior to line-based log rate limits has been made. Previously, logs were buffered and released at the allowed rate, now logs exceeding the limit will be dropped.
 * Bump cf-networking to version `3.13.0`
 * Bump cflinuxfs3 to version `0.328.0`
 * Bump diego to version `2.69.0`
