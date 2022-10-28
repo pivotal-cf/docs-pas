@@ -23,6 +23,7 @@ Because VMware uses the Percona Distribution for MySQL, expect a time lag betwee
 
 **Release Date:** 10/20/2022
 
+* **[Breaking Change]** A change in behavior to line-based log rate limits has been made. Previously, logs were buffered and released at the allowed rate, now logs exceeding the limit will be dropped.
 * Bump diego to version `2.66.3`
 * Bump mapfs to version `1.2.11`
 * Bump nfs-volume to version `7.1.3`

@@ -25,6 +25,7 @@ v8](../../cf-cli/v8.html).
 
 **Release Date:** 10/19/2022
 
+* **[Breaking Change]** A change in behavior to line-based log rate limits has been made. Previously, logs were buffered and released at the allowed rate, now logs exceeding the limit will be dropped.
 * **[Feature]** Allow operators to specify isolation segments that should be routable through TAS routers
 * **[Bug Fix]** Fixes UAA's compatibility with Amazon Aurora MySQL
 * **[Bug Fix]** Fix Capi compatibility with MySQL 8
