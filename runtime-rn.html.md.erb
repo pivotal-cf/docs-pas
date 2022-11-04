@@ -23,6 +23,41 @@ Because VMware uses the Percona Distribution for MySQL, expect a time lag betwee
 
 ### <a id='2.12.18'></a> 2.12.18
 
+#### Known Issue
+
+**WARNING**  
+
+This version of TAS includes java-offline-buildpack version 4.52, which changes the default behavior of Spring Auto Reconfiguration.
+This:
+1: breaks TAS’s compatibility with some service tiles, including Spring Cloud Data Flow (SCDF)
+2: breaks the service binding behavior of the platform for applications using this feature.
+
+We consider this inclusion an operator-impacting disruptive change,
+and this disruption will be addressed in a fast-follow release as soon as practicable,
+as required by our commitment to operational stability.
+This fast-follow release will likely arrive during the week of November 7th.
+
+This issue doesn’t affect apps until they are re-staged.
+
+It is possible to (temporarily) recover the previous behavior on a per app basis by setting an environment variable:
+
+```
+cf set-env example-appname JBP_CONFIG_SPRING_AUTO_RECONFIGURATION '{enabled: true}'
+```
+
+It can also be recovered platform wide:
+
+```
+cf set-staging-environment-variable-group '{"JBP_CONFIG_SPRING_AUTO_RECONFIGURATION ":"{enabled: true}"}'
+```
+
+VMware does intend to deprecate and remove this behavior from the platform in the future.
+
+A Knowledge Base article on this topic can be found here:
+https://community.pivotal.io/s/article/Java-Buildpack-Deprecation-of-Spring-Cloud-Connectors-Spring-Auto-Reconfiguration
+
+#### Features and Comonent Versions
+
 **Release Date:** 10/19/2022
 
 * **[Feature]** Allow operators to specify isolation segments that should be routable through TAS routers
