@@ -1835,15 +1835,14 @@ upgrading to <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>:
 
 ### <a id='icmp-dynamic-asgs'></a> Apps Stop Running After Deploy when Using Dynamic ASGs with ICMP Any Rules
 
-When dynamic ASGs are enabled, the Virtual Extensible LAN (VXLAN) policy agent is unable to clean up ASGs with ICMP any rules. Undocumented iptables behavior
-with ICMP any rules causes a cleanup failure. This cleanup failure causes a container creation failure, which prevents any apps from starting.
+If you configure your <%= vars.app_runtime_abbr %> deployment to use dynamic ASGs, the Virtual Extensible LAN (VXLAN) policy agent cannot clean up ASGs with ICMP any rules, due to undocumented iptables behavior. This causes a container creation failure, which prevents any apps from starting.
 
-This causes one of the following VXLAN policy agent errors:
+When this happens, you see one of the following VXLAN policy agent errors:
 
 * `iptables: Bad rule (does a matching rule exist in that chain?)`
 
 * `exit status 1: iptables: No chain/target/match by that name`.
 
-For more information this issue and how to mitigate it, see [Apps stop running after a deploy when using dynamic ASGs with icmp any
+To learn more about this known issue, including how to mitigate it, see [Apps stop running after a deploy when using dynamic ASGs with icmp any
 rule](https://community.pivotal.io/s/article/Apps-stop-running-after-a-deploy-when-using-dynamic-ASGs-with-icmp-any-rule?language=en_US) in the Knowledge
 Base.
