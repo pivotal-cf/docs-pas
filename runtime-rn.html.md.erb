@@ -1,5 +1,5 @@
 ---
-title: TAS for VMs v3.0 Release Notes
+title: TAS for VMs v4.0 Release Notes
 owner: Release Engineering
 ---
 
@@ -21,9 +21,9 @@ Because VMware uses the Percona Distribution for MySQL, expect a time lag betwee
 
 <%# DO NOT DELETE THIS LINE - robots use this to add new release notes %>
 
-### <a id='3-0-0'></a> v3.0.0
+### <a id='4-0-0'></a> v4.0.0
 
-**Release Date:** 10/06/2022
+**Release Date:** TBD
 
 #### Known Issue
 
@@ -277,219 +277,23 @@ Removed](#haproxy-removed) below.
   </tbody>
 </table>
 
-
 ## <a id='new-features'></a> New Features in <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>
 
 <%= vars.app_runtime_abbr %> <%= vars.v_major_version %> includes the following major features:
-
-### <a id='new-policies'></a> New Policies for <%= vars.app_runtime_abbr %>
-
-As of <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>, <%= vars.app_runtime_abbr %> is transitioning to a new versioning scheme, support lifecycle
-policy, and release and upgrade policy. For more information, see the sections below:
-
-* [Operational Versioning](#opsver)
-
-* [Support Lifecycle Policy](#support-policy)
-
-* [Release and Upgrade Policies](#release-upgrade-policies)
-
-Other Tanzu products, such as VMware Tanzu Operations Manager, are to adopt the same versioning scheme and lifecycle policy as <%= vars.app_runtime_abbr %>
-<%= vars.v_major_version %>. However, they are to follow separate release and upgrade policies, as well as continue to be versioned and released
-independently.
-
-#### <a id='opsver'></a> Operational Versioning
-
-As of <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>, <%= vars.app_runtime_abbr %> is transitioning to a new versioning scheme called _operational
-versioning_.
-
-The version number format for <%= vars.app_runtime_abbr %> is the same as that of semantic versioning, the previous versioning scheme used. However, the
-meaning of these version numbers differs from semantic versioning. The following list describes the types of versions to be released moving forward:
-
-* A new major version of <%= vars.app_runtime_abbr %> is to be released every six months. Major versions include new features, significant feature
-improvements, and deprecations and removals of old features.
-
-* Minor versions of <%= vars.app_runtime_abbr %> are to be released as rarely as possible. Minor versions include breaking changes, which are necessary but
-disruptive changes within a major version line.
-
-* Patch versions are to be released as necessary. Patch versions include security fixes and other small changes that do not disrupt operation or require any
-attention from an operator of <%= vars.app_runtime_abbr %>. Patches that are determined to fall short of this standard are to be quickly replaced.
-
-### <a id='support-policy'></a> Support Lifecycle Policy
-
-As of <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>, the new support lifecycle policy for <%= vars.app_runtime_abbr %> guarantees overlapping
-support durations with subsequent major version lines. After a new major version line is made generally available, the previous major version line must remain
-supported for at least six months.
-
-Some major version lines are designated as being on a _long-term support track_ (LTS-T). After a new LTS-T major version line is made generally available, the
-previous LTS-T major version line must remain supported for one full year. LTS-T major version lines include "+LTS-T" at the end of the version number. For
-example, <%= vars.app_runtime_abbr %> v2.13+LTS-T.
-
-#### <a id='release-upgrade-policies'></a> Release and Upgrade Policies
-
-<%= vars.app_runtime_abbr %> v2.13 is now designated as an LTS-T release. Currently, <%= vars.app_runtime_abbr %> v4.0 is intended to be released as an LTS-T
-release in the spring of 2023. <%= vars.app_runtime_abbr %> LTS-T versions are to be released annually each spring.
-
-You can upgrade to a newer version of <%= vars.app_runtime_abbr %> in the following ways:
-
-* From the latest patch version in the latest minor version in the previous major version line to the latest patch version in any supported major version
-line. For example, if you are currently using the latest <%= vars.app_runtime_abbr %> v2.13.x patch release, you can upgrade to the latest
-<%= vars.app_runtime_abbr %> v3.0.x release.
-
-* From one LTS-T major version line to the following LTS-T major version line. For example, if you are currently using <%= vars.app_runtime_abbr %>
-v2.11+LTS-T, you can upgrade to <%= vars.app_runtime_abbr %> v2.13+LTS-T.
-
-### <a id='ubuntu-jammy'></a> Jammy Jellyfish Stemcell Support
-
-<%= vars.app_runtime_abbr %> <%= vars.v_major_version %> uses a stemcell line based on Canonical Ubuntu's 22.04 "Jammy Jellyfish" distribution.
-
-The previously-used Ubuntu 16.04 "Xenial Xerus" stemcells are to reach end of general support (EOGS) and stop receiving security updates in April 2024.
-
-For information about how this change may disrupt your <%= vars.app_runtime_abbr %> deployment, see [Jammy Stemcell Used For All Instance
-Groups](#jammy-instance-groups) below.
-
-### <a id='log-rate-limiting'></a> App Log Rate Limits for Orgs, Spaces, and Individual Apps
-
-Operators can configure app log rate quotas for each org and space in a <%= vars.app_runtime_abbr %> <%= vars.v_major_version %> deployment, as well as app
-log rate limits for individual apps. This prevents a few noisy apps from overwhelming Loggregator with app logs. If you configure your
-<%= vars.app_runtime_abbr %> deployment to send app logs to a third-party log management service, reducing the overall volume of app logs can also save costs.
-
-<% if not vars.platform_code == 'OFFLINE' %>
-For more information, see [Creating and Modifying Quota Plans](../adminguide/quota-plans.html) and [App Log Rate
-Limiting](../loggregator/app-log-rate-limits.html).
-<% end %>
-
-### <a id='org-member-search'></a> Search for Org Members in Apps Manager
-
-In <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>, the **Members** page for each org in Apps Manager includes a search box that you can use to
-search for org members by name.
-
-For more information about managing org members in Apps Manager, see [Manage Members](../console/manage-spaces.html#manage-members-org) in _Managing Orgs and
-Spaces Using Apps Manager_.
-
-### <a id='cflinuxfs4'></a> Jammy Jellyfish Stack Support (Beta)
-
-In addition to the existing `cflinuxfs3` stack based on the Ubuntu 18.04 "Bionic Beaver" stemcell, <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>
-includes the `cflinuxfs4` stack based on the Jammy Jellyfish stemcell as a beta feature.
-
-The `cflinuxfs4` stack allows developers to begin using `cflinuxfs4` before `cflinux4s3` is deprecated and eventually removed from future versions of
-<%= vars.app_runtime_abbr %>.
-
-Not all buildpacks support using the `cflinuxfs4` stack at this time. Future patch releases of <%= vars.app_runtime_abbr %> <%= vars.v_major_version %> may
-include `cflinuxfs4` stack support in more buildpacks. A future patch, minor, or major release of <%= vars.app_runtime_abbr %> may include the `cflinuxfs4`
-stack as a final feature.
-
 
 ## <a id='breaking-changes'></a> Breaking Changes
 
 <%= vars.app_runtime_abbr %> <%= vars.v_major_version %> includes the following breaking changes:
 
-### <a id='jammy-instance-groups'></a> Jammy Stemcell Used For All Instance Groups
+### Max Request Header Size Now Defaults to 48kb
 
-All VMs that <%= vars.app_runtime_abbr %> <%= vars.v_major_version %> deploys run on the Jammy Jellyfish stemcell described in [Jammy Jellyfish Stemcell
-Support](#ubuntu-jammy) above. Because of this, any add-ons from other tiles or configured in the BOSH Director that are colocated on
-<%= vars.app_runtime_abbr %> VMs do not function unless they support the Jammy Jellyfish stemcell.
-
-Tiles that are compatible <%= vars.app_runtime_abbr %> <%= vars.v_major_version %> already work with Jammy Jellyfish stemcells.
-
-Further, the use of the Jammy Stemcell means TAS now requires an Ops Manager with Jammy support, which means Ops Manager version 2.10.33 or greater.
-
-### <a id='system-metrics-server'></a> BOSH System Metrics Server is Removed
-
-The BOSH System Metrics Server is removed from <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>. To continue receiving system metrics, you must
-activate the **Enable additional System Metrics** checkbox in the **Director Config** pane of the BOSH Director tile.
-
-To avoid deployment, platform automation, or data collection failures, you must update any queries that reference `bosh-system-metrics-forwarder` as the
-`source_id` for metrics to reference `system_metrics_agent` instead.
-
-### <a id='cflinuxfs4'></a> cflinuxfs4 May Cause App Push Failure
-
-If you have configured your apps to find and use the latest stack when pushing to production, they may switch to the `cflinuxfs4` stack prematurely.
-
-In addition to other issues that an unintentional stack change can cause, not all buildpacks currently support using the `cflinuxfs4` stack. As a result, apps
-that switch to the `cflinuxfs` stack without the necessary buildpack support may fail to push.
-
-Future patch releases of <%= vars.app_runtime_abbr %> <%= vars.v_major_version %> may include `cflinuxfs4` stack support in more buildpacks.
-
-### <a id='system-metrics-names'></a> BOSH System Metric Naming Convention is Changed
-
-BOSH-deployed VMs no longer emit system metrics that include the prefix `system.` in their names. Additionally, metric names now include underscores instead
-of periods. For example, the metric named `system.cpu.sys` in previous versions of <%= vars.app_runtime_abbr %> is named `system_cpu_sys` in
-<%= vars.app_runtime_abbr %> <%= vars.v_major_version %>.
-
-To avoid deployment or data collection failures, you must re-configure all alerting or observability dashboards that collect metric data from your
-<%= vars.app_runtime_abbr %> deployment to use the new format for metric names.
-
-### <a id='haproxy-removed'></a> HAProxy is Removed
-
-In <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>, HAProxy is removed.
-
-If you are upgrading to <%= vars.app_runtime_abbr %> <%= vars.v_major_version %> from <%= vars.app_runtime_abbr %> v2.13 or earlier, you must re-configure the
-following settings in the <%= vars.app_runtime_abbr %> tile before you upgrade:
-
-* In the **Networking** pane:
-  * If you previously selected **HAProxy** under **TLS termination point**, you must select **Gorouter** instead.
-  * If you previously configured the **HAProxy IPs** field, you may need to configure the **Gorouter IPs** field instead. Depending on how you configured the
-  **Allow SSH access to app containers** and **TCP routing** settings, you may also need to configure the **SSH Proxy IPs** or **TCP router IPs** fields.
-
-* In the **Resource Config** pane:
-  * If you previously configured load balancers under the **HAProxy**, you must configure load balancers under the **Router** job instead. Depending on how
-  you configured the **Allow SSH access to app containers** and **TCP routing** settings in the **Networking** pane, you may also need to configure load
-  balancers under the **Diego Brain** or **TCP Router** jobs.
-
-<% if not vars.platform_code == 'OFFLINE' %>
-For more information about configuring these settings, see [Configure Networking](../operating/configure-pas.html#networking) and [Configure
-Resources](../operating/configure-pas.html#resources) in _Configuring <%= vars.app_runtime_abbr %>_.
-<% end %>
-
-### <a id='global-log-rate-limit'></a> Global Log Rate Limit is Deprecated
-
-The global log rate limit that measures app log rates in lines per second is deprecated in favor of per-app log rate limits that measure app log rates in
-bytes per second.
-
-If you have configured a global log rate limit in lines per second, <%= vars.recommended_by %> recommends that you re-configure your apps to use log rate
-limits in bytes per second.
-
-If you still want to use the global log rate limit, logs that exceed the log rate limit are immediately dropped. Previously, logs that exceeded the log rate
-limit were buffered and released at the configured log rate.
-
-For more information about app log rate limits, see [App Log Rate Limiting](../loggregator/app-log-rate-limits.html).
-
-### <a id='custom-iptables'></a> Viewing Custom iptables Rules Requires /sbin/iptables Binaries
-
-On the Jammy Jellyfish stemcell, the `iptables` command uses the nftables framework instead of the iptables firewall. This change does not prevent custom
-rules from taking effect, regardless of how they are configured.
-
-If you use the binaries located in your `/var/vcap/packages/iptables/sbin/iptables*` directory to configure custom iptables rules on Diego Cells, the rules
-that you configure still take effect, but do not appear when you run the `iptables -L` command.
-
-To resolve this issue, do either of the following:
-
-* Update your custom iptables logic to use the `/sbin/iptables*` binaries.
-
-* In a terminal window, view your custom iptables rules by running either `iptables-legacy` or `/var/vcap/packages/iptables/sbin/iptables*`.
-
-### <a id='mysql-8-internal'></a> Internal Databases Use MySQL 8
-
-The internal databases in <%= vars.app_runtime_abbr %> <%= vars.v_major_version %> have been upgraded to MySQL 8. This may impact any integrations that target
-or use the internal database.
-
-This upgrade is not currently known to impact tiles that are compatible with <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>.
-
+Upgrading to TAS 4.0 will automatically set **Max request header size in kb** to 48,
+unless the pre-existing configuration was already lower. Lowering this value establishes
+a better security posture for TAS for VMs and applications. This value can still be configured
+back up to 1024kb in the Networking tab if necessary. Any requests with headers larger
+than this value will receive a 431 status code.
 
 ## <a id='known-issues'></a> Known Issues
 
 <%= vars.app_runtime_abbr %> <%= vars.v_major_version %> includes the following known issues:
 
-### <a id='stemcell-certification'></a> Stemcell Compliance Certification
-
-The Ubuntu 22.04 long-term support (LTS) stemcell, Jammy Jellyfish, is not yet CIS- or STIG-certified.
-
-### <a id='ncp-compatibility'></a> VMware NSX-T Container Plug-In Stemcell Compatibility
-
-The VMware NSX-T Container Plug-in is not yet validated on the Jammy Jellyfish stemcell.
-
-### <a id='uaa-sso-copy'></a> UAA Single Sign-On Copy Button is Broken
-
-In the User Account and Authentication (UAA) user interface (UI), the button that copies Single Sign-On (SSO) codes does not work.
-
-To work around this issue, you must manually copy and paste the displayed code.
