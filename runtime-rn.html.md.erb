@@ -26,6 +26,7 @@ Because VMware uses the Percona Distribution for MySQL, expect a time lag betwee
 
 **Release Date:** 11/10/2022
 
+* **[Security Fix]** Bump of nodejs-offline-buildpack to version 4.8.3 fully addresses CVE-2022-3602 and CVE-2022-3786 in OpenSSL 3.x; impacted versions of OpenSSL are otherwise not used in this version line of TAS.
 * **[Feature]** Add "Max request header size in kb" property to Networking tab to allow operators to specify a limit on the aggregate size of request headers. Requests over this limit receive a 431 status code.
 * Bump backup-and-restore-sdk to version `1.18.57`
 * Bump binary-offline-buildpack to version `1.0.47`
