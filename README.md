@@ -4,7 +4,7 @@ This repository houses release notes for TAS (formerly PAS, formerly PCF). Use g
 
 The `master` branch has the content for the upcoming major release.
 
-As of November 2022, `master` is for TAS v4.0.
+**`master` branch is for TAS v4.0** as of November 2022.
 
 Handy links:
 
