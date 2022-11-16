@@ -1528,3 +1528,14 @@ Knowledge Base.
 In the User Account and Authentication (UAA) user interface (UI), the button that copies Single Sign-On (SSO) codes does not work.
 
 To work around this issue, you must manually copy and paste the displayed code.
+
+### <a id='dynamic-asgs-v2-api'></a> Dynamic ASG Updates Require the Use of Cloud Foundry v3 API for External Integrations
+
+Any external integrations with the CF API to create/update/delete Application Security Group (ASG) definitions or bindings require
+the use of the Cloud Foundry v3 API. Any ASG updates made with the v2 API will not be synced until an ASG update using the v3 API
+has been made.
+
+Recommended Courses of Action:
+
+1. Ensure the integration uses the latest CF CLI binary, which already uses the v3 API endpoints.
+2. Update any HTTP based integrations to use the [v3 API endpoints for security groups](http://v3-apidocs.cloudfoundry.org/version/3.128.0/index.html#security-groups).
