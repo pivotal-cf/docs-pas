@@ -285,6 +285,14 @@ Removed](#haproxy-removed) below.
 
 <%= vars.app_runtime_abbr %> <%= vars.v_major_version %> includes the following breaking changes:
 
+### Component Logs Always Use Human-Readable RFC3339 Timestamp Format
+
+Non-standardized and non-human readable timestamps in logs make debugging TAS
+more difficult. Since TAS 2.10.0 there has been an option in the System Logging
+tab to **Optionally Use Human-Readable Timestamps for Component Logs**. In TAS
+4.0 this radio button has been removed and all components will use the
+human-readable RFC3339 format for the timestamps in their logs.
+
 ### Max Request Header Size Now Defaults to 48kb
 
 Upgrading to TAS 4.0 will automatically set **Max request header size in kb** to 48,
