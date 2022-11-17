@@ -1064,6 +1064,8 @@ Because VMware uses the Percona Distribution for MySQL, expect a time lag betwee
 * **[Feature]** Developers can quickly find specific org members in Apps Manager
 * **[Feature]** Dynamic ASGs are now allowed by default. If you wish to keep them off, you must manually disallow them through the
 <%= vars.app_runtime_abbr %> tile before deploying.
+* **[Experimental Feature]** Allow operators to enable **CPU Burst Optimization**. When this feature is enabled, 
+apps that stay within their CPU entitlements (on average) will be prioritized when bursting. Operators can enable this experimental feature in the App Containers tab.
 * **[Feature Improvement]** Add Java Buildpack for `cflinuxfs4`
 * **[Feature Improvement]** Bump component releases in time for <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>
 * **[Feature Improvement]** The `diego`, `routing`, `cf-networking`, and `silk` components use Golang v1.18.
