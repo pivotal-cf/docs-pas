@@ -3097,11 +3097,11 @@ To upgrade to a supported cf CLI version, see [Upgrading to cf CLI v7](../../cf-
 
 _A forthcoming patch release of <%= vars.app_runtime_abbr %> <%= vars.v_major_version %> will resolve this issue._
 
-When upgrading from <%= vars.app_runtime_abbr %> 2.11 or <%= vars.app_runtime_abbr %> 2.12, Firehose nozzle integrations (for example Splunk or Microsoft Azure Log Analytics) will not be able to receive logs or metrics for the majority of the time that diego cells are updating.
+When upgrading from <%= vars.app_runtime_abbr %> 2.11 or <%= vars.app_runtime_abbr %> 2.12, Firehose nozzle integrations (for example Splunk or Microsoft Azure Log Analytics) will not be able to receive logs or metrics for the majority of the time that Diego cells are updating.
 
-For customers with a large number of diego cells this may be a lengthy window (multiple hours).
+For customers with a large number of Diego cells this may be a lengthy window (multiple hours).
 
-Logs and metrics will continue to be available from the CF CLI, Reverse Log Proxy (v2) nozzles and syslog drains.
+Logs and metrics will continue to be available from the cf CLI, Reverse Log Proxy (v2) nozzles and syslog drains.
 
 ### <a id='upgrade-downtime'></a> Possible Log Cache Downtime When Upgrading from Certain <%= vars.app_runtime_abbr %> Versions
 
