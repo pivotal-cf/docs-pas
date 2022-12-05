@@ -5,28 +5,794 @@ owner: Release Engineering
 
 <% current_page.data.title = "Isolation Segment" + " " + vars.v_major_version + " Release Notes" %>
 
-This topic contains release notes for Isolation Segment <%= vars.v_major_version %>.
+This topic contains release notes for <%= vars.segment_runtime_full %> <%= vars.v_major_version %>.
 
 <%= vars.app_runtime_first %> is certified by the Cloud Foundry Foundation for <%= Date.today.year %>.
 
-For more information about the Cloud Foundry Certified Provider Program, see
-[How Do I Become a Certified Provider?](https://www.cloudfoundry.org/certified-platforms-how-to/)
-on the Cloud Foundry website.
+For more information about the Cloud Foundry Certified Provider Program, see [How Do I Become a Certified
+Provider?](https://www.cloudfoundry.org/certified-platforms-how-to/) on the Cloud Foundry website.
 
-Because VMware uses the Percona Distribution for MySQL, expect a time lag between Oracle
-releasing a MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> containing that patch.
+Because VMware uses the Percona Distribution for MySQL, expect a time lag between Oracle releasing a MySQL patch and VMware releasing
+<%= vars.app_runtime_abbr %> containing that patch.
 
 <hr>
 
 ## <a id='releases'></a> Releases
 
-<%# DO NOT DELETE THIS LINE - robots use this to add new release notes %>
+### <a id='2.13.9'></a> 2.13.9
 
-### <a id='2.13.1'></a> 2.13.1
+**Release Date:** 12/02/2022
+
+
+<table border="1" class="nice">
+  <thead>
+    <tr>
+      <th>Component</th>
+      <th>Version</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>ubuntu-xenial stemcell</td><td>621.305</td></tr>
+    <tr><td>bpm</td><td>1.1.19</td></tr>
+    <tr><td>cf-networking</td><td>3.12.0</td></tr>
+    <tr><td>cflinuxfs3</td><td>0.332.0</td></tr>
+    <tr><td>diego</td><td>2.69.0</td></tr>
+    <tr><td>garden-runc</td><td>1.22.5</td></tr>
+    <tr><td>haproxy</td><td>11.16.0</td></tr>
+    <tr><td>loggregator-agent</td><td>6.5.4</td></tr>
+    <tr><td>mapfs</td><td>1.2.12</td></tr>
+    <tr><td>metrics-discovery</td><td>3.2.3</td></tr>
+    <tr><td>nfs-volume</td><td>7.1.8</td></tr>
+    <tr><td>routing</td><td>0.244.0</td></tr>
+    <tr><td>silk</td><td>3.12.0</td></tr>
+    <tr><td>smb-volume</td><td>3.1.6</td></tr>
+    <tr><td>smoke-tests</td><td>4.8.1</td></tr>
+    <tr><td>syslog</td><td>11.8.5</td></tr>
+  </tbody>
+</table>
+
+
+
+### <a id='2.13.8'></a> 2.13.8
+
+**Release Date:** 11/10/2022
+
+* **[Feature]** Add "Max request header size in kb" property to Networking tab to allow operators to specify a limit on the aggregate size of request headers. Requests over this limit receive a 431 status code.
+* Bump cflinuxfs3 to version `0.332.0`
+* Bump diego to version `2.69.0`
+* Bump garden-runc to version `1.22.5`
+* Bump haproxy to version `11.16.0`
+* Bump loggregator-agent to version `6.5.4`
+* Bump mapfs to version `1.2.12`
+* Bump metrics-discovery to version `3.2.3`
+* Bump routing to version `0.244.0`
+* Bump smb-volume to version `3.1.6`
+* Bump smoke-tests to version `4.8.1`
+* Bump syslog to version `11.8.4`
+
+<table border="1" class="nice">
+  <thead>
+    <tr>
+      <th>Component</th>
+      <th>Version</th>
+      <th>Release Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>ubuntu-xenial stemcell</td><td>621.305</td><td></td></tr>
+    <tr><td>bpm</td><td>1.1.19</td><td></td></tr>
+    <tr><td>cf-networking</td><td>3.12.0</td><td></td></tr>
+    <tr><td>cflinuxfs3</td><td>0.332.0</td><td></td></tr>
+    <tr><td>diego</td><td>2.69.0</td>
+      <td>
+        <details>
+          <summary>v2.69.0</summary>
+          <pre style="max-width: 30em">
+  ## Changes
+  - Bump Golang to go1.19.2 @cf-diego (#642)
+  ### ✨ Built with go 1.19.2
+  **Full Changelog**: https://github.com/cloudfoundry/diego-release/compare/v2.68.0...v2.69.0
+  ## Resources
+  - [Download release v2.69.0 from bosh.io](https://bosh.io/releases/github.com/cloudfoundry/diego-release?version=2.69.0).
+  - Verified with [cloudfoundry/cf-deployment @ `6ec2aca405f23a2eb32ec4108d3385edcfdb9b22`](https://github.com/cloudfoundry/cf-deployment/commit/6ec2aca405f23a2eb32ec4108d3385edcfdb9b22).
+          </pre>
+        </details>
+        <details>
+          <summary>v2.68.0</summary>
+          <pre style="max-width: 30em">
+  ## Changes
+  * Bump to go 1.19.1! Thanks @mariash!
+  * Add buildvcs=false to all windows package compilation. Thanks @geofffranks!
+  ### ✨ Built with go 1.19.1
+  **Full Changelog**: https://github.com/cloudfoundry/diego-release/compare/v2.67.0...v2.68.0
+          </pre>
+        </details>
+        <details>
+          <summary>v2.67.0</summary>
+          <pre style="max-width: 30em">
+  ## Changes
+  - `cacheddownloader` now has a backoff algorithm when retrying failed downloads. This was provided as a way to work around thundering herds of cells downloading and overwhelming rate-limited blobstores. Thanks for the PR @prycey77!
+  - Bump natsclient + route-emitter dependencies
+  ## ✨ Built with go 1.18.5
+  ## Resources
+  - [Download release v2.67.0 from bosh.io](https://bosh.io/releases/github.com/cloudfoundry/diego-release?version=2.67.0).
+  - Verified with [cloudfoundry/cf-deployment @ `e639b051fdd968f5931f1c14e80cb7d4cbc32ea6`](https://github.com/cloudfoundry/cf-deployment/commit/e639b051fdd968f5931f1c14e80cb7d4cbc32ea6).
+          </pre>
+        </details>
+        <details>
+          <summary>v2.66.4</summary>
+          <pre style="max-width: 30em">
+  This release was created by mistake via CI. See v2.67.0 instead
+          </pre>
+        </details>
+      </td>
+    </tr>
+    <tr><td>garden-runc</td><td>1.22.5</td><td></td></tr>
+    <tr><td>haproxy</td><td>11.16.0</td><td></td></tr>
+    <tr><td>loggregator-agent</td><td>6.5.4</td><td></td></tr>
+    <tr><td>mapfs</td><td>1.2.12</td>
+      <td>
+        <details>
+          <summary>v1.2.12</summary>
+          <pre style="max-width: 30em">
+  ## Changes
+  * Replace `go get` with `go install` (#23)
+  * Update vendored package golang-1-linux (#26)
+  * Update vendored package golang-1-linux (#27)
+  ## Dependencies
+  * **mapfs:** Updated to v`27f8711`.<br>For more information, see [mapfs](https://github.com/cloudfoundry/mapfs).
+          </pre>
+        </details>
+      </td>
+    </tr>
+    <tr><td>metrics-discovery</td><td>3.2.3</td><td></td></tr>
+    <tr><td>nfs-volume</td><td>7.1.3</td><td></td></tr>
+    <tr><td>routing</td><td>0.244.0</td>
+      <td>
+        <details>
+          <summary>v0.244.0</summary>
+          <pre style="max-width: 30em">
+  ## What's Changed
+  * Emit access logs for 431 responses to Loggegator [gorouter PR #331](https://github.com/cloudfoundry/gorouter/pull/331). Thanks @dsabeti !
+  * Always suspend pruning when nats is down https://github.com/cloudfoundry/routing-release/pull/287. Thanks @ameowlia !
+  * **Full Changelog**: https://github.com/cloudfoundry/routing-release/compare/v0.243.0...v0.244.0
+  ## ✨  Built with go 1.19.2
+          </pre>
+        </details>
+        <details>
+          <summary>v0.243.0</summary>
+          <pre style="max-width: 30em">
+  🎉 Bumped to go1.19.2
+  **Full Changelog**: https://github.com/cloudfoundry/routing-release/compare/v0.242.0...v0.243.0
+          </pre>
+        </details>
+        <details>
+          <summary>v0.242.0</summary>
+          <pre style="max-width: 30em">
+  ## What's Changed
+  -  `tcp_router` is now more verbose when running `haproxy_reloader` to assist in diagnosting failed reloads. Thanks @geofffranks! 🎉 ([PR 9](https://github.com/cloudfoundry/cf-tcp-router/pull/9))
+  - `gorouter` will now truncate access logs that exceed loggregator + UDP packet limits, so that we no longer drop access log messages sent to the firehose. Thanks @ameowlia @ebroberson! 😻 ([PR 328](https://github.com/cloudfoundry/gorouter/pull/328) and [PR 329](https://github.com/cloudfoundry/gorouter/pull/329))
+  **Full Changelog**: https://github.com/cloudfoundry/routing-release/compare/v0.241.0...v0.242.0
+  ## ✨  Built with go 1.18
+  * despite what the docs/go.version says
+  * because the go 1.18 package is present
+          </pre>
+        </details>
+        <details>
+          <summary>v0.241.0</summary>
+          <pre style="max-width: 30em">
+  🎉 ~~Bumped to go1.19.1~~
+  * Still using go 1.18
+  * despite what the docs/go.version says
+  * because the go 1.18 package is present
+  * @plowin submitted [gorouter PR 327](https://github.com/cloudfoundry/gorouter/pull/327) to adjust endpoint-not-unregistered log-level to 'info'
+  **Full Changelog**: https://github.com/cloudfoundry/routing-release/compare/v0.240.0...v0.241.0
+          </pre>
+        </details>
+        <details>
+          <summary>v0.240.0</summary>
+          <pre style="max-width: 30em">
+  ## What's Changed
+  * @geofffranks and @ameowlia added property `router.max_header_bytes` to the gorouter job.
+  * This value controls the maximum number of bytes the gorouter will read parsing the request header's keys and values, including the request line.
+  * It does not limit the size of the request body.
+  * An additional padding of 4096 bytes is added to this value by go.
+  * Requests with larger headers will result in a 431 status code.
+  **Full Changelog**: https://github.com/cloudfoundry/routing-release/compare/v0.239.0...v0.240.0
+  ## Manifest Property Changes
+  | Job | Property | 0.237.0 | 0.238.0 |
+  | --- | --- | --- | --- |
+  | `gorouter` | `router.max_header_bytes` | didn't exist | 1048576 (1MB) |
+  ## ✨  Built with go 1.18.6
+          </pre>
+        </details>
+      </td>
+    </tr>
+    <tr><td>silk</td><td>3.12.0</td><td></td></tr>
+    <tr><td>smb-volume</td><td>3.1.6</td>
+      <td>
+        <details>
+          <summary>v3.1.6</summary>
+          <pre style="max-width: 30em">
+  ## Changes
+  * Update vendored package golang-1-linux (#67)
+  * Update vendored package golang-1-linux (#70)
+  ## Dependencies
+  * **bosh-template:** Updated to v2.3.0.<br>For more information, see [bosh-template](https://github.com/cloudfoundry/bosh).
+  * **smbbroker:** Updated to v`89a0251`.<br>For more information, see [smbbroker](https://github.com/cloudfoundry/smbbroker).
+  * **smbdriver:** Updated to v`68ff9d8`.<br>For more information, see [smbdriver](https://github.com/cloudfoundry/smbdriver).
+          </pre>
+        </details>
+      </td>
+    </tr>
+    <tr><td>smoke-tests</td><td>4.8.1</td>
+      <td>
+        <details>
+          <summary>4.8.1</summary>
+          <pre style="max-width: 30em">
+  Create bosh final release 4.8.1
+          </pre>
+        </details>
+        <details>
+          <summary>4.8.0</summary>
+          <pre style="max-width: 30em">
+  Create bosh final release 4.8.0
+          </pre>
+        </details>
+      </td>
+    </tr>
+    <tr><td>syslog</td><td>11.8.4</td><td></td></tr>
+  </tbody>
+</table>
+
+
+
+### <a id='2.13.7'></a> 2.13.7
+
+**Release Date:** 10/20/2022
+
+* Bump diego to version `2.66.3`
+* Bump mapfs to version `1.2.11`
+* Bump nfs-volume to version `7.1.3`
+* Bump routing to version `0.239.0`
+* Bump smb-volume to version `3.1.5`
+* Bump smoke-tests to version `4.7.0`
+
+<table border="1" class="nice">
+  <thead>
+    <tr>
+      <th>Component</th>
+      <th>Version</th>
+      <th>Release Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>ubuntu-xenial stemcell</td><td>621.265</td><td></td></tr>
+    <tr><td>bpm</td><td>1.1.19</td><td></td></tr>
+    <tr><td>cf-networking</td><td>3.12.0</td><td></td></tr>
+    <tr><td>cflinuxfs3</td><td>0.319.0</td><td></td></tr>
+    <tr><td>diego</td><td>2.66.3</td>
+      <td>
+        <details>
+          <summary>v2.66.3</summary>
+          <pre style="max-width: 30em">
+  ## Changes
+  - Bump x/crypto
+  - Update garden, guardian, idmapper, and grootfs submodules
+  ## ✨ Built with go 1.18.5
+  ## Resources
+  - [Download release v2.66.3 from bosh.io](https://bosh.io/releases/github.com/cloudfoundry/diego-release?version=2.66.3).
+  - Verified with [cloudfoundry/cf-deployment @ `47f3c89570b73e415af5ccf3f0a93dd293d7ac24`](https://github.com/cloudfoundry/cf-deployment/commit/47f3c89570b73e415af5ccf3f0a93dd293d7ac24).
+          </pre>
+        </details>
+        <details>
+          <summary>v2.66.2</summary>
+          <pre style="max-width: 30em">
+  ## Changes
+  * Cancel other download of other dependencies when one of them fails
+  ## ✨  Built with go 1.18.5
+          </pre>
+        </details>
+        <details>
+          <summary>v2.66.1</summary>
+          <pre style="max-width: 30em">
+  ## Bugfixes
+  * Fixes an issue with log rate limiting and stack traces with empty lines
+  ## ✨  Built with go 1.18.5
+  ## Resources
+  - [Download release v2.66.1 from bosh.io](https://bosh.io/releases/github.com/cloudfoundry/diego-release?version=2.66.1).
+  - Verified with [cloudfoundry/cf-deployment @ `47f3c89570b73e415af5ccf3f0a93dd293d7ac24`](https://github.com/cloudfoundry/cf-deployment/commit/47f3c89570b73e415af5ccf3f0a93dd293d7ac24).
+          </pre>
+        </details>
+        <details>
+          <summary>v2.66.0</summary>
+          <pre style="max-width: 30em">
+  ## Changes
+  * Adds support for a new byte-based log rate limiting mechanism with per-LRP limits.
+  * Behavior of existing line-based log rate limiting has also changed to drop log messages immediately rather than releasing them from a buffer with a delay. Therefore timestamps of the logs will now match when they were output.
+  ## ✨  Built with go 1.18.5
+  ## Resources
+  - [Download release v2.66.0 from bosh.io](https://bosh.io/releases/github.com/cloudfoundry/diego-release?version=2.66.0).
+  - Verified with [cloudfoundry/cf-deployment @ `47f3c89570b73e415af5ccf3f0a93dd293d7ac24`](https://github.com/cloudfoundry/cf-deployment/commit/47f3c89570b73e415af5ccf3f0a93dd293d7ac24).
+          </pre>
+        </details>
+        <details>
+          <summary>v2.65.0</summary>
+          <pre style="max-width: 30em">
+  ## Changes
+  - Replace GinkgoParallelNode with GinkgoParallelProcess @ebroberson (#630)
+  - Bump Golang to go1.18.4 @cf-diego (#625)
+  **Breaking Changes**: The diego components are now more strict about the protocols used in TLS communications, causing integrations with systems using older, insecure protocols to fail. These components have been updated to Go 1.18, and will no longer support TLS 1.0 and 1.1 connections or certificates with a SHA-1 checksum. This is most likely to affect connections with external databases.
+  ## Resources
+  - [Download release v2.65.0 from bosh.io](https://bosh.io/releases/github.com/cloudfoundry/diego-release?version=2.65.0).
+  - Verified with [cloudfoundry/cf-deployment @ `3b04e79bd33220a117c4543b1c8074bc13bf7c24`](https://github.com/cloudfoundry/cf-deployment/commit/3b04e79bd33220a117c4543b1c8074bc13bf7c24).
+  ## ✨  Built with go 1.18.4
+          </pre>
+        </details>
+        <details>
+          <summary>v2.64.0</summary>
+          <pre style="max-width: 30em">
+  ## Changes
+  - Bump Golang to go1.18.linux-amd64 (#622)
+  ## Resources
+  - [Download release v2.64.0 from bosh.io](https://bosh.io/releases/github.com/cloudfoundry/diego-release?version=2.64.0).
+  - Verified with [cloudfoundry/cf-deployment @ `6e06b9d09aab84101ba9f5ca5aa4e8b6344cc5c7`](https://github.com/cloudfoundry/cf-deployment/commit/6e06b9d09aab84101ba9f5ca5aa4e8b6344cc5c7).
+          </pre>
+        </details>
+        <details>
+          <summary>v2.63.0</summary>
+          <pre style="max-width: 30em">
+  ## Changes
+  - Pass log config in container spec to garden, so that vxlan-policy-agent can send app logs
+  ## Resources
+  - [Download release v2.63.0 from bosh.io](https://bosh.io/releases/github.com/cloudfoundry/diego-release?version=2.63.0).
+  - Verified with [cloudfoundry/cf-deployment @ `d816bd14c9ca957f020381643f362d062ef60550`](https://github.com/cloudfoundry/cf-deployment/commit/d816bd14c9ca957f020381643f362d062ef60550).
+          </pre>
+        </details>
+      </td>
+    </tr>
+    <tr><td>garden-runc</td><td>1.22.0</td><td></td></tr>
+    <tr><td>haproxy</td><td>11.13.0</td><td></td></tr>
+    <tr><td>loggregator-agent</td><td>6.4.4</td><td></td></tr>
+    <tr><td>mapfs</td><td>1.2.11</td>
+      <td>
+        <details>
+          <summary>v1.2.11</summary>
+          <pre style="max-width: 30em">
+  ## Changes
+  * Update vendored package golang-1-linux (#21)
+          </pre>
+        </details>
+        <details>
+          <summary>v1.2.8</summary>
+          <pre style="max-width: 30em">
+  ## What's Changed
+  * Bump src/mapfs to `0ee84aa` #18
+          </pre>
+        </details>
+        <details>
+          <summary>v1.2.7</summary>
+          <pre style="max-width: 30em">
+  - [Bumps mapfs submodule to master@1600494](https://github.com/cloudfoundry/mapfs/commit/160049400a47577b0f3a8b2948974bc38ce76f18)
+  - [Bump golang from 1.13 to 1.17](https://github.com/cloudfoundry/mapfs-release/commit/c287adda5cbdf345ff1b4985ae93cb72f1618f95)
+          </pre>
+        </details>
+      </td>
+    </tr>
+    <tr><td>metrics-discovery</td><td>3.1.2</td><td></td></tr>
+    <tr><td>nfs-volume</td><td>7.1.3</td><td></td></tr>
+    <tr><td>routing</td><td>0.239.0</td>
+      <td>
+        <details>
+          <summary>v0.239.0</summary>
+          <pre style="max-width: 30em">
+  ## What's Changed
+  - Bumped Golang to 1.18.6 to mitigate [CVE-2022-27664](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-27664)
+  **Full Changelog**: https://github.com/cloudfoundry/routing-release/compare/v0.238.0...v0.239.0
+  ## ✨  Built with go 1.18.6
+          </pre>
+        </details>
+        <details>
+          <summary>v0.238.0</summary>
+          <pre style="max-width: 30em">
+  ## What's Changed
+  - Gorouter once again supports hairpinning for route-service requests, for more information, see [the proposed update.](https://github.com/cloudfoundry/routing-release/issues/281) `router.route_services_internal_lookup_allowlist` can be used to control which domains of route services can be hairpinned. Thanks @peanball!!
+  - Gorouter has a new websocket-specific dial timeout (`websocket_dial_timeout`), configurable separately from the default endpoint dial timeout. Thanks @peanball  for this one too!!
+  **Full Changelog**: https://github.com/cloudfoundry/routing-release/compare/v0.237.0...v0.238.0
+  ## Manifest Property Changes
+  | Job | Property | 0.237.0 | 0.238.0 |
+  | --- | --- | --- | --- |
+  | `gorouter` | `websocket_dial_timeout_in_seconds` | didn't exist | Defaults to `endpoint_dial_timeout_in_seconds`'s value |
+  | `gorouter` | `router.route_services_internal_lookup_allowlist` | didn't exist | No internal lookups allowed for route services. |
+  ## ✨  Built with go 1.18.5
+          </pre>
+        </details>
+        <details>
+          <summary>v0.237.0</summary>
+          <pre style="max-width: 30em">
+  ## What's Changed
+  - ⚠️ Bump to golang 1.18 🎉
+  **Breaking Changes:** The routing components are now more strict about the protocols used in TLS communications, causing integrations with systems using older, insecure protocols to fail. These components have been updated to Go 1.18, and will no longer support TLS 1.0 and 1.1 connections or certificates with a SHA-1 checksum. This is most likely to affect connections with external databases.
+  Please see this golang 1.18 release notes [section](https://tip.golang.org/doc/go1.18#tls10) for more information about the golang 1.18 change.
+  ###
+  * Update uaa-go-client; by @joergdw in https://github.com/cloudfoundry/routing-release/pull/277
+  * updated spec files to match packages by @ebroberson in https://github.com/cloudfoundry/routing-release/pull/282
+  **Full Changelog**: https://github.com/cloudfoundry/routing-release/compare/v0.236.0...v0.237.0
+  ## New Contributors
+  * @joergdw made their first contribution in https://github.com/cloudfoundry/routing-release/pull/277
+  * @ebroberson made their first contribution in https://github.com/cloudfoundry/routing-release/pull/282
+  ## ✨  Built with go 1.18.4
+          </pre>
+        </details>
+      </td>
+    </tr>
+    <tr><td>silk</td><td>3.12.0</td><td></td></tr>
+    <tr><td>smb-volume</td><td>3.1.5</td>
+      <td>
+        <details>
+          <summary>v3.1.5</summary>
+          <pre style="max-width: 30em">
+  ## Changes
+  * Update vendored package golang-1-linux (#58)
+          </pre>
+        </details>
+        <details>
+          <summary>v3.1.4</summary>
+          <pre style="max-width: 30em">
+  ## Release Notes
+  - Fix issue when multiple cf versions are included  (#55)
+  ## Dependencies
+  - The `smbbrokerpush` and `bbr-smbbroker` errands require either the `cf-cli-7-linux` or `cf-cli-6-linux` job from [cf-cli-release](https://bosh.io/releases/github.com/bosh-packages/cf-cli-release?all=1) to be colocated on the errand VM.
+          </pre>
+        </details>
+        <details>
+          <summary>v3.1.3</summary>
+          <pre style="max-width: 30em">
+  ## Release Notes
+  - Added support for CF CLI v8 to errands (#45)
+  - Fixed Jammy compilation issues (#53)
+  ## Dependencies
+  - Bump [src/code.cloudfoundry.org/smbbroker](https://github.com/cloudfoundry/smbbroker) (#41, #50)
+  - Bump [src/code.cloudfoundry.org/smbdriver](https://github.com/cloudfoundry/smbdriver) (#47, #48, #51)
+          </pre>
+        </details>
+        <details>
+          <summary>v3.1.2</summary>
+          <pre style="max-width: 30em">
+  ## Release Notes
+  - Support Bionic Stemcell #16
+  - Add blobs for the `keyutils` package for both `bionic` and `jammy`.
+  - We now install this package on any VM that runs the `smbdriver` bosh job iff that VM uses a `bionic` or `jammy` stemcell
+  - This should allow the `smbdriver` to reliably mount SMB volumes on those stemcells, as discussed in #16
+  ## Dependencies
+  - The `smbbrokerpush` and `bbr-smbbroker` errands require either the `cf-cli-7-linux` or `cf-cli-6-linux` job from [cf-cli-release](https://bosh.io/releases/github.com/bosh-packages/cf-cli-release?all=1) to be colocated on the errand VM.
+          </pre>
+        </details>
+        <details>
+          <summary>v3.1.1</summary>
+          <pre style="max-width: 30em">
+  ## Release Notes
+  * Bumps [bosh-template](https://github.com/cloudfoundry/bosh) from 2.2.0 to 2.2.1 (#22)
+  * Bumps [rspec-its](https://github.com/rspec/rspec-its) from 1.2.0 to 1.3.0 (#23)
+  * Bumps [rspec](https://github.com/rspec/rspec-metagem) to 3.11.0. (#37)
+  * Bumps [src/code.cloudfoundry.org/smbdriver](https://github.com/cloudfoundry/smbdriver) to `1e97c5d` (#34)
+  * Bumps [src/code.cloudfoundry.org/smbbroker](https://github.com/cloudfoundry/smbbroker) to `64ba567` (#36)
+  * Bumps automake from 1.15 to 1.15.1 (#43 - fixes Bionic compilation)
+  ## Dependencies
+  - The `smbbrokerpush` and `bbr-smbbroker` errands require either the `cf-cli-7-linux` or `cf-cli-6-linux` job from [cf-cli-release](https://bosh.io/releases/github.com/bosh-packages/cf-cli-release?all=1) to be colocated on the errand VM.
+          </pre>
+        </details>
+      </td>
+    </tr>
+    <tr><td>smoke-tests</td><td>4.7.0</td>
+      <td>
+        <details>
+          <summary>4.7.0</summary>
+          <pre style="max-width: 30em">
+  Create bosh final release 4.7.0
+          </pre>
+        </details>
+      </td>
+    </tr>
+    <tr><td>syslog</td><td>11.8.2</td><td></td></tr>
+  </tbody>
+</table>
+
+
+
+### <a id='2-13-6'></a> v2.13.6
+
+**Release Date:** 09/21/2022
+
+* **[Feature]** <%= vars.app_runtime_abbr %> <%= vars.v_major_version %> is a long-term support track (LTS-T) release. It is to be supported through March of
+2024. The version number is to receive a `+LTS-T` metadata addition in a future patch.
+* **[Feature]** Enables jumpgrade from TAS 2.11, attendant to LTS-T status.
+* **[Feature Improvement]** Bump golang to 1.18 for diego, routing, cf-networking, and silk
+* Bump bpm to version `1.1.19`
+* Bump cf-networking to version `3.12.0`
+* Bump cflinuxfs3 to version `0.319.0`
+* Bump garden-runc to version `1.22.0`
+* Bump haproxy to version `11.13.0`
+* Bump loggregator-agent to version `6.4.4`
+* Bump metrics-discovery to version `3.1.2`
+* Bump silk to version `3.12.0`
+* Bump syslog to version `11.8.2`
+
+<table border="1" class="nice">
+  <thead>
+    <tr>
+      <th>Component</th>
+      <th>Version</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>ubuntu-xenial stemcell</td><td>621.265</td></tr>
+    <tr><td>bpm</td><td>1.1.19</td></tr>
+    <tr><td>cf-networking</td><td>3.12.0</td></tr>
+    <tr><td>cflinuxfs3</td><td>0.319.0</td></tr>
+    <tr><td>diego</td><td>2.62.0</td></tr>
+    <tr><td>garden-runc</td><td>1.22.0</td></tr>
+    <tr><td>haproxy</td><td>11.13.0</td></tr>
+    <tr><td>loggregator-agent</td><td>6.4.4</td></tr>
+    <tr><td>mapfs</td><td>1.2.6</td></tr>
+    <tr><td>metrics-discovery</td><td>3.1.2</td></tr>
+    <tr><td>nfs-volume</td><td>7.1.1</td></tr>
+    <tr><td>routing</td><td>0.236.0</td></tr>
+    <tr><td>silk</td><td>3.12.0</td></tr>
+    <tr><td>smb-volume</td><td>3.1.0</td></tr>
+    <tr><td>smoke-tests</td><td>4.5.0</td></tr>
+    <tr><td>syslog</td><td>11.8.2</td></tr>
+  </tbody>
+</table>
+
+### <a id='2-13-5'></a> v2.13.5
+
+**Release Date:** 08/10/2022
+
+* Bump cf-networking to version `3.11.0`
+* Bump cflinuxfs3 to version `0.312.0`
+* Bump haproxy to version `11.12.0`
+* Bump loggregator-agent to version `6.4.3`
+* Bump metrics-discovery to version `3.1.1`
+* Bump routing to version `0.236.0`
+* Bump silk to version `3.11.0`
+* Bump syslog to version `11.8.1`
+
+<table border="1" class="nice">
+  <thead>
+    <tr>
+      <th>Component</th>
+      <th>Version</th>
+      <th>Release Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>ubuntu-xenial stemcell</td><td>621.261</td><td></td></tr>
+    <tr><td>bpm</td><td>1.1.18</td><td></td></tr>
+    <tr><td>cf-networking</td><td>3.11.0</td><td></td></tr>
+    <tr><td>cflinuxfs3</td><td>0.312.0</td><td></td></tr>
+    <tr><td>diego</td><td>2.62.0</td><td></td></tr>
+    <tr><td>garden-runc</td><td>1.20.6</td><td></td></tr>
+    <tr><td>haproxy</td><td>11.12.0</td><td></td></tr>
+    <tr><td>loggregator-agent</td><td>6.4.3</td><td></td></tr>
+    <tr><td>mapfs</td><td>1.2.6</td><td></td></tr>
+    <tr><td>metrics-discovery</td><td>3.1.1</td><td></td></tr>
+    <tr><td>nfs-volume</td><td>7.1.1</td><td></td></tr>
+    <tr><td>routing</td><td>0.236.0</td>
+      <td>
+        <details>
+          <summary>v0.236.0</summary>
+          <pre style="max-width: 30em">
+  ## What's Changed
+  * Gorouter restart script waits for the gorouter to be running before reloading monit
+  ## ✨  Built with go 1.17.12
+  **Full Changelog**: https://github.com/cloudfoundry/routing-release/compare/0.235.0...0.236.0
+          </pre>
+        </details>
+      </td>
+    </tr>
+    <tr><td>silk</td><td>3.11.0</td><td></td></tr>
+    <tr><td>smb-volume</td><td>3.1.0</td><td></td></tr>
+    <tr><td>smoke-tests</td><td>4.5.0</td><td></td></tr>
+    <tr><td>syslog</td><td>11.8.1</td><td></td></tr>
+  </tbody>
+</table>
+
+### <a id='2-13-4'></a> v2.13.4
+
+**Release Date:** 07/19/2022
+
+* **[Feature]** Enable telemetry for iptables rules on Diego cells
+* **[Bug Fix]** Resolves an issue with HAProxy log rotation creating null bytes and not freeing disk space after rotation
+* Bump cf-networking to version `3.9.0`
+* Bump cflinuxfs3 to version `0.309.0`
+* Bump diego to version `2.62.0`
+* Bump haproxy to version `11.11.0`
+* Bump loggregator-agent to version `6.4.2`
+* Bump metrics-discovery to version `3.1.0`
+* Bump routing to version `0.235.0`
+* Bump silk to version `3.9.0`
+* Bump syslog to version `11.8.0`
+
+<table border="1" class="nice">
+  <thead>
+    <tr>
+      <th>Component</th>
+      <th>Version</th>
+      <th>Release Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>ubuntu-xenial stemcell</td><td>621.252</td><td></td></tr>
+    <tr><td>bpm</td><td>1.1.18</td><td></td></tr>
+    <tr><td>cf-networking</td><td>3.9.0</td><td></td></tr>
+    <tr><td>cflinuxfs3</td><td>0.309.0</td><td></td></tr>
+    <tr><td>diego</td><td>2.62.0</td><td></td></tr>
+    <tr><td>garden-runc</td><td>1.20.6</td><td></td></tr>
+    <tr><td>haproxy</td><td>11.11.0</td><td></td></tr>
+    <tr><td>loggregator-agent</td><td>6.4.2</td><td></td></tr>
+    <tr><td>mapfs</td><td>1.2.6</td><td></td></tr>
+    <tr><td>metrics-discovery</td><td>3.1.0</td><td></td></tr>
+    <tr><td>nfs-volume</td><td>7.1.1</td><td></td></tr>
+    <tr><td>routing</td><td>0.235.0</td>
+      <td>
+        <details>
+          <summary>0.235.0</summary>
+          <pre style="max-width: 30em">
+  ## What's Changed
+  * Gorouter healthchecker retries connection instead of monit (https://github.com/cloudfoundry/routing-release/pull/275)
+  ## ✨  Built with go 1.17.11
+  **Full Changelog**: https://github.com/cloudfoundry/routing-release/compare/0.234.0...0.235.0
+          </pre>
+        </details>
+        <details>
+          <summary>0.234.0</summary>
+          <pre style="max-width: 30em">
+  ## What's Changed
+  * Gorouter: the metrics package now uses `lsof` to monitor file descriptors on MacOS @domdom82 https://github.com/cloudfoundry/gorouter/pull/312
+  * 🐛 Bumped the `lager` dependency to resolve issues where the timeFormat flag was not honored, resulting in epoch timestamps vs human readable. Thanks @ameowlia!
+  * Now tested with the bionic stemcell in CI
+  ## ✨  Built with go 1.17.11
+  **Full Changelog**: https://github.com/cloudfoundry/routing-release/compare/0.233.0...0.234.0
+          </pre>
+        </details>
+      </td>
+    </tr>
+    <tr><td>silk</td><td>3.9.0</td><td></td></tr>
+    <tr><td>smb-volume</td><td>3.1.0</td><td></td></tr>
+    <tr><td>smoke-tests</td><td>4.5.0</td><td></td></tr>
+    <tr><td>syslog</td><td>11.8.0</td><td></td></tr>
+  </tbody>
+</table>
+
+### <a id='2-13-3'></a> v2.13.3
+
+**Release Date:** 06/24/2022
+
+<p class='note warning'><strong>Warning: Upcoming reduction in maintenance and security release coverage!</strong> In future patches, no sooner than July 1st 2022, some TAS components will become more strict about the protocols used in TLS communications, causing integrations with systems using older, insecure protocols to fail. Specifically, components built using the Go programming language will no longer support TLS 1.0 or 1.1, or certificates using SHA-1. In order to avoid breaking changes in this version line, (which has reached its End of General Support,) these components will no longer be updated with bug and security fixes in any patches that may be released. To continue receiving maintenance and security releases, upgrade to a version of TAS that remains in general support.</p>
+
+* Bump diego to version `2.62.0`
+
+<table border="1" class="nice">
+  <thead>
+    <tr>
+      <th>Component</th>
+      <th>Version</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>ubuntu-xenial stemcell</td><td>621.244</td></tr>
+    <tr><td>bpm</td><td>1.1.18</td></tr>
+    <tr><td>cf-networking</td><td>3.6.0</td></tr>
+    <tr><td>cflinuxfs3</td><td>0.301.0</td></tr>
+    <tr><td>diego</td><td>2.62.0</td></tr>
+    <tr><td>garden-runc</td><td>1.20.6</td></tr>
+    <tr><td>haproxy</td><td>11.10.2</td></tr>
+    <tr><td>loggregator-agent</td><td>6.4.1</td></tr>
+    <tr><td>mapfs</td><td>1.2.6</td></tr>
+    <tr><td>metrics-discovery</td><td>3.0.13</td></tr>
+    <tr><td>nfs-volume</td><td>7.1.1</td></tr>
+    <tr><td>routing</td><td>0.233.0</td></tr>
+    <tr><td>silk</td><td>3.6.0</td></tr>
+    <tr><td>smb-volume</td><td>3.1.0</td></tr>
+    <tr><td>smoke-tests</td><td>4.5.0</td></tr>
+    <tr><td>syslog</td><td>11.7.10</td></tr>
+  </tbody>
+</table>
+
+### <a id='2-13-2'></a> v2.13.2
+
+**Release Date:** 06/09/2022
+
+<p class='note warning'><strong> Warning:</strong> Breaking change. This version contains Diego 2.64.0, which bumps to Go 1.18. Go 1.18 no longer supports TLS 1.0 and 1.1 connections or certificates with a SHA-1 checksum. This is most likely to affect connections with external databases. We stated earlier that we wouldn't bump to Go 1.18 until July 1, 2022. This TAS release with Diego 2.64.0 breaks that promise. We apologize. We are rolling back to Diego 2.62.0.  If you already successfully deployed to this TAS release with Diego 2.64.0, then you are safe to continue using it.</p>
+
+* **[Bug Fix]** Fix metric registrar secure scraping with isolation segments
+* **[Bug Fix]** Resolves [an issue with Dynamic ASGs](https://community.pivotal.io/s/article/Apps-stop-running-after-a-deploy-when-using-dynamic-ASGs-with-icmp-any-rule) and ASG containing 'ICMP any' rules causing apps not to start
+* **[Bug Fix]** Sticky sessions no longer break when used with route-services that return HTTP 4xx/5xx responses
+* **[Breaking Change]** Syslog drains configured to use TLS now [reject certificates signed with the SHA-1 hash function](https://go.dev/doc/go1.18#sha1).
+* Bump bpm to version `1.1.18`
+* Bump cf-networking to version `3.6.0`
+* Bump cflinuxfs3 to version `0.301.0`
+* Bump diego to version `2.64.0`
+* Bump garden-runc to version `1.20.6`
+* Bump haproxy to version `11.10.2`
+* Bump loggregator-agent to version `6.4.1`
+* Bump metrics-discovery to version `3.0.13`
+* Bump routing to version `0.233.0`
+* Bump silk to version `3.6.0`
+* Bump syslog to version `11.7.10`
+
+<table border="1" class="nice">
+  <thead>
+    <tr>
+      <th>Component</th>
+      <th>Version</th>
+      <th>Release Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>ubuntu-xenial stemcell</td><td>621.244</td><td></td></tr>
+    <tr><td>bpm</td><td>1.1.18</td><td></td></tr>
+    <tr><td>cf-networking</td><td>3.6.0</td><td></td></tr>
+    <tr><td>cflinuxfs3</td><td>0.301.0</td><td></td></tr>
+    <tr><td>diego</td><td>2.64.0</td><td></td></tr>
+    <tr><td>garden-runc</td><td>1.20.6</td><td></td></tr>
+    <tr><td>haproxy</td><td>11.10.2</td><td></td></tr>
+    <tr><td>loggregator-agent</td><td>6.4.1</td><td></td></tr>
+    <tr><td>mapfs</td><td>1.2.6</td><td></td></tr>
+    <tr><td>metrics-discovery</td><td>3.0.13</td><td></td></tr>
+    <tr><td>nfs-volume</td><td>7.1.1</td><td></td></tr>
+    <tr><td>routing</td><td>0.233.0</td>
+      <td>
+        <details>
+          <summary>0.233.0</summary>
+          <pre style="max-width: 30em">
+  ## What's Changed
+  * TCP Router: Add locking to the haproxy_reloader script to avoid haproxy reload/restart race conditions by @geofffranks in https://github.com/cloudfoundry/routing-release/pull/269
+  * TCP Router: Bump HAProxy from 1.8.13 to 2.5.4 by @cunnie in https://github.com/cloudfoundry/routing-release/pull/266
+  * Gorouter: fix proxy round tripper race condition by @ameowlia and @geofffranks  in https://github.com/cloudfoundry/gorouter/pull/318
+  * Routing API: fix timestamp precision issue that caused routes to be pruned unexpectedly by @geofffranks in https://github.com/cloudfoundry/routing-api/pull/24
+  *  Routing API: remove `golang.x509ignoreCN` bosh property by @geofffranks and @mariash
+  * Routing API: fix bug that caused TCP Router's HAProxy to reload every minute by @jrussett in https://github.com/cloudfoundry/routing-api/pull/26.
+  ## Manifest Property Changes
+  | Job | Property  | Notes |
+  | --- | --- | --- |
+  | `routing-api` | `golang.x509ignoreCN` | This property exposed a go debug flag for go version 1.15. Since go 1.16 this go debug flag has had no affect. Removing this bosh property is part of our effort to keep our code base free of cruft. |
+  ## ✨  Built with go 1.17.10
+  **Full Changelog**: https://github.com/cloudfoundry/routing-release/compare/0.232.0...0.233.0
+          </pre>
+        </details>
+        <details>
+          <summary>0.232.0</summary>
+          <pre style="max-width: 30em">
+  ## What's Changed
+  * Fixing issue #250: Return a 503 not a 404 when all instances down by @kecirlotfi in https://github.com/cloudfoundry/routing-release/pull/268 and https://github.com/cloudfoundry/gorouter/pull/314
+  * Fixing issue https://github.com/cloudfoundry/gorouter/pull/315: Fix route service pruning by @geofffranks
+  ## Manifest Property Changes
+  | Job | Property | default | notes |
+  | --- | --- | --- | --- |
+  | `gorouter` | `for_backwards_compatibility_only.empty_pool_response_code_503` | `0s` | This property was added to enable https://github.com/cloudfoundry/routing-release/pull/268 |
+  ## New Contributors 🎉
+  * @kecirlotfi made their first contribution! Thanks so much!
+  ## ✨  Built with go 1.17.9
+  **Full Changelog**: https://github.com/cloudfoundry/routing-release/compare/0.231.0...0.232.0
+          </pre>
+        </details>
+      </td>
+    </tr>
+    <tr><td>silk</td><td>3.6.0</td><td></td></tr>
+    <tr><td>smb-volume</td><td>3.1.0</td><td></td></tr>
+    <tr><td>smoke-tests</td><td>4.5.0</td><td></td></tr>
+    <tr><td>syslog</td><td>11.7.10</td><td></td></tr>
+  </tbody>
+</table>
+
+### <a id='2-13-1'></a> v2.13.1
 
 **Release Date:** 04/20/2022
 
-* **[Security Fix]** This release fixes [CVE-2022-23806](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-23806) and [CVE-2022-23772](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-23772).
+* **[Security Fix]** This release fixes [CVE-2022-23806](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-23806) and
+[CVE-2022-23772](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-23772).
 * Bump cflinuxfs3 to version `0.285.0`
 * Bump diego to version `2.62.0`
 * Bump garden-runc to version `1.20.3`
@@ -59,15 +825,13 @@ releasing a MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> contai
   </tbody>
 </table>
 
-
-
-### <a id='2.13.0'></a> 2.13.0
+### <a id='2-13-0'></a> v2.13.0
 
 **Release Date:** March 29, 2022
 
-* See [New Features in Isolation Segment v2.13](#new-features).
-* See [Breaking Changes](#breaking-changes).
-* See [Known Issues](#known-issues).
+* See [New Features in <%= vars.segment_runtime_full %> <%= vars.v_major_version %>](#new-features) below.
+* See [Breaking Changes](#breaking-changes) below.
+* See [Known Issues](#known-issues) below.
 
 <table border="1" class="nice">
   <thead>
@@ -99,56 +863,62 @@ releasing a MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> contai
 
 ## <a id='install'></a> How to Install
 
-To install Isolation Segment <%= vars.v_major_version %>, see [Installing Isolation Segment](https://docs.pivotal.io/application-service/2-13/operating/installing-pcf-is.html).
+To install <%= vars.segment_runtime_full %> <%= vars.v_major_version %>, see [Installing
+<%= vars.segment_runtime_full %>](../../operating/installing-pcf-is.html).
 
-To install Isolation Segment <%= vars.v_major_version %>, you must first install Ops Manager v2.10.
-For more information, see the [Ops Manager](https://docs.pivotal.io/ops-manager/2-10/index.html) documentation.
+To install <%= vars.segment_runtime_full %> <%= vars.v_major_version %>, you must first install <%= vars.ops_manager %> v2.10. For more information, see the
+[<%= vars.ops_manager %> documentation](https://docs.pivotal.io/ops-manager/2-10/index.html).
 
 
-## <a id='new-features'></a> New Features in Isolation Segment <%= vars.v_major_version %>
+## <a id='new-features'></a> New Features in <%= vars.segment_runtime_full %> <%= vars.v_major_version %>
 
-Isolation Segment <%= vars.v_major_version %> includes the following major features:
+<%= vars.segment_runtime_full %> <%= vars.v_major_version %> includes the following major features:
 
 ### <a id='dynamic-asg'></a> Dynamic App Security Group Rules
 
-TAS for VMs v2.13 introduces dynamic App Security Groups (ASGs).
+<%= vars.app_runtime_abbr %> <%= vars.v_major_version %> introduces dynamic App Security Groups (ASGs).
 
-ASGs are a collection of egress rules that specify the protocols, ports, and IP address ranges where app or task instances send traffic.
-Previously, updating an existing ASG required you to restart the app before the ASG went into effect.
+ASGs are a collection of egress rules that specify the protocols, ports, and IP address ranges where app or task instances send traffic. Previously, updating
+an existing ASG required you to restart the app before the ASG went into effect.
 
-Dynamic ASGs can automatically update security groups without requiring an app restart.
-If you have existing ASGs, you can run any of the security group cf CLI commands, including `cf bind-security-group` and `update-security-group`, and the changes apply automatically to any running apps.
+Dynamic ASGs can automatically update security groups without requiring an app restart. If you have existing ASGs, you can run any of the security group cf
+CLI commands, including `cf bind-security-group` and `update-security-group`, and the changes apply automatically to any running apps.
 
-For more information about ASGs, see [App Security Groups](../concepts/asg.html).
+For more information about ASGs, see [App Security Groups](../../concepts/asg.html).
 
 
 ## <a id='breaking-changes'></a> Breaking Changes
 
-Isolation Segment <%= vars.v_major_version %> includes the following breaking changes:
+<%= vars.segment_runtime_full %> <%= vars.v_major_version %> includes the following breaking changes:
 
 ### <a id='certs-require-san'></a> Gorouter Certificates Require a SAN Extension
 
-In Isolation Segment v2.13, all Gorouter certificates require a valid subjectAltName (SAN) extension.
-If any Gorouter certificates lack a SAN, Go clients cannot connect to servers and deployment fails.
+In <%= vars.segment_runtime_full %> <%= vars.v_major_version %>, all Gorouter certificates require a valid subjectAltName (SAN) extension. If any Gorouter
+certificates lack a SAN, Go clients cannot connect to servers and deployment fails.
 
-Before you upgrade to Isolation Segment v2.13, you must:
+Before you upgrade to <%= vars.segment_runtime_full %> <%= vars.v_major_version %>, you must do the following:
 
-  1. Verify that all certificates in Ops Manager use a valid SAN. If they do not, rotate your certificates using a valid SAN.
-  1. Verify that all external systems that the Gorouter connects to have certificates with a valid SAN. If you use route services, this includes either the route services themselves or the load balancer in front of the route service.
+1. Verify that all certificates in <%= vars.ops_manager %> use a valid SAN. If they do not, rotate your certificates using a valid SAN.
 
-If you need to complete a deployment before configuring new Gorouter certificates, select **Enable temporary workaround for certs without SANs** in the **Networking** pane of the TAS for VMs tile.
+1. Verify that all external systems that the Gorouter connects to have certificates with a valid SAN. If you use route services, this includes either the
+route services themselves or the load balancer in front of the route service.
 
-For more information about updating certificates, see [Routing and Golang 1.15 X.509 CommonName deprecation](https://community.pivotal.io/s/article/Routing-and-golang-1-15-X-509-CommonName-deprecation) in the Knowledge Base.
+If you need to complete a deployment before configuring new Gorouter certificates, activate the **Enable temporary workaround for certs without SANs**
+checkbox in the **Networking** pane of the <%= vars.app_runtime_abbr %> tile.
+
+For more information about updating certificates, see [Routing and Golang 1.15 X.509 CommonName
+deprecation](https://community.pivotal.io/s/article/Routing-and-golang-1-15-X-509-CommonName-deprecation) in the Knowledge Base.
 
 ### <a id='ip-leading-zero'></a> Golang v1.17 Rejects IP Addresses with Leading Zeros
 
-Golang v1.17 contains stricter IP parsing standards, so IP addresses with leading zeros in any octets cause a BOSH template failure.
-Operators can remove the leading zeros and try deploying again.
-This affects properties that feed into all releases that use Golang v1.17.
-For a complete list, see [TAS for VMs Components Use Golang v1.17](runtime-rn.html#golang-1-17).
+Golang v1.17 contains stricter IP parsing standards, so IP addresses with leading zeros in any octets cause a BOSH template failure. Operators can remove the
+leading zeros and try deploying again. This affects properties that feed into all releases that use Golang v1.17. For a complete list, see
+[<%= vars.app_runtime_abbr %> Components Use Golang v1.17](runtime-rn.html#golang-1-17) in _<%= vars.app_runtime_full %> <%= vars.v_major_version %> Release
+Notes_.
 
 Syslog drains and metric registrar endpoints that are registered using user-provided services might also be affected.
 
+
 ## <a id='known-issues'></a> Known Issues
 
-Isolation Segment <%= vars.v_major_version %> currently has no known issues.
+<%= vars.segment_runtime_full %> <%= vars.v_major_version %> currently has no known issues.
