@@ -1525,6 +1525,7 @@ Because VMware uses the Percona Distribution for MySQL, expect a time lag betwee
 
 **Release Date:** 10/19/2022
 
+* **[Breaking Change]** A change in behavior to line-based log rate limits has been made. Previously, logs were buffered and released at the allowed rate, now logs exceeding the limit will be dropped.
 * **[Feature]** Allow operators to specify isolation segments that should be routable through TAS routers
 * **[Known Issue]** `java-offline-buildpack` v4.52 makes <%= vars.app_runtime_abbr %> incompatible with some service tiles and prevents apps that use
 `java-offline-buildpack` v4.52 from binding to service instances. For more information, see [java-offline-buildpack v4.52 Disallows Spring Auto
