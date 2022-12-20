@@ -3827,11 +3827,16 @@ documentation](https://docs.pivotal.io/ops-manager/2-10/security/security-adjace
 ### <a id='tls-c2c'></a> One-Way TLS for Container-to-Container Communication
 
 In <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>, developers can configure app containers to communicate with each other over one-way TLS.
-<%# how? %>
 
-When you configure this feature, TLS is terminated at Envoy. Developers can continue to serve HTTP traffic on port `8080`, and Envoy listens on port `61443`
-with a TLS certificate with a SAN that includes app internal routes. Envoy proxies this port to port `8080` inside the container. When a new route is mapped
-to the app, the certificate is updated without requiring an app restart.
+Client applications can now send HTTPS requests to port 61443 of the destination application. In that case TLS is terminated at Envoy.
+Developers can continue to serve HTTP traffic on port 8080, and Envoy listens on port 61443 with a TLS certificate with a SAN that includes app internal routes.
+Envoy proxies this port to port 8080 inside the container.
+When a new route is mapped to the app, the certificate is updated without requiring an app restart.
+Add network policy to allow container-to-container communication over port 61443:
+
+```
+cf add-network-policy source-app-name --destination-app destination-app-name --protocol tcp --port 61443
+```
 
 <p class='note warning'><strong>Warning:</strong> This feature introduces a migration to the BBS database. Rolling back from this release causes database
   issues.</p>
