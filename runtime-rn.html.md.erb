@@ -3048,7 +3048,7 @@ Client applications can now send HTTPS requests to port 61443 of the destination
 Developers can continue to serve HTTP traffic on port 8080, and Envoy listens on port 61443 with a TLS certificate with a SAN that includes app internal routes.
 Envoy proxies this port to port 8080 inside the container.
 When a new route is mapped to the app, the certificate is updated without requiring an app restart.
-Network policy should be added to allow container-to-container communication over port 61443:
+Add network policy to allow container-to-container communication over port 61443:
 
 ```
 cf add-network-policy source-app-name --destination-app destination-app-name --protocol tcp --port 61443
