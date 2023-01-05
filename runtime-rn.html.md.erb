@@ -281,6 +281,25 @@ Removed](#haproxy-removed) below.
 
 <%= vars.app_runtime_abbr %> <%= vars.v_major_version %> includes the following major features:
 
+### App syslog drains now support Mutual TLS and internal Certificate Authorities
+
+Upgrading to <%= vars.app_runtime_abbr %> <%= vars.v_major_version %> opens up
+more security options for application syslog drains. Syslog drains are now
+compatible with syslog servers which:
+
+* enforce client identity.
+* have their own internal or domain-specific certificate authority.
+
+Developers can configure their syslog drains to use Mutual TLS by specifying a
+client certificate and private key. They can also configure their syslog drains
+to communicate with syslog servers using internal or domain-specific
+Certificate Authorities by specifying a CA. An example is provided below.
+
+<pre class="terminal">
+$ cf create-user-provided-service DRAIN-NAME -l SYSLOG-URL -p {"cert":"-----BEGIN CERTIFICATE-----\nMIIH...-----END CERTIFICATE-----","key":"-----BEGIN PRIVATE KEY-----\nMIIE...-----END PRIVATE KEY-----", "ca":"-----BEGIN CERTIFICATE-----\nMIIH...-----END CERTIFICATE-----"}
+</pre>
+
+
 ## <a id='breaking-changes'></a> Breaking Changes
 
 <%= vars.app_runtime_abbr %> <%= vars.v_major_version %> includes the following breaking changes:
