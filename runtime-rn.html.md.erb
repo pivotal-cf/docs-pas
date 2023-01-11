@@ -3,7 +3,7 @@ title: TAS for VMs v4.0 Release Notes
 owner: Release Engineering
 ---
 
-<% current_page.data.title = vars.app_runtime_full + " " + vars.v_major_version + " Release Notes" %>
+<% set_title("Release Notes", <%= vars.platform_name %>,  "Documentation") %>
 
 This topic contains release notes for <%= vars.app_runtime_first %> <%= vars.v_major_version %>.
 
@@ -1061,7 +1061,7 @@ Because VMware uses the Percona Distribution for MySQL, expect a time lag betwee
 
 #### Known Issue
 
-**WARNING**  
+**WARNING**
 
 This version of TAS includes java-offline-buildpack version 4.52, which changes the default behavior of Spring Auto Reconfiguration.
 This:
