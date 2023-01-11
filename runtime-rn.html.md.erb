@@ -1357,6 +1357,12 @@ a better security posture for TAS for VMs and applications. This value can still
 back up to 1024kb in the Networking tab if necessary. Any requests with headers larger
 than this value will receive a 431 status code.
 
+### Recent Logs Endpoint Has Been Removed From Traffic Controller
+
+New versions of Traffic Controller do not have the recent logs endpoint. This
+will cause versions of the cf CLI before v6.52.0 to no longer be able to
+retrieve logs when called with `cf logs --recent`.
+
 ## <a id='known-issues'></a> Known Issues
 
 <%= vars.app_runtime_abbr %> <%= vars.v_major_version %> includes the following known issues:
