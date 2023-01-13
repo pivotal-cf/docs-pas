@@ -2596,6 +2596,13 @@ or use the internal database.
 
 This upgrade is not currently known to impact tiles that are compatible with <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>.
 
+### <a id='activelocks-kpi-removed'></a> ActiveLocks removed from Key Performance Indicators (KPIs)
+
+Prior versions of TAS recommended monitoring the `ActiveLocks` metric emitted by the `locket` component.
+Starting in TAS 3.0, the expected number of processes holding locks varies depending on configuration settings, making this metric more cumbersome to monitor.
+This metric was also difficult to monitor because it is an aggregate of signals from multiple lock-holding processes.
+Because the usefulness of monitoring this metric is unclear, and the complexity of interpreting the metric has increased, we are removing it from the KPIs.
+TAS still emits the ActiveLocks metric, but we no longer encourage users to actively monitor it.
 
 ## <a id='known-issues'></a> Known Issues
 
