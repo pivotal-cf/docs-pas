@@ -1654,6 +1654,8 @@ Because VMware uses the Percona Distribution for MySQL, expect a time lag betwee
 
 * **[Feature]** Add "Max request header size in kb" property to Networking tab to allow operators to specify a limit on the aggregate size of request headers. Requests over this limit receive a 431 status code.
 * **[Bug Fix]** Bump UAA to 76.1.0 to fix copy-to-clipboard functionality
+* **[Bug Fix]** Bump `java_buildpack_offline` to version `4.53` to fix the known issue relating to Spring Auto Reconfiguration. This is once again enabled by default. For more information, see [java-offline-buildpack v4.52 Disallows Spring Auto
+Reconfiguration by Default](#auto-reconfig-disallowed) below.
 * Bump backup-and-restore-sdk to version `1.18.57`
 * Bump binary-offline-buildpack to version `1.0.47`
 * Bump cf-networking to version `3.14.0`
@@ -3128,6 +3130,14 @@ TAS still emits the ActiveLocks metric, but we no longer encourage users to acti
 ## <a id='known-issues'></a> Known Issues
 
 <%= vars.app_runtime_abbr %> <%= vars.v_major_version %> includes the following known issues:
+
+### <a id='cflinuxfs4-java'></a> Java Buildpack Support for `cflinuxfs4`
+
+A bug related to packaging the `java_buildpack_offline` for the `cflinuxfs4` stack prevents apps from staging on this stack. 
+
+This affects <%= vars.app_runtime_abbr %> 3.0.x versions containing the `java_buildpack_offline` up to v4.53, and will be fixed in the next buildpack version, v4.54.
+
+To try out apps on this stack before then, you can use the online buildpack, e.g, `cf push -b https://github.com/cloudfoundry/java-buildpack -s cflinuxfs4`
 
 ### <a id='stemcell-certification'></a> Stemcell Compliance Certification
 
