@@ -1357,8 +1357,14 @@ a better security posture for TAS for VMs and applications. This value can still
 back up to 1024kb in the Networking tab if necessary. Any requests with headers larger
 than this value will receive a 431 status code.
 
+### Recent Logs Endpoint Has Been Removed From Traffic Controller
+
+New versions of Traffic Controller do not have the recent logs endpoint. This
+will cause versions of the cf CLI before v6.52.0 to no longer be able to
+retrieve logs when called with `cf logs --recent`.
 
 ### Add Validation for **Certificate Authorities trusted by the Gorouter** Property
+
 TAS 4.0 contains validations for the **Certificate Authorities trusted by the
 Gorouter** property in the Networking tab. Any entries that are not valid CA
 certificates will result in an error in OpsManager. Users should remove or replace
