@@ -1265,6 +1265,8 @@ Because VMware uses the Percona Distribution for MySQL, expect a time lag betwee
 
 * **[Security Fix]** Bump of nodejs-offline-buildpack to version 1.8.3 fully addresses CVE-2022-3602 and CVE-2022-3786 in OpenSSL 3.x; impacted versions of OpenSSL are otherwise not used in this version line of TAS.
 * **[Feature]** Add "Max request header size in kb" property to Networking tab to allow operators to specify a limit on the aggregate size of request headers. Requests over this limit receive a 431 status code.
+* **[Bug Fix]** Bump `java_buildpack_offline` to version `4.53` to fix the known issue relating to Spring Auto Reconfiguration. This is once again enabled by default. For more information, see [java-offline-buildpack v4.52 Disallows Spring Auto
+Reconfiguration by Default](#auto-reconfig-disallowed) below.
 * Bump backup-and-restore-sdk to version `1.18.57`
 * Bump binary-offline-buildpack to version `1.0.47`
 * Bump bosh-system-metrics-forwarder to version `0.0.27`
