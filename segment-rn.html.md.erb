@@ -648,7 +648,7 @@ Because VMware uses the Percona Distribution for MySQL, expect a time lag betwee
 
 ## <a id='install'></a> How to Install
 
-<% if not vars.platform_code == 'OFFLINE' %>
+<% if vars.platform_code != 'OFFLINE' %>
 To install <%= vars.segment_runtime_full %> <%= vars.v_major_version %>, see [Installing
 <%= vars.segment_runtime_full %>](../operating/installing-pcf-is.html).
 <% end %>
