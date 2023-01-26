@@ -693,7 +693,7 @@ re-configure the following settings in the <%= vars.segment_runtime_full %> tile
   you configured the **Allow SSH access to app containers** and **TCP routing** settings in the **Networking** pane, you may also need to configure load
   balancers under the **Diego Brain** or **TCP Router** jobs.
 
-<% if not vars.platform_code == 'OFFLINE' %>
+<% if vars.platform_code != 'OFFLINE' %>
 For more information about configuring these settings, see [Configure Networking](../operating/installing-pcf-is.html#networking) and [Configure
 Resources](../operating/installing-pcf-is.html#resources) in _Installing <%= vars.segment_runtime_full %>_.
 <% end %>
