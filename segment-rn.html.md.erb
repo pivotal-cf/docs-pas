@@ -12,6 +12,67 @@ Because VMware uses the Percona Distribution for MySQL, expect a time lag betwee
 
 ## <a id='releases'></a> Releases
 
+### <a id='2.12.18'></a> 2.12.18
+
+**Release Date:** 02/09/2023
+
+* **[Bug Fix]** Allows docker app workloads without a `sh` binary in the docker image to execute properly.
+* Bump loggregator-agent to version `6.5.7`
+* Bump routing to version `0.255.0`
+
+<table border="1" class="nice">
+  <thead>
+    <tr>
+      <th>Component</th>
+      <th>Version</th>
+      <th>Release Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>ubuntu-xenial stemcell</td><td>621.401</td><td></td></tr>
+    <tr><td>bpm</td><td>1.1.21</td><td></td></tr>
+    <tr><td>cf-networking</td><td>3.19.0</td><td></td></tr>
+    <tr><td>cflinuxfs3</td><td>0.350.0</td><td></td></tr>
+    <tr><td>diego</td><td>2.71.0</td><td></td></tr>
+    <tr><td>garden-runc</td><td>1.22.9</td><td></td></tr>
+    <tr><td>haproxy</td><td>11.10.2</td><td></td></tr>
+    <tr><td>loggregator-agent</td><td>6.5.7</td>
+      <td>
+        <details>
+          <summary>v6.5.7</summary>
+          <pre style="max-width: 30em">
+  ## What's Changed
+  * Sanitize ProcID in syslog messages so messages with utf-8 in the source_type are not dropped by @Benjamintf1 in https://github.com/cloudfoundry/loggregator-agent-release/pull/202
+  * Update dependencies
+  **Full Changelog**: https://github.com/cloudfoundry/loggregator-agent-release/compare/v6.5.6...v6.5.7
+          </pre>
+        </details>
+      </td>
+    </tr>
+    <tr><td>mapfs</td><td>1.2.12</td><td></td></tr>
+    <tr><td>metrics-discovery</td><td>3.2.4</td><td></td></tr>
+    <tr><td>nfs-volume</td><td>7.1.8</td><td></td></tr>
+    <tr><td>routing</td><td>0.255.0</td>
+      <td>
+        <details>
+          <summary>v0.255.0</summary>
+          <pre style="max-width: 30em">
+  [Upgrade healthchecker in release](https://github.com/cloudfoundry/routing-release/commit/ddb43e9e746b009d0ea6e6cf8cf8e7eb059ffafc). In order to limit the scope of packages brought in with the introduction of http healthchecker, we migrated the healthchecker package out of cf-networking-helpers into its own release.
+  **Full Changelog**: https://github.com/cloudfoundry/routing-release/compare/0.254.0...v0.255.0
+  ✨ Built with go 1.19.5
+          </pre>
+        </details>
+      </td>
+    </tr>
+    <tr><td>silk</td><td>3.19.0</td><td></td></tr>
+    <tr><td>smb-volume</td><td>3.1.6</td><td></td></tr>
+    <tr><td>smoke-tests</td><td>4.8.2</td><td></td></tr>
+    <tr><td>syslog</td><td>11.8.6</td><td></td></tr>
+  </tbody>
+</table>
+
+
+
 ### <a id='2.12.17'></a> v2.12.17
 
 **Release Date:** 01/30/2023
