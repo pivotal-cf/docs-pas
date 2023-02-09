@@ -19,16 +19,12 @@ Because VMware uses the Percona Distribution for MySQL, expect a time lag betwee
 
 ### <a id='4.0.0'></a> 4.0.0
 
-**Release Date:** 01/31/2023
+**Release Date:** 02/09/2023
 
-* **[Breaking Change]** Add validation for the **Certificate Authorities trusted by the Gorouter** property in the Networking tab.
-* Bump cf-networking to version `3.19.0`
-* Bump cflinuxfs3 to version `0.350.0`
-* Bump cflinuxfs4 to version `0.59.0`
-* Bump garden-runc to version `1.22.9`
-* Bump loggregator-agent to version `7.0.1`
-* Bump routing to version `0.254.0`
-* Bump silk to version `3.19.0`
+* **[Bug Fix]** Allows docker app workloads without a `sh` binary in the docker image to execute properly.
+* Bump cflinuxfs4 to version `0.61.0`
+* Bump loggregator-agent to version `7.1.0`
+* Bump routing to version `0.255.0`
 
 <table border="1" class="nice">
   <thead>
@@ -39,21 +35,32 @@ Because VMware uses the Percona Distribution for MySQL, expect a time lag betwee
     </tr>
   </thead>
   <tbody>
-    <tr><td>ubuntu-jammy stemcell</td><td>1.75</td><td></td></tr>
+    <tr><td>ubuntu-jammy stemcell</td><td>1.80</td><td></td></tr>
     <tr><td>bpm</td><td>1.1.21</td><td></td></tr>
     <tr><td>cf-networking</td><td>3.19.0</td><td></td></tr>
     <tr><td>cflinuxfs3</td><td>0.350.0</td><td></td></tr>
-    <tr><td>cflinuxfs4</td><td>0.59.0</td><td></td></tr>
+    <tr><td>cflinuxfs4</td><td>0.61.0</td><td></td></tr>
     <tr><td>diego</td><td>2.71.0</td><td></td></tr>
     <tr><td>garden-runc</td><td>1.22.9</td><td></td></tr>
-    <tr><td>loggregator-agent</td><td>7.0.1</td>
+    <tr><td>loggregator-agent</td><td>7.1.0</td>
       <td>
         <details>
-          <summary>v7.0.1</summary>
+          <summary>v7.1.0</summary>
           <pre style="max-width: 30em">
   ## What's Changed
-  * Fix: anonymize URL in syslog drain logs and metrics by @ctlong in https://github.com/cloudfoundry/loggregator-agent-release/pull/186
-  **Full Changelog**: https://github.com/cloudfoundry/loggregator-agent-release/compare/v7.0.0...v7.0.1
+  * Add app-id and drain url in the error message by @chombium in https://github.com/cloudfoundry/loggregator-agent-release/pull/212
+  ## New Contributors
+  * @chombium made their first contribution in https://github.com/cloudfoundry/loggregator-agent-release/pull/212
+  **Full Changelog**: https://github.com/cloudfoundry/loggregator-agent-release/compare/v7.0.2...v7.1.0
+          </pre>
+        </details>
+        <details>
+          <summary>v7.0.2</summary>
+          <pre style="max-width: 30em">
+  ## What's Changed
+  * Sanitize ProcID in syslog messages so messages with utf-8 in the source_type are not dropped by @Benjamintf1 in https://github.com/cloudfoundry/loggregator-agent-release/pull/200
+  * Update dependencies
+  **Full Changelog**: https://github.com/cloudfoundry/loggregator-agent-release/compare/v7.0.1...v7.0.2
           </pre>
         </details>
       </td>
@@ -61,21 +68,14 @@ Because VMware uses the Percona Distribution for MySQL, expect a time lag betwee
     <tr><td>mapfs</td><td>1.2.12</td><td></td></tr>
     <tr><td>metrics-discovery</td><td>3.2.4</td><td></td></tr>
     <tr><td>nfs-volume</td><td>7.1.8</td><td></td></tr>
-    <tr><td>routing</td><td>0.254.0</td>
+    <tr><td>routing</td><td>0.255.0</td>
       <td>
         <details>
-          <summary>v0.254.0</summary>
+          <summary>v0.255.0</summary>
           <pre style="max-width: 30em">
+  [Upgrade healthchecker in release](https://github.com/cloudfoundry/routing-release/commit/ddb43e9e746b009d0ea6e6cf8cf8e7eb059ffafc). In order to limit the scope of packages brought in with the introduction of http healthchecker, we migrated the healthchecker package out of cf-networking-helpers into its own release.
+  **Full Changelog**: https://github.com/cloudfoundry/routing-release/compare/0.254.0...v0.255.0
   ✨ Built with go 1.19.5
-  **Full Changelog**: https://github.com/cloudfoundry/routing-release/compare/0.253.0...v0.254.0
-          </pre>
-        </details>
-        <details>
-          <summary>v0.253.0</summary>
-          <pre style="max-width: 30em">
-  ## What's Changed
-  * Specs to make maxRetries configurable for endpoints and route-services by @domdom82 in https://github.com/cloudfoundry/routing-release/pull/298
-  **Full Changelog**: https://github.com/cloudfoundry/routing-release/compare/0.252.0...v0.253.0
           </pre>
         </details>
       </td>
