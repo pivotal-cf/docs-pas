@@ -19,24 +19,21 @@ Because VMware uses the Percona Distribution for MySQL, expect a time lag betwee
 
 ### <a id='4.0.0'></a> 4.0.0
 
-**Release Date:** 01/31/2023
+**Release Date:** 02/09/2023
 
-* **[Feature Improvement]** Use cflinuxfs4 in metric-registrar smoke tests
-* **[Breaking Change]** Add validation for the **Certificate Authorities trusted by the Gorouter** property in the Networking tab.
-* Bump backup-and-restore-sdk to version `1.18.60`
-* Bump cf-autoscaling to version `249.1.1`
-* Bump cf-networking to version `3.19.0`
-* Bump cflinuxfs3 to version `0.350.0`
-* Bump cflinuxfs4 to version `0.59.0`
-* Bump garden-runc to version `1.22.9`
-* Bump loggregator to version `107.0.0`
-* Bump loggregator-agent to version `7.0.1`
-* Bump metric-registrar to version `2.1.0`
-* Bump nats to version `56`
-* Bump pxc to version `1.0.7`
-* Bump routing to version `0.254.0`
-* Bump ruby-offline-buildpack to version `1.9.0`
-* Bump silk to version `3.19.0`
+* **[Feature Improvement]** Use cflinuxfs4 when pushing apps in deploy-autoscaler and test-autoscaling errands
+* **[Bug Fix]** Allows docker app workloads without a `sh` binary in the docker image to execute properly.
+* **[Bug Fix]** Validate user when inviting to org and provide informative error if already member of org
+* **[Bug Fix]** [Cloud Controller] Truncate large errors from Service Brokers
+* Bump backup-and-restore-sdk to version `1.18.61`
+* Bump capi to version `1.144.0`
+* Bump cflinuxfs4 to version `0.61.0`
+* Bump java-offline-buildpack to version `4.54`
+* Bump loggregator-agent to version `7.1.0`
+* Bump metric-registrar to version `2.1.1`
+* Bump push-apps-manager-release to version `677.0.14`
+* Bump push-usage-service-release to version `674.0.30`
+* Bump routing to version `0.255.0`
 
 <table border="1" class="nice">
   <thead>
@@ -47,23 +44,26 @@ Because VMware uses the Percona Distribution for MySQL, expect a time lag betwee
     </tr>
   </thead>
   <tbody>
-    <tr><td>ubuntu-jammy stemcell</td><td>1.75</td><td></td></tr>
-    <tr><td>backup-and-restore-sdk</td><td>1.18.60</td>
+    <tr><td>ubuntu-jammy stemcell</td><td>1.80</td><td></td></tr>
+    <tr><td>backup-and-restore-sdk</td><td>1.18.61</td>
       <td>
         <details>
-          <summary>v1.18.60</summary>
+          <summary>v1.18.61</summary>
           <pre style="max-width: 30em">
   ## Changes
-  * Support postgres 15 (#785)
-  * Update vendored package golang-1-linux (#800)
-  * chore: remove usage of ioutil (#809)
+  * Bump mysql from 5.7.39 to 5.7.40 (#849)
+  * Bump ncurses from 6.3 to 6.4 (#847)
+  * Download gnu-keyring on every execution (#840)
+  * Fix gpg verify command (#846)
+  * Golang: Updated to v1.19.5 (#834)
+  * Update autobump-ncurses.sh (#839)
   ## Dependencies
-  * **storage:** Updated to v1.28.1.<br>For more information, see [storage](https://github.com/googleapis/google-cloud-go).
-  * **aws-sdk-go:** Updated to v1.44.157.<br>For more information, see [aws-sdk-go](https://github.com/aws/aws-sdk-go).
-  * **mysql:** Updated to v1.7.0.<br>For more information, see [mysql](https://github.com/go-sql-driver/mysql).
-  * **gomega:** Updated to v1.24.2.<br>For more information, see [gomega](https://github.com/onsi/gomega).
-  * **net:** Updated to v0.4.0.<br>For more information, see [net](https://github.com/golang/net).
-  * **api:** Updated to v0.104.0.<br>For more information, see [api](https://github.com/googleapis/google-api-go-client).
+  * **aws-sdk-go:** Updated to v1.44.180.<br>For more information, see [aws-sdk-go](https://github.com/aws/aws-sdk-go).
+  * **bosh-backup-and-restore:** Updated to v1.9.39.<br>For more information, see [bosh-backup-and-restore](https://github.com/cloudfoundry-incubator/bosh-backup-and-restore).
+  * **gomega:** Updated to v1.25.0.<br>For more information, see [gomega](https://github.com/onsi/gomega).
+  * **net:** Updated to v0.5.0.<br>For more information, see [net](https://github.com/golang/net).
+  * **oauth2:** Updated to v0.4.0.<br>For more information, see [oauth2](https://github.com/golang/oauth2).
+  * **api:** Updated to v0.107.0.<br>For more information, see [api](https://github.com/googleapis/google-api-go-client).
           </pre>
         </details>
       </td>
@@ -71,85 +71,108 @@ Because VMware uses the Percona Distribution for MySQL, expect a time lag betwee
     <tr><td>binary-offline-buildpack</td><td>1.1.0</td><td></td></tr>
     <tr><td>bosh-dns-aliases</td><td>0.0.4</td><td></td></tr>
     <tr><td>bpm</td><td>1.1.21</td><td></td></tr>
-    <tr><td>capi</td><td>1.143.0</td><td></td></tr>
-    <tr><td>cf-autoscaling</td><td>249.1.1</td>
-      <td>
-        <details>
-          <summary>v249.1.1</summary>
-          <pre style="max-width: 30em">
-  ## What's Changed
-  * Bump golang to 1.19.5
-  * Bump `org.apache.tomcat.embed:tomcat-embed-websocket` to 9.0.70 to address [CVE-2022-45143](https://nvd.nist.gov/vuln/detail/CVE-2022-45143)
-  **Full Changelog**: https://github.com/pivotal-cf/cf-autoscaling-release/compare/v249.1.0...v249.1.1
-          </pre>
-        </details>
-        <details>
-          <summary>v249.1.0</summary>
-          <pre style="max-width: 30em">
-  * update dependencies.
-  * add cflinux stack as a bosh property
-          </pre>
-        </details>
-      </td>
-    </tr>
+    <tr><td>capi</td><td>1.144.0</td><td></td></tr>
+    <tr><td>cf-autoscaling</td><td>249.1.1</td><td></td></tr>
     <tr><td>cf-cli</td><td>1.41.0</td><td></td></tr>
     <tr><td>cf-networking</td><td>3.19.0</td><td></td></tr>
     <tr><td>cflinuxfs3</td><td>0.350.0</td><td></td></tr>
-    <tr><td>cflinuxfs4</td><td>0.59.0</td><td></td></tr>
+    <tr><td>cflinuxfs4</td><td>0.61.0</td><td></td></tr>
     <tr><td>credhub</td><td>2.12.18</td><td></td></tr>
     <tr><td>diego</td><td>2.71.0</td><td></td></tr>
     <tr><td>dotnet-core-offline-buildpack</td><td>2.4.5</td><td></td></tr>
     <tr><td>garden-runc</td><td>1.22.9</td><td></td></tr>
     <tr><td>go-offline-buildpack</td><td>1.10.2</td><td></td></tr>
-    <tr><td>java-offline-buildpack</td><td>4.53</td><td></td></tr>
-    <tr><td>log-cache</td><td>2.12.3</td><td></td></tr>
-    <tr><td>loggregator</td><td>107.0.0</td>
+    <tr><td>java-offline-buildpack</td><td>4.54</td>
       <td>
         <details>
-          <summary>v107.0.0</summary>
+          <summary>4.54</summary>
           <pre style="max-width: 30em">
-  Remove RecentLogsHandler from Traffic Controller. Traffic Controller has been providing recent logs as a fallback for environments/tools which had not moved to retrieving recent logs directly from Log Cache. With this change older versions of the cf CLI v6 will no longer be able to retrieve recent logs from Cloud Foundry.
-  We are making this change as Log Cache has been the correct way of retrieving these logs for many years and the legacy support was causing issues with the splitting out of Log Cache from Dopplers.
-  ## What's Changed
-  * Remove RecentLogsHandler by @rroberts2222 in https://github.com/cloudfoundry/loggregator-release/pull/486
-  * Bump golang.org/x/net from 0.3.0 to 0.4.0 in /src by @dependabot in https://github.com/cloudfoundry/loggregator-release/pull/487
-  * Delete unused manifests & scripts, clean up README by @rroberts2222 in https://github.com/cloudfoundry/loggregator-release/pull/488
-  * fix go module path by @Benjamintf1 in https://github.com/cloudfoundry/loggregator-release/pull/490
-  **Full Changelog**: https://github.com/cloudfoundry/loggregator-release/compare/v106.7.5...v107.0.0
+  I'm pleased to announce the release of the java-buildpack, version 4.54. It primarily includes new OpenJDK versions, which are based on the Oracle Java Quarterly Updates for Jan 2023.
+  This release includes the following:
+  * A fix for offline packaging for the cflinuxfs4/jammy platform (#986 )
+  * Support for SPlunk Otel Java Framework (#968 - thanks to @breedx-splk)
+  * A change to use the default-repository-root URI for the Apache Skywalking Framework (#983 - thanks to @mayrstefan)
+  For a more detailed look at the changes in 4.54, please take a look at the [commit log](https://github.com/cloudfoundry/java-buildpack/compare/v4.53...v4.54). The packaged version of the buildpack, suitable for use with create-buildpack and update-buildpack, can be found attached to this release.
+  | Dependency | Version | CVEs | Release Notes |
+  | ---------- | ------- | ---- | ------------- |
+  | AppDynamics Agent | `22.9.2_34409` | | [Release Notes](https://docs.appdynamics.com/4.5.x/en/product-and-release-announcements/release-notes/language-agent-notes/java-agent-notes) |
+  | Azure Application Insights Agent | `2.6.4` | | [Release Notes](https://github.com/Microsoft/ApplicationInsights-Java/releases) |
+  | CA Introscope APM Framework | `22.11.0_11` | |  |
+  | Client Certificate Mapper | `1.11.0_RELEASE` |Included inline above | Included inline above |
+  | Container Security Provider | `1.19.0_RELEASE` |Included inline above | Included inline above |
+  | Contrast Security Agent | `3.18.1` | | [Release Notes](https://docs.contrastsecurity.com/en/java-agent-release-notes.html) |
+  | Datadog APM Javaagent | `1.5.0` | | [Release Notes](https://github.com/DataDog/dd-trace-java/releases) |
+  | Elastic APM Agent | `1.35.0` | | [Release Notes](https://www.elastic.co/guide/en/apm/agent/java/current/release-notes.html) |
+  | Gemalto Luna Security Provider | `7.4.0` | | [Release Notes](https://www.thalesdocs.com/gphsm/luna/7/docs/network/Content/CRN/Luna/CRN_Luna.htm) |
+  | Geode Tomcat Session Store | `1.12.5` | |  |
+  | Google Stackdriver Debugger | `2.32.0` | | [Release Notes](https://cloud.google.com/debugger/docs/release-notes) |
+  | Google Stackdriver Profiler | `0.1.0` | | [Release Notes](https://cloud.google.com/profiler/docs/release-notes) |
+  | Groovy | `2.5.20` | | [Release Notes](http://www.groovy-lang.org/releases.html) |
+  | JaCoCo Agent | `0.8.8` | | [Release Notes](https://github.com/jacoco/jacoco/releases) |
+  | Java Memory Assistant Agent | `0.5.0` | |  |
+  | Java Memory Assistant Clean Up | `0.1.0` | |  |
+  | JProfiler Profiler | `12.0.4` | | [ChangeLog](https://www.ej-technologies.com/download/jprofiler/changelog.html) |
+  | JRebel Agent | `2022.4.2` | | [ChangeLog](https://www.jrebel.com/products/jrebel/changelog) |
+  | jvmkill Agent | `1.17.0_RELEASE` |Included inline above | Included inline above |
+  | MariaDB JDBC Driver | `2.7.2` | | [Release Notes](https://mariadb.com/kb/en/mariadb-connector-j-274-release-notes/) |
+  | Memory Calculator | `3.13.0_RELEASE` |Included inline above | Included inline above |
+  | Metric Writer | `3.5.0_RELEASE` |Included inline above | Included inline above |
+  | New Relic Agent | `7.11.1` | | [Release Notes](https://docs.newrelic.com/docs/release-notes/agent-release-notes/java-release-notes/) |
+  | OpenJDK JRE 11 | `11.0.18_10` |[Risk Matrix](https://www.oracle.com/security-alerts/cpuoct2022.html#AppendixJAVA) | [Release Notes](https://bell-sw.com/pages/liberica-release-notes-11.0.18/) |
+  | OpenJDK JRE 17 | `17.0.6_10` |[Risk Matrix](https://www.oracle.com/security-alerts/cpuoct2022.html#AppendixJAVA) | [Release Notes](https://bell-sw.com/pages/liberica-release-notes-17.0.6/) |
+  | OpenJDK JRE 8 | `1.8.0_362` |[Risk Matrix](https://www.oracle.com/security-alerts/cpuoct2022.html#AppendixJAVA) | [Release Notes](https://bell-sw.com/pages/liberica-release-notes-8u362/) |
+  | PostgreSQL JDBC Driver | `42.5.1` | | [ChangeLog](https://jdbc.postgresql.org/documentation/changelog.html) |
+  | Redis Session Store | `1.3.6_RELEASE` |Included inline above | Included inline above |
+  | Riverbed Appinternals Agent | `11.8.5_BL527` | |  |
+  | SeaLights Agent | `4.0.2204` | |  |
+  | SkyWalking | `8.9.0` | | [ChangeLog](https://github.com/apache/skywalking/tree/master/changes) |
+  | Splunk OpenTelemetry Java Agent | `1.20.0` | | [Release Notes](https://github.com/signalfx/splunk-otel-java/releases) |
+  | Spring Auto-reconfiguration | `2.12.0_RELEASE` |Included inline above | Included inline above |
+  | Spring Boot CLI | `2.7.8` | |  |
+  | Spring Boot Container Customizer | `2.6.0_RELEASE` |Included inline above | Included inline above |
+  | Tomcat | `9.0.71` |[Security](https://tomcat.apache.org/security-9.html) | [ChangeLog](https://tomcat.apache.org/tomcat-9.0-doc/changelog.html) |
+  | Tomcat Access Logging Support | `3.4.0_RELEASE` |Included inline above | Included inline above |
+  | Tomcat Lifecycle Support | `3.4.0_RELEASE` |Included inline above | Included inline above |
+  | Tomcat Logging Support | `3.4.0_RELEASE` |Included inline above | Included inline above |
+  | YourKit Profiler | `2022.9.177` | | [Release Notes](https://www.yourkit.com/download/yjp_2022_3_builds.jsp) |
           </pre>
         </details>
       </td>
     </tr>
-    <tr><td>loggregator-agent</td><td>7.0.1</td>
+    <tr><td>log-cache</td><td>2.12.3</td><td></td></tr>
+    <tr><td>loggregator</td><td>107.0.0</td><td></td></tr>
+    <tr><td>loggregator-agent</td><td>7.1.0</td>
       <td>
         <details>
-          <summary>v7.0.1</summary>
+          <summary>v7.1.0</summary>
           <pre style="max-width: 30em">
   ## What's Changed
-  * Fix: anonymize URL in syslog drain logs and metrics by @ctlong in https://github.com/cloudfoundry/loggregator-agent-release/pull/186
-  **Full Changelog**: https://github.com/cloudfoundry/loggregator-agent-release/compare/v7.0.0...v7.0.1
+  * Add app-id and drain url in the error message by @chombium in https://github.com/cloudfoundry/loggregator-agent-release/pull/212
+  ## New Contributors
+  * @chombium made their first contribution in https://github.com/cloudfoundry/loggregator-agent-release/pull/212
+  **Full Changelog**: https://github.com/cloudfoundry/loggregator-agent-release/compare/v7.0.2...v7.1.0
+          </pre>
+        </details>
+        <details>
+          <summary>v7.0.2</summary>
+          <pre style="max-width: 30em">
+  ## What's Changed
+  * Sanitize ProcID in syslog messages so messages with utf-8 in the source_type are not dropped by @Benjamintf1 in https://github.com/cloudfoundry/loggregator-agent-release/pull/200
+  * Update dependencies
+  **Full Changelog**: https://github.com/cloudfoundry/loggregator-agent-release/compare/v7.0.1...v7.0.2
           </pre>
         </details>
       </td>
     </tr>
     <tr><td>mapfs</td><td>1.2.12</td><td></td></tr>
-    <tr><td>metric-registrar</td><td>2.1.0</td>
+    <tr><td>metric-registrar</td><td>2.1.1</td>
       <td>
         <details>
-          <summary>v2.1.0</summary>
+          <summary>v2.1.1</summary>
           <pre style="max-width: 30em">
   ## What's Changed
-  * update dependencies
-  * add cflinux stack as a bosh property
-          </pre>
-        </details>
-        <details>
-          <summary>v2.0.1</summary>
-          <pre style="max-width: 30em">
-  - bump-golang to v0.114.0 for golang 1.19.4
-  - Bump google.golang.org/grpc from 1.50.1 to 1.51.0 in /src
-  - Bump github.com/onsi/gomega from 1.24.0 to 1.24.1 in /src/tools
-  - remove unneeded appinfo getter (#91)
+  * Bump dependencies
+  **Full Changelog**: https://github.com/pivotal-cf/metric-registrar-release/compare/v2.1.0...v2.1.1
           </pre>
         </details>
       </td>
@@ -163,85 +186,35 @@ Because VMware uses the Percona Distribution for MySQL, expect a time lag betwee
     <tr><td>notifications</td><td>62</td><td></td></tr>
     <tr><td>notifications-ui</td><td>40</td><td></td></tr>
     <tr><td>php-offline-buildpack</td><td>4.5.0</td><td></td></tr>
-    <tr><td>push-apps-manager-release</td><td>677.0.13</td><td></td></tr>
+    <tr><td>push-apps-manager-release</td><td>677.0.14</td><td></td></tr>
     <tr><td>push-offline-docs-release</td><td>1.0.94</td><td></td></tr>
-    <tr><td>push-usage-service-release</td><td>674.0.29</td><td></td></tr>
-    <tr><td>pxc</td><td>1.0.7</td>
+    <tr><td>push-usage-service-release</td><td>674.0.30</td>
       <td>
         <details>
-          <summary>v1.0.7</summary>
+          <summary>v674.0.30</summary>
           <pre style="max-width: 30em">
-  **Important** pxc-release v1.0 is a major database upgrade from Percona XtraDB Cluster 5.7 to Percona XtraDB Cluster 8.0
-  **New Features**
-  - Bumped Percona XtraDB Cluster 5.7 to v5.7.40-31.63
-  - Bumped Percona XtraDB Cluster 8.0 to v8.0.30-22
-  - Bumped Percona Xtrabackup 8.0 to v8.0.30-23
+  ## Dependencies
+  * **app-usage-service:** Updated to v`c107e47`.<br>For more information, see [app-usage-service](https://github.com/pivotal-cf/app-usage-service).
           </pre>
         </details>
       </td>
     </tr>
+    <tr><td>pxc</td><td>1.0.7</td><td></td></tr>
     <tr><td>python-offline-buildpack</td><td>1.8.4</td><td></td></tr>
     <tr><td>r-offline-buildpack</td><td>1.1.36</td><td></td></tr>
-    <tr><td>routing</td><td>0.254.0</td>
+    <tr><td>routing</td><td>0.255.0</td>
       <td>
         <details>
-          <summary>v0.254.0</summary>
+          <summary>v0.255.0</summary>
           <pre style="max-width: 30em">
+  [Upgrade healthchecker in release](https://github.com/cloudfoundry/routing-release/commit/ddb43e9e746b009d0ea6e6cf8cf8e7eb059ffafc). In order to limit the scope of packages brought in with the introduction of http healthchecker, we migrated the healthchecker package out of cf-networking-helpers into its own release.
+  **Full Changelog**: https://github.com/cloudfoundry/routing-release/compare/0.254.0...v0.255.0
   ✨ Built with go 1.19.5
-  **Full Changelog**: https://github.com/cloudfoundry/routing-release/compare/0.253.0...v0.254.0
-          </pre>
-        </details>
-        <details>
-          <summary>v0.253.0</summary>
-          <pre style="max-width: 30em">
-  ## What's Changed
-  * Specs to make maxRetries configurable for endpoints and route-services by @domdom82 in https://github.com/cloudfoundry/routing-release/pull/298
-  **Full Changelog**: https://github.com/cloudfoundry/routing-release/compare/0.252.0...v0.253.0
           </pre>
         </details>
       </td>
     </tr>
-    <tr><td>ruby-offline-buildpack</td><td>1.9.0</td>
-      <td>
-        <details>
-          <summary>1.9.0</summary>
-          <pre style="max-width: 30em">
-  * Add support for cflinuxfs4 stack
-  * Update default ruby version to 3.1
-  * Remove deprecated bundler 1.x version line (#650)
-  * supply: remove ruby.exe symlinking
-  This seems to be from a heroku era effort to support windows.
-  * openjdk8: update dependency
-  Packaged binaries:
-  | name | version | cf_stacks |
-  |-|-|-|
-  | bundler | 2.3.26 | cflinuxfs3, cflinuxfs4 |
-  | jruby | 9.3.9.0 | cflinuxfs3 |
-  | jruby | 9.3.9.0 | cflinuxfs4 |
-  | jruby | 9.4.0.0 | cflinuxfs3 |
-  | jruby | 9.4.0.0 | cflinuxfs4 |
-  | node | 18.12.1 | cflinuxfs3 |
-  | node | 18.12.1 | cflinuxfs4 |
-  | openjdk1.8-latest | 1.8.0 | cflinuxfs3, cflinuxfs4 |
-  | ruby | 2.7.6 | cflinuxfs3 |
-  | ruby | 2.7.7 | cflinuxfs3 |
-  | ruby | 3.0.4 | cflinuxfs3 |
-  | ruby | 3.0.5 | cflinuxfs3 |
-  | ruby | 3.1.2 | cflinuxfs3 |
-  | ruby | 3.1.3 | cflinuxfs3 |
-  | ruby | 3.1.3 | cflinuxfs4 |
-  | rubygems | 3.3.26 | cflinuxfs3, cflinuxfs4 |
-  | yarn | 1.22.19 | cflinuxfs3, cflinuxfs4 |
-  Default binary versions:
-  | name | version |
-  |-|-|
-  | ruby | 3.1.x |
-  * Uncached buildpack SHA256: c0ecb20c3135d572deb13cccbd2b7a8065b2b355609d2ab5d4bb71cc5963c0b8
-  * Uncached buildpack SHA256: ab48ac40a7fc03dd1511508f8aaafd788af5bf9f764cdd3127e40a6e12f84cd2
-          </pre>
-        </details>
-      </td>
-    </tr>
+    <tr><td>ruby-offline-buildpack</td><td>1.9.0</td><td></td></tr>
     <tr><td>silk</td><td>3.19.0</td><td></td></tr>
     <tr><td>smb-volume</td><td>3.1.6</td><td></td></tr>
     <tr><td>smoke-tests</td><td>4.8.2</td><td></td></tr>
