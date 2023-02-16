@@ -269,6 +269,7 @@ Because VMware uses the Percona Distribution for MySQL, expect a time lag betwee
 * **[Feature Improvement]** vxlan-policy-agent logs when asgs are updated
 * **[Bug Fix]** Fix issues with secure scraping with rolling deploys and with ncp
 * **[Bug Fix]** Support for asynchronous service binding creating in Space Manifests
+* **[Potential Breaking Change]** This release includes bumping Ruby Buildpack to 1.9.0. Note that Ruby Buildpack 1.9.x defaults to Ruby 3.1 and this may cause errors for some Ruby apps if they aren’t compatible with Ruby 3.x. See [Knowlegebase article 16520](https://community.pivotal.io/s/article/Ruby-Buildpack-1-9-x-defaults-to-Ruby-3-1?language=en_US) for details.
 * Bump backup-and-restore-sdk to version `1.18.60`
 * Bump capi to version `1.143.0`
 * Bump cf-autoscaling to version `249.1.1`
@@ -1512,7 +1513,7 @@ Because VMware uses the Percona Distribution for MySQL, expect a time lag betwee
   ## What's Changed
   * Switch to healthecker package in cf-networking-helpers by @mariash in https://github.com/cloudfoundry/routing-release/pull/302
   * Add healthchecker package to sync-package-specs file by @mariash in https://github.com/cloudfoundry/routing-release/pull/303
-  * **Potential Breaking Change:** In preperation for mtls between gorouter and routing api, add gorouter backends ca to routing-api. Rendering these certs depends on routing-api consuming a link from gorouter. If you have multiple gorouter instance groups (for example in the case of isolation segments), you will need to rename bosh links to prevent the error "Multiple link providers found. For an example of link renaming, see [this ops file](https://github.com/cloudfoundry/cf-deployment/blob/main/operations/test/add-persistent-isolation-segment-router.yml#L74) by @reneighbor in https://github.com/cloudfoundry/routing-release/pull/300
+  * **Potential Breaking Change:** In preparation for mtls between gorouter and routing api, add gorouter backends ca to routing-api. Rendering these certs depends on routing-api consuming a link from gorouter. If you have multiple gorouter instance groups (for example in the case of isolation segments), you will need to rename bosh links to prevent the error "Multiple link providers found. For an example of link renaming, see [this ops file](https://github.com/cloudfoundry/cf-deployment/blob/main/operations/test/add-persistent-isolation-segment-router.yml#L74) by @reneighbor in https://github.com/cloudfoundry/routing-release/pull/300
   * Ensure gorouter-healthchecker doesn't restart gorouter forever on failure by @geofffranks in https://github.com/cloudfoundry/routing-release/pull/305
   **Full Changelog**: https://github.com/cloudfoundry/routing-release/compare/0.248.0...v0.249.0
           </pre>
@@ -2945,7 +2946,7 @@ Reconfiguration by Default](#auto-reconfig-disallowed) below.
 * **[Feature]** Dynamic ASGs are now allowed by default. If you wish to keep them off, you must manually disallow them through the
 <%= vars.app_runtime_abbr %> tile before deploying.
 * **[Feature]** Adding audit events to system logs; enabled by default
-* **[Experimental Feature]** Allow operators to enable **CPU Burst Optimization**. When this feature is enabled, 
+* **[Experimental Feature]** Allow operators to enable **CPU Burst Optimization**. When this feature is enabled,
 apps that stay within their CPU entitlements (on average) will be prioritized when bursting. Operators can enable this experimental feature in the App Containers tab.
 * **[Feature Improvement]** Add Java Buildpack for `cflinuxfs4`
 * **[Feature Improvement]** Bump component releases in time for <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>
@@ -3382,7 +3383,7 @@ TAS still emits the ActiveLocks metric, but we no longer encourage users to acti
 
 ### <a id='cflinuxfs4-java'></a> Java Buildpack Support for `cflinuxfs4`
 
-A bug related to packaging the `java_buildpack_offline` for the `cflinuxfs4` stack prevents apps from staging on this stack. 
+A bug related to packaging the `java_buildpack_offline` for the `cflinuxfs4` stack prevents apps from staging on this stack.
 
 This affects <%= vars.app_runtime_abbr %> 3.0.x versions containing the `java_buildpack_offline` up to v4.53, and will be fixed in the next buildpack version, v4.54.
 
