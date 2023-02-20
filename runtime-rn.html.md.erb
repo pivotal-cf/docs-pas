@@ -5388,7 +5388,7 @@ Traffic](../concepts/understand-cf-networking.html#securing-traffic) in _Contain
 ## <a id='upgrade'></a> How to Upgrade
 
 To upgrade to <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>, see [Configuring <%= vars.app_runtime_abbr %> for
-Upgrades](../../operating/configuring.html).
+Upgrades](../operating/configuring.html).
 
 When upgrading to <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>, be aware of the following upgrade considerations:
 
@@ -5429,17 +5429,17 @@ Over the lifecycle of <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>, 
 include feature enhancements and maintenance updates. <%= vars.company_name %> will also continue to release new versions of <%= vars.app_runtime_abbr %>.
 
 You can jump upgrade directly from previous versions of <%= vars.app_runtime_abbr %> to the LTS version of <%= vars.app_runtime_abbr %>. For more information,
-see [Jump Upgrading to <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>](../../operating/jump-upgrades.html).
+see [Jump Upgrading to <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>](../operating/jump-upgrades.html).
 
 ### <a id='vcf-compatibility'></a> Deployment on VMware Cloud Foundation
 
 <%= vars.app_runtime_abbr %> <%= vars.v_major_version %> can be deployed on VMware Cloud Foundation (VCF) v4.1. For instructions and more information, see
-[Deploying <%= vars.app_runtime_abbr %> to VCF](../../operating/vmc.html).
+[Deploying <%= vars.app_runtime_abbr %> to VCF](../operating/vmc.html).
 
 ### <a id='vmc-compatibility'></a> Deployment on VMware Cloud on Amazon Web Services
 
 <%= vars.app_runtime_abbr %> <%= vars.v_major_version %> can be deployed to VMware Cloud (VMC) on Amazon Web Services (AWS). For instructions and more
-information, see [Deploying <%= vars.app_runtime_abbr %> to VMC](../../operating/vcf.html).
+information, see [Deploying <%= vars.app_runtime_abbr %> to VMC](../operating/vcf.html).
 
 ### <a id='timestamps'></a> Timestamp Format for Component Logs Replaces Timestamp Format for Diego Logs
 
@@ -5454,7 +5454,7 @@ RFC3339-formatted timestamps follow the RFC3339 spec, include nine points of pre
 * 2019-11-21T22:16:18.750000000Z
 
 For more information about configuring the **Timestamp format for component logs** field, see [(Optional) Configure System
-Logging](../../operating/configure-pas.html#sys-logging) in _Configuring <%= vars.app_runtime_abbr %>_.
+Logging](../operating/configure-pas.html#sys-logging) in _Configuring <%= vars.app_runtime_abbr %>_.
 
 In <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>, if you select the **Converge to human-readable RFC3339 format** option under **Timestamp format
 for component logs**, then the following components and related jobs use RFC3339 timestamps:
@@ -5500,7 +5500,7 @@ In <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>, the **Disable SSL c
 
 Before you upgrade to <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>, you must deactivate the **Disable SSL certificate verification for this
 environment** checkbox in the **Networking** pane of the <%= vars.app_runtime_abbr %> tile. For more information, see _Configure Networking_ in [Configuring
-<%= vars.app_runtime_abbr %>](../../operating/configure-pas.html#networking).
+<%= vars.app_runtime_abbr %>](../operating/configure-pas.html#networking).
 
 If the **Disable SSL certificate verification for this environment** checkbox is activated when you try to upgrade to <%= vars.app_runtime_abbr %>, the
 upgrade fails with the following error:
@@ -5643,7 +5643,7 @@ When you configure the CredHub server for <%= vars.app_runtime_abbr %>, you must
 <%= vars.v_major_version %>, if you do not select a primary encryption key, or if you mark more than one key as the primary encryption key, deployment fails
 more quickly than in previous releases of <%= vars.app_runtime_abbr %>.
 
-For more information, see [Configure CredHub](../../operating/configure-pas.html#credhub) in _Configuring <%= vars.app_runtime_abbr %>_.
+For more information, see [Configure CredHub](../operating/configure-pas.html#credhub) in _Configuring <%= vars.app_runtime_abbr %>_.
 
 ### <a id='capi-v2'></a> Apps Manager Uses the CAPI V2 Endpoint
 

@@ -1726,9 +1726,9 @@ The <%= vars.segment_runtime_full %> <%= vars.v_major_version %> tile is availab
 
 Isolation segments provide dedicated pools of resources where you can deploy apps and isolate workloads. Using isolation segments separates app resources as
 completely as if they were in different deployments but avoids redundant management and network complexity. For more information about isolation segments, see
-[Isolation Segments](../../concepts/security.html#isolation-segments) in _<%= vars.app_runtime_abbr %> Security_.
+[Isolation Segments](../concepts/security.html#isolation-segments) in _<%= vars.app_runtime_abbr %> Security_.
 
-For more information about using isolation segments in your deployment, see [Managing Isolation Segments](../../adminguide/isolation-segments.html).
+For more information about using isolation segments in your deployment, see [Managing Isolation Segments](../adminguide/isolation-segments.html).
 
 
 ## <a id='install'></a> How to Install
@@ -1740,7 +1740,7 @@ To use the <%= vars.segment_runtime_full %> <%= vars.v_major_version %> tile, yo
 <%= vars.v_major_version %> or later.
 
 To install <%= vars.segment_runtime_full %> <%= vars.v_major_version %>, see [Installing
-<%= vars.segment_runtime_full %>](../../operating/installing-pcf-is.html).
+<%= vars.segment_runtime_full %>](../operating/installing-pcf-is.html).
 
 
 ## <a id='new-features'></a> New Features in <%= vars.segment_runtime_full %> <%= vars.v_major_version %>
@@ -1752,7 +1752,7 @@ To install <%= vars.segment_runtime_full %> <%= vars.v_major_version %>, see [In
 When validating requests using mutual TLS to back ends and route services, the Gorouter trusts multiple certificate authorities (CAs) by default. In
 <%= vars.segment_runtime_full %> <%= vars.v_major_version %>, you can configure which CA certificates the Gorouter trusts.
 
-For more information, see [Configure Networking](../../operating/installing-pcf-is.html#networking) in _Installing <%= vars.segment_runtime_full %>_.
+For more information, see [Configure Networking](../operating/installing-pcf-is.html#networking) in _Installing <%= vars.segment_runtime_full %>_.
 
 
 ## <a id='breaking-changes'></a> Breaking Changes
@@ -1765,7 +1765,7 @@ In <%= vars.segment_runtime_full %> <%= vars.v_major_version %>, the option to d
 
 Before you upgrade to <%= vars.segment_runtime_full %> <%= vars.v_major_version %>, you must deactivate the **Disable SSL certificate verification** checkbox
 in the **Networking** pane of the <%= vars.app_runtime_abbr %> tile. For more information, see [Configure
-Networking](../../operating/configure-pas.html#networking) in _Configuring <%= vars.app_runtime_abbr %>_.
+Networking](../operating/configure-pas.html#networking) in _Configuring <%= vars.app_runtime_abbr %>_.
 
 If the **Disable SSL certificate verification for this environment** checkbox is activated when you try to upgrade to <%= vars.segment_runtime_full %>, the
 upgrade fails with the following error:
