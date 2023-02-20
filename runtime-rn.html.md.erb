@@ -14,8 +14,8 @@ Because VMware uses the Percona Distribution for MySQL, expect a time lag betwee
 <%= vars.app_runtime_abbr %> containing that patch.
 
 **Required Cloud Foundry Command-Line Interface (cf CLI) version:** You must install cf CLI v7 or cf CLI v8 when upgrading to or using
-<%= vars.app_runtime_abbr %> <%= vars.v_major_version %>. For more information, see [Upgrading to cf CLI v7](../../cf-cli/v7.html) and [Upgrading to cf CLI
-v8](../../cf-cli/v8.html).
+<%= vars.app_runtime_abbr %> <%= vars.v_major_version %>. For more information, see [Upgrading to cf CLI v7](../cf-cli/v7.html) and [Upgrading to cf CLI
+v8](../cf-cli/v8.html).
 
 <hr>
 
@@ -4508,7 +4508,7 @@ instance. If you specify a service instance, Autoscaler only requests metrics fr
 ## <a id='upgrade'></a> How to Upgrade
 
 To upgrade to <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>, see [Configuring <%= vars.app_runtime_abbr %> for
-Upgrades](../../operating/configuring.html).
+Upgrades](../operating/configuring.html).
 
 When upgrading to <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>, be aware of the following upgrade considerations:
 
@@ -4538,7 +4538,7 @@ You can update the destination protocol using Apps Manager or cf CLI v8.
 Before you can update the destination app protocol, you must activate HTTP/2 ingress and egress for the Gorouter. This option is activate by default in the
 **Networking** pane of the <%= vars.app_runtime_abbr %> tile.
 
-To update the destination app protocol in Apps Manager, see [Change the Destination Protocol for a Route](../../console/manage-apps.html#route-protocol) in
+To update the destination app protocol in Apps Manager, see [Change the Destination Protocol for a Route](../console/manage-apps.html#route-protocol) in
 _Managing Apps and Service Instances Using Apps Manager_.
 
 To update the destination app protocol using cf CLI v8:
@@ -4636,13 +4636,13 @@ In <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>, App Autoscaler can 
 previous releases of <%= vars.app_runtime_abbr %>, App Autoscaler only scaled app instances up or down by one instance at a time. You can configure scaling
 factors using the App Autoscaler API or the App Autoscaler CLI plugin.
 
-To configure scaling factors using the API, see [Update an App Binding](../../appsman-services/autoscaler/using-autoscaler-api.html#update-app) in _Using the
+To configure scaling factors using the API, see [Update an App Binding](../appsman-services/autoscaler/using-autoscaler-api.html#update-app) in _Using the
 App Autoscaler API_.
 
 To configure scaling factors using the App Autoscaler CLI plugin, see [Update Scaling
-Factors](../../appsman-services/autoscaler/using-autoscaler-cli.html#updating-scaling-factors) in _Using the App Autoscaler CLI_.
+Factors](../appsman-services/autoscaler/using-autoscaler-cli.html#updating-scaling-factors) in _Using the App Autoscaler CLI_.
 
-For more information, see [About App Autoscaler](../../appsman-services/autoscaler/about-app-autoscaler.html).
+For more information, see [About App Autoscaler](../appsman-services/autoscaler/about-app-autoscaler.html).
 
 ### <a id='separate-log-cache'></a> Log Cache Uses Its Own Instance Group
 
@@ -4730,7 +4730,7 @@ tools** checkbox.
 
 1. Click **Apply Changes**.
 
-For more information, see [(Optional) Configure Custom Branding and Apps Manager](../../operating/configure-pas.html#customize-apps-man) in _Configuring
+For more information, see [(Optional) Configure Custom Branding and Apps Manager](../operating/configure-pas.html#customize-apps-man) in _Configuring
 <%= vars.app_runtime_abbr %>_.
 
 
@@ -4800,7 +4800,7 @@ user-provided services might also be affected.
 
 <%= vars.app_runtime_abbr %> <%= vars.v_major_version %> does not support cf CLI v6. You must upgrade to cf CLI v7 or cf CLI v8.
 
-To upgrade to a supported cf CLI version, see [Upgrading to cf CLI v7](../../cf-cli/v7.html) or [Upgrading to cf CLI v8](../../cf-cli/v8.html).
+To upgrade to a supported cf CLI version, see [Upgrading to cf CLI v7](../cf-cli/v7.html) or [Upgrading to cf CLI v8](../cf-cli/v8.html).
 
 
 ## <a id='known-issues'></a> Known Issues
