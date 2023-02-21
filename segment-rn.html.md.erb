@@ -1235,7 +1235,7 @@ Because VMware uses the Percona Distribution for MySQL, expect a time lag betwee
 **Release Date:** 11/23/2021
 
 * **[Feature Improvement]** Enable HTTP/2 for HAProxy
-* **[Bug Fix]** Breaking Change: Any customers with gorouter certificates lacking a SubjectAltName extension will experience failures upon deployment. As a workaround to complete deployment while new certificates are procured, enable the "Enable temporary workaround for certs without SANs" property in the Networking section of the TAS tile. For more information on updating certs, see https://community.pivotal.io/s/article/Routing-and-golang-1-15-X-509-CommonName-deprecation?language=en_US
+* **[Bug Fix]** Breaking Change: Any customers with gorouter certificates lacking a SubjectAltName extension will experience failures upon deployment. As a workaround to complete deployment while new certificates are procured, enable the "Enable temporary workaround for certs without SANs" property in the Networking section of the TAS tile. For more information on updating certs, see the support articlxe [Routing and Golang 1.15 X.509 CommonName deprecation](https://community.pivotal.io/s/article/Routing-and-golang-1-15-X-509-CommonName-deprecation?language=en_US)
 * Bump bpm to version `1.1.15`
 * Bump cf-networking to version `2.40.0`
 * Bump cflinuxfs3 to version `0.264.0`
