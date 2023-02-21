@@ -4548,13 +4548,14 @@ To update the destination app protocol using cf CLI v8:
     ```
     cf update-destination --app-protocol PROTOCOL APP-NAME APP-DOMAIN --hostname HOSTNAME
     ```
-    Where:
-    * `PROTOCOL` is the app protocol you want to use. Valid values are `http1` or `http2`.
-    * `APP-NAME` is the name of your app.
-    * `APP-DOMAIN` is the domain name of your app.
-    * `HOSTNAME` is the hostname of your app.
-    <br>
-    <br>
+    <p>Where:</p>
+    <ul>
+      <li><code>PROTOCOL</code> is the app protocol you want to use. Valid values are <code>http1</code> or <code>http2</code>.</li>
+      <li><code>APP-NAME</code> is the name of your app.</li>
+      <li><code>APP-DOMAIN</code> is the domain name of your app.</li>
+      <li><code>HOSTNAME</code> is the hostname of your app.</li>
+    </ul>
+
     The following example command updates the destination protocol for `example-app` to HTTP/2:
 
     ```
