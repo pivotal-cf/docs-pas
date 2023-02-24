@@ -3279,10 +3279,10 @@ Tiles that are compatible <%= vars.app_runtime_abbr %> <%= vars.v_major_version 
 
 Further, the use of the Jammy Stemcell means TAS now requires an Ops Manager with Jammy support, which means Ops Manager version 2.10.33 or greater.
 
-### <a id='system-metrics-server'></a> BOSH System Metrics Server is Removed
+### <a id='system-metrics-server'></a> BOSH System Metrics Forwarder is Removed
 
-The BOSH System Metrics Server is removed from <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>. To continue receiving system metrics, you must
-activate the **Enable additional System Metrics** checkbox in the **Director Config** pane of the BOSH Director tile.
+The BOSH System Metrics Forwarder is removed from <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>. To continue receiving system metrics, you must
+activate the **Enable System Metrics (recommended)** checkbox in the **Director Config** pane of the BOSH Director tile.
 
 To avoid deployment, platform automation, or data collection failures, you must update any queries that reference `bosh-system-metrics-forwarder` as the
 `source_id` for metrics to reference `system_metrics_agent` instead.
