@@ -17,6 +17,136 @@ Because VMware uses the Percona Distribution for MySQL, expect a time lag betwee
 
 ## <a id='releases'></a> Releases
 
+### <a id='3.0.7'></a> 3.0.7
+
+**Release Date:** 02/28/2023
+
+* **[Bug Fix]** Include updated version of cflinuxfs3 and cflinuxfs4
+* Bump bpm to version `1.1.21`
+* Bump cf-networking to version `3.22.0`
+* Bump cflinuxfs3 to version `0.352.0`
+* Bump cflinuxfs4 to version `0.64.0`
+* Bump garden-runc to version `1.23.0`
+* Bump loggregator-agent to version `6.5.8`
+* Bump metrics-discovery to version `3.2.7`
+* Bump routing to version `0.256.0`
+* Bump silk to version `3.22.0`
+* Bump smb-volume to version `3.1.9`
+
+<table border="1" class="nice">
+  <thead>
+    <tr>
+      <th>Component</th>
+      <th>Version</th>
+      <th>Release Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>ubuntu-jammy stemcell</td><td>1.83</td><td></td></tr>
+    <tr><td>bpm</td><td>1.1.21</td><td></td></tr>
+    <tr><td>cf-networking</td><td>3.22.0</td><td></td></tr>
+    <tr><td>cflinuxfs3</td><td>0.352.0</td><td></td></tr>
+    <tr><td>cflinuxfs4</td><td>0.64.0</td><td></td></tr>
+    <tr><td>diego</td><td>2.71.0</td><td></td></tr>
+    <tr><td>garden-runc</td><td>1.23.0</td><td></td></tr>
+    <tr><td>loggregator-agent</td><td>6.5.8</td>
+      <td>
+        <details>
+          <summary>v6.5.8</summary>
+          <pre style="max-width: 30em">
+  ## What's Changed
+  * update dependencies
+  * Upgrade to go 1.20.1 by @rroberts2222 in https://github.com/cloudfoundry/loggregator-agent-release/pull/224
+  **Full Changelog**: https://github.com/cloudfoundry/loggregator-agent-release/compare/v6.5.7...v6.5.8
+          </pre>
+        </details>
+      </td>
+    </tr>
+    <tr><td>mapfs</td><td>1.2.12</td><td></td></tr>
+    <tr><td>metrics-discovery</td><td>3.2.7</td>
+      <td>
+        <details>
+          <summary>v3.2.7</summary>
+          <pre style="max-width: 30em">
+  * update golang to 1.20.1
+  **Full Changelog**: https://github.com/cloudfoundry/metrics-discovery-release/compare/v3.2.6...v3.2.7###
+          </pre>
+        </details>
+        <details>
+          <summary>v3.2.6</summary>
+          <pre style="max-width: 30em">
+  ## What's Changed
+  * Upgrade to go 1.20 by @rroberts2222 in https://github.com/cloudfoundry/metrics-discovery-release/pull/104
+  **Full Changelog**: https://github.com/cloudfoundry/metrics-discovery-release/compare/v3.2.5...v3.2.6
+          </pre>
+        </details>
+        <details>
+          <summary>v3.2.5</summary>
+          <pre style="max-width: 30em">
+  ## What's Changed
+  * Update dependencies
+  * Expire individual metrics by @rroberts2222 in https://github.com/cloudfoundry/metrics-discovery-release/pull/103
+  **Full Changelog**: https://github.com/cloudfoundry/metrics-discovery-release/compare/v3.2.4...v3.2.5
+          </pre>
+        </details>
+      </td>
+    </tr>
+    <tr><td>nfs-volume</td><td>7.1.8</td><td></td></tr>
+    <tr><td>routing</td><td>0.256.0</td>
+      <td>
+        <details>
+          <summary>v0.256.0</summary>
+          <pre style="max-width: 30em">
+  ## Changes
+  - Update healthchecker in release to stable version
+  ## ✨  Built with go 1.19.5
+  **Full Changelog**: https://github.com/cloudfoundry/routing-release/compare/v0.255.0...v0.256.0
+  ## Resources
+  - [Download release v0.256.0 from bosh.io](https://bosh.io/releases/github.com/cloudfoundry/routing-release?version=0.256.0).
+          </pre>
+        </details>
+      </td>
+    </tr>
+    <tr><td>silk</td><td>3.22.0</td><td></td></tr>
+    <tr><td>smb-volume</td><td>3.1.9</td>
+      <td>
+        <details>
+          <summary>v3.1.9</summary>
+          <pre style="max-width: 30em">
+  ## Changes
+  * Add force_noserverino property in smbdriver job (#102)
+  ## Dependencies
+  * **bosh-template:** Updated to v2.4.0.<br>For more information, see [bosh-template](https://github.com/cloudfoundry/bosh).
+  * **smbdriver:** Updated to v`adc77c7`.<br>For more information, see [smbdriver](https://github.com/cloudfoundry/smbdriver).
+          </pre>
+        </details>
+        <details>
+          <summary>v3.1.8</summary>
+          <pre style="max-width: 30em">
+  ## Dependencies
+  * **smbdriver:** Updated to v`6cc617a`.<br>For more information, see [smbdriver](https://github.com/cloudfoundry/smbdriver).
+          </pre>
+        </details>
+        <details>
+          <summary>v3.1.7</summary>
+          <pre style="max-width: 30em">
+  ## Changes
+  * Golang: Updated to v1.19.4 (#76)
+  ## Dependencies
+  * **rspec:** Updated to v3.12.0.<br>For more information, see [rspec](https://github.com/rspec/rspec-metagem).
+  * **smbbroker:** Updated to v`114bb05`.<br>For more information, see [smbbroker](https://github.com/cloudfoundry/smbbroker).
+  * **smbdriver:** Updated to v`f0b92e3`.<br>For more information, see [smbdriver](https://github.com/cloudfoundry/smbdriver).
+          </pre>
+        </details>
+      </td>
+    </tr>
+    <tr><td>smoke-tests</td><td>4.8.2</td><td></td></tr>
+    <tr><td>syslog</td><td>12.1.1</td><td></td></tr>
+  </tbody>
+</table>
+
+
+
 ### <a id='3.0.6'></a> v3.0.6
 
 **Release Date:** 02/09/2023
