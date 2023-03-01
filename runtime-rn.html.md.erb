@@ -716,6 +716,13 @@ Because VMware uses the Percona Distribution for MySQL, expect a time lag betwee
 * **[Bug Fix]** Allows docker app workloads without a `sh` binary in the docker image to execute properly.
 * **[Bug Fix]** Validate user when inviting to org and provide informative error if already member of org
 * **[Bug Fix]** [Cloud Controller] Truncate large errors from Service Brokers
+* [Cloud Controller] Optimize space supporter filter for v2 calls
+* [Cloud Controller] Optimize fetching service credential bindings
+* [Cloud Controller] Performance improvements for /v3/audit_events endpoint
+* [Cloud Controller] Canceling deployment is superseded by new deployment
+* [Cloud Controller] Prevent deadlocks when updating managed service instances
+* [Cloud Controller] Take mode into account when filtering for allowed_resources
+* [Cloud Controller] Optimize Role model/dataset 
 * Bump capi to version `1.144.0`
 * Bump java-offline-buildpack to version `4.54`
 * Bump loggregator-agent to version `6.5.7`
