@@ -722,7 +722,7 @@ Because VMware uses the Percona Distribution for MySQL, expect a time lag betwee
 * [Cloud Controller] Canceling deployment is superseded by new deployment
 * [Cloud Controller] Prevent deadlocks when updating managed service instances
 * [Cloud Controller] Take mode into account when filtering for allowed_resources
-* [Cloud Controller] Optimize Role model/dataset 
+* [Cloud Controller] Optimize Role model/dataset
 * Bump capi to version `1.144.0`
 * Bump java-offline-buildpack to version `4.54`
 * Bump loggregator-agent to version `6.5.7`
@@ -4028,9 +4028,9 @@ Resources](../operating/configure-pas.html#resources) in _Configuring <%= vars.a
 
 ### <a id='log-cache-nozzle-ingestion-removed'></a> Log Cache Nozzle Ingestion Removed
 
-The configuration option to use nozzle ingestion for Log Cache has been removed. Log Cache will now always use syslog ingestion.
+The configuration option to use nozzle ingestion for Log Cache has been removed. Log Cache now always uses syslog ingestion.
 
-Operators should confirm that instances, including those within isolation segments, are permitted to establish
+Cconfirm that instances, including those within isolation segments, are permitted to establish
 connections to Log Cache nodes on port 6067. You may need to update firewall rules to allow logs to flow directly from
 your instances to the Log Cache syslog server.
 
