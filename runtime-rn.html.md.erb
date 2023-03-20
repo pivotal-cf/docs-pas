@@ -2006,3 +2006,14 @@ Silk emits log lines to application log streams when ASGs are dynamically change
 those log lines are tagged with old application names.
 
 To mitigate this issue customers can restart applications after they are renamed.
+
+
+### <a id='check-nats-server-version'></a> Please Check your NATS Server Version
+
+In TAS 2.11.26, we introduced a `nats` release that replaced the underlying package from NATS v1.0 to NATS v2.0. TAS 4.0 is the first LTS version that includes
+NATS v2.0. The migration should happen invisibly; however if the migration is not successful, your nats servers may still be running NATS v1.0. 
+
+Per the [TAS Support Lifecycle Policy](https://docs.pivotal.io/application-service/3-0/release-notes/runtime-rn.html#support-policy), we will 
+keep the NATS v1.0 as a fallback, but will remove it in a future version. Please follow the [knolwledge base article here](https://community.pivotal.io/s/article/How-to-confirm-your-nats-servers-are-running-NATs-v2?language=en_US) 
+to confirm that your `nats` instances have migrated successfully, and see how to troubleshoot if they have not.
+
