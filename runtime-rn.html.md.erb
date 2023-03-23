@@ -647,17 +647,16 @@ invalid entries.
 
 ### Option to Enable (Deprecated) Global Log Rate Limit is Removed
 
-This feature was in beta until TAS v3.0, [when it was deprecated](https://docs.vmware.com/en/VMware-Tanzu-Application-Service/3.0/tas-for-vms/runtime-rn.html#global-log-rate-limit-is-deprecated-24)
-following [the introduction of app log rate limits](https://docs.vmware.com/en/VMware-Tanzu-Application-Service/3.0/tas-for-vms/runtime-rn.html#app-log-rate-limits-for-orgs-spaces-and-individual-apps-14).
-The option to enable this feature has now been removed, and users should apply
-app log rate limits instead.
+This feature was in beta until TAS v3.0, when it was deprecated; For details, see [TAS for VMs 3.0 Release Notes](https://docs.vmware.com/en/VMware-Tanzu-Application-Service/3.0/tas-for-vms/runtime-rn.html#global-log-rate-limit-is-deprecated-24)
+following the introduction of app log rate limits. See [App Log Rate Feature](https://docs.vmware.com/en/VMware-Tanzu-Application-Service/3.0/tas-for-vms/runtime-rn.html#app-log-rate-limits-for-orgs-spaces-and-individual-apps-14).
+The option to enable this feature has now been removed, and you must apply app log rate limits instead.
 
 Note that if you were using this feature to limit your overall app log
 throughput, then you may see an increase in log load after upgrading. To
-mitigate this, affected users are encouraged to either:
+mitigate this, either:
 
-* Scale up their logging system prior to upgrading to TAS v4.0 in order to compensate for the increased log load.
-* Upgrade to TAS v3.0 first in order to [set app-level log rate limits](https://docs.vmware.com/en/VMware-Tanzu-Application-Service/4.0/tas-for-vms/app-log-rate-limits.html) while retaining the global log rate limit.
+* Scale up your logging system before upgrading to TAS v4.0 to compensate for the increased log load.
+* Upgrade to TAS v3.0 first to set app-level log rate limits while retaining the global log rate limit. For details, see [App Log Rate Limits](https://docs.vmware.com/en/VMware-Tanzu-Application-Service/4.0/tas-for-vms/app-log-rate-limits.html).
 
 ## <a id='known-issues'></a> Known issues
 
