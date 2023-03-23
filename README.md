@@ -9,5 +9,7 @@ The `master` branch has the content for the upcoming major release.
 Handy links:
 
 * [CI link](https://runway-ci.eng.vmware.com/teams/mapbu-docs/pipelines/cf-current)
-* [Production for 3.0](https://docs.pivotal.io/application-service/3-0/release-notes/runtime-rn.html)
-* [Staging for 3.0](https://docs-pcf-staging.sc2-04-pcf1-apps.oc.vmware.com/application-service/3-0/release-notes/runtime-rn.html)
+* [Production for 4.0](https://docs.vmware.com/en/VMware-Tanzu-Application-Service/4.0/tas-for-vms/concepts-overview.html)
+  * The VMware docs production link will not be operational until release of 4.0
+* [Staging for 4.0](https://docs-staging.vmware.com/en/draft/VMware-Tanzu-Application-Service/4.0/tas-for-vms/concepts-overview.html)
+* [Staging for 5.0](https://docs-staging.vmware.com/en/draft/VMware-Tanzu-Application-Service/5.0/tas-for-vms/concepts-overview.html)
