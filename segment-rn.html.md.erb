@@ -176,4 +176,6 @@ mitigate this, either:
 
 ## <a id='known-issues'></a> Known Issues
 
-There are no known issues for <%= vars.segment_runtime_full %> <%= vars.v_major_version %>.
+<%= vars.segment_runtime_full %> <%= vars.v_major_version %> includes the following known issues:
+
+### Stale routes may not be pruned properly in Gorouter. In addition, request failures that previously resulted in 496, 499, 503, 525, or 526 HTTP Status codes may now return Status Code 502 instead.
