@@ -4815,6 +4815,12 @@ This metric was also difficult to monitor because it is an aggregate of signals 
 Because the usefulness of monitoring this metric is unclear, and the complexity of interpreting the metric has increased, we are removing it from the KPIs.
 TAS still emits the ActiveLocks metric, but we no longer encourage users to actively monitor it.
 
+### <a id='activelocks-kpi-removed'></a> BOSH VM CPU and Memory removed from Key Performance Indicators (KPIs)
+
+In the past, the TAS documentation recommended monitoring the VM CPU and Memory metrics emitted by all BOSH VMs.
+In practice, not all VMs are worth monitoring this closely, and different VMs and BOSH jobs have different normal CPU and memory loads, making a one-size-fits-all monitoring guideline impractical.
+In the future, the TAS documentation will recommend monitoring BOSH VM metrics for some, but not all, BOSH VMs.
+
 ## <a id='known-issues'></a> Known Issues
 
 <%= vars.app_runtime_abbr %> <%= vars.v_major_version %> includes the following known issues:
