@@ -7,11 +7,12 @@ This topic contains release notes for <%= vars.app_runtime_first %> <%= vars.v_m
 
 <%= vars.app_runtime_abbr %> is certified by the Cloud Foundry Foundation for 2023.
 
-For more information about the Cloud Foundry Certified Provider Program, see [How Do I Become a Certified
-Provider?](https://www.cloudfoundry.org/certified-platforms-how-to/) on the Cloud Foundry website.
+For more information about the Cloud Foundry Certified Provider Program, see [How Do I Become a
+Certified Provider?](https://www.cloudfoundry.org/certified-platforms-how-to/) on the Cloud Foundry
+website.
 
-Because VMware uses the Percona Distribution for MySQL, expect a time lag between Oracle releasing a MySQL patch and VMware releasing
-<%= vars.app_runtime_abbr %> containing that patch.
+Because VMware uses the Percona Distribution for MySQL, expect a time lag between Oracle releasing a
+MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> containing that patch.
 
 <hr>
 
@@ -22,7 +23,8 @@ Because VMware uses the Percona Distribution for MySQL, expect a time lag betwee
 **Release Date:** 02/27/2023
 
 * **[Feature Improvement]** Add option for Query Parameter Presentation in Gorouter Access Logs
-* **[Bug Fix]** Improve performance of & reduce storage needs for CAPI `usage_events` queries on MySQL8
+* **[Bug Fix]** Improve performance of & reduce storage needs for CAPI `usage_events` queries on
+  MySQL8
 * Bump binary-offline-buildpack to version `1.1.2`
 * Bump capi to version `1.146.0`
 * Bump cf-autoscaling to version `249.1.2`
@@ -181,32 +183,23 @@ Because VMware uses the Percona Distribution for MySQL, expect a time lag betwee
           <summary>v2.12.6</summary>
           <pre style="max-width: 30em">
 
-* update to golang 1.20.1
-  **Full Changelog**: <https://github.com/cloudfoundry/log-cache-release/compare/v2.12.5...v2.12.6>
-          </pre>
-        </details>
-        <details>
-          <summary>v2.12.5</summary>
-          <pre style="max-width: 30em">
+* update to golang 1.20.1 **Full Changelog**:
+  <https://github.com/cloudfoundry/log-cache-release/compare/v2.12.5...v2.12.6> </pre> </details>
+          <details> <summary>v2.12.5</summary> <pre style="max-width: 30em">
 
 ## What's Changed
 
   * update dependencies
-  * Update to go 1.20 by @rroberts2222 in <https://github.com/cloudfoundry/log-cache-release/pull/162>
-  **Full Changelog**: <https://github.com/cloudfoundry/log-cache-release/compare/v2.12.4...v2.12.5>
-          </pre>
-        </details>
-        <details>
-          <summary>v2.12.4</summary>
-          <pre style="max-width: 30em">
+  * Update to go 1.20 by @rroberts2222 in
+  <https://github.com/cloudfoundry/log-cache-release/pull/162> **Full Changelog**:
+          <https://github.com/cloudfoundry/log-cache-release/compare/v2.12.4...v2.12.5> </pre>
+        </details> <details> <summary>v2.12.4</summary> <pre style="max-width: 30em">
 
 ## What's Changed
 
   * update golang release to 1.19.4
-  * dependency bumps
-  **Full Changelog**: <https://github.com/cloudfoundry/log-cache-release/compare/v2.12.3...v2.12.4>
-          </pre>
-        </details>
+  * dependency bumps **Full Changelog**:
+  <https://github.com/cloudfoundry/log-cache-release/compare/v2.12.3...v2.12.4> </pre> </details>
       </td>
     </tr>
     <tr><td>loggregator</td><td>107.0.0</td><td></td></tr>
@@ -221,9 +214,7 @@ Because VMware uses the Percona Distribution for MySQL, expect a time lag betwee
 ## What's Changed
 
   * update to golang 1.20.1
-  * update dependencies
-          </pre>
-        </details>
+  * update dependencies </pre> </details>
       </td>
     </tr>
     <tr><td>metrics-discovery</td><td>3.2.7</td>
@@ -231,30 +222,23 @@ Because VMware uses the Percona Distribution for MySQL, expect a time lag betwee
         <details>
           <summary>v3.2.7</summary>
           <pre style="max-width: 30em">
-  * update golang to 1.20.1
-  **Full Changelog**: <https://github.com/cloudfoundry/metrics-discovery-release/compare/v3.2.6...v3.2.7###>
-          </pre>
-        </details>
-        <details>
-          <summary>v3.2.6</summary>
-          <pre style="max-width: 30em">
+  * update golang to 1.20.1 **Full Changelog**:
+  <https://github.com/cloudfoundry/metrics-discovery-release/compare/v3.2.6...v3.2.7###> </pre>
+          </details> <details> <summary>v3.2.6</summary> <pre style="max-width: 30em">
 
 ## What's Changed
 
-  * Upgrade to go 1.20 by @rroberts2222 in <https://github.com/cloudfoundry/metrics-discovery-release/pull/104>
-  **Full Changelog**: <https://github.com/cloudfoundry/metrics-discovery-release/compare/v3.2.5...v3.2.6>
-          </pre>
-        </details>
-        <details>
-          <summary>v3.2.5</summary>
-          <pre style="max-width: 30em">
+  * Upgrade to go 1.20 by @rroberts2222 in
+  <https://github.com/cloudfoundry/metrics-discovery-release/pull/104> **Full Changelog**:
+          <https://github.com/cloudfoundry/metrics-discovery-release/compare/v3.2.5...v3.2.6> </pre>
+        </details> <details> <summary>v3.2.5</summary> <pre style="max-width: 30em">
 
 ## What's Changed
 
   * Update dependencies
-  * Expire individual metrics by @rroberts2222 in <https://github.com/cloudfoundry/metrics-discovery-release/pull/103>
-  **Full Changelog**: <https://github.com/cloudfoundry/metrics-discovery-release/compare/v3.2.4...v3.2.5>
-          </pre>
+  * Expire individual metrics by @rroberts2222 in
+  <https://github.com/cloudfoundry/metrics-discovery-release/pull/103> **Full Changelog**:
+          <https://github.com/cloudfoundry/metrics-discovery-release/compare/v3.2.4...v3.2.5> </pre>
         </details>
       </td>
     </tr>
@@ -266,29 +250,15 @@ Because VMware uses the Percona Distribution for MySQL, expect a time lag betwee
         <details>
           <summary>1.2.0</summary>
           <pre style="max-width: 30em">
-  * Add support for cflinuxfs4 stack
-  Packaged binaries:
-  | name | version | cf_stacks |
-  |-|-|-|
-  | nginx | 1.22.1 | cflinuxfs3 |
-  | nginx | 1.22.1 | cflinuxfs4 |
-  | nginx | 1.23.3 | cflinuxfs3 |
-  | nginx | 1.23.3 | cflinuxfs4 |
-  | openresty | 1.13.6.2 | cflinuxfs3 |
-  | openresty | 1.15.8.3 | cflinuxfs3 |
-  | openresty | 1.17.8.2 | cflinuxfs3 |
-  | openresty | 1.19.9.1 | cflinuxfs3 |
-  | openresty | 1.19.9.1 | cflinuxfs4 |
-  | openresty | 1.21.4.1 | cflinuxfs3 |
-  | openresty | 1.21.4.1 | cflinuxfs4 |
-  Default binary versions:
-  | name | version |
-  |-|-|
-  | nginx | 1.23.x |
+  * Add support for cflinuxfs4 stack Packaged binaries: | name | version | cf_stacks | |-|-|-| |
+  nginx | 1.22.1 | cflinuxfs3 | | nginx | 1.22.1 | cflinuxfs4 | | nginx | 1.23.3 | cflinuxfs3 | |
+  nginx | 1.23.3 | cflinuxfs4 | | openresty | 1.13.6.2 | cflinuxfs3 | | openresty | 1.15.8.3 |
+  cflinuxfs3 | | openresty | 1.17.8.2 | cflinuxfs3 | | openresty | 1.19.9.1 | cflinuxfs3 | |
+  openresty | 1.19.9.1 | cflinuxfs4 | | openresty | 1.21.4.1 | cflinuxfs3 | | openresty | 1.21.4.1 |
+  cflinuxfs4 | Default binary versions: | name | version | |-|-| | nginx | 1.23.x |
   * Uncached buildpack SHA256: ab7cd71dc8ff38fdb93558b7536ca03e41baf191fe72e1980f43d61a82378dc8
   * Uncached buildpack SHA256: 1ba096283d893a6040b3733cac0e90f1f87f6de0593b3f01a81183725aeab08a
-          </pre>
-        </details>
+          </pre> </details>
       </td>
     </tr>
     <tr><td>nodejs-offline-buildpack</td><td>1.8.6</td>
@@ -299,31 +269,17 @@ Because VMware uses the Percona Distribution for MySQL, expect a time lag betwee
   * Add node 18.14.1, remove node 18.12.1 for stack(s) cflinuxfs4, cflinuxfs3
   * Add node 16.19.1, remove node 16.18.1 for stack(s) cflinuxfs3, cflinuxfs4
   * Add node 14.21.3, remove node 14.21.1 for stack(s) cflinuxfs3, cflinuxfs4
-  * Update Node 16.x deprecation date (Nodejs update on SSL deprecation) [ref](https://nodejs.org/en/blog/vulnerability/february-2023-security-releases/)
-  Packaged binaries:
-  | name | version | cf_stacks |
-  |-|-|-|
-  | node | 14.21.2 | cflinuxfs3 |
-  | node | 14.21.2 | cflinuxfs4 |
-  | node | 14.21.3 | cflinuxfs3 |
-  | node | 14.21.3 | cflinuxfs4 |
-  | node | 16.19.0 | cflinuxfs3 |
-  | node | 16.19.0 | cflinuxfs4 |
-  | node | 16.19.1 | cflinuxfs3 |
-  | node | 16.19.1 | cflinuxfs4 |
-  | node | 18.13.0 | cflinuxfs3 |
-  | node | 18.13.0 | cflinuxfs4 |
-  | node | 18.14.1 | cflinuxfs3 |
-  | node | 18.14.1 | cflinuxfs4 |
-  | yarn | 1.22.19 | cflinuxfs3, cflinuxfs4 |
-  Default binary versions:
-  | name | version |
-  |-|-|
-  | node | 18.x |
+  * Update Node 16.x deprecation date (Nodejs update on SSL deprecation)
+  [ref](https://nodejs.org/en/blog/vulnerability/february-2023-security-releases/) Packaged
+  binaries: | name | version | cf_stacks | |-|-|-| | node | 14.21.2 | cflinuxfs3 | | node | 14.21.2
+  | cflinuxfs4 | | node | 14.21.3 | cflinuxfs3 | | node | 14.21.3 | cflinuxfs4 | | node | 16.19.0 |
+  cflinuxfs3 | | node | 16.19.0 | cflinuxfs4 | | node | 16.19.1 | cflinuxfs3 | | node | 16.19.1 |
+  cflinuxfs4 | | node | 18.13.0 | cflinuxfs3 | | node | 18.13.0 | cflinuxfs4 | | node | 18.14.1 |
+  cflinuxfs3 | | node | 18.14.1 | cflinuxfs4 | | yarn | 1.22.19 | cflinuxfs3, cflinuxfs4 | Default
+  binary versions: | name | version | |-|-| | node | 18.x |
   * Uncached buildpack SHA256: e8f42ddddcf355c9b37597944b498cf33f624d59852ba686a97a774e881a424b
   * Uncached buildpack SHA256: c6bee0e5213870daaa2e3c2db51e2a3bf56b14bf2014c72b8cb524432d31a642
-          </pre>
-        </details>
+          </pre> </details>
       </td>
     </tr>
     <tr><td>notifications</td><td>62</td><td></td></tr>
@@ -336,51 +292,78 @@ Because VMware uses the Percona Distribution for MySQL, expect a time lag betwee
   * Update buildpack-packager to 2.3.22
   * Update php default to latest 8.1.x version (#807)
   * Updating version for php for 8.2.X (#805)
-  * Add php 8.2.2
-  for stack(s) cflinuxfs3, cflinuxfs4
+  * Add php 8.2.2 for stack(s) cflinuxfs3, cflinuxfs4
   (<https://www.pivotaltracker.com/story/show/184381976>)
-  * Add php 8.1.15, remove php 8.1.13
-  for stack(s) cflinuxfs3, cflinuxfs4
+  * Add php 8.1.15, remove php 8.1.13 for stack(s) cflinuxfs3, cflinuxfs4
   (<https://www.pivotaltracker.com/story/show/184388841>)
-  * Add nginx 1.22.1, remove nginx 1.22.0
-  for stack(s) cflinuxfs4, cflinuxfs3
+  * Add nginx 1.22.1, remove nginx 1.22.0 for stack(s) cflinuxfs4, cflinuxfs3
   (<https://www.pivotaltracker.com/story/show/183579473>)
-  * Add composer 2.5.2, remove composer 2.5.1
-  for stack(s) cflinuxfs4, cflinuxfs3
-  (<https://www.pivotaltracker.com/story/show/184394919>)
-  Packaged binaries:
-  | name | version | cf_stacks | modules |
-  |-|-|-|-|
-  | appdynamics | 22.12.1-677 | cflinuxfs3, cflinuxfs4 |  |
-  | composer | 2.5.2 | cflinuxfs3, cflinuxfs4 |  |
-  | httpd | 2.4.55 | cflinuxfs3 |  |
-  | httpd | 2.4.55 | cflinuxfs4 |  |
-  | newrelic | 9.20.0.310 | cflinuxfs3 |  |
-  | nginx | 1.22.1 | cflinuxfs3 |  |
-  | nginx | 1.22.1 | cflinuxfs4 |  |
-  | nginx | 1.23.3 | cflinuxfs3 |  |
-  | nginx | 1.23.3 | cflinuxfs4 |  |
-  | php | 8.0.26 | cflinuxfs3 | amqp, apcu, bz2, curl, dba, enchant, exif, fileinfo, ftp, gd, gettext, gmp, igbinary, imagick, imap, ldap, lzf, mailparse, maxminddb, mbstring, memcached, mongodb, msgpack, mysqli, oauth, opcache, openssl, pcntl, pdo, pdo_firebird, pdo_mysql, pdo_odbc, pdo_pgsql, pdo_sqlite, pdo_sqlsrv, pgsql, phalcon, phpiredis, pspell, psr, rdkafka, readline, redis, shmop, snmp, soap, sockets, sodium, solr, sqlsrv, ssh2, stomp, sysvmsg, sysvsem, sysvshm, tideways_xhprof, tidy, xdebug, xsl, yaf, yaml, zip, zlib |
-  | php | 8.0.27 | cflinuxfs3 | amqp, apcu, bz2, curl, dba, enchant, exif, fileinfo, ftp, gd, gettext, gmp, igbinary, imagick, imap, ldap, lzf, mailparse, maxminddb, mbstring, memcached, mongodb, msgpack, mysqli, oauth, opcache, openssl, pcntl, pdo, pdo_firebird, pdo_mysql, pdo_odbc, pdo_pgsql, pdo_sqlite, pdo_sqlsrv, pgsql, phalcon, phpiredis, pspell, psr, rdkafka, readline, redis, shmop, snmp, soap, sockets, sodium, solr, sqlsrv, ssh2, stomp, sysvmsg, sysvsem, sysvshm, tideways_xhprof, tidy, xdebug, xsl, yaf, yaml, zip, zlib |
-  | php | 8.1.14 | cflinuxfs3 | amqp, apcu, bz2, curl, dba, enchant, exif, fileinfo, ftp, gd, gettext, gmp, igbinary, imagick, imap, ioncube, ldap, lzf, mailparse, maxminddb, mbstring, memcached, mongodb, msgpack, mysqli, oauth, opcache, openssl, pcntl, pdo, pdo_firebird, pdo_mysql, pdo_odbc, pdo_pgsql, pdo_sqlite, pdo_sqlsrv, pgsql, phalcon, phpiredis, pspell, psr, rdkafka, readline, redis, shmop, snmp, soap, sockets, sodium, solr, sqlsrv, ssh2, stomp, sysvmsg, sysvsem, sysvshm, tideways_xhprof, tidy, xdebug, xsl, yaf, yaml, zip, zlib |
-  | php | 8.1.14 | cflinuxfs4 | amqp, apcu, bz2, curl, dba, enchant, exif, fileinfo, ftp, gd, gettext, gmp, igbinary, imagick, imap, ioncube, ldap, lzf, mailparse, maxminddb, mbstring, memcached, mongodb, msgpack, mysqli, oauth, opcache, openssl, pcntl, pdo, pdo_firebird, pdo_mysql, pdo_odbc, pdo_pgsql, pdo_sqlite, pdo_sqlsrv, pgsql, phalcon, phpiredis, pspell, psr, rdkafka, readline, redis, shmop, snmp, soap, sockets, sodium, solr, sqlsrv, ssh2, stomp, sysvmsg, sysvsem, sysvshm, tideways_xhprof, tidy, xdebug, xsl, yaf, yaml, zip, zlib |
-  | php | 8.1.15 | cflinuxfs3 | amqp, apcu, bz2, curl, dba, enchant, exif, fileinfo, ftp, gd, gettext, gmp, igbinary, imagick, imap, ioncube, ldap, lzf, mailparse, maxminddb, mbstring, memcached, mongodb, msgpack, mysqli, oauth, opcache, openssl, pcntl, pdo, pdo_firebird, pdo_mysql, pdo_odbc, pdo_pgsql, pdo_sqlite, pdo_sqlsrv, pgsql, phalcon, phpiredis, pspell, psr, rdkafka, readline, redis, shmop, snmp, soap, sockets, sodium, solr, sqlsrv, ssh2, stomp, sysvmsg, sysvsem, sysvshm, tideways_xhprof, tidy, xdebug, xsl, yaf, yaml, zip, zlib |
-  | php | 8.1.15 | cflinuxfs4 | amqp, apcu, bz2, curl, dba, enchant, exif, fileinfo, ftp, gd, gettext, gmp, igbinary, imagick, imap, ioncube, ldap, lzf, mailparse, maxminddb, mbstring, memcached, mongodb, msgpack, mysqli, oauth, opcache, openssl, pcntl, pdo, pdo_firebird, pdo_mysql, pdo_odbc, pdo_pgsql, pdo_sqlite, pdo_sqlsrv, pgsql, phalcon, phpiredis, pspell, psr, rdkafka, readline, redis, shmop, snmp, soap, sockets, sodium, solr, sqlsrv, ssh2, stomp, sysvmsg, sysvsem, sysvshm, tideways_xhprof, tidy, xdebug, xsl, yaf, yaml, zip, zlib |
-  | php | 8.2.1 | cflinuxfs3 | amqp, apcu, bz2, curl, dba, enchant, exif, fileinfo, ftp, gd, gettext, gmp, igbinary, imagick, imap, ldap, lzf, mailparse, maxminddb, mbstring, memcached, mongodb, msgpack, mysqli, oauth, opcache, openssl, pcntl, pdo, pdo_firebird, pdo_mysql, pdo_odbc, pdo_pgsql, pdo_sqlite, pdo_sqlsrv, pgsql, phpiredis, pspell, psr, rdkafka, readline, redis, shmop, snmp, soap, sockets, sodium, solr, sqlsrv, ssh2, stomp, sysvmsg, sysvsem, sysvshm, tideways_xhprof, tidy, xdebug, xsl, yaml, zip, zlib |
-  | php | 8.2.1 | cflinuxfs4 | amqp, apcu, bz2, curl, dba, enchant, exif, fileinfo, ftp, gd, gettext, gmp, igbinary, imagick, imap, ldap, lzf, mailparse, maxminddb, mbstring, memcached, mongodb, msgpack, mysqli, oauth, opcache, openssl, pcntl, pdo, pdo_firebird, pdo_mysql, pdo_odbc, pdo_pgsql, pdo_sqlite, pdo_sqlsrv, pgsql, phpiredis, pspell, psr, rdkafka, readline, redis, shmop, snmp, soap, sockets, sodium, solr, sqlsrv, ssh2, stomp, sysvmsg, sysvsem, sysvshm, tideways_xhprof, tidy, xdebug, xsl, yaml, zip, zlib |
-  | php | 8.2.2 | cflinuxfs3 | amqp, apcu, bz2, curl, dba, enchant, exif, fileinfo, ftp, gd, gettext, gmp, igbinary, imagick, imap, ldap, lzf, mailparse, maxminddb, mbstring, memcached, mongodb, msgpack, mysqli, oauth, opcache, openssl, pcntl, pdo, pdo_firebird, pdo_mysql, pdo_odbc, pdo_pgsql, pdo_sqlite, pdo_sqlsrv, pgsql, phpiredis, pspell, psr, rdkafka, readline, redis, shmop, snmp, soap, sockets, sodium, solr, sqlsrv, ssh2, stomp, sysvmsg, sysvsem, sysvshm, tideways_xhprof, tidy, xdebug, xsl, yaml, zip, zlib |
-  | php | 8.2.2 | cflinuxfs4 | amqp, apcu, bz2, curl, dba, enchant, exif, fileinfo, ftp, gd, gettext, gmp, igbinary, imagick, imap, ldap, lzf, mailparse, maxminddb, mbstring, memcached, mongodb, msgpack, mysqli, oauth, opcache, openssl, pcntl, pdo, pdo_firebird, pdo_mysql, pdo_odbc, pdo_pgsql, pdo_sqlite, pdo_sqlsrv, pgsql, phpiredis, pspell, psr, rdkafka, readline, redis, shmop, snmp, soap, sockets, sodium, solr, sqlsrv, ssh2, stomp, sysvmsg, sysvsem, sysvshm, tideways_xhprof, tidy, xdebug, xsl, yaml, zip, zlib |
-  Default binary versions:
-  | name | version |
-  |-|-|
-  | php | 8.1.14 |
-  | httpd | 2.4.55 |
-  | newrelic | 9.20.0.310 |
-  | nginx | 1.23.3 |
-  | composer | 2.5.2 |
+  * Add composer 2.5.2, remove composer 2.5.1 for stack(s) cflinuxfs4, cflinuxfs3
+  (<https://www.pivotaltracker.com/story/show/184394919>) Packaged binaries: | name | version |
+  cf_stacks | modules | |-|-|-|-| | appdynamics | 22.12.1-677 | cflinuxfs3, cflinuxfs4 |  | |
+  composer | 2.5.2 | cflinuxfs3, cflinuxfs4 |  | | httpd | 2.4.55 | cflinuxfs3 |  | | httpd | 2.4.55
+  | cflinuxfs4 |  | | newrelic | 9.20.0.310 | cflinuxfs3 |  | | nginx | 1.22.1 | cflinuxfs3 |  | |
+  nginx | 1.22.1 | cflinuxfs4 |  | | nginx | 1.23.3 | cflinuxfs3 |  | | nginx | 1.23.3 | cflinuxfs4
+  |  | | php | 8.0.26 | cflinuxfs3 | amqp, apcu, bz2, curl, dba, enchant, exif, fileinfo, ftp, gd,
+  gettext, gmp, igbinary, imagick, imap, ldap, lzf, mailparse, maxminddb, mbstring, memcached,
+  mongodb, msgpack, mysqli, oauth, opcache, openssl, pcntl, pdo, pdo_firebird, pdo_mysql, pdo_odbc,
+  pdo_pgsql, pdo_sqlite, pdo_sqlsrv, pgsql, phalcon, phpiredis, pspell, psr, rdkafka, readline,
+  redis, shmop, snmp, soap, sockets, sodium, solr, sqlsrv, ssh2, stomp, sysvmsg, sysvsem, sysvshm,
+  tideways_xhprof, tidy, xdebug, xsl, yaf, yaml, zip, zlib | | php | 8.0.27 | cflinuxfs3 | amqp,
+  apcu, bz2, curl, dba, enchant, exif, fileinfo, ftp, gd, gettext, gmp, igbinary, imagick, imap,
+  ldap, lzf, mailparse, maxminddb, mbstring, memcached, mongodb, msgpack, mysqli, oauth, opcache,
+  openssl, pcntl, pdo, pdo_firebird, pdo_mysql, pdo_odbc, pdo_pgsql, pdo_sqlite, pdo_sqlsrv, pgsql,
+  phalcon, phpiredis, pspell, psr, rdkafka, readline, redis, shmop, snmp, soap, sockets, sodium,
+  solr, sqlsrv, ssh2, stomp, sysvmsg, sysvsem, sysvshm, tideways_xhprof, tidy, xdebug, xsl, yaf,
+  yaml, zip, zlib | | php | 8.1.14 | cflinuxfs3 | amqp, apcu, bz2, curl, dba, enchant, exif,
+  fileinfo, ftp, gd, gettext, gmp, igbinary, imagick, imap, ioncube, ldap, lzf, mailparse,
+  maxminddb, mbstring, memcached, mongodb, msgpack, mysqli, oauth, opcache, openssl, pcntl, pdo,
+  pdo_firebird, pdo_mysql, pdo_odbc, pdo_pgsql, pdo_sqlite, pdo_sqlsrv, pgsql, phalcon, phpiredis,
+  pspell, psr, rdkafka, readline, redis, shmop, snmp, soap, sockets, sodium, solr, sqlsrv, ssh2,
+  stomp, sysvmsg, sysvsem, sysvshm, tideways_xhprof, tidy, xdebug, xsl, yaf, yaml, zip, zlib | | php
+  | 8.1.14 | cflinuxfs4 | amqp, apcu, bz2, curl, dba, enchant, exif, fileinfo, ftp, gd, gettext,
+  gmp, igbinary, imagick, imap, ioncube, ldap, lzf, mailparse, maxminddb, mbstring, memcached,
+  mongodb, msgpack, mysqli, oauth, opcache, openssl, pcntl, pdo, pdo_firebird, pdo_mysql, pdo_odbc,
+  pdo_pgsql, pdo_sqlite, pdo_sqlsrv, pgsql, phalcon, phpiredis, pspell, psr, rdkafka, readline,
+  redis, shmop, snmp, soap, sockets, sodium, solr, sqlsrv, ssh2, stomp, sysvmsg, sysvsem, sysvshm,
+  tideways_xhprof, tidy, xdebug, xsl, yaf, yaml, zip, zlib | | php | 8.1.15 | cflinuxfs3 | amqp,
+  apcu, bz2, curl, dba, enchant, exif, fileinfo, ftp, gd, gettext, gmp, igbinary, imagick, imap,
+  ioncube, ldap, lzf, mailparse, maxminddb, mbstring, memcached, mongodb, msgpack, mysqli, oauth,
+  opcache, openssl, pcntl, pdo, pdo_firebird, pdo_mysql, pdo_odbc, pdo_pgsql, pdo_sqlite,
+  pdo_sqlsrv, pgsql, phalcon, phpiredis, pspell, psr, rdkafka, readline, redis, shmop, snmp, soap,
+  sockets, sodium, solr, sqlsrv, ssh2, stomp, sysvmsg, sysvsem, sysvshm, tideways_xhprof, tidy,
+  xdebug, xsl, yaf, yaml, zip, zlib | | php | 8.1.15 | cflinuxfs4 | amqp, apcu, bz2, curl, dba,
+  enchant, exif, fileinfo, ftp, gd, gettext, gmp, igbinary, imagick, imap, ioncube, ldap, lzf,
+  mailparse, maxminddb, mbstring, memcached, mongodb, msgpack, mysqli, oauth, opcache, openssl,
+  pcntl, pdo, pdo_firebird, pdo_mysql, pdo_odbc, pdo_pgsql, pdo_sqlite, pdo_sqlsrv, pgsql, phalcon,
+  phpiredis, pspell, psr, rdkafka, readline, redis, shmop, snmp, soap, sockets, sodium, solr,
+  sqlsrv, ssh2, stomp, sysvmsg, sysvsem, sysvshm, tideways_xhprof, tidy, xdebug, xsl, yaf, yaml,
+  zip, zlib | | php | 8.2.1 | cflinuxfs3 | amqp, apcu, bz2, curl, dba, enchant, exif, fileinfo, ftp,
+  gd, gettext, gmp, igbinary, imagick, imap, ldap, lzf, mailparse, maxminddb, mbstring, memcached,
+  mongodb, msgpack, mysqli, oauth, opcache, openssl, pcntl, pdo, pdo_firebird, pdo_mysql, pdo_odbc,
+  pdo_pgsql, pdo_sqlite, pdo_sqlsrv, pgsql, phpiredis, pspell, psr, rdkafka, readline, redis, shmop,
+  snmp, soap, sockets, sodium, solr, sqlsrv, ssh2, stomp, sysvmsg, sysvsem, sysvshm,
+  tideways_xhprof, tidy, xdebug, xsl, yaml, zip, zlib | | php | 8.2.1 | cflinuxfs4 | amqp, apcu,
+  bz2, curl, dba, enchant, exif, fileinfo, ftp, gd, gettext, gmp, igbinary, imagick, imap, ldap,
+  lzf, mailparse, maxminddb, mbstring, memcached, mongodb, msgpack, mysqli, oauth, opcache, openssl,
+  pcntl, pdo, pdo_firebird, pdo_mysql, pdo_odbc, pdo_pgsql, pdo_sqlite, pdo_sqlsrv, pgsql,
+  phpiredis, pspell, psr, rdkafka, readline, redis, shmop, snmp, soap, sockets, sodium, solr,
+  sqlsrv, ssh2, stomp, sysvmsg, sysvsem, sysvshm, tideways_xhprof, tidy, xdebug, xsl, yaml, zip,
+  zlib | | php | 8.2.2 | cflinuxfs3 | amqp, apcu, bz2, curl, dba, enchant, exif, fileinfo, ftp, gd,
+  gettext, gmp, igbinary, imagick, imap, ldap, lzf, mailparse, maxminddb, mbstring, memcached,
+  mongodb, msgpack, mysqli, oauth, opcache, openssl, pcntl, pdo, pdo_firebird, pdo_mysql, pdo_odbc,
+  pdo_pgsql, pdo_sqlite, pdo_sqlsrv, pgsql, phpiredis, pspell, psr, rdkafka, readline, redis, shmop,
+  snmp, soap, sockets, sodium, solr, sqlsrv, ssh2, stomp, sysvmsg, sysvsem, sysvshm,
+  tideways_xhprof, tidy, xdebug, xsl, yaml, zip, zlib | | php | 8.2.2 | cflinuxfs4 | amqp, apcu,
+  bz2, curl, dba, enchant, exif, fileinfo, ftp, gd, gettext, gmp, igbinary, imagick, imap, ldap,
+  lzf, mailparse, maxminddb, mbstring, memcached, mongodb, msgpack, mysqli, oauth, opcache, openssl,
+  pcntl, pdo, pdo_firebird, pdo_mysql, pdo_odbc, pdo_pgsql, pdo_sqlite, pdo_sqlsrv, pgsql,
+  phpiredis, pspell, psr, rdkafka, readline, redis, shmop, snmp, soap, sockets, sodium, solr,
+  sqlsrv, ssh2, stomp, sysvmsg, sysvsem, sysvshm, tideways_xhprof, tidy, xdebug, xsl, yaml, zip,
+  zlib | Default binary versions: | name | version | |-|-| | php | 8.1.14 | | httpd | 2.4.55 | |
+  newrelic | 9.20.0.310 | | nginx | 1.23.3 | | composer | 2.5.2 |
   * Uncached buildpack SHA256: 17c3a0b8f2fb84b8e473e67168e138c2537ceb9b1abc66497704d00589d9f725
-          </pre>
-        </details>
+          </pre> </details>
       </td>
     </tr>
     <tr><td>push-apps-manager-release</td><td>677.0.14</td><td></td></tr>
@@ -394,28 +377,21 @@ Because VMware uses the Percona Distribution for MySQL, expect a time lag betwee
           <summary>1.2.0</summary>
           <pre style="max-width: 30em">
   * Add cflinuxfs4 stack support for R 4.2.X
-  * Rebuild r 4.2.1
-  for stack(s) cflinuxfs3, cflinuxfs4
-  with dependencies for stack cflinuxfs3: forecast 8.18, plumber 1.2.1, rserve 1.8.10, shiny 1.7.3
-  with dependencies for stack cflinuxfs4: forecast 8.18, plumber 1.2.1, rserve 1.8.10, shiny 1.7.3
-  * Rebuild r 4.2.2
-  for stack(s) cflinuxfs4, cflinuxfs3
-  with dependencies for stack cflinuxfs4: forecast 8.20, plumber 1.2.1, rserve 1.8.11, shiny 1.7.4
-  with dependencies for stack cflinuxfs3: forecast 8.20, plumber 1.2.1, rserve 1.8.11, shiny 1.7.4
-  (<https://www.pivotaltracker.com/story/show/184170168>)
-  Packaged binaries:
-  | name | version | cf_stacks | modules |
-  |-|-|-|-|
-  | r | 3.6.2 | cflinuxfs3 | forecast, plumber, rserve, shiny |
-  | r | 3.6.3 | cflinuxfs3 | forecast, plumber, rserve, shiny |
-  | r | 4.2.1 | cflinuxfs3 | forecast, plumber, rserve, shiny |
-  | r | 4.2.1 | cflinuxfs4 | forecast, plumber, rserve, shiny |
-  | r | 4.2.2 | cflinuxfs3 | forecast, plumber, rserve, shiny |
-  | r | 4.2.2 | cflinuxfs4 | forecast, plumber, rserve, shiny |
+  * Rebuild r 4.2.1 for stack(s) cflinuxfs3, cflinuxfs4 with dependencies for stack cflinuxfs3:
+  forecast 8.18, plumber 1.2.1, rserve 1.8.10, shiny 1.7.3 with dependencies for stack cflinuxfs4:
+  forecast 8.18, plumber 1.2.1, rserve 1.8.10, shiny 1.7.3
+  * Rebuild r 4.2.2 for stack(s) cflinuxfs4, cflinuxfs3 with dependencies for stack cflinuxfs4:
+  forecast 8.20, plumber 1.2.1, rserve 1.8.11, shiny 1.7.4 with dependencies for stack cflinuxfs3:
+  forecast 8.20, plumber 1.2.1, rserve 1.8.11, shiny 1.7.4
+  (<https://www.pivotaltracker.com/story/show/184170168>) Packaged binaries: | name | version |
+  cf_stacks | modules | |-|-|-|-| | r | 3.6.2 | cflinuxfs3 | forecast, plumber, rserve, shiny | | r
+  | 3.6.3 | cflinuxfs3 | forecast, plumber, rserve, shiny | | r | 4.2.1 | cflinuxfs3 | forecast,
+  plumber, rserve, shiny | | r | 4.2.1 | cflinuxfs4 | forecast, plumber, rserve, shiny | | r | 4.2.2
+  | cflinuxfs3 | forecast, plumber, rserve, shiny | | r | 4.2.2 | cflinuxfs4 | forecast, plumber,
+  rserve, shiny |
   * Uncached buildpack SHA256: c0f65e6cc63b505c497fa3f4f12df7707570535082796cec43c01b825a630755
   * Uncached buildpack SHA256: bf3db369196f4a562e75d5cdb760f5a41a6fcc3d5100968804d45b4cd8e8c7f4
-          </pre>
-        </details>
+          </pre> </details>
       </td>
     </tr>
     <tr><td>routing</td><td>0.256.0</td>
@@ -434,10 +410,9 @@ Because VMware uses the Percona Distribution for MySQL, expect a time lag betwee
 
 ## Resources
 
-* [Download release v0.256.0 from bosh.io](https://bosh.io/releases/github.com/cloudfoundry/routing-release?version=0.256.0).
-          </pre>
-        </details>
-      </td>
+* [Download release v0.256.0 from
+          bosh.io](https://bosh.io/releases/github.com/cloudfoundry/routing-release?version=0.256.0).
+        </pre> </details> </td>
     </tr>
     <tr><td>ruby-offline-buildpack</td><td>1.9.2</td>
       <td>
@@ -504,22 +479,17 @@ Because VMware uses the Percona Distribution for MySQL, expect a time lag betwee
 
 ## Dependencies
 
-  * **bosh-template:** Updated to v2.4.0.<br>For more information, see [bosh-template](https://github.com/cloudfoundry/bosh).
-  * **smbdriver:** Updated to v`adc77c7`.<br>For more information, see [smbdriver](https://github.com/cloudfoundry/smbdriver).
-          </pre>
-        </details>
-        <details>
-          <summary>v3.1.8</summary>
-          <pre style="max-width: 30em">
+  * **bosh-template:** Updated to v2.4.0.<br>For more information, see
+    [bosh-template](https://github.com/cloudfoundry/bosh).
+  * **smbdriver:** Updated to v`adc77c7`.<br>For more information, see
+          [smbdriver](https://github.com/cloudfoundry/smbdriver). </pre> </details> <details>
+        <summary>v3.1.8</summary> <pre style="max-width: 30em">
 
 ## Dependencies
 
-  * **smbdriver:** Updated to v`6cc617a`.<br>For more information, see [smbdriver](https://github.com/cloudfoundry/smbdriver).
-          </pre>
-        </details>
-        <details>
-          <summary>v3.1.7</summary>
-          <pre style="max-width: 30em">
+  * **smbdriver:** Updated to v`6cc617a`.<br>For more information, see
+          [smbdriver](https://github.com/cloudfoundry/smbdriver). </pre> </details> <details>
+        <summary>v3.1.7</summary> <pre style="max-width: 30em">
 
 ## Changes
 
@@ -527,11 +497,12 @@ Because VMware uses the Percona Distribution for MySQL, expect a time lag betwee
 
 ## Dependencies
 
-  * **rspec:** Updated to v3.12.0.<br>For more information, see [rspec](https://github.com/rspec/rspec-metagem).
-  * **smbbroker:** Updated to v`114bb05`.<br>For more information, see [smbbroker](https://github.com/cloudfoundry/smbbroker).
-  * **smbdriver:** Updated to v`f0b92e3`.<br>For more information, see [smbdriver](https://github.com/cloudfoundry/smbdriver).
-          </pre>
-        </details>
+  * **rspec:** Updated to v3.12.0.<br>For more information, see
+    [rspec](https://github.com/rspec/rspec-metagem).
+  * **smbbroker:** Updated to v`114bb05`.<br>For more information, see
+    [smbbroker](https://github.com/cloudfoundry/smbbroker).
+  * **smbdriver:** Updated to v`f0b92e3`.<br>For more information, see
+          [smbdriver](https://github.com/cloudfoundry/smbdriver). </pre> </details>
       </td>
     </tr>
     <tr><td>smoke-tests</td><td>4.8.2</td><td></td></tr>
@@ -541,19 +512,11 @@ Because VMware uses the Percona Distribution for MySQL, expect a time lag betwee
           <summary>1.5.38</summary>
           <pre style="max-width: 30em">
   * Update libbuildpack
-  * Updating github-config (#331)
-  Packaged binaries:
-  | name | version | cf_stacks |
-  |-|-|-|
-  | nginx | 1.22.1 | cflinuxfs3 |
-  | nginx | 1.23.3 | cflinuxfs3 |
-  Default binary versions:
-  | name | version |
-  |-|-|
-  | nginx | 1.23.x |
+  * Updating github-config (#331) Packaged binaries: | name | version | cf_stacks | |-|-|-| | nginx
+  | 1.22.1 | cflinuxfs3 | | nginx | 1.23.3 | cflinuxfs3 | Default binary versions: | name | version
+  | |-|-| | nginx | 1.23.x |
   * Uncached buildpack SHA256: d5e09a925a64324fe955509f792005da50626e553f03f4025064a9f7d3a9dc14
-          </pre>
-        </details>
+          </pre> </details>
       </td>
     </tr>
     <tr><td>statsd-injector</td><td>1.11.28</td>
@@ -561,21 +524,17 @@ Because VMware uses the Percona Distribution for MySQL, expect a time lag betwee
         <details>
           <summary>v1.11.28</summary>
           <pre style="max-width: 30em">
-  * update to golang 1.20.1
-  **Full Changelog**: <https://github.com/cloudfoundry/statsd-injector-release/compare/v1.11.27...v1.11.28>
-          </pre>
-        </details>
-        <details>
-          <summary>v1.11.27</summary>
-          <pre style="max-width: 30em">
+  * update to golang 1.20.1 **Full Changelog**:
+  <https://github.com/cloudfoundry/statsd-injector-release/compare/v1.11.27...v1.11.28> </pre>
+          </details> <details> <summary>v1.11.27</summary> <pre style="max-width: 30em">
 
 ## What's Changed
 
   * update dependencies
-  * Upgrade to go 1.20 by @rroberts2222 in <https://github.com/cloudfoundry/statsd-injector-release/pull/70>
-  **Full Changelog**: <https://github.com/cloudfoundry/statsd-injector-release/compare/v1.11.26...v1.11.27>
-          </pre>
-        </details>
+  * Upgrade to go 1.20 by @rroberts2222 in
+  <https://github.com/cloudfoundry/statsd-injector-release/pull/70> **Full Changelog**:
+          <https://github.com/cloudfoundry/statsd-injector-release/compare/v1.11.26...v1.11.27>
+        </pre> </details>
       </td>
     </tr>
     <tr><td>syslog</td><td>12.1.1</td><td></td></tr>
@@ -584,21 +543,17 @@ Because VMware uses the Percona Distribution for MySQL, expect a time lag betwee
         <details>
           <summary>v3.3.6</summary>
           <pre style="max-width: 30em">
-  * update to golang 1.20.1
-  **Full Changelog**: <https://github.com/cloudfoundry/system-metrics-scraper-release/compare/v3.3.5...v3.3.6>
-          </pre>
-        </details>
-        <details>
-          <summary>v3.3.5</summary>
-          <pre style="max-width: 30em">
+  * update to golang 1.20.1 **Full Changelog**:
+  <https://github.com/cloudfoundry/system-metrics-scraper-release/compare/v3.3.5...v3.3.6> </pre>
+          </details> <details> <summary>v3.3.5</summary> <pre style="max-width: 30em">
 
 ## What's Changed
 
   * update dependencies
-  * Upgrade to go 1.20 by @rroberts2222 in <https://github.com/cloudfoundry/system-metrics-scraper-release/pull/96>
-  **Full Changelog**: <https://github.com/cloudfoundry/system-metrics-scraper-release/compare/v3.3.4...v3.3.5>
-          </pre>
-        </details>
+  * Upgrade to go 1.20 by @rroberts2222 in
+  <https://github.com/cloudfoundry/system-metrics-scraper-release/pull/96> **Full Changelog**:
+          <https://github.com/cloudfoundry/system-metrics-scraper-release/compare/v3.3.4...v3.3.5>
+        </pre> </details>
       </td>
     </tr>
     <tr><td>uaa</td><td>76.5.0</td><td></td></tr>
@@ -606,23 +561,21 @@ Because VMware uses the Percona Distribution for MySQL, expect a time lag betwee
 
 </table>
 
-## <a id='new-features'></a> New Features in <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>
+## <a id='new-features'></a> New features in <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>
 
 <%= vars.app_runtime_abbr %> <%= vars.v_major_version %> includes the following major features:
 
 ### App syslog drains now support Mutual TLS and internal Certificate Authorities
 
-Upgrading to <%= vars.app_runtime_abbr %> <%= vars.v_major_version %> opens up
-more security options for application syslog drains. Syslog drains are now
-compatible with syslog servers which helps:
+Upgrading to <%= vars.app_runtime_abbr %> <%= vars.v_major_version %> opens up more security options
+for application syslog drains. Syslog drains are now compatible with syslog servers, which helps:
 
-* Enforce client identity.
-* Have their own internal or domain-specific certificate authority.
+* Enforce client identity
+* Have their own internal or domain-specific certificate authority
 
-You can configure your syslog drains to use Mutual TLS by specifying a
-client certificate and private key. You can also configure your syslog drains
-to communicate with syslog servers using internal or domain specific
-Certificate Authorities by specifying a CA.
+You can configure your syslog drains to use Mutual TLS by specifying a client certificate and a
+private key. You can also configure your syslog drains to communicate with syslog servers using
+internal or domain-specific Certificate Authorities by specifying a CA.
 
 For example:
 
@@ -630,105 +583,122 @@ For example:
 $ cf create-user-provided-service DRAIN-NAME -l SYSLOG-URL -p {"cert":"-----BEGIN CERTIFICATE-----\nMIIH...-----END CERTIFICATE-----","key":"-----BEGIN PRIVATE KEY-----\nMIIE...-----END PRIVATE KEY-----", "ca":"-----BEGIN CERTIFICATE-----\nMIIH...-----END CERTIFICATE-----"}
 </pre>
 
-### Dynamic App Renaming for Logs and Metrics
+### Dynamic App renaming for logs and metrics
 
-If you rename your apps you can see emitted logs and metrics that are tagged with the new application name without needing to restart the application.
-This is useful in blue or green deployments.
+If you rename your apps, you can see emitted logs and metrics that are tagged with the new
+application name without needing to restart the application. This is useful in blue or green
+deployments.
 
-<p class='note'><strong>Note:</strong> This feature does not extend to the updated `VCAP_APPLICATION` environment variable provided to containers by the
-platform. If you need this environment variable to contain the renamed name of the application, you still need to restart those applications after you rename them.</p>
+<p class='note'><strong>Note:</strong> This feature does not extend to the updated <code>VCAP_APPLICATION</code> environment variable provided to containers by the platform. If you need this environment variable to contain the new name of the application, you must still restart those applications after you rename them.</p>
 
-Depending on your configuration, app name caching might be performed outside of <%= vars.app_runtime_abbr %> by other products such as the Splunk Nozzle.
+Depending on your configuration, app name caching might be performed outside of <%=
+vars.app_runtime_abbr %> by other products such as the Splunk Nozzle.
 
-For applications hosted on Diego Cells that are provided by the <%= vars.segment_runtime_full %> or <%= vars.windows_runtime_abbr %> tiles, those tiles also need to
-be updated to <%= vars.v_major_version %> to get the full benefit of the new feature. Once you upgrade <%= vars.app_runtime_abbr %> the access log lines are generated by
-the <%= vars.app_runtime_abbr %> and <%= vars.segment_runtime_full %> gorouters, and reflect the application renames even if you have not yet upgraded the
-<%= vars.segment_runtime_full %> or <%= vars.windows_runtime_abbr %> tiles.
+For applications hosted on Diego Cells that are provided by the <%= vars.segment_runtime_full %> or
+<%= vars.windows_runtime_abbr %> tiles, those tiles also must be updated to <%= vars.v_major_version
+%> to get the full benefit of the new feature. After you upgrade <%= vars.app_runtime_abbr %>, the
+access log entries are generated by the <%= vars.app_runtime_abbr %> and <%=
+vars.segment_runtime_full %> Gorouters, and reflect the new application names even if you have not
+yet upgraded the <%= vars.segment_runtime_full %> or <%= vars.windows_runtime_abbr %> tiles.
 
-## <a id='breaking-changes'></a> Breaking Changes
+## <a id='breaking-changes'></a> Breaking changes
 
 <%= vars.app_runtime_abbr %> <%= vars.v_major_version %> includes the following breaking changes:
 
-### Component Logs Always Use Human-Readable RFC3339 Timestamp Format
+### Component logs always use human-readable RFC3339 timestamp format
 
-Non-standardized and non-human readable timestamps in logs make debugging TAS
-more difficult. Since TAS 2.10.0 there has been an option in the System Logging
-tab to **Optionally Use Human-Readable Timestamps for Component Logs**. In TAS
-4.0 this radio button is removed and all components use the
-human-readable RFC3339 format for the timestamps in their logs.
+Non-standardized and non-human readable timestamps in logs make debugging <%= vars.app_runtime_abbr
+%> more difficult. Since <%= vars.app_runtime_abbr %> 2.10.0, there was an option in the System
+Logging tab named **Optionally Use Human-Readable Timestamps for Component Logs**. In <%=
+vars.app_runtime_abbr %> 4.0, this radio button is removed and all components use the human-readable
+RFC3339 format for the timestamps in their logs.
 
-### Max Request Header Size Now Defaults to 48kb
+### Max request header size now defaults to 48 kb
 
-Upgrading to TAS 4.0 sets the **Max request header size in kb** to 48,
-unless the pre-existing configuration was already lower. Lowering this value establishes
-a better security posture for TAS for VMs and applications. You can still configure this value to back up to 1024kb in the Networking tab. Any requests with headers larger
-than this value receive a 431 status code.
+Upgrading to <%= vars.app_runtime_abbr %> 4.0 sets the **Max request header size in kb** to 48,
+unless the existing configuration was already lower. Lowering this value establishes a better
+security posture for <%= vars.app_runtime_abbr %> and applications. You can still configure this to
+a value up to 1024 kb in the **Networking** tab. Any requests with headers larger than this value
+returnin a 431 status code.
 
-To update a single gorouter configuration, add this line to the file:
+To update a single Gorouter configuration, add this line to the file:
 
 <pre class="terminal">
 /var/vcap/jobs/gorouter/config/gorouter.yml
 max_header_kb: 48
 </pre>
 
-To monitor gorouter access logs in the `/var/vcap/sys/log/gorouter/access.log` file, verify there are no entries with HTTP/1.1" 431 status code.
+To monitor Gorouter access logs in the `/var/vcap/sys/log/gorouter/access.log` file, verify that
+there are no entries with HTTP/1.1 431 status code.
 
-### Recent Logs Endpoint Has Been Removed From Traffic Controller
+### Recent logs endpoint is removed from Traffic Controller
 
-New versions of Traffic Controller do not have the recent logs endpoint. This causes versions of the cf CLI before v6.52.0 to no longer be able to
-retrieve logs when they are called with `cf logs --recent`.
+New versions of Traffic Controller do not have the recent logs endpoint. This means that versions of
+the cf CLI before v6.52.0 can no longer retrieve logs when they are called using `cf logs --recent`.
 
-### Add Validation for **Certificate Authorities trusted by the Gorouter** Property
+### Add validation for **Certificate Authorities trusted by the Gorouter** property
 
-TAS 4.0 contains validations for the **Certificate Authorities that are trusted by the
-Gorouter** property in the Networking tab. Any entries that are not valid for CA
-certificates results in an error in OpsManager. You must remove or replace
-invalid entries.
+<%= vars.app_runtime_abbr %> 4.0 contains validations for the **Certificate Authorities that are
+trusted by the Gorouter** property in the **Networking** tab. Any entries that are not valid for CA
+certificates cause an error in Ops Manager. You must remove or replace invalid entries.
 
-### Option to Enable (Deprecated) Global Log Rate Limit is Removed
+### Option to enable (deprecated) Global Log Rate Limit is removed
 
-This feature was in beta until TAS v3.0, when it was deprecated. For details, see [TAS for VMs 3.0 Release Notes](https://docs.vmware.com/en/VMware-Tanzu-Application-Service/3.0/tas-for-vms/runtime-rn.html#global-log-rate-limit-is-deprecated-24)
-following the introduction of app log rate limits. See [App Log Rate Feature](https://docs.vmware.com/en/VMware-Tanzu-Application-Service/3.0/tas-for-vms/runtime-rn.html#app-log-rate-limits-for-orgs-spaces-and-individual-apps-14).
-The option to activate this feature has now been removed, and you must apply app log rate limits instead.
+This feature was in beta until <%= vars.app_runtime_abbr %> 3.0, when it was deprecated. For
+details, see [<%= vars.app_runtime_abbr %> 3.0 Release
+Notes](https://docs.vmware.com/en/VMware-Tanzu-Application-Service/3.0/tas-for-vms/runtime-rn.html#global-log-rate-limit-is-deprecated-24)
+following the introduction of app log rate limits. See [App Log Rate
+Feature](https://docs.vmware.com/en/VMware-Tanzu-Application-Service/3.0/tas-for-vms/runtime-rn.html#app-log-rate-limits-for-orgs-spaces-and-individual-apps-14).
+The option to activate this feature has now been removed, and you must apply app log rate limits
+instead.
 
-Note, that if you were using this feature to limit your overall app log
-throughput, then you might see an increase in log load after you upgrade.
+Note that if you were using this feature to limit your overall app log throughput, then you might
+see an increase in log load after you upgrade.
 
-To
-mitigate this situation, either:
+To mitigate the increased log load problem, you can either:
 
-* Scale up your logging system before upgrading to TAS v4.0 to compensate for the increased log load.
+* Scale up your logging system before upgrading to TAS v4.0 to compensate for the increased log
+  load, or
 
-     Or
-
-* Upgrade to TAS v3.0 first to set app-level log rate limits while retaining the global log rate limit. For more details, see [App Log Rate Limits](https://docs.vmware.com/en/VMware-Tanzu-Application-Service/4.0/tas-for-vms/app-log-rate-limits.html).
+* Upgrade to <%= vars.app_runtime_abbr %> 3.0 first to set app-level log rate limits while retaining
+  the global log rate limit. For more details, see [App Log Rate
+  Limits](https://docs.vmware.com/en/VMware-Tanzu-Application-Service/4.0/tas-for-vms/app-log-rate-limits.html).
 
 ## <a id='known-issues'></a> Known issues
 
 <%= vars.app_runtime_abbr %> <%= vars.v_major_version %> includes the following known issues:
 
-### Stale routes might not be pruned properly in Gorouter. Additionally request failures that previously resulted in 496, 499, 503, 525, or 526 HTTP Status codes might now return Status Code 502 instead
+### <a id='stale-route-pruning'></a> Stale routes might not be pruned properly in Gorouter
 
-### <a id='stemcell-certification'></a> Stemcell Compliance Certification
+In addition, request failures that previously resulted in 496, 499, 503, 525, or 526 HTTP Status
+codes might now return Status Code 502 instead.
 
-The Ubuntu 22.04 long-term support (LTS) stemcell, Jammy Jellyfish, is not yet CIS or STIG-certified.
+### <a id='stemcell-certification'></a> Stemcell compliance certification
 
-### <a id='auto-reconfig-disallowed'></a> java-offline-buildpack v4.52 Disallows Spring Auto Reconfiguration by default
+The Ubuntu 22.04 long-term support (LTS) stemcell, Jammy Jellyfish, is not currently CIS or
+STIG-certified.
 
-<%= vars.app_runtime_abbr %> <%= vars.v_major_version %>.0 includes `java-offline-buildpack` v4.52, which does not allow Spring Auto Reconfiguration by default.
-This change creates the following issues:
+### <a id='auto-reconfig-disallowed'></a> java-offline-buildpack v4.52 disallows Spring Auto Reconfiguration by default
 
-* <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>.0 is incompatible with some service tiles, including Spring Cloud Data Flow (SCDF).
+<%= vars.app_runtime_abbr %> <%= vars.v_major_version %>.0 includes `java-offline-buildpack` v4.52,
+which does not allow Spring Auto Reconfiguration by default. This change creates the following
+issues:
 
-* <%= vars.app_runtime_abbr %> cannot bind apps that use `java-offline-buildpack` v4.52 to service instances.
+* <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>.0 is incompatible with some service
+  tiles, including Spring Cloud Data Flow (SCDF).
 
-This known issue does not affect apps until you re-stage them.
+* <%= vars.app_runtime_abbr %> cannot bind apps that use `java-offline-buildpack` v4.52 to service
+  instances.
 
-Because the effects of this change are so disruptive, a patch release is in develoopment to fix this known issue.
+This problem does not affect apps until you re-stage them.
+
+Because the effects of this change are disruptive, a patch release is in development to fix this
+issue.
 
 To temporarily restore the previous capability of Spring Auto Reconfiguration for your apps:
 
-1. Set the `JBP_CONFIG_SPRING_AUTO_RECONFIGURATION` environment variable for your apps by running one of the following commands:
+1. Set the `JBP_CONFIG_SPRING_AUTO_RECONFIGURATION` environment variable for your apps by running
+   one of the following commands:
      * To restore the previous functionality of Spring Auto Reconfiguration on a per-app basis, run:
 
       ```
@@ -736,46 +706,58 @@ To temporarily restore the previous capability of Spring Auto Reconfiguration fo
       ```
 
       Where `APP-NAME` is the name of your app.
-     * To restore the previous functionality of Spring Auto Reconfiguration for all apps in your <%= vars.app_runtime_abbr %> deployment, run:
+     * To restore the previous functionality of Spring Auto Reconfiguration for all apps in your <%=
+       vars.app_runtime_abbr %> deployment, run:
 
       ```console
       cf set-staging-environment-variable-group '{"JBP_CONFIG_SPRING_AUTO_RECONFIGURATION ":"{enabled: true}"}'
       ```
 
-For more information about the deprecation of Spring Cloud Connectors, and Spring Auto Reconfiguration in `java-offline-buildpack` v4.52, see [Java Buildpack -
-Deprecation of Spring Cloud Connectors & Spring Auto
-Reconfiguration](https://community.pivotal.io/s/article/Java-Buildpack-Deprecation-of-Spring-Cloud-Connectors-Spring-Auto-Reconfiguration) in the VMware Tanzu
-Knowledge Base.
+For more information about the deprecation of Spring Cloud Connectors, and Spring Auto
+Reconfiguration in `java-offline-buildpack` v4.52, see [Java Buildpack - Deprecation of Spring Cloud
+Connectors & Spring Auto
+Reconfiguration](https://community.pivotal.io/s/article/Java-Buildpack-Deprecation-of-Spring-Cloud-Connectors-Spring-Auto-Reconfiguration)
+in the VMware Tanzu Knowledge Base.
 
 ### <a id='uaa-sso-copy'></a> UAA Single Sign-On Copy button is broken
 
-In the User Account and Authentication (UAA) user interface (UI), the button that copies Single Sign-On (SSO) codes does not work.
+In the User Account and Authentication (UAA) user interface (UI), the button that copies Single
+Sign-On (SSO) codes does not work.
 
 To work around this issue, you must manually copy and paste the displayed code.
 
-### <a id='dynamic-asgs-v2-api'></a> Dynamic ASG Updates Require the Use of Cloud Foundry v3 API for External Integrations
+### <a id='dynamic-asgs-v2-api'></a> Dynamic ASG Updates require the use of Cloud Foundry v3 API for external integrations
 
-Any external integrations with the CF API to create, update, and delete Application Security Group (ASG) definitions or bindings require
-the use of the Cloud Foundry v3 API. Any ASG updates made with the v2 API are not synced until an ASG update using the v3 API
-has been made.
+Any external integrations with the CF API to create, update, and delete Application Security Group
+(ASG) definitions or bindings require the use of the Cloud Foundry v3 API. Any ASG updates made with
+the v2 API are not synchronized until an ASG update using the v3 API is made.
 
 Recommended course of action:
 
-1. Ensure the integration uses the latest CF CLI binary, which already uses the v3 API endpoints.
-2. Update any HTTP based integrations to use the [v3 API endpoints for security groups](http://v3-apidocs.cloudfoundry.org/version/3.128.0/index.html#security-groups).
+1. Verify that the integration uses the latest CF CLI binary, which already uses the v3 API
+   endpoints.
+2. Update any HTTP based integrations to use the [v3 API endpoints for security
+   groups](http://v3-apidocs.cloudfoundry.org/version/3.128.0/index.html#security-groups).
 
-### <a id='dynamic-renaming-silk-log-line'></a> Dynamic App Renaming Does Not Take Effect For Silk Security Group Log Lines
+### <a id='dynamic-renaming-silk-log-line'></a> Dynamic App renaming does not take effect For Silk Security Group log entries
 
-Silk emits log lines to application log streams when ASGs are dynamically changed. If you use Silk for container networking and have enabled Dynamic ASGs, you might find
-thelog lines are tagged with old application names.
+Silk emits log entries to application log streams when ASGs are dynamically changed. If you use Silk
+for container networking and have enabled Dynamic ASGs, you might find the log entries are tagged
+with old application names.
 
-To mitigate this issue you can restart the applications after they are renamed.
+To mitigate this issue, you can restart the applications after they are renamed.
 
 ### <a id='check-nats-server-version'></a> Check your NATS server version
 
-In TAS 2.11.26, VMware introduced a `nats` release that replaced the underlying package from NATS v1.0 to NATS v2.0. TAS for VMx 4.0 is the first LTS version that includes
-NATS v2.0. The migration happens invisibly; however, if the migration is not successful, your NATS servers might still be running NATS v1.0.
+In <%= vars.app_runtime_abbr %> 2.11.26, VMware introduced a `nats` release that replaced the
+underlying package from NATS v1.0 with NATS v2.0. <%= vars.app_runtime_abbr %> 4.0 is the first LTS
+version that includes NATS v2.0. The migration happens invisibly; however, if the migration is not
+successful, your NATS servers might still be running NATS v1.0.
 
-Per the [TAS Support Lifecycle Policy](https://docs.pivotal.io/application-service/3-0/release-notes/runtime-rn.html#support-policy), VMware
-keeps the NATS v1.0 as a fallback, but removes it in a future version. Follow the instructions in the [Knowledge Base article](https://community.pivotal.io/s/article/How-to-confirm-your-nats-servers-are-running-NATs-v2?language=en_US)
-to confirm that your `nats` instances have migrated successfully, and learn how to troubleshoot if they have not.
+As described in the [TAS Support Lifecycle
+Policy](https://docs.pivotal.io/application-service/3-0/release-notes/runtime-rn.html#support-policy),
+VMware keeps the NATS v1.0 as a fallback, but removes it in a future version. Follow the
+instructions in the [Knowledge Base
+article](https://community.pivotal.io/s/article/How-to-confirm-your-nats-servers-are-running-NATs-v2?language=en_US)
+to confirm that your `nats` instances have migrated successfully, and learn how to troubleshoot if
+they have not.
