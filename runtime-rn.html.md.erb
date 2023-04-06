@@ -4046,6 +4046,7 @@ Reconfiguration by Default](#auto-reconfig-disallowed) below.
 ### <a id='2-11-26'></a> v2.11.26
 
 **Release Date:** 09/20/2022
+<p class='note warning'><strong style="text-transform: none;">Warning:</strong> Breaking change This version contains Diego 2.66.3, which bumps to Go 1.18. Go 1.18 no longer supports TLS 1.0 and 1.1 connections or certificates with a SHA-1 checksum. This is most likely to affect connections with external databases.</p>
 
 * **[Security Fix]** Bump Cloud Controller Ruby version to 2.7.6 and Go to 1.18.5
 * **[Security Fix]** Bump golang to 1.17.12 in routing release
