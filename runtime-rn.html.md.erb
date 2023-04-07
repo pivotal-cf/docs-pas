@@ -678,47 +678,6 @@ codes might now return Status Code 502 instead.
 The Ubuntu 22.04 long-term support (LTS) stemcell, Jammy Jellyfish, is not currently CIS or
 STIG-certified.
 
-### <a id='auto-reconfig-disallowed'></a> java-offline-buildpack v4.52 disallows Spring Auto Reconfiguration by default
-
-<%= vars.app_runtime_abbr %> <%= vars.v_major_version %>.0 includes `java-offline-buildpack` v4.52,
-which does not allow Spring Auto Reconfiguration by default. This change creates the following
-issues:
-
-* <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>.0 is incompatible with some service
-  tiles, including Spring Cloud Data Flow (SCDF).
-
-* <%= vars.app_runtime_abbr %> cannot bind apps that use `java-offline-buildpack` v4.52 to service
-  instances.
-
-This problem does not affect apps until you re-stage them.
-
-Because the effects of this change are disruptive, a patch release is in development to fix this
-issue.
-
-To temporarily restore the previous capability of Spring Auto Reconfiguration for your apps:
-
-1. Set the `JBP_CONFIG_SPRING_AUTO_RECONFIGURATION` environment variable for your apps by running
-   one of the following commands:
-     * To restore the previous functionality of Spring Auto Reconfiguration on a per-app basis, run:
-
-      ```
-      cf set-env APP-NAME JBP_CONFIG_SPRING_AUTO_RECONFIGURATION '{enabled: true}'
-      ```
-
-      Where `APP-NAME` is the name of your app.
-     * To restore the previous functionality of Spring Auto Reconfiguration for all apps in your <%=
-       vars.app_runtime_abbr %> deployment, run:
-
-      ```console
-      cf set-staging-environment-variable-group '{"JBP_CONFIG_SPRING_AUTO_RECONFIGURATION ":"{enabled: true}"}'
-      ```
-
-For more information about the deprecation of Spring Cloud Connectors, and Spring Auto
-Reconfiguration in `java-offline-buildpack` v4.52, see [Java Buildpack - Deprecation of Spring Cloud
-Connectors & Spring Auto
-Reconfiguration](https://community.pivotal.io/s/article/Java-Buildpack-Deprecation-of-Spring-Cloud-Connectors-Spring-Auto-Reconfiguration)
-in the VMware Tanzu Knowledge Base.
-
 ### <a id='uaa-sso-copy'></a> UAA Single Sign-On Copy button is broken
 
 In the User Account and Authentication (UAA) user interface (UI), the button that copies Single
