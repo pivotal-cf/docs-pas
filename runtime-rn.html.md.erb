@@ -1,5 +1,5 @@
 ---
-title: TAS for VMs v4.0 Release Notes
+title: VMware Tanzu Application Service for VMs v4.0 Release Notes
 owner: Release Engineering
 ---
 
@@ -20,7 +20,7 @@ MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> containing that pa
 
 ### <a id='4.0.0'></a> 4.0.0
 
-**Release Date:** 02/27/2023
+**Release Date:** 04/18/2023
 
 * **[Feature Improvement]** Add option for Query Parameter Presentation in Gorouter Access Logs
 * **[Bug Fix]** Improve performance of & reduce storage needs for CAPI `usage_events` queries on
@@ -102,15 +102,18 @@ MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> containing that pa
           <summary>2.12.19</summary>
           <pre style="max-width: 30em">
   Security Fixes
+
   Bump various dependencies
-  ## What's Changed
-  * Feat: Add github actions to job specs by @peterhaochen47 in https://github.com/pivotal/credhub-release/pull/93
-  *Build(deps): Bump rspec-expectations from 3.12.0 to 3.12.1 in /spec by @peterhaochen47 in https://github.com/pivotal/credhub-release/pull/94
-  * Feat: Add github actions to run lint by @peterhaochen47 in https://github.com/pivotal/credhub-release/pull/95
-  *Build(deps): Bump parser from 3.1.3.0 to 3.2.0.0 in /spec by @dependabot in https://github.com/pivotal/credhub-release/pull/99
-  * Build(deps): Bump rspec-expectations from 3.12.1 to 3.12.2 in /spec by @dependabot in https://github.com/pivotal/credhub-release/pull/100
-  *Build(deps): Bump rspec-mocks from 3.12.1 to 3.12.2 in /spec by @dependabot in https://github.com/pivotal/credhub-release/pull/101
-  **Full Changelog**: https://github.com/pivotal/credhub-release/compare/2.12.18...2.12.19
+
+## What's Changed
+
+* Feat: Add github actions to job specs by @peterhaochen47 in <https://github.com/pivotal/credhub-release/pull/93>
+  *Build(deps): Bump rspec-expectations from 3.12.0 to 3.12.1 in /spec by @peterhaochen47 in <https://github.com/pivotal/credhub-release/pull/94>
+* Feat: Add github actions to run lint by @peterhaochen47 in <https://github.com/pivotal/credhub-release/pull/95>
+  *Build(deps): Bump parser from 3.1.3.0 to 3.2.0.0 in /spec by @dependabot in <https://github.com/pivotal/credhub-release/pull/99>
+* Build(deps): Bump rspec-expectations from 3.12.1 to 3.12.2 in /spec by @dependabot in <https://github.com/pivotal/credhub-release/pull/100>
+  *Build(deps): Bump rspec-mocks from 3.12.1 to 3.12.2 in /spec by @dependabot in <https://github.com/pivotal/credhub-release/pull/101>
+  **Full Changelog**: <https://github.com/pivotal/credhub-release/compare/2.12.18...2.12.19>
           </pre>
         </details>
       </td>
@@ -123,9 +126,9 @@ MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> containing that pa
         <details>
           <summary>1.10.5</summary>
           <pre style="max-width: 30em">
-  * Add go 1.19.6, remove go 1.19.5
+* Add go 1.19.6, remove go 1.19.5
   for stack(s) cflinuxfs4, cflinuxfs3
-  (https://www.pivotaltracker.com/story/show/184477448)
+  (<https://www.pivotaltracker.com/story/show/184477448>)
   *Bump github.com/Dynatrace/libbuildpack-dynatrace from 1.5.1 to 1.5.2
   Packaged binaries:
   | name | version | cf_stacks |
@@ -144,14 +147,14 @@ MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> containing that pa
   | name | version |
   |-|-|
   | go | 1.18.x |
-  * Uncached buildpack SHA256: 7b155c13e80e696732bb8c40da8862e5280b984a7457d0af70970180168c927f
+* Uncached buildpack SHA256: 7b155c13e80e696732bb8c40da8862e5280b984a7457d0af70970180168c927f
   *Uncached buildpack SHA256: 297b970a47e201e9151e216013a2b66b9365fda502ff3b079615f1070bf1c951
           </pre>
         </details>
         <details>
           <summary>1.10.4</summary>
           <pre style="max-width: 30em">
-  * Update libbuildpack
+* Update libbuildpack
   Packaged binaries:
   | name | version | cf_stacks |
   |-|-|-|
@@ -170,7 +173,7 @@ MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> containing that pa
   |-|-|
   | go | 1.18.x |
   *Uncached buildpack SHA256: 56fac929ff6dcdb164233d2e945beb2525ef48a91c60f85dec991ebe92443b1b
-  * Uncached buildpack SHA256: 3648319f545e416a6b7dc552cff8e8711901ab31271eee811a9269e0497b186f
+* Uncached buildpack SHA256: 3648319f545e416a6b7dc552cff8e8711901ab31271eee811a9269e0497b186f
 
           </pre>
         </details>
@@ -189,16 +192,16 @@ MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> containing that pa
 
 ## What's Changed
 
-  * update dependencies
-  * Update to go 1.20 by @rroberts2222 in
+* update dependencies
+* Update to go 1.20 by @rroberts2222 in
   <https://github.com/cloudfoundry/log-cache-release/pull/162> **Full Changelog**:
           <https://github.com/cloudfoundry/log-cache-release/compare/v2.12.4...v2.12.5> </pre>
         </details> <details> <summary>v2.12.4</summary> <pre style="max-width: 30em">
 
 ## What's Changed
 
-  * update golang release to 1.19.4
-  * dependency bumps **Full Changelog**:
+* update golang release to 1.19.4
+* dependency bumps **Full Changelog**:
   <https://github.com/cloudfoundry/log-cache-release/compare/v2.12.3...v2.12.4> </pre> </details>
       </td>
     </tr>
@@ -213,8 +216,8 @@ MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> containing that pa
 
 ## What's Changed
 
-  * update to golang 1.20.1
-  * update dependencies </pre> </details>
+* update to golang 1.20.1
+* update dependencies </pre> </details>
       </td>
     </tr>
     <tr><td>metrics-discovery</td><td>3.2.7</td>
@@ -222,21 +225,21 @@ MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> containing that pa
         <details>
           <summary>v3.2.7</summary>
           <pre style="max-width: 30em">
-  * update golang to 1.20.1 **Full Changelog**:
+* update golang to 1.20.1 **Full Changelog**:
   <https://github.com/cloudfoundry/metrics-discovery-release/compare/v3.2.6...v3.2.7###> </pre>
           </details> <details> <summary>v3.2.6</summary> <pre style="max-width: 30em">
 
 ## What's Changed
 
-  * Upgrade to go 1.20 by @rroberts2222 in
+* Upgrade to go 1.20 by @rroberts2222 in
   <https://github.com/cloudfoundry/metrics-discovery-release/pull/104> **Full Changelog**:
           <https://github.com/cloudfoundry/metrics-discovery-release/compare/v3.2.5...v3.2.6> </pre>
         </details> <details> <summary>v3.2.5</summary> <pre style="max-width: 30em">
 
 ## What's Changed
 
-  * Update dependencies
-  * Expire individual metrics by @rroberts2222 in
+* Update dependencies
+* Expire individual metrics by @rroberts2222 in
   <https://github.com/cloudfoundry/metrics-discovery-release/pull/103> **Full Changelog**:
           <https://github.com/cloudfoundry/metrics-discovery-release/compare/v3.2.4...v3.2.5> </pre>
         </details>
@@ -250,14 +253,14 @@ MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> containing that pa
         <details>
           <summary>1.2.0</summary>
           <pre style="max-width: 30em">
-  * Add support for cflinuxfs4 stack Packaged binaries: | name | version | cf_stacks | |-|-|-| |
+* Add support for cflinuxfs4 stack Packaged binaries: | name | version | cf_stacks | |-|-|-| |
   nginx | 1.22.1 | cflinuxfs3 | | nginx | 1.22.1 | cflinuxfs4 | | nginx | 1.23.3 | cflinuxfs3 | |
   nginx | 1.23.3 | cflinuxfs4 | | openresty | 1.13.6.2 | cflinuxfs3 | | openresty | 1.15.8.3 |
   cflinuxfs3 | | openresty | 1.17.8.2 | cflinuxfs3 | | openresty | 1.19.9.1 | cflinuxfs3 | |
   openresty | 1.19.9.1 | cflinuxfs4 | | openresty | 1.21.4.1 | cflinuxfs3 | | openresty | 1.21.4.1 |
   cflinuxfs4 | Default binary versions: | name | version | |-|-| | nginx | 1.23.x |
-  * Uncached buildpack SHA256: ab7cd71dc8ff38fdb93558b7536ca03e41baf191fe72e1980f43d61a82378dc8
-  * Uncached buildpack SHA256: 1ba096283d893a6040b3733cac0e90f1f87f6de0593b3f01a81183725aeab08a
+* Uncached buildpack SHA256: ab7cd71dc8ff38fdb93558b7536ca03e41baf191fe72e1980f43d61a82378dc8
+* Uncached buildpack SHA256: 1ba096283d893a6040b3733cac0e90f1f87f6de0593b3f01a81183725aeab08a
           </pre> </details>
       </td>
     </tr>
@@ -266,10 +269,10 @@ MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> containing that pa
         <details>
           <summary>1.8.6</summary>
           <pre style="max-width: 30em">
-  * Add node 18.14.1, remove node 18.12.1 for stack(s) cflinuxfs4, cflinuxfs3
-  * Add node 16.19.1, remove node 16.18.1 for stack(s) cflinuxfs3, cflinuxfs4
-  * Add node 14.21.3, remove node 14.21.1 for stack(s) cflinuxfs3, cflinuxfs4
-  * Update Node 16.x deprecation date (Nodejs update on SSL deprecation)
+* Add node 18.14.1, remove node 18.12.1 for stack(s) cflinuxfs4, cflinuxfs3
+* Add node 16.19.1, remove node 16.18.1 for stack(s) cflinuxfs3, cflinuxfs4
+* Add node 14.21.3, remove node 14.21.1 for stack(s) cflinuxfs3, cflinuxfs4
+* Update Node 16.x deprecation date (Nodejs update on SSL deprecation)
   [ref](https://nodejs.org/en/blog/vulnerability/february-2023-security-releases/) Packaged
   binaries: | name | version | cf_stacks | |-|-|-| | node | 14.21.2 | cflinuxfs3 | | node | 14.21.2
   | cflinuxfs4 | | node | 14.21.3 | cflinuxfs3 | | node | 14.21.3 | cflinuxfs4 | | node | 16.19.0 |
@@ -277,8 +280,8 @@ MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> containing that pa
   cflinuxfs4 | | node | 18.13.0 | cflinuxfs3 | | node | 18.13.0 | cflinuxfs4 | | node | 18.14.1 |
   cflinuxfs3 | | node | 18.14.1 | cflinuxfs4 | | yarn | 1.22.19 | cflinuxfs3, cflinuxfs4 | Default
   binary versions: | name | version | |-|-| | node | 18.x |
-  * Uncached buildpack SHA256: e8f42ddddcf355c9b37597944b498cf33f624d59852ba686a97a774e881a424b
-  * Uncached buildpack SHA256: c6bee0e5213870daaa2e3c2db51e2a3bf56b14bf2014c72b8cb524432d31a642
+* Uncached buildpack SHA256: e8f42ddddcf355c9b37597944b498cf33f624d59852ba686a97a774e881a424b
+* Uncached buildpack SHA256: c6bee0e5213870daaa2e3c2db51e2a3bf56b14bf2014c72b8cb524432d31a642
           </pre> </details>
       </td>
     </tr>
@@ -289,16 +292,16 @@ MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> containing that pa
         <details>
           <summary>4.5.2</summary>
           <pre style="max-width: 30em">
-  * Update buildpack-packager to 2.3.22
-  * Update php default to latest 8.1.x version (#807)
-  * Updating version for php for 8.2.X (#805)
-  * Add php 8.2.2 for stack(s) cflinuxfs3, cflinuxfs4
+* Update buildpack-packager to 2.3.22
+* Update php default to latest 8.1.x version (#807)
+* Updating version for php for 8.2.X (#805)
+* Add php 8.2.2 for stack(s) cflinuxfs3, cflinuxfs4
   (<https://www.pivotaltracker.com/story/show/184381976>)
-  * Add php 8.1.15, remove php 8.1.13 for stack(s) cflinuxfs3, cflinuxfs4
+* Add php 8.1.15, remove php 8.1.13 for stack(s) cflinuxfs3, cflinuxfs4
   (<https://www.pivotaltracker.com/story/show/184388841>)
-  * Add nginx 1.22.1, remove nginx 1.22.0 for stack(s) cflinuxfs4, cflinuxfs3
+* Add nginx 1.22.1, remove nginx 1.22.0 for stack(s) cflinuxfs4, cflinuxfs3
   (<https://www.pivotaltracker.com/story/show/183579473>)
-  * Add composer 2.5.2, remove composer 2.5.1 for stack(s) cflinuxfs4, cflinuxfs3
+* Add composer 2.5.2, remove composer 2.5.1 for stack(s) cflinuxfs4, cflinuxfs3
   (<https://www.pivotaltracker.com/story/show/184394919>) Packaged binaries: | name | version |
   cf_stacks | modules | |-|-|-|-| | appdynamics | 22.12.1-677 | cflinuxfs3, cflinuxfs4 |  | |
   composer | 2.5.2 | cflinuxfs3, cflinuxfs4 |  | | httpd | 2.4.55 | cflinuxfs3 |  | | httpd | 2.4.55
@@ -362,7 +365,7 @@ MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> containing that pa
   sqlsrv, ssh2, stomp, sysvmsg, sysvsem, sysvshm, tideways_xhprof, tidy, xdebug, xsl, yaml, zip,
   zlib | Default binary versions: | name | version | |-|-| | php | 8.1.14 | | httpd | 2.4.55 | |
   newrelic | 9.20.0.310 | | nginx | 1.23.3 | | composer | 2.5.2 |
-  * Uncached buildpack SHA256: 17c3a0b8f2fb84b8e473e67168e138c2537ceb9b1abc66497704d00589d9f725
+* Uncached buildpack SHA256: 17c3a0b8f2fb84b8e473e67168e138c2537ceb9b1abc66497704d00589d9f725
           </pre> </details>
       </td>
     </tr>
@@ -376,11 +379,11 @@ MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> containing that pa
         <details>
           <summary>1.2.0</summary>
           <pre style="max-width: 30em">
-  * Add cflinuxfs4 stack support for R 4.2.X
-  * Rebuild r 4.2.1 for stack(s) cflinuxfs3, cflinuxfs4 with dependencies for stack cflinuxfs3:
+* Add cflinuxfs4 stack support for R 4.2.X
+* Rebuild r 4.2.1 for stack(s) cflinuxfs3, cflinuxfs4 with dependencies for stack cflinuxfs3:
   forecast 8.18, plumber 1.2.1, rserve 1.8.10, shiny 1.7.3 with dependencies for stack cflinuxfs4:
   forecast 8.18, plumber 1.2.1, rserve 1.8.10, shiny 1.7.3
-  * Rebuild r 4.2.2 for stack(s) cflinuxfs4, cflinuxfs3 with dependencies for stack cflinuxfs4:
+* Rebuild r 4.2.2 for stack(s) cflinuxfs4, cflinuxfs3 with dependencies for stack cflinuxfs4:
   forecast 8.20, plumber 1.2.1, rserve 1.8.11, shiny 1.7.4 with dependencies for stack cflinuxfs3:
   forecast 8.20, plumber 1.2.1, rserve 1.8.11, shiny 1.7.4
   (<https://www.pivotaltracker.com/story/show/184170168>) Packaged binaries: | name | version |
@@ -389,8 +392,8 @@ MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> containing that pa
   plumber, rserve, shiny | | r | 4.2.1 | cflinuxfs4 | forecast, plumber, rserve, shiny | | r | 4.2.2
   | cflinuxfs3 | forecast, plumber, rserve, shiny | | r | 4.2.2 | cflinuxfs4 | forecast, plumber,
   rserve, shiny |
-  * Uncached buildpack SHA256: c0f65e6cc63b505c497fa3f4f12df7707570535082796cec43c01b825a630755
-  * Uncached buildpack SHA256: bf3db369196f4a562e75d5cdb760f5a41a6fcc3d5100968804d45b4cd8e8c7f4
+* Uncached buildpack SHA256: c0f65e6cc63b505c497fa3f4f12df7707570535082796cec43c01b825a630755
+* Uncached buildpack SHA256: bf3db369196f4a562e75d5cdb760f5a41a6fcc3d5100968804d45b4cd8e8c7f4
           </pre> </details>
       </td>
     </tr>
@@ -419,19 +422,19 @@ MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> containing that pa
         <details>
           <summary>1.9.2</summary>
           <pre style="max-width: 30em">
-  * Add node 18.14.0, remove node 18.13.0
+  *Add node 18.14.0, remove node 18.13.0
   for stack(s) cflinuxfs3, cflinuxfs4
   (<https://www.pivotaltracker.com/story/show/184393261>)
   * Add jruby 9.4.1.0, remove jruby 9.4.0.0
   for stack(s) cflinuxfs3, cflinuxfs4
   (<https://www.pivotaltracker.com/story/show/184417188>)
-  * Add jruby 9.3.10.0, remove jruby 9.3.9.0
+  *Add jruby 9.3.10.0, remove jruby 9.3.9.0
   for stack(s) cflinuxfs3, cflinuxfs4
   (<https://www.pivotaltracker.com/story/show/184375182>)
   * Add rubygems 3.4.6, remove rubygems 3.4.4 (#703)
   for stack(s) cflinuxfs4, cflinuxfs3
   (<https://www.pivotaltracker.com/story/show/184361007>)
-  * Add bundler 2.4.6, remove bundler 2.4.4 (#702)
+  *Add bundler 2.4.6, remove bundler 2.4.4 (#702)
   for stack(s) cflinuxfs4, cflinuxfs3
   (<https://www.pivotaltracker.com/story/show/184360955>)
   Packaged binaries:
@@ -475,33 +478,33 @@ MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> containing that pa
 
 ## Changes
 
-  * Add force_noserverino property in smbdriver job (#102)
+* Add force_noserverino property in smbdriver job (#102)
 
 ## Dependencies
 
-  * **bosh-template:** Updated to v2.4.0.<br>For more information, see
+* **bosh-template:** Updated to v2.4.0.<br>For more information, see
     [bosh-template](https://github.com/cloudfoundry/bosh).
-  * **smbdriver:** Updated to v`adc77c7`.<br>For more information, see
+* **smbdriver:** Updated to v`adc77c7`.<br>For more information, see
           [smbdriver](https://github.com/cloudfoundry/smbdriver). </pre> </details> <details>
         <summary>v3.1.8</summary> <pre style="max-width: 30em">
 
 ## Dependencies
 
-  * **smbdriver:** Updated to v`6cc617a`.<br>For more information, see
+* **smbdriver:** Updated to v`6cc617a`.<br>For more information, see
           [smbdriver](https://github.com/cloudfoundry/smbdriver). </pre> </details> <details>
         <summary>v3.1.7</summary> <pre style="max-width: 30em">
 
 ## Changes
 
-  * Golang: Updated to v1.19.4 (#76)
+* Golang: Updated to v1.19.4 (#76)
 
 ## Dependencies
 
-  * **rspec:** Updated to v3.12.0.<br>For more information, see
+* **rspec:** Updated to v3.12.0.<br>For more information, see
     [rspec](https://github.com/rspec/rspec-metagem).
-  * **smbbroker:** Updated to v`114bb05`.<br>For more information, see
+* **smbbroker:** Updated to v`114bb05`.<br>For more information, see
     [smbbroker](https://github.com/cloudfoundry/smbbroker).
-  * **smbdriver:** Updated to v`f0b92e3`.<br>For more information, see
+* **smbdriver:** Updated to v`f0b92e3`.<br>For more information, see
           [smbdriver](https://github.com/cloudfoundry/smbdriver). </pre> </details>
       </td>
     </tr>
@@ -511,11 +514,11 @@ MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> containing that pa
         <details>
           <summary>1.5.38</summary>
           <pre style="max-width: 30em">
-  * Update libbuildpack
-  * Updating github-config (#331) Packaged binaries: | name | version | cf_stacks | |-|-|-| | nginx
+* Update libbuildpack
+* Updating github-config (#331) Packaged binaries: | name | version | cf_stacks | |-|-|-| | nginx
   | 1.22.1 | cflinuxfs3 | | nginx | 1.23.3 | cflinuxfs3 | Default binary versions: | name | version
   | |-|-| | nginx | 1.23.x |
-  * Uncached buildpack SHA256: d5e09a925a64324fe955509f792005da50626e553f03f4025064a9f7d3a9dc14
+* Uncached buildpack SHA256: d5e09a925a64324fe955509f792005da50626e553f03f4025064a9f7d3a9dc14
           </pre> </details>
       </td>
     </tr>
@@ -524,14 +527,14 @@ MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> containing that pa
         <details>
           <summary>v1.11.28</summary>
           <pre style="max-width: 30em">
-  * update to golang 1.20.1 **Full Changelog**:
+* update to golang 1.20.1 **Full Changelog**:
   <https://github.com/cloudfoundry/statsd-injector-release/compare/v1.11.27...v1.11.28> </pre>
           </details> <details> <summary>v1.11.27</summary> <pre style="max-width: 30em">
 
 ## What's Changed
 
-  * update dependencies
-  * Upgrade to go 1.20 by @rroberts2222 in
+* update dependencies
+* Upgrade to go 1.20 by @rroberts2222 in
   <https://github.com/cloudfoundry/statsd-injector-release/pull/70> **Full Changelog**:
           <https://github.com/cloudfoundry/statsd-injector-release/compare/v1.11.26...v1.11.27>
         </pre> </details>
@@ -543,20 +546,21 @@ MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> containing that pa
         <details>
           <summary>v3.3.6</summary>
           <pre style="max-width: 30em">
-  * update to golang 1.20.1 **Full Changelog**:
+* update to golang 1.20.1 **Full Changelog**:
   <https://github.com/cloudfoundry/system-metrics-scraper-release/compare/v3.3.5...v3.3.6> </pre>
           </details> <details> <summary>v3.3.5</summary> <pre style="max-width: 30em">
 
 ## What's Changed
 
-  * update dependencies
-  * Upgrade to go 1.20 by @rroberts2222 in
+* update dependencies
+* Upgrade to go 1.20 by @rroberts2222 in
   <https://github.com/cloudfoundry/system-metrics-scraper-release/pull/96> **Full Changelog**:
           <https://github.com/cloudfoundry/system-metrics-scraper-release/compare/v3.3.4...v3.3.5>
         </pre> </details>
       </td>
     </tr>
     <tr><td>uaa</td><td>76.5.0</td><td></td></tr>
+
   </tbody>
 
 </table>
@@ -567,15 +571,17 @@ MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> containing that pa
 
 ### App syslog drains now support Mutual TLS and internal Certificate Authorities
 
-Upgrading to <%= vars.app_runtime_abbr %> <%= vars.v_major_version %> opens up more security options
-for application syslog drains. Syslog drains are now compatible with syslog servers, which helps:
+When you upgrade to <%= vars.app_runtime_abbr %> <%= vars.v_major_version %> it opens up more security options
+for application syslog drains. Syslog drains are now compatible with syslog servers.
+
+Syslog drains help:
 
 * Enforce client identity
 * Have their own internal or domain-specific certificate authority
 
 You can configure your syslog drains to use Mutual TLS by specifying a client certificate and a
-private key. You can also configure your syslog drains to communicate with syslog servers using
-internal or domain-specific Certificate Authorities by specifying a CA.
+private key. You can also configure your syslog drains to communicate with syslog servers by using
+internal or domain specific Certificate Authorities (CA).
 
 For example:
 
@@ -586,42 +592,39 @@ $ cf create-user-provided-service DRAIN-NAME -l SYSLOG-URL -p {"cert":"-----BEGI
 ### Dynamic App renaming for logs and metrics
 
 If you rename your apps, you can see emitted logs and metrics that are tagged with the new
-application name without needing to restart the application. This is useful in blue or green
+application name without starting the application again. This is useful in blue or green
 deployments.
 
-<p class='note'><strong>Note:</strong> This feature does not extend to the updated <code>VCAP_APPLICATION</code> environment variable provided to containers by the platform. If you need this environment variable to contain the new name of the application, you must still restart those applications after you rename them.</p>
+<p class='note'><strong>Note:</strong> This feature does not extend to the updated <code>VCAP_APPLICATION</code> environment variable that is provided to containers by the platform. If you need this environment variable to contain the new name of the application, you must still restart those applications after you rename them.</p>
 
-Depending on your configuration, app name caching might be performed outside of <%=
-vars.app_runtime_abbr %> by other products such as the Splunk Nozzle.
+Depending on your configuration, app name caching  can be performed outside of <%=
+vars.app_runtime_abbr %> by other products such as Splunk Nozzle.
 
-For applications hosted on Diego Cells that are provided by the <%= vars.segment_runtime_full %> or
-<%= vars.windows_runtime_abbr %> tiles, those tiles also must be updated to <%= vars.v_major_version
-%> to get the full benefit of the new feature. After you upgrade <%= vars.app_runtime_abbr %>, the
-access log entries are generated by the <%= vars.app_runtime_abbr %> and <%=
-vars.segment_runtime_full %> Gorouters, and reflect the new application names even if you have not
-yet upgraded the <%= vars.segment_runtime_full %> or <%= vars.windows_runtime_abbr %> tiles.
+For applications hosted on Diego Cells that are provided by the <%= vars.segment_runtime_full %>
+<%= vars.windows_runtime_abbr %> tiles, you must update those tiles to <%= vars.v_major_version
+%> to get the full benefit of this new feature. After you upgrade <%= vars.app_runtime_abbr %>, the access log entries are generated by the <%= vars.app_runtime_abbr %> and <%=
+vars.segment_runtime_full %> Gorouters. They reflect the new application names even if you have not upgraded the <%= vars.segment_runtime_full %> or <%= vars.windows_runtime_abbr %> tiles.
 
-## <a id='breaking-changes'></a> Breaking changes
+## <a id='breaking-changes'></a> Breaking Changes
 
 <%= vars.app_runtime_abbr %> <%= vars.v_major_version %> includes the following breaking changes:
 
 ### Component logs always use human-readable RFC3339 timestamp format
 
 Non-standardized and non-human readable timestamps in logs make debugging <%= vars.app_runtime_abbr
-%> more difficult. Since <%= vars.app_runtime_abbr %> 2.10.0, there was an option in the System
-Logging tab named **Optionally Use Human-Readable Timestamps for Component Logs**. In <%=
+%> more difficult. Since <%= vars.app_runtime_abbr %> 2.10.0, there was an option in the **System
+Logging** tab named **Optionally Use Human-Readable Timestamps for Component Logs**. In <%=
 vars.app_runtime_abbr %> 4.0, this radio button is removed and all components use the human-readable
 RFC3339 format for the timestamps in their logs.
 
-### Max request header size now defaults to 48 kb
+### Max request header size now defaults to 48 KB
 
-Upgrading to <%= vars.app_runtime_abbr %> 4.0 sets the **Max request header size in kb** to 48,
+When you Upgrade to <%= vars.app_runtime_abbr %> 4.0 it sets the **Max request header size in kb** to 48 KB,
 unless the existing configuration was already lower. Lowering this value establishes a better
-security posture for <%= vars.app_runtime_abbr %> and applications. You can still configure this to
-a value up to 1024 kb in the **Networking** tab. Any requests with headers larger than this value
-returnin a 431 status code.
+security for <%= vars.app_runtime_abbr %> and applications. You can still configure this setting to
+a value up to 1024 KB in the **Networking** tab. For any requests with headers larger than this value, returns a 431 status code.
 
-To update a single Gorouter configuration, add this line to the file:
+To update a single Gorouter configuration, add the following line to the file:
 
 <pre class="terminal">
 /var/vcap/jobs/gorouter/config/gorouter.yml
@@ -629,42 +632,43 @@ max_header_kb: 48
 </pre>
 
 To monitor Gorouter access logs in the `/var/vcap/sys/log/gorouter/access.log` file, verify that
-there are no entries with HTTP/1.1 431 status code.
+there are no entries with the HTTP/1.1 431 status code.
 
 ### Recent logs endpoint is removed from Traffic Controller
 
-New versions of Traffic Controller do not have the recent logs endpoint. This means that versions of
-the cf CLI before v6.52.0 can no longer retrieve logs when they are called using `cf logs --recent`.
+New versions of Traffic Controller do not have the recent logs endpoint. Versions of
+the cf CLI before v6.52.0 cannot retrieve logs when they are called using the `cf logs --recent` command.
 
-### Add validation for **Certificate Authorities trusted by the Gorouter** property
+### Add validation for Certificate Authorities trusted by the Gorouter property
 
-<%= vars.app_runtime_abbr %> 4.0 contains validations for the **Certificate Authorities that are
-trusted by the Gorouter** property in the **Networking** tab. Any entries that are not valid for CA
-certificates cause an error in Ops Manager. You must remove or replace invalid entries.
+<%= vars.app_runtime_abbr %> 4.0 contains validations for the Certificate Authorities that are
+trusted by the Gorouter property in the **Networking** tab. Any entries that are not valid CA
+certificates can cause an error in Ops Manager. You must remove or replace invalid entries.
 
 ### Option to enable (deprecated) Global Log Rate Limit is removed
 
 This feature was in beta until <%= vars.app_runtime_abbr %> 3.0, when it was deprecated. For
 details, see [<%= vars.app_runtime_abbr %> 3.0 Release
-Notes](https://docs.vmware.com/en/VMware-Tanzu-Application-Service/3.0/tas-for-vms/runtime-rn.html#global-log-rate-limit-is-deprecated-24)
-following the introduction of app log rate limits. See [App Log Rate
+Notes](https://docs.vmware.com/en/VMware-Tanzu-Application-Service/3.0/tas-for-vms/runtime-rn.html#global-log-rate-limit-is-deprecated-24).
+
+For more information on app log rate limits, see [App Log Rate
 Feature](https://docs.vmware.com/en/VMware-Tanzu-Application-Service/3.0/tas-for-vms/runtime-rn.html#app-log-rate-limits-for-orgs-spaces-and-individual-apps-14).
 The option to activate this feature has now been removed, and you must apply app log rate limits
 instead.
-
-Note that if you were using this feature to limit your overall app log throughput, then you might
-see an increase in log load after you upgrade.
-
+<p class="note"><strong>Note:</strong> If you were using this feature to limit your overall app log throughput, then you might
+see an increase in log load after you upgrade. </p>
 To mitigate the increased log load problem, you can either:
 
 * Scale up your logging system before upgrading to TAS v4.0 to compensate for the increased log
-  load, or
+  load.
+
+  Or
 
 * Upgrade to <%= vars.app_runtime_abbr %> 3.0 first to set app-level log rate limits while retaining
   the global log rate limit. For more details, see [App Log Rate
   Limits](https://docs.vmware.com/en/VMware-Tanzu-Application-Service/4.0/tas-for-vms/app-log-rate-limits.html).
 
-## <a id='known-issues'></a> Known issues
+## <a id='known-issues'></a> Known Issues
 
 <%= vars.app_runtime_abbr %> <%= vars.v_major_version %> includes the following known issues:
 
@@ -709,14 +713,14 @@ To mitigate this issue, you can restart the applications after they are renamed.
 ### <a id='check-nats-server-version'></a> Check your NATS server version
 
 In <%= vars.app_runtime_abbr %> 2.11.26, VMware introduced a `nats` release that replaced the
-underlying package from NATS v1.0 with NATS v2.0. <%= vars.app_runtime_abbr %> 4.0 is the first LTS
-version that includes NATS v2.0. The migration happens invisibly; however, if the migration is not
+underlying package from NATS v1.0 with NATS v2.0. <%= vars.app_runtime_abbr %>. Version 4.0 is the first LTS
+version that includes NATS v2.0. The migration happens invisibly. However, if the migration is not
 successful, your NATS servers might still be running NATS v1.0.
 
 As described in the [TAS Support Lifecycle
 Policy](https://docs.pivotal.io/application-service/3-0/release-notes/runtime-rn.html#support-policy),
 VMware keeps the NATS v1.0 as a fallback, but removes it in a future version. Follow the
-instructions in the [Knowledge Base
+instructions in this [Knowledge Base
 article](https://community.pivotal.io/s/article/How-to-confirm-your-nats-servers-are-running-NATs-v2?language=en_US)
 to confirm that your `nats` instances have migrated successfully, and learn how to troubleshoot if
 they have not.
