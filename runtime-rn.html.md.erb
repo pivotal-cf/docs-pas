@@ -341,8 +341,9 @@ To mitigate the increased log load problem, you can either:
 
 ### <a id='stale-route-pruning'></a> Stale routes might not be pruned properly in Gorouter
 
-In addition, request failures that previously resulted in 496, 499, 503, 525, or 526 HTTP Status
-codes might now return Status Code 502 instead.
+This version of TAS for VMs contains a known issue with Gorouter error handling for backend app requests. Failures that previously returned HTTP Status Codes 496, 499, 503, 525, or 526 may instead return 502. Additionally, stale routes may fail to be pruned properly, which could result in apps unexpectedly returning HTTP Status Code 502.
+
+For more information, see the [Knowledge Base Article](https://community.pivotal.io/s/article/TAS-and-Isolation-Segment-with-routing-release-0-259-0-is?language=en_US)
 
 ### <a id='stemcell-certification'></a> Stemcell compliance certification
 
