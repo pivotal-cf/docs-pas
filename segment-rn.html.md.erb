@@ -19,16 +19,16 @@ Because VMware uses the Percona Distribution for MySQL, expect a time lag betwee
 
 ### <a id='4.0.0'></a> 4.0.0
 
-**Release Date:** 02/27/2023
+**Release Date:** 04/18/2023
 
-* **[Feature Improvement]** Add option for Query Parameter Presentation in Gorouter Access Logs
-* Bump cf-networking to version `3.23.0`
-* Bump cflinuxfs4 to version `0.62.0`
-* Bump garden-runc to version `1.23.0`
+* **[Breaking Change]** Remove deprecated global log rate limit
+* Bump bpm to version `1.1.21`
+* Bump garden-runc to version `1.25.0`
+* Bump loggregator-agent to version `7.1.2`
 * Bump metrics-discovery to version `3.2.7`
-* Bump routing to version `0.256.0`
-* Bump silk to version `3.22.0`
-* Bump smb-volume to version `3.1.9`
+* Bump nfs-volume to version `7.1.9`
+* Bump routing to version `0.260.0`
+* Bump smb-volume to version `3.1.10`
 
 <table border="1" class="nice">
   <thead>
@@ -39,100 +39,85 @@ Because VMware uses the Percona Distribution for MySQL, expect a time lag betwee
     </tr>
   </thead>
   <tbody>
-    <tr><td>ubuntu-jammy stemcell</td><td>1.83</td><td></td></tr>
+    <tr><td>ubuntu-jammy stemcell</td><td>1.95</td><td></td></tr>
     <tr><td>bpm</td><td>1.1.21</td><td></td></tr>
     <tr><td>cf-networking</td><td>3.23.0</td><td></td></tr>
-    <tr><td>cflinuxfs3</td><td>0.350.0</td><td></td></tr>
-    <tr><td>cflinuxfs4</td><td>0.62.0</td><td></td></tr>
-    <tr><td>diego</td><td>2.71.0</td><td></td></tr>
-    <tr><td>garden-runc</td><td>1.23.0</td><td></td></tr>
-    <tr><td>loggregator-agent</td><td>7.1.0</td><td></td></tr>
-    <tr><td>mapfs</td><td>1.2.12</td><td></td></tr>
-    <tr><td>metrics-discovery</td><td>3.2.7</td>
+    <tr><td>cflinuxfs3</td><td>0.361.0</td><td></td></tr>
+    <tr><td>cflinuxfs4</td><td>1.5.0</td><td></td></tr>
+    <tr><td>diego</td><td>2.73.0</td><td></td></tr>
+    <tr><td>garden-runc</td><td>1.25.0</td><td></td></tr>
+    <tr><td>loggregator-agent</td><td>7.1.2</td>
       <td>
         <details>
-          <summary>v3.2.7</summary>
+          <summary>v7.1.2</summary>
           <pre style="max-width: 30em">
-  * update golang to 1.20.1
-  **Full Changelog**: https://github.com/cloudfoundry/metrics-discovery-release/compare/v3.2.6...v3.2.7###
+  ## What's Changed
+  * update to golang 1.20.1
+  **Full Changelog**: https://github.com/cloudfoundry/loggregator-agent-release/compare/v7.1.1...v7.1.2
           </pre>
         </details>
         <details>
-          <summary>v3.2.6</summary>
+          <summary>v7.1.1</summary>
           <pre style="max-width: 30em">
   ## What's Changed
-  * Upgrade to go 1.20 by @rroberts2222 in https://github.com/cloudfoundry/metrics-discovery-release/pull/104
-  **Full Changelog**: https://github.com/cloudfoundry/metrics-discovery-release/compare/v3.2.5...v3.2.6
+  * update dependencies
+  * Add error messages for better traceability of filtered out syslog drain bindings by @chombium in https://github.com/cloudfoundry/loggregator-agent-release/pull/216
+  * Upgrade to go 1.20 by @rroberts2222 in https://github.com/cloudfoundry/loggregator-agent-release/pull/223
+  **Full Changelog**: https://github.com/cloudfoundry/loggregator-agent-release/compare/v7.1.0...v7.1.1
           </pre>
         </details>
         <details>
-          <summary>v3.2.5</summary>
+          <summary>v7.1.0</summary>
           <pre style="max-width: 30em">
   ## What's Changed
+  * Add app-id and drain url in the error message by @chombium in https://github.com/cloudfoundry/loggregator-agent-release/pull/212
+  ## New Contributors
+  * @chombium made their first contribution in https://github.com/cloudfoundry/loggregator-agent-release/pull/212
+  **Full Changelog**: https://github.com/cloudfoundry/loggregator-agent-release/compare/v7.0.2...v7.1.0
+          </pre>
+        </details>
+        <details>
+          <summary>v7.0.2</summary>
+          <pre style="max-width: 30em">
+  ## What's Changed
+  * Sanitize ProcID in syslog messages so messages with utf-8 in the source_type are not dropped by @Benjamintf1 in https://github.com/cloudfoundry/loggregator-agent-release/pull/200
   * Update dependencies
-  * Expire individual metrics by @rroberts2222 in https://github.com/cloudfoundry/metrics-discovery-release/pull/103
-  **Full Changelog**: https://github.com/cloudfoundry/metrics-discovery-release/compare/v3.2.4...v3.2.5
+  **Full Changelog**: https://github.com/cloudfoundry/loggregator-agent-release/compare/v7.0.1...v7.0.2
+          </pre>
+        </details>
+        <details>
+          <summary>v7.0.1</summary>
+          <pre style="max-width: 30em">
+  ## What's Changed
+  * Fix: anonymize URL in syslog drain logs and metrics by @ctlong in https://github.com/cloudfoundry/loggregator-agent-release/pull/186
+  **Full Changelog**: https://github.com/cloudfoundry/loggregator-agent-release/compare/v7.0.0...v7.0.1
+          </pre>
+        </details>
+        <details>
+          <summary>v7.0.0</summary>
+          <pre style="max-width: 30em">
+  ## What's Changed
+  * Allow application developers to set client certs and keys, as well as server cas, to be used for authentication in syslog-tls drains by @fhambrec, @dark5un in https://github.com/cloudfoundry/loggregator-agent-release/pull/177 / https://github.com/cloudfoundry/loggregator-agent-release/pull/119. Breaking change: requires new version of capi
+  * Add drain scope and url tags to syslog egress metrics by @skaur20 in https://github.com/cloudfoundry/loggregator-agent-release/pull/123, Breaking change: might effect metrics dashboards and calculations.
+  ## New Contributors
+  * @skaur20 made their first contribution in https://github.com/cloudfoundry/loggregator-agent-release/pull/123
+  **Full Changelog**: https://github.com/cloudfoundry/loggregator-agent-release/compare/v6.5.6...v7.0.0
           </pre>
         </details>
       </td>
     </tr>
-    <tr><td>nfs-volume</td><td>7.1.8</td><td></td></tr>
-    <tr><td>routing</td><td>0.256.0</td>
-      <td>
-        <details>
-          <summary>v0.256.0</summary>
-          <pre style="max-width: 30em">
-  ## Changes
-  - Update healthchecker in release to stable version
-  ## ✨  Built with go 1.19.5
-  **Full Changelog**: https://github.com/cloudfoundry/routing-release/compare/v0.255.0...v0.256.0
-  ## Resources
-  - [Download release v0.256.0 from bosh.io](https://bosh.io/releases/github.com/cloudfoundry/routing-release?version=0.256.0).
-          </pre>
-        </details>
-      </td>
-    </tr>
-    <tr><td>silk</td><td>3.22.0</td><td></td></tr>
-    <tr><td>smb-volume</td><td>3.1.9</td>
-      <td>
-        <details>
-          <summary>v3.1.9</summary>
-          <pre style="max-width: 30em">
-  ## Changes
-  * Add force_noserverino property in smbdriver job (#102)
-  ## Dependencies
-  * **bosh-template:** Updated to v2.4.0.<br>For more information, see [bosh-template](https://github.com/cloudfoundry/bosh).
-  * **smbdriver:** Updated to v`adc77c7`.<br>For more information, see [smbdriver](https://github.com/cloudfoundry/smbdriver).
-          </pre>
-        </details>
-        <details>
-          <summary>v3.1.8</summary>
-          <pre style="max-width: 30em">
-  ## Dependencies
-  * **smbdriver:** Updated to v`6cc617a`.<br>For more information, see [smbdriver](https://github.com/cloudfoundry/smbdriver).
-          </pre>
-        </details>
-        <details>
-          <summary>v3.1.7</summary>
-          <pre style="max-width: 30em">
-  ## Changes
-  * Golang: Updated to v1.19.4 (#76)
-  ## Dependencies
-  * **rspec:** Updated to v3.12.0.<br>For more information, see [rspec](https://github.com/rspec/rspec-metagem).
-  * **smbbroker:** Updated to v`114bb05`.<br>For more information, see [smbbroker](https://github.com/cloudfoundry/smbbroker).
-  * **smbdriver:** Updated to v`f0b92e3`.<br>For more information, see [smbdriver](https://github.com/cloudfoundry/smbdriver).
-          </pre>
-        </details>
-      </td>
-    </tr>
+    <tr><td>mapfs</td><td>1.2.13</td><td></td></tr>
+    <tr><td>metrics-discovery</td><td>3.2.7</td><td></td></tr>
+    <tr><td>nfs-volume</td><td>7.1.9</td><td></td></tr>
+    <tr><td>routing</td><td>0.260.0</td><td></td></tr>
+    <tr><td>silk</td><td>3.23.0</td><td></td></tr>
+    <tr><td>smb-volume</td><td>3.1.10</td><td></td></tr>
     <tr><td>smoke-tests</td><td>4.8.2</td><td></td></tr>
-    <tr><td>syslog</td><td>12.1.1</td><td></td></tr>
+    <tr><td>syslog</td><td>12.1.3</td><td></td></tr>
   </tbody>
 </table>
 
 
-
-<%# DO NOT DELETE THIS LINE - robots use this to add new release notes %>
 
 ## <a id='install'></a> How to install
 
