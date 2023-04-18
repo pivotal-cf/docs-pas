@@ -403,3 +403,19 @@ instructions in this [Knowledge Base
 article](https://community.pivotal.io/s/article/How-to-confirm-your-nats-servers-are-running-NATs-v2?language=en_US)
 to confirm that your `nats` instances have migrated successfully, and learn how to troubleshoot if
 they have not.
+
+### <a id='tas-portal-app-domain'></a> TAS Portal Uses Apps Domain
+
+TAS Portal erroniously uses the default app domain instead of the operator-configured system domain.
+In future patch versions of TAS,
+TAS Portal will instead be available at `tas-portal.SYSTEM-DOMAIN`.
+
+### <a id='tas-portal-http'></a> TAS Portal Application Accelerators Use HTTP
+
+When Application Accelerators are enabled for TAS Portal,
+TAS Portal communicates with the Application Accelerator backend server using HTTP on port 80.
+If TAS or TAS's load balancers are not configured to allow HTTP ingress on port 80,
+then TAS Portal's Application Accelerators page will be blank.
+
+A future patch version of TAS will change this traffic to use HTTPS on port 443.
+To work around this issue, configure TAS to accept HTTP traffic on port 80.
