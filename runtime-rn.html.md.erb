@@ -335,6 +335,17 @@ To mitigate the increased log load problem, you can either:
   the global log rate limit. For more details, see [App Log Rate
   Limits](https://docs.vmware.com/en/VMware-Tanzu-Application-Service/4.0/tas-for-vms/app-log-rate-limits.html).
 
+### Ruby and Python have been removed from the cflinuxfs4 stack
+
+The cflinuxfs4 stack versions prior to v1.0.0 contain both Ruby and Python interpreters. These exist to enable the execution of the PHP and Java buildpacks that are written in those languages. To improve the security posture for all applications based on cflinuxfs4, the Ruby and Python interpreters have been removed from the stack. New versions of the PHP and Java buildpacks have been introduced to run on top of the stack if it no longer includes the required interpreter. These include:
+
+* cfslinuxfs4 - v1.2.0
+* Java buildpack - v4.56
+
+Any buildpacks outside of those maintained by VMware and installed as part of TAS for VMs that might be written in either Ruby or Python could now break unless those other buildpacks take steps to bring their own runtimes.
+
+This breaking change applies to Tanzu Application Service and Small Footprint TAS.
+
 ## <a id='known-issues'></a> Known Issues
 
 <%= vars.app_runtime_abbr %> <%= vars.v_major_version %> includes the following known issues:
