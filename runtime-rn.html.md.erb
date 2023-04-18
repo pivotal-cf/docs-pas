@@ -24,13 +24,13 @@ MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> containing that pa
 
 * **[Security Fix]** Bump Apps Manager to address [CVE-2022-24999](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-24999), [CVE-2022-25881](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-25881), and [CVE-2023-23936](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-23936)
 * **[Security Fix]** Fix BBR scripts and bump spring-boot to address [CVE-2023-20860](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-20860) and [CVE-2023-20861](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-20861)
-* **[Feature]** Operators can choose if cflinuxfs4 is the default or the only stack option for apps
-* **[Feature]** Operators may allow app developers to use beta Web Servers Buildpack based on Cloud-Native Web Servers Buildpack
-* **[Feature]** Supports TAS login via external OIDC providers
-* **[Feature]** Add TAS Portal - a backstage instance with TAS resources, App Accelerator, and other plugins
-* **[Feature]** Update metric tags in Diego when an application is renamed
-* **[Feature Improvement]** Increase SSO service redirect URI length limitation
-* **[Breaking Change]** Remove Ruby and Python from the `cflinuxfs4` stack
+* **[Feature]** Operators can choose if cflinuxfs4 is the default or the only stack option for apps.
+* **[Feature]** Operators can allow app developers to use beta Web Servers Buildpack based on Cloud-Native Web Servers Buildpack.
+* **[Feature]** Supports TAS login via external OIDC providers.
+* **[Feature]** Add TAS Portal - a backstage instance with TAS resources, App Accelerator, and other plug-ins.
+* **[Feature]** Update metric tags in Diego when an application is renamed.
+* **[Feature Improvement]** Increase SSO service redirect URI length limitation.
+* **[Breaking Change]** Remove Ruby and Python from the `cflinuxfs4` stack.
 * **[Breaking Change]** Remove deprecated global log rate limit
 * Bump backup-and-restore-sdk to version `1.18.61`
 * Bump bpm to version `1.1.21`
@@ -286,7 +286,7 @@ RFC3339 format for the timestamps in their logs.
 
 ### Max request header size now defaults to 48 KB
 
-When you Upgrade to <%= vars.app_runtime_abbr %> 4.0 it sets the **Max request header size in kb** to 48 KB,
+When you Upgrade to <%= vars.app_runtime_abbr %> 4.0 it sets the **Max request header size in KB** to 48 KB,
 unless the existing configuration was already lower. Lowering this value establishes a better
 security for <%= vars.app_runtime_abbr %> and applications. You can still configure this setting to
 a value up to 1024 KB in the **Networking** tab. For any requests with headers larger than this value, returns a 431 status code.

@@ -134,15 +134,15 @@ see the [Ops Manager documentation](https://docs.pivotal.io/ops-manager/index.ht
 ## <a id='breaking-changes'></a> Breaking Changes
 
 ### Max Request Header Size now Defaults to 48 KB
-When you Upgrade to IST v4.0 it automatically sets **Max request header size in kb** to 48 KB,
+When you Upgrade to IST v4.0 it automatically sets **Max request header size in KB** to 48 KB,
 unless the pre-existing configuration was already lower. Lowering this value establishes better security for TAS for VMs and applications. If necessary, this value can still be configured
 back up to 1024 KB in the **Networking** tab. Any requests with headers larger than
 this value receive a 431 status code.
 
 ### Add Validation for Certificate Authorities trusted by the Gorouter Property
-IST 4.0 contains validations for the Certificate Authorities trusted by the
+IST 4.0 contains validations for the Certificate Authorities (CA) trusted by the
 Gorouter property in the **Networking** tab. Any entries that are not valid CA
-certificates results in an error in OpsManager. You must remove or replace
+certificates can result in an error in Ops Manager. You must remove or replace
 invalid entries.
 
 ### Option to Enable (Deprecated) Global Log Rate Limit is removed
@@ -166,4 +166,6 @@ mitigate this, either:
 
 <%= vars.segment_runtime_full %> <%= vars.v_major_version %> includes the following known issues:
 
-### Stale routes might not be pruned properly in Gorouter. In addition, request failures that previously resulted in 496, 499, 503, 525, or 526 HTTP Status codes might now return Status Code 502 instead
+### Stale routes might not be pruned properly in Gorouter
+
+In addition, request failures that previously resulted in 496, 499, 503, 525, or 526 HTTP Status codes might now return Status Code 502 instead
