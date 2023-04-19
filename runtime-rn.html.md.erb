@@ -346,6 +346,19 @@ Any buildpacks outside of those maintained by VMware and installed as part of TA
 
 This breaking change applies to Tanzu Application Service and Small Footprint TAS.
 
+### App developers can use **beta** Web Servers Buildpack based on CNBs
+
+TAS for VMs 4.0 introduces the first of a new slate of buildpacks, based on the
+Cloud Native Buildpack project, that are installed with TAS for VMs and managed by the Tanzu
+Application Service tile. These buildpacks are still in beta and have some limitations.
+(More information on the limitations can be found [here](https://docs.vmware.com/en/VMware-Tanzu-Application-Service/4.0/tas-for-vms/cnbs-overview.html#cnb-limitations).)
+
+The first such buildpack is the Web Servers CNB, which allows app developers to push nginx,
+httpd, and front-end JavaScript apps.
+
+For more information about how to use the Web Servers Buildpack, see the
+[documentation page here](https://docs.vmware.com/en/VMware-Tanzu-Application-Service/4.0/tas-for-vms/web-servers-index.html).
+
 ## <a id='known-issues'></a> Known Issues
 
 <%= vars.app_runtime_abbr %> <%= vars.v_major_version %> includes the following known issues:
