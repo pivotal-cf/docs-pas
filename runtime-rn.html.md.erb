@@ -31,6 +31,8 @@ MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> containing that pa
 * **[Feature]** Update metric tags in Diego when an application is renamed.
 * **[Feature Improvement]** Increase SSO service redirect URI length limitation.
 * **[Feature Improvement]** Cloud Maximum staged droplet size can now be set up to a value of 5gb, see [Configure App Developer Controls](https://docs.pivotal.io/pivotalcf/4-0/customizing/configure-pas.html#appdevctrl-config).
+* **[Breaking Change]** Component logs always use human-readable RFC3339 timestamp format
+* **[Breaking Change]** Max request header size now defaults to 48 KB
 * **[Breaking Change]** Remove Ruby and Python from the `cflinuxfs4` stack.
 * **[Breaking Change]** Remove deprecated global log rate limit
 * Bump backup-and-restore-sdk to version `1.18.61`
