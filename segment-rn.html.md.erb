@@ -17,6 +17,177 @@ Because VMware uses the Percona Distribution for MySQL, expect a time lag betwee
 
 ## <a id='releases'></a> Releases
 
+### <a id='3.0.9'></a> 3.0.9
+
+**Release Date:** 04/20/2023
+
+* **[Bug Fix]** Fixed issues in route_registrar and tcp_router that led to unnecessary haproxy reloads
+* Bump bpm to version `1.1.23`
+* Bump cflinuxfs3 to version `0.361.0`
+* Bump cflinuxfs4 to version `1.5.0`
+* Bump diego to version `2.73.0`
+* Bump garden-runc to version `1.27.0`
+* Bump loggregator-agent to version `6.5.9`
+* Bump metrics-discovery to version `3.2.8`
+* Bump nfs-volume to version `7.1.10`
+* Bump routing to version `0.262.0`
+* Bump smb-volume to version `3.1.11`
+
+<table border="1" class="nice">
+  <thead>
+    <tr>
+      <th>Component</th>
+      <th>Version</th>
+      <th>Release Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>ubuntu-jammy stemcell</td><td>1.95</td><td></td></tr>
+    <tr><td>bpm</td><td>1.1.23</td><td></td></tr>
+    <tr><td>cf-networking</td><td>3.23.0</td><td></td></tr>
+    <tr><td>cflinuxfs3</td><td>0.361.0</td><td></td></tr>
+    <tr><td>cflinuxfs4</td><td>1.5.0</td><td></td></tr>
+    <tr><td>diego</td><td>2.73.0</td><td></td></tr>
+    <tr><td>garden-runc</td><td>1.27.0</td><td></td></tr>
+    <tr><td>loggregator-agent</td><td>6.5.9</td>
+      <td>
+        <details>
+          <summary>v6.5.9</summary>
+          <pre style="max-width: 30em">
+  * Upgrade to go 1.20.2
+  * Bump dependencies
+  **Full Changelog**: https://github.com/cloudfoundry/loggregator-agent-release/compare/v6.5.8...v6.5.9
+          </pre>
+        </details>
+      </td>
+    </tr>
+    <tr><td>mapfs</td><td>1.2.13</td><td></td></tr>
+    <tr><td>metrics-discovery</td><td>3.2.8</td>
+      <td>
+        <details>
+          <summary>v3.2.8</summary>
+          <pre style="max-width: 30em">
+  * Upgrade to go1.20.2.
+  * Bump dependencies.
+  **Full Changelog**: https://github.com/cloudfoundry/metrics-discovery-release/compare/v3.2.7...v3.2.8
+          </pre>
+        </details>
+      </td>
+    </tr>
+    <tr><td>nfs-volume</td><td>7.1.10</td>
+      <td>
+        <details>
+          <summary>v7.1.10</summary>
+          <pre style="max-width: 30em">
+  ## Changes
+  ## Dependencies
+  * **nfsbroker:** Updated to v`7946962`.<br>For more information, see [nfsbroker](https://github.com/cloudfoundry/nfsbroker).
+  * **nfsv3driver:** Updated to v`d9aee47`.<br>For more information, see [nfsv3driver](https://github.com/cloudfoundry/nfsv3driver).
+          </pre>
+        </details>
+      </td>
+    </tr>
+    <tr><td>routing</td><td>0.262.0</td>
+      <td>
+        <details>
+          <summary>v0.262.0</summary>
+          <pre style="max-width: 30em">
+  ## Changes
+  - 🐛Fixes the of golang has a known issue that causes backend request failures which previously returned 496, 499, 503, 525, or 526 to instead return a 502. Additionally stale routes may not have been pruned properly. Thanks @domdom82!!
+  - 🚗Gorouter now retries requests which fail prior to any HTTP content being sent (since no backend received the HTTP content, they're by definition retriable). Thanks for the [PR](https://github.com/cloudfoundry/gorouter/pull/337). Thanks @maxmoehl and @domdom82!!
+  ## ✨  Built with go 1.20.2
+  **Full Changelog**: https://github.com/cloudfoundry/routing-release/compare/v0.261.0...v0.262.0
+  ## Resources
+  - [Download release v0.262.0 from bosh.io](https://bosh.io/releases/github.com/cloudfoundry/routing-release?version=0.262.0).
+          </pre>
+        </details>
+        <details>
+          <summary>v0.261.0</summary>
+          <pre style="max-width: 30em">
+  ⚠️⚠️⚠️
+  **This version of golang has a known issue that may cause backend request failures that previously returned 496, 499, 503, 525, or 526 to instead return a 502. Additionally stale routes may not get pruned properly. This will be addressed in an upcoming release.**
+  ## Changes
+  - Bug fix: add healthcheck to routing-api for route-registrar
+  ## Bosh Job Spec changes:
+  ```diff
+  diff --git a/jobs/routing-api/spec b/jobs/routing-api/spec
+  index 5717f88f..f6a2175d 100644
+  --- a/jobs/routing-api/spec
+  +++ b/jobs/routing-api/spec
+  @@ -6,12 +6,15 @@ templates:
+  uaa_ca.crt.erb: config/certs/uaa/ca.crt
+  routing-api.yml.erb: config/routing-api.yml
+  +  routing_api_health_check.erb: bin/routing_api_health_check
+  locket_ca.crt.erb: config/certs/locket/ca.crt
+  locket_client.crt.erb: config/certs/locket/client.crt
+  locket_client.key.erb: config/certs/locket/client.key
+  api_mtls_client_ca.crt.erb: config/certs/routing-api/client_ca.crt
+  +  api_mtls_client.crt.erb: config/certs/routing-api/client.crt
+  +  api_mtls_client.key.erb: config/certs/routing-api/client.key
+  api_mtls_server.crt.erb: config/certs/routing-api/server.crt
+  api_mtls_server.key.erb: config/certs/routing-api/server.key
+  @@ -107,6 +110,13 @@ properties:
+  routing_api.mtls_client_key:
+  description: "Routing API client key (provided to clients by bosh link)"
+  +  routing_api.health_check_timeout_per_retry:
+  +    default: 2
+  +    description: "Maximum health check timeout (in seconds) for each retry attempt in the Routing API's route registration health check"
+  +  routing_api.health_check_total_timeout:
+  +    default: 6
+  +    description: "Maximum health check timeout (in seconds). Health checks will be retried until this time limit is reached. This should be less than or equal to your route_registrar.routes.api.health_check.timeout"
+  +
+  metron.port:
+  description: "The port used to emit dropsonde messages to the Metron agent."
+  default: 3457
+  ```
+  ## ✨  Built with go 1.20.2
+  **Full Changelog**: https://github.com/cloudfoundry/routing-release/compare/v0.260.0...v0.261.0
+  ## Resources
+  - [Download release v0.261.0 from bosh.io](https://bosh.io/releases/github.com/cloudfoundry/routing-release?version=0.261.0).
+          </pre>
+        </details>
+        <details>
+          <summary>v0.260.0</summary>
+          <pre style="max-width: 30em">
+  ⚠️⚠️⚠️
+  **This version of golang has a known issue that may cause backend request failures that previously returned 496, 499, 503, 525, or 526 to instead return a 502. Additionally stale routes may not get pruned properly. This will be addressed in an upcoming release.**
+  ## Changes
+  - Dependency updates (cf cli, healthchecker, golang)
+  - Many CI Updates - Thanks @jrussett!
+  - 🐛[#310]The routing_utils route loader now sets the route service url when loading. Thanks @domdom82 !
+  - 🐛Two issues in route_registrar were fixed that led to routes expiring and then being re-registered with the same details:
+  - Starting in v0.x.x, route_registrar no longer retried UAA connections when getting a token from UAA. Instead, the failure would cause route_registrar to restart, and reset it's emitter intervals.
+  - The built in route expiry has been increased from RegistrationInterval + 2 seconds to 2.1 * RegistrationInterval. This prevent routes from expiring during the course of a route_registrar restart.
+  - 🐛If tcp_router received routing events during its BulkSync cycle, it would always rewrite the haproxy configuration, and reload the haproxy process. This would occur regardless of whether the events required a new haproxy config. It now only updates the config + reloads haproxy if changes are necessary.
+  ## ✨  Built with go 1.20.2
+  **Full Changelog**: https://github.com/cloudfoundry/routing-release/compare/v0.259.0...v0.260.0
+  ## Resources
+  - [Download release v0.260.0 from bosh.io](https://bosh.io/releases/github.com/cloudfoundry/routing-release?version=0.260.0).
+          </pre>
+        </details>
+      </td>
+    </tr>
+    <tr><td>silk</td><td>3.23.0</td><td></td></tr>
+    <tr><td>smb-volume</td><td>3.1.11</td>
+      <td>
+        <details>
+          <summary>v3.1.11</summary>
+          <pre style="max-width: 30em">
+  ## Changes
+  ## Dependencies
+  * **smbbroker:** Updated to v`c5b6f5e`.<br>For more information, see [smbbroker](https://github.com/cloudfoundry/smbbroker).
+  * **smbdriver:** Updated to v`73a24c2`.<br>For more information, see [smbdriver](https://github.com/cloudfoundry/smbdriver).
+          </pre>
+        </details>
+      </td>
+    </tr>
+    <tr><td>smoke-tests</td><td>4.8.2</td><td></td></tr>
+    <tr><td>syslog</td><td>12.1.3</td><td></td></tr>
+  </tbody>
+</table>
+
+
+
 ### <a id='3.0.8'></a> 3.0.8
 
 **Release Date:** 03/21/2023
