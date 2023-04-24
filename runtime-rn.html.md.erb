@@ -26,11 +26,11 @@ MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> containing that pa
 * **[Security Fix]** Fix BBR scripts and bump spring-boot to address [CVE-2023-20860](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-20860) and [CVE-2023-20861](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-20861)
 * **[Feature]** Operators can choose if cflinuxfs4 is the default or the only stack option for apps.
 * **[Feature]** Operators can allow app developers to use beta Web Servers Buildpack based on Cloud-Native Web Servers Buildpack.
-* **[Feature]** Supports TAS login via external OIDC providers.
+* **[Feature]** Supports TAS login through external OIDC providers.
 * **[Feature]** Add TAS Portal - a backstage instance with TAS resources, App Accelerator, and other plug-ins.
 * **[Feature]** Update metric tags in Diego when an application is renamed.
 * **[Feature Improvement]** Increase SSO service redirect URI length limitation.
-* **[Feature Improvement]** Cloud Maximum staged droplet size can now be set up to a value of 5gb, see [Configure App Developer Controls](https://docs.pivotal.io/pivotalcf/4-0/customizing/configure-pas.html#appdevctrl-config).
+* **[Feature Improvement]** Cloud Maximum staged droplet size can now be set up to a value of 5 GB. For more information, see [Configure App Developer Controls](https://docs.pivotal.io/pivotalcf/4-0/customizing/configure-pas.html#appdevctrl-config).
 * **[Breaking Change]** Component logs always use human-readable RFC3339 timestamp format
 * **[Breaking Change]** Max request header size now defaults to 48 KB
 * **[Breaking Change]** Remove Ruby and Python from the `cflinuxfs4` stack.
@@ -267,7 +267,7 @@ deployments.
 
 <p class='note'><strong>Note:</strong> This feature does not extend to the updated <code>VCAP_APPLICATION</code> environment variable that is provided to containers by the platform. If you need this environment variable to contain the new name of the application, you must still restart those applications after you rename them.</p>
 
-Depending on your configuration, app name caching  can be performed outside of <%=
+Depending on your configuration, app name caching can be used  outside of <%=
 vars.app_runtime_abbr %> by other products such as Splunk Nozzle.
 
 For applications hosted on Diego Cells that are provided by the <%= vars.segment_runtime_full %>
@@ -309,9 +309,9 @@ there are no entries with the HTTP/1.1 431 status code.
 New versions of Traffic Controller do not have the recent logs endpoint. Versions of
 the cf CLI before v6.52.0 cannot retrieve logs when they are called using the `cf logs --recent` command.
 
-### Add validation for Certificate Authorities trusted by the Gorouter property
+### Add validation for Certificate Authorities that are trusted by the Gorouter property
 
-<%= vars.app_runtime_abbr %> 4.0 contains validations for the Certificate Authorities that are
+<%= vars.app_runtime_abbr %> 4.0 contains validations for the Certificate Authorities (CA) that are
 trusted by the Gorouter property in the **Networking** tab. Any entries that are not valid CA
 certificates can cause an error in Ops Manager. You must remove or replace invalid entries.
 
@@ -340,27 +340,32 @@ To mitigate the increased log load problem, you can either:
 
 ### Ruby and Python have been removed from the cflinuxfs4 stack
 
-The cflinuxfs4 stack versions prior to v1.0.0 contain both Ruby and Python interpreters. These exist to enable the execution of the PHP and Java buildpacks that are written in those languages. To improve the security posture for all applications based on cflinuxfs4, the Ruby and Python interpreters have been removed from the stack. New versions of the PHP and Java buildpacks have been introduced to run on top of the stack if it no longer includes the required interpreter. These include:
+The cflinuxfs4 stack versions prior to v1.0.0 contain both Ruby and Python interpreters. These exist to enable the execution of the PHP and Java buildpacks that are written in those languages.
+
+To improve the security posture for all applications based on the cflinuxfs4 stack, the Ruby and Python interpreters have been removed from the stack. New versions of the PHP and Java buildpacks have been introduced to run on top of the stack if it no longer includes the required interpreter.
+
+These include:
 
 * cfslinuxfs4 - v1.2.0
 * Java buildpack - v4.56
 
-Any buildpacks outside of those maintained by VMware and installed as part of TAS for VMs that might be written in either Ruby or Python could now break unless those other buildpacks take steps to bring their own runtimes.
+Any buildpacks outside of those maintained by VMware and installed as part of TAS for VMs that might be written in either Ruby or Python can now break unless those other buildpacks take steps to bring their own runtimes.
 
 This breaking change applies to Tanzu Application Service and Small Footprint TAS.
 
 ### App developers can use **beta** Web Servers Buildpack based on CNBs
 
-TAS for VMs 4.0 introduces the first of a new slate of buildpacks, based on the
+TAS for VMs 4.0 introduces a new slate of buildpacks, based on the
 Cloud Native Buildpack project, that are installed with TAS for VMs and managed by the Tanzu
 Application Service tile. These buildpacks are still in beta and have some limitations.
-(More information on the limitations can be found [here](https://docs.vmware.com/en/VMware-Tanzu-Application-Service/4.0/tas-for-vms/cnbs-overview.html#cnb-limitations).)
 
-The first such buildpack is the Web Servers CNB, which allows app developers to push nginx,
+For more information on the limitations, see [Limitations](https://docs.vmware.com/en/VMware-Tanzu-Application-Service/4.0/tas-for-vms/cnbs-overview.html#cnb-limitations).)
+
+The first buildpack is the Web Servers CNB, which allows app developers to push nginx,
 httpd, and front-end JavaScript apps.
 
 For more information about how to use the Web Servers Buildpack, see the
-[documentation page here](https://docs.vmware.com/en/VMware-Tanzu-Application-Service/4.0/tas-for-vms/web-servers-index.html).
+[documentation page](https://docs.vmware.com/en/VMware-Tanzu-Application-Service/4.0/tas-for-vms/web-servers-index.html).
 
 ## <a id='known-issues'></a> Known Issues
 
@@ -368,9 +373,9 @@ For more information about how to use the Web Servers Buildpack, see the
 
 ### <a id='stale-route-pruning'></a> Stale routes might not be pruned properly in Gorouter
 
-This version of TAS for VMs contains a known issue with Gorouter error handling for backend app requests. Failures that previously returned HTTP Status Codes 496, 499, 503, 525, or 526 may instead return 502. Additionally, stale routes may fail to be pruned properly, which could result in apps unexpectedly returning HTTP Status Code 502.
+This version of TAS for VMs contains a known issue with Gorouter error handling for backend app requests. Failures that previously returned HTTP Status Codes 496, 499, 503, 525, or 526 might  instead return 502. Additionally, stale routes might fail to be pruned properly, which could result in apps unexpectedly returning HTTP Status Code 502.
 
-For more information, see the [Knowledge Base Article](https://community.pivotal.io/s/article/TAS-and-Isolation-Segment-with-routing-release-0-259-0-is?language=en_US)
+For more information, see this [Knowledge Base Article](https://community.pivotal.io/s/article/TAS-and-Isolation-Segment-with-routing-release-0-259-0-is?language=en_US)
 
 ### <a id='stemcell-certification'></a> Stemcell compliance certification
 
@@ -400,10 +405,10 @@ Recommended course of action:
 ### <a id='dynamic-renaming-silk-log-line'></a> Dynamic App renaming does not take effect For Silk Security Group log entries
 
 Silk emits log entries to application log streams when ASGs are dynamically changed. If you use Silk
-for container networking and have enabled Dynamic ASGs, you might find the log entries are tagged
+for container networking and have activated Dynamic ASGs, you might find the log entries are tagged
 with old application names.
 
-To mitigate this issue, you can restart the applications after they are renamed.
+To mitigate this issue, you can start the applications again after they are renamed.
 
 ### <a id='check-nats-server-version'></a> Check your NATS server version
 
@@ -414,7 +419,9 @@ successful, your NATS servers might still be running NATS v1.0.
 
 As described in the [TAS Support Lifecycle
 Policy](https://docs.pivotal.io/application-service/3-0/release-notes/runtime-rn.html#support-policy),
-VMware keeps the NATS v1.0 as a fallback, but removes it in a future version. Follow the
+VMware keeps the NATS v1.0 as a fallback, but removes it in a future version.
+
+Follow the
 instructions in this [Knowledge Base
 article](https://community.pivotal.io/s/article/How-to-confirm-your-nats-servers-are-running-NATs-v2?language=en_US)
 to confirm that your `nats` instances have migrated successfully, and learn how to troubleshoot if
@@ -423,14 +430,14 @@ they have not.
 ### <a id='tas-portal-app-domain'></a> TAS Portal Uses Apps Domain
 
 TAS Portal erroneously uses the default app domain instead of the operator-configured system domain.
-In future patch versions of TAS, TAS Portal will be available at `tas-portal.SYSTEM-DOMAIN`.
+In future patch versions of TAS, TAS Portal is available at `tas-portal.SYSTEM-DOMAIN`.
 
 ### <a id='tas-portal-http'></a> TAS Portal Application Accelerators Use HTTP
 
-When Application Accelerators are enabled for TAS Portal,
+When Application Accelerators are activated for TAS Portal,
 TAS Portal communicates with the Application Accelerator backend server using HTTP on port 80.
 If TAS for VMs or its associated load balancers are not configured to allow HTTP ingress on port 80,
-then the TAS Portal Application Accelerators page will be blank.
+then the TAS Portal Application Accelerators page is blank.
 
-A future patch version of TAS for VMs will change this traffic to use HTTPS on port 443.
+A future patch version of TAS for VMs changes this traffic to use HTTPS on port 443.
 To work around this issue, configure TAS for VMs to accept HTTP traffic on port 80.
