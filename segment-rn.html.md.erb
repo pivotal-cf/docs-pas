@@ -23,6 +23,7 @@ Because VMware uses the Percona Distribution for MySQL, expect a time lag betwee
 
 * **[Security Fix]** Resolve issue in gorouter where canceled requests can result in apps becoming unavailable
 * **[Bug Fix]** Fixes an issue in gorouter where requests that should have returned 496, 499, 503, 525, or 526 HTTP status codes may instead have returned as 502s, potentially preventing stale route pruning.
+* **[Bugfix]** Resolve Issue where Garden failed during BOSH/OpsMan deploys due to healthcheck
 * Bump bpm to version `1.2.0`
 * Bump cf-networking to version `3.25.1`
 * Bump cflinuxfs3 to version `0.364.0`
