@@ -22,7 +22,7 @@ Because VMware uses the Percona Distribution for MySQL, expect a time lag betwee
 **Release Date:** 05/17/2023
 
 * **[Security Fix]** Resolve issue in gorouter where canceled requests can result in apps becoming unavailable
-* **[Feature Improvement]** Allow disabling of signature v4 streaming for system blobstore 
+* **[Feature Improvement]** Allow disabling of signature v4 streaming for system blobstore
 * **[Bug Fix]** Fixes an issue in gorouter where requests that should have returned 496, 499, 503, 525, or 526 HTTP status codes may instead have returned as 502s, potentially preventing stale route pruning.
 * **[Bug Fix]** Resolve Issue where Garden failed during BOSH/OpsMan deploys due to healthcheck
 * **[Bug Fix]** Resolve regression: UI error after org deletion
@@ -1182,7 +1182,7 @@ Because VMware uses the Percona Distribution for MySQL, expect a time lag betwee
 * **[Bug Fix]** Allow rolling restarts on cflinuxfs4
 * **[Bug Fix]** Fix apps-manager failure due to buildpack changes
 * **[Bug Fix]** Fixed issues in route_registrar and tcp_router that led to unnecessary haproxy reloads
-* **[Bug Fix]** Metric Registrar updated to emit correct metric-registrar metadata for log worker and secure scraper. Non secure scraping should be considered deprecated. 
+* **[Bug Fix]** Metric Registrar updated to emit correct metric-registrar metadata for log worker and secure scraper. Non secure scraping should be considered deprecated.
 * Bump backup-and-restore-sdk to version `1.18.66`
 * Bump bpm to version `1.1.23`
 * Bump capi to version `1.148.0`
@@ -2923,7 +2923,7 @@ Because VMware uses the Percona Distribution for MySQL, expect a time lag betwee
 * **[Bug Fix]** Include updated version of cflinuxfs3 and cflinuxfs4
 * [Cloud Controller] Mitigate the risk of "Runner is unavailable" and "Stager is unavailable" errors by patching HTTPClient to accept socket_connect_timeout
 * [Cloud Controller] Add "default" field to v3/stacks
-* [Cloud Controller] Ensure that delayed_job workers handle SIGQUIT 
+* [Cloud Controller] Ensure that delayed_job workers handle SIGQUIT
 * Bump backup-and-restore-sdk to version `1.18.61`
 * Bump binary-offline-buildpack to version `1.1.2`
 * Bump bpm to version `1.1.21`
@@ -7034,8 +7034,12 @@ Deprecation of Spring Cloud Connectors & Spring Auto
 Reconfiguration](https://community.pivotal.io/s/article/Java-Buildpack-Deprecation-of-Spring-Cloud-Connectors-Spring-Auto-Reconfiguration) in the VMware Tanzu
 Knowledge Base.
 
-### <a id='uaa-sso-copy'></a> UAA Single Sign-On Copy Button is Broken
+### <a id='uaa-sso-copy'></a> UAA Single Sign-On Copy Button is broken
 
 In the User Account and Authentication (UAA) user interface (UI), the button that copies Single Sign-On (SSO) codes does not work.
 
 To work around this issue, you must manually copy and paste the displayed code.
+
+#### <a id-'bbr-restore-fails'></a> BBR Restore fails after upgrading to TAS for VMs v3.0
+
+This issue affects those who are leveraging the TAS Internal Mysql Cluster and attempting a BBR Restore after upgrading to TAS 3.0. If you are using an external database and are facing this issue, please open a ticket with VMware Tanzu Support and refer to the [TAS for VMs documentation](https://community.pivotal.io/s/article/BBR-Restore-after-upgrading-to-TAS-3-0?language=en_US).
