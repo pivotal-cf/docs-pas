@@ -23,6 +23,7 @@ MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> containing that pa
 **Release Date:** 05/17/2023
 
 * **[Security Fix]** Resolve issue in gorouter where canceled requests can result in apps becoming unavailable
+* **[Security Fix]** Don't allow syslog drain credentials to be overwritten ([CVE-2023-20881](https://www.cloudfoundry.org/blog/cve-2023-20881-cas-for-syslog-drain-mtls-feature-can-be-overwritten/))
 * **[Feature Improvement]** Allow disabling of signature v4 streaming for system blobstore 
 * **[Bug Fix]** Fixes an issue in gorouter where requests that should have returned 496, 499, 503, 525, or 526 HTTP status codes may instead have returned as 502s, potentially preventing stale route pruning.
 * **[Bug Fix]** Resolve Issue where Garden failed during BOSH/OpsMan deploys due to healthcheck
