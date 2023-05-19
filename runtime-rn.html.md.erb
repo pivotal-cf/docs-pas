@@ -24,7 +24,7 @@ MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> containing that pa
 
 * **[Security Fix]** Resolve issue in gorouter where canceled requests can result in apps becoming unavailable
 * **[Security Fix]** Don't allow syslog drain credentials to be overwritten ([CVE-2023-20881](https://www.cloudfoundry.org/blog/cve-2023-20881-cas-for-syslog-drain-mtls-feature-can-be-overwritten/))
-* **[Feature Improvement]** Allow disabling of signature v4 streaming for system blobstore 
+* **[Feature Improvement]** Allow disabling of signature v4 streaming for system blobstore
 * **[Bug Fix]** Fixes an issue in gorouter where requests that should have returned 496, 499, 503, 525, or 526 HTTP status codes may instead have returned as 502s, potentially preventing stale route pruning.
 * **[Bug Fix]** Resolve Issue where Garden failed during BOSH/OpsMan deploys due to healthcheck
 * **[Bug Fix]** Resolve regression: UI error after org deletion
@@ -1819,3 +1819,7 @@ then the TAS Portal Application Accelerators page is blank.
 
 A future patch version of TAS for VMs changes this traffic to use HTTPS on port 443.
 To work around this issue, configure TAS for VMs to accept HTTP traffic on port 80.
+
+#### <a id-'bbr-restore-fails'></a> BBR Restore fails after upgrading to TAS for VMs v3.0
+
+This issue affects those who are leveraging the TAS Internal Mysql Cluster and attempting a BBR Restore after upgrading to TAS 3.0. If you are using an external database and are facing this issue, please open a ticket with VMware Tanzu Support and refer to the [TAS for VMs documentation](https://community.pivotal.io/s/article/BBR-Restore-after-upgrading-to-TAS-3-0?language=en_US).
