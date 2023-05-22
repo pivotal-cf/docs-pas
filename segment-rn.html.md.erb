@@ -21,7 +21,7 @@ Because VMware uses the Percona Distribution for MySQL, expect a time lag betwee
 
 **Release Date:** 05/17/2023
 
-* **[Security Fix]** While TAS 4.0.0 was unaffected by [CVE-2023-20882](https://www.cloudfoundry.org/blog/cve-2023-20882-gorouter-pruning-via-client-disconnect-resulting-in-dos/), IST 4.0.1 updates to a routing-release version containing the fix.
+* **[Security Fix]** Whereas TAS 4.0.0 was unaffected by [CVE-2023-20882](https://www.cloudfoundry.org/blog/cve-2023-20882-gorouter-pruning-via-client-disconnect-resulting-in-dos/), IST 4.0.1 updates to a routing-release version containing the fix.
 * **[Bug Fix]** Fixes an issue in gorouter where requests that should have returned 496, 499, 503, 525, or 526 HTTP status codes may instead have returned as 502s, potentially preventing stale route pruning.
 * **[Bug Fix]** Resolve Issue where Garden failed during BOSH/OpsMan deploys due to healthcheck
 * Bump bpm to version `1.2.0`
