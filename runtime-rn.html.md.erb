@@ -17,6 +17,335 @@ Because VMware uses the Percona Distribution for MySQL, expect a time lag betwee
 
 ## <a id='releases'></a> Releases
 
+### <a id='3.0.11'></a> 3.0.11
+
+**Release Date:** 05/25/2023
+
+* **[Feature Improvement]** Migrate stop of rsyslogd to post-stop step, so that logs during stopping of Bosh jobs are still forwarded to configured targets.
+* Bump backup-and-restore-sdk to version `1.18.71`
+* Bump cflinuxfs3 to version `0.366.0`
+* Bump cflinuxfs4 to version `1.9.0`
+* Bump credhub to version `2.12.28`
+* Bump mapfs to version `1.2.22`
+* Bump nfs-volume to version `7.1.16`
+* Bump push-apps-manager-release to version `677.0.20`
+* Bump push-offline-docs-release to version `3.0.96`
+* Bump push-usage-service-release to version `674.0.44`
+* Bump routing to version `0.268.0`
+* Bump silk to version `3.25.1`
+* Bump smb-volume to version `3.1.16`
+* Bump syslog to version `12.1.5`
+
+<table border="1" class="nice">
+  <thead>
+    <tr>
+      <th>Component</th>
+      <th>Version</th>
+      <th>Release Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>ubuntu-jammy stemcell</td><td>1.108</td><td></td></tr>
+    <tr><td>backup-and-restore-sdk</td><td>1.18.71</td>
+      <td>
+        <details>
+          <summary>v1.18.71</summary>
+          <pre style="max-width: 30em">
+  ## Changes
+  * Bump mariadb from 10.6.12 to 10.6.13 (#1048)
+  * Bump postgres from 11.19 to 11.20 (#1045)
+  * Bump postgres from 13.10 to 13.11 (#1046)
+  * Bump postgres from 15.2 to 15.3 (#1047)
+  ## Dependencies
+  * **aws-sdk-go:** Updated to v1.44.264.<br>For more information, see [aws-sdk-go](https://github.com/aws/aws-sdk-go).
+  * **bosh-backup-and-restore:** Updated to v1.9.45.<br>For more information, see [bosh-backup-and-restore](https://github.com/cloudfoundry-incubator/bosh-backup-and-restore).
+  * **net:** Updated to v0.10.0.<br>For more information, see [net](https://github.com/golang/net).
+  * **oauth2:** Updated to v0.8.0.<br>For more information, see [oauth2](https://github.com/golang/oauth2).
+  * **api:** Updated to v0.122.0.<br>For more information, see [api](https://github.com/googleapis/google-api-go-client).
+          </pre>
+        </details>
+        <details>
+          <summary>v1.18.70</summary>
+          <pre style="max-width: 30em">
+  ## Dependency updates
+  * **aws-sdk-go:** Updated to v1.44.259.<br>For more information, see [aws-sdk-go](https://github.com/aws/aws-sdk-go).
+  * **bosh-backup-and-restore:** Updated to v1.9.45.<br>For more information, see [bosh-backup-and-restore](https://github.com/cloudfoundry-incubator/bosh-backup-and-restore).
+  * **google api:** Updated to v0.121.0.<br>For more information, see [api](https://github.com/googleapis/google-api-go-client).
+          </pre>
+        </details>
+      </td>
+    </tr>
+    <tr><td>binary-offline-buildpack</td><td>1.1.4</td><td></td></tr>
+    <tr><td>bosh-dns-aliases</td><td>0.0.4</td><td></td></tr>
+    <tr><td>bpm</td><td>1.2.0</td><td></td></tr>
+    <tr><td>capi</td><td>1.152.0</td><td></td></tr>
+    <tr><td>cf-autoscaling</td><td>249.1.9</td><td></td></tr>
+    <tr><td>cf-cli</td><td>1.44.0</td><td></td></tr>
+    <tr><td>cf-networking</td><td>3.25.1</td><td></td></tr>
+    <tr><td>cflinuxfs3</td><td>0.366.0</td><td></td></tr>
+    <tr><td>cflinuxfs4</td><td>1.9.0</td><td></td></tr>
+    <tr><td>count-cores-indicator</td><td>2.0.0</td><td></td></tr>
+    <tr><td>credhub</td><td>2.12.28</td>
+      <td>
+        <details>
+          <summary>2.12.28</summary>
+          <pre style="max-width: 30em">
+  ### Security Fixes
+  - Bump various dependencies
+  **Full Changelog**: https://github.com/pivotal/credhub-release/compare/2.12.27...2.12.28
+          </pre>
+        </details>
+        <details>
+          <summary>2.12.27</summary>
+          <pre style="max-width: 30em">
+  ### Security Fixes
+  - Bump various dependencies
+  Alter TLS handshake to use Java defaults from solely secp384r1 (https://github.com/pivotal/credhub-release/commit/b6a6fac08372abc770864785619e2335d914677d)
+  Java jre8u345-B1 -> jre8u372-B7 (https://github.com/pivotal/credhub-release/commit/a7d271f29a795bbad182e69dfe0d03cc729c663a)
+  **Full Changelog**: https://github.com/pivotal/credhub-release/compare/2.12.26...2.12.27
+          </pre>
+        </details>
+      </td>
+    </tr>
+    <tr><td>diego</td><td>2.76.0</td><td></td></tr>
+    <tr><td>dotnet-core-offline-buildpack</td><td>2.4.10</td><td></td></tr>
+    <tr><td>garden-runc</td><td>1.29.0</td><td></td></tr>
+    <tr><td>go-offline-buildpack</td><td>1.10.8</td><td></td></tr>
+    <tr><td>java-offline-buildpack</td><td>4.58</td><td></td></tr>
+    <tr><td>log-cache</td><td>3.0.2</td><td></td></tr>
+    <tr><td>loggregator</td><td>106.7.8</td><td></td></tr>
+    <tr><td>loggregator-agent</td><td>6.5.10</td><td></td></tr>
+    <tr><td>mapfs</td><td>1.2.22</td>
+      <td>
+        <details>
+          <summary>v1.2.22</summary>
+          <pre style="max-width: 30em">
+  ## Dependencies
+  * **v2:** Updated to v2.9.5.<br>For more information, see [v2](https://github.com/onsi/ginkgo).
+  * **mapfs:** Updated to v`83b48da`.<br>For more information, see [mapfs](https://github.com/cloudfoundry/mapfs).
+          </pre>
+        </details>
+        <details>
+          <summary>v1.2.21</summary>
+          <pre style="max-width: 30em">
+  ## Dependencies
+  * **ginkgo v2:** Updated ginkgo to v2.9.4.<br>For more information, see [v2](https://github.com/onsi/ginkgo).
+  * **mapfs:** Updated to v`4a99f4a`.<br>For more information, see [mapfs](https://github.com/cloudfoundry/mapfs).
+          </pre>
+        </details>
+      </td>
+    </tr>
+    <tr><td>metric-registrar</td><td>2.1.4</td><td></td></tr>
+    <tr><td>metrics-discovery</td><td>3.2.9</td><td></td></tr>
+    <tr><td>mysql-monitoring</td><td>10.0.0</td><td></td></tr>
+    <tr><td>nats</td><td>56.2.0</td><td></td></tr>
+    <tr><td>nfs-volume</td><td>7.1.16</td>
+      <td>
+        <details>
+          <summary>v7.1.16</summary>
+          <pre style="max-width: 30em">
+  ## Changes
+  * Use default CF stack when pushing nfsbroker (#400)
+  * fix: NFS-volume service nfsbroker cred leak (#395)
+  ## Dependencies
+  * **nfsbroker:** Updated to v`7376460`.<br>For more information, see [nfsbroker](https://github.com/cloudfoundry/nfsbroker).
+  * **nfsv3driver:** Updated to v`b375568`.<br>For more information, see [nfsv3driver](https://github.com/cloudfoundry/nfsv3driver).
+          </pre>
+        </details>
+        <details>
+          <summary>v7.1.15</summary>
+          <pre style="max-width: 30em">
+  ## Changes
+  * Golang: Updated to v1.20.4 (#388)
+  ## Dependencies
+  * **nfsbroker:** Updated to v`cbe8c5f`.<br>For more information, see [nfsbroker](https://github.com/cloudfoundry/nfsbroker).
+          </pre>
+        </details>
+      </td>
+    </tr>
+    <tr><td>nginx-offline-buildpack</td><td>1.2.2</td><td></td></tr>
+    <tr><td>nodejs-offline-buildpack</td><td>1.8.9</td><td></td></tr>
+    <tr><td>notifications</td><td>63</td><td></td></tr>
+    <tr><td>notifications-ui</td><td>41</td><td></td></tr>
+    <tr><td>php-offline-buildpack</td><td>4.6.4</td><td></td></tr>
+    <tr><td>push-apps-manager-release</td><td>677.0.20</td><td></td></tr>
+    <tr><td>push-offline-docs-release</td><td>3.0.96</td><td></td></tr>
+    <tr><td>push-usage-service-release</td><td>674.0.44</td>
+      <td>
+        <details>
+          <summary>v674.0.44</summary>
+          <pre style="max-width: 30em">
+  ## Dependencies
+  * **app-usage-service:** Updated to v`16295b3`.<br>For more information, see [app-usage-service](https://github.com/pivotal-cf/app-usage-service).
+          </pre>
+        </details>
+        <details>
+          <summary>v674.0.43</summary>
+          <pre style="max-width: 30em">
+  ## Changes
+  * Bump metric-registrar-cli to 1.3.10 (#335)
+          </pre>
+        </details>
+      </td>
+    </tr>
+    <tr><td>pxc</td><td>1.0.9</td><td></td></tr>
+    <tr><td>python-offline-buildpack</td><td>1.8.9</td><td></td></tr>
+    <tr><td>r-offline-buildpack</td><td>1.2.1</td><td></td></tr>
+    <tr><td>routing</td><td>0.268.0</td>
+      <td>
+        <details>
+          <summary>v0.268.0</summary>
+          <pre style="max-width: 30em">
+  ## Changes
+  - Adds support for `route_registrar` to advertise HTTP2 based routes to gorouter. If not specified on a route, http1 is used by default. Thanks @peanball @plowin and @b1tamara!!
+  ## Bosh Job Spec changes:
+  ```diff
+  diff --git a/jobs/route_registrar/spec b/jobs/route_registrar/spec
+  index 595f2075..bf3d9a03 100644
+  --- a/jobs/route_registrar/spec
+  +++ b/jobs/route_registrar/spec
+  @@ -101,6 +101,7 @@ properties:
+  tls_port (required, integer, for http routes): Either `port` or `tls_port` are required; if both are provided, Gorouter will prefer tls_port.
+  Requests for associated URIs will be forwarded over TLS by the router to this port.
+  The IP is determined automatically from the host on which route-registrar is run.
+  +        protocol (optional, string): 'http1' or 'http2'. If not provided, Gorouter uses 'http1' as default.
+  route_service_url (optional, string, for http routes): When valid route service URL is provided, Gorouter will proxy requests received for the uris above to the specified route service URL.
+  server_cert_domain_san (conditional, string, for http routes): Required if tls_port is present.
+  Gorouter will validate that the TLS certificate presented by the destination host contains this as a Subject Alternative Name (SAN).
+  ```
+  ## ✨  Built with go 1.20.4
+  **Full Changelog**: https://github.com/cloudfoundry/routing-release/compare/v0.267.0...v0.268.0
+  ## Resources
+  - [Download release v0.268.0 from bosh.io](https://bosh.io/releases/github.com/cloudfoundry/routing-release?version=0.268.0).
+          </pre>
+        </details>
+        <details>
+          <summary>v0.267.0</summary>
+          <pre style="max-width: 30em">
+  ## Changes
+  - The veresion of HAProxy used in tcp-router was bumped from 2.7.6 to 2.7.8.
+  ## ✨  Built with go 1.20.4
+  **Full Changelog**: https://github.com/cloudfoundry/routing-release/compare/v0.266.0...v0.267.0
+  ## Resources
+  - [Download release v0.267.0 from bosh.io](https://bosh.io/releases/github.com/cloudfoundry/routing-release?version=0.267.0).
+          </pre>
+        </details>
+      </td>
+    </tr>
+    <tr><td>ruby-offline-buildpack</td><td>1.10.1</td><td></td></tr>
+    <tr><td>silk</td><td>3.25.1</td>
+      <td>
+        <details>
+          <summary>3.25.1</summary>
+          <pre style="max-width: 30em">
+  ## Changes
+  - Fixes compilation errors for `silk-datastore-syncer`
+  ## ✨  Built with go 1.20.4
+  **Full Changelog**: https://github.com/cloudfoundry/silk-release/compare/3.24.0...v3.25.1
+  ## Resources
+  - [Download release v3.25.1 from bosh.io](https://bosh.io/releases/github.com/cloudfoundry/silk-release?version=3.25.1).
+          </pre>
+        </details>
+        <details>
+          <summary>3.24.0</summary>
+          <pre style="max-width: 30em">
+  ## Changes
+  - ⚠️ The new `silk-data-syncer` job is missing some files that cause compilation to fail. This is not a problem if you are deploying without that job. If you need the job, please upgrade to 3.25.1.
+  - Add new `silk-datastore-syncer` job to sync app log metadata from garden to silk datastore
+  - Bump to Go 1.20.4
+  - Bump to Silk 20230501162532-6ab8d30026c6
+  - Bump dependencies such that Ginkgo V2 and Lager V3 are used
+  ## Bosh Job Spec changes:
+  ```diff
+  diff --git a/jobs/silk-datastore-syncer/spec b/jobs/silk-datastore-syncer/spec
+  new file mode 100644
+  index 0000000..9aa1813
+  --- /dev/null
+  +++ b/jobs/silk-datastore-syncer/spec
+  @@ -0,0 +1,26 @@
+  +---
+  +name: silk-datastore-syncer
+  +
+  +templates:
+  +  bpm.yml.erb: config/bpm.yml
+  +  start.erb: bin/start
+  +
+  +packages:
+  +  - silk-datastore-syncer
+  +
+  +properties:
+  +  disable:
+  +    description: "Disable this monit job. It will not run. Required for backwards compatability."
+  +    default: false
+  +  sync_interval_in_seconds:
+  +    description: "Interval to check garden for new metadata."
+  +    default: 30
+  +  garden.address:
+  +    description: "Garden server listening address."
+  +    default: /var/vcap/data/garden/garden.sock
+  +  garden.network:
+  +    description: "Network type for the garden server connection (tcp or unix)."
+  +    default: unix
+  +  log_level:
+  +    description: "Logging level (debug, info, warn, error)."
+  +    default: info
+  ```
+  ## ✨  Built with go 1.20.4
+  **Full Changelog**: https://github.com/cloudfoundry/silk-release/compare/3.23.0...v3.24.0
+  ## Resources
+  - [Download release v3.24.0 from bosh.io](https://bosh.io/releases/github.com/cloudfoundry/silk-release?version=3.24.0).
+          </pre>
+        </details>
+      </td>
+    </tr>
+    <tr><td>smb-volume</td><td>3.1.16</td>
+      <td>
+        <details>
+          <summary>v3.1.16</summary>
+          <pre style="max-width: 30em">
+  ## Dependencies
+  * **smbbroker:** Updated to v`e30a49e`.<br>For more information, see [smbbroker](https://github.com/cloudfoundry/smbbroker).
+  * **smbdriver:** Updated to v`a10f57f`.<br>For more information, see [smbdriver](https://github.com/cloudfoundry/smbdriver).
+          </pre>
+        </details>
+        <details>
+          <summary>v3.1.15</summary>
+          <pre style="max-width: 30em">
+  ## Changes
+  * +Golang: Updated to v1.20.4 (#144)
+  * Use default CF stack when pushing smbbroker (#149)
+  ## Dependencies
+  * **smbbroker:** Updated to v`a586257`.<br>For more information, see [smbbroker](https://github.com/cloudfoundry/smbbroker).
+  * **smbdriver:** Updated to v`17ef13d`.<br>For more information, see [smbdriver](https://github.com/cloudfoundry/smbdriver).
+          </pre>
+        </details>
+      </td>
+    </tr>
+    <tr><td>smoke-tests</td><td>4.8.2</td><td></td></tr>
+    <tr><td>staticfile-offline-buildpack</td><td>1.6.2</td><td></td></tr>
+    <tr><td>statsd-injector</td><td>1.11.30</td><td></td></tr>
+    <tr><td>syslog</td><td>12.1.5</td>
+      <td>
+        <details>
+          <summary>v12.1.5</summary>
+          <pre style="max-width: 30em">
+  ## What's Changed
+  * Dependency bumps
+  * Migrate stop of rsyslogd to post-stop by @KarstenSchnitter in https://github.com/cloudfoundry/syslog-release/pull/133
+  ## New Contributors
+  * @KarstenSchnitter made their first contribution in https://github.com/cloudfoundry/syslog-release/pull/133
+  **Full Changelog**: https://github.com/cloudfoundry/syslog-release/compare/v12.1.4...v12.1.5
+          </pre>
+        </details>
+      </td>
+    </tr>
+    <tr><td>system-metrics-scraper</td><td>3.3.7</td><td></td></tr>
+    <tr><td>uaa</td><td>76.11.0</td><td></td></tr>
+  </tbody>
+</table>
+
+
+
 ### <a id='3.0.10'></a> 3.0.10
 
 **Release Date:** 05/17/2023
