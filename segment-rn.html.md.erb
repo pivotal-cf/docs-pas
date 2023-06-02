@@ -17,6 +17,254 @@ Because VMware uses the Percona Distribution for MySQL, expect a time lag betwee
 
 ## <a id='releases'></a> Releases
 
+### <a id='4.0.3'></a> 4.0.3
+
+**Release Date:** 06/02/2023
+
+* **[Bug Fix]** Operators can disable gorouter request timeouts (i.e. for streaming applications) by configuring them to 0
+* **[Bug Fix/Improvement]** "Back end request timeout for the Gorouter" property no longer affects idle timeout of long lived requests. Idle timeouts now configurable by "Front end idle timeout for the Gorouter" property.
+* Bump bpm to version `1.2.2`
+* Bump cf-networking to version `3.27.0`
+* Bump cflinuxfs3 to version `0.367.0`
+* Bump cflinuxfs4 to version `1.13.0`
+* Bump garden-runc to version `1.30.0`
+* Bump mapfs to version `1.2.23`
+* Bump nfs-volume to version `7.1.18`
+* Bump routing to version `0.270.0`
+* Bump silk to version `3.27.0`
+* Bump smb-volume to version `3.1.17`
+
+<table border="1" class="nice">
+  <thead>
+    <tr>
+      <th>Component</th>
+      <th>Version</th>
+      <th>Release Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>ubuntu-jammy stemcell</td><td>1.117</td><td></td></tr>
+    <tr><td>bpm</td><td>1.2.2</td><td></td></tr>
+    <tr><td>cf-networking</td><td>3.27.0</td>
+      <td>
+        <details>
+          <summary>v3.27.0</summary>
+          <pre style="max-width: 30em">
+  ## Changes
+  - Bumped vendored healthchecker-release to v0.8.0
+  ## ✨  Built with go 1.20.4
+  **Full Changelog**: https://github.com/cloudfoundry/cf-networking-release/compare/v3.26.0...v3.27.0
+  ## Resources
+  - [Download release v3.27.0 from bosh.io](https://bosh.io/releases/github.com/cloudfoundry/cf-networking-release?version=3.27.0).
+          </pre>
+        </details>
+        <details>
+          <summary>v3.26.0</summary>
+          <pre style="max-width: 30em">
+  ## Changes
+  - Dependency Updates:
+  - code.cloudfoundry.org/bbs 08ff19fb906a
+  - code.cloudfoundry.org/cf-networking-helpers ebb4c931f5d5
+  - code.cloudfoundry.org/clock v1.1.0
+  - code.cloudfoundry.org/debugserver c4fc5f67e21e
+  - code.cloudfoundry.org/filelock 470838d066c5
+  - code.cloudfoundry.org/garden 234178722499
+  - code.cloudfoundry.org/locket 6cd5416498b6
+  - github.com/containernetworking/cni v1.1.2
+  - github.com/containernetworking/plugin v1.3.0
+  - github.com/nats-io/go-nats v1.8.1
+  - github.com/onsi/ginkgo/v2 2.9.5
+  - github.com/onsi/gomega v1.27.7
+  - golang.org/x/net v0.10.0
+  - golang.org/x/sys v0.8.0
+  - google.golang.org/grpc v1.55.0
+  - github.com/st3v/glager v0.4.0
+  - github.com/tedsuo/ifrit 7862c310ad26
+  ## ✨  Built with go 1.20.4
+  **Full Changelog**: https://github.com/cloudfoundry/cf-networking-release/compare/3.25.1...v3.26.0
+  ## Resources
+  - [Download release v3.26.0 from bosh.io](https://bosh.io/releases/github.com/cloudfoundry/cf-networking-release?version=3.26.0).
+          </pre>
+        </details>
+      </td>
+    </tr>
+    <tr><td>cflinuxfs3</td><td>0.367.0</td><td></td></tr>
+    <tr><td>cflinuxfs4</td><td>1.13.0</td><td></td></tr>
+    <tr><td>count-cores-indicator</td><td>2.0.0</td><td></td></tr>
+    <tr><td>diego</td><td>2.76.0</td><td></td></tr>
+    <tr><td>garden-runc</td><td>1.30.0</td>
+      <td>
+        <details>
+          <summary>v1.30.0</summary>
+          <pre style="max-width: 30em">
+  ## Changes
+  - Bump dependencies:
+  - github.com/onsi/ginkgo 2.9.5
+  - golang.org/x/sys 0.8.0
+  - Add support for including request trace IDs in garden/guardian
+  ## ✨  Built with go 1.20.4
+  **Full Changelog**: https://github.com/cloudfoundry/garden-runc-release/compare/v1.29.0...v1.30.0
+  ## Resources
+  - [Download release v1.30.0 from bosh.io](https://bosh.io/releases/github.com/cloudfoundry/garden-runc-release?version=1.30.0).
+          </pre>
+        </details>
+      </td>
+    </tr>
+    <tr><td>loggregator-agent</td><td>7.2.1</td><td></td></tr>
+    <tr><td>mapfs</td><td>1.2.23</td>
+      <td>
+        <details>
+          <summary>v1.2.23</summary>
+          <pre style="max-width: 30em">
+  ## Dependencies
+  * **gomega:** Updated to v1.27.7.<br>For more information, see [gomega](https://github.com/onsi/gomega).
+  * **mapfs:** Updated to v`7e641a0`.<br>For more information, see [mapfs](https://github.com/cloudfoundry/mapfs).
+          </pre>
+        </details>
+      </td>
+    </tr>
+    <tr><td>metrics-discovery</td><td>3.2.9</td><td></td></tr>
+    <tr><td>nfs-volume</td><td>7.1.18</td>
+      <td>
+        <details>
+          <summary>v7.1.18</summary>
+          <pre style="max-width: 30em">
+  ## Changes
+  * chore: rename templates to match target files names (#428)
+  * fix: remove config file on stop (#431)
+  * Remove unmaintained docker tests (#432)
+  ## Dependencies
+  * **nfsbroker:** Updated to v`dd36f39`.<br>For more information, see [nfsbroker](https://github.com/cloudfoundry/nfsbroker).
+          </pre>
+        </details>
+        <details>
+          <summary>v7.1.17</summary>
+          <pre style="max-width: 30em">
+  ## Dependency updates
+  * **gomega:** Updated to v1.27.7.<br>For more information, see [gomega](https://github.com/onsi/gomega).
+  * **nfsbroker:** Updated to v`612e903`.<br>For more information, see [nfsbroker](https://github.com/cloudfoundry/nfsbroker).
+  * **nfsv3driver:** Updated to v`3c0b6a0`.<br>For more information, see [nfsv3driver](https://github.com/cloudfoundry/nfsv3driver).
+          </pre>
+        </details>
+      </td>
+    </tr>
+    <tr><td>routing</td><td>0.270.0</td>
+      <td>
+        <details>
+          <summary>v0.270.0</summary>
+          <pre style="max-width: 30em">
+  ## Changes
+  - CI now tests CATS + RATS against cflinuxfs4
+  - 🐛Gorouter's `request_timeout_in_seconds` now only affects request timeout and is not used for idle timeout, which is set by `frontend_idle_timeout`
+  - routing-utils now passes `go vet`
+  - Dependency Bumps:
+  - The vendored healthchecker boshrelease is now v0.8.0
+  - go.step.sm/crypto v0.31.0
+  -
+  - Go dependency bumps for the routing-utils package:
+  -  code.cloudfoundry.org/tlsconfig 8f91c367795b
+  - github.com/nats-io/nats.go v1.26.0
+  ## Bosh Job Spec changes:
+  ```diff
+  diff --git a/jobs/gorouter/spec b/jobs/gorouter/spec
+  index 4fa13ae3..0f61e044 100644
+  --- a/jobs/gorouter/spec
+  +++ b/jobs/gorouter/spec
+  @@ -380,11 +380,9 @@ properties:
+  default: 22
+  request_timeout_in_seconds:
+  description: |
+  -      This configures a "request timeout" and a "backend idle timeout".
+  +      This configures an entire request timeout.
+  Requests from router to backend endpoints that are longer than this duration will be canceled and logged as
+  -      `backend-request-timeout` errors. In addition, TCP connections between router and backend endpoints that
+  -      are idle for longer than this duration will be closed. Related properties: `router.max_idle_connections`
+  -      and `router.keep_alive_probe_interval`.
+  +      `backend-request-timeout` errors. If set to 0 this timeout is disabled.
+  default: 900
+  endpoint_dial_timeout_in_seconds:
+  description: |
+  ```
+  ## ✨  Built with go 1.20.4
+  **Full Changelog**: https://github.com/cloudfoundry/routing-release/compare/v0.269.0...v0.270.0
+  ## Resources
+  - [Download release v0.270.0 from bosh.io](https://bosh.io/releases/github.com/cloudfoundry/routing-release?version=0.270.0).
+          </pre>
+        </details>
+        <details>
+          <summary>v0.269.0</summary>
+          <pre style="max-width: 30em">
+  ## Changes
+  - Update sync-package-specs to install gosub
+  - Remove `trace-logger` update in sync-submodule-config
+  - Remove unused files
+  ## ✨  Built with go 1.20.4
+  **Full Changelog**: https://github.com/cloudfoundry/routing-release/compare/v0.268.0...v0.269.0
+  ## Resources
+  - [Download release v0.269.0 from bosh.io](https://bosh.io/releases/github.com/cloudfoundry/routing-release?version=0.269.0).
+          </pre>
+        </details>
+      </td>
+    </tr>
+    <tr><td>silk</td><td>3.27.0</td>
+      <td>
+        <details>
+          <summary>v3.27.0</summary>
+          <pre style="max-width: 30em">
+  ## Changes
+  - Bumped vendored healthchecker release to v0.8.0
+  - Updated silk, silk-cni, and cni-wrapper-plugin for compatibility with v1.0.0 of the CNI spec
+  - Bumped github.com/containernetworking/cni to 1.1.2 and github.com/containernetworking/plugins to 1.3.0
+  - Removed the `externalmods` code as it's no longer needed now that everything is on the latest CNI versions.
+  ## ✨  Built with go 1.20.4
+  **Full Changelog**: https://github.com/cloudfoundry/silk-release/compare/v3.26.0...v3.27.0
+  ## Resources
+  - [Download release v3.27.0 from bosh.io](https://bosh.io/releases/github.com/cloudfoundry/silk-release?version=3.27.0).
+          </pre>
+        </details>
+        <details>
+          <summary>v3.26.0</summary>
+          <pre style="max-width: 30em">
+  ## Changes
+  - Dependency Bumps:
+  - code.cloudfoundry.org/cf-networking-helpers ebb4c931f5d5
+  - code.cloudfoundry.org/debugserver c4fc5f67e21e
+  - code.cloudfoundry.org/diego-logging-client efc368ee68d3
+  - code.cloudfoundry.org/filelock 470838d066c5
+  - code.cloudfoundry.org/garden234178722499
+  - code.cloudfoundry.org/runtimeschema 5366865eed76
+  - code.cloudfoundry.org/silk 886eb5a013ef
+  - github.com/containernetworking/cni v1.1.2
+  - github.com/onsi/ginkgo/v2 v2.9.5
+  - github.com/onsi/gomega v1.27.7
+  - github.com/tedsuo/ifrit 7862c310ad26
+  ## ✨  Built with go 1.20.4
+  **Full Changelog**: https://github.com/cloudfoundry/cf-networking-release/compare/3.25.1...v3.26.0
+  ## Resources
+  - [Download release v3.26.0 from bosh.io](https://bosh.io/releases/github.com/cloudfoundry/cf-networking-release?version=3.26.0).
+          </pre>
+        </details>
+      </td>
+    </tr>
+    <tr><td>smb-volume</td><td>3.1.17</td>
+      <td>
+        <details>
+          <summary>v3.1.17</summary>
+          <pre style="max-width: 30em">
+  ## Dependencies
+  * **smbbroker:** Updated to v`de6049f`.<br>For more information, see [smbbroker](https://github.com/cloudfoundry/smbbroker).
+  * **smbdriver:** Updated to v`fc409f6`.<br>For more information, see [smbdriver](https://github.com/cloudfoundry/smbdriver).
+          </pre>
+        </details>
+      </td>
+    </tr>
+    <tr><td>smoke-tests</td><td>4.8.2</td><td></td></tr>
+    <tr><td>syslog</td><td>12.1.5</td><td></td></tr>
+  </tbody>
+</table>
+
+
+
 ### <a id='4.0.2'></a> 4.0.2
 
 **Release Date:** 05/25/2023
