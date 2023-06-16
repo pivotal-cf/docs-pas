@@ -1,9 +1,9 @@
 ---
-title: VMware Tanzu Application Service for VMs v2.13 Release Notes
+title: VMware Tanzu Application Service for VMs v2.13 Release notes
 owner: Release Engineering
 ---
 
-This topic contains release notes for <%= vars.app_runtime_first %> <%= vars.v_major_version %>.
+Here you will find the release notes for <%= vars.app_runtime_first %> <%= vars.v_major_version %>.
 
 <%= vars.app_runtime_abbr %> is certified by the Cloud Foundry Foundation for 2023.
 
@@ -1081,7 +1081,7 @@ v8](../cf-cli/v8.html).
 **Release Date:** 05/15/2023
 
 * **[Security Fix]** Resolve issue in gorouter where canceled requests can result in apps becoming unavailable ([CVE-2023-20882](https://www.cloudfoundry.org/blog/cve-2023-20882-gorouter-pruning-via-client-disconnect-resulting-in-dos/))
-* **[Feature Improvement]** Allow disabling of signature v4 streaming for system blobstore 
+* **[Feature Improvement]** Allow disabling of signature v4 streaming for system blobstore
 * **[Bug Fix]** Fixes an issue in gorouter where requests that should have returned 496, 499, 503, 525, or 526 HTTP status codes may instead have returned as 502s, potentially preventing stale route pruning.
 * **[Bug Fix]** Resolve regression: UI error after org deletion
 * **[Bug Fix]** Resolve Issue where Garden failed during BOSH/OpsMan deploys due to healthcheck
@@ -1706,7 +1706,7 @@ v8](../cf-cli/v8.html).
   - Bumped dependencies
   **Bugs Fixed**
   - [mysql-metrics] Fixed bug that caused metrics to be displayed for only one of the MySQL nodes in three-node HA cluster when `mysql-metrics.host` was not configured in a bosh manifest.
-  **Breaking Change**
+  **Breaking change**
   The `mysql-metrics` job no longer consumes bosh links for defaulting the `mysql-metrics.host` property.  `mysql-metrics.host` defaults to connecting over 127.0.0.1 and `mysql-metrics.port` defaults to the port provided by the `mysql` bosh link.  This avoids a bug where mysql-metrics reports the metrics from only a single member of the cluster instead of reporting separate metrics for _each_ member of a cluster.
   This change provides accurate metrics out-of-the-box when the mysql-metrics agent is co-located with MySQL.  For niche use cases, configure the `mysql-metrics.host` and `mysql-metrics.port` explicitly as needed for your use case.
           </pre>
@@ -1902,7 +1902,7 @@ v8](../cf-cli/v8.html).
         <details>
           <summary>v0.53.0</summary>
           <pre style="max-width: 30em">
-  **New Features**
+  **New features**
   - Bumped Go to v1.20.4
   **EOL Notice**
   - Please note that this release and earlier versions will not be supported beyond Oct 2023, due to MySQL 5.7 EOL. If your product is consuming this release, please upgrade to the latest pxc-1.0.y release
@@ -1911,7 +1911,7 @@ v8](../cf-cli/v8.html).
         <details>
           <summary>v0.52.0</summary>
           <pre style="max-width: 30em">
-  **New Features**
+  **New features**
   - Bumped Go to v1.20.3
   - Bumped Percona XtraDB Cluster to v5.7.41-31.65
   - Bumped Percona XtraBackup to v2.4.28
@@ -1922,7 +1922,7 @@ v8](../cf-cli/v8.html).
         <details>
           <summary>v0.51.0</summary>
           <pre style="max-width: 30em">
-  **New Features**
+  **New features**
   - Bumped Go to v1.20.2
   **EOL Notice**
   - Please note that this release and earlier versions will not be supported beyond Oct 2023, due to MySQL 5.7 EOL. If your product is consuming this release, please upgrade to the latest pxc-1.0.y release
@@ -2264,7 +2264,7 @@ v8](../cf-cli/v8.html).
 * **[Security Fix]** Fix BBR scripts and bump spring-boot to address [CVE-2023-20860](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-20860) and [CVE-2023-20861](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-20861)
 * **[Bug Fix]** Fix apps-manager failure due to buildpack changes
 * **[Bug Fix]** Fixed issues in route_registrar and tcp_router that led to unnecessary haproxy reloads
-* **[Bug Fix]** Metric Registrar updated to emit correct metric-registrar metadata for log worker and secure scraper. Non secure scraping should be considered deprecated. 
+* **[Bug Fix]** Metric Registrar updated to emit correct metric-registrar metadata for log worker and secure scraper. Non secure scraping should be considered deprecated.
 * Bump backup-and-restore-sdk to version `1.18.65`
 * Bump bpm to version `1.1.23`
 * Bump cf-autoscaling to version `249.1.7`
@@ -5404,7 +5404,7 @@ v8](../cf-cli/v8.html).
   - [bump dependency-check-gradle from 7.3.0 to 7.3.2](https://github.com/cloudfoundry/credhub/commit/164f3803d661bbf3684f22f66ec696688d9e4322)
   - [bump grpcVersion from 1.50.2 to 1.51.0](https://github.com/cloudfoundry/credhub/commit/ee931e16e5be76b9c485cfde915962dc6bb644e5)
   - [bump: springRestDocsVersion from 2.0.6 to 2.0.7](https://github.com/cloudfoundry/credhub/commit/c8b47a94870d8b86a65dd8d39fc24ced0608b752)
-  ## Known Issues
+  ## Known issues
   - This release breaks compatibility with [postgres-release](https://github.com/cloudfoundry/postgres-release) (and possibly more postgres server) with a TLS handshake error. Do not use this release if you are using postgres. The fix is underway.
   **Full Changelog**: https://github.com/pivotal/credhub-release/compare/2.12.14...2.12.15
           </pre>
@@ -5416,7 +5416,7 @@ v8](../cf-cli/v8.html).
   - Bump various dependencies
   ## What's Changed
   * Update Java 1.8 to jre8u352
-  ## Known Issues
+  ## Known issues
   - This release breaks compatibility with [postgres-release](https://github.com/cloudfoundry/postgres-release) (and possibly more postgres server) with a TLS handshake error. Do not use this release if you are using postgres. The fix is underway.
   **Full Changelog**: https://github.com/pivotal/credhub-release/compare/2.12.13...2.12.14
           </pre>
@@ -5833,7 +5833,7 @@ v8](../cf-cli/v8.html).
   ## What's Changed
   * Switch to healthecker package in cf-networking-helpers by @mariash in https://github.com/cloudfoundry/routing-release/pull/302
   * Add healthchecker package to sync-package-specs file by @mariash in https://github.com/cloudfoundry/routing-release/pull/303
-  * **Potential Breaking Change:** In preperation for mtls between gorouter and routing api, add gorouter backends ca to routing-api. Rendering these certs depends on routing-api consuming a link from gorouter. If you have multiple gorouter instance groups (for example in the case of isolation segments), you will need to rename bosh links to prevent the error "Multiple link providers found. For an example of link renaming, see [this ops file](https://github.com/cloudfoundry/cf-deployment/blob/main/operations/test/add-persistent-isolation-segment-router.yml#L74) by @reneighbor in https://github.com/cloudfoundry/routing-release/pull/300
+  * **Potential Breaking change:** In preperation for mtls between gorouter and routing api, add gorouter backends ca to routing-api. Rendering these certs depends on routing-api consuming a link from gorouter. If you have multiple gorouter instance groups (for example in the case of isolation segments), you will need to rename bosh links to prevent the error "Multiple link providers found. For an example of link renaming, see [this ops file](https://github.com/cloudfoundry/cf-deployment/blob/main/operations/test/add-persistent-isolation-segment-router.yml#L74) by @reneighbor in https://github.com/cloudfoundry/routing-release/pull/300
   * Ensure gorouter-healthchecker doesn't restart gorouter forever on failure by @geofffranks in https://github.com/cloudfoundry/routing-release/pull/305
   **Full Changelog**: https://github.com/cloudfoundry/routing-release/compare/0.248.0...v0.249.0
           </pre>
@@ -6723,7 +6723,7 @@ Reconfiguration by Default](#auto-reconfig-disallowed) below.
         <details>
           <summary>v9.19.0</summary>
           <pre style="max-width: 30em">
-  **New Features**
+  **New features**
   The `mysql-metrics` job now supports a `mysql-metrics.port` option to specify the MySQL port when scraping database metrics. This port defaults to 3306 but may be configured to a non-standard port.
           </pre>
         </details>
@@ -7415,7 +7415,7 @@ Reconfiguration by Default](#auto-reconfig-disallowed) below.
 
 **Release Date:** 10/19/2022
 
-* **[Breaking Change]** A change in behavior to line-based log rate limits has been made. Previously, logs were buffered and released at the allowed rate, now logs exceeding the limit will be dropped.
+* **[Breaking change]** A change in behavior to line-based log rate limits has been made. Previously, logs were buffered and released at the allowed rate, now logs exceeding the limit will be dropped.
 * **[Feature]** Allow operators to specify isolation segments that should be routable through TAS routers
 * **[Bug Fix]** Fixes UAA's compatibility with Amazon Aurora MySQL
 * **[Bug Fix]** Fix Capi compatibility with MySQL 8
@@ -7527,7 +7527,7 @@ Reconfiguration by Default](#auto-reconfig-disallowed) below.
   ## Changes
   - Replace GinkgoParallelNode with GinkgoParallelProcess @ebroberson (#630)
   - Bump Golang to go1.18.4 @cf-diego (#625)
-  **Breaking Changes**: The diego components are now more strict about the protocols used in TLS communications, causing integrations with systems using older, insecure protocols to fail. These components have been updated to Go 1.18, and will no longer support TLS 1.0 and 1.1 connections or certificates with a SHA-1 checksum. This is most likely to affect connections with external databases.
+  **Breaking changes**: The diego components are now more strict about the protocols used in TLS communications, causing integrations with systems using older, insecure protocols to fail. These components have been updated to Go 1.18, and will no longer support TLS 1.0 and 1.1 connections or certificates with a SHA-1 checksum. This is most likely to affect connections with external databases.
   ## Resources
   - [Download release v2.65.0 from bosh.io](https://bosh.io/releases/github.com/cloudfoundry/diego-release?version=2.65.0).
   - Verified with [cloudfoundry/cf-deployment @ `3b04e79bd33220a117c4543b1c8074bc13bf7c24`](https://github.com/cloudfoundry/cf-deployment/commit/3b04e79bd33220a117c4543b1c8074bc13bf7c24).
@@ -7647,7 +7647,7 @@ Reconfiguration by Default](#auto-reconfig-disallowed) below.
           <pre style="max-width: 30em">
   ## What's Changed
   - ⚠️ Bump to golang 1.18 🎉
-  **Breaking Changes:** The routing components are now more strict about the protocols used in TLS communications, causing integrations with systems using older, insecure protocols to fail. These components have been updated to Go 1.18, and will no longer support TLS 1.0 and 1.1 connections or certificates with a SHA-1 checksum. This is most likely to affect connections with external databases.
+  **Breaking changes:** The routing components are now more strict about the protocols used in TLS communications, causing integrations with systems using older, insecure protocols to fail. These components have been updated to Go 1.18, and will no longer support TLS 1.0 and 1.1 connections or certificates with a SHA-1 checksum. This is most likely to affect connections with external databases.
   Please see this golang 1.18 release notes [section](https://tip.golang.org/doc/go1.18#tls10) for more information about the golang 1.18 change.
   ###
   * Update uaa-go-client; by @joergdw in https://github.com/cloudfoundry/routing-release/pull/277
@@ -8310,8 +8310,8 @@ instance. If you specify a service instance, Autoscaler only requests metrics fr
 * **[Bug Fix]** Fix metric registrar secure scraping with isolation segments
 * **[Bug Fix]** Resolves [an issue with Dynamic ASGs](https://community.pivotal.io/s/article/Apps-stop-running-after-a-deploy-when-using-dynamic-ASGs-with-icmp-any-rule) and ASG containing 'ICMP any' rules causing apps not to start
 * **[Bug Fix]** Sticky sessions no longer break when used with route-services that return HTTP 4xx/5xx responses
-* **[Breaking Change]** Syslog drains configured to use TLS now [reject certificates signed with the SHA-1 hash function](https://go.dev/doc/go1.18#sha1).
-* **[Breaking Change]** If you followed the procedure in [Autoscale application fails with MySQL Deadlock errors](https://community.pivotal.io/s/article/Autoscale-application-errors-with-MySQL-Deadlock) to manually add an index to an Autoscale database, and the index is not dropped before you upgrade to <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>.5, upgrading causes an error.
+* **[Breaking change]** Syslog drains configured to use TLS now [reject certificates signed with the SHA-1 hash function](https://go.dev/doc/go1.18#sha1).
+* **[Breaking change]** If you followed the procedure in [Autoscale application fails with MySQL Deadlock errors](https://community.pivotal.io/s/article/Autoscale-application-errors-with-MySQL-Deadlock) to manually add an index to an Autoscale database, and the index is not dropped before you upgrade to <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>.5, upgrading causes an error.
 * **[Bug Fix/Improvement]** Stop emitting debug metrics for agents and log-cache by default. Reduces load on logging system by >=720 metrics per vm per minute
 * Bump backup-and-restore-sdk to version `1.18.42`
 * Bump binary-offline-buildpack to version `1.0.45`
@@ -8853,9 +8853,9 @@ instance. If you specify a service instance, Autoscaler only requests metrics fr
 
 <%= partial "/pcf/tas/known-issues/icmp-dynamic-asg-note" %>
 
-* See [New Features in <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>](#new-features) below.
-* See [Breaking Changes](#breaking-changes) below.
-* See [Known Issues](#known-issues) below.
+* See [New features in <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>](#new-features) below.
+* See [Breaking changes](#breaking-changes) below.
+* See [Known issues](#known-issues) below.
 
 <table border="1" class="nice">
   <thead>
@@ -8937,7 +8937,7 @@ currently compatible with <%= vars.app_runtime_abbr %> <%= vars.v_major_version 
 [https://docs.pivotal.io](https://docs.pivotal.io) or contact the partner organization that produces the tile.
 
 
-## <a id='new-features'></a> New Features in <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>
+## <a id='new-features'></a> New features in <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>
 
 <%= vars.app_runtime_abbr %> <%= vars.v_major_version %> includes the following major features:
 
@@ -9148,7 +9148,7 @@ For more information, see [(Optional) Configure Custom Branding and Apps Manager
 <%= vars.app_runtime_abbr %>_.
 
 
-## <a id='breaking-changes'></a> Breaking Changes
+## <a id='breaking-changes'></a> Breaking changes
 
 <%= vars.app_runtime_abbr %> <%= vars.v_major_version %> includes the following breaking changes:
 
@@ -9167,7 +9167,7 @@ This change comes with the following considerations when you upgrade to <%= vars
 
 <table>
   <tr>
-    <th>Breaking Change</th>
+    <th>Breaking change</th>
     <th>Recommended Action</th>
   </tr>
   <tr>
@@ -9217,7 +9217,7 @@ user-provided services might also be affected.
 To upgrade to a supported cf CLI version, see [Upgrading to cf CLI v7](../cf-cli/v7.html) or [Upgrading to cf CLI v8](../cf-cli/v8.html).
 
 
-## <a id='known-issues'></a> Known Issues
+## <a id='known-issues'></a> Known issues
 
 <%= vars.app_runtime_abbr %> <%= vars.v_major_version %> includes the following known issues:
 
