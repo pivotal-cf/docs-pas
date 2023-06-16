@@ -1,14 +1,13 @@
 ---
-title: VMware Tanzu Application Service for VMs v4.0 Release Notes
+title: VMware Tanzu Application Service for VMs v4.0 release notes
 owner: Release Engineering
 ---
 
-This topic contains release notes for <%= vars.app_runtime_first %> <%= vars.v_major_version %>.
+Here you will find the release notes for <%= vars.app_runtime_first %> <%= vars.v_major_version %>.
 
 <%= vars.app_runtime_abbr %> is certified by the Cloud Foundry Foundation for 2023.
 
-For more information about the Cloud Foundry Certified Provider Program, see [How Do I Become a
-Certified Provider?](https://www.cloudfoundry.org/blog/how-to-get-certified-cloud-foundry-certified-developer-exam-version-2/) on the Cloud Foundry
+For more information about the Cloud Foundry Certified Provider Program, see [How Do I Become a Certified Provider?](https://www.cloudfoundry.org/blog/how-to-get-certified-cloud-foundry-certified-developer-exam-version-2/) on the Cloud Foundry
 website.
 
 Because VMware uses the Percona Distribution for MySQL, expect a time lag between Oracle releasing a
@@ -24,7 +23,7 @@ MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> containing that pa
 
 * **[Bug Fix]** Operators can disable gorouter request timeouts (i.e. for streaming applications) by configuring them to 0
 * **[Bug Fix/Improvement]** This is an improvement to dependencies.
-* **[Bug Fix/Improvement]** "Back end request timeout for the Gorouter" property no longer affects idle timeout of long lived requests. Idle timeouts now configurable by "Front end idle timeout for the Gorouter" property.
+* **[Bug Fix/Improvement]** "Back end request timeout for the Gorouter" property no longer affects idle timeout of long-lived requests. Idle timeouts now configurable by "Front end idle timeout for the Gorouter" property.
 * **[Bug Fix/Improvement]** This is an improvement to dependencies.
 * Bump backup-and-restore-sdk to version `1.18.76`
 * Bump binary-offline-buildpack to version `1.1.5`
@@ -59,7 +58,7 @@ MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> containing that pa
     <tr>
       <th>Component</th>
       <th>Version</th>
-      <th>Release Notes</th>
+      <th>Release notes</th>
     </tr>
   </thead>
   <tbody>
@@ -113,7 +112,7 @@ MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> containing that pa
   ## Changes
   - Bumped vendored healthchecker-release to v0.8.0
   ## ✨  Built with go 1.20.4
-  **Full Changelog**: https://github.com/cloudfoundry/cf-networking-release/compare/v3.26.0...v3.27.0
+  **Full changelog**: https://github.com/cloudfoundry/cf-networking-release/compare/v3.26.0...v3.27.0
   ## Resources
   - [Download release v3.27.0 from bosh.io](https://bosh.io/releases/github.com/cloudfoundry/cf-networking-release?version=3.27.0).
           </pre>
@@ -122,7 +121,7 @@ MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> containing that pa
           <summary>v3.26.0</summary>
           <pre style="max-width: 30em">
   ## Changes
-  - Dependency Updates:
+  - Dependency updates:
   - code.cloudfoundry.org/bbs 08ff19fb906a
   - code.cloudfoundry.org/cf-networking-helpers ebb4c931f5d5
   - code.cloudfoundry.org/clock v1.1.0
@@ -141,7 +140,7 @@ MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> containing that pa
   - github.com/st3v/glager v0.4.0
   - github.com/tedsuo/ifrit 7862c310ad26
   ## ✨  Built with go 1.20.4
-  **Full Changelog**: https://github.com/cloudfoundry/cf-networking-release/compare/3.25.1...v3.26.0
+  **Full changelog**: https://github.com/cloudfoundry/cf-networking-release/compare/3.25.1...v3.26.0
   ## Resources
   - [Download release v3.26.0 from bosh.io](https://bosh.io/releases/github.com/cloudfoundry/cf-networking-release?version=3.26.0).
           </pre>
@@ -156,14 +155,14 @@ MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> containing that pa
         <details>
           <summary>2.12.29</summary>
           <pre style="max-width: 30em">
-  ## What's Changed
+  ## What's changed
   * Build(deps): Bump jaro_winkler from 1.5.4 to 1.5.5 in /spec by @dependabot in https://github.com/pivotal/credhub-release/pull/135
   * Build(deps): bump springBootVersion from 2.7.11 to 2.7.12 in https://github.com/pivotal/credhub-release/commit/24a4c6ff23cd2b52839b65f00ed4042e02cc5cdf
   * Build(deps): bump com.google.protobuf:protoc from 3.23.0 to 3.23.1 in https://github.com/pivotal/credhub-release/commit/1651b1c32e84e3ef0daf29e24147a4cc2d6b5f76
   * Build(deps): bump nettyVersion from 4.1.92.Final to 4.1.93.Final in https://github.com/pivotal/credhub-release/commit/fb9bd1e71bf444c1360a116cc39e771189427c36
   * Build(deps): bump com.google.api.grpc:proto-google-common-protos from 2.18.0 to 2.19.0 in https://github.com/pivotal/credhub-release/commit/fb9bd1e71bf444c1360a116cc39e771189427c36
   * Bumps [com.google.api.grpc:proto-google-common-protos](https://github.com/googleapis/sdk-platform-java) from 2.19.0 to 2.19.1
-  **Full Changelog**: https://github.com/pivotal/credhub-release/compare/2.12.28...2.12.29
+  **Full changelog**: https://github.com/pivotal/credhub-release/compare/2.12.28...2.12.29
           </pre>
         </details>
       </td>
@@ -217,7 +216,7 @@ MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> containing that pa
   - golang.org/x/sys 0.8.0
   - Add support for including request trace IDs in garden/guardian
   ## ✨  Built with go 1.20.4
-  **Full Changelog**: https://github.com/cloudfoundry/garden-runc-release/compare/v1.29.0...v1.30.0
+  **Full changelog**: https://github.com/cloudfoundry/garden-runc-release/compare/v1.29.0...v1.30.0
   ## Resources
   - [Download release v1.30.0 from bosh.io](https://bosh.io/releases/github.com/cloudfoundry/garden-runc-release?version=1.30.0).
           </pre>
@@ -261,9 +260,9 @@ MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> containing that pa
         <details>
           <summary>4.59.0</summary>
           <pre style="max-width: 30em">
-  I'm pleased to announce the release of the java-buildpack, version 4.59.0. This release includes updates to dependency frameworks, such as:
-  * Updates [Azure Application Insights](https://github.com/cloudfoundry/java-buildpack/blob/main/docs/framework-azure_application_insights_agent.md) agent from 2.x to 3.x (thanks to @mayrstefan )
-  * Updates the [Contrast Security](https://github.com/cloudfoundry/java-buildpack/blob/main/docs/framework-contrast_security_agent.md) agent from 4.x to 5.x (thanks to @tylernhoward )
+  VMware Tanzu announces the release of the java-buildpack, version 4.59.0. This release includes updates to dependency frameworks:
+  * Updates to [Azure Application Insights](https://github.com/cloudfoundry/java-buildpack/blob/main/docs/framework-azure_application_insights_agent.md) agent from 2.x to 3.x (thanks to @mayrstefan )
+  * Updates to the [Contrast Security](https://github.com/cloudfoundry/java-buildpack/blob/main/docs/framework-contrast_security_agent.md) agent from 4.x to 5.x (thanks to @tylernhoward )
   There were also dependency bumps for other libraries, including:
   * Elastic APM
   * JaCoCo
@@ -271,41 +270,41 @@ MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> containing that pa
   * JRebel
   * Splunk
   * YourKit
-  For a more detailed look at the changes in 4.59.0, please take a look at the [commit log](https://github.com/cloudfoundry/java-buildpack/compare/v4.58...v4.59.0). The packaged version of the buildpack, suitable for use with create-buildpack and update-buildpack, can be found attached to this release.
-  | Dependency | Version | CVEs | Release Notes |
+  For a more detailed look at the changes in 4.59.0, see the [commit log](https://github.com/cloudfoundry/java-buildpack/compare/v4.58...v4.59.0). The packaged version of the buildpack, suitable for use with create-buildpack and update-buildpack, can be found attached to this release.
+  | Dependency | Version | CVEs | Release notes |
   | ---------- | ------- | ---- | ------------- |
-  | AppDynamics Agent | `22.9.2_34409` | | [Release Notes](https://docs.appdynamics.com/4.5.x/en/product-and-release-announcements/release-notes/language-agent-notes/java-agent-notes) |
-  | Azure Application Insights Agent | `3.4.13` | | [Release Notes](https://github.com/Microsoft/ApplicationInsights-Java/releases) |
+  | AppDynamics Agent | `22.9.2_34409` | | [Release notes](https://docs.appdynamics.com/4.5.x/en/product-and-release-announcements/release-notes/language-agent-notes/java-agent-notes) |
+  | Azure Application Insights Agent | `3.4.13` | | [Release notes](https://github.com/Microsoft/ApplicationInsights-Java/releases) |
   | CA Introscope APM Framework | `23.3.0_4` | |  |
   | Client Certificate Mapper | `1.11.0_RELEASE` |Included inline above | Included inline above |
   | Container Security Provider | `1.20.0_RELEASE` |Included inline above | Included inline above |
-  | Contrast Security Agent | `5.0.2` | | [Release Notes](https://docs.contrastsecurity.com/en/java-agent-release-notes.html) |
-  | Datadog APM Javaagent | `1.14.0` | | [Release Notes](https://github.com/DataDog/dd-trace-java/releases) |
-  | Elastic APM Agent | `1.38.0` | | [Release Notes](https://www.elastic.co/guide/en/apm/agent/java/current/release-notes.html) |
-  | Gemalto Luna Security Provider | `7.4.0` | | [Release Notes](https://www.thalesdocs.com/gphsm/luna/7/docs/network/Content/CRN/Luna/CRN_Luna.htm) |
+  | Contrast Security Agent | `5.0.2` | | [Release notes](https://docs.contrastsecurity.com/en/java-agent-release-notes.html) |
+  | Datadog APM Javaagent | `1.14.0` | | [Release notes](https://github.com/DataDog/dd-trace-java/releases) |
+  | Elastic APM Agent | `1.38.0` | | [Release notes](https://www.elastic.co/guide/en/apm/agent/java/current/release-notes.html) |
+  | Gemalto Luna Security Provider | `7.4.0` | | [Release notes](https://www.thalesdocs.com/gphsm/luna/7/docs/network/Content/CRN/Luna/CRN_Luna.htm) |
   | Geode Tomcat Session Store | `1.13.7` | |  |
-  | Google Stackdriver Debugger | `2.32.0` | | [Release Notes](https://cloud.google.com/debugger/docs/release-notes) |
-  | Google Stackdriver Profiler | `0.1.0` | | [Release Notes](https://cloud.google.com/profiler/docs/release-notes) |
-  | Groovy | `2.5.22` | | [Release Notes](http://www.groovy-lang.org/releases.html) |
-  | JaCoCo Agent | `0.8.10` | | [Release Notes](https://github.com/jacoco/jacoco/releases) |
+  | Google Stackdriver Debugger | `2.32.0` | | [Release notes](https://cloud.google.com/debugger/docs/release-notes) |
+  | Google Stackdriver Profiler | `0.1.0` | | [Release notes](https://cloud.google.com/profiler/docs/release-notes) |
+  | Groovy | `2.5.22` | | [Release notes](http://www.groovy-lang.org/releases.html) |
+  | JaCoCo Agent | `0.8.10` | | [Release notes](https://github.com/jacoco/jacoco/releases) |
   | Java Memory Assistant Agent | `0.5.0` | |  |
   | Java Memory Assistant Clean Up | `0.1.0` | |  |
   | JProfiler Profiler | `12.0.4` | | [ChangeLog](https://www.ej-technologies.com/download/jprofiler/changelog.html) |
   | JRebel Agent | `2023.2.1` | | [ChangeLog](https://www.jrebel.com/products/jrebel/changelog) |
   | jvmkill Agent | `1.17.0_RELEASE` |Included inline above | Included inline above |
-  | MariaDB JDBC Driver | `2.7.9` | | [Release Notes](https://mariadb.com/kb/en/mariadb-connector-j-2-7-9-release-notes/) |
+  | MariaDB JDBC Driver | `2.7.9` | | [Release notes](https://mariadb.com/kb/en/mariadb-connector-j-2-7-9-release-notes/) |
   | Memory Calculator | `3.13.0_RELEASE` |Included inline above | Included inline above |
   | Metric Writer | `3.5.0_RELEASE` |Included inline above | Included inline above |
-  | New Relic Agent | `8.2.0` | | [Release Notes](https://docs.newrelic.com/docs/release-notes/agent-release-notes/java-release-notes/) |
-  | OpenJDK JRE 11 | `11.0.19_7` |[Risk Matrix](https://www.oracle.com/security-alerts/cpuapr2023.html#AppendixJAVA) | [Release Notes](https://bell-sw.com/pages/liberica-release-notes-11.0.19/) |
-  | OpenJDK JRE 17 | `17.0.7_7` |[Risk Matrix](https://www.oracle.com/security-alerts/cpuapr2023.html#AppendixJAVA) | [Release Notes](https://bell-sw.com/pages/liberica-release-notes-17.0.7/) |
-  | OpenJDK JRE 8 | `1.8.0_372` |[Risk Matrix](https://www.oracle.com/security-alerts/cpuapr2023.html#AppendixJAVA) | [Release Notes](https://bell-sw.com/pages/liberica-release-notes-8u372/) |
+  | New Relic Agent | `8.2.0` | | [Release notes](https://docs.newrelic.com/docs/release-notes/agent-release-notes/java-release-notes/) |
+  | OpenJDK JRE 11 | `11.0.19_7` |[Risk Matrix](https://www.oracle.com/security-alerts/cpuapr2023.html#AppendixJAVA) | [Release notes](https://bell-sw.com/pages/liberica-release-notes-11.0.19/) |
+  | OpenJDK JRE 17 | `17.0.7_7` |[Risk Matrix](https://www.oracle.com/security-alerts/cpuapr2023.html#AppendixJAVA) | [Release notes](https://bell-sw.com/pages/liberica-release-notes-17.0.7/) |
+  | OpenJDK JRE 8 | `1.8.0_372` |[Risk Matrix](https://www.oracle.com/security-alerts/cpuapr2023.html#AppendixJAVA) | [Release notes](https://bell-sw.com/pages/liberica-release-notes-8u372/) |
   | PostgreSQL JDBC Driver | `42.6.0` | | [ChangeLog](https://jdbc.postgresql.org/documentation/changelog.html) |
   | Redis Session Store | `1.3.6_RELEASE` |Included inline above | Included inline above |
   | Riverbed Appinternals Agent | `11.8.5_BL527` | |  |
   | SeaLights Agent | `4.0.2285` | |  |
   | SkyWalking | `8.9.0` | | [ChangeLog](https://github.com/apache/skywalking/tree/master/changes) |
-  | Splunk OpenTelemetry Java Agent | `1.24.0` | | [Release Notes](https://github.com/signalfx/splunk-otel-java/releases) |
+  | Splunk OpenTelemetry Java Agent | `1.24.0` | | [Release notes](https://github.com/signalfx/splunk-otel-java/releases) |
   | Spring Auto-reconfiguration | `2.12.0_RELEASE` |Included inline above | Included inline above |
   | Spring Boot CLI | `2.7.12` | |  |
   | Spring Boot Container Customizer | `2.6.0_RELEASE` |Included inline above | Included inline above |
@@ -313,7 +312,7 @@ MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> containing that pa
   | Tomcat Access Logging Support | `3.4.0_RELEASE` |Included inline above | Included inline above |
   | Tomcat Lifecycle Support | `3.4.0_RELEASE` |Included inline above | Included inline above |
   | Tomcat Logging Support | `3.4.0_RELEASE` |Included inline above | Included inline above |
-  | YourKit Profiler | `2022.9.183` | | [Release Notes](https://www.yourkit.com/download/yjp_2022_3_builds.jsp) |
+  | YourKit Profiler | `2022.9.183` | | [Release notes](https://www.yourkit.com/download/yjp_2022_3_builds.jsp) |
           </pre>
         </details>
       </td>
@@ -351,7 +350,7 @@ MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> containing that pa
   - github.com/onsi/ginkgo/ 2.9.5
   - github.com/onsi/gomega 1.27.7
   ## ✨  Built with go 1.20.4
-  **Full Changelog**: https://github.com/cloudfoundry/nats-release/compare/v56.2.0...v56.3.0
+  **Full changelog**: https://github.com/cloudfoundry/nats-release/compare/v56.2.0...v56.3.0
   ## Resources
   - [Download release v56.3.0 from bosh.io](https://bosh.io/releases/github.com/cloudfoundry/nats-release?version=56.3.0).
           </pre>
@@ -615,7 +614,7 @@ MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> containing that pa
   description: |
   ```
   ## ✨  Built with go 1.20.4
-  **Full Changelog**: https://github.com/cloudfoundry/routing-release/compare/v0.269.0...v0.270.0
+  **Full changelog**: https://github.com/cloudfoundry/routing-release/compare/v0.269.0...v0.270.0
   ## Resources
   - [Download release v0.270.0 from bosh.io](https://bosh.io/releases/github.com/cloudfoundry/routing-release?version=0.270.0).
           </pre>
@@ -628,7 +627,7 @@ MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> containing that pa
   - Remove `trace-logger` update in sync-submodule-config
   - Remove unused files
   ## ✨  Built with go 1.20.4
-  **Full Changelog**: https://github.com/cloudfoundry/routing-release/compare/v0.268.0...v0.269.0
+  **Full changelog**: https://github.com/cloudfoundry/routing-release/compare/v0.268.0...v0.269.0
   ## Resources
   - [Download release v0.269.0 from bosh.io](https://bosh.io/releases/github.com/cloudfoundry/routing-release?version=0.269.0).
           </pre>
@@ -689,7 +688,7 @@ MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> containing that pa
   - Bumped github.com/containernetworking/cni to 1.1.2 and github.com/containernetworking/plugins to 1.3.0
   - Removed the `externalmods` code as it's no longer needed now that everything is on the latest CNI versions.
   ## ✨  Built with go 1.20.4
-  **Full Changelog**: https://github.com/cloudfoundry/silk-release/compare/v3.26.0...v3.27.0
+  **Full changelog**: https://github.com/cloudfoundry/silk-release/compare/v3.26.0...v3.27.0
   ## Resources
   - [Download release v3.27.0 from bosh.io](https://bosh.io/releases/github.com/cloudfoundry/silk-release?version=3.27.0).
           </pre>
@@ -711,7 +710,7 @@ MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> containing that pa
   - github.com/onsi/gomega v1.27.7
   - github.com/tedsuo/ifrit 7862c310ad26
   ## ✨  Built with go 1.20.4
-  **Full Changelog**: https://github.com/cloudfoundry/cf-networking-release/compare/3.25.1...v3.26.0
+  **Full changelog**: https://github.com/cloudfoundry/cf-networking-release/compare/3.25.1...v3.26.0
   ## Resources
   - [Download release v3.26.0 from bosh.io](https://bosh.io/releases/github.com/cloudfoundry/cf-networking-release?version=3.26.0).
           </pre>
@@ -762,14 +761,14 @@ MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> containing that pa
         <details>
           <summary>v76.13.0</summary>
           <pre style="max-width: 30em">
-  ## What's Changed
+  ## What's changed
   ### Features
   * Bump to [UAA v76.13.0](https://github.com/cloudfoundry/uaa/releases/tag/v76.13.0)
   ### Dependency bumps
   * Bump github.com/onsi/gomega from 1.27.6 to 1.27.7 in /src/acceptance_tests by @dependabot in https://github.com/cloudfoundry/uaa-release/pull/585
   * Bump nokogiri from 1.15.0 to 1.15.1 by @dependabot in https://github.com/cloudfoundry/uaa-release/pull/590
   * Bump github.com/cloudfoundry/bosh-utils from 0.0.364 to 0.0.365 in /src/acceptance_tests by @dependabot in https://github.com/cloudfoundry/uaa-release/pull/589
-  **Full Changelog**: https://github.com/cloudfoundry/uaa-release/compare/v76.12.0...v76.13.0
+  **Full changelog**: https://github.com/cloudfoundry/uaa-release/compare/v76.12.0...v76.13.0
           </pre>
         </details>
         <details>
@@ -777,7 +776,7 @@ MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> containing that pa
           <pre style="max-width: 30em">
   # DO NOT USE
   Contains a regression with regards to OIDC IdPs. We are working on a fix.
-  ## What's Changed
+  ## What's changed
   ### Features
   * Bumped to [UAA v76.12.0](https://github.com/cloudfoundry/uaa/releases/tag/v76.12.0)
   ### Dependency Bumps
@@ -787,7 +786,7 @@ MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> containing that pa
   * Bump nokogiri from 1.14.4 to 1.15.0 by @dependabot in https://github.com/cloudfoundry/uaa-release/pull/584
   ### Misc
   * Pr/dev release script by @bruce-ricard in https://github.com/cloudfoundry/uaa-release/pull/561
-  **Full Changelog**: https://github.com/cloudfoundry/uaa-release/compare/v76.11.0...v76.12.0
+  **Full changelog**: https://github.com/cloudfoundry/uaa-release/compare/v76.11.0...v76.12.0
           </pre>
         </details>
       </td>
@@ -822,7 +821,7 @@ MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> containing that pa
     <tr>
       <th>Component</th>
       <th>Version</th>
-      <th>Release Notes</th>
+      <th>Release notes</th>
     </tr>
   </thead>
   <tbody>
@@ -871,19 +870,19 @@ MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> containing that pa
         <details>
           <summary>2.12.28</summary>
           <pre style="max-width: 30em">
-  ### Security Fixes
+  ### Security fixes
   - Bump various dependencies
-  **Full Changelog**: https://github.com/pivotal/credhub-release/compare/2.12.27...2.12.28
+  **Full changelog**: https://github.com/pivotal/credhub-release/compare/2.12.27...2.12.28
           </pre>
         </details>
         <details>
           <summary>2.12.27</summary>
           <pre style="max-width: 30em">
-  ### Security Fixes
+  ### Security fixes
   - Bump various dependencies
   Alter TLS handshake to use Java defaults from solely secp384r1 (https://github.com/pivotal/credhub-release/commit/b6a6fac08372abc770864785619e2335d914677d)
   Java jre8u345-B1 -> jre8u372-B7 (https://github.com/pivotal/credhub-release/commit/a7d271f29a795bbad182e69dfe0d03cc729c663a)
-  **Full Changelog**: https://github.com/pivotal/credhub-release/compare/2.12.26...2.12.27
+  **Full changelog**: https://github.com/pivotal/credhub-release/compare/2.12.26...2.12.27
           </pre>
         </details>
       </td>
@@ -996,7 +995,7 @@ MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> containing that pa
   Gorouter will validate that the TLS certificate presented by the destination host contains this as a Subject Alternative Name (SAN).
   ```
   ## ✨  Built with go 1.20.4
-  **Full Changelog**: https://github.com/cloudfoundry/routing-release/compare/v0.267.0...v0.268.0
+  **Full changelog**: https://github.com/cloudfoundry/routing-release/compare/v0.267.0...v0.268.0
   ## Resources
   - [Download release v0.268.0 from bosh.io](https://bosh.io/releases/github.com/cloudfoundry/routing-release?version=0.268.0).
           </pre>
@@ -1007,7 +1006,7 @@ MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> containing that pa
   ## Changes
   - The veresion of HAProxy used in tcp-router was bumped from 2.7.6 to 2.7.8.
   ## ✨  Built with go 1.20.4
-  **Full Changelog**: https://github.com/cloudfoundry/routing-release/compare/v0.266.0...v0.267.0
+  **Full changelog**: https://github.com/cloudfoundry/routing-release/compare/v0.266.0...v0.267.0
   ## Resources
   - [Download release v0.267.0 from bosh.io](https://bosh.io/releases/github.com/cloudfoundry/routing-release?version=0.267.0).
           </pre>
@@ -1024,7 +1023,7 @@ MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> containing that pa
   ## Changes
   - Fixes compilation errors for `silk-datastore-syncer`
   ## ✨  Built with go 1.20.4
-  **Full Changelog**: https://github.com/cloudfoundry/silk-release/compare/3.24.0...v3.25.1
+  **Full changelog**: https://github.com/cloudfoundry/silk-release/compare/3.24.0...v3.25.1
   ## Resources
   - [Download release v3.25.1 from bosh.io](https://bosh.io/releases/github.com/cloudfoundry/silk-release?version=3.25.1).
           </pre>
@@ -1033,7 +1032,7 @@ MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> containing that pa
           <summary>3.24.0</summary>
           <pre style="max-width: 30em">
   ## Changes
-  - ⚠️ The new `silk-data-syncer` job is missing some files that cause compilation to fail. This is not a problem if you are deploying without that job. If you need the job, please upgrade to 3.25.1.
+  - ⚠️ The new `silk-data-syncer` job is missing some files that cause compilation to fail. This is not a problem if you are deploying without that job. If you need the job, you must upgrade to 3.25.1.
   - Add new `silk-datastore-syncer` job to sync app log metadata from garden to silk datastore
   - Bump to Go 1.20.4
   - Bump to Silk 20230501162532-6ab8d30026c6
@@ -1074,7 +1073,7 @@ MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> containing that pa
   +    default: info
   ```
   ## ✨  Built with go 1.20.4
-  **Full Changelog**: https://github.com/cloudfoundry/silk-release/compare/3.23.0...v3.24.0
+  **Full changelog**: https://github.com/cloudfoundry/silk-release/compare/3.23.0...v3.24.0
   ## Resources
   - [Download release v3.24.0 from bosh.io](https://bosh.io/releases/github.com/cloudfoundry/silk-release?version=3.24.0).
           </pre>
@@ -1112,12 +1111,12 @@ MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> containing that pa
         <details>
           <summary>v12.1.5</summary>
           <pre style="max-width: 30em">
-  ## What's Changed
+  ## What's changed
   * Dependency bumps
   * Migrate stop of rsyslogd to post-stop by @KarstenSchnitter in https://github.com/cloudfoundry/syslog-release/pull/133
-  ## New Contributors
+  ## New contributors
   * @KarstenSchnitter made their first contribution in https://github.com/cloudfoundry/syslog-release/pull/133
-  **Full Changelog**: https://github.com/cloudfoundry/syslog-release/compare/v12.1.4...v12.1.5
+  **Full changelog**: https://github.com/cloudfoundry/syslog-release/compare/v12.1.4...v12.1.5
           </pre>
         </details>
       </td>
@@ -1133,11 +1132,11 @@ MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> containing that pa
 
 **Release Date:** 05/17/2023
 
-* **[Security Fix]** Whereas TAS 4.0.0 was unaffected by [CVE-2023-20882](https://www.cloudfoundry.org/blog/cve-2023-20882-gorouter-pruning-via-client-disconnect-resulting-in-dos/), TAS 4.0.1 updates to a routing-release version containing the fix.
+* **[Security Fix]** Although TAS 4.0.0 was unaffected by [CVE-2023-20882](https://www.cloudfoundry.org/blog/cve-2023-20882-gorouter-pruning-via-client-disconnect-resulting-in-dos/), TAS 4.0.1 updates to a routing-release version containing the fix.
 * **[Security Fix]** Don't allow syslog drain credentials to be overwritten ([CVE-2023-20881](https://www.cloudfoundry.org/blog/cve-2023-20881-cas-for-syslog-drain-mtls-feature-can-be-overwritten/))
 * **[Feature Improvement]** Allow disabling of signature v4 streaming for system blobstore
 * **[Bug Fix]** Fixes an issue in gorouter where requests that should have returned 496, 499, 503, 525, or 526 HTTP status codes may instead have returned as 502s, potentially preventing stale route pruning.
-* **[Bug Fix]** Resolve Issue where Garden failed during BOSH/OpsMan deploys due to healthcheck
+* **[Bug Fix]** Resolve issue where Garden failed during BOSH/OpsMan deploys due to healthcheck
 * **[Bug Fix]** Resolve regression: UI error after org deletion
 * Bump backup-and-restore-sdk to version `1.18.69`
 * Bump binary-offline-buildpack to version `1.1.4`
@@ -1188,7 +1187,7 @@ MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> containing that pa
     <tr>
       <th>Component</th>
       <th>Version</th>
-      <th>Release Notes</th>
+      <th>Release notes</th>
     </tr>
   </thead>
   <tbody>
@@ -1332,7 +1331,7 @@ MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> containing that pa
   ## Changes
   - None!
   ## ✨  Built with go 1.20.4
-  **Full Changelog**: https://github.com/cloudfoundry/cf-networking-release/compare/3.24.0...v3.25.1
+  **Full changelog**: https://github.com/cloudfoundry/cf-networking-release/compare/3.24.0...v3.25.1
   ## Resources
   - [Download release v3.25.1 from bosh.io](https://bosh.io/releases/github.com/cloudfoundry/cf-networking-release?version=3.25.1).
           </pre>
@@ -1345,7 +1344,7 @@ MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> containing that pa
   - Bump all dependencies such that only Ginkgo V2 and Lager V3 are used
   - Use [new docker images](https://github.com/cloudfoundry/cf-networking-release/commit/4b69f0a5690611dfa730a70e641f5c1f8145c66c) for local testing
   ## ✨  Built with go 1.20.4
-  **Full Changelog**: https://github.com/cloudfoundry/cf-networking-release/compare/3.23.0...v3.24.0
+  **Full changelog**: https://github.com/cloudfoundry/cf-networking-release/compare/3.23.0...v3.24.0
   ## Resources
   - [Download release v3.24.0 from bosh.io](https://bosh.io/releases/github.com/cloudfoundry/cf-networking-release?version=3.24.0).
           </pre>
@@ -1360,49 +1359,49 @@ MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> containing that pa
         <details>
           <summary>2.12.26</summary>
           <pre style="max-width: 30em">
-  ## What's Changed
+  ## What's changed
   socketTimeout has been set to 1 hour.
   * fix: Set mariadb jdbc driver's `socketTimeout` by @hsinn0 in https://github.com/pivotal/credhub-release/pull/126
   * Build(deps): Bump parallel from 1.22.1 to 1.23.0 in /spec by @dependabot in https://github.com/pivotal/credhub-release/pull/131
   * Build(deps): Bump rspec-core from 3.12.1 to 3.12.2 in /spec by @dependabot in https://github.com/pivotal/credhub-release/pull/130
   * Build(deps): Bump rspec-expectations from 3.12.2 to 3.12.3 in /spec by @dependabot in https://github.com/pivotal/credhub-release/pull/132
   * Build(deps): Bump parser from 3.2.2.0 to 3.2.2.1 in /spec by @dependabot in https://github.com/pivotal/credhub-release/pull/133
-  ## New Contributors
+  ## New contributors
   * @hsinn0 made their first contribution in https://github.com/pivotal/credhub-release/pull/126
-  **Full Changelog**: https://github.com/pivotal/credhub-release/compare/2.12.25...2.12.26
+  **Full changelog**: https://github.com/pivotal/credhub-release/compare/2.12.25...2.12.26
           </pre>
         </details>
         <details>
           <summary>2.12.25</summary>
           <pre style="max-width: 30em">
-  ### Security Fixes
+  ### Security fixes
   - Bump various dependencies
-  **Full Changelog**: https://github.com/pivotal/credhub-release/compare/2.12.24...2.12.25
+  **Full changelog**: https://github.com/pivotal/credhub-release/compare/2.12.24...2.12.25
           </pre>
         </details>
         <details>
           <summary>2.12.24</summary>
           <pre style="max-width: 30em">
-  ### Security Fixes
+  ### Security fixes
   - Bump various dependencies
           </pre>
         </details>
         <details>
           <summary>2.12.23</summary>
           <pre style="max-width: 30em">
-  ## What's Changed
+  ## What's changed
   * Build(deps): Bump rspec-mocks from 3.12.3 to 3.12.4 in /spec by @dependabot in https://github.com/pivotal/credhub-release/pull/122
-  **Full Changelog**: https://github.com/pivotal/credhub-release/compare/2.12.22...2.12.23
+  **Full changelog**: https://github.com/pivotal/credhub-release/compare/2.12.22...2.12.23
           </pre>
         </details>
         <details>
           <summary>2.12.22</summary>
           <pre style="max-width: 30em">
-  ## What's Changed
+  ## What's changed
   * Build(deps): Bump ruby-progressbar from 1.11.0 to 1.13.0 in /spec by @dependabot in https://github.com/pivotal/credhub-release/pull/119
   * Build(deps): Bump parser from 3.2.1.0 to 3.2.1.1 in /spec by @dependabot in https://github.com/pivotal/credhub-release/pull/120
   * Build(deps): bump org.owasp:dependency-check-gradle from [8.1.1 to 8.1.2](https://github.com/cloudfoundry/credhub/commit/6978a7c99be0697dee370972a417a25621b7238d)
-  **Full Changelog**: https://github.com/pivotal/credhub-release/compare/2.12.21...2.12.22
+  **Full changelog**: https://github.com/pivotal/credhub-release/compare/2.12.21...2.12.22
           </pre>
         </details>
       </td>
@@ -1499,7 +1498,7 @@ MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> containing that pa
   description: "When set, enables the declarative check tests in vizzini"
   ```
   ## ✨  Built with go 1.20.4
-  **Full Changelog**: https://github.com/cloudfoundry/diego-release/compare/v2.75.0...v2.76.0
+  **Full changelog**: https://github.com/cloudfoundry/diego-release/compare/v2.75.0...v2.76.0
   ## Resources
   - [Download release v2.76.0 from bosh.io](https://bosh.io/releases/github.com/cloudfoundry/diego-release?version=2.76.0).
           </pre>
@@ -1511,7 +1510,7 @@ MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> containing that pa
   * Bump ginkgo to v2 and lager to v3
   * [Bug fix] Rep does not clean up resources when deleting container fails
   ## ✨  Built with go 1.20.3
-  **Full Changelog**: https://github.com/cloudfoundry/diego-release/compare/v2.73.0...v2.75.0
+  **Full changelog**: https://github.com/cloudfoundry/diego-release/compare/v2.73.0...v2.75.0
   ## Resources
   - [Download release v2.75.0 from bosh.io](https://bosh.io/releases/github.com/cloudfoundry/diego-release?version=2.75.0).
           </pre>
@@ -1564,9 +1563,9 @@ MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> containing that pa
           <summary>v1.29.0</summary>
           <pre style="max-width: 30em">
   ## Changes
-  ⚠️We have removed the garden-healthcheck job from garden while we investigate a way to make it less painful. From v1.22.6 through v1.28.0, garden restarts with a high container count could result in BOSH deploys failing due to a race condition between garden, bpm, monit, and garden-healthchecker. This will be re-enabled at a later time when we resolve the race condition.
+  ⚠️We have removed the garden-healthcheck job from Garden while we investigate a way to make it less painful. From v1.22.6 through v1.28.0, Garden restarts with a high container count could result in BOSH deploys failing due to a race condition between garden, bpm, monit, and garden-healthchecker. This will be re-enabled at a later time when we resolve the race condition.
   ## ✨  Built with go 1.20.4
-  **Full Changelog**: https://github.com/cloudfoundry/garden-runc-release/compare/v1.28.0...v1.29.0
+  **Full changelog**: https://github.com/cloudfoundry/garden-runc-release/compare/v1.28.0...v1.29.0
   ## Resources
   - [Download release v1.29.0 from bosh.io](https://bosh.io/releases/github.com/cloudfoundry/garden-runc-release?version=1.29.0).
           </pre>
@@ -1578,7 +1577,7 @@ MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> containing that pa
   - Bump to golang 1.20.4
   - Bump dependencies
   ## ✨  Built with go 1.20.4
-  **Full Changelog**: https://github.com/cloudfoundry/garden-runc-release/compare/v1.27.0...v1.28.0
+  **Full changelog**: https://github.com/cloudfoundry/garden-runc-release/compare/v1.27.0...v1.28.0
   ## Resources
   - [Download release v1.28.0 from bosh.io](https://bosh.io/releases/github.com/cloudfoundry/garden-runc-release?version=1.28.0).
           </pre>
@@ -1589,7 +1588,7 @@ MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> containing that pa
   ## Changes
   * Bump ginkgo to v2 and lager to v3
   ## ✨  Built with go 1.20.3
-  **Full Changelog**: https://github.com/cloudfoundry/garden-runc-release/compare/v1.26.0...v1.27.0
+  **Full changelog**: https://github.com/cloudfoundry/garden-runc-release/compare/v1.26.0...v1.27.0
   ## Resources
   - [Download release v1.27.0 from bosh.io](https://bosh.io/releases/github.com/cloudfoundry/garden-runc-release?version=1.27.0).
           </pre>
@@ -1602,7 +1601,7 @@ MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> containing that pa
   - Bump containerd version to 1.6.19
   - Fix cloudfoundry/garden-runc-release#233
   ## ✨  Built with go 1.20.1
-  **Full Changelog**: https://github.com/cloudfoundry/garden-runc-release/compare/v1.25.0...v1.26.0
+  **Full changelog**: https://github.com/cloudfoundry/garden-runc-release/compare/v1.25.0...v1.26.0
   ## Resources
   - [Download release v1.26.0 from bosh.io](https://bosh.io/releases/github.com/cloudfoundry/garden-runc-release?version=1.26.0).
           </pre>
@@ -1649,45 +1648,45 @@ MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> containing that pa
         <details>
           <summary>4.58</summary>
           <pre style="max-width: 30em">
-  I'm pleased to announce the release of the java-buildpack, version 4.58. It primarily includes new OpenJDK versions, which are based on the Oracle Java Quarterly Updates for April 2023.
+  New release of the java-buildpack, version 4.58. It primarily includes new OpenJDK versions, which are based on the Oracle Java Quarterly Updates for April 2023.
   The release also includes:
   * Buildpack-specific location for Ruby install (thanks @brayanhenao)
   * Updated MariaDB JDBC Connector to 2.7.9
-  For a more detailed look at the changes in 4.58, please take a look at the [commit log](https://github.com/cloudfoundry/java-buildpack/compare/v4.57...v4.58). The packaged version of the buildpack, suitable for use with create-buildpack and update-buildpack, can be found attached to this release.
-  | Dependency | Version | CVEs | Release Notes |
+  For a more detailed look at the changes in 4.58, see [commit log](https://github.com/cloudfoundry/java-buildpack/compare/v4.57...v4.58). The packaged version of the buildpack, suitable for use with create-buildpack and update-buildpack, can be found attached to this release.
+  | Dependency | Version | CVEs | Release notes |
   | ---------- | ------- | ---- | ------------- |
-  | AppDynamics Agent | `22.9.2_34409` | | [Release Notes](https://docs.appdynamics.com/4.5.x/en/product-and-release-announcements/release-notes/language-agent-notes/java-agent-notes) |
-  | Azure Application Insights Agent | `2.6.4` | | [Release Notes](https://github.com/Microsoft/ApplicationInsights-Java/releases) |
+  | AppDynamics Agent | `22.9.2_34409` | | [Release notes](https://docs.appdynamics.com/4.5.x/en/product-and-release-announcements/release-notes/language-agent-notes/java-agent-notes) |
+  | Azure Application Insights Agent | `2.6.4` | | [Release notes](https://github.com/Microsoft/ApplicationInsights-Java/releases) |
   | CA Introscope APM Framework | `23.3.0_4` | |  |
   | Client Certificate Mapper | `1.11.0_RELEASE` |Included inline above | Included inline above |
   | Container Security Provider | `1.20.0_RELEASE` |Included inline above | Included inline above |
-  | Contrast Security Agent | `4.13.1` | | [Release Notes](https://docs.contrastsecurity.com/en/java-agent-release-notes.html) |
-  | Datadog APM Javaagent | `1.12.0` | | [Release Notes](https://github.com/DataDog/dd-trace-java/releases) |
-  | Elastic APM Agent | `1.37.0` | | [Release Notes](https://www.elastic.co/guide/en/apm/agent/java/current/release-notes.html) |
-  | Gemalto Luna Security Provider | `7.4.0` | | [Release Notes](https://www.thalesdocs.com/gphsm/luna/7/docs/network/Content/CRN/Luna/CRN_Luna.htm) |
+  | Contrast Security Agent | `4.13.1` | | [Release notes](https://docs.contrastsecurity.com/en/java-agent-release-notes.html) |
+  | Datadog APM Javaagent | `1.12.0` | | [Release notes](https://github.com/DataDog/dd-trace-java/releases) |
+  | Elastic APM Agent | `1.37.0` | | [Release notes](https://www.elastic.co/guide/en/apm/agent/java/current/release-notes.html) |
+  | Gemalto Luna Security Provider | `7.4.0` | | [Release notes](https://www.thalesdocs.com/gphsm/luna/7/docs/network/Content/CRN/Luna/CRN_Luna.htm) |
   | Geode Tomcat Session Store | `1.13.7` | |  |
-  | Google Stackdriver Debugger | `2.32.0` | | [Release Notes](https://cloud.google.com/debugger/docs/release-notes) |
-  | Google Stackdriver Profiler | `0.1.0` | | [Release Notes](https://cloud.google.com/profiler/docs/release-notes) |
-  | Groovy | `2.5.22` | | [Release Notes](http://www.groovy-lang.org/releases.html) |
-  | JaCoCo Agent | `0.8.9` | | [Release Notes](https://github.com/jacoco/jacoco/releases) |
+  | Google Stackdriver Debugger | `2.32.0` | | [Release notes](https://cloud.google.com/debugger/docs/release-notes) |
+  | Google Stackdriver Profiler | `0.1.0` | | [Release notes](https://cloud.google.com/profiler/docs/release-notes) |
+  | Groovy | `2.5.22` | | [Release notes](http://www.groovy-lang.org/releases.html) |
+  | JaCoCo Agent | `0.8.9` | | [Release notes](https://github.com/jacoco/jacoco/releases) |
   | Java Memory Assistant Agent | `0.5.0` | |  |
   | Java Memory Assistant Clean Up | `0.1.0` | |  |
   | JProfiler Profiler | `12.0.4` | | [ChangeLog](https://www.ej-technologies.com/download/jprofiler/changelog.html) |
   | JRebel Agent | `2023.2.0` | | [ChangeLog](https://www.jrebel.com/products/jrebel/changelog) |
   | jvmkill Agent | `1.17.0_RELEASE` |Included inline above | Included inline above |
-  | MariaDB JDBC Driver | `2.7.9` | | [Release Notes](https://mariadb.com/kb/en/mariadb-connector-j-2-7-9-release-notes/) |
+  | MariaDB JDBC Driver | `2.7.9` | | [Release notes](https://mariadb.com/kb/en/mariadb-connector-j-2-7-9-release-notes/) |
   | Memory Calculator | `3.13.0_RELEASE` |Included inline above | Included inline above |
   | Metric Writer | `3.5.0_RELEASE` |Included inline above | Included inline above |
-  | New Relic Agent | `8.1.0` | | [Release Notes](https://docs.newrelic.com/docs/release-notes/agent-release-notes/java-release-notes/) |
-  | OpenJDK JRE 11 | `11.0.19_7` |[Risk Matrix](https://www.oracle.com/security-alerts/cpuapr2023.html#AppendixJAVA) | [Release Notes](https://bell-sw.com/pages/liberica-release-notes-11.0.19/) |
-  | OpenJDK JRE 17 | `17.0.7_7` |[Risk Matrix](https://www.oracle.com/security-alerts/cpuapr2023.html#AppendixJAVA) | [Release Notes](https://bell-sw.com/pages/liberica-release-notes-17.0.7/) |
-  | OpenJDK JRE 8 | `1.8.0_372` |[Risk Matrix](https://www.oracle.com/security-alerts/cpuapr2023.html#AppendixJAVA) | [Release Notes](https://bell-sw.com/pages/liberica-release-notes-8u372/) |
+  | New Relic Agent | `8.1.0` | | [Release notes](https://docs.newrelic.com/docs/release-notes/agent-release-notes/java-release-notes/) |
+  | OpenJDK JRE 11 | `11.0.19_7` |[Risk Matrix](https://www.oracle.com/security-alerts/cpuapr2023.html#AppendixJAVA) | [Release notes](https://bell-sw.com/pages/liberica-release-notes-11.0.19/) |
+  | OpenJDK JRE 17 | `17.0.7_7` |[Risk Matrix](https://www.oracle.com/security-alerts/cpuapr2023.html#AppendixJAVA) | [Release notes](https://bell-sw.com/pages/liberica-release-notes-17.0.7/) |
+  | OpenJDK JRE 8 | `1.8.0_372` |[Risk Matrix](https://www.oracle.com/security-alerts/cpuapr2023.html#AppendixJAVA) | [Release notes](https://bell-sw.com/pages/liberica-release-notes-8u372/) |
   | PostgreSQL JDBC Driver | `42.6.0` | | [ChangeLog](https://jdbc.postgresql.org/documentation/changelog.html) |
   | Redis Session Store | `1.3.6_RELEASE` |Included inline above | Included inline above |
   | Riverbed Appinternals Agent | `11.8.5_BL527` | |  |
   | SeaLights Agent | `4.0.2258` | |  |
   | SkyWalking | `8.9.0` | | [ChangeLog](https://github.com/apache/skywalking/tree/master/changes) |
-  | Splunk OpenTelemetry Java Agent | `1.23.0` | | [Release Notes](https://github.com/signalfx/splunk-otel-java/releases) |
+  | Splunk OpenTelemetry Java Agent | `1.23.0` | | [Release notes](https://github.com/signalfx/splunk-otel-java/releases) |
   | Spring Auto-reconfiguration | `2.12.0_RELEASE` |Included inline above | Included inline above |
   | Spring Boot CLI | `2.7.11` | |  |
   | Spring Boot Container Customizer | `2.6.0_RELEASE` |Included inline above | Included inline above |
@@ -1695,51 +1694,51 @@ MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> containing that pa
   | Tomcat Access Logging Support | `3.4.0_RELEASE` |Included inline above | Included inline above |
   | Tomcat Lifecycle Support | `3.4.0_RELEASE` |Included inline above | Included inline above |
   | Tomcat Logging Support | `3.4.0_RELEASE` |Included inline above | Included inline above |
-  | YourKit Profiler | `2022.9.182` | | [Release Notes](https://www.yourkit.com/download/yjp_2022_3_builds.jsp) |
+  | YourKit Profiler | `2022.9.182` | | [Release notes](https://www.yourkit.com/download/yjp_2022_3_builds.jsp) |
           </pre>
         </details>
         <details>
           <summary>4.57</summary>
           <pre style="max-width: 30em">
-  I'm pleased to announce the release of the java-buildpack, version 4.57. This release fixes a bug with the [Container Security Provider](https://github.com/cloudfoundry/java-buildpack-security-provider) library, in which a race condition could result in mismatched private-key and certificate pairs when Diego rotated these credentials for the container. See [this issue](https://github.com/cloudfoundry/java-buildpack-security-provider/issues/8) for more details.
+  New release of the java-buildpack, version 4.57. This release fixes a bug with the [Container Security Provider](https://github.com/cloudfoundry/java-buildpack-security-provider) library, in which a race condition could result in mismatched private-key and certificate pairs when Diego rotated these credentials for the container. See [this issue](https://github.com/cloudfoundry/java-buildpack-security-provider/issues/8) for more details.
   This release also contains the following:
   * The Azul Zing JRE contained a bug when generating the Java Opts, fixed with #1008 (thanks to @schelini)
   * Update to the geode_store dependency (thanks to @BenjaminPerryRoss)
-  For a more detailed look at the changes in 4.57, please take a look at the [commit log](https://github.com/cloudfoundry/java-buildpack/compare/v4.56...v4.57). The packaged version of the buildpack, suitable for use with create-buildpack and update-buildpack, can be found attached to this release.
-  | Dependency | Version | CVEs | Release Notes |
+  For a more detailed look at the changes in 4.57, see [commit log](https://github.com/cloudfoundry/java-buildpack/compare/v4.56...v4.57). The packaged version of the buildpack, suitable for use with create-buildpack and update-buildpack, can be found attached to this release.
+  | Dependency | Version | CVEs | Release notes |
   | ---------- | ------- | ---- | ------------- |
-  | AppDynamics Agent | `22.9.2_34409` | | [Release Notes](https://docs.appdynamics.com/4.5.x/en/product-and-release-announcements/release-notes/language-agent-notes/java-agent-notes) |
-  | Azure Application Insights Agent | `2.6.4` | | [Release Notes](https://github.com/Microsoft/ApplicationInsights-Java/releases) |
+  | AppDynamics Agent | `22.9.2_34409` | | [Release notes](https://docs.appdynamics.com/4.5.x/en/product-and-release-announcements/release-notes/language-agent-notes/java-agent-notes) |
+  | Azure Application Insights Agent | `2.6.4` | | [Release notes](https://github.com/Microsoft/ApplicationInsights-Java/releases) |
   | CA Introscope APM Framework | `23.3.0_4` | |  |
   | Client Certificate Mapper | `1.11.0_RELEASE` |Included inline above | Included inline above |
   | Container Security Provider | `1.20.0_RELEASE` |Included inline above | Included inline above |
-  | Contrast Security Agent | `4.13.1` | | [Release Notes](https://docs.contrastsecurity.com/en/java-agent-release-notes.html) |
-  | Datadog APM Javaagent | `1.11.0` | | [Release Notes](https://github.com/DataDog/dd-trace-java/releases) |
-  | Elastic APM Agent | `1.37.0` | | [Release Notes](https://www.elastic.co/guide/en/apm/agent/java/current/release-notes.html) |
-  | Gemalto Luna Security Provider | `7.4.0` | | [Release Notes](https://www.thalesdocs.com/gphsm/luna/7/docs/network/Content/CRN/Luna/CRN_Luna.htm) |
+  | Contrast Security Agent | `4.13.1` | | [Release notes](https://docs.contrastsecurity.com/en/java-agent-release-notes.html) |
+  | Datadog APM Javaagent | `1.11.0` | | [Release notes](https://github.com/DataDog/dd-trace-java/releases) |
+  | Elastic APM Agent | `1.37.0` | | [Release notes](https://www.elastic.co/guide/en/apm/agent/java/current/release-notes.html) |
+  | Gemalto Luna Security Provider | `7.4.0` | | [Release notes](https://www.thalesdocs.com/gphsm/luna/7/docs/network/Content/CRN/Luna/CRN_Luna.htm) |
   | Geode Tomcat Session Store | `1.13.7` | |  |
-  | Google Stackdriver Debugger | `2.32.0` | | [Release Notes](https://cloud.google.com/debugger/docs/release-notes) |
-  | Google Stackdriver Profiler | `0.1.0` | | [Release Notes](https://cloud.google.com/profiler/docs/release-notes) |
-  | Groovy | `2.5.22` | | [Release Notes](http://www.groovy-lang.org/releases.html) |
-  | JaCoCo Agent | `0.8.9` | | [Release Notes](https://github.com/jacoco/jacoco/releases) |
+  | Google Stackdriver Debugger | `2.32.0` | | [Release notes](https://cloud.google.com/debugger/docs/release-notes) |
+  | Google Stackdriver Profiler | `0.1.0` | | [Release notes](https://cloud.google.com/profiler/docs/release-notes) |
+  | Groovy | `2.5.22` | | [Release notes](http://www.groovy-lang.org/releases.html) |
+  | JaCoCo Agent | `0.8.9` | | [Release notes](https://github.com/jacoco/jacoco/releases) |
   | Java Memory Assistant Agent | `0.5.0` | |  |
   | Java Memory Assistant Clean Up | `0.1.0` | |  |
   | JProfiler Profiler | `12.0.4` | | [ChangeLog](https://www.ej-technologies.com/download/jprofiler/changelog.html) |
   | JRebel Agent | `2023.2.0` | | [ChangeLog](https://www.jrebel.com/products/jrebel/changelog) |
   | jvmkill Agent | `1.17.0_RELEASE` |Included inline above | Included inline above |
-  | MariaDB JDBC Driver | `2.7.2` | | [Release Notes](https://mariadb.com/kb/en/mariadb-connector-j-274-release-notes/) |
+  | MariaDB JDBC Driver | `2.7.2` | | [Release notes](https://mariadb.com/kb/en/mariadb-connector-j-274-release-notes/) |
   | Memory Calculator | `3.13.0_RELEASE` |Included inline above | Included inline above |
   | Metric Writer | `3.5.0_RELEASE` |Included inline above | Included inline above |
-  | New Relic Agent | `8.0.1` | | [Release Notes](https://docs.newrelic.com/docs/release-notes/agent-release-notes/java-release-notes/) |
-  | OpenJDK JRE 11 | `11.0.18_10` |[Risk Matrix](https://www.oracle.com/security-alerts/cpuoct2022.html#AppendixJAVA) | [Release Notes](https://bell-sw.com/pages/liberica-release-notes-11.0.18/) |
-  | OpenJDK JRE 17 | `17.0.6_10` |[Risk Matrix](https://www.oracle.com/security-alerts/cpuoct2022.html#AppendixJAVA) | [Release Notes](https://bell-sw.com/pages/liberica-release-notes-17.0.6/) |
-  | OpenJDK JRE 8 | `1.8.0_362` |[Risk Matrix](https://www.oracle.com/security-alerts/cpuoct2022.html#AppendixJAVA) | [Release Notes](https://bell-sw.com/pages/liberica-release-notes-8u362/) |
+  | New Relic Agent | `8.0.1` | | [Release notes](https://docs.newrelic.com/docs/release-notes/agent-release-notes/java-release-notes/) |
+  | OpenJDK JRE 11 | `11.0.18_10` |[Risk Matrix](https://www.oracle.com/security-alerts/cpuoct2022.html#AppendixJAVA) | [Release notes](https://bell-sw.com/pages/liberica-release-notes-11.0.18/) |
+  | OpenJDK JRE 17 | `17.0.6_10` |[Risk Matrix](https://www.oracle.com/security-alerts/cpuoct2022.html#AppendixJAVA) | [Release notes](https://bell-sw.com/pages/liberica-release-notes-17.0.6/) |
+  | OpenJDK JRE 8 | `1.8.0_362` |[Risk Matrix](https://www.oracle.com/security-alerts/cpuoct2022.html#AppendixJAVA) | [Release notes](https://bell-sw.com/pages/liberica-release-notes-8u362/) |
   | PostgreSQL JDBC Driver | `42.6.0` | | [ChangeLog](https://jdbc.postgresql.org/documentation/changelog.html) |
   | Redis Session Store | `1.3.6_RELEASE` |Included inline above | Included inline above |
   | Riverbed Appinternals Agent | `11.8.5_BL527` | |  |
   | SeaLights Agent | `4.0.2242` | |  |
   | SkyWalking | `8.9.0` | | [ChangeLog](https://github.com/apache/skywalking/tree/master/changes) |
-  | Splunk OpenTelemetry Java Agent | `1.22.0` | | [Release Notes](https://github.com/signalfx/splunk-otel-java/releases) |
+  | Splunk OpenTelemetry Java Agent | `1.22.0` | | [Release notes](https://github.com/signalfx/splunk-otel-java/releases) |
   | Spring Auto-reconfiguration | `2.12.0_RELEASE` |Included inline above | Included inline above |
   | Spring Boot CLI | `2.7.10` | |  |
   | Spring Boot Container Customizer | `2.6.0_RELEASE` |Included inline above | Included inline above |
@@ -1747,7 +1746,7 @@ MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> containing that pa
   | Tomcat Access Logging Support | `3.4.0_RELEASE` |Included inline above | Included inline above |
   | Tomcat Lifecycle Support | `3.4.0_RELEASE` |Included inline above | Included inline above |
   | Tomcat Logging Support | `3.4.0_RELEASE` |Included inline above | Included inline above |
-  | YourKit Profiler | `2022.9.182` | | [Release Notes](https://www.yourkit.com/download/yjp_2022_3_builds.jsp) |
+  | YourKit Profiler | `2022.9.182` | | [Release notes](https://www.yourkit.com/download/yjp_2022_3_builds.jsp) |
           </pre>
         </details>
       </td>
@@ -1757,19 +1756,19 @@ MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> containing that pa
         <details>
           <summary>v3.0.2</summary>
           <pre style="max-width: 30em">
-  ## What's Changed
+  ## What's changed
   * Bump to [go1.20.4](https://groups.google.com/g/golang-announce/c/MEb0UyuSMsU/m/QvrjqM4XAgAJ)
   * Replace gorilla with chi by @Benjamintf1 in https://github.com/cloudfoundry/log-cache-release/pull/197
   * Replace local tlsconfig with the standard tlsconfig library by @Benjamintf1 in https://github.com/cloudfoundry/log-cache-release/pull/200. This should not change the effective tlsconfig.
   * Bump dependencies
-  **Full Changelog**: https://github.com/cloudfoundry/log-cache-release/compare/v3.0.1...v3.0.2
+  **Full changelog**: https://github.com/cloudfoundry/log-cache-release/compare/v3.0.1...v3.0.2
           </pre>
         </details>
         <details>
           <summary>v3.0.1</summary>
           <pre style="max-width: 30em">
   * Bump dependencies
-  **Full Changelog**: https://github.com/cloudfoundry/log-cache-release/compare/v3.0.0...v3.0.1
+  **Full changelog**: https://github.com/cloudfoundry/log-cache-release/compare/v3.0.0...v3.0.1
           </pre>
         </details>
       </td>
@@ -1779,10 +1778,10 @@ MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> containing that pa
         <details>
           <summary>v107.0.4</summary>
           <pre style="max-width: 30em">
-  ## What's Changed
+  ## What's changed
   * Bump to [go1.20.4](https://groups.google.com/g/golang-announce/c/MEb0UyuSMsU/m/QvrjqM4XAgAJ)
   * Bump dependencies
-  **Full Changelog**: https://github.com/cloudfoundry/loggregator-release/compare/v107.0.3...v107.0.4
+  **Full changelog**: https://github.com/cloudfoundry/loggregator-release/compare/v107.0.3...v107.0.4
           </pre>
         </details>
         <details>
@@ -1791,7 +1790,7 @@ MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> containing that pa
   * Upgrade to go 1.20.2
   * Bump dependencies
   * Remove unused `metron_endpoint.dropsonde_port` property in https://github.com/cloudfoundry/loggregator-release/pull/534
-  **Full Changelog**: https://github.com/cloudfoundry/loggregator-release/compare/v107.0.2...v107.0.3
+  **Full changelog**: https://github.com/cloudfoundry/loggregator-release/compare/v107.0.2...v107.0.3
           </pre>
         </details>
       </td>
@@ -1801,20 +1800,20 @@ MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> containing that pa
         <details>
           <summary>v7.2.1</summary>
           <pre style="max-width: 30em">
-  ## What's Changed
+  ## What's changed
   * Bump to [go1.20.4](https://groups.google.com/g/golang-announce/c/MEb0UyuSMsU/m/QvrjqM4XAgAJ)
   * Bump dependencies
-  **Full Changelog**: https://github.com/cloudfoundry/loggregator-agent-release/compare/v7.2.0...v7.2.1
+  **Full changelog**: https://github.com/cloudfoundry/loggregator-agent-release/compare/v7.2.0...v7.2.1
           </pre>
         </details>
         <details>
           <summary>v7.2.0</summary>
           <pre style="max-width: 30em">
-  ## What's Changed
+  ## What's changed
   * Bump golang.org/x/net from 0.8.0 to 0.9.0 in /src by @dependabot in https://github.com/cloudfoundry/loggregator-agent-release/pull/283
-  * Add mtls options to aggregate drains.  by @Benjamintf1 in https://github.com/cloudfoundry/loggregator-agent-release/pull/276
+  * Add mtls options to aggregate drains. By @Benjamintf1 in https://github.com/cloudfoundry/loggregator-agent-release/pull/276
   * switch gorilla with chi by @Benjamintf1 in https://github.com/cloudfoundry/loggregator-agent-release/pull/285
-  **Full Changelog**: https://github.com/cloudfoundry/loggregator-agent-release/compare/v7.1.3...v7.2.0
+  **Full changelog**: https://github.com/cloudfoundry/loggregator-agent-release/compare/v7.1.3...v7.2.0
           </pre>
         </details>
         <details>
@@ -1822,7 +1821,7 @@ MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> containing that pa
           <pre style="max-width: 30em">
   * Upgrade to go 1.20.2
   * Bump dependencies
-  **Full Changelog**: https://github.com/cloudfoundry/loggregator-agent-release/compare/v7.1.2...v7.1.3
+  **Full changelog**: https://github.com/cloudfoundry/loggregator-agent-release/compare/v7.1.2...v7.1.3
           </pre>
         </details>
       </td>
@@ -1856,11 +1855,11 @@ MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> containing that pa
         <details>
           <summary>v2.1.4</summary>
           <pre style="max-width: 30em">
-  ## What's Changed
+  ## What's changed
   * Bump to [go1.20.4](https://groups.google.com/g/golang-announce/c/MEb0UyuSMsU/m/QvrjqM4XAgAJ)
   * Replace gorilla with chi by @Benjamintf1 in https://github.com/pivotal-cf/metric-registrar-release/pull/188
   * Bump dependencies
-  **Full Changelog**: https://github.com/pivotal-cf/metric-registrar-release/compare/v2.1.3...v2.1.4
+  **Full changelog**: https://github.com/pivotal-cf/metric-registrar-release/compare/v2.1.3...v2.1.4
           </pre>
         </details>
       </td>
@@ -1870,10 +1869,10 @@ MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> containing that pa
         <details>
           <summary>v3.2.9</summary>
           <pre style="max-width: 30em">
-  ## What's Changed
+  ## What's changed
   * Bump to [go1.20.4](https://groups.google.com/g/golang-announce/c/MEb0UyuSMsU/m/QvrjqM4XAgAJ)
   * Bump dependencies
-  **Full Changelog**: https://github.com/cloudfoundry/metrics-discovery-release/compare/v3.2.8...v3.2.9
+  **Full changelog**: https://github.com/cloudfoundry/metrics-discovery-release/compare/v3.2.8...v3.2.9
           </pre>
         </details>
         <details>
@@ -1881,7 +1880,7 @@ MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> containing that pa
           <pre style="max-width: 30em">
   * Upgrade to go1.20.2.
   * Bump dependencies.
-  **Full Changelog**: https://github.com/cloudfoundry/metrics-discovery-release/compare/v3.2.7...v3.2.8
+  **Full changelog**: https://github.com/cloudfoundry/metrics-discovery-release/compare/v3.2.7...v3.2.8
           </pre>
         </details>
       </td>
@@ -1897,8 +1896,8 @@ MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> containing that pa
   **Bugs Fixed**
   - [mysql-metrics] Fixed bug that caused metrics to be displayed for only one of the MySQL nodes in three-node HA cluster when `mysql-metrics.host` was not configured in a bosh manifest.
   **Breaking Change**
-  The `mysql-metrics` job no longer consumes bosh links for defaulting the `mysql-metrics.host` property.  `mysql-metrics.host` defaults to connecting over 127.0.0.1 and `mysql-metrics.port` defaults to the port provided by the `mysql` bosh link.  This avoids a bug where mysql-metrics reports the metrics from only a single member of the cluster instead of reporting separate metrics for _each_ member of a cluster.
-  This change provides accurate metrics out-of-the-box when the mysql-metrics agent is co-located with MySQL.  For niche use cases, configure the `mysql-metrics.host` and `mysql-metrics.port` explicitly as needed for your use case.
+  The `mysql-metrics` job no longer consumes bosh links for defaulting the `mysql-metrics.host` property. `mysql-metrics.host` defaults to connecting over 127.0.0.1 and `mysql-metrics.port` defaults to the port provided by the `mysql` bosh link. This avoids a bug where mysql-metrics reports the metrics from only a single member of the cluster instead of reporting separate metrics for _each_ member of a cluster.
+  This change provides accurate metrics out-of-the-box when the mysql-metrics agent is co-located with MySQL. For niche use cases, configure the `mysql-metrics.host` and `mysql-metrics.port` explicitly as needed for your use case.
           </pre>
         </details>
         <details>
@@ -1930,7 +1929,7 @@ MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> containing that pa
   - Bump to Go 1.20.4
   - Bump dependencies such that Ginkgo V2 and Lager V3 are used.
   ## ✨  Built with go 1.20.4
-  **Full Changelog**: https://github.com/cloudfoundry/nats-release/compare/v56.1.0...v56.2.0
+  **Full changelog**: https://github.com/cloudfoundry/nats-release/compare/v56.1.0...v56.2.0
   ## Resources
   - [Download release v56.2.0 from bosh.io](https://bosh.io/releases/github.com/cloudfoundry/nats-release?version=56.2.0).
           </pre>
@@ -2143,7 +2142,7 @@ MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> containing that pa
           <summary>v1.0.9</summary>
           <pre style="max-width: 30em">
   **Important** pxc-release v1.0 is a major database upgrade from Percona XtraDB Cluster 5.7 to Percona XtraDB Cluster 8.0
-  **New Features**
+  **New features**
   - Bumped Percona XtraDB Cluster 8.0 to v8.0.31-23.2
   - Bumped Percona Xtrabackup 8.0 to v8.0.32-26
   - Bumped Percona Xtrabackup 2.4 to v2.4.28
@@ -2222,7 +2221,7 @@ MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> containing that pa
   - 🐛Fixes a bug that may cause routing failures to apps. Thanks @maxmoehl and @domdom82!!
   - Many go dependency updates across all routing packages. Thanks @winkingturtle-vmw!!
   ## ✨  Built with go 1.20.4
-  **Full Changelog**: https://github.com/cloudfoundry/routing-release/compare/v0.265.1...v0.266.0
+  **Full changelog**: https://github.com/cloudfoundry/routing-release/compare/v0.265.1...v0.266.0
   ## Resources
   - [Download release v0.266.0 from bosh.io](https://bosh.io/releases/github.com/cloudfoundry/routing-release?version=0.266.0).
           </pre>
@@ -2235,7 +2234,7 @@ MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> containing that pa
   ## Changes
   - Bump healthchecker
   ## ✨  Built with go 1.20.4
-  **Full Changelog**: https://github.com/cloudfoundry/routing-release/compare/v0.265.0...v0.265.1
+  **Full changelog**: https://github.com/cloudfoundry/routing-release/compare/v0.265.0...v0.265.1
   ## Resources
   - [Download release v0.265.1 from bosh.io](https://bosh.io/releases/github.com/cloudfoundry/routing-release?version=0.265.1).
           </pre>
@@ -2248,7 +2247,7 @@ MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> containing that pa
   ## Changes
   - Bump to Go 1.20.4
   ## ✨  Built with go 1.20.4
-  **Full Changelog**: https://github.com/cloudfoundry/routing-release/compare/v0.264.0...v0.265.0
+  **Full changelog**: https://github.com/cloudfoundry/routing-release/compare/v0.264.0...v0.265.0
   ## Resources
   - [Download release v0.265.0 from bosh.io](https://bosh.io/releases/github.com/cloudfoundry/routing-release?version=0.265.0).
           </pre>
@@ -2261,7 +2260,7 @@ MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> containing that pa
   ## Changes
   - Addresses the issue in routing-release 0.263.0 where `bosh export-releases` would fail to compile the `acceptance-tests` package.
   ## ✨  Built with go 1.20.3
-  **Full Changelog**: https://github.com/cloudfoundry/routing-release/compare/v0.263.0...v0.264.0
+  **Full changelog**: https://github.com/cloudfoundry/routing-release/compare/v0.263.0...v0.264.0
   ## Resources
   - [Download release v0.264.0 from bosh.io](https://bosh.io/releases/github.com/cloudfoundry/routing-release?version=0.264.0).
           </pre>
@@ -2276,7 +2275,7 @@ MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> containing that pa
   - 🐛Fixed a bug present since v0.262.0 that caused CATs to intermittently fail on apps using `nc` as their server.
   - 🐛Bumped haproxy to 2.7.6 in cf-tcp-router, to resolve a bug preventing haproxy from properly transferring open connections to the new haproxy process when a reload occurred - [haproxy/#1883](https://github.com/haproxy/haproxy/issues/1883)
   ## ✨  Built with go 1.20.3
-  **Full Changelog**: https://github.com/cloudfoundry/routing-release/compare/v0.262.0...v0.263.0
+  **Full changelog**: https://github.com/cloudfoundry/routing-release/compare/v0.262.0...v0.263.0
   ## Resources
   - [Download release v0.263.0 from bosh.io](https://bosh.io/releases/github.com/cloudfoundry/routing-release?version=0.263.0).
           </pre>
@@ -2290,7 +2289,7 @@ MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> containing that pa
   - 🐛Fixes the of golang has a known issue that causes backend request failures which previously returned 496, 499, 503, 525, or 526 to instead return a 502. Additionally stale routes may not have been pruned properly. Thanks @domdom82!!
   - 🚗Gorouter now retries requests which fail prior to any HTTP content being sent (since no backend received the HTTP content, they're by definition retriable). Thanks for the [PR](https://github.com/cloudfoundry/gorouter/pull/337). Thanks @maxmoehl and @domdom82!!
   ## ✨  Built with go 1.20.2
-  **Full Changelog**: https://github.com/cloudfoundry/routing-release/compare/v0.261.0...v0.262.0
+  **Full changelog**: https://github.com/cloudfoundry/routing-release/compare/v0.261.0...v0.262.0
   ## Resources
   - [Download release v0.262.0 from bosh.io](https://bosh.io/releases/github.com/cloudfoundry/routing-release?version=0.262.0).
           </pre>
@@ -2413,9 +2412,9 @@ MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> containing that pa
         <details>
           <summary>v1.11.30</summary>
           <pre style="max-width: 30em">
-  ## What's Changed
+  ## What's changed
   * Bump to [go1.20.4](https://groups.google.com/g/golang-announce/c/MEb0UyuSMsU/m/QvrjqM4XAgAJ)
-  **Full Changelog**: https://github.com/cloudfoundry/statsd-injector-release/compare/v1.11.29...v1.11.30
+  **Full changelog**: https://github.com/cloudfoundry/statsd-injector-release/compare/v1.11.29...v1.11.30
           </pre>
         </details>
         <details>
@@ -2423,7 +2422,7 @@ MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> containing that pa
           <pre style="max-width: 30em">
   * Upgrade to go1.20.2
   * Bump dependencies
-  **Full Changelog**: https://github.com/cloudfoundry/statsd-injector-release/compare/v1.11.28...v1.11.29
+  **Full changelog**: https://github.com/cloudfoundry/statsd-injector-release/compare/v1.11.28...v1.11.29
           </pre>
         </details>
       </td>
@@ -2433,9 +2432,9 @@ MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> containing that pa
         <details>
           <summary>v12.1.4</summary>
           <pre style="max-width: 30em">
-  ## What's Changed
+  ## What's changed
   * update golang to 1.20.4
-  **Full Changelog**: https://github.com/cloudfoundry/syslog-release/compare/v12.1.3...v12.1.4
+  **Full changelog**: https://github.com/cloudfoundry/syslog-release/compare/v12.1.3...v12.1.4
           </pre>
         </details>
       </td>
@@ -2445,10 +2444,10 @@ MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> containing that pa
         <details>
           <summary>v3.3.7</summary>
           <pre style="max-width: 30em">
-  ## What's Changed
+  ## What's changed
   * Bump to [go1.20.4](https://groups.google.com/g/golang-announce/c/MEb0UyuSMsU/m/QvrjqM4XAgAJ)
   * Bump dependencies
-  **Full Changelog**: https://github.com/cloudfoundry/system-metrics-scraper-release/compare/v3.3.6...v3.3.7
+  **Full changelog**: https://github.com/cloudfoundry/system-metrics-scraper-release/compare/v3.3.6...v3.3.7
           </pre>
         </details>
       </td>
@@ -2458,7 +2457,7 @@ MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> containing that pa
         <details>
           <summary>v76.11.0</summary>
           <pre style="max-width: 30em">
-  ## What's Changed
+  ## What's changed
   ### Features
   * Bump to [UAA v76.11.0](https://github.com/cloudfoundry/uaa/releases/tag/v76.11.0)
   ### Dependency bumps
@@ -2466,13 +2465,13 @@ MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> containing that pa
   * Bump nokogiri from 1.13.10 to 1.14.3 by @dependabot in https://github.com/cloudfoundry/uaa-release/pull/565
   * Bump github.com/cloudfoundry/bosh-utils from 0.0.361 to 0.0.362 in /src/acceptance_tests by @dependabot in https://github.com/cloudfoundry/uaa-release/pull/577
   * Bump mini_portile2 from 2.8.1 to 2.8.2 by @dependabot in https://github.com/cloudfoundry/uaa-release/pull/576
-  **Full Changelog**: https://github.com/cloudfoundry/uaa-release/compare/v76.10.0...v76.11.0
+  **Full changelog**: https://github.com/cloudfoundry/uaa-release/compare/v76.10.0...v76.11.0
           </pre>
         </details>
         <details>
           <summary>v76.10.0</summary>
           <pre style="max-width: 30em">
-  ## What's Changed
+  ## What's changed
   ### Features
   * Bump to [UAA v76.10.0](https://github.com/cloudfoundry/uaa/releases/tag/v76.10.0)
   * Add 2 new options signingAlg and signingCert to JWT token policy.
@@ -2483,21 +2482,21 @@ MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> containing that pa
   * Bump github.com/cloudfoundry/bosh-utils from 0.0.360 to 0.0.361 in /src/acceptance_tests by @dependabot in https://github.com/cloudfoundry/uaa-release/pull/564
   * Bump rspec-core from 3.12.1 to 3.12.2 by @dependabot in https://github.com/cloudfoundry/uaa-release/pull/567
   * Bump rspec-expectations from 3.12.2 to 3.12.3 by @dependabot in https://github.com/cloudfoundry/uaa-release/pull/568
-  **Full Changelog**: https://github.com/cloudfoundry/uaa-release/compare/v76.9.0...v76.10.0
+  **Full changelog**: https://github.com/cloudfoundry/uaa-release/compare/v76.9.0...v76.10.0
           </pre>
         </details>
         <details>
           <summary>v76.9.0</summary>
           <pre style="max-width: 30em">
-  ## What's Changed
+  ## What's changed
   ### Features
   * Bump to [UAA v76.9.0](https://github.com/cloudfoundry/uaa/releases/tag/v76.9.0)
   * add support for TLSv1.3 by @adam-jian-zhang in https://github.com/cloudfoundry/uaa-release/pull/539
   ### Dependency bumps
   * Various dependency bumps
-  ## New Contributors
+  ## New contributors
   * @adam-jian-zhang made their first contribution in https://github.com/cloudfoundry/uaa-release/pull/539
-  **Full Changelog**: https://github.com/cloudfoundry/uaa-release/compare/v76.8.0...v76.9.0
+  **Full changelog**: https://github.com/cloudfoundry/uaa-release/compare/v76.8.0...v76.9.0
           </pre>
         </details>
       </td>
@@ -2519,7 +2518,7 @@ MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> containing that pa
 * **[Feature]** Add TAS Portal - a backstage instance with TAS resources, App Accelerator, and other plug-ins.
 * **[Feature]** Update metric tags in Diego when an application is renamed.
 * **[Feature Improvement]** Increase SSO service redirect URI length limitation.
-* **[Feature Improvement]** Cloud Maximum staged droplet size can now be set up to a value of 5 GB. For more information, see [Configure App Developer Controls](https://docs.vmware.com/en/VMware-Tanzu-Application-Service/4.0/tas-for-vms/configure-pas.html#appdevctrl-config).
+* **[Feature Improvement]** Cloud Maximum staged droplet size can now be set up to a value of 5 GB. For more information, see [Configure app developer controls](https://docs.vmware.com/en/VMware-Tanzu-Application-Service/4.0/tas-for-vms/configure-pas.html#appdevctrl-config).
 * **[Breaking Change]** Component logs always use human-readable RFC3339 timestamp format
 * **[Breaking Change]** Max request header size now defaults to 48 KB
 * **[Breaking Change]** Remove Ruby and Python from the `cflinuxfs4` stack.
@@ -2551,7 +2550,7 @@ MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> containing that pa
     <tr>
       <th>Component</th>
       <th>Version</th>
-      <th>Release Notes</th>
+      <th>Release notes</th>
     </tr>
   </thead>
   <tbody>
@@ -2579,31 +2578,31 @@ MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> containing that pa
           <summary>v107.0.2</summary>
           <pre style="max-width: 30em">
   * update golang to 1.20.1
-  **Full Changelog**: https://github.com/cloudfoundry/loggregator-release/compare/v107.0.1...v107.0.2
+  **Full changelog**: https://github.com/cloudfoundry/loggregator-release/compare/v107.0.1...v107.0.2
           </pre>
         </details>
         <details>
           <summary>v107.0.1</summary>
           <pre style="max-width: 30em">
-  ## What's Changed
+  ## What's changed
   * Upgrade to go 1.20 by @rroberts2222 in https://github.com/cloudfoundry/loggregator-release/pull/524
   * update dependencies
-  ## New Contributors
+  ## New contributors
   * @stefanlay made their first contribution in https://github.com/cloudfoundry/loggregator-release/pull/519
-  **Full Changelog**: https://github.com/cloudfoundry/loggregator-release/compare/v107.0.0...v107.0.1
+  **Full changelog**: https://github.com/cloudfoundry/loggregator-release/compare/v107.0.0...v107.0.1
           </pre>
         </details>
         <details>
           <summary>v107.0.0</summary>
           <pre style="max-width: 30em">
-  Remove RecentLogsHandler from Traffic Controller. Traffic Controller has been providing recent logs as a fallback for environments/tools which had not moved to retrieving recent logs directly from Log Cache. With this change older versions of the cf CLI v6 will no longer be able to retrieve recent logs from Cloud Foundry.
+  Remove RecentLogsHandler from Traffic Controller. Traffic Controller has been providing recent logs as a fallback for environments/tools which had not moved to retrieving recent logs directly from Log Cache. With this change, older versions of the cf CLI v6 will no longer be able to retrieve recent logs from Cloud Foundry.
   We are making this change as Log Cache has been the correct way of retrieving these logs for many years and the legacy support was causing issues with the splitting out of Log Cache from Dopplers.
-  ## What's Changed
+  ## What's changed
   * Remove RecentLogsHandler by @rroberts2222 in https://github.com/cloudfoundry/loggregator-release/pull/486
   * Bump golang.org/x/net from 0.3.0 to 0.4.0 in /src by @dependabot in https://github.com/cloudfoundry/loggregator-release/pull/487
   * Delete unused manifests & scripts, clean up README by @rroberts2222 in https://github.com/cloudfoundry/loggregator-release/pull/488
   * fix go module path by @Benjamintf1 in https://github.com/cloudfoundry/loggregator-release/pull/490
-  **Full Changelog**: https://github.com/cloudfoundry/loggregator-release/compare/v106.7.5...v107.0.0
+  **Full changelog**: https://github.com/cloudfoundry/loggregator-release/compare/v106.7.5...v107.0.0
           </pre>
         </details>
       </td>
@@ -2613,57 +2612,57 @@ MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> containing that pa
         <details>
           <summary>v7.1.2</summary>
           <pre style="max-width: 30em">
-  ## What's Changed
+  ## What's changed
   * update to golang 1.20.1
-  **Full Changelog**: https://github.com/cloudfoundry/loggregator-agent-release/compare/v7.1.1...v7.1.2
+  **Full changelog**: https://github.com/cloudfoundry/loggregator-agent-release/compare/v7.1.1...v7.1.2
           </pre>
         </details>
         <details>
           <summary>v7.1.1</summary>
           <pre style="max-width: 30em">
-  ## What's Changed
+  ## What's changed
   * update dependencies
   * Add error messages for better traceability of filtered out syslog drain bindings by @chombium in https://github.com/cloudfoundry/loggregator-agent-release/pull/216
   * Upgrade to go 1.20 by @rroberts2222 in https://github.com/cloudfoundry/loggregator-agent-release/pull/223
-  **Full Changelog**: https://github.com/cloudfoundry/loggregator-agent-release/compare/v7.1.0...v7.1.1
+  **Full changelog**: https://github.com/cloudfoundry/loggregator-agent-release/compare/v7.1.0...v7.1.1
           </pre>
         </details>
         <details>
           <summary>v7.1.0</summary>
           <pre style="max-width: 30em">
-  ## What's Changed
+  ## What's changed
   * Add app-id and drain url in the error message by @chombium in https://github.com/cloudfoundry/loggregator-agent-release/pull/212
-  ## New Contributors
+  ## New contributors
   * @chombium made their first contribution in https://github.com/cloudfoundry/loggregator-agent-release/pull/212
-  **Full Changelog**: https://github.com/cloudfoundry/loggregator-agent-release/compare/v7.0.2...v7.1.0
+  **Full changelog**: https://github.com/cloudfoundry/loggregator-agent-release/compare/v7.0.2...v7.1.0
           </pre>
         </details>
         <details>
           <summary>v7.0.2</summary>
           <pre style="max-width: 30em">
-  ## What's Changed
+  ## What's changed
   * Sanitize ProcID in syslog messages so messages with utf-8 in the source_type are not dropped by @Benjamintf1 in https://github.com/cloudfoundry/loggregator-agent-release/pull/200
   * Update dependencies
-  **Full Changelog**: https://github.com/cloudfoundry/loggregator-agent-release/compare/v7.0.1...v7.0.2
+  **Full changelog**: https://github.com/cloudfoundry/loggregator-agent-release/compare/v7.0.1...v7.0.2
           </pre>
         </details>
         <details>
           <summary>v7.0.1</summary>
           <pre style="max-width: 30em">
-  ## What's Changed
+  ## What's changed
   * Fix: anonymize URL in syslog drain logs and metrics by @ctlong in https://github.com/cloudfoundry/loggregator-agent-release/pull/186
-  **Full Changelog**: https://github.com/cloudfoundry/loggregator-agent-release/compare/v7.0.0...v7.0.1
+  **Full changelog**: https://github.com/cloudfoundry/loggregator-agent-release/compare/v7.0.0...v7.0.1
           </pre>
         </details>
         <details>
           <summary>v7.0.0</summary>
           <pre style="max-width: 30em">
-  ## What's Changed
+  ## What's changed
   * Allow application developers to set client certs and keys, as well as server cas, to be used for authentication in syslog-tls drains by @fhambrec, @dark5un in https://github.com/cloudfoundry/loggregator-agent-release/pull/177 / https://github.com/cloudfoundry/loggregator-agent-release/pull/119. Breaking change: requires new version of capi
   * Add drain scope and url tags to syslog egress metrics by @skaur20 in https://github.com/cloudfoundry/loggregator-agent-release/pull/123, Breaking change: might effect metrics dashboards and calculations.
-  ## New Contributors
+  ## New contributors
   * @skaur20 made their first contribution in https://github.com/cloudfoundry/loggregator-agent-release/pull/123
-  **Full Changelog**: https://github.com/cloudfoundry/loggregator-agent-release/compare/v6.5.6...v7.0.0
+  **Full changelog**: https://github.com/cloudfoundry/loggregator-agent-release/compare/v6.5.6...v7.0.0
           </pre>
         </details>
       </td>
@@ -2748,7 +2747,7 @@ For example:
 $ cf create-user-provided-service DRAIN-NAME -l SYSLOG-URL -p {"cert":"-----BEGIN CERTIFICATE-----\nMIIH...-----END CERTIFICATE-----","key":"-----BEGIN PRIVATE KEY-----\nMIIE...-----END PRIVATE KEY-----", "ca":"-----BEGIN CERTIFICATE-----\nMIIH...-----END CERTIFICATE-----"}
 </pre>
 
-### Dynamic App renaming for logs and metrics
+### Dynamic app renaming for logs and metrics
 
 If you rename your apps, you can see emitted logs and metrics that are tagged with the new
 application name without starting the application again. This is useful in blue or green
@@ -2764,7 +2763,7 @@ For applications hosted on Diego Cells that are provided by the <%= vars.segment
 %> to get the full benefit of this new feature. After you upgrade <%= vars.app_runtime_abbr %>, the access log entries are generated by the <%= vars.app_runtime_abbr %> and <%=
 vars.segment_runtime_full %> Gorouters. They reflect the new application names even if you have not upgraded the <%= vars.segment_runtime_full %> or <%= vars.windows_runtime_abbr %> tiles.
 
-## <a id='breaking-changes'></a> Breaking Changes
+## <a id='breaking-changes'></a> Breaking changes
 
 <%= vars.app_runtime_abbr %> <%= vars.v_major_version %> includes the following breaking changes:
 
@@ -2778,7 +2777,7 @@ RFC3339 format for the timestamps in their logs.
 
 ### Max request header size now defaults to 48 KB
 
-When you Upgrade to <%= vars.app_runtime_abbr %> 4.0 it sets the **Max request header size in KB** to 48 KB,
+When you upgrade to <%= vars.app_runtime_abbr %> 4.0, it sets the **Max request header size in KB** to 48 KB,
 unless the existing configuration was already lower. Lowering this value establishes a better
 security for <%= vars.app_runtime_abbr %> and applications. You can still configure this setting to
 a value up to 1024 KB in the **Networking** tab. For any requests with headers larger than this value, returns a 431 status code.
@@ -2808,7 +2807,7 @@ certificates can cause an error in Ops Manager. You must remove or replace inval
 
 This feature was in beta until <%= vars.app_runtime_abbr %> 3.0, when it was deprecated. For
 details, see [<%= vars.app_runtime_abbr %> 3.0 Release
-Notes](https://docs.vmware.com/en/VMware-Tanzu-Application-Service/3.0/tas-for-vms/runtime-rn.html#global-log-rate-limit-is-deprecated-24).
+notes](https://docs.vmware.com/en/VMware-Tanzu-Application-Service/3.0/tas-for-vms/runtime-rn.html#global-log-rate-limit-is-deprecated-24).
 
 For more information on app log rate limits, see [App Log Rate
 Feature](https://docs.vmware.com/en/VMware-Tanzu-Application-Service/3.0/tas-for-vms/runtime-rn.html#app-log-rate-limits-for-orgs-spaces-and-individual-apps-14).
@@ -2824,8 +2823,7 @@ To mitigate the increased log load problem, you can either:
   Or
 
 * Upgrade to <%= vars.app_runtime_abbr %> 3.0 first to set app-level log rate limits while retaining
-  the global log rate limit. For more details, see [App Log Rate
-  Limits](https://docs.vmware.com/en/VMware-Tanzu-Application-Service/4.0/tas-for-vms/app-log-rate-limits.html).
+  the global log rate limit. For more details, see [App Log Rate Limits](https://docs.vmware.com/en/VMware-Tanzu-Application-Service/4.0/tas-for-vms/app-log-rate-limits.html).
 
 ### Ruby and Python have been removed from the cflinuxfs4 stack
 
@@ -2842,7 +2840,7 @@ Any buildpacks outside of those maintained by VMware and installed as part of TA
 
 This breaking change applies to Tanzu Application Service and Small Footprint TAS.
 
-### App developers can use **beta** Web Servers Buildpack based on CNBs
+### App developers can use Web Servers Buildpack based on CNBs (beta)
 
 TAS for VMs 4.0 introduces a new slate of buildpacks, based on the
 Cloud Native Buildpack project, that are installed with TAS for VMs and managed by the Tanzu
@@ -2856,7 +2854,7 @@ httpd, and front-end JavaScript apps.
 For more information about how to use the Web Servers Buildpack, see the
 [documentation page](https://docs.vmware.com/en/VMware-Tanzu-Application-Service/4.0/tas-for-vms/web-servers-index.html).
 
-## <a id='known-issues'></a> Known Issues
+## <a id='known-issues'></a> Known issues
 
 <%= vars.app_runtime_abbr %> <%= vars.v_major_version %> includes the following known issues:
 
@@ -2873,8 +2871,8 @@ STIG-certified.
 
 ### <a id='uaa-sso-copy'></a> UAA Single Sign-On Copy button is broken
 
-In the User Account and Authentication (UAA) user interface (UI), the button that copies Single
-Sign-On (SSO) codes does not work.
+In the User Account and Authentication (UAA) user interface (UI), the button that copies single
+sign-on (SSO) codes does not work.
 
 To work around this issue, you must manually copy and paste the displayed code.
 
@@ -2891,7 +2889,7 @@ Recommended course of action:
 2. Update any HTTP based integrations to use the [v3 API endpoints for security
    groups](http://v3-apidocs.cloudfoundry.org/version/3.128.0/index.html#security-groups).
 
-### <a id='dynamic-renaming-silk-log-line'></a> Dynamic App renaming does not take effect For Silk Security Group log entries
+### <a id='dynamic-renaming-silk-log-line'></a> Dynamic App renaming does not take effect For Silk Security group log entries
 
 Silk emits log entries to application log streams when ASGs are dynamically changed. If you use Silk
 for container networking and have activated Dynamic ASGs, you might find the log entries are tagged
@@ -2907,30 +2905,29 @@ version that includes NATS v2.0. The migration happens invisibly. However, if th
 successful, your NATS servers might still be running NATS v1.0.
 
 As described in the [TAS Support Lifecycle
-Policy](https://docs.pivotal.io/application-service/3-0/release-notes/runtime-rn.html#support-policy),
+Policy](https://docs.vmware.com/en/VMware-Tanzu-Application-Service/3.0/tas-for-vms/runtime-rn.html#support-policy),
 VMware keeps the NATS v1.0 as a fallback, but removes it in a future version.
 
-Follow the
-instructions in this [Knowledge Base
+Follow the instructions in this [Knowledge Base
 article](https://community.pivotal.io/s/article/How-to-confirm-your-nats-servers-are-running-NATs-v2?language=en_US)
 to confirm that your `nats` instances have migrated successfully, and learn how to troubleshoot if
 they have not.
 
-### <a id='tas-portal-app-domain'></a> TAS Portal Uses Apps Domain
+### <a id='tas-portal-app-domain'></a> TAS Portal uses apps domain
 
 TAS Portal erroneously uses the default app domain instead of the operator-configured system domain.
-In future patch versions of TAS, TAS Portal is available at `tas-portal.SYSTEM-DOMAIN`.
+In future patch versions of TAS, TAS Portal will be available at `tas-portal.SYSTEM-DOMAIN`.
 
-### <a id='tas-portal-http'></a> TAS Portal Application Accelerators Use HTTP
+### <a id='tas-portal-http'></a> TAS Portal Application Accelerators use HTTP
 
 When Application Accelerators are activated for TAS Portal,
 TAS Portal communicates with the Application Accelerator backend server using HTTP on port 80.
 If TAS for VMs or its associated load balancers are not configured to allow HTTP ingress on port 80,
 then the TAS Portal Application Accelerators page is blank.
 
-A future patch version of TAS for VMs changes this traffic to use HTTPS on port 443.
+A future patch version of TAS for VMs will change this traffic to use HTTPS on port 443.
 To work around this issue, configure TAS for VMs to accept HTTP traffic on port 80.
 
-#### <a id-'bbr-restore-fails'></a> BBR Restore fails after upgrading to TAS for VMs v3.0
+#### <a id-'bbr-restore-fails'></a> BBR restore fails after upgrading to TAS for VMs v3.0
 
-This issue affects those who are leveraging the TAS Internal Mysql Cluster and attempting a BBR Restore after upgrading to TAS 3.0. If you are using an external database and are facing this issue, please open a ticket with VMware Tanzu Support and refer to the [TAS for VMs documentation](https://community.pivotal.io/s/article/BBR-Restore-after-upgrading-to-TAS-3-0?language=en_US).
+This issue affects those who are leveraging the TAS for VMs internal MySQL cluster and attempting a BBR Restore after upgrading to TAS 3.0. If you are using an external database and are facing this issue, please open a ticket with VMware Tanzu Support and refer to the [TAS for VMs documentation](https://community.pivotal.io/s/article/BBR-Restore-after-upgrading-to-TAS-3-0?language=en_US).
