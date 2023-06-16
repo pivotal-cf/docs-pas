@@ -1,9 +1,9 @@
 ---
-title: Isolation Segment v2.11 Release Notes
+title: Isolation Segment v2.11 Release notes
 owner: Release Engineering
 ---
 
-This topic contains release notes for <%= vars.segment_runtime_full %> <%= vars.v_major_version %>.
+Here you will find the release notes for <%= vars.segment_runtime_full %> <%= vars.v_major_version %>.
 
 Because VMware uses the Percona Distribution for MySQL, expect a time lag between Oracle releasing a MySQL patch and VMware releasing
 <%= vars.app_runtime_abbr %> containing that patch.
@@ -1612,7 +1612,7 @@ Because VMware uses the Percona Distribution for MySQL, expect a time lag betwee
   ## What's Changed
   * Switch to healthecker package in cf-networking-helpers by @mariash in https://github.com/cloudfoundry/routing-release/pull/302
   * Add healthchecker package to sync-package-specs file by @mariash in https://github.com/cloudfoundry/routing-release/pull/303
-  * **Potential Breaking Change:** In preperation for mtls between gorouter and routing api, add gorouter backends ca to routing-api. Rendering these certs depends on routing-api consuming a link from gorouter. If you have multiple gorouter instance groups (for example in the case of isolation segments), you will need to rename bosh links to prevent the error "Multiple link providers found. For an example of link renaming, see [this ops file](https://github.com/cloudfoundry/cf-deployment/blob/main/operations/test/add-persistent-isolation-segment-router.yml#L74) by @reneighbor in https://github.com/cloudfoundry/routing-release/pull/300
+  * **Potential Breaking change:** In preperation for mtls between gorouter and routing api, add gorouter backends ca to routing-api. Rendering these certs depends on routing-api consuming a link from gorouter. If you have multiple gorouter instance groups (for example in the case of isolation segments), you will need to rename bosh links to prevent the error "Multiple link providers found. For an example of link renaming, see [this ops file](https://github.com/cloudfoundry/cf-deployment/blob/main/operations/test/add-persistent-isolation-segment-router.yml#L74) by @reneighbor in https://github.com/cloudfoundry/routing-release/pull/300
   * Ensure gorouter-healthchecker doesn't restart gorouter forever on failure by @geofffranks in https://github.com/cloudfoundry/routing-release/pull/305
   **Full Changelog**: https://github.com/cloudfoundry/routing-release/compare/0.248.0...v0.249.0
           </pre>
@@ -1992,7 +1992,7 @@ Because VMware uses the Percona Distribution for MySQL, expect a time lag betwee
           <pre style="max-width: 30em">
   ## What's Changed
   - ⚠️ Bump to golang 1.18 🎉
-  **Breaking Changes:** The routing components are now more strict about the protocols used in TLS communications, causing integrations with systems using older, insecure protocols to fail. These components have been updated to Go 1.18, and will no longer support TLS 1.0 and 1.1 connections or certificates with a SHA-1 checksum. This is most likely to affect connections with external databases.
+  **Breaking changes:** The routing components are now more strict about the protocols used in TLS communications, causing integrations with systems using older, insecure protocols to fail. These components have been updated to Go 1.18, and will no longer support TLS 1.0 and 1.1 connections or certificates with a SHA-1 checksum. This is most likely to affect connections with external databases.
   Please see this golang 1.18 release notes [section](https://tip.golang.org/doc/go1.18#tls10) for more information about the golang 1.18 change.
   ###
   * Update uaa-go-client; by @joergdw in https://github.com/cloudfoundry/routing-release/pull/277
@@ -2034,7 +2034,7 @@ Because VMware uses the Percona Distribution for MySQL, expect a time lag betwee
 and <%= vars.segment_runtime_full %> v2.13 from <%= vars.app_runtime_abbr %> and <%= vars.segment_runtime_full %> <%= vars.v_major_version %>. For more
 information, see the [<%= vars.app_runtime_abbr %> v2.13 documentation](https://docs.pivotal.io/application-service/2-13/operating/jump-upgrades.html).
 * **[Feature Improvement]** Bump golang to 1.18 for diego, routing, cf-networking, and silk
-* **[Breaking Change]** If you have configured an app log rate limit that measures app log rates in lines per second, Diego immediately drops app logs that
+* **[Breaking change]** If you have configured an app log rate limit that measures app log rates in lines per second, Diego immediately drops app logs that
 exceed the app log rate limit. For more information, see [Diego Drops App Logs That Exceed the App Log Rate Limit](#dropped-app-logs) below.
 * Bump bpm to version `1.1.19`
 * Bump cf-networking to version `3.12.0`
@@ -2424,7 +2424,7 @@ exceed the app log rate limit. For more information, see [Diego Drops App Logs T
 
 **Release Date:** 04/20/2022
 
-* **[Breaking Change]** Syslog drains configured to use TLS now [reject certificates signed with the SHA-1 hash function](https://go.dev/doc/go1.18#sha1).
+* **[Breaking change]** Syslog drains configured to use TLS now [reject certificates signed with the SHA-1 hash function](https://go.dev/doc/go1.18#sha1).
 * Bump cflinuxfs3 to version `0.285.0`
 * Bump diego to version `2.62.0`
 * Bump loggregator-agent to version `6.3.11`
@@ -2695,7 +2695,7 @@ exceed the app log rate limit. For more information, see [Diego Drops App Logs T
 
 **Release Date:** 11/23/2021
 
-* **[Breaking Change]** All Gorouter certificates require a SubjectAltName extension. If any Gorouter certificates lack a SubjectAltName, deployment fails. If you need to complete a deployment before configuring new Gorouter certificates, select **Enable temporary workaround for certs without SANs** in the **Networking** pane of the <%= vars.app_runtime_abbr %> tile. For more information about updating certificates, see [Routing and Golang 1.15 X.509 CommonName deprecation](https://community.pivotal.io/s/article/Routing-and-golang-1-15-X-509-CommonName-deprecation) in the Knowledge Base.
+* **[Breaking change]** All Gorouter certificates require a SubjectAltName extension. If any Gorouter certificates lack a SubjectAltName, deployment fails. If you need to complete a deployment before configuring new Gorouter certificates, select **Enable temporary workaround for certs without SANs** in the **Networking** pane of the <%= vars.app_runtime_abbr %> tile. For more information about updating certificates, see [Routing and Golang 1.15 X.509 CommonName deprecation](https://community.pivotal.io/s/article/Routing-and-golang-1-15-X-509-CommonName-deprecation) in the Knowledge Base.
 * Bump bpm to version `1.1.15`
 * Bump cf-networking to version `2.40.0`
 * Bump cflinuxfs3 to version `0.264.0`
@@ -2882,7 +2882,7 @@ exceed the app log rate limit. For more information, see [Diego Drops App Logs T
 
 * **[Feature Improvement]** garden-runc - Enable usage of .NET diagnostic tools
 * **[Bug Fix]** Prevent tcp routes from using system component ports.
-* **[Breaking Change]** Gorouter sends all responses with transfer-encoded chunks. Some responses that were not chunked in previous versions now use transfer-encoded chunks. For more information, see [Clients receive responses with no Content-Length header and a chunked encoded body after upgrading Tanzu Application Service for VMs](https://community.pivotal.io/s/article/Clients-receive-responses-with-no-Content-Length-header-and-a-chunked-encoded-body-after-upgrading-Tanzu-Application-Service-for-VMs) in the Knowledge Base. _(edited 20 Oct 2021)_
+* **[Breaking change]** Gorouter sends all responses with transfer-encoded chunks. Some responses that were not chunked in previous versions now use transfer-encoded chunks. For more information, see [Clients receive responses with no Content-Length header and a chunked encoded body after upgrading Tanzu Application Service for VMs](https://community.pivotal.io/s/article/Clients-receive-responses-with-no-Content-Length-header-and-a-chunked-encoded-body-after-upgrading-Tanzu-Application-Service-for-VMs) in the Knowledge Base. _(edited 20 Oct 2021)_
 * Bump cf-networking to version `2.38.0`
 * Bump cflinuxfs3 to version `0.249.0`
 * Bump garden-runc to version `1.19.28`
@@ -3008,7 +3008,7 @@ exceed the app log rate limit. For more information, see [Diego Drops App Logs T
 
 **Release Date:** March 30, 2021
 
-- See [New Features in <%= vars.segment_runtime_full %> <%= vars.v_major_version %>](#new-features).
+- See [New features in <%= vars.segment_runtime_full %> <%= vars.v_major_version %>](#new-features).
 
 <table border="1" class="nice">
   <thead>
@@ -3061,7 +3061,7 @@ To install <%= vars.segment_runtime_full %> <%= vars.v_major_version %>, see [In
 <%= vars.segment_runtime_full %>](../operating/installing-pcf-is.html).
 
 
-## <a id='new-features'></a> New Features in <%= vars.segment_runtime_full %> <%= vars.v_major_version %>
+## <a id='new-features'></a> New features in <%= vars.segment_runtime_full %> <%= vars.v_major_version %>
 
 <%= vars.segment_runtime_full %> <%= vars.v_major_version %> includes the following major feature:
 
@@ -3073,7 +3073,7 @@ When validating requests using mutual TLS to back ends and route services, the G
 For more information, see [Configure Networking](../operating/installing-pcf-is.html#networking) in _Installing <%= vars.segment_runtime_full %>_.
 
 
-## <a id='breaking-changes'></a> Breaking Changes
+## <a id='breaking-changes'></a> Breaking changes
 
 <%= vars.segment_runtime_full %> <%= vars.v_major_version %> includes the following breaking changes:
 
@@ -3127,7 +3127,7 @@ on app log output or increase the app log rate limit.
 For more information about app log rate limits, see [App Log Rate Limiting](../loggregator/app-log-rate-limits.html).
 
 
-## <a id='known-issues'></a> Known Issues
+## <a id='known-issues'></a> Known issues
 
 <%= vars.segment_runtime_full %> <%= vars.v_major_version %> includes the following known issue:
 

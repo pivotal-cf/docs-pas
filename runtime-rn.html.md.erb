@@ -1,9 +1,9 @@
 ---
-title: TAS for VMs v2.11 Release Notes
+title: TAS for VMs v2.11 Release notes
 owner: Release Engineering
 ---
 
-This topic contains release notes for <%= vars.app_runtime_first %> <%= vars.v_major_version %>.
+Here you will find the release notes for <%= vars.app_runtime_first %> <%= vars.v_major_version %>.
 
 <%= vars.app_runtime_abbr %> is certified by the Cloud Foundry Foundation for 2023.
 
@@ -1786,7 +1786,7 @@ Because VMware uses the Percona Distribution for MySQL, expect a time lag betwee
   - Bumped dependencies
   **Bugs Fixed**
   - [mysql-metrics] Fixed bug that caused metrics to be displayed for only one of the MySQL nodes in three-node HA cluster when `mysql-metrics.host` was not configured in a bosh manifest.
-  **Breaking Change**
+  **Breaking change**
   The `mysql-metrics` job no longer consumes bosh links for defaulting the `mysql-metrics.host` property.  `mysql-metrics.host` defaults to connecting over 127.0.0.1 and `mysql-metrics.port` defaults to the port provided by the `mysql` bosh link.  This avoids a bug where mysql-metrics reports the metrics from only a single member of the cluster instead of reporting separate metrics for _each_ member of a cluster.
   This change provides accurate metrics out-of-the-box when the mysql-metrics agent is co-located with MySQL.  For niche use cases, configure the `mysql-metrics.host` and `mysql-metrics.port` explicitly as needed for your use case.
           </pre>
@@ -1977,7 +1977,7 @@ Because VMware uses the Percona Distribution for MySQL, expect a time lag betwee
         <details>
           <summary>v0.53.0</summary>
           <pre style="max-width: 30em">
-  **New Features**
+  **New features**
   - Bumped Go to v1.20.4
   **EOL Notice**
   - Please note that this release and earlier versions will not be supported beyond Oct 2023, due to MySQL 5.7 EOL. If your product is consuming this release, please upgrade to the latest pxc-1.0.y release
@@ -1986,7 +1986,7 @@ Because VMware uses the Percona Distribution for MySQL, expect a time lag betwee
         <details>
           <summary>v0.52.0</summary>
           <pre style="max-width: 30em">
-  **New Features**
+  **New features**
   - Bumped Go to v1.20.3
   - Bumped Percona XtraDB Cluster to v5.7.41-31.65
   - Bumped Percona XtraBackup to v2.4.28
@@ -1997,7 +1997,7 @@ Because VMware uses the Percona Distribution for MySQL, expect a time lag betwee
         <details>
           <summary>v0.51.0</summary>
           <pre style="max-width: 30em">
-  **New Features**
+  **New features**
   - Bumped Go to v1.20.2
   **EOL Notice**
   - Please note that this release and earlier versions will not be supported beyond Oct 2023, due to MySQL 5.7 EOL. If your product is consuming this release, please upgrade to the latest pxc-1.0.y release
@@ -5397,7 +5397,7 @@ Because VMware uses the Percona Distribution for MySQL, expect a time lag betwee
   - [bump dependency-check-gradle from 7.3.0 to 7.3.2](https://github.com/cloudfoundry/credhub/commit/164f3803d661bbf3684f22f66ec696688d9e4322)
   - [bump grpcVersion from 1.50.2 to 1.51.0](https://github.com/cloudfoundry/credhub/commit/ee931e16e5be76b9c485cfde915962dc6bb644e5)
   - [bump: springRestDocsVersion from 2.0.6 to 2.0.7](https://github.com/cloudfoundry/credhub/commit/c8b47a94870d8b86a65dd8d39fc24ced0608b752)
-  ## Known Issues
+  ## Known issues
   - This release breaks compatibility with [postgres-release](https://github.com/cloudfoundry/postgres-release) (and possibly more postgres server) with a TLS handshake error. Do not use this release if you are using postgres. The fix is underway.
   **Full Changelog**: https://github.com/pivotal/credhub-release/compare/2.12.14...2.12.15
           </pre>
@@ -5409,7 +5409,7 @@ Because VMware uses the Percona Distribution for MySQL, expect a time lag betwee
   - Bump various dependencies
   ## What's Changed
   * Update Java 1.8 to jre8u352
-  ## Known Issues
+  ## Known issues
   - This release breaks compatibility with [postgres-release](https://github.com/cloudfoundry/postgres-release) (and possibly more postgres server) with a TLS handshake error. Do not use this release if you are using postgres. The fix is underway.
   **Full Changelog**: https://github.com/pivotal/credhub-release/compare/2.12.13...2.12.14
           </pre>
@@ -5828,7 +5828,7 @@ Because VMware uses the Percona Distribution for MySQL, expect a time lag betwee
   ## What's Changed
   * Switch to healthecker package in cf-networking-helpers by @mariash in https://github.com/cloudfoundry/routing-release/pull/302
   * Add healthchecker package to sync-package-specs file by @mariash in https://github.com/cloudfoundry/routing-release/pull/303
-  * **Potential Breaking Change:** In preperation for mtls between gorouter and routing api, add gorouter backends ca to routing-api. Rendering these certs depends on routing-api consuming a link from gorouter. If you have multiple gorouter instance groups (for example in the case of isolation segments), you will need to rename bosh links to prevent the error "Multiple link providers found. For an example of link renaming, see [this ops file](https://github.com/cloudfoundry/cf-deployment/blob/main/operations/test/add-persistent-isolation-segment-router.yml#L74) by @reneighbor in https://github.com/cloudfoundry/routing-release/pull/300
+  * **Potential Breaking change:** In preperation for mtls between gorouter and routing api, add gorouter backends ca to routing-api. Rendering these certs depends on routing-api consuming a link from gorouter. If you have multiple gorouter instance groups (for example in the case of isolation segments), you will need to rename bosh links to prevent the error "Multiple link providers found. For an example of link renaming, see [this ops file](https://github.com/cloudfoundry/cf-deployment/blob/main/operations/test/add-persistent-isolation-segment-router.yml#L74) by @reneighbor in https://github.com/cloudfoundry/routing-release/pull/300
   * Ensure gorouter-healthchecker doesn't restart gorouter forever on failure by @geofffranks in https://github.com/cloudfoundry/routing-release/pull/305
   **Full Changelog**: https://github.com/cloudfoundry/routing-release/compare/0.248.0...v0.249.0
           </pre>
@@ -7176,7 +7176,7 @@ Reconfiguration by Default](#auto-reconfig-disallowed) below.
         <details>
           <summary>v9.19.0</summary>
           <pre style="max-width: 30em">
-  **New Features**
+  **New features**
   The `mysql-metrics` job now supports a `mysql-metrics.port` option to specify the MySQL port when scraping database metrics. This port defaults to 3306 but may be configured to a non-standard port.
           </pre>
         </details>
@@ -7236,7 +7236,7 @@ Reconfiguration by Default](#auto-reconfig-disallowed) below.
           <pre style="max-width: 30em">
   ## What's Changed
   - ⚠️ Bump to golang 1.18 🎉
-  **Breaking Changes:** The routing components are now more strict about the protocols used in TLS communications, causing integrations with systems using older, insecure protocols to fail. These components have been updated to Go 1.18, and will no longer support TLS 1.0 and 1.1 connections or certificates with a SHA-1 checksum. This is most likely to affect connections with external databases.
+  **Breaking changes:** The routing components are now more strict about the protocols used in TLS communications, causing integrations with systems using older, insecure protocols to fail. These components have been updated to Go 1.18, and will no longer support TLS 1.0 and 1.1 connections or certificates with a SHA-1 checksum. This is most likely to affect connections with external databases.
   Please see this golang 1.18 release notes [section](https://tip.golang.org/doc/go1.18#tls10) for more information about the golang 1.18 change.
   ###
   * Update uaa-go-client; by @joergdw in https://github.com/cloudfoundry/routing-release/pull/277
@@ -7294,7 +7294,7 @@ documentation](https://docs.pivotal.io/application-service/2-13/operating/jump-u
 * **[Feature]** Enables TLS for all internal MySQL galera and monitoring components
 * **[Feature Improvement]** Bump golang to 1.18.2+ for diego, garden-runc, mapfs, mysql-monitoring, cf-networking, and silk
 * **[Feature Improvement]** Use the latest version of nats-release (built on golang 1.18.5)
-* **[Breaking Change]** If you have configured an app log rate limit that measures app log rates in lines per second, Diego immediately drops app logs that
+* **[Breaking change]** If you have configured an app log rate limit that measures app log rates in lines per second, Diego immediately drops app logs that
 exceed the app log rate limit. For more information, see [Diego Drops App Logs That Exceed the App Log Rate Limit](#dropped-app-logs) below.
 * Bump backup-and-restore-sdk to version `1.18.50`
 * Bump bosh-system-metrics-forwarder to version `0.0.24`
@@ -7906,7 +7906,7 @@ instance. If you specify a service instance, Autoscaler only requests metrics fr
 * **[Security Fix]** Added Content-Security-Policy headers in UAA responses
 * **[Bug Fix]** Sticky sessions no longer break when used with route-services that return HTTP 4xx/5xx responses
 * **[Bug Fix/Improvement]** Stop emitting debug metrics for agents and log-cache by default. Reduces load on logging system by >=720 metrics per vm per minute
-* **[Breaking Change]** If you followed the procedure in [Autoscale application fails with MySQL Deadlock errors](https://community.pivotal.io/s/article/Autoscale-application-errors-with-MySQL-Deadlock) to manually add an index to an Autoscale database, and the index is not dropped before you upgrade to <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>.20, upgrading causes an error.
+* **[Breaking change]** If you followed the procedure in [Autoscale application fails with MySQL Deadlock errors](https://community.pivotal.io/s/article/Autoscale-application-errors-with-MySQL-Deadlock) to manually add an index to an Autoscale database, and the index is not dropped before you upgrade to <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>.20, upgrading causes an error.
 * Bump backup-and-restore-sdk to version `1.18.42`
 * Bump binary-offline-buildpack to version `1.0.45`
 * Bump bosh-system-metrics-forwarder to version `0.0.22`
@@ -8044,7 +8044,7 @@ instance. If you specify a service instance, Autoscaler only requests metrics fr
 * **[Feature Improvement]** Add option to configure CC BBR health check timeout
 * **[Feature Improvement]** Enforce service name uniqueness in shared services in spaces
 * **[Bug Fix]** Service offerings now appear to users in orgs/spaces with the appropriate service access
-* **[Breaking Change]** Syslog drains configured to use TLS now [reject certificates signed with the SHA-1 hash function](https://go.dev/doc/go1.18#sha1).
+* **[Breaking change]** Syslog drains configured to use TLS now [reject certificates signed with the SHA-1 hash function](https://go.dev/doc/go1.18#sha1).
 * Bump backup-and-restore-sdk to version `1.18.39`
 * Bump binary-offline-buildpack to version `1.0.43`
 * Bump capi to version `1.109.9`
@@ -8978,7 +8978,7 @@ Traffic](../concepts/understand-cf-networking.html#securing-traffic) in _Contain
 
 * **[Security Fix]** UAA and CredHub - Fix remote code execution vulnerability related to Log4j ([CVE-2021-44228](https://nvd.nist.gov/vuln/detail/CVE-2021-44228))
 * **[Bug Fix]** Diego - Envoy v1.19 uses the original TCP connection pool so that it can accept more than 1024 downstream connections
-* **[Breaking Change]** Gorouter - zipkin `trace-id` size complies with w3 standard of 16 bytes instead of the previous 8 bytes
+* **[Breaking change]** Gorouter - zipkin `trace-id` size complies with w3 standard of 16 bytes instead of the previous 8 bytes
 * Bump credhub to version `2.9.6` which has Log4j `2.15.0`
 * Bump diego to version `2.54.0`
 * Bump routing to version `0.227.0`
@@ -9048,7 +9048,7 @@ Traffic](../concepts/understand-cf-networking.html#securing-traffic) in _Contain
 **Release Date:** 11/23/2021
 
 * **[Bug Fix]** Fix log cache nozzle metrics
-* **[Breaking Change]** All Gorouter certificates require a SubjectAltName extension. If any Gorouter certificates lack a SubjectAltName, deployment fails. If you need to complete a deployment before configuring new Gorouter certificates, select **Enable temporary workaround for certs without SANs** in the **Networking** pane of the <%= vars.app_runtime_abbr %> tile. For more information about updating certificates, see [Routing and Golang 1.15 X.509 CommonName deprecation](https://community.pivotal.io/s/article/Routing-and-golang-1-15-X-509-CommonName-deprecation) in the Knowledge Base.
+* **[Breaking change]** All Gorouter certificates require a SubjectAltName extension. If any Gorouter certificates lack a SubjectAltName, deployment fails. If you need to complete a deployment before configuring new Gorouter certificates, select **Enable temporary workaround for certs without SANs** in the **Networking** pane of the <%= vars.app_runtime_abbr %> tile. For more information about updating certificates, see [Routing and Golang 1.15 X.509 CommonName deprecation](https://community.pivotal.io/s/article/Routing-and-golang-1-15-X-509-CommonName-deprecation) in the Knowledge Base.
 * **[Bug Fix]** Cloud Controller - Ensure app lifecycle_type is not nil when determining app lifecycle
 * Bump backup-and-restore-sdk to version `1.18.26`
 * Bump bpm to version `1.1.15`
@@ -9525,7 +9525,7 @@ Traffic](../concepts/understand-cf-networking.html#securing-traffic) in _Contain
 * **[Bug Fix]** Prevent TCP routes from using system component ports. For more information, see [TCP Routes Stop Working](https://community.pivotal.io/s/article/Known-Issue-TCP-Routes-Stop-Working?language=en_US) in the Knowledge Base. If you try to create or update a router group to include system component ports, the Routing API returns an error. Current invalid router groups that include system component ports are not changed, but a warning is logged. In <%= vars.app_runtime_abbr %> v2.12.0, invalid router groups cause a deploy failure. For more information, see [Check and fix invalid router groups before TAS 2.12](https://community.pivotal.io/s/article/Check-and-fix-invalid-router-groups-before-TAS-2-12?language=en_US) in the Knowledge Base.
 * **[Bug Fix]** Fix metric-registrar crashing when non-url formatted drains exist
 * **[Bug Fix]** Add an option to remove extra metadata from syslog drains
-* **[Breaking Change]** Gorouter sends all responses with transfer-encoded chunks. Some responses that were not chunked in previous versions now use transfer-encoded chunks. For more information, see [Clients receive responses with no Content-Length header and a chunked encoded body after upgrading Tanzu Application Service for VMs](https://community.pivotal.io/s/article/Clients-receive-responses-with-no-Content-Length-header-and-a-chunked-encoded-body-after-upgrading-Tanzu-Application-Service-for-VMs) in the Knowledge Base. _(edited 20 Oct 2021)_
+* **[Breaking change]** Gorouter sends all responses with transfer-encoded chunks. Some responses that were not chunked in previous versions now use transfer-encoded chunks. For more information, see [Clients receive responses with no Content-Length header and a chunked encoded body after upgrading Tanzu Application Service for VMs](https://community.pivotal.io/s/article/Clients-receive-responses-with-no-Content-Length-header-and-a-chunked-encoded-body-after-upgrading-Tanzu-Application-Service-for-VMs) in the Knowledge Base. _(edited 20 Oct 2021)_
 * Bump binary-offline-buildpack to version `1.0.39`
 * Bump cf-networking to version `2.38.0`
 * Bump cflinuxfs3 to version `0.249.0`
@@ -9787,9 +9787,9 @@ Traffic](../concepts/understand-cf-networking.html#securing-traffic) in _Contain
 
 **Release Date:** March 30, 2021
 
-- See [New Features in <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>](#new-features)
+- See [New features in <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>](#new-features)
 - See [Resolved Issues](#resolved-issues)
-- See [Breaking Changes](#breaking-changes)
+- See [Breaking changes](#breaking-changes)
 
 <table border="1" class="nice">
   <thead>
@@ -9882,7 +9882,7 @@ currently compatible with <%= vars.app_runtime_abbr %> <%= vars.v_major_version 
 `2222` for inbound SSH traffic. If you are upgrading from PAS v2.7, you may need to adjust the NSX-T firewall rules for your apps.
 
 
-## <a id='new-features'></a> New Features in <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>
+## <a id='new-features'></a> New features in <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>
 
 <%= vars.app_runtime_abbr %> <%= vars.v_major_version %> includes the following major features:
 
@@ -9956,7 +9956,7 @@ In <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>.1 and later, you can
 the stemcell or re-creating all VMs.
 
 
-## <a id='breaking-changes'></a> Breaking Changes
+## <a id='breaking-changes'></a> Breaking changes
 
 <%= vars.app_runtime_abbr %> <%= vars.v_major_version %> includes the following breaking changes:
 
@@ -10037,7 +10037,7 @@ between service instances and apps to be unique. If duplicate service bindings e
 To work around this issue, you must delete any duplicate bindings before you upgrade.
 
 
-## <a id='known-issues'></a> Known Issues
+## <a id='known-issues'></a> Known issues
 
 <%= vars.app_runtime_abbr %> <%= vars.v_major_version %> includes the following known issues:
 
