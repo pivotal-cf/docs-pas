@@ -17,6 +17,271 @@ Because VMware uses the Percona Distribution for MySQL, expect a time lag betwee
 
 ## <a id='releases'></a> Releases
 
+### <a id='2.13.20'></a> 2.13.20
+
+**Release Date:** 06/26/2023
+
+* **[Feature]** Adds support for W3C Trace ID logging across Diego component requests
+* **[Bug Fix]** Timeouts in for executor's uploader have been increased to 500ms
+* **[Bug Fix]** Byte-based logging limits for LRPs and Tasks now emit only once per second
+* **[Bug Fix/Improvement]** Garden now ships with Busybox 1.36.1 as the default filesystem
+
+* Bump bpm to version `1.2.2`
+* Bump cf-networking to version `3.28.0`
+* Bump diego to version `2.78.0`
+* Bump garden-runc to version `1.33.0`
+* Bump loggregator-agent to version `6.5.11`
+* Bump mapfs to version `1.2.24`
+* Bump nfs-volume to version `7.1.20`
+* Bump routing to version `0.271.0`
+* Bump silk to version `3.28.0`
+* Bump smb-volume to version `3.1.19`
+
+<table border="1" class="nice">
+  <thead>
+    <tr>
+      <th>Component</th>
+      <th>Version</th>
+      <th>Release Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>ubuntu-xenial stemcell</td><td>621.553</td><td></td></tr>
+    <tr><td>bpm</td><td>1.2.2</td><td></td></tr>
+    <tr><td>cf-networking</td><td>3.28.0</td>
+      <td>
+        <details>
+          <summary>v3.28.0</summary>
+          <pre style="max-width: 30em">
+  ## Changes
+  - Bumped to golang 1.20.5
+  ## ✨  Built with go 1.20.5
+  **Full Changelog**: https://github.com/cloudfoundry/cf-networking-release/compare/v3.27.0...v3.28.0
+  ## Resources
+  - [Download release v3.28.0 from bosh.io](https://bosh.io/releases/github.com/cloudfoundry/cf-networking-release?version=3.28.0).
+          </pre>
+        </details>
+      </td>
+    </tr>
+    <tr><td>cflinuxfs3</td><td>0.367.0</td><td></td></tr>
+    <tr><td>count-cores-indicator</td><td>2.0.0</td><td></td></tr>
+    <tr><td>diego</td><td>2.78.0</td>
+      <td>
+        <details>
+          <summary>v2.78.0</summary>
+          <pre style="max-width: 30em">
+  ## Changes
+  - Bumped to golang 1.20.5
+  - Vizzini now defaults to cflinuxfs4
+  ## Bosh Job Spec changes:
+  ```diff
+  diff --git a/jobs/vizzini/spec b/jobs/vizzini/spec
+  index 40b5eb74b..6ff53c654 100644
+  --- a/jobs/vizzini/spec
+  +++ b/jobs/vizzini/spec
+  @@ -73,7 +73,7 @@ properties:
+  default_rootfs:
+  description: "Default preloaded rootfs to target for running Tasks and LRPs"
+  -    default: "preloaded:cflinuxfs3"
+  +    default: "preloaded:cflinuxfs4"
+  grace_tarball_url:
+  description: "URL for the grace test asset"
+  ```
+  ## ✨  Built with go 1.20.5
+  **Full Changelog**: https://github.com/cloudfoundry/diego-release/compare/v2.77.0...v2.78.0
+  ## Resources
+  - [Download release v2.78.0 from bosh.io](https://bosh.io/releases/github.com/cloudfoundry/diego-release?version=2.78.0).
+          </pre>
+        </details>
+        <details>
+          <summary>v2.77.0</summary>
+          <pre style="max-width: 30em">
+  ## Changes
+  - Adds support for W3C Trace ID logging across diego component requests
+  - Timeouts in for executor's uploader have been increased to 500ms
+  - Byte-based logging limits for LRPs and Tasks now emit only once per second
+  -  LRPs can now have liveness and readiness check intervals defined when the LRP is created.
+  - Dependency Bumps:
+  - code.cloudfoundry.org/archiver a23cadd462ce
+  - code.cloudfoundry.org/certsplitter a2c6caf14c29
+  - code.cloudfoundry.org/cf-tcp-router ecebe81f2c0c
+  - code.cloudfoundry.org/credhub-cli 439bdb2
+  - code.cloudfoundry.org/debugserver 70a733dc508f
+  - code.cloudfoundry.org/diego-logging-client 40495b68ac2e
+  - code.cloudfoundry.org/durationjson 7a601daf48ee
+  - code.cloudfoundry.org/eventhub 8efdeac72e14
+  - code.cloudfoundry.org/garden 8444ff5a31d7
+  - code.cloudfoundry.org/goshims v0.17.0
+  - code.cloudfoundry.org/grootfs 79fecf24
+  - code.cloudfoundry.org/guardian 98f55817772e
+  - code.cloudfoundry.org/idmapper a410520
+  - code.cloudfoundry.org/localip 2ea90d997658
+  - github.com/aws/aws-sdk-go v1.44.269
+  - github.com/awslabs/amazon-ecr-credential-helper/ecr-login 7f2db5bd753e
+  - github.com/cloudfoundry/dropsonde v1.1.0
+  - github.com/docker/docker v24.0.1+incompatible
+  - github.com/envoyproxy/go-control-plane ba92d50b6596
+  - github.com/nats-io/nats-server/v2 v2.9.17
+  - github.com/nats-io/nats.go v1.26.0
+  - github.com/onsi/ginkgo/v2 v2.9.5
+  - github.com/onsi/gomega v1.27.7
+  - github.com/tedsuo/ifrit 7862c310ad26
+  - golang.org/x/sys v0.8.0
+  - google.golang.org/grpc v1.55.0
+  ## ✨  Built with go 1.20.4
+  **Full Changelog**: https://github.com/cloudfoundry/diego-release/compare/v2.76.0...v2.77.0
+  ## Resources
+  - [Download release v2.77.0 from bosh.io](https://bosh.io/releases/github.com/cloudfoundry/diego-release?version=2.77.0).
+          </pre>
+        </details>
+      </td>
+    </tr>
+    <tr><td>garden-runc</td><td>1.33.0</td>
+      <td>
+        <details>
+          <summary>v1.33.0</summary>
+          <pre style="max-width: 30em">
+  ## Changes
+  - Bumped to golang 1.20.5
+  ## ✨  Built with go 1.20.5
+  **Full Changelog**: https://github.com/cloudfoundry/garden-runc-release/compare/v1.32.0...v1.33.0
+  ## Resources
+  - [Download release v1.33.0 from bosh.io](https://bosh.io/releases/github.com/cloudfoundry/garden-runc-release?version=1.33.0).
+          </pre>
+        </details>
+        <details>
+          <summary>v1.32.0</summary>
+          <pre style="max-width: 30em">
+  ## Changes
+  - The grootfs package no longer ships with test asset tarballs (those are only used for unit tests and don't need to be installed as part of the package).
+  ## ✨  Built with go 1.20.4
+  **Full Changelog**: https://github.com/cloudfoundry/garden-runc-release/compare/v1.31.0...v1.32.0
+  ## Resources
+  - [Download release v1.32.0 from bosh.io](https://bosh.io/releases/github.com/cloudfoundry/garden-runc-release?version=1.32.0).
+          </pre>
+        </details>
+        <details>
+          <summary>v1.31.0</summary>
+          <pre style="max-width: 30em">
+  ## Changes
+  - Garden now ships with Busybox 1.36.1 as the default filesystem
+  - Dependency Bumps
+  - healthchecker boshrelease  v0.8.0
+  - github.com/onsi/gomega v1.27.7
+  - go.opentelemetry.io/otel v1.15.1
+  - github.com/burntsushi/toml v1.3.0
+  - github.com/docker/docker v24.0.2+incompatible
+  - github.com/urfave/cli/v2 v2.25.5
+  - github.com/cloudfoundry/dropsonde v1.1.0
+  - github.com/sirupsen/logrus v1.9.2
+  ## Bosh Job Spec changes:
+  ```diff
+  diff --git a/jobs/garden/spec b/jobs/garden/spec
+  index c69f4080..259bba46 100644
+  --- a/jobs/garden/spec
+  +++ b/jobs/garden/spec
+  @@ -89,7 +89,7 @@ properties:
+  garden.default_container_rootfs:
+  description: "path to the rootfs to use when a container specifies no rootfs"
+  -    default: /var/vcap/packages/busybox/busybox-1.35.0.tar
+  +    default: /var/vcap/packages/busybox/busybox-1.36.1.tar
+  garden.graph_cleanup_threshold_in_mb:
+  description: "DEPRECATED in favour of grootfs.reserved_space_for_other_jobs_in_mb."
+  ```
+  ## ✨  Built with go 1.20.4
+  **Full Changelog**: https://github.com/cloudfoundry/garden-runc-release/compare/v1.30.0...v1.31.0
+  ## Resources
+  - [Download release v1.31.0 from bosh.io](https://bosh.io/releases/github.com/cloudfoundry/garden-runc-release?version=1.31.0).
+          </pre>
+        </details>
+      </td>
+    </tr>
+    <tr><td>haproxy</td><td>11.17.4</td><td></td></tr>
+    <tr><td>loggregator-agent</td><td>6.5.11</td>
+      <td>
+        <details>
+          <summary>v6.5.11</summary>
+          <pre style="max-width: 30em">
+  ## What's Changed
+  * bump dependencies
+  * bump to golang 1.20.5
+  **Full Changelog**: https://github.com/cloudfoundry/loggregator-agent-release/compare/v6.5.10...v6.5.11
+          </pre>
+        </details>
+      </td>
+    </tr>
+    <tr><td>mapfs</td><td>1.2.24</td>
+      <td>
+        <details>
+          <summary>v1.2.24</summary>
+          <pre style="max-width: 30em">
+  ## Dependencies
+  * **ginkgo:** Updated to v2.9.7.<br>For more information, see [ginkgo](https://github.com/onsi/ginkgo).
+  * **mapfs:** Updated to v`1bc5ebc`.<br>For more information, see [mapfs](https://github.com/cloudfoundry/mapfs).
+          </pre>
+        </details>
+      </td>
+    </tr>
+    <tr><td>metrics-discovery</td><td>3.2.9</td><td></td></tr>
+    <tr><td>nfs-volume</td><td>7.1.20</td><td></td></tr>
+    <tr><td>routing</td><td>0.271.0</td>
+      <td>
+        <details>
+          <summary>v0.271.0</summary>
+          <pre style="max-width: 30em">
+  ## Changes
+  - Bumped to golang 1.20.5
+  ## ✨  Built with go 1.20.5
+  **Full Changelog**: https://github.com/cloudfoundry/routing-release/compare/v0.270.0...v0.271.0
+  ## Resources
+  - [Download release v0.271.0 from bosh.io](https://bosh.io/releases/github.com/cloudfoundry/routing-release?version=0.271.0).
+          </pre>
+        </details>
+      </td>
+    </tr>
+    <tr><td>silk</td><td>3.28.0</td>
+      <td>
+        <details>
+          <summary>v3.28.0</summary>
+          <pre style="max-width: 30em">
+  ## Changes
+  - Bumped to golang 1.20.5
+  ## ✨  Built with go 1.20.5
+  **Full Changelog**: https://github.com/cloudfoundry/silk-release/compare/v3.27.0...v3.28.0
+  ## Resources
+  - [Download release v3.28.0 from bosh.io](https://bosh.io/releases/github.com/cloudfoundry/silk-release?version=3.28.0).
+          </pre>
+        </details>
+      </td>
+    </tr>
+    <tr><td>smb-volume</td><td>3.1.19</td>
+      <td>
+        <details>
+          <summary>v3.1.19</summary>
+          <pre style="max-width: 30em">
+  ## Changes
+  * Fix possible log cred leak (#442) (#124)
+  ## Dependencies
+  * **smbbroker:** Updated to v`73b69db`.<br>For more information, see [smbbroker](https://github.com/cloudfoundry/smbbroker).
+  * **smbdriver:** Updated to v`1267799`.<br>For more information, see [smbdriver](https://github.com/cloudfoundry/smbdriver).
+          </pre>
+        </details>
+        <details>
+          <summary>v3.1.18</summary>
+          <pre style="max-width: 30em">
+  ## Dependencies
+  * **smbbroker:** Updated to v`01e4eb6`.<br>For more information, see [smbbroker](https://github.com/cloudfoundry/smbbroker).
+          </pre>
+        </details>
+      </td>
+    </tr>
+    <tr><td>smoke-tests</td><td>4.8.2</td><td></td></tr>
+    <tr><td>syslog</td><td>11.8.9</td><td></td></tr>
+  </tbody>
+</table>
+
+
+
 ### <a id='2.13.19'></a> 2.13.19
 
 **Release Date:** 06/02/2023
