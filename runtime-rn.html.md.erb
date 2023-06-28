@@ -1123,6 +1123,14 @@ Because VMware uses the Percona Distribution for MySQL, expect a time lag betwee
 
 ## <a id='breaking-changes'></a> Breaking changes
 
+### Autoscaler API no longer accepts trailing slashes in requests
+
+Previously the Autoscaler API would have responded to a URL with a trailing slash and now it will return a 404 error.
+
+If you are using the API directly, please confirm that you are not including trailing slashes in the URL before upgrading.
+
+This does not affect users who are using the autoscaler cf CLI plugin.
+
 ## <a id='known-issues'></a> Known issues
 
 There are no known issues for <%= vars.app_runtime_full %> <%= vars.v_major_version %>.
