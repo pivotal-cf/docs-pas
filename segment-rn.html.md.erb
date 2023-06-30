@@ -21,6 +21,8 @@ Because VMware uses the Percona Distribution for MySQL, expect a time lag betwee
 
 **Release Date:** 06/26/2023
 
+<%= partial "/pcf/tas/known-issues/multiple-expect-100-continue-tas-4-0" %>
+
 * **[Bug Fix]**: SMB configuration from the TAS tile will now also be applied to the IST tile if installed
 * **[Feature]** Adds support for W3C Trace ID logging across Diego component requests
 * **[Bug Fix]** Timeouts in for executor's uploader have been increased to 500ms
@@ -310,6 +312,8 @@ Because VMware uses the Percona Distribution for MySQL, expect a time lag betwee
 
 **Release Date:** 06/02/2023
 
+<%= partial "/pcf/tas/known-issues/multiple-expect-100-continue-tas-4-0" %>
+
 * **[Bug Fix]** Operators can disable gorouter request timeouts (i.e. for streaming applications) by configuring them to 0
 * **[Bug Fix/Improvement]** "Back end request timeout for the Gorouter" property no longer affects idle timeout of long lived requests. Idle timeouts now configurable by "Front end idle timeout for the Gorouter" property.
 * Bump bpm to version `1.2.2`
@@ -558,6 +562,8 @@ Because VMware uses the Percona Distribution for MySQL, expect a time lag betwee
 
 **Release Date:** 05/25/2023
 
+<%= partial "/pcf/tas/known-issues/multiple-expect-100-continue-tas-4-0" %>
+
 * **[Bug Fix]**: SMB configuration from the TAS tile will now also be applied to the IST tile if installed
 * **[Feature Improvement]** Migrate stop of rsyslogd to post-stop step, so that logs during stopping of Bosh jobs are still forwarded to configured targets.
 * Bump cflinuxfs3 to version `0.366.0`
@@ -785,6 +791,8 @@ Because VMware uses the Percona Distribution for MySQL, expect a time lag betwee
 ### <a id='4.0.1'></a> 4.0.1+LTS-T
 
 **Release Date:** 05/17/2023
+
+<%= partial "/pcf/tas/known-issues/multiple-expect-100-continue-tas-4-0" %>
 
 * **[Security Fix]** Whereas TAS 4.0.0 was unaffected by [CVE-2023-20882](https://www.cloudfoundry.org/blog/cve-2023-20882-gorouter-pruning-via-client-disconnect-resulting-in-dos/), IST 4.0.1 updates to a routing-release version containing the fix.
 * **[Bug Fix]** Fixes an issue in gorouter where requests that should have returned 496, 499, 503, 525, or 526 HTTP status codes may instead have returned as 502s, potentially preventing stale route pruning.
@@ -1308,6 +1316,8 @@ Because VMware uses the Percona Distribution for MySQL, expect a time lag betwee
 ### <a id='4.0.0'></a> 4.0.0+LTS-T
 
 **Release Date:** 04/18/2023
+
+<%= partial "/pcf/tas/known-issues/multiple-expect-100-continue-tas-4-0" %>
 
 * **[Breaking Change]** Remove deprecated global log rate limit
 * Bump bpm to version `1.1.21`
