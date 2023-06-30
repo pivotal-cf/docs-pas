@@ -21,6 +21,8 @@ MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> containing that pa
 
 **Release Date:** 06/26/2023
 
+<%= partial "/pcf/tas/known-issues/multiple-expect-100-continue-tas-4-0" %>
+
 * **[Feature]** Expose "Certificate Authorities trusted by the Gorouter for client requests" in the Networking tab
 * **[Feature]** Adds support for W3C Trace ID logging across Diego component requests
 * **[Bug Fix]** Timeouts in for executor's uploader have been increased to 500ms
@@ -463,6 +465,8 @@ MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> containing that pa
 ### <a id='4.0.3'></a> 4.0.3
 
 **Release Date:** 06/02/2023
+
+<%= partial "/pcf/tas/known-issues/multiple-expect-100-continue-tas-4-0" %>
 
 * **[Bug Fix]** Operators can disable gorouter request timeouts (i.e. for streaming applications) by configuring them to 0
 * **[Bug Fix/Improvement]** This is an improvement to dependencies.
@@ -1243,6 +1247,8 @@ MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> containing that pa
 
 **Release Date:** 05/25/2023
 
+<%= partial "/pcf/tas/known-issues/multiple-expect-100-continue-tas-4-0" %>
+
 * **[Feature Improvement]** Migrate stop of rsyslogd to post-stop step, so that logs during stopping of Bosh jobs are still forwarded to configured targets.
 * **[Bug Fix]** SMB configuration from the TAS tile will now also be applied to the IST tile if installed
 * Bump backup-and-restore-sdk to version `1.18.71`
@@ -1574,6 +1580,8 @@ MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> containing that pa
 ### <a id='4.0.1'></a> 4.0.1+LTS-T
 
 **Release Date:** 05/17/2023
+
+<%= partial "/pcf/tas/known-issues/multiple-expect-100-continue-tas-4-0" %>
 
 * **[Security Fix]** Although TAS 4.0.0 was unaffected by [CVE-2023-20882](https://www.cloudfoundry.org/blog/cve-2023-20882-gorouter-pruning-via-client-disconnect-resulting-in-dos/), TAS 4.0.1 updates to a routing-release version containing the fix.
 * **[Security Fix]** Don't allow syslog drain credentials to be overwritten ([CVE-2023-20881](https://www.cloudfoundry.org/blog/cve-2023-20881-cas-for-syslog-drain-mtls-feature-can-be-overwritten/))
@@ -2952,6 +2960,8 @@ MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> containing that pa
 ### <a id='4.0.0'></a> 4.0.0+LTS-T
 
 **Release Date:** 04/18/2023
+
+<%= partial "/pcf/tas/known-issues/multiple-expect-100-continue-tas-4-0" %>
 
 * **[Security Fix]** Bump Apps Manager to address [CVE-2022-24999](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-24999), [CVE-2022-25881](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-25881), and [CVE-2023-23936](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-23936)
 * **[Security Fix]** Fix BBR scripts and bump spring-boot to address [CVE-2023-20860](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-20860) and [CVE-2023-20861](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-20861)
