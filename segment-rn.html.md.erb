@@ -21,6 +21,8 @@ Because VMware uses the Percona Distribution for MySQL, expect a time lag betwee
 
 **Release Date:** 06/26/2023
 
+<%= partial "/pcf/tas/known-issues/multiple-expect-100-continue-tas-2-11" %>
+
 * **[Feature]** Adds support for W3C Trace ID logging across Diego component requests
 * **[Bug Fix]** Timeouts in for executor's uploader have been increased to 500ms
 * **[Bug Fix]** Byte-based logging limits for LRPs and Tasks now emit only once per second
@@ -286,6 +288,8 @@ Because VMware uses the Percona Distribution for MySQL, expect a time lag betwee
 
 **Release Date:** 06/02/2023
 
+<%= partial "/pcf/tas/known-issues/multiple-expect-100-continue-tas-2-11" %>
+
 * **[Bug Fix]** Operators can disable gorouter request timeouts (i.e. for streaming applications) by configuring them to 0
 * **[Bug Fix/Improvement]** "Back end request timeout for the Gorouter" property no longer affects idle timeout of long lived requests. Idle timeouts now configurable by "Front end idle timeout for the Gorouter" property.
 * Bump cf-networking to version `3.27.0`
@@ -509,6 +513,8 @@ Because VMware uses the Percona Distribution for MySQL, expect a time lag betwee
 
 **Release Date:** 05/25/2023
 
+<%= partial "/pcf/tas/known-issues/multiple-expect-100-continue-tas-2-11" %>
+
 * Bump cflinuxfs3 to version `0.366.0`
 * Bump mapfs to version `1.2.22`
 * Bump nfs-volume to version `7.1.16`
@@ -695,6 +701,8 @@ Because VMware uses the Percona Distribution for MySQL, expect a time lag betwee
 ### <a id='2.13.17'></a> 2.13.17
 
 **Release Date:** 05/15/2023
+
+<%= partial "/pcf/tas/known-issues/multiple-expect-100-continue-tas-2-11" %>
 
 * **[Security Fix]** Resolve issue in gorouter where canceled requests can result in apps becoming unavailable ([CVE-2023-20882](https://www.cloudfoundry.org/blog/cve-2023-20882-gorouter-pruning-via-client-disconnect-resulting-in-dos/))
 * **[Bug Fix]** Fixes an issue in gorouter where requests that should have returned 496, 499, 503, 525, or 526 HTTP status codes may instead have returned as 502s, potentially preventing stale route pruning.
@@ -1066,6 +1074,7 @@ Because VMware uses the Percona Distribution for MySQL, expect a time lag betwee
 ### <a id='2.13.16'></a> 2.13.16
 
 <%= partial "/pcf/tas/known-issues/gorouter-route-unavailability" %>
+<%= partial "/pcf/tas/known-issues/multiple-expect-100-continue-tas-2-11" %>
 
 * **[Bug Fix]** Fixed issues in route_registrar and tcp_router that led to unnecessary haproxy reloads
 * Bump bpm to version `1.1.23`
@@ -1225,6 +1234,7 @@ Because VMware uses the Percona Distribution for MySQL, expect a time lag betwee
 **Release Date:** 03/21/2023
 
 <%= partial "/pcf/tas/known-issues/gorouter-pruning-bug" %>
+<%= partial "/pcf/tas/known-issues/multiple-expect-100-continue-tas-2-11" %>
 
 * Bump cf-networking to version `3.23.0`
 * Bump cflinuxfs3 to version `0.356.0`
