@@ -21,6 +21,8 @@ Because VMware uses the Percona Distribution for MySQL, expect a time lag betwee
 
 **Release Date:** 06/26/2023
 
+<%= partial "/pcf/tas/known-issues/multiple-expect-100-continue-tas-3-0" %>
+
 * **[Feature]** Expose "Certificate Authorities trusted by the Gorouter for client requests" in the Networking tab
 * **[Feature]** Adds support for W3C Trace ID logging across Diego component requests
 * **[Bug Fix]** Timeouts in for executor's uploader have been increased to 500ms
@@ -406,6 +408,8 @@ Because VMware uses the Percona Distribution for MySQL, expect a time lag betwee
 ### <a id='3.0.12'></a> 3.0.12
 
 **Release Date:** 06/02/2023
+
+<%= partial "/pcf/tas/known-issues/multiple-expect-100-continue-tas-3-0" %>
 
 * **[Bug Fix]** Operators can disable gorouter request timeouts (i.e. for streaming applications) by configuring them to 0
 * **[Bug Fix/Improvement]** This is an improvement to dependencies.
@@ -1184,6 +1188,8 @@ Because VMware uses the Percona Distribution for MySQL, expect a time lag betwee
 
 **Release Date:** 05/25/2023
 
+<%= partial "/pcf/tas/known-issues/multiple-expect-100-continue-tas-3-0" %>
+
 * **[Feature Improvement]** Migrate stop of rsyslogd to post-stop step, so that logs during stopping of Bosh jobs are still forwarded to configured targets.
 * **[Bug Fix]** SMB configuration from the TAS tile will now also be applied to the IST tile if installed
 * Bump backup-and-restore-sdk to version `1.18.71`
@@ -1513,6 +1519,8 @@ Because VMware uses the Percona Distribution for MySQL, expect a time lag betwee
 ### <a id='3.0.10'></a> 3.0.10
 
 **Release Date:** 05/17/2023
+
+<%= partial "/pcf/tas/known-issues/multiple-expect-100-continue-tas-3-0" %>
 
 * **[Security Fix]** Resolve issue in gorouter where canceled requests can result in apps becoming unavailable ([CVE-2023-20882](https://www.cloudfoundry.org/blog/cve-2023-20882-gorouter-pruning-via-client-disconnect-resulting-in-dos/))
 * **[Feature Improvement]** Allow disabling of signature v4 streaming for system blobstore
@@ -2669,6 +2677,7 @@ Because VMware uses the Percona Distribution for MySQL, expect a time lag betwee
 **Release Date:** 04/20/2023
 
 <%= partial "/pcf/tas/known-issues/gorouter-route-unavailability" %>
+<%= partial "/pcf/tas/known-issues/multiple-expect-100-continue-tas-3-0" %>
 
 * **[Security Fix]** Bump Apps Manager to address [CVE-2022-24999](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-24999), [CVE-2022-25881](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-25881), and [CVE-2023-23936](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-23936)
 * **[Security Fix]** Fix BBR scripts and bump spring-boot to address [CVE-2023-20860](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-20860) and [CVE-2023-20861](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-20861)
@@ -3676,6 +3685,7 @@ Because VMware uses the Percona Distribution for MySQL, expect a time lag betwee
 **Release Date:** 03/21/2023
 
 <%= partial "/pcf/tas/known-issues/gorouter-pruning-bug" %>
+<%= partial "/pcf/tas/known-issues/multiple-expect-100-continue-tas-3-0" %>
 
 * **[Security Fix]** Bump autoscaler to v249.1.3
 * **[Feature]** Ensure Apps Manager uses inclusive language
