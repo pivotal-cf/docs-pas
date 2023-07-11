@@ -3,7 +3,7 @@ title: VMware Tanzu Application Service for VMs v2.13 Release notes
 owner: Release Engineering
 ---
 
-Here you will find the release notes for <%= vars.app_runtime_first %> <%= vars.v_major_version %>.
+These are the release notes for <%= vars.app_runtime_first %> <%= vars.v_major_version %>.
 
 <%= vars.app_runtime_abbr %> is certified by the Cloud Foundry Foundation for 2023.
 
@@ -13,7 +13,7 @@ Provider?](https://www.cloudfoundry.org/certified-platforms-how-to/) on the Clou
 Because VMware uses the Percona Distribution for MySQL, expect a time lag between Oracle releasing a MySQL patch and VMware releasing
 <%= vars.app_runtime_abbr %> containing that patch.
 
-**Required Cloud Foundry Command-Line Interface (cf CLI) version:** You must install cf CLI v7 or cf CLI v8 when upgrading to or using
+**Required Cloud Foundry Command-Line Interface (cf CLI) version:** You must install cf CLI v7 or cf CLI v8 when you upgrade to or use
 <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>. For more information, see [Upgrading to cf CLI v7](../cf-cli/v7.html) and [Upgrading to cf CLI
 v8](../cf-cli/v8.html).
 
@@ -27,11 +27,11 @@ v8](../cf-cli/v8.html).
 
 <%= partial "/pcf/tas/known-issues/multiple-expect-100-continue-tas-2-13" %>
 
-* **[Feature]** Expose "Certificate Authorities trusted by the Gorouter for client requests" in the Networking tab
-* **[Feature]** Adds support for W3C Trace ID logging across Diego component requests
-* **[Bug Fix]** Timeouts in for executor's uploader have been increased to 500ms
-* **[Bug Fix]** Byte-based logging limits for LRPs and Tasks now emit only once per second
-* **[Bug Fix/Improvement]** Garden now ships with Busybox 1.36.1 as the default filesystem
+* **[Feature]** Expose "Certificate Authorities trusted by the Gorouter for client requests" in the Networking tab.
+* **[Feature]** Adds support for W3C Trace ID logging across Diego component requests.
+* **[Bug Fix]** Timeouts in for executor's uploader have been increased to 500ms.
+* **[Bug Fix]** Byte-based logging limits for LRPs and Tasks now emit only once per second.
+* **[Bug Fix/Improvement]** Garden now ships with Busybox 1.36.1 as the default filesystem.
 
 * Bump backup-and-restore-sdk to version `1.18.77`
 * Bump bosh-system-metrics-forwarder to version `0.0.32`
@@ -67,7 +67,7 @@ v8](../cf-cli/v8.html).
           <summary>v1.18.77</summary>
           <pre style="max-width: 30em">
   ## Changes
-  * use "passed" on cryogenics-concourse-tasks (#1077)
+  * Used "passed" on cryogenics-concourse-tasks (#1077).
   ## Dependencies
   * **api:** Updated to v0.125.0.<br>For more information, see [api](https://github.com/googleapis/google-api-go-client).
           </pre>
@@ -134,8 +134,8 @@ v8](../cf-cli/v8.html).
           <summary>v2.78.0</summary>
           <pre style="max-width: 30em">
   ## Changes
-  - Bumped to golang 1.20.5
-  - Vizzini now defaults to cflinuxfs4
+  - Bumped to golang 1.20.5.
+  - Vizzini now defaults to cflinuxfs4.
   ## Bosh Job Spec changes:
   ```diff
   diff --git a/jobs/vizzini/spec b/jobs/vizzini/spec
@@ -160,10 +160,10 @@ v8](../cf-cli/v8.html).
           <summary>v2.77.0</summary>
           <pre style="max-width: 30em">
   ## Changes
-  - Adds support for W3C Trace ID logging across diego component requests
-  - Timeouts in for executor's uploader have been increased to 500ms
-  - Byte-based logging limits for LRPs and Tasks now emit only once per second
-  -  LRPs can now have liveness and readiness check intervals defined when the LRP is created.
+  - Adds support for W3C Trace ID logging across diego component requests.
+  - Timeouts in for executor's uploader have been increased to 500ms.
+  - Byte-based logging limits for LRPs and Tasks now emit only once per second.
+  - LRPs can now have liveness and readiness check intervals defined when the LRP is created.
   - Dependency Bumps:
   - code.cloudfoundry.org/archiver a23cadd462ce
   - code.cloudfoundry.org/certsplitter a2c6caf14c29
@@ -228,7 +228,7 @@ v8](../cf-cli/v8.html).
           <summary>v1.31.0</summary>
           <pre style="max-width: 30em">
   ## Changes
-  - Garden now ships with Busybox 1.36.1 as the default filesystem
+  - Garden now ships with Busybox 1.36.1 as the default filesystem.
   - Dependency Bumps
   - healthchecker boshrelease  v0.8.0
   - github.com/onsi/gomega v1.27.7
@@ -299,7 +299,7 @@ v8](../cf-cli/v8.html).
           <summary>v56.4.0</summary>
           <pre style="max-width: 30em">
   ## Changes
-  - Bumped go to 1.20.5
+  - Bumped go to 1.20.5.
   ## ✨  Built with go 1.20.5
   **Full Changelog**: https://github.com/cloudfoundry/nats-release/compare/v56.3.0...v56.4.0
   ## Resources
@@ -336,7 +336,7 @@ v8](../cf-cli/v8.html).
           <summary>v0.271.0</summary>
           <pre style="max-width: 30em">
   ## Changes
-  - Bumped to golang 1.20.5
+  - Bumped to golang 1.20.5.
   ## ✨  Built with go 1.20.5
   **Full Changelog**: https://github.com/cloudfoundry/routing-release/compare/v0.270.0...v0.271.0
   ## Resources
@@ -352,7 +352,7 @@ v8](../cf-cli/v8.html).
           <summary>v3.28.0</summary>
           <pre style="max-width: 30em">
   ## Changes
-  - Bumped to golang 1.20.5
+  - Bumped to golang 1.20.5.
   ## ✨  Built with go 1.20.5
   **Full Changelog**: https://github.com/cloudfoundry/silk-release/compare/v3.27.0...v3.28.0
   ## Resources
@@ -367,7 +367,7 @@ v8](../cf-cli/v8.html).
           <summary>v3.1.19</summary>
           <pre style="max-width: 30em">
   ## Changes
-  * Fix possible log cred leak (#442) (#124)
+  * Fixed possible log cred leak (#442) (#124).
   ## Dependencies
   * **smbbroker:** Updated to v`73b69db`.<br>For more information, see [smbbroker](https://github.com/cloudfoundry/smbbroker).
   * **smbdriver:** Updated to v`1267799`.<br>For more information, see [smbdriver](https://github.com/cloudfoundry/smbdriver).
@@ -412,8 +412,8 @@ v8](../cf-cli/v8.html).
 
 <%= partial "/pcf/tas/known-issues/multiple-expect-100-continue-tas-2-13" %>
 
-* **[Bug Fix]** Operators can disable gorouter request timeouts (i.e. for streaming applications) by configuring them to 0
-* **[Bug Fix]** Remove Apps Manager log rate-limit feature
+* **[Bug Fix]** Operators can deactivate gorouter request timeouts by configuring them to 0. For example, for streaming applications.
+* **[Bug Fix]** Remove Apps Manager log rate-limit feature.
 * **[Bug Fix/Improvement]** This is an improvement to dependencies.
 * **[Bug Fix/Improvement]** "Back end request timeout for the Gorouter" property no longer affects idle timeout of long lived requests. Idle timeouts now configurable by "Front end idle timeout for the Gorouter" property.
 * **[Bug Fix/Improvement]** This is an improvement to dependencies.
@@ -564,9 +564,9 @@ v8](../cf-cli/v8.html).
         <details>
           <summary>2.4.12</summary>
           <pre style="max-width: 30em">
-  * Add node 18.16.0, remove node 18.15.0 (#777)
-  for stack(s) cflinuxfs3, cflinuxfs4
-  * Does not override APSNETCORE_URLS if set by user
+  * Added node 18.16.0, remove node 18.15.0 (#777)
+  for stack(s) cflinuxfs3, cflinuxfs4.
+  * Does not override APSNETCORE_URLS if set by user.
   Packaged binaries:
   | name | version | cf_stacks |
   |-|-|-|
@@ -605,7 +605,7 @@ v8](../cf-cli/v8.html).
   - Bump dependencies:
   - github.com/onsi/ginkgo 2.9.5
   - golang.org/x/sys 0.8.0
-  - Add support for including request trace IDs in garden/guardian
+  - Added support for including request trace IDs in garden/guardian.
   ## ✨  Built with go 1.20.4
   **Full Changelog**: https://github.com/cloudfoundry/garden-runc-release/compare/v1.29.0...v1.30.0
   ## Resources
@@ -653,8 +653,8 @@ v8](../cf-cli/v8.html).
           <summary>4.59.0</summary>
           <pre style="max-width: 30em">
   I'm pleased to announce the release of the java-buildpack, version 4.59.0. This release includes updates to dependency frameworks, such as:
-  * Updates [Azure Application Insights](https://github.com/cloudfoundry/java-buildpack/blob/main/docs/framework-azure_application_insights_agent.md) agent from 2.x to 3.x (thanks to @mayrstefan )
-  * Updates the [Contrast Security](https://github.com/cloudfoundry/java-buildpack/blob/main/docs/framework-contrast_security_agent.md) agent from 4.x to 5.x (thanks to @tylernhoward )
+  * Updates [Azure Application Insights](https://github.com/cloudfoundry/java-buildpack/blob/main/docs/framework-azure_application_insights_agent.md) agent from 2.x to 3.x.
+  * Updates the [Contrast Security](https://github.com/cloudfoundry/java-buildpack/blob/main/docs/framework-contrast_security_agent.md) agent from 4.x to 5.x.
   There were also dependency bumps for other libraries, including:
   * Elastic APM
   * JaCoCo
@@ -785,15 +785,16 @@ v8](../cf-cli/v8.html).
         <details>
           <summary>1.8.10</summary>
           <pre style="max-width: 30em">
-  * Deprecate Nodejs v14.x (EOL)
-  * profile script: do not overwrite std files. This is a follow-up to #605 .profile.d scripts are "sourced" by the lifecycle one after the other, so make sure stdout/err for subsequent scripts are unaffected.
-  * appdynamics: remove dependency on ruby provided by stack
-  - cflinuxfs4 1.x does not come with ruby. Therefore rewrite profile
+  * Deprecated Nodejs v14.x (EOL).
+  * profile script: do not overwrite std files. This is a follow-up to #605 .profile.d scripts are "sourced" by the lifecycle one after the
+    other, so make sure stdout/err for subsequent scripts are unaffected.
+  * appdynamics: remove dependency on ruby provided by stack.
+  - cflinuxfs4 1.x does not come with ruby. Therefore, rewrite profile
   script from rb to sh.
-  - reactivate appdynamics test suite that was marked as pending
-  in PR #586
-  * Add node 18.16.0, remove node 18.14.1 for stack(s) cflinuxfs3, cflinuxfs4
-  * Install bootstrapped Python into nodejs-buildpack specific location (#598)
+  - Activate appdynamics test suite again that was marked as pending
+  in PR #586.
+  * Add node 18.16.0, remove node 18.14.1 for stack(s) cflinuxfs3, cflinuxfs4.
+  * Install bootstrapped Python into nodejs-buildpack specific location (#598).
   Packaged binaries:
   | name | version | cf_stacks |
   |-|-|-|
@@ -872,7 +873,7 @@ v8](../cf-cli/v8.html).
         <details>
           <summary>676.0.14</summary>
           <pre style="max-width: 30em">
-  Revert including the Log Rate Limit feature in 2.13
+  Revert including the Log Rate Limit feature in 2.13.
           </pre>
         </details>
       </td>
@@ -897,11 +898,11 @@ v8](../cf-cli/v8.html).
         <details>
           <summary>1.8.10</summary>
           <pre style="max-width: 30em">
-  * Remove mercurial tests (not supported anymore)
-  * Add pipenv 2023.4.29, remove pipenv 2023.3.20 for stack(s) cflinuxfs4, cflinuxfs3
-  * Add pip 23.1.2, remove pip 23.0.1 for stack(s) cflinuxfs4, cflinuxfs3
-  * Add setuptools 67.7.2, remove setuptools 67.6.1 for stack(s) cflinuxfs4, cflinuxfs3
-  * Refactor test framework to use Switchblade
+  * Remove mercurial tests (not supported anymore).
+  * Add pipenv 2023.4.29, remove pipenv 2023.3.20 for stack(s) cflinuxfs4, cflinuxfs3.
+  * Add pip 23.1.2, remove pip 23.0.1 for stack(s) cflinuxfs4, cflinuxfs3.
+  * Add setuptools 67.7.2, remove setuptools 67.6.1 for stack(s) cflinuxfs4, cflinuxfs3.
+  * Refactor test framework to use Switchblade.
   Packaged binaries:
   | name | version | cf_stacks |
   |-|-|-|
@@ -937,7 +938,7 @@ v8](../cf-cli/v8.html).
         <details>
           <summary>1.2.2</summary>
           <pre style="max-width: 30em">
-  * Updating github-config (#204)
+  * Updating github-config (#204).
   Packaged binaries:
   | name | version | cf_stacks | modules |
   |-|-|-|-|
@@ -959,11 +960,11 @@ v8](../cf-cli/v8.html).
           <summary>v0.270.0</summary>
           <pre style="max-width: 30em">
   ## Changes
-  - CI now tests CATS + RATS against cflinuxfs4
+  - CI now tests CATS + RATS against cflinuxfs4.
   - 🐛Gorouter's `request_timeout_in_seconds` now only affects request timeout and is not used for idle timeout, which is set by `frontend_idle_timeout`
   - routing-utils now passes `go vet`
   - Dependency Bumps:
-  - The vendored healthchecker boshrelease is now v0.8.0
+  - The vendored healthchecker boshrelease is now v0.8.0.
   - go.step.sm/crypto v0.31.0
   -
   - Go dependency bumps for the routing-utils package:
@@ -981,11 +982,11 @@ v8](../cf-cli/v8.html).
   description: |
   -      This configures a "request timeout" and a "backend idle timeout".
   +      This configures an entire request timeout.
-  Requests from router to backend endpoints that are longer than this duration will be canceled and logged as
+  Requests from router to backend endpoints that are longer than this duration are canceled and logged as
   -      `backend-request-timeout` errors. In addition, TCP connections between router and backend endpoints that
-  -      are idle for longer than this duration will be closed. Related properties: `router.max_idle_connections`
+  -      are idle for longer than this duration are closed. Related properties: `router.max_idle_connections`
   -      and `router.keep_alive_probe_interval`.
-  +      `backend-request-timeout` errors. If set to 0 this timeout is disabled.
+  +      `backend-request-timeout` errors. If set to 0 this timeout is deactivted.
   default: 900
   endpoint_dial_timeout_in_seconds:
   description: |
@@ -1000,9 +1001,9 @@ v8](../cf-cli/v8.html).
           <summary>v0.269.0</summary>
           <pre style="max-width: 30em">
   ## Changes
-  - Update sync-package-specs to install gosub
-  - Remove `trace-logger` update in sync-submodule-config
-  - Remove unused files
+  - Update sync-package-specs to install gosub.
+  - Remove `trace-logger` update in sync-submodule-config.
+  - Remove unused files.
   ## ✨  Built with go 1.20.4
   **Full Changelog**: https://github.com/cloudfoundry/routing-release/compare/v0.268.0...v0.269.0
   ## Resources
@@ -1016,10 +1017,10 @@ v8](../cf-cli/v8.html).
         <details>
           <summary>1.10.2</summary>
           <pre style="max-width: 30em">
-  * Add rubygems 3.4.13, remove rubygems 3.4.11 for stack(s) cflinuxfs4, cflinuxfs3
-  * Add bundler 2.4.13, remove bundler 2.4.11 for stack(s) cflinuxfs4, cflinuxfs3
-  * Add node 18.16.0, remove node 18.15.0 for stack(s) cflinuxfs3, cflinuxfs4
-  * Install bootstrapped Ruby into ruby-buildpack specific location
+  * Add rubygems 3.4.13, remove rubygems 3.4.11 for stack(s) cflinuxfs4, cflinuxfs3.
+  * Add bundler 2.4.13, remove bundler 2.4.11 for stack(s) cflinuxfs4, cflinuxfs3.
+  * Add node 18.16.0, remove node 18.15.0 for stack(s) cflinuxfs3, cflinuxfs4.
+  * Install bootstrapped Ruby into ruby-buildpack specific location.
   Packaged binaries:
   | name | version | cf_stacks |
   |-|-|-|
@@ -1059,9 +1060,9 @@ v8](../cf-cli/v8.html).
           <summary>v3.27.0</summary>
           <pre style="max-width: 30em">
   ## Changes
-  - Bumped vendored healthchecker release to v0.8.0
-  - Updated silk, silk-cni, and cni-wrapper-plugin for compatibility with v1.0.0 of the CNI spec
-  - Bumped github.com/containernetworking/cni to 1.1.2 and github.com/containernetworking/plugins to 1.3.0
+  - Bumped vendored healthchecker release to v0.8.0.
+  - Updated silk, silk-cni, and cni-wrapper-plugin for compatibility with v1.0.0 of the CNI spec.
+  - Bumped github.com/containernetworking/cni to 1.1.2 and github.com/containernetworking/plugins to 1.3.0.
   - Removed the `externalmods` code as it's no longer needed now that everything is on the latest CNI versions.
   ## ✨  Built with go 1.20.4
   **Full Changelog**: https://github.com/cloudfoundry/silk-release/compare/v3.26.0...v3.27.0
@@ -1310,7 +1311,8 @@ v8](../cf-cli/v8.html).
           <summary>v0.268.0</summary>
           <pre style="max-width: 30em">
   ## Changes
-  - Adds support for `route_registrar` to advertise HTTP2 based routes to gorouter. If not specified on a route, http1 is used by default. Thanks @peanball @plowin and @b1tamara!!
+  - Adds support for `route_registrar` to advertise HTTP2 based routes to gorouter. If not specified on a route,
+  http1 is used by default.
   ## Bosh Job Spec changes:
   ```diff
   diff --git a/jobs/route_registrar/spec b/jobs/route_registrar/spec
@@ -1318,13 +1320,13 @@ v8](../cf-cli/v8.html).
   --- a/jobs/route_registrar/spec
   +++ b/jobs/route_registrar/spec
   @@ -101,6 +101,7 @@ properties:
-  tls_port (required, integer, for http routes): Either `port` or `tls_port` are required; if both are provided, Gorouter will prefer tls_port.
-  Requests for associated URIs will be forwarded over TLS by the router to this port.
+  tls_port (required, integer, for http routes): Either `port` or `tls_port` are required; if both are provided, Gorouter prefers tls_port.
+  Requests for associated URIs are forwarded over TLS by the router to this port.
   The IP is determined automatically from the host on which route-registrar is run.
   +        protocol (optional, string): 'http1' or 'http2'. If not provided, Gorouter uses 'http1' as default.
-  route_service_url (optional, string, for http routes): When valid route service URL is provided, Gorouter will proxy requests received for the uris above to the specified route service URL.
+  route_service_url (optional, string, for http routes): When valid route service URL is provided, Gorouter proxies requests received for the uris above to the specified route service URL.
   server_cert_domain_san (conditional, string, for http routes): Required if tls_port is present.
-  Gorouter will validate that the TLS certificate presented by the destination host contains this as a Subject Alternative Name (SAN).
+  Gorouter validates that the TLS certificate presented by the destination host contains this as a Subject Alternative Name (SAN).
   ```
   ## ✨  Built with go 1.20.4
   **Full Changelog**: https://github.com/cloudfoundry/routing-release/compare/v0.267.0...v0.268.0
@@ -1363,11 +1365,12 @@ v8](../cf-cli/v8.html).
           <summary>3.24.0</summary>
           <pre style="max-width: 30em">
   ## Changes
-  - ⚠️ The new `silk-data-syncer` job is missing some files that cause compilation to fail. This is not a problem if you are deploying without that job. If you need the job, please upgrade to 3.25.1.
-  - Add new `silk-datastore-syncer` job to sync app log metadata from garden to silk datastore
-  - Bump to Go 1.20.4
-  - Bump to Silk 20230501162532-6ab8d30026c6
-  - Bump dependencies such that Ginkgo V2 and Lager V3 are used
+  - ⚠️ The new `silk-data-syncer` job is missing some files that cause compilation to fail. This is not a problem if
+  you are deploying without that job. If you need the job, please upgrade to 3.25.1.
+  - Add new `silk-datastore-syncer` job to sync app log metadata from garden to silk datastore.
+  - Bump to Go 1.20.4.
+  - Bump to Silk 20230501162532-6ab8d30026c6.
+  - Bump dependencies such that Ginkgo V2 and Lager V3 are used.
   ## Bosh Job Spec changes:
   ```diff
   diff --git a/jobs/silk-datastore-syncer/spec b/jobs/silk-datastore-syncer/spec
@@ -1388,7 +1391,7 @@ v8](../cf-cli/v8.html).
   +
   +properties:
   +  disable:
-  +    description: "Disable this monit job. It will not run. Required for backwards compatability."
+  +    description: "Disable this monit job. It does not run. Required for backwards compatability."
   +    default: false
   +  sync_interval_in_seconds:
   +    description: "Interval to check garden for new metadata."
@@ -1471,11 +1474,13 @@ v8](../cf-cli/v8.html).
 
 <%= partial "/pcf/tas/known-issues/multiple-expect-100-continue-tas-2-13" %>
 
-* **[Security Fix]** Resolve issue in gorouter where canceled requests can result in apps becoming unavailable ([CVE-2023-20882](https://www.cloudfoundry.org/blog/cve-2023-20882-gorouter-pruning-via-client-disconnect-resulting-in-dos/))
-* **[Feature Improvement]** Allow disabling of signature v4 streaming for system blobstore
-* **[Bug Fix]** Fixes an issue in gorouter where requests that should have returned 496, 499, 503, 525, or 526 HTTP status codes may instead have returned as 502s, potentially preventing stale route pruning.
-* **[Bug Fix]** Resolve regression: UI error after org deletion
-* **[Bug Fix]** Resolve Issue where Garden failed during BOSH/OpsMan deploys due to healthcheck
+* **[Security Fix]** Resolve issue in gorouter where canceled requests can result in apps.
+becoming unavailable ([CVE-2023-20882](https://www.cloudfoundry.org/blog/cve-2023-20882-gorouter-pruning-via-client-disconnect-resulting-in-dos/)).
+* **[Feature Improvement]** Allow disabling of signature v4 streaming for system blobstore.
+* **[Bug Fix]** Fixes an issue in gorouter where requests returned 496, 499, 503, 525, or 526 HTTP status codes might instead have
+returned as 502s, potentially preventing stale route pruning.
+* **[Bug Fix]** Resolve regression: UI error after org deletion.
+* **[Bug Fix]** Resolve Issue where Garden failed during BOSH/OpsMan deploys due to healthcheck.
 * Bump backup-and-restore-sdk to version `1.18.69`
 * Bump binary-offline-buildpack to version `1.1.4`
 * Bump bosh-system-metrics-forwarder to version `0.0.31`
@@ -1599,7 +1604,7 @@ v8](../cf-cli/v8.html).
           <summary>v0.0.31</summary>
           <pre style="max-width: 30em">
   ## What's Changed
-  * Bump to [go1.20.4](https://groups.google.com/g/golang-announce/c/MEb0UyuSMsU/m/QvrjqM4XAgAJ)
+  * Bump to [go1.20.4](https://groups.google.com/g/golang-announce/c/MEb0UyuSMsU/m/QvrjqM4XAgAJ).
   **Full Changelog**: https://github.com/cloudfoundry/bosh-system-metrics-forwarder-release/compare/v0.0.30...v0.0.31
           </pre>
         </details>
@@ -1612,13 +1617,13 @@ v8](../cf-cli/v8.html).
         <details>
           <summary>v249.1.9</summary>
           <pre style="max-width: 30em">
-  * Bump cf CLI plugin to [go1.20.4](https://groups.google.com/g/golang-announce/c/MEb0UyuSMsU/m/QvrjqM4XAgAJ)
+  * Bump cf CLI plug-in to [go1.20.4](https://groups.google.com/g/golang-announce/c/MEb0UyuSMsU/m/QvrjqM4XAgAJ).
           </pre>
         </details>
         <details>
           <summary>v249.1.8</summary>
           <pre style="max-width: 30em">
-  * Bump to [go1.20.4](https://groups.google.com/g/golang-announce/c/MEb0UyuSMsU/m/QvrjqM4XAgAJ)
+  * Bump to [go1.20.4](https://groups.google.com/g/golang-announce/c/MEb0UyuSMsU/m/QvrjqM4XAgAJ).
   * Bump spring-boot to 2.7.11
   * Bump dependencies
   * Replace gorilla with chi
@@ -1644,9 +1649,10 @@ v8](../cf-cli/v8.html).
           <summary>3.24.0</summary>
           <pre style="max-width: 30em">
   ## Changes
-  - Bump to Go 1.20.4
-  - Bump all dependencies such that only Ginkgo V2 and Lager V3 are used
-  - Use [new docker images](https://github.com/cloudfoundry/cf-networking-release/commit/4b69f0a5690611dfa730a70e641f5c1f8145c66c) for local testing
+  - Bump to Go 1.20.4.
+  - Bump all dependencies such that only Ginkgo V2 and Lager V3 are used.
+  - Use [new docker images](https://github.com/cloudfoundry/cf-networking-release/commit/4b69f0a5690611dfa730a70e641f5c1f8145c66c) for local
+  testing.
   ## ✨  Built with go 1.20.4
   **Full Changelog**: https://github.com/cloudfoundry/cf-networking-release/compare/3.23.0...v3.24.0
   ## Resources
@@ -1698,7 +1704,7 @@ v8](../cf-cli/v8.html).
   +    description: "Period in seconds after which the locket gRPC client sends keepalive ping requests to the locket server it is connected to."
   +    default: 10
   +  diego.auctioneer.locket.client_keepalive_timeout:
-  +    description: "Timeout in seconds to receive a response to the keepalive ping. If a response is not received within this time, the locket client will reconnect to another server."
+  +    description: "Timeout in seconds to receive a response to the keepalive ping. If a response is not received within this time, the locket client reconnects to another server."
   +    default: 22
   locks.locket.enabled:
   description: When set, the auctioneer attempts to claim a lock from the Locket API.
@@ -1708,29 +1714,29 @@ v8](../cf-cli/v8.html).
   +++ b/jobs/bbs/spec
   @@ -140,6 +140,12 @@ properties:
   diego.bbs.locket.api_location:
-  description: "Hostname and port of the Locket server. When set, the BBS attempts to claim a lock from the Locket API and will detect Diego cells registered with the Locket API."
+  description: "Hostname and port of the Locket server. When set, the BBS attempts to claim a lock from the Locket API and detects Diego cells registered with the Locket API."
   default: locket.service.cf.internal:8891
   +  diego.bbs.locket.client_keepalive_time:
   +    description: "Period in seconds after which the locket gRPC client sends keepalive ping requests to the locket server it is connected to."
   +    default: 10
   +  diego.bbs.locket.client_keepalive_timeout:
-  +    description: "Timeout in seconds to receive a response to the keepalive ping. If a response is not received within this time, the locket client will reconnect to another server."
+  +    description: "Timeout in seconds to receive a response to the keepalive ping. If a response is not received within this time, the locket client reconnects to another server."
   +    default: 22
   limits.open_files:
-  description: Maximum number of files (including sockets) the BBS process may have open.
+  description: Maximum number of files (including sockets) the BBS process that might have opened.
   diff --git a/jobs/rep/spec b/jobs/rep/spec
   index df7bd7c49..1383b67c0 100644
   --- a/jobs/rep/spec
   +++ b/jobs/rep/spec
   @@ -217,6 +217,12 @@ properties:
   diego.rep.locket.api_location:
-  description: "Hostname and port of the Locket server. When set, the cell rep will establish its cell registration in the Locket API."
+  description: "Hostname and port of the Locket server. When set, the cell rep establishes its' cell registration in the Locket API."
   default: locket.service.cf.internal:8891
   +  diego.rep.locket.client_keepalive_time:
   +    description: "Period in seconds after which the locket gRPC client sends keepalive ping requests to the locket server it is connected to."
   +    default: 10
   +  diego.rep.locket.client_keepalive_timeout:
-  +    description: "Timeout in seconds to receive a response to the keepalive ping. If a response is not received within this time, the locket client will reconnect to another server."
+  +    description: "Timeout in seconds to receive a response to the keepalive ping. If a response is not received within this time, the locket client reconnects to another server."
   +    default: 22
   enable_declarative_healthcheck:
   description: "When set, enables the rep to prefer the LRP CheckDefinition to healthcheck instances over the Monitor action. Requires Garden-Runc v1.10.0+"
@@ -1747,7 +1753,7 @@ v8](../cf-cli/v8.html).
   +    description: "Period in seconds after which the locket gRPC client sends keepalive ping requests to the locket server it is connected to."
   +    default: 10
   +  diego.rep.locket.client_keepalive_timeout:
-  +    description: "Timeout in seconds to receive a response to the keepalive ping. If a response is not received within this time, the locket client will reconnect to another server."
+  +    description: "Timeout in seconds to receive a response to the keepalive ping. If a response is not received within this time, the locket client reconnects to another server."
   +    default: 22
   +
   enable_declarative_healthcheck:
@@ -1762,12 +1768,12 @@ v8](../cf-cli/v8.html).
   description: Run tests in verbose mode
   default: false
   -  vizzini.stream:
-  -    description: Stream output from parallel test nodes. This option will lead to less coherent output but is useful when debugging
+  -    description: Stream output from parallel test nodes. This option leads to less coherent output but is useful when debugging
   -    default: false
   enable_declarative_healthcheck:
   description: "When set, enables the declarative check tests in vizzini"
   ```
-  ## ✨  Built with go 1.20.4
+  ## ✨ Built with go 1.20.4
   **Full Changelog**: https://github.com/cloudfoundry/diego-release/compare/v2.75.0...v2.76.0
   ## Resources
   - [Download release v2.76.0 from bosh.io](https://bosh.io/releases/github.com/cloudfoundry/diego-release?version=2.76.0).
@@ -1833,7 +1839,7 @@ v8](../cf-cli/v8.html).
           <summary>v1.29.0</summary>
           <pre style="max-width: 30em">
   ## Changes
-  ⚠️We have removed the garden-healthcheck job from garden while we investigate a way to make it less painful. From v1.22.6 through v1.28.0, garden restarts with a high container count could result in BOSH deploys failing due to a race condition between garden, bpm, monit, and garden-healthchecker. This will be re-enabled at a later time when we resolve the race condition.
+  ⚠️We have removed the garden-healthcheck job from garden while we investigate a way to make it less painful. From v1.22.6 through v1.28.0, garden restarts with a high container count could result in BOSH deploys failing due to a race condition between garden, bpm, monit, and garden-healthchecker. This is re-enabled at a later time when we resolve the race condition.
   ## ✨  Built with go 1.20.4
   **Full Changelog**: https://github.com/cloudfoundry/garden-runc-release/compare/v1.28.0...v1.29.0
   ## Resources
@@ -1897,9 +1903,9 @@ v8](../cf-cli/v8.html).
           <pre style="max-width: 30em">
   I'm pleased to announce the release of the java-buildpack, version 4.58. It primarily includes new OpenJDK versions, which are based on the Oracle Java Quarterly Updates for April 2023.
   The release also includes:
-  * Buildpack-specific location for Ruby install (thanks @brayanhenao)
-  * Updated MariaDB JDBC Connector to 2.7.9
-  For a more detailed look at the changes in 4.58, please take a look at the [commit log](https://github.com/cloudfoundry/java-buildpack/compare/v4.57...v4.58). The packaged version of the buildpack, suitable for use with create-buildpack and update-buildpack, can be found attached to this release.
+  * Buildpack-specific location for Ruby installation.
+  * Updated MariaDB JDBC Connector to 2.7.9.
+  For a more detailed look at the changes in 4.58, look at the [commit log](https://github.com/cloudfoundry/java-buildpack/compare/v4.57...v4.58). The packaged version of the buildpack, suitable for use with create-buildpack and update-buildpack, can be found attached to this release.
   | Dependency | Version | CVEs | Release Notes |
   | ---------- | ------- | ---- | ------------- |
   | AppDynamics Agent | `22.9.2_34409` | | [Release Notes](https://docs.appdynamics.com/4.5.x/en/product-and-release-announcements/release-notes/language-agent-notes/java-agent-notes) |
@@ -1947,11 +1953,11 @@ v8](../cf-cli/v8.html).
         <details>
           <summary>4.57</summary>
           <pre style="max-width: 30em">
-  I'm pleased to announce the release of the java-buildpack, version 4.57. This release fixes a bug with the [Container Security Provider](https://github.com/cloudfoundry/java-buildpack-security-provider) library, in which a race condition could result in mismatched private-key and certificate pairs when Diego rotated these credentials for the container. See [this issue](https://github.com/cloudfoundry/java-buildpack-security-provider/issues/8) for more details.
+  The java-buildpack, version 4.57 is released. This release fixes a bug with the [Container Security Provider](https://github.com/cloudfoundry/java-buildpack-security-provider) library, in which a race condition could result in mismatched private-key and certificate pairs when Diego rotated these credentials for the container. See [this issue](https://github.com/cloudfoundry/java-buildpack-security-provider/issues/8) for more details.
   This release also contains the following:
-  * The Azul Zing JRE contained a bug when generating the Java Opts, fixed with #1008 (thanks to @schelini)
-  * Update to the geode_store dependency (thanks to @BenjaminPerryRoss)
-  For a more detailed look at the changes in 4.57, please take a look at the [commit log](https://github.com/cloudfoundry/java-buildpack/compare/v4.56...v4.57). The packaged version of the buildpack, suitable for use with create-buildpack and update-buildpack, can be found attached to this release.
+  * The Azul Zing JRE contained a bug when generating the Java Opts.
+  * Update to the geode_store dependency.
+  For a more detailed look at the changes in 4.57, look at the [commit log](https://github.com/cloudfoundry/java-buildpack/compare/v4.56...v4.57). The packaged version of the buildpack, suitable for use with create-buildpack and update-buildpack, can be found attached to this release.
   | Dependency | Version | CVEs | Release Notes |
   | ---------- | ------- | ---- | ------------- |
   | AppDynamics Agent | `22.9.2_34409` | | [Release Notes](https://docs.appdynamics.com/4.5.x/en/product-and-release-announcements/release-notes/language-agent-notes/java-agent-notes) |
@@ -2004,7 +2010,7 @@ v8](../cf-cli/v8.html).
           <summary>v2.12.7</summary>
           <pre style="max-width: 30em">
   ## What's Changed
-  * Bump to [go1.20.4](https://groups.google.com/g/golang-announce/c/MEb0UyuSMsU/m/QvrjqM4XAgAJ)
+  * Bump to [go1.20.4](https://groups.google.com/g/golang-announce/c/MEb0UyuSMsU/m/QvrjqM4XAgAJ).
   **Full Changelog**: https://github.com/cloudfoundry/log-cache-release/compare/v2.12.6...v2.12.7
           </pre>
         </details>
@@ -2016,7 +2022,7 @@ v8](../cf-cli/v8.html).
           <summary>v106.7.8</summary>
           <pre style="max-width: 30em">
   ## What's Changed
-  * Bump to [go1.20.4](https://groups.google.com/g/golang-announce/c/MEb0UyuSMsU/m/QvrjqM4XAgAJ)
+  * Bump to [go1.20.4](https://groups.google.com/g/golang-announce/c/MEb0UyuSMsU/m/QvrjqM4XAgAJ).
   * Bump dependencies
   **Full Changelog**: https://github.com/cloudfoundry/loggregator-release/compare/v106.7.7...v106.7.8
           </pre>
@@ -2029,7 +2035,7 @@ v8](../cf-cli/v8.html).
           <summary>v6.5.10</summary>
           <pre style="max-width: 30em">
   ## What's Changed
-  * Bump to [go1.20.4](https://groups.google.com/g/golang-announce/c/MEb0UyuSMsU/m/QvrjqM4XAgAJ)
+  * Bump to [go1.20.4](https://groups.google.com/g/golang-announce/c/MEb0UyuSMsU/m/QvrjqM4XAgAJ).
   * Bump dependencies
   **Full Changelog**: https://github.com/cloudfoundry/loggregator-agent-release/compare/v6.5.9...v6.5.10
           </pre>
@@ -2066,7 +2072,7 @@ v8](../cf-cli/v8.html).
           <summary>v2.1.4</summary>
           <pre style="max-width: 30em">
   ## What's Changed
-  * Bump to [go1.20.4](https://groups.google.com/g/golang-announce/c/MEb0UyuSMsU/m/QvrjqM4XAgAJ)
+  * Bump to [go1.20.4](https://groups.google.com/g/golang-announce/c/MEb0UyuSMsU/m/QvrjqM4XAgAJ).
   * Replace gorilla with chi by @Benjamintf1 in https://github.com/pivotal-cf/metric-registrar-release/pull/188
   * Bump dependencies
   **Full Changelog**: https://github.com/pivotal-cf/metric-registrar-release/compare/v2.1.3...v2.1.4
@@ -2080,7 +2086,7 @@ v8](../cf-cli/v8.html).
           <summary>v3.2.9</summary>
           <pre style="max-width: 30em">
   ## What's Changed
-  * Bump to [go1.20.4](https://groups.google.com/g/golang-announce/c/MEb0UyuSMsU/m/QvrjqM4XAgAJ)
+  * Bump to [go1.20.4](https://groups.google.com/g/golang-announce/c/MEb0UyuSMsU/m/QvrjqM4XAgAJ).
   * Bump dependencies
   **Full Changelog**: https://github.com/cloudfoundry/metrics-discovery-release/compare/v3.2.8...v3.2.9
           </pre>
@@ -2096,10 +2102,12 @@ v8](../cf-cli/v8.html).
   - Built with Go 1.20.4
   - Bumped dependencies
   **Bugs Fixed**
-  - [mysql-metrics] Fixed bug that caused metrics to be displayed for only one of the MySQL nodes in three-node HA cluster when `mysql-metrics.host` was not configured in a bosh manifest.
+  - [mysql-metrics] Fixed bug that caused metrics to be displayed for only one of the MySQL nodes in three-node
+  HA cluster when `mysql-metrics.host` was not configured in a bosh manifest.
   **Breaking change**
   The `mysql-metrics` job no longer consumes bosh links for defaulting the `mysql-metrics.host` property.  `mysql-metrics.host` defaults to connecting over 127.0.0.1 and `mysql-metrics.port` defaults to the port provided by the `mysql` bosh link.  This avoids a bug where mysql-metrics reports the metrics from only a single member of the cluster instead of reporting separate metrics for _each_ member of a cluster.
-  This change provides accurate metrics out-of-the-box when the mysql-metrics agent is co-located with MySQL.  For niche use cases, configure the `mysql-metrics.host` and `mysql-metrics.port` explicitly as needed for your use case.
+  This change provides accurate metrics out-of-the-box when the mysql-metrics agent is co-located with MySQL.  For niche use cases,
+  configure the `mysql-metrics.host` and `mysql-metrics.port` explicitly as needed for your use case.
           </pre>
         </details>
         <details>
@@ -2107,9 +2115,10 @@ v8](../cf-cli/v8.html).
           <pre style="max-width: 30em">
   Final release 9.25.0
   **Bugs Fixed**
-  - Fixes bug that caused metrics to be displayed for only one of the MySQL nodes in three-node HA cluster
+  - Fixes bug that caused metrics to be displayed for only one of the MySQL nodes in three-node HA cluster.
   **Additional notes**
-  In [v9.19.0](https://github.com/cloudfoundry/mysql-monitoring-release/releases/tag/v9.19.0), a new `mysql-metrics.port` property was introduced in the `mysql-metrics` job. This bug fix also includes an update which removes the need for this property, and it will be obsoleted in a future release.
+  In [v9.19.0](https://github.com/cloudfoundry/mysql-monitoring-release/releases/tag/v9.19.0), a new `mysql-metrics.port` property was
+  introduced in the `mysql-metrics` job. This bug fix also includes an update that removes the need for this property, and it's deemed obsoleted in a future release.
           </pre>
         </details>
       </td>
@@ -2296,7 +2305,7 @@ v8](../cf-cli/v8.html).
   **New features**
   - Bumped Go to v1.20.4
   **EOL Notice**
-  - Please note that this release and earlier versions will not be supported beyond Oct 2023, due to MySQL 5.7 EOL. If your product is consuming this release, please upgrade to the latest pxc-1.0.y release
+  - Note that this release and earlier versions are not supported beyond Oct 2023, due to MySQL 5.7 EOL. If your product is consuming this release, please upgrade to the latest pxc-1.0.y release
           </pre>
         </details>
         <details>
@@ -2307,7 +2316,7 @@ v8](../cf-cli/v8.html).
   - Bumped Percona XtraDB Cluster to v5.7.41-31.65
   - Bumped Percona XtraBackup to v2.4.28
   **EOL Notice**
-  - Please note that this release and earlier versions will not be supported beyond Oct 2023, due to MySQL 5.7 EOL. If your product is consuming this release, please upgrade to the latest pxc-1.0.y release
+  - Please note that this release and earlier versions are not supported beyond Oct 2023, due to MySQL 5.7 EOL. If your product is consuming this release, please upgrade to the latest pxc-1.0.y release
           </pre>
         </details>
         <details>
@@ -2316,7 +2325,7 @@ v8](../cf-cli/v8.html).
   **New features**
   - Bumped Go to v1.20.2
   **EOL Notice**
-  - Please note that this release and earlier versions will not be supported beyond Oct 2023, due to MySQL 5.7 EOL. If your product is consuming this release, please upgrade to the latest pxc-1.0.y release
+  - Please note that this release and earlier versions are not supported beyond Oct 2023, due to MySQL 5.7 EOL. If your product is consuming this release, please upgrade to the latest pxc-1.0.y release
           </pre>
         </details>
       </td>
@@ -2388,8 +2397,8 @@ v8](../cf-cli/v8.html).
           <summary>v0.266.0</summary>
           <pre style="max-width: 30em">
   ## Change
-  - 🐛Fixes a bug that may cause routing failures to apps. Thanks @maxmoehl and @domdom82!!
-  - Many go dependency updates across all routing packages. Thanks @winkingturtle-vmw!!
+  - 🐛Fixes a bug that caused routing failures to apps.
+  - Many go dependency updates across all routing packages.
   ## ✨  Built with go 1.20.4
   **Full Changelog**: https://github.com/cloudfoundry/routing-release/compare/v0.265.1...v0.266.0
   ## Resources
@@ -2400,7 +2409,7 @@ v8](../cf-cli/v8.html).
           <summary>v0.265.1</summary>
           <pre style="max-width: 30em">
   :warning::warning::warning:
-  **There is a known issue with this release’s routing logic which may cause routing failures to apps. It is advised to use routing-release [0.266.0](https://github.com/cloudfoundry/routing-release/releases/tag/v0.266.0) or later instead of this release.**
+  **There is a known issue with this release’s routing logic which causes routing failures to apps. It's advised to use routing-release [0.266.0](https://github.com/cloudfoundry/routing-release/releases/tag/v0.266.0) or later instead of this release.**
   ## Changes
   - Bump healthchecker
   ## ✨  Built with go 1.20.4
@@ -2413,7 +2422,7 @@ v8](../cf-cli/v8.html).
           <summary>v0.265.0</summary>
           <pre style="max-width: 30em">
   :warning::warning::warning:
-  **There is a known issue with this release’s routing logic which may cause routing failures to apps. It is advised to use routing-release [0.266.0](https://github.com/cloudfoundry/routing-release/releases/tag/v0.266.0) or later instead of this release.**
+  **There is a known issue with this release’s routing logic which causes routing failures to apps. It's advised to use routing-release [0.266.0](https://github.com/cloudfoundry/routing-release/releases/tag/v0.266.0) or later instead of this release.**
   ## Changes
   - Bump to Go 1.20.4
   ## ✨  Built with go 1.20.4
@@ -2426,9 +2435,9 @@ v8](../cf-cli/v8.html).
           <summary>v0.264.0</summary>
           <pre style="max-width: 30em">
   :warning::warning::warning:
-  **There is a known issue with this release’s routing logic which may cause routing failures to apps. It is advised to use routing-release [0.266.0](https://github.com/cloudfoundry/routing-release/releases/tag/v0.266.0) or later instead of this release.**
+  **There is a known issue with this release’s routing logic which causes routing failures to apps. It's advised to use routing-release [0.266.0](https://github.com/cloudfoundry/routing-release/releases/tag/v0.266.0) or later instead of this release.**
   ## Changes
-  - Addresses the issue in routing-release 0.263.0 where `bosh export-releases` would fail to compile the `acceptance-tests` package.
+  - Addresses the issue in routing-release 0.263.0 where `bosh export-releases` fails to compile the `acceptance-tests` package.
   ## ✨  Built with go 1.20.3
   **Full Changelog**: https://github.com/cloudfoundry/routing-release/compare/v0.263.0...v0.264.0
   ## Resources
@@ -2439,10 +2448,10 @@ v8](../cf-cli/v8.html).
           <summary>v0.263.0</summary>
           <pre style="max-width: 30em">
   ⚠️⚠️⚠️
-  **This version does not compile, it will be fixed with the next release**
-  **There is a known issue with this release’s routing logic which may cause routing failures to apps. It is advised to use routing-release [0.266.0](https://github.com/cloudfoundry/routing-release/releases/tag/v0.266.0) or later instead of this release.**
+  **This version does not compile, it's fixed with the next release**
+  **There is a known issue with this release’s routing logic which causes routing failures to apps. It's advised to use routing-release [0.266.0](https://github.com/cloudfoundry/routing-release/releases/tag/v0.266.0) or later instead of this release.**
   ## Changes
-  - 🐛Fixed a bug present since v0.262.0 that caused CATs to intermittently fail on apps using `nc` as their server.
+  - 🐛Fixed a bug present because v0.262.0 caused CATs to intermittently fail on apps using `nc` as their server.
   - 🐛Bumped haproxy to 2.7.6 in cf-tcp-router, to resolve a bug preventing haproxy from properly transferring open connections to the new haproxy process when a reload occurred - [haproxy/#1883](https://github.com/haproxy/haproxy/issues/1883)
   ## ✨  Built with go 1.20.3
   **Full Changelog**: https://github.com/cloudfoundry/routing-release/compare/v0.262.0...v0.263.0
@@ -2656,7 +2665,7 @@ v8](../cf-cli/v8.html).
 * **[Security Fix]** Fix BBR scripts and bump spring-boot to address [CVE-2023-20860](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-20860) and [CVE-2023-20861](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-20861)
 * **[Bug Fix]** Fix apps-manager failure due to buildpack changes
 * **[Bug Fix]** Fixed issues in route_registrar and tcp_router that led to unnecessary haproxy reloads
-* **[Bug Fix]** Metric Registrar updated to emit correct metric-registrar metadata for log worker and secure scraper. Non secure scraping should be considered deprecated.
+* **[Bug Fix]** Metric Registrar updated to emit correct metric-registrar metadata for log worker and secure scraper. Non-secure scraping is considered deprecated.
 * Bump backup-and-restore-sdk to version `1.18.65`
 * Bump bpm to version `1.1.23`
 * Bump cf-autoscaling to version `249.1.7`
@@ -2872,7 +2881,7 @@ v8](../cf-cli/v8.html).
         <details>
           <summary>4.56</summary>
           <pre style="max-width: 30em">
-  I'm pleased to announce the release of the java-buildpack, version 4.56. This release fixes a bug related to the change in v4.55, where the buildpack uses a Python library - Python will also be removed from the `cflinuxfs4` stack, so this change removes the reliance on this binary.
+  I'm pleased to announce the release of the java-buildpack, version 4.56. This release fixes a bug related to the change in v4.55, where the buildpack uses a Python library - Python is removed from the `cflinuxfs4` stack, so this change removes the reliance on this binary.
   For a more detailed look at the changes in 4.56, please take a look at the [commit log](https://github.com/cloudfoundry/java-buildpack/compare/v4.55...v4.56). The packaged version of the buildpack, suitable for use with create-buildpack and update-buildpack, can be found attached to this release.
   | Dependency | Version | CVEs | Release Notes |
   | ---------- | ------- | ---- | ------------- |
@@ -2921,7 +2930,7 @@ v8](../cf-cli/v8.html).
         <details>
           <summary>4.55</summary>
           <pre style="max-width: 30em">
-  I'm pleased to announce the release of the java-buildpack, version 4.55. It primarily includes a change to how Ruby is provided to run the buildpack. The `cflinuxfs4` stack will soon remove Ruby, therefore the buildpack will supply it's own Ruby version. This is added as a new buildpack dependency and is linked to the Cloudfoundry [Ruby Buildpack](https://github.com/cloudfoundry/ruby-buildpack/blob/master/java-index/index.yml) repo.
+  I'm pleased to announce the release of the java-buildpack, version 4.55. It primarily includes a change to how Ruby is provided to run the buildpack. The `cflinuxfs4` stack removes Ruby, therefore, the buildpack supplies it's own Ruby version. This is added as a new buildpack dependency and is linked to the Cloudfoundry [Ruby Buildpack](https://github.com/cloudfoundry/ruby-buildpack/blob/master/java-index/index.yml) repo.
   This release includes the following notable changes, among other dependency bumps:
   * Update of the Contrast Security Agent to v4+ (thanks to @FrankGasparovic)
   * Update of the New Relic agent to v8+
@@ -3349,8 +3358,8 @@ v8](../cf-cli/v8.html).
           <summary>v0.262.0</summary>
           <pre style="max-width: 30em">
   ## Changes
-  - 🐛Fixes the of golang has a known issue that causes backend request failures which previously returned 496, 499, 503, 525, or 526 to instead return a 502. Additionally stale routes may not have been pruned properly. Thanks @domdom82!!
-  - 🚗Gorouter now retries requests which fail prior to any HTTP content being sent (since no backend received the HTTP content, they're by definition retriable). Thanks for the [PR](https://github.com/cloudfoundry/gorouter/pull/337). Thanks @maxmoehl and @domdom82!!
+  - 🐛Fixes the of golang has a known issue that causes backend request failures which previously returned 496, 499, 503, 525, or 526 to instead return a 502. Additionally stale routes might not have been pruned properly.
+  - 🚗Gorouter now retries requests which fail prior to any HTTP content being sent (because no backend received the HTTP content, they are by definition retriable).
   ## ✨  Built with go 1.20.2
   **Full Changelog**: https://github.com/cloudfoundry/routing-release/compare/v0.261.0...v0.262.0
   ## Resources
@@ -3361,7 +3370,7 @@ v8](../cf-cli/v8.html).
           <summary>v0.261.0</summary>
           <pre style="max-width: 30em">
   ⚠️⚠️⚠️
-  **This version of golang has a known issue that may cause backend request failures that previously returned 496, 499, 503, 525, or 526 to instead return a 502. Additionally stale routes may not get pruned properly. This will be addressed in an upcoming release.**
+  **This version of golang has a known issue that might cause backend request failures that previously returned 496, 499, 503, 525, or 526 to instead return a 502. Additionally stale routes might not get pruned properly. This is addressed in an upcoming release.**
   ## Changes
   - Bug fix: add healthcheck to routing-api for route-registrar
   ## Bosh Job Spec changes:
@@ -3390,7 +3399,7 @@ v8](../cf-cli/v8.html).
   +    description: "Maximum health check timeout (in seconds) for each retry attempt in the Routing API's route registration health check"
   +  routing_api.health_check_total_timeout:
   +    default: 6
-  +    description: "Maximum health check timeout (in seconds). Health checks will be retried until this time limit is reached. This should be less than or equal to your route_registrar.routes.api.health_check.timeout"
+  +    description: "Maximum health check timeout (in seconds). Health checks are retried until this time limit is reached. This can be less than or equal to your route_registrar.routes.api.health_check.timeout"
   +
   metron.port:
   description: "The port used to emit dropsonde messages to the Metron agent."
@@ -3406,15 +3415,15 @@ v8](../cf-cli/v8.html).
           <summary>v0.260.0</summary>
           <pre style="max-width: 30em">
   ⚠️⚠️⚠️
-  **This version of golang has a known issue that may cause backend request failures that previously returned 496, 499, 503, 525, or 526 to instead return a 502. Additionally stale routes may not get pruned properly. This will be addressed in an upcoming release.**
+  **This version of golang has a known issue that might cause backend request failures that previously returned 496, 499, 503, 525, or 526 to instead return a 502. Additionally stale routes might not get pruned properly. This is addressed in an upcoming release.**
   ## Changes
   - Dependency updates (cf cli, healthchecker, golang)
   - Many CI Updates - Thanks @jrussett!
   - 🐛[#310]The routing_utils route loader now sets the route service url when loading. Thanks @domdom82 !
   - 🐛Two issues in route_registrar were fixed that led to routes expiring and then being re-registered with the same details:
-  - Starting in v0.x.x, route_registrar no longer retried UAA connections when getting a token from UAA. Instead, the failure would cause route_registrar to restart, and reset it's emitter intervals.
+  - Starting in v0.x.x, route_registrar no longer retried UAA connections when getting a token from UAA. Instead, the failure can cause route_registrar to restart, and reset it's emitter intervals.
   - The built in route expiry has been increased from RegistrationInterval + 2 seconds to 2.1 * RegistrationInterval. This prevent routes from expiring during the course of a route_registrar restart.
-  - 🐛If tcp_router received routing events during its BulkSync cycle, it would always rewrite the haproxy configuration, and reload the haproxy process. This would occur regardless of whether the events required a new haproxy config. It now only updates the config + reloads haproxy if changes are necessary.
+  - 🐛If tcp_router received routing events during its BulkSync cycle, it would always rewrite the haproxy configuration, and reload the haproxy process. This can occur regardless of whether the events required a new haproxy config. It now only updates the config + reloads haproxy if changes are necessary.
   ## ✨  Built with go 1.20.2
   **Full Changelog**: https://github.com/cloudfoundry/routing-release/compare/v0.259.0...v0.260.0
   ## Resources
@@ -4831,7 +4840,7 @@ v8](../cf-cli/v8.html).
 
 **Release Date:** 02/09/2023
 
-* **[Bug Fix]** Allows docker app workloads without a `sh` binary in the docker image to execute properly.
+* **[Bug Fix]** Allows docker app workloads without a `sh` binary in the docker image to run properly.
 * **[Bug Fix]** Fixes bug in content security policy that was causing some images in marketplace to not render
 * **[Bug Fix]** Validate user when inviting to org and provide informative error if already member of org
 * **[Bug Fix]** [Cloud Controller] Truncate large errors from Service Brokers
@@ -4902,10 +4911,10 @@ v8](../cf-cli/v8.html).
           <pre style="max-width: 30em">
   I'm pleased to announce the release of the java-buildpack, version 4.54. It primarily includes new OpenJDK versions, which are based on the Oracle Java Quarterly Updates for Jan 2023.
   This release includes the following:
-  * A fix for offline packaging for the cflinuxfs4/jammy platform (#986 )
-  * Support for SPlunk Otel Java Framework (#968 - thanks to @breedx-splk)
-  * A change to use the default-repository-root URI for the Apache Skywalking Framework (#983 - thanks to @mayrstefan)
-  For a more detailed look at the changes in 4.54, please take a look at the [commit log](https://github.com/cloudfoundry/java-buildpack/compare/v4.53...v4.54). The packaged version of the buildpack, suitable for use with create-buildpack and update-buildpack, can be found attached to this release.
+  * A fix for offline packaging for the cflinuxfs4/jammy platform (#986).
+  * Support for SPlunk Otel Java Framework (#968).
+  * A change to use the default-repository-root URI for the Apache Skywalking Framework (#983).
+  For a more detailed look at the changes in 4.54, look at the [commit log](https://github.com/cloudfoundry/java-buildpack/compare/v4.53...v4.54). The packaged version of the buildpack, suitable for use with create-buildpack and update-buildpack, can be found attached to this release.
   | Dependency | Version | CVEs | Release Notes |
   | ---------- | ------- | ---- | ------------- |
   | AppDynamics Agent | `22.9.2_34409` | | [Release Notes](https://docs.appdynamics.com/4.5.x/en/product-and-release-announcements/release-notes/language-agent-notes/java-agent-notes) |
@@ -5413,7 +5422,7 @@ v8](../cf-cli/v8.html).
   ## What's Changed
   * Add property to correctly handle nsxt/ncp when turned on
   * Add a property to allow setting a maximum number of metrics per instance
-  * Fix bug: Rolling deploys should no longer cause metrics to stop scraping for secure endpoints.
+  * Fix bug: Rolling deploys no longer cause metrics to stop scraping for secure endpoints.
           </pre>
         </details>
       </td>
@@ -5781,7 +5790,7 @@ v8](../cf-cli/v8.html).
           <summary>2.12.16</summary>
           <pre style="max-width: 30em">
   ## Bug Fixes
-  * Fixes #74 (a known issue in CredHub release `2.12.4` and `2.12.5` where CredHub fails to connect to [postgres-release](https://github.com/cloudfoundry/postgres-release), and possibly other postgres servers, due to TLS handshake errors) by reverting the Java version bump to `jre8u352` in `2.12.4`. We will bring back this bump once the postgres TLS issue is addressed.
+  * Fixes #74 (a known issue in CredHub release `2.12.4` and `2.12.5` where CredHub fails to connect to [postgres-release](https://github.com/cloudfoundry/postgres-release), and possibly other postgres servers, due to TLS handshake errors) by reverting the Java version bump to `jre8u352` in `2.12.4`. This bump comes back once the postgres TLS issue is addressed.
   * Fixes #71 where CredHub fails when deployed with a FIPS-enabled Bionic Stemcell.
   ## Security Fixes
   - Bump various dependencies
@@ -6226,7 +6235,7 @@ v8](../cf-cli/v8.html).
   ## What's Changed
   * Switch to healthecker package in cf-networking-helpers by @mariash in https://github.com/cloudfoundry/routing-release/pull/302
   * Add healthchecker package to sync-package-specs file by @mariash in https://github.com/cloudfoundry/routing-release/pull/303
-  * **Potential Breaking change:** In preperation for mtls between gorouter and routing api, add gorouter backends ca to routing-api. Rendering these certs depends on routing-api consuming a link from gorouter. If you have multiple gorouter instance groups (for example in the case of isolation segments), you will need to rename bosh links to prevent the error "Multiple link providers found. For an example of link renaming, see [this ops file](https://github.com/cloudfoundry/cf-deployment/blob/main/operations/test/add-persistent-isolation-segment-router.yml#L74) by @reneighbor in https://github.com/cloudfoundry/routing-release/pull/300
+  * **Potential Breaking change:** In preperation for mtls between gorouter and routing api, add gorouter backends ca to routing-api. Rendering these certs depends on routing-api consuming a link from gorouter. If you have multiple gorouter instance groups (for example in the case of isolation segments), you need to rename bosh links to prevent the error "Multiple link providers found. For an example of link renaming, see [this ops file](https://github.com/cloudfoundry/cf-deployment/blob/main/operations/test/add-persistent-isolation-segment-router.yml#L74) by @reneighbor in https://github.com/cloudfoundry/routing-release/pull/300
   * Ensure gorouter-healthchecker doesn't restart gorouter forever on failure by @geofffranks in https://github.com/cloudfoundry/routing-release/pull/305
   **Full Changelog**: https://github.com/cloudfoundry/routing-release/compare/0.248.0...v0.249.0
           </pre>
@@ -6256,9 +6265,9 @@ v8](../cf-cli/v8.html).
           <summary>v0.245.0</summary>
           <pre style="max-width: 30em">
   ## What's Changed
-  * Gorouter's pre-start script now reserves ports used by other CF components when it increases the number of ephemeral ports available via `/proc/sys/net/ipv4/ip_local_reserved_ports`. This resolves issues when components fail to start up during deploys/monit restarts due to accidental port collisions with outbound traffic from the VM. Thanks @ameowlia !
+  * Gorouter's pre-start script now reserves ports used by other CF components when it increases the number of ephemeral ports available through `/proc/sys/net/ipv4/ip_local_reserved_ports`. This resolves issues when components fail to start up during deploys/monit restarts due to accidental port collisions with outbound traffic from the VM. Thanks @ameowlia !
   * Routing-release no longer makes use of the deprecated uaa-go-client, and uses go-uaa instead
-  * The `routing_utils/nats_client` helper utility now supports saving + loading gorouter's routing tables! Thanks @domdom82 !
+  * The `routing_utils/nats_client` helper utility now supports saving + loading gorouter's routing tables.
   * Fixed a memory leak with `gorouter` that resulted in HTTP request objects being held open if a client canceled the connection before the App responded.  Thanks @geofffranks !
   * **Full Changelog**: https://github.com/cloudfoundry/routing-release/compare/v0.244.0...v0.245.0
   ## ✨  Built with go 1.19.3
@@ -6541,7 +6550,7 @@ v8](../cf-cli/v8.html).
 * **[Feature]** Add "Max request header size in kb" property to Networking tab to allow operators to specify a limit on the aggregate size of request headers. Requests over this limit receive a 431 status code.
 * **[Bug Fix]** Fix capi parsing of apps manifest
 * **[Bug Fix]** Bump `java_buildpack_offline` to version `4.53` to fix the known issue relating to Spring Auto Reconfiguration. This is once again enabled by default. For more information, see [java-offline-buildpack v4.52 Disallows Spring Auto
-Reconfiguration by Default](#auto-reconfig-disallowed) below.
+Reconfiguration by Default](#auto-reconfig-disallowed).
 * Bump backup-and-restore-sdk to version `1.18.57`
 * Bump binary-offline-buildpack to version `1.0.47`
 * Bump bosh-system-metrics-forwarder to version `0.0.27`
@@ -6766,7 +6775,7 @@ Reconfiguration by Default](#auto-reconfig-disallowed) below.
         <details>
           <summary>v2.66.4</summary>
           <pre style="max-width: 30em">
-  This release was created by mistake via CI. See v2.67.0 instead
+  This release was created by mistake through CI. See v2.67.0 instead
           </pre>
         </details>
       </td>
@@ -6926,9 +6935,9 @@ Reconfiguration by Default](#auto-reconfig-disallowed) below.
           <summary>4.53</summary>
           <pre style="max-width: 30em">
   I'm pleased to announce the release of the java-buildpack, version 4.53. It primarily includes new OpenJDK versions, which are based on the Oracle Java Quarterly Updates for Oct 2022.
-  -  This release also includes an enhancement to the Sealights framework, more field are supported for a User-Provided service (Thanks to @alonweiss-sl via #964)
+  -  This release also includes an enhancement to the Sealights framework, more field are supported for a User-Provided service (#964).
   ## 🚨 Deprecation of Spring Cloud Connectors & Spring Auto Reconfiguration 🚨
-  This release reverts the change made in v4.51 which disabled the Spring Auto Reconfiguration framework by default. From this release, it will be enabled by default as per all versions < 4.51. This is to provide users with more time to migrate to the recommended alternative library, `java-cfenv`. The default of disabled will now happen in a release after March 2023, and the library will be completely removed in a release after March 2024. As before, you may [post feedback/comments to this issue](https://github.com/cloudfoundry/java-buildpack/issues/951).
+  This release reverts the change made in v4.51 which deactivated the Spring Auto Reconfiguration framework by default. From this release, it's enabled by default as per all versions < 4.51. This is to provide users with more time to migrate to the recommended alternative library, `java-cfenv`. The default of disabled happens in a release after March 2023, and the library is removed in a release after March 2024. As before, you can [post feedback/comments to this issue](https://github.com/cloudfoundry/java-buildpack/issues/951).
   For a more detailed look at the changes in 4.53, please take a look at the [commit log](https://github.com/cloudfoundry/java-buildpack/compare/v4.52...v4.53). The packaged version of the buildpack, suitable for use with create-buildpack and update-buildpack, can be found attached to this release.
   | Dependency | Version | CVEs | Release Notes |
   | ---------- | ------- | ---- | ------------- |
@@ -6976,10 +6985,10 @@ Reconfiguration by Default](#auto-reconfig-disallowed) below.
         <details>
           <summary>4.52</summary>
           <pre style="max-width: 30em">
-  I'm pleased to announce the release of the `java-buildpack`, version `4.52`. This is a maintenance release and will add support for the `cflinuxfs4` stack.
+  I'm pleased to announce the release of the `java-buildpack`, version `4.52`. This is a maintenance release and support is added for the `cflinuxfs4` stack.
   For a more detailed look at the changes in 4.52, please take a look at the [commit log](https://github.com/cloudfoundry/java-buildpack/compare/v4.51...v4.52). The packaged version of the buildpack, suitable for use with create-buildpack and update-buildpack, can be found attached to this release.
   ## Deprecation of Spring Cloud Connectors & Spring Auto Reconfiguration
-  This feature is now disabled by default. Full details for this change can be found in the release notes [from v4.49](https://github.com/cloudfoundry/java-buildpack/releases/tag/v4.49). As before, you may [post feedback/comments to this issue](https://github.com/cloudfoundry/java-buildpack/issues/951).
+  This feature is now deactivated by default. Full details for this change can be found in the release notes [from v4.49](https://github.com/cloudfoundry/java-buildpack/releases/tag/v4.49). As before, you can [post feedback/comments to this issue](https://github.com/cloudfoundry/java-buildpack/issues/951).
   ## Packaged Dependencies
   | Dependency | Version | CVEs | Release Notes |
   | ---------- | ------- | ---- | ------------- |
@@ -7027,11 +7036,11 @@ Reconfiguration by Default](#auto-reconfig-disallowed) below.
         <details>
           <summary>4.51</summary>
           <pre style="max-width: 30em">
-  I'm pleased to announce the release of the `java-buildpack`, version `4.51`. This release makes the change in line with #951 which disables Spring Auto Reconfiguration by default. Users can still explicitly opt-in to this feature by enabling it manually, until after Dec 2022 when it will be fully removed.
+  I'm pleased to announce the release of the `java-buildpack`, version `4.51`. This release makes the change in line with #951 which deactivates Spring Auto Reconfiguration by default. Users can still explicitly opt-in to this feature by enabling it manually, until after Dec 2022 when it's fully removed.
   This version also includes a patch release for Java 8 (1.8.0_345).
   For a more detailed look at the changes in 4.51, please take a look at the [commit log](https://github.com/cloudfoundry/java-buildpack/compare/v4.50...v4.51). The packaged version of the buildpack, suitable for use with create-buildpack and update-buildpack, can be found attached to this release.
   ## Deprecation of Spring Cloud Connectors & Spring Auto Reconfiguration
-  Full details for this change can be found in the release notes [from v4.49](https://github.com/cloudfoundry/java-buildpack/releases/tag/v4.49). As before, you may [post feedback/comments to this issue](https://github.com/cloudfoundry/java-buildpack/issues/951).
+  Full details for this change can be found in the release notes [from v4.49](https://github.com/cloudfoundry/java-buildpack/releases/tag/v4.49). As before, you can [post feedback/comments to this issue](https://github.com/cloudfoundry/java-buildpack/issues/951).
   ## Packaged Dependencies
   | Dependency | Version | CVEs | Release Notes |
   | ---------- | ------- | ---- | ------------- |
@@ -7117,7 +7126,7 @@ Reconfiguration by Default](#auto-reconfig-disallowed) below.
           <summary>v9.19.0</summary>
           <pre style="max-width: 30em">
   **New features**
-  The `mysql-metrics` job now supports a `mysql-metrics.port` option to specify the MySQL port when scraping database metrics. This port defaults to 3306 but may be configured to a non-standard port.
+  The `mysql-metrics` job now supports a `mysql-metrics.port` option to specify the MySQL port when scraping database metrics. This port defaults to 3306 but might be configured to a non-standard port.
           </pre>
         </details>
       </td>
@@ -7535,8 +7544,8 @@ Reconfiguration by Default](#auto-reconfig-disallowed) below.
           <summary>v0.244.0</summary>
           <pre style="max-width: 30em">
   ## What's Changed
-  * Emit access logs for 431 responses to Loggegator [gorouter PR #331](https://github.com/cloudfoundry/gorouter/pull/331). Thanks @dsabeti !
-  * Always suspend pruning when nats is down https://github.com/cloudfoundry/routing-release/pull/287. Thanks @ameowlia !
+  * Emit access logs for 431 responses to Loggegator [gorouter PR #331](https://github.com/cloudfoundry/gorouter/pull/331).
+  * Always suspend pruning when nats is down https://github.com/cloudfoundry/routing-release/pull/287.
   * **Full Changelog**: https://github.com/cloudfoundry/routing-release/compare/v0.243.0...v0.244.0
   ## ✨  Built with go 1.19.2
           </pre>
@@ -7552,8 +7561,8 @@ Reconfiguration by Default](#auto-reconfig-disallowed) below.
           <summary>v0.242.0</summary>
           <pre style="max-width: 30em">
   ## What's Changed
-  -  `tcp_router` is now more verbose when running `haproxy_reloader` to assist in diagnosting failed reloads. Thanks @geofffranks! 🎉 ([PR 9](https://github.com/cloudfoundry/cf-tcp-router/pull/9))
-  - `gorouter` will now truncate access logs that exceed loggregator + UDP packet limits, so that we no longer drop access log messages sent to the firehose. Thanks @ameowlia @ebroberson! 😻 ([PR 328](https://github.com/cloudfoundry/gorouter/pull/328) and [PR 329](https://github.com/cloudfoundry/gorouter/pull/329))
+  -  `tcp_router` is now more verbose when running `haproxy_reloader` to assist in diagnosting failed reloads.  🎉 ([PR 9](https://github.com/cloudfoundry/cf-tcp-router/pull/9))
+  - `gorouter` truncates access logs that exceed loggregator + UDP packet limits, so that we no longer drop access log messages sent to the firehose. Thanks @ameowlia @ebroberson! 😻 ([PR 328](https://github.com/cloudfoundry/gorouter/pull/328) and [PR 329](https://github.com/cloudfoundry/gorouter/pull/329))
   **Full Changelog**: https://github.com/cloudfoundry/routing-release/compare/v0.241.0...v0.242.0
   ## ✨  Built with go 1.18
   * despite what the docs/go.version says
@@ -7576,10 +7585,10 @@ Reconfiguration by Default](#auto-reconfig-disallowed) below.
           <pre style="max-width: 30em">
   ## What's Changed
   * @geofffranks and @ameowlia added property `router.max_header_bytes` to the gorouter job.
-  * This value controls the maximum number of bytes the gorouter will read parsing the request header's keys and values, including the request line.
+  * This value controls the maximum number of bytes the gorouter reads while parsing the request header's keys and values, including the request line.
   * It does not limit the size of the request body.
   * An additional padding of 4096 bytes is added to this value by go.
-  * Requests with larger headers will result in a 431 status code.
+  * Requests with larger headers result in a 431 status code.
   **Full Changelog**: https://github.com/cloudfoundry/routing-release/compare/v0.239.0...v0.240.0
   ## Manifest Property Changes
   | Job | Property | 0.237.0 | 0.238.0 |
@@ -7808,8 +7817,8 @@ Reconfiguration by Default](#auto-reconfig-disallowed) below.
 
 **Release Date:** 10/19/2022
 
-* **[Breaking change]** A change in behavior to line-based log rate limits has been made. Previously, logs were buffered and released at the allowed rate, now logs exceeding the limit will be dropped.
-* **[Feature]** Allow operators to specify isolation segments that should be routable through TAS routers
+* **[Breaking change]** A change in behavior to line-based log rate limits has been made. Previously, logs were buffered and released at the allowed rate, now logs exceeding the limit are dropped.
+* **[Feature]** Allow operators to specify isolation segments that can be routable through TAS routers
 * **[Bug Fix]** Fixes UAA's compatibility with Amazon Aurora MySQL
 * **[Bug Fix]** Fix Capi compatibility with MySQL 8
 * Bump capi to version `1.127.4`
@@ -7907,7 +7916,7 @@ Reconfiguration by Default](#auto-reconfig-disallowed) below.
           <pre style="max-width: 30em">
   ## Changes
   * Adds support for a new byte-based log rate limiting mechanism with per-LRP limits.
-  * Behavior of existing line-based log rate limiting has also changed to drop log messages immediately rather than releasing them from a buffer with a delay. Therefore timestamps of the logs will now match when they were output.
+  * Behavior of existing line-based log rate limiting has also changed to drop log messages immediately rather than releasing them from a buffer with a delay. Therefore, timestamps of the logs now match when they were output.
   ## ✨  Built with go 1.18.5
   ## Resources
   - [Download release v2.66.0 from bosh.io](https://bosh.io/releases/github.com/cloudfoundry/diego-release?version=2.66.0).
@@ -7920,7 +7929,7 @@ Reconfiguration by Default](#auto-reconfig-disallowed) below.
   ## Changes
   - Replace GinkgoParallelNode with GinkgoParallelProcess @ebroberson (#630)
   - Bump Golang to go1.18.4 @cf-diego (#625)
-  **Breaking changes**: The diego components are now more strict about the protocols used in TLS communications, causing integrations with systems using older, insecure protocols to fail. These components have been updated to Go 1.18, and will no longer support TLS 1.0 and 1.1 connections or certificates with a SHA-1 checksum. This is most likely to affect connections with external databases.
+  **Breaking changes**: The diego components are now more strict about the protocols used in TLS communications, causing integrations with systems using older, insecure protocols to fail. These components have been updated to Go 1.18, and no longer support TLS 1.0 and 1.1 connections or certificates with a SHA-1 checksum. This is most likely to affect connections with external databases.
   ## Resources
   - [Download release v2.65.0 from bosh.io](https://bosh.io/releases/github.com/cloudfoundry/diego-release?version=2.65.0).
   - Verified with [cloudfoundry/cf-deployment @ `3b04e79bd33220a117c4543b1c8074bc13bf7c24`](https://github.com/cloudfoundry/cf-deployment/commit/3b04e79bd33220a117c4543b1c8074bc13bf7c24).
@@ -8040,7 +8049,7 @@ Reconfiguration by Default](#auto-reconfig-disallowed) below.
           <pre style="max-width: 30em">
   ## What's Changed
   - ⚠️ Bump to golang 1.18 🎉
-  **Breaking changes:** The routing components are now more strict about the protocols used in TLS communications, causing integrations with systems using older, insecure protocols to fail. These components have been updated to Go 1.18, and will no longer support TLS 1.0 and 1.1 connections or certificates with a SHA-1 checksum. This is most likely to affect connections with external databases.
+  **Breaking changes:** The routing components are now more strict about the protocols used in TLS communications, causing integrations with systems using older, insecure protocols to fail. These components have been updated to Go 1.18, and no longer support TLS 1.0 and 1.1 connections or certificates with a SHA-1 checksum. This is most likely to affect connections with external databases.
   Please see this golang 1.18 release notes [section](https://tip.golang.org/doc/go1.18#tls10) for more information about the golang 1.18 change.
   ###
   * Update uaa-go-client; by @joergdw in https://github.com/cloudfoundry/routing-release/pull/277
@@ -8092,7 +8101,7 @@ Reconfiguration by Default](#auto-reconfig-disallowed) below.
   - Support Bionic Stemcell #16
   - Add blobs for the `keyutils` package for both `bionic` and `jammy`.
   - We now install this package on any VM that runs the `smbdriver` bosh job iff that VM uses a `bionic` or `jammy` stemcell
-  - This should allow the `smbdriver` to reliably mount SMB volumes on those stemcells, as discussed in #16
+  - This allows the `smbdriver` to reliably mount SMB volumes on those stemcells, as discussed in #16
   ## Dependencies
   - The `smbbrokerpush` and `bbr-smbbroker` errands require either the `cf-cli-7-linux` or `cf-cli-6-linux` job from [cf-cli-release](https://bosh.io/releases/github.com/bosh-packages/cf-cli-release?all=1) to be colocated on the errand VM.
           </pre>
@@ -9109,7 +9118,8 @@ instance. If you specify a service instance, Autoscaler only requests metrics fr
 
 <%= partial "/pcf/tas/known-issues/icmp-dynamic-asg-note" %>
 
-* **[Security Fix]** This release fixes [CVE-2022-22965](https://tanzu.vmware.com/security/cve-2022-22965); note that the "fix" in the immediately prior version did not actually address the vulnerability, as Spring framework dependencies in UAA that should have been updated, were not. We have confirmed this version actually contains the dependency bumps, and that it is no longer vulnerable to our confirmed exploit. We consider this patch necessary for secure operation; see the VMware Security Advisory [here](https://www.vmware.com/security/advisories/VMSA-2022-0010.html) for more details. This release also includes a new version of the Java Buildpack.
+* **[Security Fix]** This release fixes [CVE-2022-22965](https://tanzu.vmware.com/security/cve-2022-22965); note that the "fix" in the immediately prior version did not address the vulnerability, as
+Spring framework dependencies in UAA that can be updated, were not. We have confirmed this version contains the dependency bumps, and that it is no longer vulnerable to our confirmed exploit. We consider this patch necessary for secure operation; see the VMware Security Advisory [here](https://www.vmware.com/security/advisories/VMSA-2022-0010.html) for more details. This release also includes a new version of the Java Buildpack.
 * Bump java-offline-buildpack to version `4.48.2`
 * Bump uaa to version `74.5.37`
 
@@ -9178,7 +9188,7 @@ instance. If you specify a service instance, Autoscaler only requests metrics fr
 
 <%= partial "/pcf/tas/known-issues/icmp-dynamic-asg-note" %>
 
-* **[Security Fix]** This release was intended to address [CVE-2022-22965](https://tanzu.vmware.com/security/cve-2022-22965), but did not actually update the vulnerable dependencies. Upgrade to a more recent patch version instead. See the VMware Security Advisory [here](https://www.vmware.com/security/advisories/VMSA-2022-0010.html) for more details.
+* **[Security Fix]** This release was intended to address [CVE-2022-22965](https://tanzu.vmware.com/security/cve-2022-22965), but did not update the vulnerable dependencies. Upgrade to a more recent patch version instead. See the VMware Security Advisory [here](https://www.vmware.com/security/advisories/VMSA-2022-0010.html) for more details.
 * Bump uaa to version `74.5.36`
 
 <table border="1" class="nice">
@@ -9246,9 +9256,9 @@ instance. If you specify a service instance, Autoscaler only requests metrics fr
 
 <%= partial "/pcf/tas/known-issues/icmp-dynamic-asg-note" %>
 
-* See [New features in <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>](#new-features) below.
-* See [Breaking changes](#breaking-changes) below.
-* See [Known issues](#known-issues) below.
+* See [New features in <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>](#new-features).
+* See [Breaking changes](#breaking-changes).
+* See [Known issues](#known-issues).
 
 <table border="1" class="nice">
   <thead>
@@ -9311,7 +9321,7 @@ instance. If you specify a service instance, Autoscaler only requests metrics fr
 <sup>*</sup> The `cf-cli` version corresponds to the commercial distribution on <%= vars.product_network %>.
 
 
-## <a id='upgrade'></a> How to Upgrade
+## <a id='upgrade'></a> How to upgrade
 
 To upgrade to <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>, see [Configuring <%= vars.app_runtime_abbr %> for
 Upgrades](../operating/configuring.html).
@@ -9334,7 +9344,7 @@ currently compatible with <%= vars.app_runtime_abbr %> <%= vars.v_major_version 
 
 <%= vars.app_runtime_abbr %> <%= vars.v_major_version %> includes the following major features:
 
-### <a id='app-protocol'></a> Update the Destination App Protocol for Routes
+### <a id='app-protocol'></a> Update the Destination App Protocol for routes
 
 In <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>, developers can update the destination protocol for app routes. After the destination protocol is
 updated, the app uses that protocol for all incoming and outgoing communications.
@@ -9368,7 +9378,7 @@ To update the destination app protocol using cf CLI v8:
     cf update-destination --app-protocol http2 example-app app-domain.com --hostname example-hostname
     ```
 
-### <a id='mysql-8'></a> <%= vars.app_runtime_abbr %> is Compatible with MySQL 8
+### <a id='mysql-8'></a> <%= vars.app_runtime_abbr %> is compatible with MySQL 8
 
 <%= vars.app_runtime_abbr %> <%= vars.v_major_version %> supports MySQL 8 for external databases. Previous versions of <%= vars.app_runtime_abbr %> supported
 MySQL 5.7, which is expected to reach end of general support (EOGS) in 2023. If you use an external MySQL database with <%= vars.app_runtime_abbr %>
@@ -9411,9 +9421,9 @@ The following table lists the component releases that have been updated to use G
   </tr>
 </table>
 
-For important information, see [Gorouter Certificates Require a SAN Extension](#certs-require-san) below.
+For important information, see [Gorouter Certificates Require a SAN Extension](#certs-require-san).
 
-### <a id='dynamic-asg'></a> Dynamic App Security Group Rules
+### <a id='dynamic-asg'></a> Dynamic App Security Group rules
 
 <%= vars.app_runtime_abbr %> <%= vars.v_major_version %> introduces dynamic App Security Groups (ASGs).
 
@@ -9441,12 +9451,12 @@ For more information about ASGs, see [App Security Groups](../concepts/asg.html)
 
 In <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>, App Autoscaler can scale apps by one or more app instances based on autoscaling rules. In
 previous releases of <%= vars.app_runtime_abbr %>, App Autoscaler only scaled app instances up or down by one instance at a time. You can configure scaling
-factors using the App Autoscaler API or the App Autoscaler CLI plugin.
+factors using the App Autoscaler API or the App Autoscaler CLI plug-in.
 
 To configure scaling factors using the API, see [Update an App Binding](../appsman-services/autoscaler/using-autoscaler-api.html#update-app) in _Using the
 App Autoscaler API_.
 
-To configure scaling factors using the App Autoscaler CLI plugin, see [Update Scaling
+To configure scaling factors using the App Autoscaler CLI plug-in, see [Update Scaling
 Factors](../appsman-services/autoscaler/using-autoscaler-cli.html#updating-scaling-factors) in _Using the App Autoscaler CLI_.
 
 For more information, see [About App Autoscaler](../appsman-services/autoscaler/about-app-autoscaler.html).
@@ -9466,13 +9476,13 @@ limits.
 
 * Reduce the number of network hops required for logs and metrics to get to Log Cache.
 
-For important information regarding this feature, see the sections below:
+For important information regarding this feature, see the following sections:
 
 * [Log and Metric Topology Changes](#log-metric-topology)
 
 * [Possible Downtime When Upgrading from Certain <%= vars.app_runtime_abbr %> Versions](#upgrade-downtime).
 
-### <a id='no-recreate'></a> Rotate the Root CA and NATS CA Without Re-Creating All VMs
+### <a id='no-recreate'></a> Rotate the Root CA and NATS CA without Re-creating all VMs
 
 In <%= vars.ops_manager %> v2.10.20 and later, operators can rotate the root certificate authority (CA) or NATS CA without re-creating all VMs. If you rotate
 these certificates and re-deploy <%= vars.ops_manager %>, <%= vars.ops_manager %> updates the certificates on the VMs without re-creating the VMs.
@@ -9512,7 +9522,7 @@ can download in air-gapped environments. <%= vars.app_runtime_abbr %> <%= vars.v
 
 To allow access to offline tools in air-gapped environments:
 
-1. Navigate to the <%= vars.ops_manager %> Installation Dashboard.
+1. Go to the <%= vars.ops_manager %> Installation Dashboard.
 
 1. Click the <%= vars.app_runtime_abbr %> tile.
 
@@ -9553,8 +9563,8 @@ Doppler instances.
 As a result of this change, Diego Cells with high logging volume might experience higher CPU usage than they did prior to this change.
 
 When you upgrade to <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>, you might experience temporary difficulties getting logs and metrics from the cf
-CLI for apps that are pushed during the upgrade. This should not affect whether or not the app is able to be deployed. For more information, see [Possible
-Downtime When Upgrading from Certain <%= vars.app_runtime_abbr %> Versions](#upgrade-downtime) below.
+CLI for apps that are pushed during the upgrade. This does not affect whether or not the app is able to be deployed. For more information, see [Possible
+Downtime When Upgrading from Certain <%= vars.app_runtime_abbr %> Versions](#upgrade-downtime).
 
 This change comes with the following considerations when you upgrade to <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>:
 
@@ -9566,7 +9576,7 @@ This change comes with the following considerations when you upgrade to <%= vars
   <tr>
     <td>Log Cache uses syslog ingress by default.</td>
     <td>Confirm that your instances, including those within isolation segments, are permitted to establish connections to Log Cache nodes on port
-      <code>6067</code>. You may need to update firewall rules to allow logs to flow directly from your instances to the Log Cache syslog server.</td>
+      <code>6067</code>. You might need to update firewall rules to allow logs to flow directly from your instances to the Log Cache syslog server.</td>
   </tr>
   <tr>
     <td>Underscaled Log Cache instances can fail with <code>Out of Memory</code> errors, which locks the BOSH Director.</td>
@@ -9574,9 +9584,9 @@ This change comes with the following considerations when you upgrade to <%= vars
       Doppler instances before the upgrade. Starting larger and then adjusting for actual use is safer than a deployment failure.</td>
   </tr>
   <tr>
-    <td>Service instance metrics might not be retrievable using the Log Cache cf CLI plugin.</td>
+    <td>Service instance metrics might not be retrievable using the Log Cache cf CLI plug-in.</td>
     <td><%= vars.recommended_by %> recommends configuring syslog ingestion. If you need to retrieve metrics from service tiles that do not support this
-      feature, deactivate the <strong>Enable Log Cache syslog ingestion</strong> checkbox in the <strong>System Logging</strong> pane of the
+      feature, deactivate the <strong>Enable Log Cache syslog ingestion</strong> check box in the <strong>System Logging</strong> pane of the
       <%= vars.app_runtime_abbr %> tile.</td>
   </tr>
 </table>
@@ -9603,7 +9613,7 @@ leading zeros and try deploying again. This affects properties that feed into al
 [<%= vars.app_runtime_abbr %> Components Use Golang v1.17](#golang-1-17) above. Syslog drains and Metric Registrar endpoints that are registered using
 user-provided services might also be affected.
 
-### <a id='cf-cli-v6'></a> cf CLI v6 is Not Supported
+### <a id='cf-cli-v6'></a> cf CLI v6 is not supported
 
 <%= vars.app_runtime_abbr %> <%= vars.v_major_version %> does not support cf CLI v6. You must upgrade to cf CLI v7 or cf CLI v8.
 
@@ -9616,13 +9626,13 @@ To upgrade to a supported cf CLI version, see [Upgrading to cf CLI v7](../cf-cli
 
 ### <a id='firehose-nozzles-unavailable'></a> Firehose Nozzles Unavailable During Upgrade
 
-_A forthcoming patch release of <%= vars.app_runtime_abbr %> <%= vars.v_major_version %> will resolve this issue._
+_A forthcoming patch release of <%= vars.app_runtime_abbr %> <%= vars.v_major_version %> resolves this issue._
 
-When upgrading from <%= vars.app_runtime_abbr %> 2.11 or <%= vars.app_runtime_abbr %> 2.12, Firehose nozzle integrations (for example Splunk or Microsoft Azure Log Analytics) will not be able to receive logs or metrics for the majority of the time that Diego cells are updating.
+When upgrading from <%= vars.app_runtime_abbr %> 2.11 or <%= vars.app_runtime_abbr %> 2.12, Firehose nozzle integrations (for example Splunk or Microsoft Azure Log Analytics) is not able to receive logs or metrics for the majority of the time that Diego cells are updating.
 
-For customers with a large number of Diego cells this may be a lengthy window (multiple hours).
+For customers with a large number of Diego cells this might be a lengthy window (multiple hours).
 
-Logs and metrics will continue to be available from the cf CLI, Reverse Log Proxy (v2) nozzles and syslog drains.
+Logs and metrics continue to be available from the cf CLI, Reverse Log Proxy (v2) nozzles and syslog drains.
 
 ### <a id='upgrade-downtime'></a> Possible Log Cache Downtime When Upgrading from Certain <%= vars.app_runtime_abbr %> Versions
 
