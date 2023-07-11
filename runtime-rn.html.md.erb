@@ -3,7 +3,7 @@ title: TAS for VMs v3.0 Release notes
 owner: Release Engineering
 ---
 
-Here you will find the release notes for <%= vars.app_runtime_first %> <%= vars.v_major_version %>.
+These are the release notes for <%= vars.app_runtime_first %> <%= vars.v_major_version %>.
 
 <%= vars.app_runtime_abbr %> is certified by the Cloud Foundry Foundation for 2023.
 
@@ -23,11 +23,11 @@ Because VMware uses the Percona Distribution for MySQL, expect a time lag betwee
 
 <%= partial "/pcf/tas/known-issues/multiple-expect-100-continue-tas-3-0" %>
 
-* **[Feature]** Expose "Certificate Authorities trusted by the Gorouter for client requests" in the Networking tab
-* **[Feature]** Adds support for W3C Trace ID logging across Diego component requests
-* **[Bug Fix]** Timeouts in for executor's uploader have been increased to 500ms
-* **[Bug Fix]** Byte-based logging limits for LRPs and Tasks now emit only once per second
-* **[Bug Fix/Improvement]** Garden now ships with Busybox 1.36.1 as the default filesystem
+* **[Feature]** Expose "Certificate Authorities trusted by the Gorouter for client requests" in the Networking tab.
+* **[Feature]** Adds support for W3C Trace ID logging across Diego component requests.
+* **[Bug Fix]** Timeouts in for executor's uploader have been increased to 500ms.
+* **[Bug Fix]** Byte-based logging limits for LRPs and Tasks now emit only once per second.
+* **[Bug Fix/Improvement]** Garden now ships with Busybox 1.36.1 as the default filesystem.
 
 * Bump backup-and-restore-sdk to version `1.18.77`
 * Bump cf-networking to version `3.28.0`
@@ -114,8 +114,8 @@ Because VMware uses the Percona Distribution for MySQL, expect a time lag betwee
           <summary>v2.78.0</summary>
           <pre style="max-width: 30em">
   ## Changes
-  - Bumped to golang 1.20.5
-  - Vizzini now defaults to cflinuxfs4
+  - Bumped to golang 1.20.5.
+  - Vizzini now defaults to cflinuxfs4.
   ## Bosh Job Spec changes:
   ```diff
   diff --git a/jobs/vizzini/spec b/jobs/vizzini/spec
@@ -140,10 +140,10 @@ Because VMware uses the Percona Distribution for MySQL, expect a time lag betwee
           <summary>v2.77.0</summary>
           <pre style="max-width: 30em">
   ## Changes
-  - Adds support for W3C Trace ID logging across diego component requests
-  - Timeouts in for executor's uploader have been increased to 500ms
-  - Byte-based logging limits for LRPs and Tasks now emit only once per second
-  -  LRPs can now have liveness and readiness check intervals defined when the LRP is created.
+  - Adds support for W3C Trace ID logging across diego component requests.
+  - Timeouts in for executor's uploader have been increased to 500ms.
+  - Byte-based logging limits for LRPs and Tasks now emit only once per second.
+  - LRPs can now have liveness and readiness check intervals defined when the LRP is created.
   - Dependency Bumps:
   - code.cloudfoundry.org/archiver a23cadd462ce
   - code.cloudfoundry.org/certsplitter a2c6caf14c29
@@ -411,7 +411,7 @@ Because VMware uses the Percona Distribution for MySQL, expect a time lag betwee
 
 <%= partial "/pcf/tas/known-issues/multiple-expect-100-continue-tas-3-0" %>
 
-* **[Bug Fix]** Operators can disable gorouter request timeouts (i.e. for streaming applications) by configuring them to 0
+* **[Bug Fix]** Operators can deactivate gorouter request timeouts by configuring them to 0. For example, for streaming applications.
 * **[Bug Fix/Improvement]** This is an improvement to dependencies.
 * **[Bug Fix/Improvement]** "Back end request timeout for the Gorouter" property no longer affects idle timeout of long lived requests. Idle timeouts now configurable by "Front end idle timeout for the Gorouter" property.
 * **[Bug Fix/Improvement]** This is an improvement to dependencies.
@@ -651,8 +651,8 @@ Because VMware uses the Percona Distribution for MySQL, expect a time lag betwee
           <summary>4.59.0</summary>
           <pre style="max-width: 30em">
   I'm pleased to announce the release of the java-buildpack, version 4.59.0. This release includes updates to dependency frameworks, such as:
-  * Updates [Azure Application Insights](https://github.com/cloudfoundry/java-buildpack/blob/main/docs/framework-azure_application_insights_agent.md) agent from 2.x to 3.x (thanks to @mayrstefan )
-  * Updates the [Contrast Security](https://github.com/cloudfoundry/java-buildpack/blob/main/docs/framework-contrast_security_agent.md) agent from 4.x to 5.x (thanks to @tylernhoward )
+  * Updates [Azure Application Insights](https://github.com/cloudfoundry/java-buildpack/blob/main/docs/framework-azure_application_insights_agent.md) agent from 2.x to 3.x.
+  * Updates the [Contrast Security](https://github.com/cloudfoundry/java-buildpack/blob/main/docs/framework-contrast_security_agent.md) agent from 4.x to 5.x.
   There were also dependency bumps for other libraries, including:
   * Elastic APM
   * JaCoCo
@@ -993,11 +993,11 @@ Because VMware uses the Percona Distribution for MySQL, expect a time lag betwee
   description: |
   -      This configures a "request timeout" and a "backend idle timeout".
   +      This configures an entire request timeout.
-  Requests from router to backend endpoints that are longer than this duration will be canceled and logged as
+  Requests from router to backend endpoints that are longer than this duration are canceled and logged as
   -      `backend-request-timeout` errors. In addition, TCP connections between router and backend endpoints that
-  -      are idle for longer than this duration will be closed. Related properties: `router.max_idle_connections`
+  -      are idle for longer than this duration are closed. Related properties: `router.max_idle_connections`
   -      and `router.keep_alive_probe_interval`.
-  +      `backend-request-timeout` errors. If set to 0 this timeout is disabled.
+  +      `backend-request-timeout` errors. If set to 0 this timeout is deactivated.
   default: 900
   endpoint_dial_timeout_in_seconds:
   description: |
@@ -1191,7 +1191,7 @@ Because VMware uses the Percona Distribution for MySQL, expect a time lag betwee
 <%= partial "/pcf/tas/known-issues/multiple-expect-100-continue-tas-3-0" %>
 
 * **[Feature Improvement]** Migrate stop of rsyslogd to post-stop step, so that logs during stopping of Bosh jobs are still forwarded to configured targets.
-* **[Bug Fix]** SMB configuration from the TAS tile will now also be applied to the IST tile if installed
+* **[Bug Fix]** SMB configuration from the TAS tile can be applied to the IST tile if installed.
 * Bump backup-and-restore-sdk to version `1.18.71`
 * Bump cflinuxfs3 to version `0.366.0`
 * Bump cflinuxfs4 to version `1.9.0`
@@ -1367,7 +1367,7 @@ Because VMware uses the Percona Distribution for MySQL, expect a time lag betwee
           <summary>v0.268.0</summary>
           <pre style="max-width: 30em">
   ## Changes
-  - Adds support for `route_registrar` to advertise HTTP2 based routes to gorouter. If not specified on a route, http1 is used by default. Thanks @peanball @plowin and @b1tamara!!
+  - Adds support for `route_registrar` to advertise HTTP2 based routes to gorouter. If not specified on a route, http1 is used by default.
   ## Bosh Job Spec changes:
   ```diff
   diff --git a/jobs/route_registrar/spec b/jobs/route_registrar/spec
@@ -1375,13 +1375,13 @@ Because VMware uses the Percona Distribution for MySQL, expect a time lag betwee
   --- a/jobs/route_registrar/spec
   +++ b/jobs/route_registrar/spec
   @@ -101,6 +101,7 @@ properties:
-  tls_port (required, integer, for http routes): Either `port` or `tls_port` are required; if both are provided, Gorouter will prefer tls_port.
-  Requests for associated URIs will be forwarded over TLS by the router to this port.
+  tls_port (required, integer, for http routes): Either `port` or `tls_port` are required; if both are provided, Gorouter prefers tls_port.
+  Requests for associated URIs are forwarded over TLS by the router to this port.
   The IP is determined automatically from the host on which route-registrar is run.
   +        protocol (optional, string): 'http1' or 'http2'. If not provided, Gorouter uses 'http1' as default.
-  route_service_url (optional, string, for http routes): When valid route service URL is provided, Gorouter will proxy requests received for the uris above to the specified route service URL.
+  route_service_url (optional, string, for http routes): When valid route service URL is provided, Gorouter proxies requests are received for the uris to the specified route service URL.
   server_cert_domain_san (conditional, string, for http routes): Required if tls_port is present.
-  Gorouter will validate that the TLS certificate presented by the destination host contains this as a Subject Alternative Name (SAN).
+  Gorouter validates that the TLS certificate presented by the destination host contains this as a Subject Alternative Name (SAN).
   ```
   ## ✨  Built with go 1.20.4
   **Full Changelog**: https://github.com/cloudfoundry/routing-release/compare/v0.267.0...v0.268.0
@@ -1421,7 +1421,7 @@ Because VMware uses the Percona Distribution for MySQL, expect a time lag betwee
           <pre style="max-width: 30em">
   ## Changes
   - ⚠️ The new `silk-data-syncer` job is missing some files that cause compilation to fail. This is not a problem if you are deploying without that job. If you need the job, please upgrade to 3.25.1.
-  - Add new `silk-datastore-syncer` job to sync app log metadata from garden to silk datastore
+  - Add new `silk-datastore-syncer` job to sync app log metadata from garden to silk data store.
   - Bump to Go 1.20.4
   - Bump to Silk 20230501162532-6ab8d30026c6
   - Bump dependencies such that Ginkgo V2 and Lager V3 are used
@@ -1445,7 +1445,7 @@ Because VMware uses the Percona Distribution for MySQL, expect a time lag betwee
   +
   +properties:
   +  disable:
-  +    description: "Disable this monit job. It will not run. Required for backwards compatability."
+  +    description: "Deactivates this monit job. It does not run. Required for backwards compatability."
   +    default: false
   +  sync_interval_in_seconds:
   +    description: "Interval to check garden for new metadata."
@@ -1501,9 +1501,8 @@ Because VMware uses the Percona Distribution for MySQL, expect a time lag betwee
           <pre style="max-width: 30em">
   ## What's changed
   * Dependency bumps
-  * Migrate stop of rsyslogd to post-stop by @KarstenSchnitter in https://github.com/cloudfoundry/syslog-release/pull/133
+  * Migrate stop of rsyslogd to post-stop in https://github.com/cloudfoundry/syslog-release/pull/133
   ## New Contributors
-  * @KarstenSchnitter made their first contribution in https://github.com/cloudfoundry/syslog-release/pull/133
   **Full Changelog**: https://github.com/cloudfoundry/syslog-release/compare/v12.1.4...v12.1.5
           </pre>
         </details>
@@ -1524,7 +1523,7 @@ Because VMware uses the Percona Distribution for MySQL, expect a time lag betwee
 
 * **[Security Fix]** Resolve issue in gorouter where canceled requests can result in apps becoming unavailable ([CVE-2023-20882](https://www.cloudfoundry.org/blog/cve-2023-20882-gorouter-pruning-via-client-disconnect-resulting-in-dos/))
 * **[Feature Improvement]** Allow disabling of signature v4 streaming for system blobstore
-* **[Bug Fix]** Fixes an issue in gorouter where requests that should have returned 496, 499, 503, 525, or 526 HTTP status codes may instead have returned as 502s, potentially preventing stale route pruning.
+* **[Bug Fix]** Fixes an issue in gorouter where requests that have returned 496, 499, 503, 525, or 526 HTTP status codes might have returned as 502s, potentially preventing stale route pruning.
 * **[Bug Fix]** Resolve Issue where Garden failed during BOSH/OpsMan deploys due to healthcheck
 * **[Bug Fix]** Resolve regression: UI error after org deletion
 * Bump backup-and-restore-sdk to version `1.18.69`
@@ -1726,7 +1725,7 @@ Because VMware uses the Percona Distribution for MySQL, expect a time lag betwee
   +    description: "Period in seconds after which the locket gRPC client sends keepalive ping requests to the locket server it is connected to."
   +    default: 10
   +  diego.auctioneer.locket.client_keepalive_timeout:
-  +    description: "Timeout in seconds to receive a response to the keepalive ping. If a response is not received within this time, the locket client will reconnect to another server."
+  +    description: "Timeout in seconds to receive a response to the keepalive ping. If a response is not received within this time, the locket client reconnects to another server."
   +    default: 22
   locks.locket.enabled:
   description: When set, the auctioneer attempts to claim a lock from the Locket API.
@@ -1736,29 +1735,29 @@ Because VMware uses the Percona Distribution for MySQL, expect a time lag betwee
   +++ b/jobs/bbs/spec
   @@ -140,6 +140,12 @@ properties:
   diego.bbs.locket.api_location:
-  description: "Hostname and port of the Locket server. When set, the BBS attempts to claim a lock from the Locket API and will detect Diego cells registered with the Locket API."
+  description: "Hostname and port of the Locket server. When set, the BBS attempts to claim a lock from the Locket API and detects Diego cells registered with the Locket API."
   default: locket.service.cf.internal:8891
   +  diego.bbs.locket.client_keepalive_time:
   +    description: "Period in seconds after which the locket gRPC client sends keepalive ping requests to the locket server it is connected to."
   +    default: 10
   +  diego.bbs.locket.client_keepalive_timeout:
-  +    description: "Timeout in seconds to receive a response to the keepalive ping. If a response is not received within this time, the locket client will reconnect to another server."
+  +    description: "Timeout in seconds to receive a response to the keepalive ping. If a response is not received within this time, the locket client reconnects to another server."
   +    default: 22
   limits.open_files:
-  description: Maximum number of files (including sockets) the BBS process may have open.
+  description: Maximum number of files (including sockets) the BBS process might have opened.
   diff --git a/jobs/rep/spec b/jobs/rep/spec
   index df7bd7c49..1383b67c0 100644
   --- a/jobs/rep/spec
   +++ b/jobs/rep/spec
   @@ -217,6 +217,12 @@ properties:
   diego.rep.locket.api_location:
-  description: "Hostname and port of the Locket server. When set, the cell rep will establish its cell registration in the Locket API."
+  description: "Hostname and port of the Locket server. When set, the cell rep establishes its cell registration in the Locket API."
   default: locket.service.cf.internal:8891
   +  diego.rep.locket.client_keepalive_time:
   +    description: "Period in seconds after which the locket gRPC client sends keepalive ping requests to the locket server it is connected to."
   +    default: 10
   +  diego.rep.locket.client_keepalive_timeout:
-  +    description: "Timeout in seconds to receive a response to the keepalive ping. If a response is not received within this time, the locket client will reconnect to another server."
+  +    description: "Timeout in seconds to receive a response to the keepalive ping. If a response is not received within this time, the locket client reconnects to another server."
   +    default: 22
   enable_declarative_healthcheck:
   description: "When set, enables the rep to prefer the LRP CheckDefinition to healthcheck instances over the Monitor action. Requires Garden-Runc v1.10.0+"
@@ -1775,7 +1774,7 @@ Because VMware uses the Percona Distribution for MySQL, expect a time lag betwee
   +    description: "Period in seconds after which the locket gRPC client sends keepalive ping requests to the locket server it is connected to."
   +    default: 10
   +  diego.rep.locket.client_keepalive_timeout:
-  +    description: "Timeout in seconds to receive a response to the keepalive ping. If a response is not received within this time, the locket client will reconnect to another server."
+  +    description: "Timeout in seconds to receive a response to the keepalive ping. If a response is not received within this time, the locket client reconnects to another server."
   +    default: 22
   +
   enable_declarative_healthcheck:
@@ -1790,7 +1789,7 @@ Because VMware uses the Percona Distribution for MySQL, expect a time lag betwee
   description: Run tests in verbose mode
   default: false
   -  vizzini.stream:
-  -    description: Stream output from parallel test nodes. This option will lead to less coherent output but is useful when debugging
+  -    description: Stream output from parallel test nodes. This option leads to less coherent output but is useful when debugging
   -    default: false
   enable_declarative_healthcheck:
   description: "When set, enables the declarative check tests in vizzini"
@@ -1861,7 +1860,8 @@ Because VMware uses the Percona Distribution for MySQL, expect a time lag betwee
           <summary>v1.29.0</summary>
           <pre style="max-width: 30em">
   ## Changes
-  ⚠️We have removed the garden-healthcheck job from garden while we investigate a way to make it less painful. From v1.22.6 through v1.28.0, garden restarts with a high container count could result in BOSH deploys failing due to a race condition between garden, bpm, monit, and garden-healthchecker. This will be re-enabled at a later time when we resolve the race condition.
+  ⚠️We have removed the garden-healthcheck job from garden while we investigate a way to make it less painful. From v1.22.6 through v1.28.0, garden restarts with a high container count could result in BOSH deploys failing due to a race condition between garden,
+  bpm, monit, and garden-healthchecker. This change is going to be re-enabled at a later time when we resolve the race condition.
   ## ✨  Built with go 1.20.4
   **Full Changelog**: https://github.com/cloudfoundry/garden-runc-release/compare/v1.28.0...v1.29.0
   ## Resources
@@ -1924,7 +1924,7 @@ Because VMware uses the Percona Distribution for MySQL, expect a time lag betwee
           <pre style="max-width: 30em">
   I'm pleased to announce the release of the java-buildpack, version 4.58. It primarily includes new OpenJDK versions, which are based on the Oracle Java Quarterly Updates for April 2023.
   The release also includes:
-  * Buildpack-specific location for Ruby install (thanks @brayanhenao)
+  * Buildpack-specific location for Ruby installation
   * Updated MariaDB JDBC Connector to 2.7.9
   For a more detailed look at the changes in 4.58, please take a look at the [commit log](https://github.com/cloudfoundry/java-buildpack/compare/v4.57...v4.58). The packaged version of the buildpack, suitable for use with create-buildpack and update-buildpack, can be found attached to this release.
   | Dependency | Version | CVEs | Release Notes |
@@ -1976,8 +1976,8 @@ Because VMware uses the Percona Distribution for MySQL, expect a time lag betwee
           <pre style="max-width: 30em">
   I'm pleased to announce the release of the java-buildpack, version 4.57. This release fixes a bug with the [Container Security Provider](https://github.com/cloudfoundry/java-buildpack-security-provider) library, in which a race condition could result in mismatched private-key and certificate pairs when Diego rotated these credentials for the container. See [this issue](https://github.com/cloudfoundry/java-buildpack-security-provider/issues/8) for more details.
   This release also contains the following:
-  * The Azul Zing JRE contained a bug when generating the Java Opts, fixed with #1008 (thanks to @schelini)
-  * Update to the geode_store dependency (thanks to @BenjaminPerryRoss)
+  * The Azul Zing JRE contained a bug when generating the Java Opts, fixed with #1008.
+  * Update to the geode_store dependency.
   For a more detailed look at the changes in 4.57, please take a look at the [commit log](https://github.com/cloudfoundry/java-buildpack/compare/v4.56...v4.57). The packaged version of the buildpack, suitable for use with create-buildpack and update-buildpack, can be found attached to this release.
   | Dependency | Version | CVEs | Release Notes |
   | ---------- | ------- | ---- | ------------- |
@@ -2033,7 +2033,7 @@ Because VMware uses the Percona Distribution for MySQL, expect a time lag betwee
   ## What's changed
   * Bump to [go1.20.4](https://groups.google.com/g/golang-announce/c/MEb0UyuSMsU/m/QvrjqM4XAgAJ)
   * Replace gorilla with chi by @Benjamintf1 in https://github.com/cloudfoundry/log-cache-release/pull/197
-  * Replace local tlsconfig with the standard tlsconfig library by @Benjamintf1 in https://github.com/cloudfoundry/log-cache-release/pull/200. This should not change the effective tlsconfig.
+  * Replace local tlsconfig with the standard tlsconfig library by @Benjamintf1 in https://github.com/cloudfoundry/log-cache-release/pull/200. This does not change the effective tlsconfig.
   * Bump dependencies
   **Full Changelog**: https://github.com/cloudfoundry/log-cache-release/compare/v3.0.1...v3.0.2
           </pre>
@@ -2139,7 +2139,7 @@ Because VMware uses the Percona Distribution for MySQL, expect a time lag betwee
   **Bugs Fixed**
   - Fixes bug that caused metrics to be displayed for only one of the MySQL nodes in three-node HA cluster
   **Additional notes**
-  In [v9.19.0](https://github.com/cloudfoundry/mysql-monitoring-release/releases/tag/v9.19.0), a new `mysql-metrics.port` property was introduced in the `mysql-metrics` job. This bug fix also includes an update which removes the need for this property, and it will be obsoleted in a future release.
+  In [v9.19.0](https://github.com/cloudfoundry/mysql-monitoring-release/releases/tag/v9.19.0), a new `mysql-metrics.port` property was introduced in the `mysql-metrics` job. This bug fix also includes an update which removes the need for this property, and is obsolete in a future release.
           </pre>
         </details>
       </td>
@@ -2409,8 +2409,8 @@ Because VMware uses the Percona Distribution for MySQL, expect a time lag betwee
           <summary>v0.266.0</summary>
           <pre style="max-width: 30em">
   ## Change
-  - 🐛Fixes a bug that may cause routing failures to apps. Thanks @maxmoehl and @domdom82!!
-  - Many go dependency updates across all routing packages. Thanks @winkingturtle-vmw!!
+  - 🐛Fixes a bug that caused routing failures to apps.
+  - Many go dependency updates across all routing packages.
   ## ✨  Built with go 1.20.4
   **Full Changelog**: https://github.com/cloudfoundry/routing-release/compare/v0.265.1...v0.266.0
   ## Resources
@@ -2421,7 +2421,7 @@ Because VMware uses the Percona Distribution for MySQL, expect a time lag betwee
           <summary>v0.265.1</summary>
           <pre style="max-width: 30em">
   :warning::warning::warning:
-  **There is a known issue with this release’s routing logic which may cause routing failures to apps. It is advised to use routing-release [0.266.0](https://github.com/cloudfoundry/routing-release/releases/tag/v0.266.0) or later instead of this release.**
+  **There is a known issue with this release’s routing logic which might cause routing failures to apps. It is advised to use routing-release [0.266.0](https://github.com/cloudfoundry/routing-release/releases/tag/v0.266.0) or later instead of this release.**
   ## Changes
   - Bump healthchecker
   ## ✨  Built with go 1.20.4
@@ -2434,7 +2434,7 @@ Because VMware uses the Percona Distribution for MySQL, expect a time lag betwee
           <summary>v0.265.0</summary>
           <pre style="max-width: 30em">
   :warning::warning::warning:
-  **There is a known issue with this release’s routing logic which may cause routing failures to apps. It is advised to use routing-release [0.266.0](https://github.com/cloudfoundry/routing-release/releases/tag/v0.266.0) or later instead of this release.**
+  **There is a known issue with this release’s routing logic which causes routing failures to apps. It is advised to use routing-release [0.266.0](https://github.com/cloudfoundry/routing-release/releases/tag/v0.266.0) or later instead of this release.**
   ## Changes
   - Bump to Go 1.20.4
   ## ✨  Built with go 1.20.4
@@ -2447,9 +2447,9 @@ Because VMware uses the Percona Distribution for MySQL, expect a time lag betwee
           <summary>v0.264.0</summary>
           <pre style="max-width: 30em">
   :warning::warning::warning:
-  **There is a known issue with this release’s routing logic which may cause routing failures to apps. It is advised to use routing-release [0.266.0](https://github.com/cloudfoundry/routing-release/releases/tag/v0.266.0) or later instead of this release.**
+  **There is a known issue with this release’s routing logic which might cause routing failures to apps. It is advised to use routing-release [0.266.0](https://github.com/cloudfoundry/routing-release/releases/tag/v0.266.0) or later instead of this release.**
   ## Changes
-  - Addresses the issue in routing-release 0.263.0 where `bosh export-releases` would fail to compile the `acceptance-tests` package.
+  - Addresses the issue in routing-release 0.263.0 where `bosh export-releases` failed to compile the `acceptance-tests` package.
   ## ✨  Built with go 1.20.3
   **Full Changelog**: https://github.com/cloudfoundry/routing-release/compare/v0.263.0...v0.264.0
   ## Resources
@@ -2460,8 +2460,8 @@ Because VMware uses the Percona Distribution for MySQL, expect a time lag betwee
           <summary>v0.263.0</summary>
           <pre style="max-width: 30em">
   ⚠️⚠️⚠️
-  **This version does not compile, it will be fixed with the next release**
-  **There is a known issue with this release’s routing logic which may cause routing failures to apps. It is advised to use routing-release [0.266.0](https://github.com/cloudfoundry/routing-release/releases/tag/v0.266.0) or later instead of this release.**
+  **This version does not compile, it's fixed with the next release**
+  **There is a known issue with this release’s routing logic which causes routing failures to apps. It is advised to use routing-release [0.266.0](https://github.com/cloudfoundry/routing-release/releases/tag/v0.266.0) or later instead of this release.**
   ## Changes
   - 🐛Fixed a bug present since v0.262.0 that caused CATs to intermittently fail on apps using `nc` as their server.
   - 🐛Bumped haproxy to 2.7.6 in cf-tcp-router, to resolve a bug preventing haproxy from properly transferring open connections to the new haproxy process when a reload occurred - [haproxy/#1883](https://github.com/haproxy/haproxy/issues/1883)
@@ -2684,7 +2684,7 @@ Because VMware uses the Percona Distribution for MySQL, expect a time lag betwee
 * **[Bug Fix]** Allow rolling restarts on cflinuxfs4
 * **[Bug Fix]** Fix apps-manager failure due to buildpack changes
 * **[Bug Fix]** Fixed issues in route_registrar and tcp_router that led to unnecessary haproxy reloads
-* **[Bug Fix]** Metric Registrar updated to emit correct metric-registrar metadata for log worker and secure scraper. Non secure scraping should be considered deprecated.
+* **[Bug Fix]** Metric Registrar updated to emit correct metric-registrar metadata for log worker and secure scraper. Non-secure scraping is considered deprecated.
 * Bump backup-and-restore-sdk to version `1.18.66`
 * Bump bpm to version `1.1.23`
 * Bump capi to version `1.148.0`
@@ -2913,7 +2913,7 @@ Because VMware uses the Percona Distribution for MySQL, expect a time lag betwee
         <details>
           <summary>4.56</summary>
           <pre style="max-width: 30em">
-  I'm pleased to announce the release of the java-buildpack, version 4.56. This release fixes a bug related to the change in v4.55, where the buildpack uses a Python library - Python will also be removed from the `cflinuxfs4` stack, so this change removes the reliance on this binary.
+  I'm pleased to announce the release of the java-buildpack, version 4.56. This release fixes a bug related to the change in v4.55, where the buildpack uses a Python library - Python is removed from the `cflinuxfs4` stack, so this change removes the reliance on this binary.
   For a more detailed look at the changes in 4.56, please take a look at the [commit log](https://github.com/cloudfoundry/java-buildpack/compare/v4.55...v4.56). The packaged version of the buildpack, suitable for use with create-buildpack and update-buildpack, can be found attached to this release.
   | Dependency | Version | CVEs | Release Notes |
   | ---------- | ------- | ---- | ------------- |
@@ -2962,11 +2962,11 @@ Because VMware uses the Percona Distribution for MySQL, expect a time lag betwee
         <details>
           <summary>4.55</summary>
           <pre style="max-width: 30em">
-  I'm pleased to announce the release of the java-buildpack, version 4.55. It primarily includes a change to how Ruby is provided to run the buildpack. The `cflinuxfs4` stack will soon remove Ruby, therefore the buildpack will supply it's own Ruby version. This is added as a new buildpack dependency and is linked to the Cloudfoundry [Ruby Buildpack](https://github.com/cloudfoundry/ruby-buildpack/blob/master/java-index/index.yml) repo.
+  I'm pleased to announce the release of the java-buildpack, version 4.55. It primarily includes a change to how Ruby is provided to run the buildpack. The `cflinuxfs4` stack removes Ruby, therefore, the buildpack supplies it's own Ruby version. This is added as a new buildpack dependency and is linked to the Cloudfoundry [Ruby Buildpack](https://github.com/cloudfoundry/ruby-buildpack/blob/master/java-index/index.yml) repo.
   This release includes the following notable changes, among other dependency bumps:
-  * Update of the Contrast Security Agent to v4+ (thanks to @FrankGasparovic)
+  * Update of the Contrast Security Agent to v4+.
   * Update of the New Relic agent to v8+
-  * New Ruby dependency & logic (thanks to @ryanmoran)
+  * New Ruby dependency & logic.
   For a more detailed look at the changes in 4.55, please take a look at the [commit log](https://github.com/cloudfoundry/java-buildpack/compare/v4.54...v4.55). The packaged version of the buildpack, suitable for use with create-buildpack and update-buildpack, can be found attached to this release.
   | Dependency | Version | CVEs | Release Notes |
   | ---------- | ------- | ---- | ------------- |
@@ -3437,8 +3437,8 @@ Because VMware uses the Percona Distribution for MySQL, expect a time lag betwee
           <summary>v0.262.0</summary>
           <pre style="max-width: 30em">
   ## Changes
-  - 🐛Fixes the of golang has a known issue that causes backend request failures which previously returned 496, 499, 503, 525, or 526 to instead return a 502. Additionally stale routes may not have been pruned properly. Thanks @domdom82!!
-  - 🚗Gorouter now retries requests which fail prior to any HTTP content being sent (since no backend received the HTTP content, they're by definition retriable). Thanks for the [PR](https://github.com/cloudfoundry/gorouter/pull/337). Thanks @maxmoehl and @domdom82!!
+  - 🐛Fixes the of golang has a known issue that causes backend request failures which previously returned 496, 499, 503, 525, or 526 to instead return a 502. Additionally stale routes might not have been pruned properly.
+  - 🚗Gorouter now retries requests which fail prior to any HTTP content being sent (since no backend received the HTTP content, they are by definition retriable). Thanks for the [PR](https://github.com/cloudfoundry/gorouter/pull/337).
   ## ✨  Built with go 1.20.2
   **Full Changelog**: https://github.com/cloudfoundry/routing-release/compare/v0.261.0...v0.262.0
   ## Resources
@@ -3449,7 +3449,7 @@ Because VMware uses the Percona Distribution for MySQL, expect a time lag betwee
           <summary>v0.261.0</summary>
           <pre style="max-width: 30em">
   ⚠️⚠️⚠️
-  **This version of golang has a known issue that may cause backend request failures that previously returned 496, 499, 503, 525, or 526 to instead return a 502. Additionally stale routes may not get pruned properly. This will be addressed in an upcoming release.**
+  **This version of golang has a known issue that might cause backend request failures that previously returned 496, 499, 503, 525, or 526 to instead return a 502. Additionally stale routes might not get pruned properly. This is addressed in an upcoming release.**
   ## Changes
   - Bug fix: add healthcheck to routing-api for route-registrar
   ## Bosh Job Spec changes:
@@ -3478,7 +3478,7 @@ Because VMware uses the Percona Distribution for MySQL, expect a time lag betwee
   +    description: "Maximum health check timeout (in seconds) for each retry attempt in the Routing API's route registration health check"
   +  routing_api.health_check_total_timeout:
   +    default: 6
-  +    description: "Maximum health check timeout (in seconds). Health checks will be retried until this time limit is reached. This should be less than or equal to your route_registrar.routes.api.health_check.timeout"
+  +    description: "Maximum health check timeout (in seconds). Health checks are retried until this time limit is reached. This can be less than or equal to your route_registrar.routes.api.health_check.timeout"
   +
   metron.port:
   description: "The port used to emit dropsonde messages to the Metron agent."
@@ -3494,15 +3494,15 @@ Because VMware uses the Percona Distribution for MySQL, expect a time lag betwee
           <summary>v0.260.0</summary>
           <pre style="max-width: 30em">
   ⚠️⚠️⚠️
-  **This version of golang has a known issue that may cause backend request failures that previously returned 496, 499, 503, 525, or 526 to instead return a 502. Additionally stale routes may not get pruned properly. This will be addressed in an upcoming release.**
+  **This version of golang has a known issue that causes backend request failures that previously returned 496, 499, 503, 525, or 526 to instead return a 502. Additionally stale routes can get pruned properly. This is addressed in an upcoming release.**
   ## Changes
   - Dependency updates (cf cli, healthchecker, golang)
-  - Many CI Updates - Thanks @jrussett!
-  - 🐛[#310]The routing_utils route loader now sets the route service url when loading. Thanks @domdom82 !
+  - Many CI Updates
+  - 🐛[#310]The routing_utils route loader now sets the route service url when loading.
   - 🐛Two issues in route_registrar were fixed that led to routes expiring and then being re-registered with the same details:
-  - Starting in v0.x.x, route_registrar no longer retried UAA connections when getting a token from UAA. Instead, the failure would cause route_registrar to restart, and reset it's emitter intervals.
+  - Starting in v0.x.x, route_registrar no longer retried UAA connections when getting a token from UAA. Instead, the failure causes route_registrar to restart, and reset it's emitter intervals.
   - The built in route expiry has been increased from RegistrationInterval + 2 seconds to 2.1 * RegistrationInterval. This prevent routes from expiring during the course of a route_registrar restart.
-  - 🐛If tcp_router received routing events during its BulkSync cycle, it would always rewrite the haproxy configuration, and reload the haproxy process. This would occur regardless of whether the events required a new haproxy config. It now only updates the config + reloads haproxy if changes are necessary.
+  - 🐛If tcp_router received routing events during its BulkSync cycle, it always rewrites the haproxy configuration, and reload the haproxy process. This occurs regardless of whether the events required a new haproxy config. It now only updates the config + reloads haproxy if changes are necessary.
   ## ✨  Built with go 1.20.2
   **Full Changelog**: https://github.com/cloudfoundry/routing-release/compare/v0.259.0...v0.260.0
   ## Resources
@@ -4558,7 +4558,7 @@ Because VMware uses the Percona Distribution for MySQL, expect a time lag betwee
           <summary>2.12.16</summary>
           <pre style="max-width: 30em">
   ## Bug Fixes
-  * Fixes #74 (a known issue in CredHub release `2.12.4` and `2.12.5` where CredHub fails to connect to [postgres-release](https://github.com/cloudfoundry/postgres-release), and possibly other postgres servers, due to TLS handshake errors) by reverting the Java version bump to `jre8u352` in `2.12.4`. We will bring back this bump once the postgres TLS issue is addressed.
+  * Fixes #74 (a known issue in CredHub release `2.12.4` and `2.12.5` where CredHub fails to connect to [postgres-release](https://github.com/cloudfoundry/postgres-release), and possibly other postgres servers, due to TLS handshake errors) by reverting the Java version bump to `jre8u352` in `2.12.4`. This bump goes live once the postgres TLS issue is addressed.
   * Fixes #71 where CredHub fails when deployed with a FIPS-enabled Bionic Stemcell.
   ## Security Fixes
   - Bump various dependencies
@@ -5116,7 +5116,7 @@ Because VMware uses the Percona Distribution for MySQL, expect a time lag betwee
 
 **Release Date:** 02/09/2023
 
-* **[Bug Fix]** Allows docker app workloads without a `sh` binary in the docker image to execute properly.
+* **[Bug Fix]** Allows docker app workloads without a `sh` binary in the docker image to run properly.
 * **[Bug Fix]** Validate user when inviting to org and provide informative error if already member of org
 * **[Bug Fix]** [Cloud Controller] Truncate large errors from Service Brokers
 * [Cloud Controller] Optimize space supporter filter for v2 calls
@@ -5167,8 +5167,8 @@ Because VMware uses the Percona Distribution for MySQL, expect a time lag betwee
   I'm pleased to announce the release of the java-buildpack, version 4.54. It primarily includes new OpenJDK versions, which are based on the Oracle Java Quarterly Updates for Jan 2023.
   This release includes the following:
   * A fix for offline packaging for the cflinuxfs4/jammy platform (#986 )
-  * Support for SPlunk Otel Java Framework (#968 - thanks to @breedx-splk)
-  * A change to use the default-repository-root URI for the Apache Skywalking Framework (#983 - thanks to @mayrstefan)
+  * Support for SPlunk Otel Java Framework (#968)
+  * A change to use the default-repository-root URI for the Apache Skywalking Framework (#983)
   For a more detailed look at the changes in 4.54, please take a look at the [commit log](https://github.com/cloudfoundry/java-buildpack/compare/v4.53...v4.54). The packaged version of the buildpack, suitable for use with create-buildpack and update-buildpack, can be found attached to this release.
   | Dependency | Version | CVEs | Release Notes |
   | ---------- | ------- | ---- | ------------- |
@@ -5371,7 +5371,7 @@ Because VMware uses the Percona Distribution for MySQL, expect a time lag betwee
 * **[Feature Improvement]** vxlan-policy-agent logs when asgs are updated
 * **[Bug Fix]** Fix issues with secure scraping with rolling deploys and with ncp
 * **[Bug Fix]** Support for asynchronous service binding creating in Space Manifests
-* **[Potential Breaking change]** This release includes bumping Ruby Buildpack to 1.9.0. Note that Ruby Buildpack 1.9.x defaults to Ruby 3.1 and this may cause errors for some Ruby apps if they aren’t compatible with Ruby 3.x. See [Knowlegebase article 16520](https://community.pivotal.io/s/article/Ruby-Buildpack-1-9-x-defaults-to-Ruby-3-1?language=en_US) for details.
+* **[Potential Breaking change]** This release includes bumping Ruby Buildpack to 1.9.0. Note that Ruby Buildpack 1.9.x defaults to Ruby 3.1 and this causes errors for some Ruby apps if they aren’t compatible with Ruby 3.x. See [Knowlegebase article 16520](https://community.pivotal.io/s/article/Ruby-Buildpack-1-9-x-defaults-to-Ruby-3-1?language=en_US) for details.
 * Bump backup-and-restore-sdk to version `1.18.60`
 * Bump capi to version `1.143.0`
 * Bump cf-autoscaling to version `249.1.1`
@@ -5548,7 +5548,7 @@ Because VMware uses the Percona Distribution for MySQL, expect a time lag betwee
   ## What's changed
   * Add property to correctly handle nsxt/ncp when turned on
   * Add a property to allow setting a maximum number of metrics per instance
-  * Fix bug: Rolling deploys should no longer cause metrics to stop scraping for secure endpoints.
+  * Fix bug: Rolling deploys no longer causes metrics to stop scraping for secure endpoints.
           </pre>
         </details>
       </td>
@@ -5797,7 +5797,7 @@ Because VMware uses the Percona Distribution for MySQL, expect a time lag betwee
           <summary>v0.252.0</summary>
           <pre style="max-width: 30em">
   ## What's changed
-  - Improve random source for least connection pool to be thread safe. Thanks Daniel Lynch!
+  - Improve random source for least connection pool to be thread safe.
   **Full Changelog**: https://github.com/cloudfoundry/routing-release/compare/0.251.0...v0.252.0
           </pre>
         </details>
@@ -6350,13 +6350,11 @@ Because VMware uses the Percona Distribution for MySQL, expect a time lag betwee
           <summary>v6.5.1</summary>
           <pre style="max-width: 30em">
   ## What's changed
-  * remove the use of sha1 by @duanemay in https://github.com/cloudfoundry/loggregator-agent-release/pull/133
+  * remove the use of sha1 in https://github.com/cloudfoundry/loggregator-agent-release/pull/133
   * Bump github.com/valyala/fasthttp from 1.39.0 to 1.40.0 in /src by @dependabot in https://github.com/cloudfoundry/loggregator-agent-release/pull/129
   * Upgrade ginkgo to v2 by @ctlong in https://github.com/cloudfoundry/loggregator-agent-release/pull/135
   * Golang 1.19.1 by @rroberts2222 in https://github.com/cloudfoundry/loggregator-agent-release/pull/138
   ## New Contributors
-  * @duanemay made their first contribution in https://github.com/cloudfoundry/loggregator-agent-release/pull/133
-  * @rroberts2222 made their first contribution in https://github.com/cloudfoundry/loggregator-agent-release/pull/138
   **Full Changelog**: https://github.com/cloudfoundry/loggregator-agent-release/compare/v6.5.0...v6.5.1
           </pre>
         </details>
@@ -6471,7 +6469,7 @@ Because VMware uses the Percona Distribution for MySQL, expect a time lag betwee
           <summary>v9.19.0</summary>
           <pre style="max-width: 30em">
   **New features**
-  The `mysql-metrics` job now supports a `mysql-metrics.port` option to specify the MySQL port when scraping database metrics. This port defaults to 3306 but may be configured to a non-standard port.
+  The `mysql-metrics` job now supports a `mysql-metrics.port` option to specify the MySQL port when scraping database metrics. This port defaults to 3306 but can be configured to a non-standard port.
           </pre>
         </details>
       </td>
@@ -6597,7 +6595,7 @@ Because VMware uses the Percona Distribution for MySQL, expect a time lag betwee
           <summary>v0.251.0</summary>
           <pre style="max-width: 30em">
   ## What's changed
-  - When the `router.ca_certs` property switched from a multi-line string of certs, to an array of certs, gorouter started failing to start up if any of the certs provided were invalid. Previously they were ignored. This has been reverted, so that any invalid CA certs are ignored during startup. Thanks @ameowlia!
+  - When the `router.ca_certs` property switched from a multi-line string of certs, to an array of certs, gorouter started failing to start up if any of the certs provided were invalid. Previously they were ignored. This has been reverted, so that any invalid CA certs are ignored during startup.
   **Full Changelog**: https://github.com/cloudfoundry/routing-release/compare/0.250.0...v0.251.0
           </pre>
         </details>
@@ -6614,7 +6612,7 @@ Because VMware uses the Percona Distribution for MySQL, expect a time lag betwee
   ## What's changed
   * Switch to healthecker package in cf-networking-helpers by @mariash in https://github.com/cloudfoundry/routing-release/pull/302
   * Add healthchecker package to sync-package-specs file by @mariash in https://github.com/cloudfoundry/routing-release/pull/303
-  * **Potential Breaking change:** In preparation for mtls between gorouter and routing api, add gorouter backends ca to routing-api. Rendering these certs depends on routing-api consuming a link from gorouter. If you have multiple gorouter instance groups (for example in the case of isolation segments), you will need to rename bosh links to prevent the error "Multiple link providers found. For an example of link renaming, see [this ops file](https://github.com/cloudfoundry/cf-deployment/blob/main/operations/test/add-persistent-isolation-segment-router.yml#L74) by @reneighbor in https://github.com/cloudfoundry/routing-release/pull/300
+  * **Potential Breaking change:** In preparation for mtls between gorouter and routing api, add gorouter backends ca to routing-api. Rendering these certs depends on routing-api consuming a link from gorouter. If you have multiple gorouter instance groups (for example in the case of isolation segments), you need to rename bosh links to prevent the error "Multiple link providers found. For an example of link renaming, see [this ops file](https://github.com/cloudfoundry/cf-deployment/blob/main/operations/test/add-persistent-isolation-segment-router.yml#L74) by @reneighbor in https://github.com/cloudfoundry/routing-release/pull/300
   * Ensure gorouter-healthchecker doesn't restart gorouter forever on failure by @geofffranks in https://github.com/cloudfoundry/routing-release/pull/305
   **Full Changelog**: https://github.com/cloudfoundry/routing-release/compare/0.248.0...v0.249.0
           </pre>
@@ -6637,17 +6635,17 @@ Because VMware uses the Percona Distribution for MySQL, expect a time lag betwee
           <summary>v0.246.0</summary>
           <pre style="max-width: 30em">
   ## What's changed
-  * Update `router.ca_certs` property to accept and array of certificates instead of a string block. Thanks @peanball!
+  * Update `router.ca_certs` property to accept and array of certificates instead of a string block.
           </pre>
         </details>
         <details>
           <summary>v0.245.0</summary>
           <pre style="max-width: 30em">
   ## What's changed
-  * Gorouter's pre-start script now reserves ports used by other CF components when it increases the number of ephemeral ports available via `/proc/sys/net/ipv4/ip_local_reserved_ports`. This resolves issues when components fail to start up during deploys/monit restarts due to accidental port collisions with outbound traffic from the VM. Thanks @ameowlia !
+  * Gorouter's pre-start script now reserves ports used by other CF components when it increases the number of ephemeral ports available via `/proc/sys/net/ipv4/ip_local_reserved_ports`. This resolves issues when components fail to start up during deploys/monit restarts due to accidental port collisions with outbound traffic from the VM.
   * Routing-release no longer makes use of the deprecated uaa-go-client, and uses go-uaa instead
-  * The `routing_utils/nats_client` helper utility now supports saving + loading gorouter's routing tables! Thanks @domdom82 !
-  * Fixed a memory leak with `gorouter` that resulted in HTTP request objects being held open if a client canceled the connection before the App responded.  Thanks @geofffranks !
+  * The `routing_utils/nats_client` helper utility now supports saving + loading gorouter's routing tables.
+  * Fixed a memory leak with `gorouter` that resulted in HTTP request objects being held open if a client canceled the connection before the App responded.
   * **Full Changelog**: https://github.com/cloudfoundry/routing-release/compare/v0.244.0...v0.245.0
   ## ✨  Built with go 1.19.3
           </pre>
@@ -7006,7 +7004,7 @@ Because VMware uses the Percona Distribution for MySQL, expect a time lag betwee
 * **[Feature]** Add "Max request header size in kb" property to Networking tab to allow operators to specify a limit on the aggregate size of request headers. Requests over this limit receive a 431 status code.
 * **[Bug Fix]** Bump UAA to 76.1.0 to fix copy-to-clipboard functionality
 * **[Bug Fix]** Bump `java_buildpack_offline` to version `4.53` to fix the known issue relating to Spring Auto Reconfiguration. This is once again enabled by default. For more information, see [java-offline-buildpack v4.52 Disallows Spring Auto
-Reconfiguration by Default](#auto-reconfig-disallowed) below.
+Reconfiguration by Default](#auto-reconfig-disallowed).
 * Bump backup-and-restore-sdk to version `1.18.57`
 * Bump binary-offline-buildpack to version `1.0.47`
 * Bump cf-networking to version `3.14.0`
@@ -7277,11 +7275,13 @@ Reconfiguration by Default](#auto-reconfig-disallowed) below.
         <details>
           <summary>4.53</summary>
           <pre style="max-width: 30em">
-  I'm pleased to announce the release of the java-buildpack, version 4.53. It primarily includes new OpenJDK versions, which are based on the Oracle Java Quarterly Updates for Oct 2022.
-  -  This release also includes an enhancement to the Sealights framework, more field are supported for a User-Provided service (Thanks to @alonweiss-sl via #964)
+  The java-buildpack, version 4.53 is released. It primarily includes new OpenJDK versions, which are based on the Oracle Java Quarterly Updates for Oct 2022.
+  -  This release also includes an enhancement to the Sealights framework, more fields are supported for a User-Provided service (#964).
   ## 🚨 Deprecation of Spring Cloud Connectors & Spring Auto Reconfiguration 🚨
-  This release reverts the change made in v4.51 which disabled the Spring Auto Reconfiguration framework by default. From this release, it will be enabled by default as per all versions < 4.51. This is to provide users with more time to migrate to the recommended alternative library, `java-cfenv`. The default of disabled will now happen in a release after March 2023, and the library will be completely removed in a release after March 2024. As before, you may [post feedback/comments to this issue](https://github.com/cloudfoundry/java-buildpack/issues/951).
-  For a more detailed look at the changes in 4.53, please take a look at the [commit log](https://github.com/cloudfoundry/java-buildpack/compare/v4.52...v4.53). The packaged version of the buildpack, suitable for use with create-buildpack and update-buildpack, can be found attached to this release.
+  This release reverts the change made in v4.51 which deactivated the Spring Auto Reconfiguration framework by default. From this release, it's enabled by default as per all versions < 4.51. This is to provide users with more time to migrate to the recommended alternative library, `java-cfenv`. The
+  default of disabled happens in a release after March 2023, and the library is completely removed in a release after March 2024. As before, you might
+  [post feedback/comments to this issue](https://github.com/cloudfoundry/java-buildpack/issues/951).
+  For a more detailed look at the changes in 4.53, look at the [commit log](https://github.com/cloudfoundry/java-buildpack/compare/v4.52...v4.53). The packaged version of the buildpack, suitable for use with create-buildpack and update-buildpack, can be found attached to this release.
   | Dependency | Version | CVEs | Release Notes |
   | ---------- | ------- | ---- | ------------- |
   | AppDynamics Agent | `22.9.1_34265` | | [Release Notes](https://docs.appdynamics.com/4.5.x/en/product-and-release-announcements/release-notes/language-agent-notes/java-agent-notes) |
@@ -7805,8 +7805,8 @@ Reconfiguration by Default](#auto-reconfig-disallowed) below.
           <summary>v0.244.0</summary>
           <pre style="max-width: 30em">
   ## What's changed
-  * Emit access logs for 431 responses to Loggegator [gorouter PR #331](https://github.com/cloudfoundry/gorouter/pull/331). Thanks @dsabeti !
-  * Always suspend pruning when nats is down https://github.com/cloudfoundry/routing-release/pull/287. Thanks @ameowlia !
+  * Emit access logs for 431 responses to Loggegator [gorouter PR #331](https://github.com/cloudfoundry/gorouter/pull/331).
+  * Always suspend pruning when nats is down https://github.com/cloudfoundry/routing-release/pull/287.
   * **Full Changelog**: https://github.com/cloudfoundry/routing-release/compare/v0.243.0...v0.244.0
   ## ✨  Built with go 1.19.2
           </pre>
@@ -7822,8 +7822,8 @@ Reconfiguration by Default](#auto-reconfig-disallowed) below.
           <summary>v0.242.0</summary>
           <pre style="max-width: 30em">
   ## What's changed
-  -  `tcp_router` is now more verbose when running `haproxy_reloader` to assist in diagnosting failed reloads. Thanks @geofffranks! 🎉 ([PR 9](https://github.com/cloudfoundry/cf-tcp-router/pull/9))
-  - `gorouter` will now truncate access logs that exceed loggregator + UDP packet limits, so that we no longer drop access log messages sent to the firehose. Thanks @ameowlia @ebroberson! 😻 ([PR 328](https://github.com/cloudfoundry/gorouter/pull/328) and [PR 329](https://github.com/cloudfoundry/gorouter/pull/329))
+  -  `tcp_router` is now more verbose when running `haproxy_reloader` to assist in diagnosting failed reloads. 🎉 ([PR 9](https://github.com/cloudfoundry/cf-tcp-router/pull/9))
+  - `gorouter` truncates access logs that exceed loggregator + UDP packet limits, so that we no longer drop access log messages sent to the firehose. 😻 ([PR 328](https://github.com/cloudfoundry/gorouter/pull/328) and [PR 329](https://github.com/cloudfoundry/gorouter/pull/329))
   **Full Changelog**: https://github.com/cloudfoundry/routing-release/compare/v0.241.0...v0.242.0
   ## ✨  Built with go 1.18
   * despite what the docs/go.version says
@@ -7837,7 +7837,7 @@ Reconfiguration by Default](#auto-reconfig-disallowed) below.
   * Still using go 1.18
   * despite what the docs/go.version says
   * because the go 1.18 package is present
-  * @plowin submitted [gorouter PR 327](https://github.com/cloudfoundry/gorouter/pull/327) to adjust endpoint-not-unregistered log-level to 'info'
+  * [gorouter PR 327](https://github.com/cloudfoundry/gorouter/pull/327) to adjust endpoint-not-unregistered log-level to 'info'
   **Full Changelog**: https://github.com/cloudfoundry/routing-release/compare/v0.240.0...v0.241.0
           </pre>
         </details>
@@ -7846,10 +7846,10 @@ Reconfiguration by Default](#auto-reconfig-disallowed) below.
           <pre style="max-width: 30em">
   ## What's changed
   * @geofffranks and @ameowlia added property `router.max_header_bytes` to the gorouter job.
-  * This value controls the maximum number of bytes the gorouter will read parsing the request header's keys and values, including the request line.
+  * This value controls the maximum number of bytes the gorouter reads parsing the request header's keys and values, including the request line.
   * It does not limit the size of the request body.
   * An additional padding of 4096 bytes is added to this value by go.
-  * Requests with larger headers will result in a 431 status code.
+  * Requests with larger headers result in a 431 status code.
   **Full Changelog**: https://github.com/cloudfoundry/routing-release/compare/v0.239.0...v0.240.0
   ## Manifest Property Changes
   | Job | Property | 0.237.0 | 0.238.0 |
@@ -8041,24 +8041,24 @@ Reconfiguration by Default](#auto-reconfig-disallowed) below.
 
 **Release Date:** 10/06/2022
 
-* **[Feature]** Allow operators to specify isolation segments that should be routable through <%= vars.app_runtime_abbr %> routers
+* **[Feature]** Allow operators to specify isolation segments that can be routable through <%= vars.app_runtime_abbr %> routers
 * **[Feature]** Bump CAPI and add default app log rate limit configuration
 * **[Feature]** Developers can quickly find specific org members in Apps Manager
 * **[Feature]** Dynamic ASGs are now allowed by default. If you wish to keep them off, you must manually disallow them through the
 <%= vars.app_runtime_abbr %> tile before deploying.
 * **[Feature]** Adding audit events to system logs; enabled by default
 * **[Experimental Feature]** Allow operators to enable **CPU Burst Optimization**. When this feature is enabled,
-apps that stay within their CPU entitlements (on average) will be prioritized when bursting. Operators can enable this experimental feature in the App Containers tab.
+apps that stay within their CPU entitlements (on average) are prioritized when bursting. Operators can enable this experimental feature in the App Containers tab.
 * **[Feature Improvement]** Add Java Buildpack for `cflinuxfs4`
 * **[Feature Improvement]** Bump component releases in time for <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>
 * **[Feature Improvement]** The `diego`, `routing`, `cf-networking`, and `silk` components use Golang v1.18.
 * **[Feature Improvement]** Bump to latest `pxc-release` with Percona XtraDB Cluster 8.0.29
 * **[Feature Improvement]** Gorouter Metrics Toggle
 * **[Breaking change]** HAProxy is removed from <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>. For more information, see [HAProxy is
-Removed](#haproxy-removed) below.
+Removed](#haproxy-removed).
 * **[Known Issue]** `java-offline-buildpack` v4.52 makes <%= vars.app_runtime_abbr %> incompatible with some service tiles and prevents apps that use
 `java-offline-buildpack` v4.52 from binding to service instances. For more information, see [java-offline-buildpack v4.52 Disallows Spring Auto
-Reconfiguration by Default](#auto-reconfig-disallowed) below.
+Reconfiguration by Default](#auto-reconfig-disallowed).
 * Bump capi to version `1.139.0`
 * Bump cf-cli to version `1.41.0`
 * Bump garden-runc to version `1.22.2`
@@ -8180,16 +8180,16 @@ Reconfiguration by Default](#auto-reconfig-disallowed) below.
   - The database server default character set and collation have been changed to
   the Percona XtraDB Cluster 8.0 default of utf8mb4 and utf8mb4_0900_ai_ci
   respectively.
-  The new defaults will only affect newly created databases created after
+  The new defaults affects newly created databases created after
   pxc-release v1.0.1. For more information about the default database character
   set and collation see this MySQL documentation:
   https://dev.mysql.com/doc/refman/8.0/en/charset-server.html
-  The database server's default character set and collation may be configured
+  The database server's default character set and collation might be configured
   explicitly via the pxc-mysql job's "engine_config.character_set_server" and
   "engine_config.collation_server" properties, respectively.
   - galera-agent and cluster-health logger users no longer need to be explicitly
   specified in the pxc-mysql job's seeded_users property.
-  pxc-mysql will automatically generate these users when the galera-agent or
+  pxc-mysql automatically generates these users when the galera-agent or
   cluster-health-logger jobs are deployed. This removes the breaking change
   from the previous release.
   - Percona XtraDB Cluster 5.7 packages are now included in deployments to aid in
@@ -8200,8 +8200,8 @@ Reconfiguration by Default](#auto-reconfig-disallowed) below.
   in an effort to distinguish from the percona-xtradb-cluster-5.7 package
   - In the previous release, upgrades from pxc-release prior to 1.0 running
   Percona XtraDB Cluster 5.7 where the v5.7 instance was not cleanly shutdown
-  or had crashed would fail.
-  As of pxc-release v1.0.1, the pxc-mysql job will run crash recovery with
+  or had failed.
+  As of pxc-release v1.0.1, the pxc-mysql job runs crash recovery with
   Percona XtraDB Cluster 5.7 prior to the upgrade to Percona XtraDB Cluster 8.0
   - The "migrate-to-pxc" utility that previously assisted with migrations from
   cf-mysql-release are no longer included in this version of pxc-release
@@ -8254,7 +8254,7 @@ Reconfiguration by Default](#auto-reconfig-disallowed) below.
   - Bump k8s.io/client-go from 0.24.4 to 0.25.0 in /k8s https://github.com/cloudfoundry/uaa/pull/2006
   - Bump postgresql from 42.4.2 to 42.5.0 https://github.com/cloudfoundry/uaa/pull/2009
   ### Notes
-  - MFA feature is being deprecated and will be removed in a future release https://github.com/cloudfoundry/uaa/pull/2024 #404
+  - MFA feature is being deprecated and is removed in a future release https://github.com/cloudfoundry/uaa/pull/2024 #404
   ### Full Changelog
   - [https://github.com/cloudfoundry/uaa-release/compare/v75.23.0...v76.0.0](https://github.com/cloudfoundry/uaa-release/compare/v75.23.0...v76.0.0)
           </pre>
@@ -8272,7 +8272,7 @@ Reconfiguration by Default](#auto-reconfig-disallowed) below.
 ### <a id='new-policies'></a> New policies for <%= vars.app_runtime_abbr %>
 
 As of <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>, <%= vars.app_runtime_abbr %> is transitioning to a new versioning scheme, support lifecycle
-policy, and release and upgrade policy. For more information, see the sections below:
+policy, and release and upgrade policy. For more information, see the following sections:
 
 * [Operational Versioning](#opsver)
 
@@ -8281,7 +8281,7 @@ policy, and release and upgrade policy. For more information, see the sections b
 * [Release and Upgrade Policies](#release-upgrade-policies)
 
 Other Tanzu products, such as VMware Tanzu Operations Manager, are to adopt the same versioning scheme and lifecycle policy as <%= vars.app_runtime_abbr %>
-<%= vars.v_major_version %>. However, they are to follow separate release and upgrade policies, as well as continue to be versioned and released
+<%= vars.v_major_version %>. However, they are to follow separate release and upgrade policies, and continue to be versioned and released
 independently.
 
 #### <a id='opsver'></a> Operational Versioning
@@ -8331,8 +8331,8 @@ v2.11+LTS-T, you can upgrade to <%= vars.app_runtime_abbr %> v2.13+LTS-T.
 
 The previously-used Ubuntu 16.04 "Xenial Xerus" stemcells are to reach end of general support (EOGS) and stop receiving security updates in April 2024.
 
-For information about how this change may disrupt your <%= vars.app_runtime_abbr %> deployment, see [Jammy Stemcell Used For All Instance
-Groups](#jammy-instance-groups) below.
+For information about how this change might disrupt your <%= vars.app_runtime_abbr %> deployment, see [Jammy Stemcell Used For All Instance
+Groups](#jammy-instance-groups).
 
 ### <a id='log-rate-limiting'></a> App Log Rate Limits for Orgs, Spaces, and Individual Apps
 
@@ -8361,8 +8361,8 @@ includes the `cflinuxfs4` stack based on the Jammy Jellyfish stemcell as a beta 
 The `cflinuxfs4` stack allows developers to begin using `cflinuxfs4` before `cflinux4s3` is deprecated and eventually removed from future versions of
 <%= vars.app_runtime_abbr %>.
 
-Not all buildpacks support using the `cflinuxfs4` stack at this time. Future patch releases of <%= vars.app_runtime_abbr %> <%= vars.v_major_version %> may
-include `cflinuxfs4` stack support in more buildpacks. A future patch, minor, or major release of <%= vars.app_runtime_abbr %> may include the `cflinuxfs4`
+Not all buildpacks support using the `cflinuxfs4` stack at this time. Future patch releases of <%= vars.app_runtime_abbr %> <%= vars.v_major_version %> might
+include `cflinuxfs4` stack support in more buildpacks. A future patch, minor, or major release of <%= vars.app_runtime_abbr %> might include the `cflinuxfs4`
 stack as a final feature.
 
 
@@ -8373,7 +8373,7 @@ stack as a final feature.
 ### <a id='jammy-instance-groups'></a> Jammy Stemcell Used For All Instance Groups
 
 All VMs that <%= vars.app_runtime_abbr %> <%= vars.v_major_version %> deploys run on the Jammy Jellyfish stemcell described in [Jammy Jellyfish Stemcell
-Support](#ubuntu-jammy) above. Because of this, any add-ons from other tiles or configured in the BOSH Director that are colocated on
+Support](#ubuntu-jammy). Because of this, any add-ons from other tiles or configured in the BOSH Director that are colocated on
 <%= vars.app_runtime_abbr %> VMs do not function unless they support the Jammy Jellyfish stemcell.
 
 Tiles that are compatible <%= vars.app_runtime_abbr %> <%= vars.v_major_version %> already work with Jammy Jellyfish stemcells.
@@ -8383,19 +8383,19 @@ Further, the use of the Jammy Stemcell means TAS now requires an Ops Manager wit
 ### <a id='system-metrics-server'></a> BOSH System Metrics Forwarder is Removed
 
 The BOSH System Metrics Forwarder is removed from <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>. To continue receiving system metrics, you must
-activate the **Enable System Metrics (recommended)** checkbox in the **Director Config** pane of the BOSH Director tile.
+activate the **Enable System Metrics (recommended)** check box in the **Director Config** pane of the BOSH Director tile.
 
 To avoid deployment, platform automation, or data collection failures, you must update any queries that reference `bosh-system-metrics-forwarder` as the
 `source_id` for metrics to reference `system_metrics_agent` instead.
 
-### <a id='cflinuxfs4'></a> cflinuxfs4 May Cause App Push Failure
+### <a id='cflinuxfs4'></a> cflinuxfs4 might cause App Push failure
 
-If you have configured your apps to find and use the latest stack when pushing to production, they may switch to the `cflinuxfs4` stack prematurely.
+If you have configured your apps to find and use the latest stack when pushing to production, they might switch to the `cflinuxfs4` stack prematurely.
 
 In addition to other issues that an unintentional stack change can cause, not all buildpacks currently support using the `cflinuxfs4` stack. As a result, apps
-that switch to the `cflinuxfs` stack without the necessary buildpack support may fail to push.
+that switch to the `cflinuxfs` stack without the necessary buildpack support might fail to push.
 
-Future patch releases of <%= vars.app_runtime_abbr %> <%= vars.v_major_version %> may include `cflinuxfs4` stack support in more buildpacks.
+Future patch releases of <%= vars.app_runtime_abbr %> <%= vars.v_major_version %> might include `cflinuxfs4` stack support in more buildpacks.
 
 ### <a id='system-metrics-names'></a> BOSH System Metric Naming Convention is Changed
 
@@ -8415,12 +8415,12 @@ following settings in the <%= vars.app_runtime_abbr %> tile before you upgrade:
 
 * In the **Networking** pane:
   * If you previously selected **HAProxy** under **TLS termination point**, you must select **Gorouter** instead.
-  * If you previously configured the **HAProxy IPs** field, you may need to configure the **Gorouter IPs** field instead. Depending on how you configured the
-  **Allow SSH access to app containers** and **TCP routing** settings, you may also need to configure the **SSH Proxy IPs** or **TCP router IPs** fields.
+  * If you previously configured the **HAProxy IPs** field, you might need to configure the **Gorouter IPs** field instead. Depending on how you configured the
+  **Allow SSH access to app containers** and **TCP routing** settings, you might also need to configure the **SSH Proxy IPs** or **TCP router IPs** fields.
 
 * In the **Resource Config** pane:
   * If you previously configured load balancers under the **HAProxy**, you must configure load balancers under the **Router** job instead. Depending on how
-  you configured the **Allow SSH access to app containers** and **TCP routing** settings in the **Networking** pane, you may also need to configure load
+  you configured the **Allow SSH access to app containers** and **TCP routing** settings in the **Networking** pane, you might also need to configure load
   balancers under the **Diego Brain** or **TCP Router** jobs.
 
 <% if not vars.platform_code == 'OFFLINE' %>
@@ -8433,7 +8433,7 @@ Resources](../operating/configure-pas.html#resources) in _Configuring <%= vars.a
 The configuration option to use nozzle ingestion for Log Cache has been removed. Log Cache now always uses syslog ingestion.
 
 Cconfirm that instances, including those within isolation segments, are permitted to establish
-connections to Log Cache nodes on port 6067. You may need to update firewall rules to allow logs to flow directly from
+connections to Log Cache nodes on port 6067. You might need to update firewall rules to allow logs to flow directly from
 your instances to the Log Cache syslog server.
 
 ### <a id='global-log-rate-limit'></a> Global Log Rate Limit is Deprecated
@@ -8465,7 +8465,7 @@ To resolve this issue, do either of the following:
 
 ### <a id='mysql-8-internal'></a> Internal Databases Use MySQL 8
 
-The internal databases in <%= vars.app_runtime_abbr %> <%= vars.v_major_version %> have been upgraded to MySQL 8. This may impact any integrations that target
+The internal databases in <%= vars.app_runtime_abbr %> <%= vars.v_major_version %> have been upgraded to MySQL 8. This might impact any integrations that target
 or use the internal database.
 
 This upgrade is not currently known to impact tiles that are compatible with <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>.
@@ -8482,17 +8482,17 @@ TAS still emits the ActiveLocks metric, but we no longer encourage users to acti
 
 In the past, the TAS documentation recommended monitoring the VM CPU and Memory metrics emitted by all BOSH VMs.
 In practice, not all VMs are worth monitoring this closely, and different VMs and BOSH jobs have different normal CPU and memory loads, making a one-size-fits-all monitoring guideline impractical.
-In the future, the TAS documentation will recommend monitoring BOSH VM metrics for some, but not all, BOSH VMs.
+In the future, the TAS documentation recommends monitoring BOSH VM metrics for some, but not all, BOSH VMs.
 
 ## <a id='known-issues'></a> Known issues
 
 <%= vars.app_runtime_abbr %> <%= vars.v_major_version %> includes the following known issues:
 
-### <a id='cflinuxfs4-java'></a> Java Buildpack Support for `cflinuxfs4`
+### <a id='cflinuxfs4-java'></a> Java Buildpack support for `cflinuxfs4`
 
 A bug related to packaging the `java_buildpack_offline` for the `cflinuxfs4` stack prevents apps from staging on this stack.
 
-This affects <%= vars.app_runtime_abbr %> 3.0.x versions containing the `java_buildpack_offline` up to v4.53, and will be fixed in the next buildpack version, v4.54.
+This affects <%= vars.app_runtime_abbr %> 3.0.x versions containing the `java_buildpack_offline` up to v4.53, and is fixed in the next buildpack version, v4.54.
 
 To try out apps on this stack before then, you can use the online buildpack, e.g, `cf push -b https://github.com/cloudfoundry/java-buildpack -s cflinuxfs4`
 
@@ -8500,7 +8500,7 @@ To try out apps on this stack before then, you can use the online buildpack, e.g
 
 The Ubuntu 22.04 long-term support (LTS) stemcell, Jammy Jellyfish, is not yet CIS- or STIG-certified.
 
-### <a id='auto-reconfig-disallowed'></a> java-offline-buildpack v4.52 Disallows Spring Auto Reconfiguration by Default
+### <a id='auto-reconfig-disallowed'></a> java-offline-buildpack v4.52 disallows Spring Auto Reconfiguration by default
 
 <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>.0 includes `java-offline-buildpack` v4.52, which disallows Spring Auto Reconfiguration by default.
 This change creates the following issues:
