@@ -3,7 +3,7 @@ title: TAS for VMs v5.0 Release notes
 owner: Release Engineering
 ---
 
-Here you will find the release notes for <%= vars.app_runtime_first %> <%= vars.v_major_version %>.
+These are the release notes for <%= vars.app_runtime_first %> <%= vars.v_major_version %>.
 
 <%= vars.app_runtime_abbr %> is certified by the Cloud Foundry Foundation for 2023.
 
@@ -21,14 +21,15 @@ Because VMware uses the Percona Distribution for MySQL, expect a time lag betwee
 
 **Release Date:** 06/26/2023
 
-* **[Feature]** Expose "Certificate Authorities trusted by the Gorouter for client requests" in the Networking tab
-* **[Feature]** Adds support for W3C Trace ID logging across Diego component requests
-* **[Bug Fix]** Timeouts in for executor's uploader have been increased to 500ms
-* **[Bug Fix]** Byte-based logging limits for LRPs and Tasks now emit only once per second
-* **[Bug Fix/Improvement]** Garden now ships with Busybox 1.36.1 as the default filesystem
+* **[Feature]** Expose "Certificate Authorities trusted by the Gorouter for client requests" in the Networking tab.
+* **[Feature]** Adds support for W3C Trace ID logging across Diego component requests.
+* **[Bug Fix]** Timeouts in for executor's uploader have been increased to 500ms.
+* **[Bug Fix]** Byte-based logging limits for LRPs and Tasks now emit only once per second.
+* **[Bug Fix/Improvement]** Garden now ships with Busybox 1.36.1 as the default filesystem.
 
-* **[Bug Fix/Improvement]** "Back end request timeout for the Gorouter" property no longer affects idle timeout of long lived requests. Idle timeouts now configurable by "Front end idle timeout for the Gorouter" property
-* **[Bug Fix/Improvement]** Updated silk, silk-cni, and cni-wrapper-plugin for compatibility with v1.0.0 of the CNI spec
+* **[Bug Fix/Improvement]** "Back end request timeout for the Gorouter" property no longer affects idle timeout of long lived requests. Idle
+timeouts are now configured by the "Front end idle timeout for the Gorouter" property.
+* **[Bug Fix/Improvement]** Updated silk, silk-cni, and cni-wrapper-plugin for compatibility with v1.0.0 of the CNI spec.
 
 * Bump backup-and-restore-sdk to version `1.18.77`
 * Bump binary-offline-buildpack to version `1.1.5`
@@ -128,8 +129,8 @@ Because VMware uses the Percona Distribution for MySQL, expect a time lag betwee
           <summary>v3.27.0</summary>
           <pre style="max-width: 30em">
   ## Changes
-  - Bumped vendored healthchecker-release to v0.8.0
-  ## ✨  Built with go 1.20.4
+  - Bumped vendored healthchecker-release to v0.8.0.
+  ## ✨  Built with go 1.20.4.
   **Full Changelog**: https://github.com/cloudfoundry/cf-networking-release/compare/v3.26.0...v3.27.0
   ## Resources
   - [Download release v3.27.0 from bosh.io](https://bosh.io/releases/github.com/cloudfoundry/cf-networking-release?version=3.27.0).
@@ -202,8 +203,8 @@ Because VMware uses the Percona Distribution for MySQL, expect a time lag betwee
           <summary>v2.78.0</summary>
           <pre style="max-width: 30em">
   ## Changes
-  - Bumped to golang 1.20.5
-  - Vizzini now defaults to cflinuxfs4
+  - Bumped to golang 1.20.5.
+  - Vizzini now defaults to cflinuxfs4.
   ## Bosh Job Spec changes:
   ```diff
   diff --git a/jobs/vizzini/spec b/jobs/vizzini/spec
@@ -228,10 +229,10 @@ Because VMware uses the Percona Distribution for MySQL, expect a time lag betwee
           <summary>v2.77.0</summary>
           <pre style="max-width: 30em">
   ## Changes
-  - Adds support for W3C Trace ID logging across diego component requests
-  - Timeouts in for executor's uploader have been increased to 500ms
-  - Byte-based logging limits for LRPs and Tasks now emit only once per second
-  -  LRPs can now have liveness and readiness check intervals defined when the LRP is created.
+  - Adds support for W3C Trace ID logging across diego component requests.
+  - Timeouts in for executor's uploader have been increased to 500ms.
+  - Byte-based logging limits for LRPs and Tasks now emit only once per second.
+  - LRPs can now have liveness and readiness check intervals defined when the LRP is created.
   - Dependency Bumps:
   - code.cloudfoundry.org/archiver a23cadd462ce
   - code.cloudfoundry.org/certsplitter a2c6caf14c29
@@ -259,7 +260,7 @@ Because VMware uses the Percona Distribution for MySQL, expect a time lag betwee
   - github.com/tedsuo/ifrit 7862c310ad26
   - golang.org/x/sys v0.8.0
   - google.golang.org/grpc v1.55.0
-  ## ✨  Built with go 1.20.4
+  ## ✨  Built with go 1.20.4.
   **Full Changelog**: https://github.com/cloudfoundry/diego-release/compare/v2.76.0...v2.77.0
   ## Resources
   - [Download release v2.77.0 from bosh.io](https://bosh.io/releases/github.com/cloudfoundry/diego-release?version=2.77.0).
@@ -273,7 +274,7 @@ Because VMware uses the Percona Distribution for MySQL, expect a time lag betwee
           <summary>2.4.12</summary>
           <pre style="max-width: 30em">
   * Add node 18.16.0, remove node 18.15.0 (#777)
-  for stack(s) cflinuxfs3, cflinuxfs4
+  for stack(s) cflinuxfs3, cflinuxfs4.
   * Does not override APSNETCORE_URLS if set by user
   Packaged binaries:
   | name | version | cf_stacks |
@@ -310,8 +311,8 @@ Because VMware uses the Percona Distribution for MySQL, expect a time lag betwee
           <summary>v1.33.0</summary>
           <pre style="max-width: 30em">
   ## Changes
-  - Bumped to golang 1.20.5
-  ## ✨  Built with go 1.20.5
+  - Bumped to golang 1.20.5.
+  ## ✨  Built with go 1.20.5.
   **Full Changelog**: https://github.com/cloudfoundry/garden-runc-release/compare/v1.32.0...v1.33.0
   ## Resources
   - [Download release v1.33.0 from bosh.io](https://bosh.io/releases/github.com/cloudfoundry/garden-runc-release?version=1.33.0).
@@ -321,7 +322,8 @@ Because VMware uses the Percona Distribution for MySQL, expect a time lag betwee
           <summary>v1.32.0</summary>
           <pre style="max-width: 30em">
   ## Changes
-  - The grootfs package no longer ships with test asset tarballs (those are only used for unit tests and don't need to be installed as part of the package).
+  - The grootfs package no longer ships with test asset tarballs
+  (those are only used for unit tests and don't need to be installed as part of the package).
   ## ✨  Built with go 1.20.4
   **Full Changelog**: https://github.com/cloudfoundry/garden-runc-release/compare/v1.31.0...v1.32.0
   ## Resources
@@ -332,7 +334,7 @@ Because VMware uses the Percona Distribution for MySQL, expect a time lag betwee
           <summary>v1.31.0</summary>
           <pre style="max-width: 30em">
   ## Changes
-  - Garden now ships with Busybox 1.36.1 as the default filesystem
+  - Garden now ships with Busybox 1.36.1 as the default filesystem.
   - Dependency Bumps
   - healthchecker boshrelease  v0.8.0
   - github.com/onsi/gomega v1.27.7
@@ -384,9 +386,9 @@ Because VMware uses the Percona Distribution for MySQL, expect a time lag betwee
           <summary>1.10.9</summary>
           <pre style="max-width: 30em">
   * Add go 1.20.4, remove go 1.20.3
-  for stack(s) cflinuxfs4, cflinuxfs3
+  for stack(s) cflinuxfs4, cflinuxfs3.
   * Add go 1.19.9, remove go 1.19.8
-  for stack(s) cflinuxfs4, cflinuxfs3
+  for stack(s) cflinuxfs4, cflinuxfs3.
   Packaged binaries:
   | name | version | cf_stacks |
   |-|-|-|
@@ -415,9 +417,9 @@ Because VMware uses the Percona Distribution for MySQL, expect a time lag betwee
         <details>
           <summary>4.59.0</summary>
           <pre style="max-width: 30em">
-  I'm pleased to announce the release of the java-buildpack, version 4.59.0. This release includes updates to dependency frameworks, such as:
-  * Updates [Azure Application Insights](https://github.com/cloudfoundry/java-buildpack/blob/main/docs/framework-azure_application_insights_agent.md) agent from 2.x to 3.x (thanks to @mayrstefan )
-  * Updates the [Contrast Security](https://github.com/cloudfoundry/java-buildpack/blob/main/docs/framework-contrast_security_agent.md) agent from 4.x to 5.x (thanks to @tylernhoward )
+  The java-buildpack, version 4.59.0 is released. This release includes updates to dependency frameworks, such as:
+  * Updates [Azure Application Insights](https://github.com/cloudfoundry/java-buildpack/blob/main/docs/framework-azure_application_insights_agent.md) agent from 2.x to 3.x.
+  * Updates the [Contrast Security](https://github.com/cloudfoundry/java-buildpack/blob/main/docs/framework-contrast_security_agent.md) agent from 4.x to 5.x.
   There were also dependency bumps for other libraries, including:
   * Elastic APM
   * JaCoCo
@@ -425,7 +427,8 @@ Because VMware uses the Percona Distribution for MySQL, expect a time lag betwee
   * JRebel
   * Splunk
   * YourKit
-  For a more detailed look at the changes in 4.59.0, please take a look at the [commit log](https://github.com/cloudfoundry/java-buildpack/compare/v4.58...v4.59.0). The packaged version of the buildpack, suitable for use with create-buildpack and update-buildpack, can be found attached to this release.
+  For a more detailed look at the changes in 4.59.0, look at the [commit log](https://github.com/cloudfoundry/java-buildpack/compare/v4.58...v4.59.0). The packaged version of the
+  buildpack, suitable for use with create-buildpack and update-buildpack, can be found attached to this release.
   | Dependency | Version | CVEs | Release Notes |
   | ---------- | ------- | ---- | ------------- |
   | AppDynamics Agent | `22.9.2_34409` | | [Release Notes](https://docs.appdynamics.com/4.5.x/en/product-and-release-announcements/release-notes/language-agent-notes/java-agent-notes) |
@@ -481,10 +484,8 @@ Because VMware uses the Percona Distribution for MySQL, expect a time lag betwee
   * CI: add codeql checks by @ctlong in https://github.com/cloudfoundry/log-cache-release/pull/145
   * CI: update dependabot configuration to track v2.x by @ctlong in https://github.com/cloudfoundry/log-cache-release/pull/208
   * Add CODEOWNERS file in preparation for branch protection rules by @geofffranks in https://github.com/cloudfoundry/log-cache-release/pull/233
-  * Bump dependencies
-  * Bump to golang 1.20.5
-  ## New Contributors
-  * @geofffranks made their first contribution in https://github.com/cloudfoundry/log-cache-release/pull/233
+  * Bump dependencies.
+  * Bump to golang 1.20.5.
   **Full Changelog**: https://github.com/cloudfoundry/log-cache-release/compare/v3.0.2...v3.0.3
           </pre>
         </details>
@@ -521,8 +522,8 @@ Because VMware uses the Percona Distribution for MySQL, expect a time lag betwee
           <summary>v56.4.0</summary>
           <pre style="max-width: 30em">
   ## Changes
-  - Bumped go to 1.20.5
-  ## ✨  Built with go 1.20.5
+  - Bumped go to 1.20.5.
+  ## ✨  Built with go 1.20.5.
   **Full Changelog**: https://github.com/cloudfoundry/nats-release/compare/v56.3.0...v56.4.0
   ## Resources
   - [Download release v56.4.0 from bosh.io](https://bosh.io/releases/github.com/cloudfoundry/nats-release?version=56.4.0).
@@ -540,7 +541,7 @@ Because VMware uses the Percona Distribution for MySQL, expect a time lag betwee
   - github.com/tedsuo/ifrit 7862c310ad26
   - github.com/onsi/ginkgo/ 2.9.5
   - github.com/onsi/gomega 1.27.7
-  ## ✨  Built with go 1.20.4
+  ## ✨  Built with go 1.20.4.
   **Full Changelog**: https://github.com/cloudfoundry/nats-release/compare/v56.2.0...v56.3.0
   ## Resources
   - [Download release v56.3.0 from bosh.io](https://bosh.io/releases/github.com/cloudfoundry/nats-release?version=56.3.0).
@@ -571,9 +572,9 @@ Because VMware uses the Percona Distribution for MySQL, expect a time lag betwee
           <summary>v7.1.18</summary>
           <pre style="max-width: 30em">
   ## Changes
-  * chore: rename templates to match target files names (#428)
-  * fix: remove config file on stop (#431)
-  * Remove unmaintained docker tests (#432)
+  * chore: rename templates to match target files names (#428).
+  * fix: remove config file on stop (#431).
+  * Remove unmaintained docker tests (#432).
   ## Dependencies
   * **nfsbroker:** Updated to v`dd36f39`.<br>For more information, see [nfsbroker](https://github.com/cloudfoundry/nfsbroker).
           </pre>
@@ -594,7 +595,7 @@ Because VMware uses the Percona Distribution for MySQL, expect a time lag betwee
         <details>
           <summary>1.2.3</summary>
           <pre style="max-width: 30em">
-  * Updating github-config (#211)
+  * Updating github-config (#211).
   Packaged binaries:
   | name | version | cf_stacks |
   |-|-|-|
@@ -624,15 +625,15 @@ Because VMware uses the Percona Distribution for MySQL, expect a time lag betwee
         <details>
           <summary>1.8.10</summary>
           <pre style="max-width: 30em">
-  * Deprecate Nodejs v14.x (EOL)
-  * profile script: do not overwrite std files. This is a follow-up to #605 .profile.d scripts are "sourced" by the lifecycle one after the other, so make sure stdout/err for subsequent scripts are unaffected.
-  * appdynamics: remove dependency on ruby provided by stack
-  - cflinuxfs4 1.x does not come with ruby. Therefore rewrite profile
+  * Deprecate Nodejs v14.x (EOL).
+  * Profile script: do not overwrite std files. This is a follow up to #605 .profile.d scripts are "sourced" by the lifecycle one after the other, so ensure stdout/err for subsequent scripts are unaffected.
+  * Appdynamics: remove dependency on ruby provided by stack.
+  - cflinuxfs4 1.x does not come with ruby, therefore. rewrite profile
   script from rb to sh.
-  - reactivate appdynamics test suite that was marked as pending
+  - Reactivate appdynamics test suite that was marked as pending.
   in PR #586
-  * Add node 18.16.0, remove node 18.14.1 for stack(s) cflinuxfs3, cflinuxfs4
-  * Install bootstrapped Python into nodejs-buildpack specific location (#598)
+  * Add node 18.16.0, remove node 18.14.1 for stack(s) cflinuxfs3, cflinuxfs4.
+  * Install bootstrapped Python into nodejs-buildpack specific location (#598).
   Packaged binaries:
   | name | version | cf_stacks |
   |-|-|-|
@@ -665,9 +666,9 @@ Because VMware uses the Percona Distribution for MySQL, expect a time lag betwee
         <details>
           <summary>4.6.5</summary>
           <pre style="max-width: 30em">
-  * Add appdynamics 23.4.0-724, remove appdynamics 23.2.0-684 for stack(s) cflinuxfs4, cflinuxfs3
-  * Install bootstrapped Python into dpack specific location
-  * Add httpd 2.4.57, remove httpd 2.4.56 for stack(s) cflinuxfs4, cflinuxfs3
+  * Add appdynamics 23.4.0-724, remove appdynamics 23.2.0-684 for stack(s) cflinuxfs4, cflinuxfs3.
+  * Install bootstrapped Python into dpack specific location.
+  * Add httpd 2.4.57, remove httpd 2.4.56 for stack(s) cflinuxfs4, cflinuxfs3.
   Packaged binaries:
   | name | version | cf_stacks | modules |
   |-|-|-|-|
@@ -735,7 +736,7 @@ Because VMware uses the Percona Distribution for MySQL, expect a time lag betwee
           <summary>v1.0.13</summary>
           <pre style="max-width: 30em">
   **New Features**
-  Adjusted upgrade pre-start behavior to bypass known MySQL issue https://bugs.mysql.com/bug.php?id=110702 when upgrading from MySQL 5.7 to MySQL 8.0.
+  Adjusted the upgrade pre-start behavior to bypass known MySQL issue https://bugs.mysql.com/bug.php?id=110702 when upgrading from MySQL 5.7 to MySQL 8.0.
           </pre>
         </details>
         <details>
@@ -743,31 +744,34 @@ Because VMware uses the Percona Distribution for MySQL, expect a time lag betwee
           <pre style="max-width: 30em">
   **New Features**
   Removed default configuration of wsrep_applier_threads of 1.
-  `engine_config.wsrep_applier_threads` is now automatically set to the number of cores on the host machine, to enable better throughput by using the available resources / compute
+  `engine_config.wsrep_applier_threads` is now automatically set to the number of cores on the host machine, to enable
+  better throughput by using the available resources / compute.
   **Known Issues**
-  Currently an issue is being investigated which may lead to data corruption when updating from earlier versions of this release (<1.0.0) to versions >[1.0.10](https://github.com/cloudfoundry/pxc-release/releases/tag/v1.0.10), which included Percona XtraDB Cluster 8.0 to v8.0.32-24
-  The issue seems to occur when, during the major MySQL version upgrade, columns are added to existing tables. This is still under investigation, but users are advised to first upgrade to [v1.0.9](https://github.com/cloudfoundry/pxc-release/releases/tag/v1.0.9), prior to upgrading to newer versions of this release
+  Currently an issue is being investigated which might lead to data corruption when updating from earlier versions of this
+  release (<1.0.0) to versions >[1.0.10](https://github.com/cloudfoundry/pxc-release/releases/tag/v1.0.10), which included Percona XtraDB Cluster 8.0 to v8.0.32-24
+  The issue seems to occur when, during the major MySQL version upgrade, columns are added to existing tables. This is still under
+  investigation, but users are advised to first upgrade to [v1.0.9](https://github.com/cloudfoundry/pxc-release/releases/tag/v1.0.9), prior to upgrading to newer versions of this release
           </pre>
         </details>
         <details>
           <summary>v1.0.11</summary>
           <pre style="max-width: 30em">
-  **Important** pxc-release v1.0 is a major database upgrade from Percona XtraDB Cluster 5.7 to Percona XtraDB Cluster 8.0
+  **Important** pxc-release v1.0 is a major database upgrade from Percona XtraDB Cluster 5.7 to Percona XtraDB Cluster 8.0.
   **New Features**
-  - Bumped Go to 1.20.4
+  - Bumped Go to 1.20.4.
   **Known Issues**
-  Currently an issue is being investigated which may lead to data corruption when updating from earlier versions of this release (<1.0.0) to versions >[1.0.10](https://github.com/cloudfoundry/pxc-release/releases/tag/v1.0.10), which included Percona XtraDB Cluster 8.0 to v8.0.32-24
+  Currently an issue is being investigated which might lead to data corruption when updating from earlier versions of this release (<1.0.0) to versions >[1.0.10](https://github.com/cloudfoundry/pxc-release/releases/tag/v1.0.10), which included Percona XtraDB Cluster 8.0 to v8.0.32-24
   The issue seems to occur when, during the major MySQL version upgrade, columns are added to existing tables. This is still under investigation, but users are advised to first upgrade to [v1.0.9](https://github.com/cloudfoundry/pxc-release/releases/tag/v1.0.9), prior to upgrading to newer versions of this release
           </pre>
         </details>
         <details>
           <summary>v1.0.10</summary>
           <pre style="max-width: 30em">
-  **Important** pxc-release v1.0 is a major database upgrade from Percona XtraDB Cluster 5.7 to Percona XtraDB Cluster 8.0
+  **Important** pxc-release v1.0 is a major database upgrade from Percona XtraDB Cluster 5.7 to Percona XtraDB Cluster 8.0.
   **New Features**
-  - Bumped Percona XtraDB Cluster 8.0 to v8.0.32-24
+  - Bumped Percona XtraDB Cluster 8.0 to v8.0.32-24.
   **Known Issues**
-  Currently an issue is being investigated which may lead to data corruption when updating from earlier versions of this release (<1.0.0) to versions >[1.0.10](https://github.com/cloudfoundry/pxc-release/releases/tag/v1.0.10), which included Percona XtraDB Cluster 8.0 to v8.0.32-24
+  Currently an issue is being investigated which might lead to data corruption when updating from earlier versions of this release (<1.0.0) to versions >[1.0.10](https://github.com/cloudfoundry/pxc-release/releases/tag/v1.0.10), which included Percona XtraDB Cluster 8.0 to v8.0.32-24
   The issue seems to occur when, during the major MySQL version upgrade, columns are added to existing tables. This is still under investigation, but users are advised to first upgrade to [v1.0.9](https://github.com/cloudfoundry/pxc-release/releases/tag/v1.0.9), prior to upgrading to newer versions of this release
           </pre>
         </details>
@@ -778,11 +782,11 @@ Because VMware uses the Percona Distribution for MySQL, expect a time lag betwee
         <details>
           <summary>1.8.10</summary>
           <pre style="max-width: 30em">
-  * Remove mercurial tests (not supported anymore)
-  * Add pipenv 2023.4.29, remove pipenv 2023.3.20 for stack(s) cflinuxfs4, cflinuxfs3
-  * Add pip 23.1.2, remove pip 23.0.1 for stack(s) cflinuxfs4, cflinuxfs3
-  * Add setuptools 67.7.2, remove setuptools 67.6.1 for stack(s) cflinuxfs4, cflinuxfs3
-  * Refactor test framework to use Switchblade
+  * Remove mercurial tests (not supported anymore).
+  * Add pipenv 2023.4.29, remove pipenv 2023.3.20 for stack(s) cflinuxfs4, cflinuxfs3.
+  * Add pip 23.1.2, remove pip 23.0.1 for stack(s) cflinuxfs4, cflinuxfs3.
+  * Add setuptools 67.7.2, remove setuptools 67.6.1 for stack(s) cflinuxfs4, cflinuxfs3.
+  * Refactor test framework to use Switchblade.
   Packaged binaries:
   | name | version | cf_stacks |
   |-|-|-|
@@ -818,7 +822,7 @@ Because VMware uses the Percona Distribution for MySQL, expect a time lag betwee
         <details>
           <summary>1.2.2</summary>
           <pre style="max-width: 30em">
-  * Updating github-config (#204)
+  * Updating github-config (#204).
   Packaged binaries:
   | name | version | cf_stacks | modules |
   |-|-|-|-|
@@ -840,8 +844,8 @@ Because VMware uses the Percona Distribution for MySQL, expect a time lag betwee
           <summary>v0.271.0</summary>
           <pre style="max-width: 30em">
   ## Changes
-  - Bumped to golang 1.20.5
-  ## ✨  Built with go 1.20.5
+  - Bumped to golang 1.20.5.
+  ## ✨  Built with go 1.20.5.
   **Full Changelog**: https://github.com/cloudfoundry/routing-release/compare/v0.270.0...v0.271.0
   ## Resources
   - [Download release v0.271.0 from bosh.io](https://bosh.io/releases/github.com/cloudfoundry/routing-release?version=0.271.0).
@@ -851,7 +855,7 @@ Because VMware uses the Percona Distribution for MySQL, expect a time lag betwee
           <summary>v0.270.0</summary>
           <pre style="max-width: 30em">
   ## Changes
-  - CI now tests CATS + RATS against cflinuxfs4
+  - CI now tests CATS + RATS against cflinuxfs4.
   - 🐛Gorouter's `request_timeout_in_seconds` now only affects request timeout and is not used for idle timeout, which is set by `frontend_idle_timeout`
   - routing-utils now passes `go vet`
   - Dependency Bumps:
@@ -873,11 +877,11 @@ Because VMware uses the Percona Distribution for MySQL, expect a time lag betwee
   description: |
   -      This configures a "request timeout" and a "backend idle timeout".
   +      This configures an entire request timeout.
-  Requests from router to backend endpoints that are longer than this duration will be canceled and logged as
+  Requests from router to backend endpoints that are longer than this duration are canceled and logged as
   -      `backend-request-timeout` errors. In addition, TCP connections between router and backend endpoints that
-  -      are idle for longer than this duration will be closed. Related properties: `router.max_idle_connections`
+  -      are idle for longer than this duration are closed. Related properties: `router.max_idle_connections`
   -      and `router.keep_alive_probe_interval`.
-  +      `backend-request-timeout` errors. If set to 0 this timeout is disabled.
+  +      `backend-request-timeout` errors. If set to 0 this timeout is deactivated.
   default: 900
   endpoint_dial_timeout_in_seconds:
   description: |
@@ -908,9 +912,9 @@ Because VMware uses the Percona Distribution for MySQL, expect a time lag betwee
         <details>
           <summary>1.10.2</summary>
           <pre style="max-width: 30em">
-  * Add rubygems 3.4.13, remove rubygems 3.4.11 for stack(s) cflinuxfs4, cflinuxfs3
-  * Add bundler 2.4.13, remove bundler 2.4.11 for stack(s) cflinuxfs4, cflinuxfs3
-  * Add node 18.16.0, remove node 18.15.0 for stack(s) cflinuxfs3, cflinuxfs4
+  * Add rubygems 3.4.13, remove rubygems 3.4.11 for stack(s) cflinuxfs4, cflinuxfs3.
+  * Add bundler 2.4.13, remove bundler 2.4.11 for stack(s) cflinuxfs4, cflinuxfs3.
+  * Add node 18.16.0, remove node 18.15.0 for stack(s) cflinuxfs3, cflinuxfs4.
   * Install bootstrapped Ruby into ruby-buildpack specific location
   Packaged binaries:
   | name | version | cf_stacks |
@@ -952,8 +956,8 @@ Because VMware uses the Percona Distribution for MySQL, expect a time lag betwee
           <summary>v3.28.0</summary>
           <pre style="max-width: 30em">
   ## Changes
-  - Bumped to golang 1.20.5
-  ## ✨  Built with go 1.20.5
+  - Bumped to golang 1.20.5.
+  ## ✨  Built with go 1.20.5.
   **Full Changelog**: https://github.com/cloudfoundry/silk-release/compare/v3.27.0...v3.28.0
   ## Resources
   - [Download release v3.28.0 from bosh.io](https://bosh.io/releases/github.com/cloudfoundry/silk-release?version=3.28.0).
@@ -963,10 +967,10 @@ Because VMware uses the Percona Distribution for MySQL, expect a time lag betwee
           <summary>v3.27.0</summary>
           <pre style="max-width: 30em">
   ## Changes
-  - Bumped vendored healthchecker release to v0.8.0
-  - Updated silk, silk-cni, and cni-wrapper-plugin for compatibility with v1.0.0 of the CNI spec
-  - Bumped github.com/containernetworking/cni to 1.1.2 and github.com/containernetworking/plugins to 1.3.0
-  - Removed the `externalmods` code as it's no longer needed now that everything is on the latest CNI versions.
+  - Bumped vendored healthchecker release to v0.8.0.
+  - Updated silk, silk-cni, and cni-wrapper-plugin for compatibility with v1.0.0 of the CNI spec.
+  - Bumped github.com/containernetworking/cni to 1.1.2 and github.com/containernetworking/plugins to 1.3.0.
+  - Removed the `externalmods` code because it's no longer needed now that everything is on the latest CNI versions.
   ## ✨  Built with go 1.20.4
   **Full Changelog**: https://github.com/cloudfoundry/silk-release/compare/v3.26.0...v3.27.0
   ## Resources
@@ -1003,7 +1007,7 @@ Because VMware uses the Percona Distribution for MySQL, expect a time lag betwee
           <summary>v3.1.19</summary>
           <pre style="max-width: 30em">
   ## Changes
-  * Fix possible log cred leak (#442) (#124)
+  * Fix possible log cred leak (#442) (#124).
   ## Dependencies
   * **smbbroker:** Updated to v`73b69db`.<br>For more information, see [smbbroker](https://github.com/cloudfoundry/smbbroker).
   * **smbdriver:** Updated to v`1267799`.<br>For more information, see [smbdriver](https://github.com/cloudfoundry/smbdriver).
@@ -1032,7 +1036,7 @@ Because VMware uses the Percona Distribution for MySQL, expect a time lag betwee
         <details>
           <summary>1.6.3</summary>
           <pre style="max-width: 30em">
-  * Add otf mime type. Fix #88
+  * Add otf mime type. Fix #88.
   Packaged binaries:
   | name | version | cf_stacks |
   |-|-|-|
@@ -1057,10 +1061,8 @@ Because VMware uses the Percona Distribution for MySQL, expect a time lag betwee
           <pre style="max-width: 30em">
   ## What's Changed
   * Bump dependencies
-  * Add CODEOWNERS file in preparation for branch protection rules by @geofffranks in https://github.com/cloudfoundry/statsd-injector-release/pull/94
+  * Add CODEOWNERS file in preparation for branch protection rules in https://github.com/cloudfoundry/statsd-injector-release/pull/94
   * Bump to golang 1.20.5
-  ## New Contributors
-  * @geofffranks made their first contribution in https://github.com/cloudfoundry/statsd-injector-release/pull/94
   **Full Changelog**: https://github.com/cloudfoundry/statsd-injector-release/compare/v1.11.30...v1.11.31
           </pre>
         </details>
@@ -1085,11 +1087,11 @@ Because VMware uses the Percona Distribution for MySQL, expect a time lag betwee
           <pre style="max-width: 30em">
   ## What's Changed
   ### Features
-  * Bump to [UAA v76.13.0](https://github.com/cloudfoundry/uaa/releases/tag/v76.13.0)
+  * Bump to [UAA v76.13.0](https://github.com/cloudfoundry/uaa/releases/tag/v76.13.0).
   ### Dependency bumps
-  * Bump github.com/onsi/gomega from 1.27.6 to 1.27.7 in /src/acceptance_tests by @dependabot in https://github.com/cloudfoundry/uaa-release/pull/585
-  * Bump nokogiri from 1.15.0 to 1.15.1 by @dependabot in https://github.com/cloudfoundry/uaa-release/pull/590
-  * Bump github.com/cloudfoundry/bosh-utils from 0.0.364 to 0.0.365 in /src/acceptance_tests by @dependabot in https://github.com/cloudfoundry/uaa-release/pull/589
+  * Bump github.com/onsi/gomega from 1.27.6 to 1.27.7 in /src/acceptance_tests in https://github.com/cloudfoundry/uaa-release/pull/585
+  * Bump nokogiri from 1.15.0 to 1.15.1 in https://github.com/cloudfoundry/uaa-release/pull/590
+  * Bump github.com/cloudfoundry/bosh-utils from 0.0.364 to 0.0.365 in /src/acceptance_tests in https://github.com/cloudfoundry/uaa-release/pull/589
   **Full Changelog**: https://github.com/cloudfoundry/uaa-release/compare/v76.12.0...v76.13.0
           </pre>
         </details>
@@ -1097,17 +1099,17 @@ Because VMware uses the Percona Distribution for MySQL, expect a time lag betwee
           <summary>v76.12.0</summary>
           <pre style="max-width: 30em">
   # DO NOT USE
-  Contains a regression with regards to OIDC IdPs. We are working on a fix.
+  Contains a regression with regards to OIDC IdPs. Development is working on a fix.
   ## What's Changed
   ### Features
-  * Bumped to [UAA v76.12.0](https://github.com/cloudfoundry/uaa/releases/tag/v76.12.0)
+  * Bumped to [UAA v76.12.0](https://github.com/cloudfoundry/uaa/releases/tag/v76.12.0).
   ### Dependency Bumps
-  * Bump github.com/cloudfoundry/bosh-utils from 0.0.362 to 0.0.363 in /src/acceptance_tests by @dependabot in https://github.com/cloudfoundry/uaa-release/pull/579
-  * Bump nokogiri from 1.14.3 to 1.14.4 by @dependabot in https://github.com/cloudfoundry/uaa-release/pull/580
-  * Bump github.com/cloudfoundry/bosh-utils from 0.0.363 to 0.0.364 in /src/acceptance_tests by @dependabot in https://github.com/cloudfoundry/uaa-release/pull/583
-  * Bump nokogiri from 1.14.4 to 1.15.0 by @dependabot in https://github.com/cloudfoundry/uaa-release/pull/584
+  * Bump github.com/cloudfoundry/bosh-utils from 0.0.362 to 0.0.363 in /src/acceptance_tests in https://github.com/cloudfoundry/uaa-release/pull/579
+  * Bump nokogiri from 1.14.3 to 1.14.4 in https://github.com/cloudfoundry/uaa-release/pull/580
+  * Bump github.com/cloudfoundry/bosh-utils from 0.0.363 to 0.0.364 in /src/acceptance_tests in https://github.com/cloudfoundry/uaa-release/pull/583
+  * Bump nokogiri from 1.14.4 to 1.15.0 in https://github.com/cloudfoundry/uaa-release/pull/584
   ### Misc
-  * Pr/dev release script by @bruce-ricard in https://github.com/cloudfoundry/uaa-release/pull/561
+  * Pr/dev release script in https://github.com/cloudfoundry/uaa-release/pull/561
   **Full Changelog**: https://github.com/cloudfoundry/uaa-release/compare/v76.11.0...v76.12.0
           </pre>
         </details>
@@ -1125,11 +1127,11 @@ Because VMware uses the Percona Distribution for MySQL, expect a time lag betwee
 
 ### Autoscaler API no longer accepts trailing slashes in requests
 
-Previously the Autoscaler API would have responded to a URL with a trailing slash and now it will return a 404 error.
+Previously, the Autoscaler API responded to a URL with a trailing slash and now it returns a 404 error.
 
-If you are using the API directly, please confirm that you are not including trailing slashes in the URL before upgrading.
+If you use the API directly, confirm that you are not including trailing slashes in the URL before you upgrade.
 
-This does not affect users who are using the autoscaler cf CLI plugin.
+This does not affect users who are using the autoscaler cf CLI plug-in.
 
 ## <a id='known-issues'></a> Known issues
 
