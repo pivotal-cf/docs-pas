@@ -1588,6 +1588,16 @@ Because VMware uses the Percona Distribution for MySQL, expect a time lag betwee
 
 ## <a id='breaking-changes'></a> Breaking changes
 
+### NATS intentionally fails deployment in post-start in v1.
+
+In TAS 3.0, we migrated the underlying binary for nats-release from gnatsd (NATS v1) to nats-server (NATS v2).
+Before removing the v1 code completely, we're adding a post-start check to confirm that NATS instances
+are running nats-server.
+
+To avoid experiencing a deployment failure, confirm NATS version by following the directions at:
+https://community.pivotal.io/s/article/How-to-confirm-your-nats-servers-are-running-NATs-v2?language=en_US.
+Environments that have successfully upgraded NATS will not experience any change.
+
 ### Autoscaler API no longer accepts trailing slashes in requests
 
 Previously, the Autoscaler API responded to a URL with a trailing slash and now it returns a 404 error.
