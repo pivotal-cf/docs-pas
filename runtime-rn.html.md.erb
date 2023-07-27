@@ -29,7 +29,7 @@ Because VMware uses the Percona Distribution for MySQL, expect a time lag betwee
 * **[Feature Improvement]** Uses routing_info for desired_lrps when there are missing actual_lrps
 * **[Feature]** Adds distributed tracing to Diego component logs
 * **[Bug Fix]** Prevents cachedownloader from erroneously deleting old entries
-* **[Bug Fix]** Resolves a race condition in BBS in which the replacement for a suspect LRP has started
+* **[Bug Fix]** Resolves a race condition in BBS when the replacement for a suspect LRP has started
 * **[Bug Fix]** Resolves a bug in gorouter in which path-based routes could return 503s when no backend endpoints remain, rather than falling back to non-path (hostname-only) routes
 * **[Bug Fix]** Resolves a [known issue](https://community.pivotal.io/s/article/Multiple-HTTP-Expect-100-continue-responses-sent-from-gorouter-to-client-may-cause-unexpected-failures?language=en_US) around multiple "Expect 100-Continue" responses
 * **[Bug Fix]** When a user is deleted, they are now removed from the groups they were members of.
