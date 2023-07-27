@@ -32,7 +32,7 @@ MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> containing that pa
 * **[Bug Fix]** Prevents cachedownloader from erroneously deleting old entries.
 * **[Bug Fix]** Resolves a race condition in BBS when the replacement for a suspect LRP has started.
 * **[Bug Fix]** Resolves a bug in gorouter where path-based routes could return 503s when no backend endpoints remain, rather than falling back to non-path (hostname-only) routes.
-* **[Bug Fix]** Resolves a [known issue](https://github.com/cloudfoundry/routing-release/blob/develop/docs/go-1.20-expect-100-continue-known-issue.md) around multiple "Expect 100-Continue" responses
+* **[Bug Fix]** Resolves a [known issue](https://community.pivotal.io/s/article/Multiple-HTTP-Expect-100-continue-responses-sent-from-gorouter-to-client-may-cause-unexpected-failures?language=en_US) around multiple "Expect 100-Continue" responses
 * **[Bug Fix]** When a user is deleted, they are now removed from the groups they were members of
 * **[Feature]** For credential Rotation, JSON key sets are now supported in token keys
 * Bump backup-and-restore-sdk to version `1.18.83`
