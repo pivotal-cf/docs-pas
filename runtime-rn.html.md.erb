@@ -21,22 +21,22 @@ Because VMware uses the Percona Distribution for MySQL, expect a time lag betwee
 
 **Release Date:** 07/24/2023
 
-* **[Feature Improvement]** Dynamic App renaming takes effect for Silk Security Group log entries
-* **[Feature Improvement]** TAS/IST/TASW 5.0 UI text overhaul
-* **[Bug fix]** Introduce CAPI retries into cf-autoscaling bbr unlock scripts to make them more resilient
-* **[Breaking Change]** Autoscaler API no longer accepts requests with trailing slashes
-* **[Bug Fix]** Fix duplicate routes sent to diego
-* **[Bug Fix]** Improved reliability of BBR restore procedure
+* **[Feature improvement]** Dynamic App renaming takes effect for Silk Security Group log entries
+* **[Feature improvement]** TAS for VMs/Isolation Segment/TAS for VMs For Windows 5.0 UI text overhaul
+* **[Bug fix]** Introduces CAPI retries into cf-autoscaling BBR unlock scripts to make them more resilient
+* **[Breaking change]** Autoscaler API no longer accepts requests with trailing slashes
+* **[Bug fix]** Fixes duplicate routes sent to Diego
+* **[Bug fix]** Improved reliability of BBR restore procedure
 * **[Bug fix]** Updated snakeyaml to resolve CVEs: CVE-2022-1471, CVE-2022-25857, CVE-2022-38749, CVE-2022-38750, CVE-2022-38751, CVE-2022-38752, CVE-2022-41854
 * **[Bug fix]** Updated netty-handler to resolve CVE-2023-34462
-* **[Feature Improvement]** Use routing_info for desired_lrps when there are missing actual_lrps.
-* **[Feature]** Add distributed tracing to Diego component logs.
-* **[Bug Fix]** Prevents cachedownloader from erroneously deleting old entries.
-* **[Bug Fix]** Resolves a race condition in BBS when the replacement for a suspect LRP has started.
-* **[Bug Fix]** Resolves a bug in gorouter where path-based routes could return 503s when no backend endpoints remain, rather than falling back to non-path (hostname-only) routes.
-* **[Bug Fix]** Resolves a [known issue](https://github.com/cloudfoundry/routing-release/blob/develop/docs/go-1.20-expect-100-continue-known-issue.md) around multiple "Expect 100-Continue" responses
-* **[Bug Fix]** When a user is deleted, they are now removed from the groups they were members of
-* **[Feature]** For credential Rotation, JSON key sets are now supported in token keys
+* **[Feature improvement]** Use routing_info for desired_lrps when there are missing actual_lrps
+* **[Feature]** Adds distributed tracing to Diego component logs
+* **[Bug fix]** Prevents cachedownloader from erroneously deleting old entries
+* **[Bug fix]** Resolves a race condition in BBS when the replacement for a suspect LRP has started
+* **[Bug fix]** Resolves a bug in gorouter in which path-based routes could return 503s when no backend endpoints remain, rather than falling back to non-path (hostname-only) routes.
+* **[Bug fix]** Resolves a [known issue](https://github.com/cloudfoundry/routing-release/blob/develop/docs/go-1.20-expect-100-continue-known-issue.md) around multiple "Expect 100-Continue" responses
+* **[Bug Fix]** When a user is deleted, they are now also removed from the groups in which they were a member.
+* **[Feature]** For credential rotation, JSON key sets are now supported in token keys.
 * Bump backup-and-restore-sdk to version `1.18.83`
 * Bump bpm to version `1.2.3`
 * Bump capi to version `1.155.0`
@@ -1020,7 +1020,7 @@ Because VMware uses the Percona Distribution for MySQL, expect a time lag betwee
           <summary>677.0.22</summary>
           <pre style="max-width: 30em">
   ## Changelog
-  - This release resolves CVE-2023-20891. For more information on these vulnerabilities and their impact on VMware products, see  [VMSA-2023-0016](https://www.vmware.com/security/advisories/VMSA-2023-0016.html)
+  - This release resolves CVE-2023-20891. For more information on these vulnerabilities and their impact on VMware products, see [VMSA-2023-0016](https://www.vmware.com/security/advisories/VMSA-2023-0016.html)
   - CVE-2021-35065
   - CVE-2022-24785
   - CVE-2022-25883
@@ -1588,15 +1588,14 @@ Because VMware uses the Percona Distribution for MySQL, expect a time lag betwee
 
 **Release Date:** 06/26/2023
 
-* **[Feature]** Expose "Certificate Authorities trusted by the Gorouter for client requests" in the Networking tab.
-* **[Feature]** Adds support for W3C Trace ID logging across Diego component requests.
-* **[Bug Fix]** Timeouts in for executor's uploader have been increased to 500ms.
-* **[Bug Fix]** Byte-based logging limits for LRPs and Tasks now emit only once per second.
-* **[Bug Fix/Improvement]** Garden now ships with Busybox 1.36.1 as the default filesystem.
-
-* **[Bug Fix/Improvement]** "Back end request timeout for the Gorouter" property no longer affects idle timeout of long lived requests. Idle
+* **[Feature]** Exposes "Certificate Authorities trusted by the Gorouter for client requests" in the **Networking** tab
+* **[Feature]** Adds support for W3C Trace ID logging across Diego component requests
+* **[Bug fix]** Timeouts in executor's uploader have been increased to 500ms.
+* **[Bug fix]** Byte-based logging limits for LRPs and Tasks now emit only once per second.
+* **[Bug fix/Improvement]** Garden now ships with Busybox 1.36.1 as the default filesystem.
+* **[Bug fix/Improvement]** "Back end request timeout for the Gorouter" property no longer affects idle timeout of long lived requests. Idle
 timeouts are now configured by the "Front end idle timeout for the Gorouter" property.
-* **[Bug Fix/Improvement]** Updated silk, silk-cni, and cni-wrapper-plugin for compatibility with v1.0.0 of the CNI spec.
+* **[Bug fix/Improvement]** Updates silk, silk-cni, and cni-wrapper-plugin for compatibility with v1.0.0 of the CNI spec
 
 * Bump backup-and-restore-sdk to version `1.18.77`
 * Bump binary-offline-buildpack to version `1.1.5`
