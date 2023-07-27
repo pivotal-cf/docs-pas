@@ -25,15 +25,15 @@ use <%= vars.app_runtime_abbr %>
 
 **Release Date:** 07/21/2023
 
-* **[Bug fix]** Introduce CAPI retries into cf-autoscaling bbr unlock scripts to make them more resilient
-* **[Bug Fix]** Improved reliability of BBR restore procedure
-* **[Bug fix]** Updated snakeyaml to resolve CVEs: CVE-2022-1471, CVE-2022-25857, CVE-2022-38749, CVE-2022-38750, CVE-2022-38751, CVE-2022-38752, CVE-2022-41854
-* **[Bug fix]** Updated netty-handler to resolve CVE-2023-34462
-* **[Feature Improvement]** Use routing_info for desired_lrps when there are missing actual_lrps.
-* **[Feature]** Add distributed tracing to Diego component logs.
-* **[Bug Fix]** Prevents cachedownloader from erroneously deleting old entries.
-* **[Bug Fix]** Resolves a race condition in BBS when the replacement for a suspect LRP has started.
-* **[Bug Fix]** Resolves a bug in gorouter where path-based routes could return 503s when no backend endpoints remain, rather than falling back to non-path (hostname-only) routes.
+* **[Bug Fix]** Introduces CAPI retries into cf-autoscaling bbr unlock scripts to make them more resilient
+* **[Bug Fix]** Improves reliability of BBR restore procedure
+* **[Bug Fix]** Updates snakeyaml to resolve CVEs: CVE-2022-1471, CVE-2022-25857, CVE-2022-38749, CVE-2022-38750, CVE-2022-38751, CVE-2022-38752, CVE-2022-41854
+* **[Bug Fix]** Updates netty-handler to resolve CVE-2023-34462
+* **[Feature Improvement]** Uses routing_info for desired_lrps when there are missing actual_lrps
+* **[Feature]** Adds distributed tracing to Diego component logs
+* **[Bug Fix]** Prevents cachedownloader from erroneously deleting old entries
+* **[Bug Fix]** Resolves a race condition in BBS when the replacement for a suspect LRP has started
+* **[Bug Fix]** Resolves a bug in gorouter in which path-based routes could return 503s when no backend endpoints remain, rather than falling back to non-path (hostname-only) routes
 * **[Bug Fix]** Resolves a [known issue](https://community.pivotal.io/s/article/Multiple-HTTP-Expect-100-continue-responses-sent-from-gorouter-to-client-may-cause-unexpected-failures?language=en_US) around multiple "Expect 100-Continue" responses
 * Bump backup-and-restore-sdk to version `1.18.83`
 * Bump bosh-system-metrics-forwarder to version `0.0.34`
@@ -1479,9 +1479,9 @@ use <%= vars.app_runtime_abbr %>
 
 <%= partial "/pcf/tas/known-issues/multiple-expect-100-continue-tas-2-11" %>
 
-* **[Bug Fix]** [CAPI] - Make route registration health check fail on 4xx/5xx.
-* **[Feature]** Support was added for W3C Trace ID logging across Diego component requests.
-* **[Bug Fix]** Timeouts in for executor's uploader have been increased to 500ms.
+* **[Bug Fix]** [CAPI] - Makes route registration health check fail on 4xx/5xx
+* **[Feature]** Adds support for W3C Trace ID logging across Diego component requests
+* **[Bug Fix]** Timeouts for executor's uploader have been increased to 500 ms.
 * **[Bug Fix]** Byte-based logging limits for LRPs and Tasks now emit only once per second.
 * **[Bug Fix/Improvement]** Garden now ships with Busybox 1.36.1 as the default filesystem.
 
