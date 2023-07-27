@@ -25,16 +25,16 @@ v8](../cf-cli/v8.html).
 
 **Release Date:** 07/21/2023
 
-* **[Bug fix]** Introduce CAPI retries into cf-autoscaling bbr unlock scripts to make them more resilient
-* **[Bug Fix]** Fix duplicate routes sent to diego
-* **[Bug Fix]** Improved reliability of BBR restore procedure
-* **[Bug fix]** Updated snakeyaml to resolve CVEs: CVE-2022-1471, CVE-2022-25857, CVE-2022-38749, CVE-2022-38750, CVE-2022-38751, CVE-2022-38752, CVE-2022-41854
-* **[Bug fix]** Updated netty-handler to resolve CVE-2023-34462
-* **[Feature Improvement]** Use routing_info for desired_lrps when there are missing actual_lrps.
-* **[Feature]** Add distributed tracing to Diego component logs.
+* **[Bug Fix]** Introduces CAPI retries into cf-autoscaling bbr unlock scripts to make them more resilient
+* **[Bug Fix]** Fixes duplicate routes sent to Diego
+* **[Bug Fix]** Improves reliability of BBR restore procedure
+* **[Bug Fix]** Updates snakeyaml to resolve CVEs: CVE-2022-1471, CVE-2022-25857, CVE-2022-38749, CVE-2022-38750, CVE-2022-38751, CVE-2022-38752, CVE-2022-41854
+* **[Bug Fix]** Updates netty-handler to resolve CVE-2023-34462
+* **[Feature Improvement]** Uses routing_info for desired_lrps when there are missing actual_lrps
+* **[Feature]** Adds distributed tracing to Diego component logs
 * **[Bug Fix]** Prevents cachedownloader from erroneously deleting old entries.
 * **[Bug Fix]** Resolves a race condition in BBS when the replacement for a suspect LRP has started.
-* **[Bug Fix]** Resolves a bug in gorouter where path-based routes could return 503s when no backend endpoints remain, rather than falling back to non-path (hostname-only) routes.
+* **[Bug Fix]** Resolves a bug in gorouter where path-based routes could return 503s when no backend endpoints remain, rather than falling back to non-path (hostname-only) routes
 * **[Bug Fix]** Resolves a [known issue](https://community.pivotal.io/s/article/Multiple-HTTP-Expect-100-continue-responses-sent-from-gorouter-to-client-may-cause-unexpected-failures?language=en_US) around multiple "Expect 100-Continue" responses
 * Bump backup-and-restore-sdk to version `1.18.83`
 * Bump bosh-system-metrics-forwarder to version `0.0.34`
@@ -1496,8 +1496,8 @@ v8](../cf-cli/v8.html).
 
 <%= partial "/pcf/tas/known-issues/multiple-expect-100-continue-tas-2-13" %>
 
-* **[Feature]** Expose "Certificate Authorities trusted by the Gorouter for client requests" in the Networking tab.
-* **[Feature]** Adds support for W3C Trace ID logging across Diego component requests.
+* **[Feature]** Exposes "Certificate Authorities trusted by the Gorouter for client requests" in the **Networking** tab
+* **[Feature]** Adds support for W3C Trace ID logging across Diego component requests
 * **[Bug Fix]** Timeouts in for executor's uploader have been increased to 500ms.
 * **[Bug Fix]** Byte-based logging limits for LRPs and Tasks now emit only once per second.
 * **[Bug Fix/Improvement]** Garden now ships with Busybox 1.36.1 as the default filesystem.
@@ -1885,7 +1885,6 @@ v8](../cf-cli/v8.html).
 * **[Bug Fix]** Remove Apps Manager log rate-limit feature.
 * **[Bug Fix/Improvement]** This is an improvement to dependencies.
 * **[Bug Fix/Improvement]** "Back end request timeout for the Gorouter" property no longer affects idle timeout of long lived requests. Idle timeouts now configurable by "Front end idle timeout for the Gorouter" property.
-* **[Bug Fix/Improvement]** This is an improvement to dependencies.
 * Bump backup-and-restore-sdk to version `1.18.76`
 * Bump binary-offline-buildpack to version `1.1.5`
 * Bump cf-networking to version `3.27.0`
