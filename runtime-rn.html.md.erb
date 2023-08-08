@@ -3380,7 +3380,7 @@ internal or domain specific Certificate Authorities (CA).
 For example:
 
 <pre class="terminal">
-$ cf create-user-provided-service DRAIN-NAME -l SYSLOG-URL -p {"cert":"-----BEGIN CERTIFICATE-----\nMIIH...-----END CERTIFICATE-----","key":"-----BEGIN PRIVATE KEY-----\nMIIE...-----END PRIVATE KEY-----", "ca":"-----BEGIN CERTIFICATE-----\nMIIH...-----END CERTIFICATE-----"}
+$ cf create-user-provided-service DRAIN-NAME -l SYSLOG-URL -p {"example-cert":"-----BEGIN CERTIFICATE-----\nMIIH...-----END CERTIFICATE-----","key":"-----BEGIN PRIVATE KEY-----\nMIIE...-----END PRIVATE KEY-----", "ca":"-----BEGIN CERTIFICATE-----\nMIIH...-----END CERTIFICATE-----"}
 </pre>
 
 ### Dynamic app renaming for logs and metrics
