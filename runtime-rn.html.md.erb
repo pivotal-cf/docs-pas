@@ -25,7 +25,7 @@ use <%= vars.app_runtime_abbr %>
 
 **Release Date:** 07/21/2023
 
-* **[Known Issue]** BBR commands such as backup, backup-cleanup, and restore can fail due to a bug in component BBR scripts. Please contact support for help restoring from a backup if necessary
+* **[Known Issue]** BBR commands such as backup, backup-cleanup, and restore can fail due to a bug in component BBR scripts. Contact [Tanzu Support](https://tanzu.vmware.com/support) for help restoring from a backup if necessary.
 * **[Bug Fix]** Updates snakeyaml to resolve CVEs: CVE-2022-1471, CVE-2022-25857, CVE-2022-38749, CVE-2022-38750, CVE-2022-38751, CVE-2022-38752, CVE-2022-41854
 * **[Bug Fix]** Updates netty-handler to resolve CVE-2023-34462
 * **[Feature Improvement]** Uses routing_info for desired_lrps when there are missing actual_lrps
@@ -1017,7 +1017,7 @@ use <%= vars.app_runtime_abbr %>
           <summary>674.0.14</summary>
           <pre style="max-width: 30em">
   ## Changelog
-  - This release resolves CVE-2023-20891. For more information on these vulnerabilities and their impact on VMware products, see  [VMSA-2023-0016](https://www.vmware.com/security/advisories/VMSA-2023-0016.html)
+  - This release resolves CVE-2023-20891. For more information on these vulnerabilities and their impact on VMware products, see [VMSA-2023-0016](https://www.vmware.com/security/advisories/VMSA-2023-0016.html)
   - CVE-2021-35065
   - CVE-2022-24785
   - CVE-2022-25883
@@ -10358,9 +10358,9 @@ instance. If you specify a service instance, Autoscaler only requests metrics fr
           <summary>0.231.0</summary>
           <pre style="max-width: 30em">
   ## Bug Fixes
-  - Removed the x509ignoreCN property. Now that `gorouter` is built on golang 1.17, it no longer has any effect on gorouter behavior, and was only adding to confusion in the properties
-  - Resolved an issue with route-registrar using the same TTL as it's RegistrationInterval for tcp routes, leading to unnecessary churn of pruned + re-registered routes.
-  - Resolved an issue with Routing API where upserts to tcp routes were causing change events to be emitted when the only change was a bump in TTL. This led to an issue where tcp-router was constantly reloading haproxy with every route's heartbeat registration call.
+  - Removed the x509ignoreCN property. Now that `gorouter` is built on golang 1.17, itno longer has any effect on gorouter behavior, and was only adding to confusion inthe properties
+  - Resolved an issue with route-registrar using the same TTL as it's RegistrationIntervalfor tcp routes, leading to unnecessary churn of pruned + re-registered routes.
+  - Resolved an issue with Routing API where upserts to tcp routes were causing changeevents to be emitted when the only change was a bump in TTL. This led to an issuewhere tcp-router was constantly reloading haproxy with every route's heartbeatregistration call.
   ## Manifest Property Changes
   | Job | Property | 0.230.0 | 0.231.0 |
   | --- | --- | --- | --- |
