@@ -17,6 +17,1085 @@ Because VMware uses the Percona Distribution for MySQL, expect a time lag betwee
 
 ## <a id='releases'></a> Releases
 
+### <a id='5.0.0'></a> 5.0.0
+
+**Release Date:** 08/18/2023
+
+* **[Feature]** Operators can configure TAS and IST to include tanzu-jammy-full-stack
+* **[Feature Improvement]** Aggregate drains now allow defining Certificate Authority and Client Certificates. Allow mtls for log-cache
+* **[Feature Improvement]** Allow to configure Silk policy polling interval
+* **[Bug Fix]** Fix autoscaler bosh backup and restore (BBR) scripts
+* Bump backup-and-restore-sdk to version `1.18.86`
+* Bump bpm to version `1.2.5`
+* Bump capi to version `1.156.0`
+* Bump cf-autoscaling to version `249.2.3`
+* Bump cf-networking to version `3.32.0`
+* Bump cflinuxfs4 to version `1.29.0`
+* Bump credhub to version `2.12.39`
+* Bump dotnet-core-offline-buildpack to version `2.4.15`
+* Bump java-offline-buildpack to version `4.61.0`
+* Bump loggregator-agent to version `7.4.0`
+* Bump mapfs to version `1.2.33`
+* Bump metric-registrar to version `2.1.6`
+* Bump nats to version `56.6.0`
+* Bump nfs-volume to version `7.1.27`
+* Bump nginx-offline-buildpack to version `1.2.5`
+* Bump nodejs-offline-buildpack to version `1.8.12`
+* Bump notifications to version `66.0.0`
+* Bump notifications-ui to version `45.0.0`
+* Bump php-offline-buildpack to version `4.6.7`
+* Bump push-offline-docs-release to version `5.0.278`
+* Bump push-usage-service-release to version `674.0.57`
+* Bump python-offline-buildpack to version `1.8.12`
+* Bump r-offline-buildpack to version `1.2.4`
+* Bump ruby-offline-buildpack to version `1.10.3`
+* Bump web-servers-cnb-buildpack to version `0.3.2`
+* Bump silk to version `3.32.0`
+* Bump smb-volume to version `3.1.28`
+* Bump staticfile-offline-buildpack to version `1.6.5`
+* Bump syslog to version `12.1.7`
+* Bump system-metrics-scraper to version `3.3.12`
+* Bump uaa to version `76.18.0`
+* Bump tanzu-jammy-stack to version `1.0.0`
+
+<table border="1" class="nice">
+  <thead>
+    <tr>
+      <th>Component</th>
+      <th>Version</th>
+      <th>Release Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>ubuntu-jammy stemcell</td><td>1.181</td><td></td></tr>
+    <tr><td>backup-and-restore-sdk</td><td>1.18.86</td>
+      <td>
+        <details>
+          <summary>v1.18.86</summary>
+          <pre style="max-width: 30em">
+  ## Changes
+  * Golang: Updated to v1.20.7. (#1154)
+  ## Dependencies
+  * **aws-sdk-go-v2/credentials:** Updated to v1.13.30.<br>For more information, see [credentials](https://github.com/aws/aws-sdk-go-v2).
+  * **aws-sdk-go-v2/s3:** Updated to v1.38.0.<br>For more information, see [s3](https://github.com/aws/aws-sdk-go-v2).
+  * **aws-sdk-go-v2/sts:** Updated to v1.21.0.<br>For more information, see [sts](https://github.com/aws/aws-sdk-go-v2).
+  * **google.golang.org/api:** Updated to v0.134.0.<br>For more information, see [api](https://github.com/googleapis/google-api-go-client).
+          </pre>
+        </details>
+        <details>
+          <summary>v1.18.85</summary>
+          <pre style="max-width: 30em">
+  ## Changes
+  * Bump mysql from 5.7.42 to 5.7.43 (#1128)
+  ## Dependencies
+  * **credentials:** Updated to v1.13.28.<br>For more information, see [credentials](https://github.com/aws/aws-sdk-go-v2).
+  * **sts:** Updated to v1.20.0.<br>For more information, see [sts](https://github.com/aws/aws-sdk-go-v2).
+  * **gomega:** Updated to v1.27.10.<br>For more information, see [gomega](https://github.com/onsi/gomega).
+  * **api:** Updated to v0.133.0.<br>For more information, see [api](https://github.com/googleapis/google-api-go-client).
+          </pre>
+        </details>
+        <details>
+          <summary>v1.18.84</summary>
+          <pre style="max-width: 30em">
+  ## Changes
+  * Bump mysql from 8.0.33 to 8.0.34
+  ## Dependencies
+  * **credentials:** Updated to v1.13.27.<br>For more information, see [credentials](https://github.com/aws/aws-sdk-go-v2).
+  * **s3:** Updated to v1.37.0.<br>For more information, see [s3](https://github.com/aws/aws-sdk-go-v2).
+  * **sts:** Updated to v1.19.3.<br>For more information, see [sts](https://github.com/aws/aws-sdk-go-v2).
+  * **api:** Updated to v0.132.0.<br>For more information, see [api](https://github.com/googleapis/google-api-go-client).
+          </pre>
+        </details>
+      </td>
+    </tr>
+    <tr><td>binary-offline-buildpack</td><td>1.1.5</td><td></td></tr>
+    <tr><td>bosh-dns-aliases</td><td>0.0.4</td><td></td></tr>
+    <tr><td>bpm</td><td>1.2.5</td><td></td></tr>
+    <tr><td>capi</td><td>1.156.0</td><td></td></tr>
+    <tr><td>cf-autoscaling</td><td>249.2.3</td>
+      <td>
+        <details>
+          <summary>v249.2.3</summary>
+          <pre style="max-width: 30em">
+  ## What's Changed
+  * Bump dependencies
+  * Fix bbr post_backup_unlock script
+  **Full Changelog**: https://github.com/pivotal-cf/cf-autoscaling-release/compare/v249.2.2...v249.2.3
+          </pre>
+        </details>
+      </td>
+    </tr>
+    <tr><td>cf-cli</td><td>1.45.0</td><td></td></tr>
+    <tr><td>cf-networking</td><td>3.32.0</td>
+      <td>
+        <details>
+          <summary>v3.32.0</summary>
+          <pre style="max-width: 30em">
+  ## Changes
+  - [Feature Improvement/Bug Fix] C2C Networking Policies are synced _only_ if they were actually updated to minimize load on the system (#231)
+  - Also see related `silk-release` PR: https://github.com/cloudfoundry/silk-release/pull/88
+  - And related `policy_client` PR: https://github.com/cloudfoundry/policy_client/pull/6
+  - Bumps dependencies
+  - Fixes a typo in [contributing.md](/docs/contributing.md) (#228)
+  - Thanks @geigerj0!
+  ## ✨  Built with go 1.20.6
+  **Full Changelog**: https://github.com/cloudfoundry/cf-networking-release/compare/v3.31.0...v3.32.0
+  ## Resources
+  - [Download release v3.32.0 from bosh.io](https://bosh.io/releases/github.com/cloudfoundry/cf-networking-release?version=3.32.0).
+          </pre>
+        </details>
+        <details>
+          <summary>v3.31.0</summary>
+          <pre style="max-width: 30em">
+  ## Changes
+  - Updates a DB schema used with dynamic ASGs to resolve/prevent issues when frequently syncing hundreds of thousands of ASGs. Thanks @ZPascal!
+  ## ✨  Built with go 1.20.6
+  **Full Changelog**: https://github.com/cloudfoundry/cf-networking-release/compare/v3.30.0...v3.31.0
+  ## Resources
+  - [Download release v3.31.0 from bosh.io](https://bosh.io/releases/github.com/cloudfoundry/cf-networking-release?version=3.31.0).
+          </pre>
+        </details>
+      </td>
+    </tr>
+    <tr><td>cflinuxfs3</td><td>0.372.0</td><td></td></tr>
+    <tr><td>cflinuxfs4</td><td>1.29.0</td><td></td></tr>
+    <tr><td>count-cores-indicator</td><td>2.0.0</td><td></td></tr>
+    <tr><td>credhub</td><td>2.12.39</td>
+      <td>
+        <details>
+          <summary>2.12.39</summary>
+          <pre style="max-width: 30em">
+  ### What's Changed
+  - Bump org.owasp:dependency-check-gradle from 8.2.1 to 8.3.1
+  - Bump com.google.guava:guava from 32.0.1-jre to 32.1.2-jre
+  - Bump gradle from 6.9.4 to 8.1.1
+  - Bump com.google.api.grpc:proto-google-common-protos from 2.22.1 to 2.23.0
+  - Bump io.grpc:protoc-gen-grpc-java from 1.56.1 to 1.57.1
+  - Bump org.apache.commons:commons-lang3 from 3.12.0 to 3.13.0
+  - Bump io.netty from 4.1.95.Final to 4.1.96.Final
+  **Full Changelog**: https://github.com/pivotal/credhub-release/compare/2.12.39...2.12.40
+          </pre>
+        </details>
+        <details>
+          <summary>2.12.38</summary>
+          <pre style="max-width: 30em">
+  ### Security Fixes
+  - Bump JRE version from openjdk 8u372 to 8u382
+  - Bump spring boot version from 2.7.13 to 2.7.14
+  - Bump other various dependencies
+  **Full Changelog**: https://github.com/pivotal/credhub-release/compare/2.12.37...2.12.38
+          </pre>
+        </details>
+        <details>
+          <summary>2.12.37</summary>
+          <pre style="max-width: 30em">
+  ## What's Changed
+  * Build(deps): bump com.google.protobuf:protobuf-gradle-plugin from 0.9.3 to 0.9.4.
+  **Full Changelog**: https://github.com/pivotal/credhub-release/compare/2.12.36...2.12.37
+          </pre>
+        </details>
+        <details>
+          <summary>2.12.36</summary>
+          <pre style="max-width: 30em">
+  ## What's Changed
+  * Build(deps): bump kotlinVersion from 1.8.22 to 1.9.0
+  * Remove JvmDefault annotation, which can no longer be used in kotlin 1.9.0
+  * Build(deps): bump com.google.protobuf:protoc from 3.23.2 to 3.23.4
+  * Build(deps): bump com.google.api.grpc:proto-google-common-protos
+  * Build(deps): Bump rspec-mocks from 3.12.5 to 3.12.6 in /spec by @dependabot in https://github.com/pivotal/credhub-release/pull/147
+  * Build(deps): Bump rubocop from 1.54.1 to 1.54.2 in /spec by @dependabot in https://github.com/pivotal/credhub-release/pull/148
+  **Full Changelog**: https://github.com/pivotal/credhub-release/compare/2.12.35...2.12.36
+          </pre>
+        </details>
+      </td>
+    </tr>
+    <tr><td>diego</td><td>2.80.0</td><td></td></tr>
+    <tr><td>dotnet-core-offline-buildpack</td><td>2.4.15</td>
+      <td>
+        <details>
+          <summary>2.4.15</summary>
+          <pre style="max-width: 30em">
+  * Add dotnet-aspnetcore 6.0.20, remove dotnet-aspnetcore 6.0.19 for stack(s) cflinuxfs4, cflinuxfs3
+  * Add dotnet-aspnetcore 7.0.9, remove dotnet-aspnetcore 7.0.8 for stack(s) cflinuxfs4, cflinuxfs3
+  * Add dotnet-runtime 6.0.20, remove dotnet-runtime 6.0.19 for stack(s) cflinuxfs4, cflinuxfs3
+  * Add dotnet-runtime 7.0.9, remove dotnet-runtime 7.0.8 for stack(s) cflinuxfs4, cflinuxfs3
+  * Add dotnet-sdk 6.0.412, remove dotnet-sdk 6.0.411 for stack(s) cflinuxfs4, cflinuxfs3
+  * Add dotnet-sdk 7.0.306, remove dotnet-sdk 7.0.305 for stack(s) cflinuxfs4, cflinuxfs3
+  * Add node 18.17.0, remove node 18.16.1 for stack(s) cflinuxfs4, cflinuxfs3
+  Packaged binaries:
+  | name | version | cf_stacks |
+  |-|-|-|
+  | bower | 1.8.14 | cflinuxfs3, cflinuxfs4 |
+  | dotnet-aspnetcore | 6.0.20 | cflinuxfs3, cflinuxfs4 |
+  | dotnet-aspnetcore | 7.0.9 | cflinuxfs3, cflinuxfs4 |
+  | dotnet-runtime | 6.0.20 | cflinuxfs3, cflinuxfs4 |
+  | dotnet-runtime | 7.0.9 | cflinuxfs3, cflinuxfs4 |
+  | dotnet-sdk | 6.0.412 | cflinuxfs3, cflinuxfs4 |
+  | dotnet-sdk | 7.0.306 | cflinuxfs3, cflinuxfs4 |
+  | libgdiplus | 6.1 | cflinuxfs3 |
+  | libgdiplus | 6.1 | cflinuxfs4 |
+  | libunwind | 1.7.0 | cflinuxfs3 |
+  | libunwind | 1.7.0 | cflinuxfs4 |
+  | node | 18.17.0 | cflinuxfs3 |
+  | node | 18.17.0 | cflinuxfs4 |
+  Default binary versions:
+  | name | version |
+  |-|-|
+  | dotnet-runtime | 6.0.x |
+  | dotnet-aspnetcore | 6.0.x |
+  | dotnet-sdk | 6.0.x |
+  | bower | 1.8.x |
+  * Uncached buildpack SHA256: 577b246b0c54de8e9d93c495dbe5a7ee079fe56991efa568134228b9fc3a56ae
+  * Uncached buildpack SHA256: f2feebbc5b5c759cd55636c72a82431d6be2280ea0a2161276dedf1196c6b854
+          </pre>
+        </details>
+        <details>
+          <summary>2.4.14</summary>
+          <pre style="max-width: 30em">
+  * Add dotnet-aspnetcore 7.0.8, remove dotnet-aspnetcore 7.0.5 for stack(s) cflinuxfs4, cflinuxfs3
+  * Add dotnet-sdk 7.0.305, remove dotnet-sdk 7.0.302 for stack(s) cflinuxfs4, cflinuxfs3
+  * Add dotnet-runtime 7.0.8, remove dotnet-runtime 7.0.5 for stack(s) cflinuxfs4, cflinuxfs3
+  * Add dotnet-aspnetcore 6.0.19, remove dotnet-aspnetcore 6.0.16 for stack(s) cflinuxfs4, cflinuxfs3
+  * Add dotnet-sdk 6.0.411, remove dotnet-sdk 6.0.408 for stack(s) cflinuxfs4, cflinuxfs3
+  * Add dotnet-runtime 6.0.19, remove dotnet-runtime 6.0.16 for stack(s) cflinuxfs4, cflinuxfs3
+  * Add node 18.16.1, remove node 18.16.0 for stack(s) cflinuxfs3, cflinuxfs4
+  Packaged binaries:
+  | name | version | cf_stacks |
+  |-|-|-|
+  | bower | 1.8.14 | cflinuxfs3, cflinuxfs4 |
+  | dotnet-aspnetcore | 6.0.19 | cflinuxfs3, cflinuxfs4 |
+  | dotnet-aspnetcore | 7.0.8 | cflinuxfs3, cflinuxfs4 |
+  | dotnet-runtime | 6.0.19 | cflinuxfs3, cflinuxfs4 |
+  | dotnet-runtime | 7.0.8 | cflinuxfs3, cflinuxfs4 |
+  | dotnet-sdk | 6.0.411 | cflinuxfs3, cflinuxfs4 |
+  | dotnet-sdk | 7.0.305 | cflinuxfs3, cflinuxfs4 |
+  | libgdiplus | 6.1 | cflinuxfs3 |
+  | libgdiplus | 6.1 | cflinuxfs4 |
+  | libunwind | 1.7.0 | cflinuxfs3 |
+  | libunwind | 1.7.0 | cflinuxfs4 |
+  | node | 18.16.1 | cflinuxfs3 |
+  | node | 18.16.1 | cflinuxfs4 |
+  Default binary versions:
+  | name | version |
+  |-|-|
+  | dotnet-runtime | 6.0.x |
+  | dotnet-aspnetcore | 6.0.x |
+  | dotnet-sdk | 6.0.x |
+  | bower | 1.8.x |
+  * Uncached buildpack SHA256: a3e943161cdbb9179ffdc8f5f6d4235ec4ea46f8a4a92eb09e313f43e969e22f
+  * Uncached buildpack SHA256: d0f745beb8d4f223ed7b6ffe84cf32fd7512bc4c68fc27923a7e74c0d388dec3
+          </pre>
+        </details>
+      </td>
+    </tr>
+    <tr><td>garden-runc</td><td>1.34.0</td><td></td></tr>
+    <tr><td>go-offline-buildpack</td><td>1.10.10</td><td></td></tr>
+    <tr><td>java-offline-buildpack</td><td>4.61.0</td>
+      <td>
+        <details>
+          <summary>4.61.0</summary>
+          <pre style="max-width: 30em">
+  I'm pleased to announce the release of the java-buildpack, version 4.61.0. This release includes the Java quarterly patch releases, as well updates to the following frameworks/agents:
+  * AppDynamics
+  * Azure App Insights
+  * Datadog
+  * Elastic APM
+  * JRebel
+  * New Relic
+  * Splunk Otel
+  * Takipi Agent
+  * Tomcat
+  Additional Changes:
+  - This release corrects the type of Takipi/Overops agent that was included with the buildpack since `4.60.0`
+  - The Google Stackdriver Debugger has been disabled by default as announced in the previous release, the Google service is no longer available & they will no longer support the agent after August 2023. Until then, users can re-enable by forking the buildpack, however the integration will be removed completely in a future release.
+  For a more detailed look at the changes in 4.61.0, please take a look at the [commit log](https://github.com/cloudfoundry/java-buildpack/compare/v4.60.0...v4.61.0). The packaged version of the buildpack, suitable for use with create-buildpack and update-buildpack, can be found attached to this release.
+  | Dependency | Version | CVEs | Release Notes |
+  | ---------- | ------- | ---- | ------------- |
+  | AppDynamics Agent | `23.6.1_34894` | | [Release Notes](https://docs.appdynamics.com/4.5.x/en/product-and-release-announcements/release-notes/language-agent-notes/java-agent-notes) |
+  | Azure Application Insights Agent | `3.4.15` | | [Release Notes](https://github.com/Microsoft/ApplicationInsights-Java/releases) |
+  | CA Introscope APM Framework | `23.6.1_5` | |  |
+  | Client Certificate Mapper | `1.11.0_RELEASE` |Included inline above | Included inline above |
+  | Container Security Provider | `1.20.0_RELEASE` |Included inline above | Included inline above |
+  | Contrast Security Agent | `5.2.2` | | [Release Notes](https://docs.contrastsecurity.com/en/java-agent-release-notes.html) |
+  | Datadog APM Javaagent | `1.18.3` | | [Release Notes](https://github.com/DataDog/dd-trace-java/releases) |
+  | Elastic APM Agent | `1.41.0` | | [Release Notes](https://www.elastic.co/guide/en/apm/agent/java/current/release-notes.html) |
+  | Gemalto Luna Security Provider | `7.4.0` | | [Release Notes](https://www.thalesdocs.com/gphsm/luna/7/docs/network/Content/CRN/Luna/CRN_Luna.htm) |
+  | Geode Tomcat Session Store | `1.13.7` | |  |
+  | Google Stackdriver Profiler | `0.1.0` | | [Release Notes](https://cloud.google.com/profiler/docs/release-notes) |
+  | Groovy | `2.5.22` | | [Release Notes](http://www.groovy-lang.org/releases.html) |
+  | JaCoCo Agent | `0.8.10` | | [Release Notes](https://github.com/jacoco/jacoco/releases) |
+  | Java Memory Assistant Agent | `0.5.0` | |  |
+  | Java Memory Assistant Clean Up | `0.1.0` | |  |
+  | JProfiler Profiler | `13.0.7` | | [ChangeLog](https://www.ej-technologies.com/download/jprofiler/changelog.html) |
+  | JRebel Agent | `2023.3.1` | | [ChangeLog](https://www.jrebel.com/products/jrebel/changelog) |
+  | jvmkill Agent | `1.17.0_RELEASE` |Included inline above | Included inline above |
+  | MariaDB JDBC Driver | `2.7.9` | | [Release Notes](https://mariadb.com/kb/en/mariadb-connector-j-2-7-9-release-notes/) |
+  | Memory Calculator | `3.13.0_RELEASE` |Included inline above | Included inline above |
+  | Metric Writer | `3.5.0_RELEASE` |Included inline above | Included inline above |
+  | New Relic Agent | `8.5.0` | | [Release Notes](https://docs.newrelic.com/docs/release-notes/agent-release-notes/java-release-notes/) |
+  | OpenJDK JRE 11 | `11.0.20_8` |[Risk Matrix](https://www.oracle.com/security-alerts/cpujul2023.html#AppendixJAVA) | [Release Notes](https://docs.bell-sw.com/liberica-jdk/11.0.20b8/general/release-notes/) |
+  | OpenJDK JRE 17 | `17.0.8_7` |[Risk Matrix](https://www.oracle.com/security-alerts/cpujul2023.html#AppendixJAVA) | [Release Notes](https://docs.bell-sw.com/liberica-jdk/17.0.8b7/general/release-notes/) |
+  | OpenJDK JRE 8 | `1.8.0_382` |[Risk Matrix](https://www.oracle.com/security-alerts/cpujul2023.html#AppendixJAVA) | [Release Notes](https://docs.bell-sw.com/liberica-jdk/8u382b6/general/release-notes/) |
+  | PostgreSQL JDBC Driver | `42.6.0` | | [ChangeLog](https://jdbc.postgresql.org/documentation/changelog.html) |
+  | Redis Session Store | `1.3.6_RELEASE` |Included inline above | Included inline above |
+  | Riverbed Appinternals Agent | `11.8.5_BL527` | |  |
+  | SeaLights Agent | `4.0.2325` | |  |
+  | SkyWalking | `8.16.0` | | [ChangeLog](https://github.com/apache/skywalking/tree/master/changes) |
+  | Splunk OpenTelemetry Java Agent | `1.26.0` | | [Release Notes](https://github.com/signalfx/splunk-otel-java/releases) |
+  | Spring Auto-reconfiguration | `2.12.0_RELEASE` |Included inline above | Included inline above |
+  | Spring Boot CLI | `2.7.14` | |  |
+  | Spring Boot Container Customizer | `2.6.0_RELEASE` |Included inline above | Included inline above |
+  | Takipi Agent | `4.73.3` | | [Release Notes](https://doc.overops.com/docs/whats-new) |
+  | Tomcat | `9.0.78` |[Security](https://tomcat.apache.org/security-9.html) | [ChangeLog](https://tomcat.apache.org/tomcat-9.0-doc/changelog.html) |
+  | Tomcat Access Logging Support | `3.4.0_RELEASE` |Included inline above | Included inline above |
+  | Tomcat Lifecycle Support | `3.4.0_RELEASE` |Included inline above | Included inline above |
+  | Tomcat Logging Support | `3.4.0_RELEASE` |Included inline above | Included inline above |
+  | YourKit Profiler | `2023.5.229` | | [Release Notes](https://www.yourkit.com/download/yjp_2023_5_builds.jsp) |
+          </pre>
+        </details>
+      </td>
+    </tr>
+    <tr><td>log-cache</td><td>3.0.4</td><td></td></tr>
+    <tr><td>loggregator</td><td>107.0.6</td><td></td></tr>
+    <tr><td>loggregator-agent</td><td>7.4.0</td>
+      <td>
+        <details>
+          <summary>v7.4.0</summary>
+          <pre style="max-width: 30em">
+  ## What's Changed
+  * Bump to go 1.20.7
+  * Bump dependencies
+  * Adds experimental `otel-collector` and `otel-collector-windows` jobs. See the following [RFC](https://github.com/cloudfoundry/community/blob/3ec376e4345787bc0e9e25e7965c5083b63db822/toc/rfc/rfc-0018-aggregate-metric-egress-with-opentelemetry-collector.md) for more information.
+  ### Forwarder Agent log format change
+  Previously when the `logging.format.timestamp` property was set to `rfc3339` it would be ignored for ingress client logs emitted by the Forwarder Agent. This release applies the correct timestamp format when `rfc3339` is selected, which may affect you if you depend on the format of the logs.
+  Old log line format:
+  ```
+  [INGRESS CLIENT] -> 127.0.0.1:3459: 2023/08/04 21:59:31 Error while flushing: EOF
+  ```
+  New log line format:
+  ```
+  2023-08-04T22:23:53.099290367Z [INGRESS CLIENT] -> 127.0.0.1:3459: Error while flushing: EOF
+  ```
+  **Full Changelog**: https://github.com/cloudfoundry/loggregator-agent-release/compare/v7.3.0...v7.4.0
+          </pre>
+        </details>
+        <details>
+          <summary>v7.3.0</summary>
+          <pre style="max-width: 30em">
+  ## What's Changed
+  * Make keepalives for api polling configurable by @fhambrec in https://github.com/cloudfoundry/loggregator-agent-release/pull/336
+  * flatten aggregate drain array by @Benjamintf1 in https://github.com/cloudfoundry/loggregator-agent-release/pull/346
+  * Update syslog binding params by @Benjamintf1 in https://github.com/cloudfoundry/loggregator-agent-release/pull/339
+  ## New Contributors
+  * @fhambrec made their first contribution in https://github.com/cloudfoundry/loggregator-agent-release/pull/336
+  **Full Changelog**: https://github.com/cloudfoundry/loggregator-agent-release/compare/v7.2.3...v7.3.0
+          </pre>
+        </details>
+        <details>
+          <summary>v7.2.3</summary>
+          <pre style="max-width: 30em">
+  ## What's Changed
+  * Bump dependencies
+  * Update packaged Golang version to v1.20.6
+  **Full Changelog**: https://github.com/cloudfoundry/loggregator-agent-release/compare/v7.2.2...v7.2.3
+          </pre>
+        </details>
+      </td>
+    </tr>
+    <tr><td>mapfs</td><td>1.2.33</td>
+      <td>
+        <details>
+          <summary>v1.2.33</summary>
+          <pre style="max-width: 30em">
+  ## Changes
+  * Golang: Updated to v1.20.7. (#120)
+  ## Dependencies
+  * **mapfs:** Updated to v`055c79a`.<br>For more information, see [mapfs](https://github.com/cloudfoundry/mapfs).
+          </pre>
+        </details>
+        <details>
+          <summary>v1.2.32</summary>
+          <pre style="max-width: 30em">
+  ## Dependencies
+  * **gomega:** Updated to v1.27.10.<br>For more information, see [gomega](https://github.com/onsi/gomega).
+  * **mapfs:** Updated to v`d33b44a`.<br>For more information, see [mapfs](https://github.com/cloudfoundry/mapfs).
+          </pre>
+        </details>
+        <details>
+          <summary>v1.2.31</summary>
+          <pre style="max-width: 30em">
+  ## Dependencies
+  * **mapfs:** Updated to v`ea4d3ff`.<br>For more information, see [mapfs](https://github.com/cloudfoundry/mapfs).
+          </pre>
+        </details>
+        <details>
+          <summary>v1.2.30</summary>
+          <pre style="max-width: 30em">
+  ## Changes
+  * Golang: Updated to v1.20.6.
+  ## Dependencies
+  * **mapfs:** Updated to v`0e79358`.<br>For more information, see [mapfs](https://github.com/cloudfoundry/mapfs).
+          </pre>
+        </details>
+      </td>
+    </tr>
+    <tr><td>metric-registrar</td><td>2.1.6</td>
+      <td>
+        <details>
+          <summary>v2.1.6</summary>
+          <pre style="max-width: 30em">
+  ## What's Changed
+  * Bump dependencies
+  * Update packaged Golang version to v1.20.6
+  **Full Changelog**: https://github.com/pivotal-cf/metric-registrar-release/compare/v2.1.5...v2.1.6
+          </pre>
+        </details>
+      </td>
+    </tr>
+    <tr><td>metrics-discovery</td><td>3.2.12</td><td></td></tr>
+    <tr><td>mysql-monitoring</td><td>10.1.0</td><td></td></tr>
+    <tr><td>nats</td><td>56.6.0</td>
+      <td>
+        <details>
+          <summary>v56.6.0</summary>
+          <pre style="max-width: 30em">
+  ## Changes
+  In [nats-release v46](https://github.com/cloudfoundry/nats-release/releases/tag/v46), we migrated the underlying binary from `gnatsd` (NATS v1), to `nats-server` (NATS v2). In this release, we are adding a post-start check that will fail the deployment if, for some reasons, NATS instances are running v1. This is a precursor to eventually removing the v1 binary and migration wrapper. The property defaults to `false`, but will default to `true` in [cf-deployment](https://github.com/cloudfoundry/cf-deployment/).
+  If your instances are already running NATS v2, or if they successfully migrate to v2 in this release, you will not experience any change in behavior. If you want to confirm your NATS instances are on v2, [follow the steps in this KB article](https://community.pivotal.io/s/article/How-to-confirm-your-nats-servers-are-running-NATs-v2?language=en_US).
+  ## Bosh Job Spec changes:
+  ```diff
+  diff --git a/jobs/nats-tls/spec b/jobs/nats-tls/spec
+  index 0d25ad2..4f9b3b7 100644
+  --- a/jobs/nats-tls/spec
+  +++ b/jobs/nats-tls/spec
+  @@ -123,3 +123,6 @@ properties:
+  nats.migrate_server.port:
+  description: "Port for endpoint to migrate nats job to nats-server v2. To be removed in a future release."
+  default: 4243
+  +  nats.fail_deployment_if_v1:
+  +    description: "Fail the deployment in post-start if nats instances are on v1."
+  +    default: false
+  diff --git a/jobs/nats/spec b/jobs/nats/spec
+  index e7d7a82..ddc54a3 100644
+  --- a/jobs/nats/spec
+  +++ b/jobs/nats/spec
+  @@ -116,3 +116,7 @@ properties:
+  description: "The PEM-encoded certificate to use for verifying the TLS connection to the migrate server (used for local healthchecks)."
+  nats.migrate_client.tls.private_key:
+  description: "The PEM-encoded private key to use for verifying the TLS connection to the migrate server (used for local healthchecks)."
+  +
+  +  nats.fail_deployment_if_v1:
+  +    description: "Fail the deployment in post-start if nats instances are on v1."
+  +    default: false
+  ```
+  ## ✨  Built with go 1.20.6
+  **Full Changelog**: https://github.com/cloudfoundry/nats-release/compare/v56.5.0...v56.6.0
+  ## Resources
+  - [Download release v56.6.0 from bosh.io](https://bosh.io/releases/github.com/cloudfoundry/nats-release?version=56.6.0).
+          </pre>
+        </details>
+      </td>
+    </tr>
+    <tr><td>nfs-volume</td><td>7.1.27</td>
+      <td>
+        <details>
+          <summary>v7.1.27</summary>
+          <pre style="max-width: 30em">
+  ## Changes
+  * use latest available linuxfs  stack for push (#500)
+  ## Dependencies
+  * **nfsbroker:** Updated to v`ca6114b`.<br>For more information, see [nfsbroker](https://github.com/cloudfoundry/nfsbroker).
+  * **nfsv3driver:** Updated to v`7d7d083`.<br>For more information, see [nfsv3driver](https://github.com/cloudfoundry/nfsv3driver).
+          </pre>
+        </details>
+        <details>
+          <summary>v7.1.26</summary>
+          <pre style="max-width: 30em">
+  ## Dependencies
+  * **gomega:** Updated to v1.27.9.<br>For more information, see [gomega](https://github.com/onsi/gomega).
+  * **nfsbroker:** Updated to v`e8d3359`.<br>For more information, see [nfsbroker](https://github.com/cloudfoundry/nfsbroker).
+  * **nfsv3driver:** Updated to v`a5d216c`.<br>For more information, see [nfsv3driver](https://github.com/cloudfoundry/nfsv3driver).
+          </pre>
+        </details>
+        <details>
+          <summary>v7.1.25</summary>
+          <pre style="max-width: 30em">
+  ## Changes
+  * +Golang: Updated to v1.20.6
+  ## Dependencies
+  * **nfsbroker:** Updated to v`0affd58`.<br>For more information, see [nfsbroker](https://github.com/cloudfoundry/nfsbroker).
+  * **nfsv3driver:** Updated to v`d5b93a7`.<br>For more information, see [nfsv3driver](https://github.com/cloudfoundry/nfsv3driver).
+          </pre>
+        </details>
+      </td>
+    </tr>
+    <tr><td>nginx-offline-buildpack</td><td>1.2.5</td>
+      <td>
+        <details>
+          <summary>1.2.5</summary>
+          <pre style="max-width: 30em">
+  * Add nginx 1.25.1, remove nginx 1.25.0 for stack(s) cflinuxfs4, cflinuxfs3
+  Packaged binaries:
+  | name | version | cf_stacks |
+  |-|-|-|
+  | nginx | 1.24.0 | cflinuxfs3 |
+  | nginx | 1.24.0 | cflinuxfs4 |
+  | nginx | 1.25.1 | cflinuxfs3 |
+  | nginx | 1.25.1 | cflinuxfs4 |
+  | openresty | 1.13.6.2 | cflinuxfs3 |
+  | openresty | 1.15.8.3 | cflinuxfs3 |
+  | openresty | 1.17.8.2 | cflinuxfs3 |
+  | openresty | 1.19.9.1 | cflinuxfs3 |
+  | openresty | 1.19.9.1 | cflinuxfs4 |
+  | openresty | 1.21.4.1 | cflinuxfs3 |
+  | openresty | 1.21.4.1 | cflinuxfs4 |
+  Default binary versions:
+  | name | version |
+  |-|-|
+  | nginx | 1.25.x |
+  * Uncached buildpack SHA256: 3edd35dbe5a56dacc539477344c61f7f21c6f3a23103e0fd1694044cad0ae31b
+  * Uncached buildpack SHA256: 740b424e30f5e1fc11be0af2d2b5a4c48bfb87414a0a7d7e4113f645f9e16464
+          </pre>
+        </details>
+      </td>
+    </tr>
+    <tr><td>nodejs-offline-buildpack</td><td>1.8.12</td>
+      <td>
+        <details>
+          <summary>1.8.12</summary>
+          <pre style="max-width: 30em">
+  * Add node 16.20.1, remove node 16.19.1 for stack(s) cflinuxfs4, cflinuxfs3
+  * Add node 18.16.1, remove node 18.15.0 for stack(s) cflinuxfs3, cflinuxfs4
+  * Add node 20.4.0 for stack(s) cflinuxfs4, cflinuxfs3
+  * Add python 3.10.12, remove python 3.10.10 for stack(s) cflinuxfs4, cflinuxfs3
+  Packaged binaries:
+  | name | version | cf_stacks |
+  |-|-|-|
+  | node | 16.20.0 | cflinuxfs3 |
+  | node | 16.20.0 | cflinuxfs4 |
+  | node | 16.20.1 | cflinuxfs3 |
+  | node | 16.20.1 | cflinuxfs4 |
+  | node | 18.16.0 | cflinuxfs3 |
+  | node | 18.16.0 | cflinuxfs4 |
+  | node | 18.16.1 | cflinuxfs3 |
+  | node | 18.16.1 | cflinuxfs4 |
+  | node | 20.2.0 | cflinuxfs3 |
+  | node | 20.2.0 | cflinuxfs4 |
+  | node | 20.4.0 | cflinuxfs3 |
+  | node | 20.4.0 | cflinuxfs4 |
+  | python | 3.10.12 | cflinuxfs3 |
+  | python | 3.10.12 | cflinuxfs4 |
+  | yarn | 1.22.19 | cflinuxfs3, cflinuxfs4 |
+  Default binary versions:
+  | name | version |
+  |-|-|
+  | node | 18.x |
+  | python | 3.10.x |
+  * Uncached buildpack SHA256: a37ca61cef23f9f2ffe725c261dc7f889af46ef3dc71caa6b91fd3119bf94de5
+  * Uncached buildpack SHA256: 9aa46f070a07c5044efc0419bb198171d15a3513ecc44c9df5f48208114dba7a
+          </pre>
+        </details>
+      </td>
+    </tr>
+    <tr><td>notifications</td><td>66.0.0</td>
+      <td>
+        <details>
+          <summary>v66.0.0</summary>
+          <pre style="max-width: 30em">
+  commit 71839fd64693e3c2507b6fec5970c590a557b5d5
+  Author: PCF Toronto Concourse CI Bot <tpt-team+cibot@pivotal.io>
+  Date:   Thu Aug 3 23:20:50 2023 +0000
+  Cuts final release 66.0.0
+  [ci skip]
+  commit 6329b65525023b8cd2dbff86aefc28796823f25f
+  Author: PCF Event Alerts Team CI <pcf-event-alerts+cibot@pivotal.io>
+  Date:   Tue Aug 1 21:39:45 2023 +0000
+  Bump submodule src/notifications
+  commit 016a406d0d605c7a714e6b892b16e4f48e694e76
+  Author: PCF Event Alerts Team CI <pcf-event-alerts+cibot@pivotal.io>
+  Date:   Tue Aug 1 20:16:38 2023 +0000
+  bump-golang to v0.130.0
+          </pre>
+        </details>
+        <details>
+          <summary>v65.0.0</summary>
+          <pre style="max-width: 30em">
+  commit a6c6cce647320d76192bce0bd5644f16f6ddb80a
+  Author: PCF Toronto Concourse CI Bot <tpt-team+cibot@pivotal.io>
+  Date:   Thu Jul 20 01:19:58 2023 +0000
+  Cuts final release 65.0.0
+  [ci skip]
+  commit 8f196fe435106fc5d4351c40c4745a43de480730
+  Merge: cbfe12b 4cc305b
+  Author: David Stevenson <dsboulder@users.noreply.github.com>
+  Date:   Wed Jul 19 17:05:57 2023 -0700
+  Merge pull request #44 from cloudfoundry/jq-1.6
+  Upgrade JQ to 1.6
+  commit 4cc305b8ffec4baaeca0aed3696f7c75cc8e09f1
+  Author: David Stevenson <stevensonda@vmware.com>
+  Date:   Wed Jul 19 17:05:37 2023 -0700
+  Upgrade JQ to 1.6
+  Signed-off-by: David Stevenson <stevensonda@vmware.com>
+  commit cbfe12bf286e7606da0ec0482fd6d07215102409
+  Author: PCF Event Alerts Team CI <pcf-event-alerts+cibot@pivotal.io>
+  Date:   Wed Jul 19 22:15:45 2023 +0000
+  bump-golang to v0.129.0
+  commit ce3459b0af5589c2504c3e3037c6e7ab318bb829
+  Merge: 9960d02 689f080
+  Author: David Stevenson <dsboulder@users.noreply.github.com>
+  Date:   Thu Jun 22 12:32:43 2023 -0700
+  Merge pull request #43 from gururajsh/cloudgate
+  Rename S3 bucket.
+  commit 689f0801e3a63616131b6c858963b18d56d7dd30
+  Author: gururajsh <gururajsh@vmware.com>
+  Date:   Wed Jun 14 16:30:47 2023 -0400
+  Rename S3 bucket.
+  Create A new AWS account for notification release blobs
+          </pre>
+        </details>
+      </td>
+    </tr>
+    <tr><td>notifications-ui</td><td>45.0.0</td>
+      <td>
+        <details>
+          <summary>v45.0.0</summary>
+          <pre style="max-width: 30em">
+  commit 3b5aeedb8e13d1cf63dcbf2e6107839391d005fa
+  Author: PCF Event Alerts Team CI <pcf-event-alerts+cibot@pivotal.io>
+  Date:   Thu Aug 3 23:21:01 2023 +0000
+  Cuts final release 45.0.0
+  [ci skip]
+  commit 172cece70e3744d47deb6b14f453d63f7b11ff50
+  Author: PCF Event Alerts Team CI <pcf-event-alerts+cibot@pivotal.io>
+  Date:   Wed Aug 2 17:36:03 2023 +0000
+  Bump submodule src/notifications-ui
+  commit 8bc319145e820ceeb425957a33f066bd67f594a9
+  Author: PCF Event Alerts Team CI <pcf-event-alerts+cibot@pivotal.io>
+  Date:   Tue Aug 1 20:16:23 2023 +0000
+  bump-golang to v0.130.0
+          </pre>
+        </details>
+        <details>
+          <summary>v44.0.0</summary>
+          <pre style="max-width: 30em">
+  commit e9525d6f5373988269811224ec47dbf3ceecc4aa
+  Author: PCF Event Alerts Team CI <pcf-event-alerts+cibot@pivotal.io>
+  Date:   Thu Jul 20 01:15:37 2023 +0000
+  Cuts final release 44.0.0
+  [ci skip]
+  commit 4cc7f823fea5a3ab364a2dbf0b2eeaa6011dcf0d
+  Merge: 0575d65 fe77e64
+  Author: David Stevenson <dsboulder@users.noreply.github.com>
+  Date:   Wed Jul 19 15:00:04 2023 -0700
+  Merge pull request #10 from pivotal-cf/jq-1.6
+  Replace JQ1.5 with JQ1.6
+  commit fe77e6410faf81fe86c2be3f286d54610ed48180
+  Author: David Stevenson <stevensonda@vmware.com>
+  Date:   Wed Jul 19 14:33:41 2023 -0700
+  Replace JQ1.5 with JQ1.6
+  - Downloaded from https://github.com/jqlang/jq/releases/tag/jq-1.6
+  - Made .tgz with the binary, uploaded to blobstore notifications-ui-release-blobs
+  - Rewrote compile script to use new version
+  Signed-off-by: David Stevenson <stevensonda@vmware.com>
+          </pre>
+        </details>
+        <details>
+          <summary>v43.0.0</summary>
+          <pre style="max-width: 30em">
+  commit 0575d659ab8d6bb3a5268e32b3617fb003d0a3d7
+  Author: PCF Event Alerts Team CI <pcf-event-alerts+cibot@pivotal.io>
+  Date:   Wed Jul 19 21:59:30 2023 +0000
+  Cuts final release 43.0.0
+  [ci skip]
+  commit 5a625ea956a0891163b30fb77b65bafffcfe9265
+  Author: PCF Event Alerts Team CI <pcf-event-alerts+cibot@pivotal.io>
+  Date:   Wed Jul 19 21:10:04 2023 +0000
+  bump-golang to v0.129.0
+  commit 586567cc04d041afe8eb11a8c1e7324ef96c442e
+  Merge: f64503c 1e12697
+  Author: David Stevenson <dsboulder@users.noreply.github.com>
+  Date:   Wed Jul 19 12:52:53 2023 -0700
+  Merge pull request #9 from pivotal-cf/buildpack-not-buildpacks
+  Use buildpack: not buildpacks: when pushing apps
+  commit 1e126975456904d627049bc95dceb83063936566
+  Author: David Stevenson <stevensonda@vmware.com>
+  Date:   Wed Jul 19 12:20:56 2023 -0700
+  Use buildpack: not buildpacks: when pushing apps
+  - This is because you cannot seem to go back to "automatic" buildpack
+  selection using the buildpacks: null. buildpack: is deprecated but it
+  will still work for a URL and automatic (via null).
+  Signed-off-by: David Stevenson <stevensonda@vmware.com>
+  commit f64503c8e8bbf3b18429bd325906798879fdc543
+  Author: David Stevenson <stevensonda@vmware.com>
+  Date:   Tue Jun 20 15:19:41 2023 -0700
+  Accidentally wrong release name
+  Signed-off-by: David Stevenson <stevensonda@vmware.com>
+  commit 6746404d5444e28e85375b2e3fcfc4f1e1711d6f
+  Merge: bb2bc27 8433ca6
+  Author: David Stevenson <dsboulder@users.noreply.github.com>
+  Date:   Wed Jun 14 14:04:58 2023 -0700
+  Merge pull request #8 from pivotal-cf/cloudgate
+  Rename S3 bucket name for final releases.
+  commit 8433ca62d24da74152ea26324d3b8696e68a3e3b
+  Author: gururajsh <gururajsh@vmware.com>
+  Date:   Wed Jun 14 16:21:45 2023 -0400
+  Rename S3 bucket name for final releases.
+  Created new AWS account to store blobs.
+          </pre>
+        </details>
+      </td>
+    </tr>
+    <tr><td>php-offline-buildpack</td><td>4.6.7</td>
+      <td>
+        <details>
+          <summary>4.6.7</summary>
+          <pre style="max-width: 30em">
+  * manifest.yml: don't ship requirements.txt only used in unit test. Also lets scanners avoid https://nvd.nist.gov/vuln/detail/CVE-2021-27291
+  * Add composer 2.5.8, remove composer 2.5.7 for stack(s) cflinuxfs4, cflinuxfs3
+  * Add nginx 1.25.1, remove nginx 1.25.0 for stack(s) cflinuxfs4, cflinuxfs3
+  Packaged binaries:
+  | name | version | cf_stacks | modules |
+  |-|-|-|-|
+  | appdynamics | 23.4.0-724 | cflinuxfs3, cflinuxfs4 |  |
+  | composer | 2.5.8 | cflinuxfs3, cflinuxfs4 |  |
+  | httpd | 2.4.57 | cflinuxfs3 |  |
+  | httpd | 2.4.57 | cflinuxfs4 |  |
+  | newrelic | 10.6.0.318 | cflinuxfs3, cflinuxfs4 |  |
+  | nginx | 1.24.0 | cflinuxfs3 |  |
+  | nginx | 1.24.0 | cflinuxfs4 |  |
+  | nginx | 1.25.1 | cflinuxfs3 |  |
+  | nginx | 1.25.1 | cflinuxfs4 |  |
+  | php | 8.0.27 | cflinuxfs3 | amqp, apcu, bz2, curl, dba, enchant, exif, fileinfo, ftp, gd, gettext, gmp, igbinary, imagick, imap, ldap, lzf, mailparse, maxminddb, mbstring, memcached, mongodb, msgpack, mysqli, oauth, opcache, openssl, pcntl, pdo, pdo_firebird, pdo_mysql, pdo_odbc, pdo_pgsql, pdo_sqlite, pdo_sqlsrv, pgsql, phalcon, phpiredis, pspell, psr, rdkafka, readline, redis, shmop, snmp, soap, sockets, sodium, solr, sqlsrv, ssh2, stomp, sysvmsg, sysvsem, sysvshm, tideways_xhprof, tidy, xdebug, xsl, yaf, yaml, zip, zlib |
+  | php | 8.0.28 | cflinuxfs3 | amqp, apcu, bz2, curl, dba, enchant, exif, fileinfo, ftp, gd, gettext, gmp, igbinary, imagick, imap, ldap, lzf, mailparse, maxminddb, mbstring, memcached, mongodb, msgpack, mysqli, oauth, opcache, openssl, pcntl, pdo, pdo_firebird, pdo_mysql, pdo_odbc, pdo_pgsql, pdo_sqlite, pdo_sqlsrv, pgsql, phalcon, phpiredis, pspell, psr, rdkafka, readline, redis, shmop, snmp, soap, sockets, sodium, solr, sqlsrv, ssh2, stomp, sysvmsg, sysvsem, sysvshm, tideways_xhprof, tidy, xdebug, xsl, yaf, yaml, zip, zlib |
+  | php | 8.1.15 | cflinuxfs3 | amqp, apcu, bz2, curl, dba, enchant, exif, fileinfo, ftp, gd, gettext, gmp, igbinary, imagick, imap, ioncube, ldap, lzf, mailparse, maxminddb, mbstring, memcached, mongodb, msgpack, mysqli, oauth, opcache, openssl, pcntl, pdo, pdo_firebird, pdo_mysql, pdo_odbc, pdo_pgsql, pdo_sqlite, pdo_sqlsrv, pgsql, phalcon, phpiredis, pspell, psr, rdkafka, readline, redis, shmop, snmp, soap, sockets, sodium, solr, sqlsrv, ssh2, stomp, sysvmsg, sysvsem, sysvshm, tideways_xhprof, tidy, xdebug, xsl, yaf, yaml, zip, zlib |
+  | php | 8.1.15 | cflinuxfs4 | amqp, apcu, bz2, curl, dba, enchant, exif, fileinfo, ftp, gd, gettext, gmp, igbinary, imagick, imap, ioncube, ldap, lzf, mailparse, maxminddb, mbstring, memcached, mongodb, msgpack, mysqli, oauth, opcache, openssl, pcntl, pdo, pdo_firebird, pdo_mysql, pdo_odbc, pdo_pgsql, pdo_sqlite, pdo_sqlsrv, pgsql, phalcon, phpiredis, pspell, psr, rdkafka, readline, redis, shmop, snmp, soap, sockets, sodium, solr, sqlsrv, ssh2, stomp, sysvmsg, sysvsem, sysvshm, tideways_xhprof, tidy, xdebug, xsl, yaf, yaml, zip, zlib |
+  | php | 8.1.16 | cflinuxfs3 | amqp, apcu, bz2, curl, dba, enchant, exif, fileinfo, ftp, gd, gettext, gmp, igbinary, imagick, imap, ioncube, ldap, lzf, mailparse, maxminddb, mbstring, memcached, mongodb, msgpack, mysqli, oauth, opcache, openssl, pcntl, pdo, pdo_firebird, pdo_mysql, pdo_odbc, pdo_pgsql, pdo_sqlite, pdo_sqlsrv, pgsql, phalcon, phpiredis, pspell, psr, rdkafka, readline, redis, shmop, snmp, soap, sockets, sodium, solr, sqlsrv, ssh2, stomp, sysvmsg, sysvsem, sysvshm, tideways_xhprof, tidy, xdebug, xsl, yaf, yaml, zip, zlib |
+  | php | 8.1.16 | cflinuxfs4 | amqp, apcu, bz2, curl, dba, enchant, exif, fileinfo, ftp, gd, gettext, gmp, igbinary, imagick, imap, ioncube, ldap, lzf, mailparse, maxminddb, mbstring, memcached, mongodb, msgpack, mysqli, oauth, opcache, openssl, pcntl, pdo, pdo_firebird, pdo_mysql, pdo_odbc, pdo_pgsql, pdo_sqlite, pdo_sqlsrv, pgsql, phalcon, phpiredis, pspell, psr, rdkafka, readline, redis, shmop, snmp, soap, sockets, sodium, solr, sqlsrv, ssh2, stomp, sysvmsg, sysvsem, sysvshm, tideways_xhprof, tidy, xdebug, xsl, yaf, yaml, zip, zlib |
+  | php | 8.2.2 | cflinuxfs3 | amqp, apcu, bz2, curl, dba, enchant, exif, fileinfo, ftp, gd, gettext, gmp, igbinary, imagick, imap, ldap, lzf, mailparse, maxminddb, mbstring, memcached, mongodb, msgpack, mysqli, oauth, opcache, openssl, pcntl, pdo, pdo_firebird, pdo_mysql, pdo_odbc, pdo_pgsql, pdo_sqlite, pdo_sqlsrv, pgsql, phalcon, phpiredis, pspell, psr, rdkafka, readline, redis, shmop, snmp, soap, sockets, sodium, solr, sqlsrv, ssh2, stomp, sysvmsg, sysvsem, sysvshm, tideways_xhprof, tidy, xdebug, xsl, yaml, zip, zlib |
+  | php | 8.2.2 | cflinuxfs4 | amqp, apcu, bz2, curl, dba, enchant, exif, fileinfo, ftp, gd, gettext, gmp, igbinary, imagick, imap, ldap, lzf, mailparse, maxminddb, mbstring, memcached, mongodb, msgpack, mysqli, oauth, opcache, openssl, pcntl, pdo, pdo_firebird, pdo_mysql, pdo_odbc, pdo_pgsql, pdo_sqlite, pdo_sqlsrv, pgsql, phalcon, phpiredis, pspell, psr, rdkafka, readline, redis, shmop, snmp, soap, sockets, sodium, solr, sqlsrv, ssh2, stomp, sysvmsg, sysvsem, sysvshm, tideways_xhprof, tidy, xdebug, xsl, yaml, zip, zlib |
+  | php | 8.2.3 | cflinuxfs3 | amqp, apcu, bz2, curl, dba, enchant, exif, fileinfo, ftp, gd, gettext, gmp, igbinary, imagick, imap, ldap, lzf, mailparse, maxminddb, mbstring, memcached, mongodb, msgpack, mysqli, oauth, opcache, openssl, pcntl, pdo, pdo_firebird, pdo_mysql, pdo_odbc, pdo_pgsql, pdo_sqlite, pdo_sqlsrv, pgsql, phalcon, phpiredis, pspell, psr, rdkafka, readline, redis, shmop, snmp, soap, sockets, sodium, solr, sqlsrv, ssh2, stomp, sysvmsg, sysvsem, sysvshm, tideways_xhprof, tidy, xdebug, xsl, yaml, zip, zlib |
+  | php | 8.2.3 | cflinuxfs4 | amqp, apcu, bz2, curl, dba, enchant, exif, fileinfo, ftp, gd, gettext, gmp, igbinary, imagick, imap, ldap, lzf, mailparse, maxminddb, mbstring, memcached, mongodb, msgpack, mysqli, oauth, opcache, openssl, pcntl, pdo, pdo_firebird, pdo_mysql, pdo_odbc, pdo_pgsql, pdo_sqlite, pdo_sqlsrv, pgsql, phalcon, phpiredis, pspell, psr, rdkafka, readline, redis, shmop, snmp, soap, sockets, sodium, solr, sqlsrv, ssh2, stomp, sysvmsg, sysvsem, sysvshm, tideways_xhprof, tidy, xdebug, xsl, yaml, zip, zlib |
+  | python | 2.7.18 | cflinuxfs4 |  |
+  | ruby | 3.0.5 | cflinuxfs4 |  |
+  Default binary versions:
+  | name | version |
+  |-|-|
+  | php | 8.1.16 |
+  | httpd | 2.4.57 |
+  | newrelic | 10.6.0.318 |
+  | nginx | 1.25.1 |
+  | composer | 2.5.8 |
+  * Uncached buildpack SHA256: 66ccbe5a4e3b7f73bd773e79ffab5c87283599d99dee9c339d778064901f28f2
+  * Uncached buildpack SHA256: 2eae26e3cf54c49584a02ee5a910581210b67bf5c13268ff1d7060417476f6a9
+          </pre>
+        </details>
+      </td>
+    </tr>
+    <tr><td>push-apps-manager-release</td><td>677.0.22</td><td></td></tr>
+    <tr><td>push-tas-portal-release</td><td>0.1.8</td><td></td></tr>
+    <tr><td>push-offline-docs-release</td><td>5.0.278</td><td></td></tr>
+    <tr><td>push-usage-service-release</td><td>674.0.57</td>
+      <td>
+        <details>
+          <summary>v674.0.57</summary>
+          <pre style="max-width: 30em">
+  ## Changes
+  ## Dependencies
+  * **app-usage-service:** Updated to v`bea5b0c`.<br>For more information, see [app-usage-service](https://github.com/pivotal-cf/app-usage-service).
+          </pre>
+        </details>
+        <details>
+          <summary>v674.0.55</summary>
+          <pre style="max-width: 30em">
+  ## Dependencies
+  * **app-usage-service:** Updated to v`1ea5db8`.<br>For more information, see [app-usage-service](https://github.com/pivotal-cf/app-usage-service).
+          </pre>
+        </details>
+      </td>
+    </tr>
+    <tr><td>pxc</td><td>1.0.14</td><td></td></tr>
+    <tr><td>python-offline-buildpack</td><td>1.8.12</td>
+      <td>
+        <details>
+          <summary>1.8.12</summary>
+          <pre style="max-width: 30em">
+  * Deprecate Python 3.7.x (EOL)
+  * Add pipenv 2023.7.11, remove pipenv 2023.6.2 for stack(s) cflinuxfs4, cflinuxfs3
+  * Add setuptools 68.0.0, remove setuptool for stack(s) cflinuxfs4, cflinuxfs3
+  Packaged binaries:
+  | name | version | cf_stacks |
+  |-|-|-|
+  | libffi | 3.2.1 | cflinuxfs3, cflinuxfs4 |
+  | libmemcache | 1.0.18 | cflinuxfs3, cflinuxfs4 |
+  | miniconda3-py39 | 4.12.0 | cflinuxfs3, cflinuxfs4 |
+  | pip | 23.1.2 | cflinuxfs3, cflinuxfs4 |
+  | pipenv | 2023.7.11 | cflinuxfs3 |
+  | pipenv | 2023.7.11 | cflinuxfs4 |
+  | python | 3.8.17 | cflinuxfs3 |
+  | python | 3.8.17 | cflinuxfs4 |
+  | python | 3.9.17 | cflinuxfs3 |
+  | python | 3.9.17 | cflinuxfs4 |
+  | python | 3.10.12 | cflinuxfs3 |
+  | python | 3.10.12 | cflinuxfs4 |
+  | python | 3.11.4 | cflinuxfs3 |
+  | python | 3.11.4 | cflinuxfs4 |
+  | setuptools | 68.0.0 | cflinuxfs3, cflinuxfs4 |
+  Default binary versions:
+  | name | version |
+  |-|-|
+  | python | 3.10.x |
+  * Uncached buildpack SHA256: 7124b3d9af7efe2e30a0718586a594df7a9993eed10ecf13451b005b3b1bf961
+  * Uncached buildpack SHA256: 3a27d192966a007b5bbf418102bcc69fa01e33a44cc13f613274f45ace3c380b
+          </pre>
+        </details>
+      </td>
+    </tr>
+    <tr><td>r-offline-buildpack</td><td>1.2.4</td>
+      <td>
+        <details>
+          <summary>1.2.4</summary>
+          <pre style="max-width: 30em">
+  * Add r 4.3.1 for stack(s) cflinuxfs3, cflinuxfs4
+  * Update r 4.3.1 dependencies for stack(s) cflinuxfs3, cflinuxfs4:
+  * shiny from 1.7.4 to 1.7.4.1
+  * Update r 4.2.3 dependencies for stack(s) cflinuxfs3, cflinuxfs4:
+  * shiny from 1.7.4 to 1.7.4.1
+  Packaged binaries:
+  | name | version | cf_stacks | modules |
+  |-|-|-|-|
+  | r | 3.6.3 | cflinuxfs3 | forecast, plumber, rserve, shiny |
+  | r | 4.2.3 | cflinuxfs3 | forecast, plumber, rserve, shiny |
+  | r | 4.2.3 | cflinuxfs4 | forecast, plumber, rserve, shiny |
+  | r | 4.3.1 | cflinuxfs3 | forecast, plumber, rserve, shiny |
+  | r | 4.3.1 | cflinuxfs4 | forecast, plumber, rserve, shiny |
+  * Uncached buildpack SHA256: c3d8b1cd912b0d141d0e9a0319bbcd982778ab64e9c4fe5a70264170a31b93be
+  * Uncached buildpack SHA256: 25f1b9c7d7dff4e9879c68857823bef0c60c6af308d8b9f73af211ce0097dc37
+          </pre>
+        </details>
+      </td>
+    </tr>
+    <tr><td>routing</td><td>0.275.0</td><td></td></tr>
+    <tr><td>ruby-offline-buildpack</td><td>1.10.3</td>
+      <td>
+        <details>
+          <summary>1.10.3</summary>
+          <pre style="max-width: 30em">
+  * Add bundler 2.4.16, remove bundler 2.4.13 for stack(s) cflinuxfs4, cflinuxfs3
+  * Add rubygems 3.4.16, remove rubygems 3.4.13 for stack(s) cflinuxfs4, cflinuxfs3
+  * Add node 18.16.1, remove node 18.16.0 for stack(s) cflinuxfs4, cflinuxfs3
+  * Add jruby 9.4.3.0, remove jruby 9.4.2.0 for stack(s) cflinuxfs4, cflinuxfs3
+  Packaged binaries:
+  | name | version | cf_stacks |
+  |-|-|-|
+  | bundler | 2.4.16 | cflinuxfs3, cflinuxfs4 |
+  | jruby | 9.3.10.0 | cflinuxfs3 |
+  | jruby | 9.3.10.0 | cflinuxfs4 |
+  | jruby | 9.4.3.0 | cflinuxfs3 |
+  | jruby | 9.4.3.0 | cflinuxfs4 |
+  | node | 18.16.1 | cflinuxfs3 |
+  | node | 18.16.1 | cflinuxfs4 |
+  | openjdk1.8-latest | 1.8.0 | cflinuxfs3, cflinuxfs4 |
+  | ruby | 3.0.5 | cflinuxfs3 |
+  | ruby | 3.0.6 | cflinuxfs3 |
+  | ruby | 3.1.3 | cflinuxfs3 |
+  | ruby | 3.1.3 | cflinuxfs4 |
+  | ruby | 3.1.4 | cflinuxfs3 |
+  | ruby | 3.1.4 | cflinuxfs4 |
+  | ruby | 3.2.1 | cflinuxfs3 |
+  | ruby | 3.2.1 | cflinuxfs4 |
+  | ruby | 3.2.2 | cflinuxfs3 |
+  | ruby | 3.2.2 | cflinuxfs4 |
+  | rubygems | 3.4.16 | cflinuxfs3, cflinuxfs4 |
+  | yarn | 1.22.19 | cflinuxfs3, cflinuxfs4 |
+  Default binary versions:
+  | name | version |
+  |-|-|
+  | ruby | 3.1.x |
+  * Uncached buildpack SHA256: 0e6d9e2a6f6723e9db00ad7877749cae5fcb564473c78b73c5c48de98f4be5d5
+  * Uncached buildpack SHA256: dfd99d265e20f89ba01ae71ad50ca8d6cc3c9c158e95abf976e0c00cf94bdf74
+          </pre>
+        </details>
+      </td>
+    </tr>
+    <tr><td>web-servers-cnb-buildpack</td><td>0.3.2</td>
+      <td>
+        <details>
+          <summary>0.3.2</summary>
+          <pre style="max-width: 30em">
+  Components:
+  * buildpack v0.5.0
+          </pre>
+        </details>
+      </td>
+    </tr>
+    <tr><td>silk</td><td>3.32.0</td>
+      <td>
+        <details>
+          <summary>v3.32.0</summary>
+          <pre style="max-width: 30em">
+  ## Changes
+  - [Feature Improvement/Bug Fix] C2C Networking Policies are synced _only_ if they were actually updated to minimize load on the system (#88)
+  - Also see related `cf-networking` release PR: https://github.com/cloudfoundry/cf-networking-release/pull/231
+  - And related `policy_client` PR: https://github.com/cloudfoundry/policy_client/pull/6
+  - Bumps dependencies
+  ## ✨  Built with go 1.20.6
+  **Full Changelog**: https://github.com/cloudfoundry/silk-release/compare/v3.31.0...v3.32.0
+  ## Resources
+  - [Download release v3.32.0 from bosh.io](https://bosh.io/releases/github.com/cloudfoundry/silk-release?version=3.32.0).
+          </pre>
+        </details>
+        <details>
+          <summary>v3.31.0</summary>
+          <pre style="max-width: 30em">
+  ## Changes
+  - No changes, released along cf-networking 3.31.0
+  ## ✨  Built with go 1.20.6
+  **Full Changelog**: https://github.com/cloudfoundry/silk-release/compare/v3.30.0...v3.31.0
+  ## Resources
+  - [Download release v3.31.0 from bosh.io](https://bosh.io/releases/github.com/cloudfoundry/silk-release?version=3.31.0).
+          </pre>
+        </details>
+      </td>
+    </tr>
+    <tr><td>smb-volume</td><td>3.1.28</td>
+      <td>
+        <details>
+          <summary>v3.1.28</summary>
+          <pre style="max-width: 30em">
+  ## Changes
+  * +Golang: Updated to v1.20.7 (#206)
+  ## Dependencies
+  * **smbbroker:** Updated to v`f869023`.<br>For more information, see [smbbroker](https://github.com/cloudfoundry/smbbroker).
+  * **smbdriver:** Updated to v`870da3a`.<br>For more information, see [smbdriver](https://github.com/cloudfoundry/smbdriver).
+          </pre>
+        </details>
+        <details>
+          <summary>v3.1.27</summary>
+          <pre style="max-width: 30em">
+  ## Changes
+  * use latest available linuxfs  stack for push (#201)
+  ## Dependencies
+  * **smbbroker:** Updated to v`2463ad2`.<br>For more information, see [smbbroker](https://github.com/cloudfoundry/smbbroker).
+  * **smbdriver:** Updated to v`878386b`.<br>For more information, see [smbdriver](https://github.com/cloudfoundry/smbdriver).
+          </pre>
+        </details>
+        <details>
+          <summary>v3.1.26</summary>
+          <pre style="max-width: 30em">
+  ## Changes
+  * Bump autoconf from 2.69 to 2.71
+  ## Dependencies
+  * **smbbroker:** Updated to v`25e62f9`.<br>For more information, see [smbbroker](https://github.com/cloudfoundry/smbbroker).
+  * **smbdriver:** Updated to v`14056ca`.<br>For more information, see [smbdriver](https://github.com/cloudfoundry/smbdriver).
+          </pre>
+        </details>
+        <details>
+          <summary>v3.1.25</summary>
+          <pre style="max-width: 30em">
+  ## Dependencies
+  * **smbbroker:** Updated to v`1e068da`.<br>For more information, see [smbbroker](https://github.com/cloudfoundry/smbbroker).
+  * **smbdriver:** Updated to v`a607cfc`.<br>For more information, see [smbdriver](https://github.com/cloudfoundry/smbdriver).
+          </pre>
+        </details>
+      </td>
+    </tr>
+    <tr><td>smoke-tests</td><td>4.8.3</td><td></td></tr>
+    <tr><td>staticfile-offline-buildpack</td><td>1.6.5</td>
+      <td>
+        <details>
+          <summary>1.6.5</summary>
+          <pre style="max-width: 30em">
+  * Add nginx 1.25.1, remove nginx 1.25.0 for stack(s) cflinuxfs4, cflinuxfs3
+  Packaged binaries:
+  | name | version | cf_stacks |
+  |-|-|-|
+  | nginx | 1.24.0 | cflinuxfs3 |
+  | nginx | 1.24.0 | cflinuxfs4 |
+  | nginx | 1.25.1 | cflinuxfs3 |
+  | nginx | 1.25.1 | cflinuxfs4 |
+  Default binary versions:
+  | name | version |
+  |-|-|
+  | nginx | 1.25.x |
+  * Uncached buildpack SHA256: 4df9d4fa39e37f98730a6003af9ee7c5b5ff8e921cd4371cc0e6bc82e40bed0c
+  * Uncached buildpack SHA256: 3ece0c7dff73b1a7e75a0ad5afa9082ae3db9d57ddb2e0d19b8eae4805ed14b6
+          </pre>
+        </details>
+      </td>
+    </tr>
+    <tr><td>statsd-injector</td><td>1.11.32</td><td></td></tr>
+    <tr><td>syslog</td><td>12.1.7</td>
+      <td>
+        <details>
+          <summary>v12.1.7</summary>
+          <pre style="max-width: 30em">
+  ## What's Changed
+  * Update packaged Golang version to v1.20.6
+  **Full Changelog**: https://github.com/cloudfoundry/syslog-release/compare/v12.1.6...v12.1.7
+          </pre>
+        </details>
+      </td>
+    </tr>
+    <tr><td>system-metrics-scraper</td><td>3.3.12</td>
+      <td>
+        <details>
+          <summary>v3.3.12</summary>
+          <pre style="max-width: 30em">
+  ## What's Changed
+  * Bump dependencies
+  * Update packaged Golang version to v1.20.6
+  **Full Changelog**: https://github.com/cloudfoundry/system-metrics-scraper-release/compare/v3.3.11...v3.3.12
+          </pre>
+        </details>
+        <details>
+          <summary>v3.3.11</summary>
+          <pre style="max-width: 30em">
+  ## What's Changed
+  * Bump dependencies
+  **Full Changelog**: https://github.com/cloudfoundry/system-metrics-scraper-release/compare/v3.3.10...v3.3.11
+          </pre>
+        </details>
+      </td>
+    </tr>
+    <tr><td>uaa</td><td>76.18.0</td>
+      <td>
+        <details>
+          <summary>v76.18.0</summary>
+          <pre style="max-width: 30em">
+  ## What's Changed
+  * Bump to [UAA v76.18.0](https://github.com/cloudfoundry/uaa/releases/tag/v76.18.0)
+  * Upgrade Newrelic to version 8.5.0
+  * Bump github.com/onsi/gomega from 1.27.8 to 1.27.9 in /src/acceptance_tests by @dependabot in https://github.com/cloudfoundry/uaa-release/pull/630
+  * Bump github.com/onsi/gomega from 1.27.9 to 1.27.10 in /src/acceptance_tests by @dependabot in https://github.com/cloudfoundry/uaa-release/pull/633
+  * Add bosh configuration for UAA PR 2414 by @strehle in https://github.com/cloudfoundry/uaa-release/pull/629
+  * Bump minitest from 5.18.1 to 5.19.0 by @dependabot in https://github.com/cloudfoundry/uaa-release/pull/634
+  **Full Changelog**: https://github.com/cloudfoundry/uaa-release/compare/v76.17.0...v76.18.0
+          </pre>
+        </details>
+        <details>
+          <summary>v76.17.0</summary>
+          <pre style="max-width: 30em">
+  ## What's Changed
+  * Bump to [UAA v76.17.0](https://github.com/cloudfoundry/uaa/releases/tag/v76.17.0)
+  * [Upgrade Bellsoft JDK to version 11.0.20+8](https://github.com/cloudfoundry/uaa-release/commit/635146e0d1bf755db15545a1c0e144952cbaf5f5)
+  * [Upgrade Tomcat to version 9.0.78](https://github.com/cloudfoundry/uaa-release/commit/8c39f62e5d0f170fb0a92e29dcafd29bbc9ed6ad)
+  * Bump nokogiri from 1.15.2 to 1.15.3 by @dependabot in https://github.com/cloudfoundry/uaa-release/pull/618
+  * Bump github.com/cloudfoundry/bosh-utils from 0.0.369 to 0.0.370 in /src/acceptance_tests by @dependabot in https://github.com/cloudfoundry/uaa-release/pull/621
+  * Bump rspec-mocks from 3.12.5 to 3.12.6 by @dependabot in https://github.com/cloudfoundry/uaa-release/pull/623
+  * Bump github.com/cloudfoundry/bosh-utils from 0.0.370 to 0.0.372 in /src/acceptance_tests by @dependabot in https://github.com/cloudfoundry/uaa-release/pull/624
+  * Bump github.com/cloudfoundry/bosh-utils from 0.0.372 to 0.0.373 in /src/acceptance_tests by @dependabot in https://github.com/cloudfoundry/uaa-release/pull/627
+  * Bump mini_portile2 from 2.8.2 to 2.8.4 by @dependabot in https://github.com/cloudfoundry/uaa-release/pull/628
+  **Full Changelog**: https://github.com/cloudfoundry/uaa-release/compare/v76.16.0...v76.17.0
+          </pre>
+        </details>
+      </td>
+    </tr>
+    <tr><td>tanzu-jammy-stack</td><td>1.0.0</td><td></td></tr>
+  </tbody>
+</table>
+
+
+
 ### <a id='5.0.0-rc.2'></a> 5.0.0-rc.2
 
 **Release Date:** 07/21/2023
@@ -1583,51 +2662,6 @@ Because VMware uses the Percona Distribution for MySQL, expect a time lag betwee
 </table>
 
 
-
-## <a id='new-features'></a> New features in <%= vars.app_runtime_full %> <%= vars.v_major_version %>
-
-## <a id='breaking-changes'></a> Breaking changes
-
-### NATS intentionally fails deployment in post-start in v1.
-
-In TAS 3.0, we migrated the underlying binary for nats-release from gnatsd (NATS v1) to nats-server (NATS v2).
-Before removing the v1 code completely, we're adding a post-start check to confirm that NATS instances
-are running nats-server.
-
-To avoid experiencing a deployment failure, confirm the NATS version by following the directions here:
-[How to confirm your nats servers are running NATs v2](https://community.pivotal.io/s/article/How-to-confirm-your-nats-servers-are-running-NATs-v2?language=en_US).
-Environments that have successfully upgraded NATS will not experience any change.
-
-### Autoscaler API no longer accepts trailing slashes in requests
-
-Previously, the Autoscaler API responded to a URL with a trailing slash and now it returns a 404 error.
-
-If you use the API directly, confirm that you are not including trailing slashes in the URL before you upgrade.
-
-This does not affect users who are using the autoscaler cf CLI plug-in.
-
-## <a id='known-issues'></a> Known issues
-
-There are no known issues for <%= vars.app_runtime_full %> <%= vars.v_major_version %>.
-=======
----
-title: TAS for VMs v5.0 Release notes
-owner: Release Engineering
----
-
-These are the release notes for <%= vars.app_runtime_first %> <%= vars.v_major_version %>.
-
-<%= vars.app_runtime_abbr %> is certified by the Cloud Foundry Foundation for 2023.
-
-For more information about the Cloud Foundry Certified Provider Program, see [How Do I Become a Certified
-Provider?](https://www.cloudfoundry.org/certified-platforms-how-to/) on the Cloud Foundry website.
-
-Because VMware uses the Percona Distribution for MySQL, expect a time lag between Oracle releasing a MySQL patch and VMware releasing
-<%= vars.app_runtime_abbr %> containing that patch.
-
-<hr>
-
-## <a id='releases'></a> Releases
 
 ### <a id='5.0.0-rc.2'></a> 5.0.0-rc.2
 
