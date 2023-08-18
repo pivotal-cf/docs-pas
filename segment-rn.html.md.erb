@@ -17,6 +17,243 @@ Because VMware uses the Percona Distribution for MySQL, expect a time lag betwee
 
 ## <a id='releases'></a> Releases
 
+### <a id='3.0.15'></a> 3.0.15
+
+**Release Date:** 08/18/2023
+
+* **[Feature Improvement]** Allow to configure Silk policy polling interval
+* Bump bpm to version `1.2.5`
+* Bump cf-networking to version `3.32.0`
+* Bump cflinuxfs4 to version `1.29.0`
+* Bump loggregator-agent to version `6.5.12`
+* Bump mapfs to version `1.2.33`
+* Bump nfs-volume to version `7.1.27`
+* Bump silk to version `3.32.0`
+* Bump smb-volume to version `3.1.28`
+* Bump syslog to version `12.1.7`
+
+<table border="1" class="nice">
+  <thead>
+    <tr>
+      <th>Component</th>
+      <th>Version</th>
+      <th>Release Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>ubuntu-jammy stemcell</td><td>1.181</td><td></td></tr>
+    <tr><td>bpm</td><td>1.2.5</td><td></td></tr>
+    <tr><td>cf-networking</td><td>3.32.0</td>
+      <td>
+        <details>
+          <summary>v3.32.0</summary>
+          <pre style="max-width: 30em">
+  ## Changes
+  - [Feature Improvement/Bug Fix] C2C Networking Policies are synced _only_ if they were actually updated to minimize load on the system (#231)
+  - Also see related `silk-release` PR: https://github.com/cloudfoundry/silk-release/pull/88
+  - And related `policy_client` PR: https://github.com/cloudfoundry/policy_client/pull/6
+  - Bumps dependencies
+  - Fixes a typo in [contributing.md](/docs/contributing.md) (#228)
+  - Thanks @geigerj0!
+  ## ✨  Built with go 1.20.6
+  **Full Changelog**: https://github.com/cloudfoundry/cf-networking-release/compare/v3.31.0...v3.32.0
+  ## Resources
+  - [Download release v3.32.0 from bosh.io](https://bosh.io/releases/github.com/cloudfoundry/cf-networking-release?version=3.32.0).
+          </pre>
+        </details>
+        <details>
+          <summary>v3.31.0</summary>
+          <pre style="max-width: 30em">
+  ## Changes
+  - Updates a DB schema used with dynamic ASGs to resolve/prevent issues when frequently syncing hundreds of thousands of ASGs. Thanks @ZPascal!
+  ## ✨  Built with go 1.20.6
+  **Full Changelog**: https://github.com/cloudfoundry/cf-networking-release/compare/v3.30.0...v3.31.0
+  ## Resources
+  - [Download release v3.31.0 from bosh.io](https://bosh.io/releases/github.com/cloudfoundry/cf-networking-release?version=3.31.0).
+          </pre>
+        </details>
+      </td>
+    </tr>
+    <tr><td>cflinuxfs3</td><td>0.372.0</td><td></td></tr>
+    <tr><td>cflinuxfs4</td><td>1.29.0</td><td></td></tr>
+    <tr><td>cf-cli</td><td>1.45.0</td><td></td></tr>
+    <tr><td>count-cores-indicator</td><td>2.0.0</td><td></td></tr>
+    <tr><td>diego</td><td>2.80.0</td><td></td></tr>
+    <tr><td>garden-runc</td><td>1.34.0</td><td></td></tr>
+    <tr><td>loggregator-agent</td><td>6.5.12</td>
+      <td>
+        <details>
+          <summary>v6.5.12</summary>
+          <pre style="max-width: 30em">
+  ## What's Changed
+  * Bump dependencies
+  * Update packaged Golang version to v1.20.6
+  **Full Changelog**: https://github.com/cloudfoundry/loggregator-agent-release/compare/v6.5.11...v6.5.12
+          </pre>
+        </details>
+      </td>
+    </tr>
+    <tr><td>mapfs</td><td>1.2.33</td>
+      <td>
+        <details>
+          <summary>v1.2.33</summary>
+          <pre style="max-width: 30em">
+  ## Changes
+  * Golang: Updated to v1.20.7. (#120)
+  ## Dependencies
+  * **mapfs:** Updated to v`055c79a`.<br>For more information, see [mapfs](https://github.com/cloudfoundry/mapfs).
+          </pre>
+        </details>
+        <details>
+          <summary>v1.2.32</summary>
+          <pre style="max-width: 30em">
+  ## Dependencies
+  * **gomega:** Updated to v1.27.10.<br>For more information, see [gomega](https://github.com/onsi/gomega).
+  * **mapfs:** Updated to v`d33b44a`.<br>For more information, see [mapfs](https://github.com/cloudfoundry/mapfs).
+          </pre>
+        </details>
+        <details>
+          <summary>v1.2.31</summary>
+          <pre style="max-width: 30em">
+  ## Dependencies
+  * **mapfs:** Updated to v`ea4d3ff`.<br>For more information, see [mapfs](https://github.com/cloudfoundry/mapfs).
+          </pre>
+        </details>
+        <details>
+          <summary>v1.2.30</summary>
+          <pre style="max-width: 30em">
+  ## Changes
+  * Golang: Updated to v1.20.6.
+  ## Dependencies
+  * **mapfs:** Updated to v`0e79358`.<br>For more information, see [mapfs](https://github.com/cloudfoundry/mapfs).
+          </pre>
+        </details>
+      </td>
+    </tr>
+    <tr><td>metrics-discovery</td><td>3.2.12</td><td></td></tr>
+    <tr><td>nfs-volume</td><td>7.1.27</td>
+      <td>
+        <details>
+          <summary>v7.1.27</summary>
+          <pre style="max-width: 30em">
+  ## Changes
+  * use latest available linuxfs  stack for push (#500)
+  ## Dependencies
+  * **nfsbroker:** Updated to v`ca6114b`.<br>For more information, see [nfsbroker](https://github.com/cloudfoundry/nfsbroker).
+  * **nfsv3driver:** Updated to v`7d7d083`.<br>For more information, see [nfsv3driver](https://github.com/cloudfoundry/nfsv3driver).
+          </pre>
+        </details>
+        <details>
+          <summary>v7.1.26</summary>
+          <pre style="max-width: 30em">
+  ## Dependencies
+  * **gomega:** Updated to v1.27.9.<br>For more information, see [gomega](https://github.com/onsi/gomega).
+  * **nfsbroker:** Updated to v`e8d3359`.<br>For more information, see [nfsbroker](https://github.com/cloudfoundry/nfsbroker).
+  * **nfsv3driver:** Updated to v`a5d216c`.<br>For more information, see [nfsv3driver](https://github.com/cloudfoundry/nfsv3driver).
+          </pre>
+        </details>
+        <details>
+          <summary>v7.1.25</summary>
+          <pre style="max-width: 30em">
+  ## Changes
+  * +Golang: Updated to v1.20.6
+  ## Dependencies
+  * **nfsbroker:** Updated to v`0affd58`.<br>For more information, see [nfsbroker](https://github.com/cloudfoundry/nfsbroker).
+  * **nfsv3driver:** Updated to v`d5b93a7`.<br>For more information, see [nfsv3driver](https://github.com/cloudfoundry/nfsv3driver).
+          </pre>
+        </details>
+      </td>
+    </tr>
+    <tr><td>routing</td><td>0.275.0</td><td></td></tr>
+    <tr><td>silk</td><td>3.32.0</td>
+      <td>
+        <details>
+          <summary>v3.32.0</summary>
+          <pre style="max-width: 30em">
+  ## Changes
+  - [Feature Improvement/Bug Fix] C2C Networking Policies are synced _only_ if they were actually updated to minimize load on the system (#88)
+  - Also see related `cf-networking` release PR: https://github.com/cloudfoundry/cf-networking-release/pull/231
+  - And related `policy_client` PR: https://github.com/cloudfoundry/policy_client/pull/6
+  - Bumps dependencies
+  ## ✨  Built with go 1.20.6
+  **Full Changelog**: https://github.com/cloudfoundry/silk-release/compare/v3.31.0...v3.32.0
+  ## Resources
+  - [Download release v3.32.0 from bosh.io](https://bosh.io/releases/github.com/cloudfoundry/silk-release?version=3.32.0).
+          </pre>
+        </details>
+        <details>
+          <summary>v3.31.0</summary>
+          <pre style="max-width: 30em">
+  ## Changes
+  - No changes, released along cf-networking 3.31.0
+  ## ✨  Built with go 1.20.6
+  **Full Changelog**: https://github.com/cloudfoundry/silk-release/compare/v3.30.0...v3.31.0
+  ## Resources
+  - [Download release v3.31.0 from bosh.io](https://bosh.io/releases/github.com/cloudfoundry/silk-release?version=3.31.0).
+          </pre>
+        </details>
+      </td>
+    </tr>
+    <tr><td>smb-volume</td><td>3.1.28</td>
+      <td>
+        <details>
+          <summary>v3.1.28</summary>
+          <pre style="max-width: 30em">
+  ## Changes
+  * +Golang: Updated to v1.20.7 (#206)
+  ## Dependencies
+  * **smbbroker:** Updated to v`f869023`.<br>For more information, see [smbbroker](https://github.com/cloudfoundry/smbbroker).
+  * **smbdriver:** Updated to v`870da3a`.<br>For more information, see [smbdriver](https://github.com/cloudfoundry/smbdriver).
+          </pre>
+        </details>
+        <details>
+          <summary>v3.1.27</summary>
+          <pre style="max-width: 30em">
+  ## Changes
+  * use latest available linuxfs  stack for push (#201)
+  ## Dependencies
+  * **smbbroker:** Updated to v`2463ad2`.<br>For more information, see [smbbroker](https://github.com/cloudfoundry/smbbroker).
+  * **smbdriver:** Updated to v`878386b`.<br>For more information, see [smbdriver](https://github.com/cloudfoundry/smbdriver).
+          </pre>
+        </details>
+        <details>
+          <summary>v3.1.26</summary>
+          <pre style="max-width: 30em">
+  ## Changes
+  * Bump autoconf from 2.69 to 2.71
+  ## Dependencies
+  * **smbbroker:** Updated to v`25e62f9`.<br>For more information, see [smbbroker](https://github.com/cloudfoundry/smbbroker).
+  * **smbdriver:** Updated to v`14056ca`.<br>For more information, see [smbdriver](https://github.com/cloudfoundry/smbdriver).
+          </pre>
+        </details>
+        <details>
+          <summary>v3.1.25</summary>
+          <pre style="max-width: 30em">
+  ## Dependencies
+  * **smbbroker:** Updated to v`1e068da`.<br>For more information, see [smbbroker](https://github.com/cloudfoundry/smbbroker).
+  * **smbdriver:** Updated to v`a607cfc`.<br>For more information, see [smbdriver](https://github.com/cloudfoundry/smbdriver).
+          </pre>
+        </details>
+      </td>
+    </tr>
+    <tr><td>smoke-tests</td><td>4.8.3</td><td></td></tr>
+    <tr><td>syslog</td><td>12.1.7</td>
+      <td>
+        <details>
+          <summary>v12.1.7</summary>
+          <pre style="max-width: 30em">
+  ## What's Changed
+  * Update packaged Golang version to v1.20.6
+  **Full Changelog**: https://github.com/cloudfoundry/syslog-release/compare/v12.1.6...v12.1.7
+          </pre>
+        </details>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+
+
 ### <a id='3.0.14'></a> 3.0.14
 
 **Release Date:** 07/21/2023
