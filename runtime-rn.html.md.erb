@@ -5337,6 +5337,11 @@ timeouts are now configured by the "Front end idle timeout for the Gorouter" pro
 
 ## <a id='breaking-changes'></a> Breaking changes
 
+### Logging timestamp format property removed
+
+In TAS 4.0 the `logging_timestamp_format` product property was changed to have no effect. In TAS 5.0 this property is
+removed. If you have automation that sets this property you will need to remove references to it prior to upgrading.
+
 ### Autoscaler API no longer accepts trailing slashes in requests
 
 Previously, the Autoscaler API responded to a URL with a trailing slash and now it returns a 404 error.
