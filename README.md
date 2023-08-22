@@ -4,6 +4,5 @@ This repository houses release notes for TAS. Use git branches to switch between
 
 Handy links:
 
-* [CI link](https://runway-ci.eng.vmware.com/teams/mapbu-docs/pipelines/cf-current)
-* [Production for 3.0](https://docs.pivotal.io/application-service/3-0/release-notes/)
-* [Staging for 3.0](https://docs-pcf-staging.sc2-04-pcf1-apps.oc.vmware.com/application-service/3-0/release-notes/runtime-rn.html)
+* [Production for 3.0](https://docs.vmware.com/en/VMware-Tanzu-Application-Service/3.0/tas-for-vms/toc-release-notes-index.html)
+* [Staging for 3.0](https://docs-staging.vmware.com/en/VMware-Tanzu-Application-Service/3.0/tas-for-vms/toc-release-notes-index.html)
