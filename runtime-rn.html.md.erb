@@ -11645,7 +11645,7 @@ Traffic](../concepts/understand-cf-networking.html#securing-traffic) in _Contain
 <div class='note warning'><strong>Warning:</strong>
   <ul>
     <li>VMware recommends upgrading <%= vars.app_runtime_abbr %> as soon as possible to address <a href="https://nvd.nist.gov/vuln/detail/CVE-2021-44228">CVE-2021-44228</a>. If you are unable to upgrade, you can mitigate this CVE manually. See <a href="https://community.pivotal.io/s/article/Workaround-instructions-to-address-CVE-2021-44228-in-Tanzu-Application-Service-2-7-through-2-12?language=en_US">Workaround instructions to address CVE-2021-44228 and CVE-2021-45046 in Tanzu Application Service v2.7 - v2.12</a>.</li>
-    <li>This vulnerability also affects <%= vars.ops_manager %>. VMware recommends upgrading to <%= vars.ops_manager %> v2.10.24 as soon as possible. For more information, see the <a href="https://docs.pivotal.io/ops-manager/2-10/release-notes.html#2-10-24"><%= vars.ops_manager %> v2.10.24 release notes</a>.</li>
+    <li>This vulnerability also affects <%= vars.ops_manager %>. VMware recommends upgrading to <%= vars.ops_manager %> v2.10.24 as soon as possible. For more information, see the <a href="https://docs.vmware.com/en/VMware-Tanzu-Operations-Manager/2.10/vmware-tanzu-ops-manager/release-notes.html#2-10-24"><%= vars.ops_manager %> v2.10.24 release notes</a>.</li>
   </ul>
 </div>
 
@@ -11724,7 +11724,7 @@ Traffic](../concepts/understand-cf-networking.html#securing-traffic) in _Contain
 <a href="https://nvd.nist.gov/vuln/detail/CVE-2021-44228">CVE-2021-44228</a>. If you are unable to upgrade, you can
 mitigate this CVE manually. See <a href="https://community.pivotal.io/s/article/Workaround-instructions-to-address-CVE-2021-44228-in-Tanzu-Application-Service-2-7-through-2-12?language=en_US">Workaround instructions
 to address CVE-2021-44228 and CVE-2021-45046 in Tanzu Application Service v2.7 - v2.12</a>. This vulnerability also affects <%= vars.ops_manager %>. VMware recommends upgrading to <%= vars.ops_manager %> v2.10.24 as soon as
-possible. For more information, see the <a href="https://docs.pivotal.io/ops-manager/2-10/release-notes.html#2-10-24"><%= vars.ops_manager %> v2.10.24 release
+possible. For more information, see the <a href="https://docs.vmware.com/en/VMware-Tanzu-Operations-Manager/2.10/vmware-tanzu-ops-manager/release-notes.html#2-10-24"><%= vars.ops_manager %> v2.10.24 release
 notes</a>.
 </p>
 
@@ -11804,7 +11804,7 @@ address <a href="https://nvd.nist.gov/vuln/detail/CVE-2021-44228">CVE-2021-44228
 this CVE manually. See <a href="https://community.pivotal.io/s/article/Workaround-instructions-to-address-CVE-2021-44228-in-Tanzu-Application-Service-2-7-through-2-12?language=en_US">Workaround instructions to address CVE-2021-44228 and CVE-2021-45046 in Tanzu Application Service v2.7 - v2.12</a>.
 This vulnerability also affects <%= vars.ops_manager %>. VMware recommends upgrading to <%= vars.ops_manager %> v2.10.24 as soon as
 possible. For more information, see the
-<a href="https://docs.pivotal.io/ops-manager/2-10/release-notes.html#2-10-24"><%= vars.ops_manager %> v2.10.24 release notes</a>.
+<a href="https://docs.vmware.com/en/VMware-Tanzu-Operations-Manager/2.10/vmware-tanzu-ops-manager/release-notes.html#2-10-24"><%= vars.ops_manager %> v2.10.24 release notes</a>.
 
 <%= partial "/pcf/tas/known-issues/gorouter-spanid-note" %>
 
@@ -11890,7 +11890,7 @@ VMware recommends upgrading <%= vars.app_runtime_abbr %> as soon as possible to 
     This release does not contain the Java buildpack bump for this vulnerability. You must manually bump
     the Java buildpack and lock the version. Download the updated buildpack from <a href="https://network.pivotal.io/products/java-buildpack/#/releases/1013593">VMware Tanzu Network</a>.
     This vulnerability also affects Ops Manager. VMware recommends upgrading to Ops Manager v2.10.24 as soon as possible. For more
-    information, see the <a href="https://docs.pivotal.io/ops-manager/2-10/release-notes.html#2-10-24">Ops Manager v2.10.24 release notes</a>.
+    information, see the <a href="https://network.pivotal.io/products/java-buildpack/#/releases/1013593">Ops Manager v2.10.24 release notes</a>.
 
 
 <%= partial "/pcf/tas/known-issues/gorouter-spanid-note" %>
@@ -12940,12 +12940,10 @@ For more information, see [Timestamp Format for Component Logs Replaces Timestam
 
 You cannot upgrade to <%= vars.app_runtime_abbr %> <%= vars.v_major_version %> if you are using dynamic egress policies.
 
-To see if you have dynamic egress policies, see [List Egress
-Policies](https://docs.pivotal.io/application-service/2-10/devguide/egress-policies.html#list-egress-policies) in the <%= vars.app_runtime_abbr %> v2.10
+To see if you have dynamic egress policies, see [List Egress Policies](https://docs.pivotal.io/application-service/2-10/devguide/egress-policies.html#list-egress-policies) in the <%= vars.app_runtime_abbr %> v2.10
 documentation.
 
-To delete each of your policies, see [Delete an Egress
-Policy](https://docs.pivotal.io/application-service/2-10/devguide/egress-policies.html#delete-egress-policies) in the <%= vars.app_runtime_abbr %> v2.10
+To delete each of your policies, see [Delete an Egress Policy](https://docs.pivotal.io/application-service/2-10/devguide/egress-policies.html#delete-egress-policies) in the <%= vars.app_runtime_abbr %> v2.10
 documentation.
 
 ### <a id='cloud-controller-service-bindings'></a> Cloud Controller enforces uniqueness of Service Bindings
