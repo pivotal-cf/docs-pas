@@ -5337,6 +5337,11 @@ timeouts are now configured by the "Front end idle timeout for the Gorouter" pro
 
 ## <a id='breaking-changes'></a> Breaking changes
 
+### Logging timestamp format property removed
+
+In TAS 4.0 the `logging_timestamp_format` product property was changed to have no effect. In TAS 5.0 this property is
+removed. If you have automation that sets this property you will need to remove references to it prior to upgrading.
+
 ### Autoscaler API no longer accepts trailing slashes in requests
 
 Previously, the Autoscaler API responded to a URL with a trailing slash and now it returns a 404 error.
@@ -5344,6 +5349,31 @@ Previously, the Autoscaler API responded to a URL with a trailing slash and now 
 If you use the API directly, confirm that you are not including trailing slashes in the URL before you upgrade.
 
 This does not affect users who are using the autoscaler cf CLI plug-in.
+
+### Syslog aggregate drains property changes
+
+The `syslog_agent_aggregate_drains` property used to declare syslog aggregate drains has been changed to allow aggregate
+drains to be configured with Mutual TLS.
+
+If you attempt to configure TAS with the older comma-separated syntax for defining aggregate drains you will receive the
+following error from Ops Manager:
+
+```
+{"errors":{".properties.syslog_agent_aggregate_drains":["is not a property"]}}
+```
+
+References to the old property should be updated to refer to the new `mtls_syslog_agent_aggregate_drains` property.
+This property is used to define aggregate syslog drains with keys and certificates for Mutual TLS, as well as to define
+aggregate drains that are not using Mutual TLS.
+
+Comma-separated strings are no longer accepted, instead pass an array of aggregate drains:
+
+```
+.properties.mtls_syslog_agent_aggregate_drains:
+  value:
+  - url: syslog-tls://HOSTNAME:PORT
+  - url: syslog-tls://ANOTHER-HOSTNAME:PORT
+```
 
 ## <a id='known-issues'></a> Known issues
 
