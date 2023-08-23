@@ -563,6 +563,7 @@ MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> containing that pa
 
 **Release Date:** 08/18/2023
 
+* **[Known Issue]** Silk-datastore-syncer job is not disabled when using NCP. This failing job can safely be ignored, but we recomend skipping this release when using the NSX-T Container Plugin
 * **[Feature Improvement]** Allow to configure Silk policy polling interval
 * **[Bug Fix]** Fix autoscaler bosh backup and restore (BBR) scripts
 * Bump backup-and-restore-sdk to version `1.18.86`
@@ -1638,6 +1639,7 @@ MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> containing that pa
 
 **Release Date:** 07/21/2023
 
+* **[Known Issue]** Silk-datastore-syncer job is not disabled when using NCP. This failing job can safely be ignored, but we recomend skipping this release when using the NSX-T Container Plugin
 * **[Known Issue]** BBR commands such as backup, backup-cleanup, and restore can fail due to a bug in component BBR scripts. Contact [Tanzu Support](https://tanzu.vmware.com/support) for help restoring from a backup if necessary.
 * **[Feature Improvement]** Dynamic App renaming takes effect for Silk Security Group log entries
 * **[Bug Fix]** Fixes duplicate routes sent to Diego
