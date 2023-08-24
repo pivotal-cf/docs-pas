@@ -12075,7 +12075,7 @@ For more information, see [(Optional) Configure Custom Branding and Apps Manager
 ### <a id='log-metric-topology'></a> Log and Metric Topology Changes
 
 In <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>, the Log Cache component runs on its own Log Cache instance group. Log Cache is no longer part of
-Doppler instances. To ensure smooth operation, please ensure the [necessary ports](networking-loggregator-network-paths.html#log-cache-communications-1) are
+Doppler instances. To ensure smooth operation, please ensure the [necessary ports](../operating/networking/loggregator-network-paths.html#log-cache-communications-1) are
 open to these new log-cache VMs. Ports should be open for TAS for VMs, Isolation Segments and TAS for Windows VMs prior to upgrading TAS.
 
 As a result of this change, Diego Cells with high logging volume might experience higher CPU usage than they did prior to this change.
