@@ -5350,8 +5350,8 @@ Note that as this feature is beta, it may still change in significant ways.
 
 ### Logging timestamp format property removed
 
-In TAS 4.0 the `logging_timestamp_format` product property was changed to have no effect. In TAS 5.0 this property is
-removed. If you have automation that sets this property you will need to remove references to it prior to upgrading.
+In TAS 4.0 the `logging_timestamp_format` product property was changed to have no effect. In TAS for VMs 5.0 this property is
+removed. If you have automation that sets this property, you must remove references to it before upgrading.
 
 ### Autoscaler API no longer accepts trailing slashes in requests
 
@@ -5366,18 +5366,18 @@ This does not affect users who are using the autoscaler cf CLI plug-in.
 The `syslog_agent_aggregate_drains` property used to declare syslog aggregate drains has been changed to allow aggregate
 drains to be configured with Mutual TLS.
 
-If you attempt to configure TAS with the older comma-separated syntax for defining aggregate drains you will receive the
-following error from Ops Manager:
+If you try to configure TAS for VMs with the older comma-separated syntax for defining aggregate drains, you will see the
+following error from Tanzu Operations Manager (Ops Manager):
 
 ```
 {"errors":{".properties.syslog_agent_aggregate_drains":["is not a property"]}}
 ```
 
-References to the old property should be updated to refer to the new `mtls_syslog_agent_aggregate_drains` property.
-This property is used to define aggregate syslog drains with keys and certificates for Mutual TLS, as well as to define
+References to the old property must be updated to refer to the new `mtls_syslog_agent_aggregate_drains` property.
+This property is used to define aggregate syslog drains with keys and certificates for Mutual TLS, and to define
 aggregate drains that are not using Mutual TLS.
 
-Comma-separated strings are no longer accepted, instead pass an array of aggregate drains:
+Comma-separated strings are no longer accepted. Instead, pass an array of aggregate drains:
 
 ```
 .properties.mtls_syslog_agent_aggregate_drains:
@@ -5388,7 +5388,7 @@ Comma-separated strings are no longer accepted, instead pass an array of aggrega
 
 ### NATS intentionally fails deployment in post-start in v1.
 
-In TAS 3.0, we migrated the underlying binary for nats-release from gnatsd (NATS v1) to nats-server (NATS v2).
+In TAS for VMs 3.0, we migrated the underlying binary for nats-release from gnatsd (NATS v1) to nats-server (NATS v2).
 Before removing the v1 code completely, we're adding a post-start check to confirm that NATS instances
 are running nats-server.
 
