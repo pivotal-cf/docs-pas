@@ -5335,6 +5335,17 @@ timeouts are now configured by the "Front end idle timeout for the Gorouter" pro
 
 ## <a id='new-features'></a> New features in <%= vars.app_runtime_full %> <%= vars.v_major_version %>
 
+### Add OpenTelemetry Collector (Beta)
+
+In addition to Aggregate Syslog Drains and the Firehose, TAS 5.0 provides beta support for exporting metrics in
+aggregate off the platform using the OpenTelemetry Collector.
+
+This beta feature allows operators to export metrics over the OpenTelemetry Protocol, which is supported by many
+different observability platforms. We're excited about the possibilities this provides and interested in any feedback
+you have, including whether additional exporters might be useful.
+
+Note that as this feature is beta, it may still change in significant ways.
+
 ## <a id='breaking-changes'></a> Breaking changes
 
 ### Logging timestamp format property removed
