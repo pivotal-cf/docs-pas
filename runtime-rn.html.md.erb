@@ -5346,6 +5346,13 @@ you have, including whether additional exporters might be useful.
 
 Note that as this feature is beta, it may still change in significant ways.
 
+### Log Cache Syslog Server supports mTLS
+
+Operators can now configure Log Cache communication with Syslog Agents to use mutual TLS.
+
+We recommend that operators who wish to enable this feature perform a two-step deploy.
+First upgrade to TAS for VMs 5.0 and then enable mTLS in a separate deployment.
+
 ## <a id='breaking-changes'></a> Breaking changes
 
 ### Logging timestamp format property removed
