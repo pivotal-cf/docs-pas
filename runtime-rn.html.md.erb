@@ -5403,6 +5403,15 @@ To avoid experiencing a deployment failure, confirm the NATS version by followin
 [How to confirm your nats servers are running NATS v2](https://community.pivotal.io/s/article/How-to-confirm-your-nats-servers-are-running-NATs-v2?language=en_US).
 Environments that have successfully upgraded NATS will not experience any change.
 
+### Metrics Agent and Metrics Discovery Registrar deprecated and disabled by default
+
+Metrics Agent is turned off by default in this release. Metrics Agent collects
+metrics which pass through the Loggregator Agent and exposes them via a
+Prometheus endpoint. It was intended to be used by internal components, but was
+never adopted. With the move to OpenTelemetry Collector anyone needing this
+functionality is encouraged to configure a Prometheus Exporter in the
+OpenTelemetry Collector. Metrics Agent is scheduled to be removed in TAS 6.0.
+
 ## <a id='known-issues'></a> Known issues
 
 There are no known issues for <%= vars.app_runtime_full %> <%= vars.v_major_version %>.
