@@ -1638,6 +1638,7 @@ MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> containing that pa
 
 **Release Date:** 07/21/2023
 
+* **[Breaking change]** App Autoscaler now requires JRE 17. If you have customized the java offline buildpack (java_buildpack_offline) to use the Oracle JRE you will need to ensure that JRE 17 is available and that the [JBP_CONFIG_ORACLE_JRE environment variable](https://github.com/cloudfoundry/java-buildpack/blob/main/docs/jre-oracle_jre.md#configuration) is set on the autoscale-api app to select JRE 17.
 * **[Known Issue]** Silk-datastore-syncer job is not disabled when using NCP. This failing job can safely be ignored, but we recomend skipping this release when using the NSX-T Container Plugin
 * **[Known Issue]** BBR commands such as backup, backup-cleanup, and restore can fail due to a bug in component BBR scripts. Contact [Tanzu Support](https://tanzu.vmware.com/support) for help restoring from a backup if necessary.
 * **[Feature Improvement]** Dynamic App renaming takes effect for Silk Security Group log entries
@@ -4757,6 +4758,7 @@ by "Front end idle timeout for the Gorouter" property.
 
 <%= partial "/pcf/tas/known-issues/multiple-expect-100-continue-tas-4-0" %>
 
+* **[Breaking change]** App Autoscaler now requires JRE 17. If you have customized the java offline buildpack (java_buildpack_offline) to use the Oracle JRE you will need to ensure that JRE 17 is available and that the [JBP_CONFIG_ORACLE_JRE environment variable](https://github.com/cloudfoundry/java-buildpack/blob/main/docs/jre-oracle_jre.md#configuration) is set on the autoscale-api app to select JRE 17.
 * **[Security Fix]** Although TAS 4.0.0 was unaffected
 by [CVE-2023-20882](https://www.cloudfoundry.org/blog/cve-2023-20882-gorouter-pruning-via-client-disconnect-resulting-in-dos/), TAS 4.0.1 updates to a routing-release.
 version containing the fix.
