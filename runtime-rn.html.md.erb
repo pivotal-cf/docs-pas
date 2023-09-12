@@ -6466,6 +6466,12 @@ requests. When readiness health checks fail, the app instance is marked as not
 ready and removed from the route pool for the app. See this
 <a href='/devguide/deploy-apps/healthchecks.html'>doc</a> for more information.
 
+This feature requires:
+
+* garden-runc-release 1.37.0
+* diego-release 2.81.0
+* capi-release 1.158.0
+
 ### Add OpenTelemetry Collector (Beta)
 
 In addition to Aggregate Syslog Drains and the Firehose, TAS 5.0 provides beta support for exporting metrics in
