@@ -23,9 +23,7 @@ MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> containing that pa
 
 * **[Security Fix]** Continue to forward relevant headers by removing hop-by-hop headers that could interfere with gorouter when proxying client requests
 * **[Feature]** Add distributed tracing to UAA logs
-* **[Bug Fix]** Disable silk-datastore-syncer when using NCP
 * **[Bug Fix]** Ensure notifications UI always uses the go_buildpack to prevent conflicting detected buildpack ordering
-* **[Bug Fix]** Garden Healthchecks have been re-enabled after fixing a bug during deployments causing failed diego-cells.
 * **[Feature]** Added log tracing support to UAA. Log messages now have fields for a trace ID and span ID. Please note that external log parsers might need to be adjusted.
 * Bump binary-offline-buildpack to version `1.1.6`
 * Bump bpm to version `1.2.6`
