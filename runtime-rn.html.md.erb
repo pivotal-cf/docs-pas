@@ -6481,6 +6481,10 @@ This beta feature allows operators to export metrics over the OpenTelemetry Prot
 different observability platforms. We're excited about the possibilities this provides and interested in any feedback
 you have, including whether additional exporters might be useful.
 
+Enabling the Collector consumes additional resources on each VM. We recommend that operators load test deployments to
+size VMs correctly. Operators with deployments that make use of VM types with CPU bursting should ensure there are
+sufficient reserved vCPUs for the increased CPU consumed.
+
 Note that as this feature is beta, it may still change in significant ways.
 
 ### Log Cache Syslog Server supports mTLS
