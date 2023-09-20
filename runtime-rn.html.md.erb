@@ -6485,6 +6485,9 @@ Enabling the Collector consumes additional resources on each VM. VMware recommen
 size VMs correctly. Operators with deployments that use VM types with CPU bursting must ensure there are
 sufficient reserved vCPUs for the increased CPU consumed.
 
+In <%= vars.app_runtime_abbr %> 5.0.0 foundations with more than 150 VMs may not send all system metrics to the
+OpenTelemetry Collector.
+
 Note that this feature is beta, so it may still change in significant ways.
 
 ### Log Cache Syslog Server supports mTLS
