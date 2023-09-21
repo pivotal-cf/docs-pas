@@ -6499,6 +6499,28 @@ First, upgrade to TAS for VMs 5.0, and then enable mTLS in a separate deployment
 
 ## <a id='breaking-changes'></a> Breaking changes
 
+### <a id='jbp-462-removes-autoreconfig'></a> Java Buildpack 4.62.0 removes Spring AutoReconfiguration library for Spring Boot 3 applications
+
+From v4.62.0, the Java Buildpack will no longer install the Spring AutoReconfiguration (SAR) library for Spring Boot 3 applications. 
+This library was deprecated in May 2022 and overwrites your configured Spring Beans to connect to bound services. 
+This is not recommended for use in production environments. The recommended replacement is the Java CfEnv library.
+
+Applications should not be affected by this change if:
+
+* They are using Spring Boot 2.x - SAR will be installed and supported for the life of Spring Boot 2, although it is recommended to migrate to Java CfEnv as soon as possible.
+* They are using Spring Boot 3 and 
+  * have already migrated from SAR to Java CfEnv** or
+  * have already migrated from Spring Cloud Connectors to Java CfEnv** 
+
+** The buildpack will not install Java CfEnv if it is already detected as an app dependency.
+
+Your applications might be affected by the following two scenarios:
+
+* The app uses Spring Boot 3 and _does not_ have Spring Cloud Connectors as a dependency.
+* The app uses Spring Boot 3 and _does_ have Spring Cloud Connectors as a dependency.
+
+If your application is affected by this change see this KB article for troubleshooting: [Spring AutoReconfiguration Removed for Spring Boot 3 Applications](https://community.pivotal.io/s/article/Spring-AutoReconfiguration-no-longer-installed-for-Spring-Boot-3-applications-since-JBP-v4-62-0)
+
 ### Logging timestamp format property removed
 
 In TAS 4.0 the `logging_timestamp_format` product property was changed to have no effect. In TAS for VMs 5.0 this property is
