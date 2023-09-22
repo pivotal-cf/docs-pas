@@ -11634,7 +11634,6 @@ exceed the app log rate limit. For more information, see [Diego Drops App Logs T
 * **[Feature]** Enabled telemetry for iptables rules on Diego cells
 * **[Feature]** User has the ability to manage step up scaling app instances using Apps Manager
 * **[Feature Improvement]** Deprecate Spring Cloud Connectors & Spring Auto Configuration support in Java Buildpack.
-* **[Bug Fix]** Added health check script for Bosh DNS for Cloud Controller
 * **[Bug Fix]** Do not deactivate metadata on Log Cache aggregate drain
 * **[Bug Fix]** Fixed dummy routes showing in the User Interface
 * **[Bug Fix]** Fixed role assignment when users are created through the CLI
@@ -11845,6 +11844,7 @@ instance. If you specify a service instance, Autoscaler only requests metrics fr
 
 * **[Security Fix]** Added Content-Security-Policy headers in UAA responses
 * **[Bug Fix]** Sticky sessions no longer break when used with route-services that return HTTP 4xx/5xx responses
+* **[Bug Fix]** Added health check script for Bosh DNS for Cloud Controller
 * **[Bug Fix/Improvement]** Stopped emitting debug metrics for agents and log-cache by default. Reduces load on logging system by >=720 metrics per vm per minute
 * **[Breaking change]** If you followed the procedure in [Autoscale application fails with MySQL Deadlock errors](https://community.pivotal.io/s/article/Autoscale-application-errors-with-MySQL-Deadlock) to manually add an index to an Autoscale database, and the index is not dropped before you upgrade to <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>.20, upgrading causes an error.
 * Bump backup-and-restore-sdk to version `1.18.42`
