@@ -12,6 +12,142 @@ Because VMware uses the Percona Distribution for MySQL, expect a time lag betwee
 
 ## <a id='releases'></a> Releases
 
+### <a id='2.11.39'></a> 2.11.39
+
+**Release Date:** 09/26/2023
+
+* **[Security Fix]** Bump smoke-tests to address Go CVE-2023-39533
+* Bump cflinuxfs3 to version `0.374.0`
+* Bump loggregator-agent to version `6.5.14`
+* Bump metrics-discovery to version `3.2.16`
+* Bump nfs-volume to version `5.0.44`
+* Bump smoke-tests to version `4.8.4`
+* Bump syslog to version `11.8.13`
+
+<table border="1" class="nice">
+  <thead>
+    <tr>
+      <th>Component</th>
+      <th>Version</th>
+      <th>Release Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>ubuntu-xenial stemcell</td><td>621.676</td><td></td></tr>
+    <tr><td>bpm</td><td>1.2.6</td><td></td></tr>
+    <tr><td>cf-networking</td><td>3.32.0</td><td></td></tr>
+    <tr><td>cflinuxfs3</td><td>0.374.0</td>
+      <td>
+        <details>
+          <summary>v0.374.0</summary>
+          <pre style="max-width: 30em">
+  This release ships with cflinuxfs3 version 0.374.0. For more information, see the [release notes](https://github.com/pivotal-cf/tanzu-cflinuxfs3/releases/tag/0.374.0)
+          </pre>
+        </details>
+      </td>
+    </tr>
+    <tr><td>cf-cli</td><td>1.45.0</td><td></td></tr>
+    <tr><td>count-cores-indicator</td><td>2.0.0</td><td></td></tr>
+    <tr><td>diego</td><td>2.81.0</td><td></td></tr>
+    <tr><td>garden-runc</td><td>1.37.0</td><td></td></tr>
+    <tr><td>haproxy</td><td>9.8.0</td><td></td></tr>
+    <tr><td>loggregator-agent</td><td>6.5.14</td>
+      <td>
+        <details>
+          <summary>v6.5.14</summary>
+          <pre style="max-width: 30em">
+  ## What's Changed
+  * Bump to [go1.20.8](https://groups.google.com/g/golang-announce/c/Fm51GRLNRvM/m/F5bwBlXMAQAJ)
+  * Bump dependencies
+  **Full Changelog**: https://github.com/cloudfoundry/loggregator-agent-release/compare/v6.5.13...v6.5.14
+          </pre>
+        </details>
+      </td>
+    </tr>
+    <tr><td>mapfs</td><td>1.2.35</td><td></td></tr>
+    <tr><td>metrics-discovery</td><td>3.2.16</td>
+      <td>
+        <details>
+          <summary>v3.2.16</summary>
+          <pre style="max-width: 30em">
+  ## What's Changed
+  * Add check for disable flag for metrics agent ingress_port
+  **Full Changelog**: https://github.com/cloudfoundry/metrics-discovery-release/compare/v3.2.15...v3.2.16
+          </pre>
+        </details>
+        <details>
+          <summary>v3.2.15</summary>
+          <pre style="max-width: 30em">
+  ## What's Changed
+  * Bump to [go1.20.8](https://groups.google.com/g/golang-announce/c/Fm51GRLNRvM/m/F5bwBlXMAQAJ)
+  * Bump dependencies
+  **Full Changelog**: https://github.com/cloudfoundry/metrics-discovery-release/compare/v3.2.14...v3.2.15
+          </pre>
+        </details>
+      </td>
+    </tr>
+    <tr><td>nfs-volume</td><td>5.0.44</td>
+      <td>
+        <details>
+          <summary>v5.0.44</summary>
+          <pre style="max-width: 30em">
+  ## Changes
+  * +Golang: Updated to v1.21.1 (#557)
+  ## Dependencies
+  * **nfsbroker:** Updated to v`d010e44`.<br>For more information, see [nfsbroker](https://github.com/cloudfoundry/nfsbroker).
+  * **nfsv3driver:** Updated to v`0e2e92b`.<br>For more information, see [nfsv3driver](https://github.com/cloudfoundry/nfsv3driver).
+  * **mapfs-release:** Updated to v`d0d2134`.<br>For more information, see [mapfs-release](https://github.com/cloudfoundry/mapfs-release).
+          </pre>
+        </details>
+        <details>
+          <summary>v5.0.43</summary>
+          <pre style="max-width: 30em">
+  ## Dependencies
+  * **nfsbroker:** Updated to v`0dc7c0a`.<br>For more information, see [nfsbroker](https://github.com/cloudfoundry/nfsbroker).
+  * **nfsv3driver:** Updated to v`8030907`.<br>For more information, see [nfsv3driver](https://github.com/cloudfoundry/nfsv3driver).
+  * **mapfs-release:** Updated to v`1b132a8`.<br>For more information, see [mapfs-release](https://github.com/cloudfoundry/mapfs-release).
+          </pre>
+        </details>
+      </td>
+    </tr>
+    <tr><td>routing</td><td>0.278.0</td><td></td></tr>
+    <tr><td>silk</td><td>3.32.0</td><td></td></tr>
+    <tr><td>smb-volume</td><td>3.1.30</td><td></td></tr>
+    <tr><td>smoke-tests</td><td>4.8.4</td>
+      <td>
+        <details>
+          <summary>4.8.4</summary>
+          <pre style="max-width: 30em">
+  Create bosh final release 4.8.4
+  ## What's Changed
+  * feat: CI to autobump golang by @pabloarodas in https://github.com/pivotal/smoke-tests/pull/106
+  * Upgrade Golang by @pvaramballypivot in https://github.com/pivotal/smoke-tests/pull/111
+  * test: skip jobs to test automerge by @pabloarodas in https://github.com/pivotal/smoke-tests/pull/113
+  * Upgrade Golang by @pvaramballypivot in https://github.com/pivotal/smoke-tests/pull/114
+  * Upgrade Golang by @pvaramballypivot in https://github.com/pivotal/smoke-tests/pull/116
+  * Bump cf-cli to 8.7.3 by @xtremerui in https://github.com/pivotal/smoke-tests/pull/117
+  **Full Changelog**: https://github.com/pivotal/smoke-tests/compare/4.8.3...4.8.4
+          </pre>
+        </details>
+      </td>
+    </tr>
+    <tr><td>syslog</td><td>11.8.13</td>
+      <td>
+        <details>
+          <summary>v11.8.13</summary>
+          <pre style="max-width: 30em">
+  ## What's Changed
+  * Update golang packages to use go1.20.8
+  **Full Changelog**: https://github.com/cloudfoundry/syslog-release/compare/v11.8.12...v11.8.13
+          </pre>
+        </details>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+
+
 ### <a id='2.11.38'></a> 2.11.38
 
 **Release Date:** 09/11/2023
