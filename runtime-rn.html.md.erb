@@ -5491,7 +5491,7 @@ overwritten ([CVE-2023-20881](https://www.cloudfoundry.org/blog/cve-2023-20881-c
 * **[Feature Improvement]** Allow disabling of signature v4 streaming for system blobstore.
 * **[Bug Fix]** Fixes an issue in gorouter where requests returned 496, 499, 503, 525, or 526 HTTP status codes might
 instead returned as 502s, potentially preventing stale route pruning.
-* **[Bug Fix]** Resolve issue where Garden failed during BOSH/OpsMan deploys due to health check.
+* **[Bug Fix]** Resolve issue where Garden failed during BOSH/Operations Manager deploys due to health check.
 * **[Bug Fix]** Resolve regression: UI error after org deletion.
 * Bump backup-and-restore-sdk to version `1.18.69`
 * Bump binary-offline-buildpack to version `1.1.4`
@@ -7115,16 +7115,16 @@ vars.segment_runtime_full %> Gorouters. They reflect the new application names e
 
 ### <a id='jbp-462-removes-autoreconfig'></a> Java Buildpack 4.62.0 removes Spring AutoReconfiguration library for Spring Boot 3 applications
 
-From v4.62.0, the Java Buildpack will no longer install the Spring AutoReconfiguration (SAR) library for Spring Boot 3 applications. 
-This library was deprecated in May 2022 and overwrites your configured Spring Beans to connect to bound services. 
+From v4.62.0, the Java Buildpack will no longer install the Spring AutoReconfiguration (SAR) library for Spring Boot 3 applications.
+This library was deprecated in May 2022 and overwrites your configured Spring Beans to connect to bound services.
 This is not recommended for use in production environments. The recommended replacement is the Java CfEnv library.
 
 Applications should not be affected by this change if:
 
 * They are using Spring Boot 2.x - SAR will be installed and supported for the life of Spring Boot 2, although it is recommended to migrate to Java CfEnv as soon as possible.
-* They are using Spring Boot 3 and 
+* They are using Spring Boot 3 and
   * have already migrated from SAR to Java CfEnv** or
-  * have already migrated from Spring Cloud Connectors to Java CfEnv** 
+  * have already migrated from Spring Cloud Connectors to Java CfEnv**
 
 ** The buildpack will not install Java CfEnv if it is already detected as an app dependency.
 
