@@ -1714,7 +1714,7 @@ Because VMware uses the Percona Distribution for MySQL, expect a time lag betwee
     <tr><td>system-metrics-scraper</td><td>4.0.0</td>
       <td>
         <details>
-          <summary>v4.0.0</summary>
+          <summary>v5.0.0</summary>
           <pre style="max-width: 30em">
   ## What's Changed
   * Change default scrape port in the spec by @chombium in https://github.com/cloudfoundry/system-metrics-scraper-release/pull/154. This has been changed in system-metrics release as well, and is already overridden to the new default in all environments we are aware of.
@@ -7208,6 +7208,12 @@ Prometheus endpoint. Metrics Agent was intended to be used by internal component
 never adopted. With the move to OpenTelemetry Collector, anyone needing this
 functionality is encouraged to configure a Prometheus Exporter in the
 OpenTelemetry Collector. Metrics Agent is scheduled to be removed in TAS 6.0.
+
+### MySQL 5.7 External system database support removed
+
+Your TAS for VMs deployment will fail or become insecure if you are using MySQL 5.7 as the
+external system database for TAS because MySQL 5.7 will soon reach End-Of-Life. Upgrade your external system database to a supported MySQL version.
+
 
 ## <a id='known-issues'></a> Known issues
 
