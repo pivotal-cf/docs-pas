@@ -7103,7 +7103,7 @@ This feature requires:
 * diego-release 2.81.0
 * capi-release 1.158.0
 
-### Add OpenTelemetry Collector (Beta)
+### Add OpenTelemetry Collector (beta)
 
 In addition to Aggregate Syslog Drains and the Firehose, TAS 5.0 provides beta support for exporting metrics in
 aggregate off the platform using the OpenTelemetry Collector.
@@ -7127,6 +7127,10 @@ Operators can now configure Log Cache communication with Syslog Agents to use mu
 
 We recommend that operators who want to enable this feature perform a two-step deployment.
 First, upgrade to TAS for VMs 5.0, and then enable mTLS in a separate deployment.
+
+### Tanzu Application Service Developer Portal supports data persistence (beta)
+
+Developers and platform engineers can benefit from a MySQL database integration for persisting data in the software catalog and other plug-ins used in the Tanzu Application Service Developer Portal. For more information about TAS Portal, see [About TAS Portal](https://docs.vmware.com/en/VMware-Tanzu-Application-Service/4.0/tas-for-vms/tas-portal-about-tas-portal.html).
 
 ## <a id='breaking-changes'></a> Breaking changes
 
@@ -7217,4 +7221,19 @@ external system database for TAS because MySQL 5.7 will soon reach End-Of-Life. 
 
 ## <a id='known-issues'></a> Known issues
 
-There are no known issues for <%= vars.app_runtime_full %> <%= vars.v_major_version %>.
+Here are the known issues for <%= vars.app_runtime_full %> <%= vars.v_major_version %>.
+
+### Tanzu Application Service Developer Portal does not currently include a list of Application Accelerators
+
+Tanzu Application Service Developer Portal does not currently include a list of Application Accelerators by default along with the TAS Developer Portal for TAS for VMs version 5.0. For customers to use application accelerators, the TAS Operator needs to update the **Backstage Configuration** field of the TAS Portal configuration of the TAS tile. Add the following:
+
+```
+accelerator:
+  engineUrl: https://${APP_ACCELERATOR_APP_NAME}.${APPS_DOMAIN}
+```
+
+### Creation of software packages from Accelerator templages work only with in-memor or non-clustered databases.
+
+The creation of software packages from Accelerator Templates works only with in-memory or non-clustered databases. Currently the TAS Portal defaults to the in-memory database.
+
+Risk: This means that app restarts will cause a loss of components in the component list, and all components will need to be re-registered.
