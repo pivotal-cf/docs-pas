@@ -25,6 +25,7 @@ use <%= vars.app_runtime_abbr %>
 
 **Release Date:** 09/26/2023
 
+* **[Bug]** This release introduced a bug that could result in the loss of Service Usage data. To avoid data loss, customers that depend on usage data should follow the workaround in [this KB article](https://community.pivotal.io/s/article/Potential-data-loss-for-service-usage-data-after-upgrading-TAS?language=en_US) or upgrade to a later version of VMware Tanzu Application Service for VMs within 30 days of upgrading to this version.
 * **[Security Fix]** Bump smoke-tests to address Go CVE-2023-39533
 * **[Breaking Change]** Java Buildpack v4.62.0 will no longer install the Spring AutoReconfiguration library for Spring Boot 3 applications - the Java CfEnv library will be installed instead. See [Java Buildpack 4.62.0 removes Spring AutoReconfiguration library for Spring Boot 3 applications](#jbp-462-removes-autoreconfig) below.
 * Bump bosh-system-metrics-forwarder to version `0.0.36`
@@ -14676,6 +14677,10 @@ To work around this issue, you must delete any duplicate bindings before you upg
 ## <a id='known-issues'></a> Known issues
 
 <%= vars.app_runtime_abbr %> <%= vars.v_major_version %> includes the following known issues:
+
+### <a id='potential-data-loss'></a> Potential data loss for service usage data after upgrading TAS
+
+Release 2.11.45 introduced a bug that could result in the loss of Service Usage data. To avoid data loss, customers that depend on usage data should follow the workaround in [this KB article](https://community.pivotal.io/s/article/Potential-data-loss-for-service-usage-data-after-upgrading-TAS?language=en_US) or upgrade to a later version of VMware Tanzu Application Service for VMs within 30 days of upgrading to this version.
 
 ### <a id='rolling-timeout'></a> Rolling App Deployment Does Not Timeout
 
