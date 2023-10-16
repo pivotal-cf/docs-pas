@@ -7429,6 +7429,7 @@ The release of [VMware SQL with MySQL for Tanzu Application Service 3.1](https:/
 
 Tanzu Application Service 5.0 has added support for installing the platform on top of [Oracle Cloud VMware Solution (OCVS)](https://www.oracle.com/cloud/compute/vmware/). Platform engineers can expand their platform deployments and use additional Oracle Cloud solutions without rebuilding their application platform. 
 
+
 ## <a id='breaking-changes'></a> Breaking changes
 
 These are the breaking changes for <%= vars.segment_runtime_full %> <%= vars.v_major_version %>.
@@ -7457,7 +7458,7 @@ If your application is affected by this change see this KB article for troublesh
 
 ### Logging timestamp format property removed
 
-In TAS 4.0 the `logging_timestamp_format` product property was changed to have no effect. In TAS for VMs 5.0 this property is
+In TAS 4.0 the `logging_timestamp_format` product property was changed to have no effect. In TAS for VMs 5.0, this property is
 removed. If you have automation that sets this property, you must remove references to it before upgrading.
 
 ### Autoscaler API no longer accepts trailing slashes in requests
@@ -7499,7 +7500,7 @@ In TAS for VMs 3.0, we migrated the underlying binary for nats-release from gnat
 Before removing the v1 code completely, we're adding a post-start check to confirm that NATS instances
 are running nats-server.
 
-To avoid experiencing a deployment failure, confirm the NATS version by following the directions here:
+If your TAS environment is already on v2.11.26 or greater, to avoid experiencing a deployment failure, confirm the NATS version by following the directions here:
 [How to confirm your nats servers are running NATS v2](https://community.pivotal.io/s/article/How-to-confirm-your-nats-servers-are-running-NATs-v2?language=en_US).
 Environments that have successfully upgraded NATS will not experience any change.
 
@@ -7512,10 +7513,12 @@ never adopted. With the move to OpenTelemetry Collector, anyone needing this
 functionality is encouraged to configure a Prometheus Exporter in the
 OpenTelemetry Collector. Metrics Agent is scheduled to be removed in TAS 6.0.
 
-### MySQL 5.7 External system database support removed
+### MySQL 5.7 external system database support removed
 
 Your TAS for VMs deployment will fail or become insecure if you are using MySQL 5.7 as the
 external system database for TAS because MySQL 5.7 will soon reach End-Of-Life. Upgrade your external system database to a supported MySQL version.
+
+This will affect you if you have configured a MySQL 5.7 database instance as the external system database for your TAS deployment. You can check your current system database settings by selecting "Databases" pane in the TAS for VMs tile. If under the **System databases location** section, the **External database server** option is selected and the configured database server is based on MySQL 5.7, you must upgrade to a supported MySQL version (such as MySQL 8.0). 
 
 
 ## <a id='known-issues'></a> Known issues
