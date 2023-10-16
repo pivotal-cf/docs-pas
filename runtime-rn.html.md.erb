@@ -7359,13 +7359,12 @@ timeouts are now configured by the "Front end idle timeout for the Gorouter" pro
 
 ## <a id='new-features'></a> New features in <%= vars.app_runtime_full %> <%= vars.v_major_version %>
 
-### Readiness Health Checks
+These are the new features for <%= vars.segment_runtime_full %> <%= vars.v_major_version %>.
 
-App Developers can now setup readiness health checks for their apps. Readiness
-health checks are performed to validate that app instances are ready to serve
-requests. When readiness health checks fail, the app instance is marked as not
-ready and removed from the route pool for the app. See this
-<a href='/devguide/deploy-apps/healthchecks.html'>doc</a> for more information.
+### Readiness Healthchecks
+
+Application “readiness” healthchecks have been added for application instances in the TAS for VMs 5.0 release. Readiness healthchecks are a great way for developers to recover faster from transient application errors and for platform engineers to reduce CPU and memory churn in a Tanzu Application Service environment. Developers can make use of the readiness healthcheck in their applications to better mitigate temporary failures such as a cold cache hit or a temporary loss of database connectivity. When its readiness healthcheck fails, the application instance is temporarily unregistered from the Gorouters to allow time for the error to resolve without destroying and recreating the instance.
+See <a href='/devguide/deploy-apps/healthchecks.html'>Healthchecks</a> for more information.
 
 This feature requires:
 
@@ -7373,16 +7372,15 @@ This feature requires:
 * diego-release 2.81.0
 * capi-release 1.158.0
 
-### Add OpenTelemetry Collector (beta)
+### Distributed tracing enables faster debugging
 
-In addition to Aggregate Syslog Drains and the Firehose, TAS 5.0 provides beta support for exporting metrics in
-aggregate off the platform using the OpenTelemetry Collector.
+Adding tracing to all Tanzu Application Service components enables faster debugging and troubleshooting for developers. You can trace errors and pinpoint network issues using [VMware Aria Operations for Logs](https://www.vmware.com/products/aria-operations-for-logs.html) and other log aggregation tools. This means that you also have a quicker way to tie information together from multiple Tanzu Application Service components, and support engineers can identify the root cause of issues and debug them more quickly.
 
-This beta feature allows operators to export metrics over the OpenTelemetry Protocol, which is supported by many
-different observability platforms. We're excited about the possibilities this provides and interested in any feedback
-you have, including whether additional exporters might be useful.
+### Add OpenTelemetry Metric Exporter support (beta)
 
-Enabling the Collector consumes additional resources on each VM. VMware recommend that operators load test deployments to
+OpenTelemetry metric exporter support has been added to Tanzu Application Service 5.0 as a beta feature. Once fully implemented, you will be able to optimize how you ship metrics on an application and platform level, resulting in fewer VMs deployed and more cost savings. This feature allows platform engineers to egress metrics directly via the OpenTelemetry Collector as an alternative to using the firehose and/or nozzles. Combined with aggregate syslog drains, Tanzu Application Service customers can complete the shared-nothing architecture for logs and metrics. 
+
+Enabling the Collector consumes additional resources on each VM. VMware recommends that operators load test deployments to
 size VMs correctly. Operators with deployments that use VM types with CPU bursting must ensure there are
 sufficient reserved vCPUs for the increased CPU consumed.
 
@@ -7396,13 +7394,44 @@ Note that this feature is beta, so it may still change in significant ways.
 Operators can now configure Log Cache communication with Syslog Agents to use mutual TLS.
 
 We recommend that operators who want to enable this feature perform a two-step deployment.
-First, upgrade to TAS for VMs 5.0, and then enable mTLS in a separate deployment.
+1. First, upgrade to TAS for VMs 5.0.
+2. Enable mTLS in a separate deployment.
 
 ### Tanzu Application Service Developer Portal supports data persistence (beta)
 
 Developers and platform engineers can benefit from a MySQL database integration for persisting data in the software catalog and other plug-ins used in the Tanzu Application Service Developer Portal. For more information about TAS Portal, see [About TAS Portal](https://docs.vmware.com/en/VMware-Tanzu-Application-Service/5.0/tas-for-vms/tas-portal-about-tas-portal.html).
 
+### Automatic rotation of BOSH DNS certificates
+
+BOSH DNS certificates automatically rotate on stemcell upgrades through an opt-in feature in 5.0. Platform engineers can track the rotation process and keep an eye on each phase of the rotation. This enables an “always be rotating” model that could help eliminate the need to allocate time and apply changes multiple times, specifically for rotating certificates.
+
+### Improved disaster recovery workflows
+
+In the rare event that you experience catastrophic failures within your cloud provider, there are now new BOSH workflows to repair a Tanzu Application Service deployment in a more streamlined fashion. Specifically, the following BOSH commands ([bosh create-recovery plan](https://bosh.io/docs/cli-v2/#create-recovery-plan) and [bosh recover](https://bosh.io/docs/cli-v2/#recover)) have been added to help platform engineers with their disaster recovery workflows. 
+
+### Tanzu Operations Manager database pruning
+
+Platform engineers with large environments can now remove data no longer needed by creating a database pruning schedule within Tanzu Operations Manager. This can be achieved with an `om cli` command to set the desired retention policy (number of days) for objects within the Operations Manager database.
+
+### Human-readable virtual machine names for vSphere
+
+Platform Engineers can configure Operations Manager to deploy virtual machines with human-readable names that allow for easy identification and troubleshooting within vSphere. Machines will be deployed with the following format instance-group-name_deployment-name_id versus the traditional name scheme of vm_guid (vm_d6f0f537-18cd-4a1b-b0f5-ae03e8f590e8).
+
+### Tanzu Cloud Service Broker for AWS GAs MSSQL support
+
+The Tanzu Cloud Service Broker for AWS has moved support for Microsoft SQL (MSSQL) to generally available (GA) status. This allows developers to deploy production-ready instances of AWS MSSQL through the Tanzu Application Service marketplace. 
+
+### Simplified multi-site deployments with TAS MySQL tile
+
+The release of [VMware SQL with MySQL for Tanzu Application Service 3.1](https://docs.vmware.com/en/VMware-SQL-with-MySQL-for-Tanzu-Application-Service/3.1/mysql-for-tas/release-notes.html) has introduced simplified multi-site MySQL deployment capability that enables developers to deploy easily without worrying about additional network complexity. Platform engineers can configure multi-site across two Tanzu Application Service foundations without needing their networks to be routable between each other, paving the way for multi-site support across TAS foundations hosted on different clouds.
+
+### Expanded cloud provider support with Oracle Cloud VMware Solution
+
+Tanzu Application Service 5.0 has added support for installing the platform on top of [Oracle Cloud VMware Solution (OCVS)](https://www.oracle.com/cloud/compute/vmware/). Platform engineers can expand their platform deployments and use additional Oracle Cloud solutions without rebuilding their application platform. 
+
 ## <a id='breaking-changes'></a> Breaking changes
+
+These are the breaking changes for <%= vars.segment_runtime_full %> <%= vars.v_major_version %>.
 
 ### <a id='jbp-462-removes-autoreconfig'></a> Java Buildpack 4.62.0 removes Spring AutoReconfiguration library for Spring Boot 3 applications
 
