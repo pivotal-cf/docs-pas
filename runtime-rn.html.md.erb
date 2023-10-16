@@ -7427,8 +7427,22 @@ The release of [VMware SQL with MySQL for Tanzu Application Service 3.1](https:/
 
 ### Expanded cloud provider support with Oracle Cloud VMware Solution
 
-Tanzu Application Service 5.0 has added support for installing the platform on top of [Oracle Cloud VMware Solution (OCVS)](https://www.oracle.com/cloud/compute/vmware/). Platform engineers can expand their platform deployments and use additional Oracle Cloud solutions without rebuilding their application platform. 
+Tanzu Application Service 5.0 has added support for installing the platform on top of [Oracle Cloud VMware Solution (OCVS)](https://www.oracle.com/cloud/compute/vmware/). Platform engineers can expand their platform deployments and use additional Oracle Cloud solutions without rebuilding their application platform.
 
+### New Java Native Image buildpack (beta)
+
+This release introduces a beta Java Native Image buildpack based on the Paketo Java Native Buildpack. 
+
+You can build your Java apps with native image support and deploy those apps to Cloud Foundry. 
+A growing number of Java users are building Java apps using support for native images. For more information, see [Native Image](https://www.graalvm.org/reference-manual/native-image/) in the GraalVM documentation.
+
+Java users deploying to Cloud Foundry can deploy apps compiled using native image support. However, the Cloud Foundry Java buildpack does not provide support to build, compile, and turn apps into a native image. You must perform those steps before deploying to Cloud Foundry.
+
+For details on using this feature, see [Using Java Native Image](https://docs-staging.vmware.com/en/draft/VMware-Tanzu-Application-Service/5.0/tas-for-vms/java-java-native-image.html).
+
+### Operators can configure TAS and IST to include tanzu-jammy-full-stack
+
+The Tanzu stacks use slightly different base images for building and running apps. Primarily, the `build` image of the stack includes important build-time dependencies, such as `gcc`, which are not required at run time. This allows for a smaller image with fewer dependencies at run time. Starting in version 5.0, TAS for VMs respects these different images and usrd the `build` and `run` images at build-time and run-time, respectively.
 
 ## <a id='breaking-changes'></a> Breaking changes
 
