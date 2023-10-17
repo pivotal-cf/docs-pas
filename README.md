@@ -9,5 +9,4 @@ The `master` branch has the content for the upcoming major release.
 Handy links:
 
 * [Production for 4.0](https://docs.vmware.com/en/VMware-Tanzu-Application-Service/4.0/tas-for-vms/concepts-overview.html)
-* [Staging for 4.0](https://docs-staging.vmware.com/en/draft/VMware-Tanzu-Application-Service/4.0/tas-for-vms/concepts-overview.html)
-* [Staging for 5.0](https://docs-staging.vmware.com/en/draft/VMware-Tanzu-Application-Service/5.0/tas-for-vms/concepts-overview.html)
+* [Production for 5.0](https://docs.vmware.com/en/VMware-Tanzu-Application-Service/5.0/tas-for-vms/concepts-overview.html)
