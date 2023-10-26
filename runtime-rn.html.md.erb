@@ -11019,6 +11019,7 @@ returned as 502s, potentially preventing stale route pruning.
 
 * **[Feature Improvement]** vxlan-policy-agent logs when asgs are updated
 * **[Bug Fix]** Fix issues with secure scraping with rolling deploys and with ncp
+* **[Important]** This patch release includes nats-release v54, which introduces a migration to an updated version of NATS. See [here](#check-nats-server-version) for more information.
 * Bump capi to version `1.127.10`
 * Bump cf-networking to version `3.17.0`
 * Bump cflinuxfs3 to version `0.347.0`
@@ -15412,3 +15413,12 @@ When this happens, you see one of the following VXLAN policy agent errors:
 To learn more about this known issue, including how to mitigate it, see [Apps stop running after a deploy when using dynamic ASGs with icmp any
 rule](https://community.pivotal.io/s/article/Apps-stop-running-after-a-deploy-when-using-dynamic-ASGs-with-icmp-any-rule?language=en_US) in the Knowledge
 Base.
+
+### <a id='check-nats-server-version'></a> Please check your NATS server version
+
+In TAS 2.11.26, we introduced a `nats` release that replaced the underlying package from NATS v1.0 to NATS v2.0. TAS 2.13.14 is the first patch release of TAS 2.13 that includes
+NATS v2.0. The migration should happen invisibly; however if the migration is not successful, your nats servers may still be running NATS v1.0.
+
+Per the [TAS Support Lifecycle Policy](https://docs.vmware.com/en/VMware-Tanzu-Application-Service/3.0/tas-for-vms/runtime-rn.html#support-policy), we will
+keep the NATS v1.0 as a fallback, but will remove it in a future version. Please follow the [knowledge base article here](https://community.pivotal.io/s/article/How-to-confirm-your-nats-servers-are-running-NATs-v2?language=en_US)
+to confirm that your `nats` instances have migrated successfully, and see how to troubleshoot if they have not.
