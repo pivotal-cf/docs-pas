@@ -21,7 +21,7 @@ Because VMware uses the Percona Distribution for MySQL, expect a time lag betwee
 
 **Release Date:** 10/25/2023
 
-* **[Feature Improvement]** Option to enable w3c tracing headers in router 
+* **[Feature Improvement]** Option to enable w3c tracing headers in router
 * **[Bug Fix]** Prevent retired app instances from receiving traffic by ensuring rep emits events to cleanup routes when `cf restart-app-instance` is invoked.
 * **[Feature]** Forwarder Agent emits a new metric, egress_expired_total, per egress destination to track the number of envelopes dropped from that designation's diode
 * **[Bug Fix]** Increase system metrics scraper scrape timeout
@@ -65,7 +65,7 @@ Because VMware uses the Percona Distribution for MySQL, expect a time lag betwee
 * Bump system-metrics-scraper to version `4.0.3`
 * Bump uaa to version `76.23.0`
 
-<table border="1" class="nice">
+<table class="table">
   <thead>
     <tr>
       <th>Component</th>
@@ -1500,7 +1500,7 @@ Because VMware uses the Percona Distribution for MySQL, expect a time lag betwee
 * **[Feature Improvement]** "Back end request timeout for the Gorouter" property no longer affects idle timeout of long lived requests. Idle
 timeouts are now configured by the "Front end idle timeout for the Gorouter" property.
 
-<table border="1" class="nice">
+<table class="table">
   <thead>
     <tr>
       <th>Component</th>
@@ -1775,7 +1775,7 @@ Adding tracing to all Tanzu Application Service components enables faster debugg
 
 ### Add OpenTelemetry Metric Exporter support (beta)
 
-OpenTelemetry metric exporter support has been added to Tanzu Application Service 5.0 as a beta feature. Once fully implemented, you will be able to optimize how you ship metrics on an application and platform level, resulting in fewer VMs deployed and more cost savings. This feature allows platform engineers to egress metrics directly via the OpenTelemetry Collector as an alternative to using the firehose and/or nozzles. Combined with aggregate syslog drains, Tanzu Application Service customers can complete the shared-nothing architecture for logs and metrics. 
+OpenTelemetry metric exporter support has been added to Tanzu Application Service 5.0 as a beta feature. Once fully implemented, you will be able to optimize how you ship metrics on an application and platform level, resulting in fewer VMs deployed and more cost savings. This feature allows platform engineers to egress metrics directly via the OpenTelemetry Collector as an alternative to using the firehose and/or nozzles. Combined with aggregate syslog drains, Tanzu Application Service customers can complete the shared-nothing architecture for logs and metrics.
 
 Enabling the Collector consumes additional resources on each VM. VMware recommends that operators load test deployments to
 size VMs correctly. Operators with deployments that use VM types with CPU bursting must ensure there are
@@ -1804,7 +1804,7 @@ BOSH DNS certificates automatically rotate on stemcell upgrades through an opt-i
 
 ### Improved disaster recovery workflows
 
-In the rare event that you experience catastrophic failures within your cloud provider, there are now new BOSH workflows to repair a Tanzu Application Service deployment in a more streamlined fashion. Specifically, the following BOSH commands ([bosh create-recovery plan](https://bosh.io/docs/cli-v2/#create-recovery-plan) and [bosh recover](https://bosh.io/docs/cli-v2/#recover)) have been added to help platform engineers with their disaster recovery workflows. 
+In the rare event that you experience catastrophic failures within your cloud provider, there are now new BOSH workflows to repair a Tanzu Application Service deployment in a more streamlined fashion. Specifically, the following BOSH commands ([bosh create-recovery plan](https://bosh.io/docs/cli-v2/#create-recovery-plan) and [bosh recover](https://bosh.io/docs/cli-v2/#recover)) have been added to help platform engineers with their disaster recovery workflows.
 
 ### Tanzu Operations Manager database pruning
 
@@ -1816,7 +1816,7 @@ Platform Engineers can configure Operations Manager to deploy virtual machines w
 
 ### Tanzu Cloud Service Broker for AWS GAs MSSQL support
 
-The Tanzu Cloud Service Broker for AWS has moved support for Microsoft SQL (MSSQL) to generally available (GA) status. This allows developers to deploy production-ready instances of AWS MSSQL through the Tanzu Application Service marketplace. 
+The Tanzu Cloud Service Broker for AWS has moved support for Microsoft SQL (MSSQL) to generally available (GA) status. This allows developers to deploy production-ready instances of AWS MSSQL through the Tanzu Application Service marketplace.
 
 ### Simplified multi-site deployments with TAS MySQL tile
 
@@ -1828,9 +1828,9 @@ Tanzu Application Service 5.0 has added support for installing the platform on t
 
 ### New Java Native Image buildpack (beta)
 
-This release introduces a beta Java Native Image buildpack based on the Paketo Java Native Buildpack. 
+This release introduces a beta Java Native Image buildpack based on the Paketo Java Native Buildpack.
 
-You can build your Java apps with native image support and deploy those apps to Cloud Foundry. 
+You can build your Java apps with native image support and deploy those apps to Cloud Foundry.
 A growing number of Java users are building Java apps using support for native images. For more information, see [Native Image](https://www.graalvm.org/reference-manual/native-image/) in the GraalVM documentation.
 
 Java users deploying to Cloud Foundry can deploy apps compiled using native image support. However, the Cloud Foundry Java buildpack does not provide support to build, compile, and turn apps into a native image. You must perform those steps before deploying to Cloud Foundry.
@@ -1847,16 +1847,16 @@ These are the breaking changes for <%= vars.segment_runtime_full %> <%= vars.v_m
 
 ### <a id='jbp-462-removes-autoreconfig'></a> Java Buildpack 4.62.0 removes Spring AutoReconfiguration library for Spring Boot 3 applications
 
-From v4.62.0, the Java Buildpack will no longer install the Spring AutoReconfiguration (SAR) library for Spring Boot 3 applications. 
-This library was deprecated in May 2022 and overwrites your configured Spring Beans to connect to bound services. 
+From v4.62.0, the Java Buildpack will no longer install the Spring AutoReconfiguration (SAR) library for Spring Boot 3 applications.
+This library was deprecated in May 2022 and overwrites your configured Spring Beans to connect to bound services.
 This is not recommended for use in production environments. The recommended replacement is the Java CfEnv library.
 
 Applications should not be affected by this change if:
 
 * They are using Spring Boot 2.x - SAR will be installed and supported for the life of Spring Boot 2, although it is recommended to migrate to Java CfEnv as soon as possible.
-* They are using Spring Boot 3 and 
+* They are using Spring Boot 3 and
   * have already migrated from SAR to Java CfEnv** or
-  * have already migrated from Spring Cloud Connectors to Java CfEnv** 
+  * have already migrated from Spring Cloud Connectors to Java CfEnv**
 
 ** The buildpack will not install Java CfEnv if it is already detected as an app dependency.
 
@@ -1929,7 +1929,7 @@ OpenTelemetry Collector. Metrics Agent is scheduled to be removed in TAS 6.0.
 Your TAS for VMs deployment will fail or become insecure if you are using MySQL 5.7 as the
 external system database for TAS because MySQL 5.7 will soon reach End-Of-Life. Upgrade your external system database to a supported MySQL version.
 
-This will affect you if you have configured a MySQL 5.7 database instance as the external system database for your TAS deployment. You can check your current system database settings by selecting "Databases" pane in the TAS for VMs tile. If under the **System databases location** section, the **External database server** option is selected and the configured database server is based on MySQL 5.7, you must upgrade to a supported MySQL version (such as MySQL 8.0). 
+This will affect you if you have configured a MySQL 5.7 database instance as the external system database for your TAS deployment. You can check your current system database settings by selecting "Databases" pane in the TAS for VMs tile. If under the **System databases location** section, the **External database server** option is selected and the configured database server is based on MySQL 5.7, you must upgrade to a supported MySQL version (such as MySQL 8.0).
 
 
 ## <a id='known-issues'></a> Known issues
