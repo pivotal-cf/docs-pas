@@ -13781,3 +13781,12 @@ To work around this issue, you must manually copy and paste the displayed code.
 #### <a id='bbr-restore-fails'></a> BBR Restore fails after upgrading to TAS for VMs v3.0.11 or earlier version
 
 This issue affects those who are using the TAS Internal Mysql Cluster and attempting a BBR Restore after upgrading to TAS 3.0.11 or earlier version. If you are using an external database and are facing this issue, please open a ticket with VMware Tanzu Support and refer to the [TAS for VMs documentation](https://community.pivotal.io/s/article/BBR-Restore-after-upgrading-to-TAS-3-0?language=en_US).
+
+### <a id='check-nats-server-version'></a> Please Check your NATS Server Version
+
+In TAS 2.11.26, we introduced a `nats` release that replaced the underlying package from NATS v1.0 to NATS v2.0. TAS 3.0.0 includes
+NATS v2.0. The migration should happen invisibly; however if the migration is not successful, your nats servers may still be running NATS v1.0.
+
+Per the [TAS Support Lifecycle Policy](https://docs.pivotal.io/application-service/3-0/release-notes/runtime-rn.html#support-policy), we will
+keep the NATS v1.0 as a fallback, but will remove it in a future version. Please follow the [knolwledge base article here](https://community.pivotal.io/s/article/How-to-confirm-your-nats-servers-are-running-NATs-v2?language=en_US)
+to confirm that your `nats` instances have migrated successfully, and see how to troubleshoot if they have not.
