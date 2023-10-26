@@ -15414,11 +15414,11 @@ To learn more about this known issue, including how to mitigate it, see [Apps st
 rule](https://community.pivotal.io/s/article/Apps-stop-running-after-a-deploy-when-using-dynamic-ASGs-with-icmp-any-rule?language=en_US) in the Knowledge
 Base.
 
-### <a id='check-nats-server-version'></a> Please Check your NATS Server Version
+### <a id='check-nats-server-version'></a> Please check your NATS server version
 
 In TAS 2.11.26, we introduced a `nats` release that replaced the underlying package from NATS v1.0 to NATS v2.0. TAS 2.13.14 is the first patch release of TAS 2.13 that includes
 NATS v2.0. The migration should happen invisibly; however if the migration is not successful, your nats servers may still be running NATS v1.0.
 
-Per the [TAS Support Lifecycle Policy](https://docs.pivotal.io/application-service/3-0/release-notes/runtime-rn.html#support-policy), we will
-keep the NATS v1.0 as a fallback, but will remove it in a future version. Please follow the [knolwledge base article here](https://community.pivotal.io/s/article/How-to-confirm-your-nats-servers-are-running-NATs-v2?language=en_US)
+Per the [TAS Support Lifecycle Policy](https://docs.vmware.com/en/VMware-Tanzu-Application-Service/3.0/tas-for-vms/runtime-rn.html#support-policy), we will
+keep the NATS v1.0 as a fallback, but will remove it in a future version. Please follow the [knowledge base article here](https://community.pivotal.io/s/article/How-to-confirm-your-nats-servers-are-running-NATs-v2?language=en_US)
 to confirm that your `nats` instances have migrated successfully, and see how to troubleshoot if they have not.
