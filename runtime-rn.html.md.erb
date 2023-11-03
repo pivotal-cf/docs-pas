@@ -1589,6 +1589,7 @@ v8](../cf-cli/v8.html).
 * **[Bug]** This release introduced a bug that could result in the loss of Service Usage data. To avoid data loss, customers that depend on usage data should follow the workaround in [this KB article](https://community.pivotal.io/s/article/Potential-data-loss-for-service-usage-data-after-upgrading-TAS?language=en_US) or upgrade to a later version of VMware Tanzu Application Service for VMs within 30 days of upgrading to this version.
 * **[Security Fix]** Bump smoke-tests to address Go CVE-2023-39533
 * **[Breaking Change]** Java Buildpack v4.62.0 will no longer install the Spring AutoReconfiguration library for Spring Boot 3 applications - the Java CfEnv library will be installed instead. See [Java Buildpack 4.62.0 removes Spring AutoReconfiguration library for Spring Boot 3 applications](#jbp-462-removes-autoreconfig) below.
+* **[Feature Improvement]** App Autoscaler now sets the [JBP_CONFIG_ORACLE_JRE environment variable](https://github.com/cloudfoundry/java-buildpack/blob/main/docs/jre-oracle_jre.md#configuration). This allows the `deploy-autoscaler` errand to succeed when the java offline buildpack has been customized to use Oracle instead of OpenJDK, provided that JRE 17 is available.
 * Bump bosh-system-metrics-forwarder to version `0.0.36`
 * Bump capi to version `1.133.9`
 * Bump cf-autoscaling to version `249.2.6`
@@ -4292,7 +4293,6 @@ v8](../cf-cli/v8.html).
 
 **Release Date:** 07/21/2023
 
-* **[Breaking change]** App Autoscaler now requires JRE 17. If you have customized the java offline buildpack (java_buildpack_offline) to use the Oracle JRE you will need to ensure that JRE 17 is available and that the [JBP_CONFIG_ORACLE_JRE environment variable](https://github.com/cloudfoundry/java-buildpack/blob/main/docs/jre-oracle_jre.md#configuration) is set on the autoscale-api app to select JRE 17.
 * **[Known Issue]** BBR commands such as backup, backup-cleanup, and restore can fail due to a bug in component BBR scripts. Contact [Tanzu Support](https://tanzu.vmware.com/support) for help restoring from a backup if necessary.
 * **[Bug Fix]** Fixes duplicate routes sent to Diego
 * **[Bug Fix]** Updates snakeyaml to resolve CVEs: CVE-2022-1471, CVE-2022-25857, CVE-2022-38749, CVE-2022-38750, CVE-2022-38751, CVE-2022-38752, CVE-2022-41854
@@ -8395,7 +8395,7 @@ returned as 502s, potentially preventing stale route pruning.
 <%= partial "/pcf/tas/known-issues/gorouter-route-unavailability" %>
 <%= partial "/pcf/tas/known-issues/multiple-expect-100-continue-tas-2-13" %>
 
-* **[Breaking change]** App Autoscaler now requires JRE 17. If you have customized the java offline buildpack (java_buildpack_offline) to use the Oracle JRE you will need to ensure that JRE 17 is available and that the [JBP_CONFIG_ORACLE_JRE environment variable](https://github.com/cloudfoundry/java-buildpack/blob/main/docs/jre-oracle_jre.md#configuration) is set on the autoscale-api app to select JRE 17.
+* **[Breaking change]** App Autoscaler now requires JRE 17. If you have customized the java offline buildpack (java_buildpack_offline) to remove OpenJDK 17, contact [Tanzu Support](https://tanzu.vmware.com/support) for help.
 * **[Security Fix]** Apps Manager CVE Fixes
 * **[Security Fix]** Fix BBR scripts and bump spring-boot to address [CVE-2023-20860](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-20860) and [CVE-2023-20861](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-20861)
 * **[Bug Fix]** Fix apps-manager failure due to buildpack changes
