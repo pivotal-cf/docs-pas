@@ -21,6 +21,7 @@ Because VMware uses the Percona Distribution for MySQL, expect a time lag betwee
 
 **Release Date:** 11/10/2023
 
+* **[Known Issue]** This release is only compatible with Ops Manager 3.0.11 - 3.0.20 and 2.10.59 - 2.10.66
 * **[Feature]** Expose a custom environment identifier on component logs forwarded via syslog
 * **[Feature Improvement]**  Allow to configure w3c tracing headers in router
 * **[Bug Fix]** Remove inoperative errand syslog drains
@@ -353,6 +354,7 @@ Because VMware uses the Percona Distribution for MySQL, expect a time lag betwee
 
 **Release Date:** 10/25/2023
 
+* **[Known Issue]** This release is only compatible with Ops Manager 3.0.11 - 3.0.20 and 2.10.59 - 2.10.66
 * **[Feature Improvement]** Option to enable w3c tracing headers in router
 * **[Bug Fix]** Prevent retired app instances from receiving traffic by ensuring rep emits events to cleanup routes when `cf restart-app-instance` is invoked.
 * **[Feature]** Forwarder Agent emits a new metric, egress_expired_total, per egress destination to track the number of envelopes dropped from that designation's diode
@@ -992,6 +994,7 @@ Because VMware uses the Percona Distribution for MySQL, expect a time lag betwee
 
 **Release Date:** 10/17/2023
 
+* **[Known Issue]** This release is only compatible with Ops Manager 3.0.11 - 3.0.20 and 2.10.59 - 2.10.66
 * **[Security Fix]** Bump routing-release to v0.282.0
 * **[Security Fix]** Bump smoke-tests to address Go CVE-2023-39533
 * **[Security Fix]** Continue to forward relevant headers by removing hop-by-hop headers that could interfere with gorouter when proxying client requests
