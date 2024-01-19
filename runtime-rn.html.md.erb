@@ -2275,6 +2275,13 @@ timeouts are now configured by the "Front end idle timeout for the Gorouter" pro
 
 These are the new features for <%= vars.app_runtime_full %> <%= vars.v_major_version %>.
 
+### Reduced logging and metric infrastructure requirements
+
+For customers that do not use the legacy V1 and V2 Loggregator Firehoses it is now possible to scale Doppler and Traffic Controller VMs
+down to zero. This can significantly reduce costs or free up resources that may instead be used to run additional workloads on the platform.
+You may not be able to scale down to zero if you have integrations or other features that depend on the firehose, such as log and metric nozzles or
+metric registrar.
+
 ## <a id='breaking-changes'></a> Breaking changes
 
 These are the breaking changes for <%= vars.app_runtime_full %> <%= vars.v_major_version %>.
@@ -2283,4 +2290,11 @@ These are the breaking changes for <%= vars.app_runtime_full %> <%= vars.v_major
 
 Here are the known issues for <%= vars.app_runtime_full %> <%= vars.v_major_version %>.
 
+### Loggregator Agents in other products may log failure when dopplers are scaled to zero
 
+Service tile products may make use of Loggregator Agent to egress metrics for service instances. If the doppler instance group is scaled to zero
+then Loggregator Agent jobs deployed by these products may repeatedly log a failure to connect to doppler:
+
+```
+failed to connect: unable to lookup a log consumer
+```
