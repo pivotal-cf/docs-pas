@@ -21,6 +21,7 @@ MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> containing that pa
 
 **Release Date:** 01/31/2024
 
+* **[Known Issue]** We recommend upgrading from this version alongside a stemcell upgrade due to an issue in our mapfs release, causing possible failures in pre-start during an Apply Changes.
 * **[Feature]** Adds Diego support for Docker workloads using OCI images
 * **[Feature]** CAPI Enable legacy MD5 buildpack paths
 * **[Bug Fix]** Forwarder Agent does not attempt to forward logs and metrics to Loggregator Agent if both Firehose V1 and Firehose V2 are disabled
