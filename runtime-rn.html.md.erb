@@ -25,6 +25,8 @@ use <%= vars.app_runtime_abbr %>
 
 **Release Date:** 01/31/2024
 
+* **[Known Issue]** We recommend upgrading from this version alongside a stemcell upgrade due to an issue in our mapfs release, causing possible failures in pre-start during an Apply Changes.
+* **[Known Issue]** BBR is nonfunctional in this release due to an incompatible version of the MySQL client. Subsequent releases will restore functionality.
 * **[Feature]** Adds Diego support for Docker workloads using OCI images
 * **[Bug Fix]** Fixes BBR Restoration failure with UAA database when upgrading from MySQL 5 to 8.
 * Bump backup-and-restore-sdk to version `1.18.118`
