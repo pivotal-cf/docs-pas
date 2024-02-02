@@ -21,6 +21,7 @@ Because VMware uses the Percona Distribution for MySQL, expect a time lag betwee
 
 **Release Date:** 01/31/2024
 
+* **[Known Issue]** We recommend upgrading from this version alongside a stemcell upgrade due to an issue in our mapfs release, causing possible failures in pre-start during an Apply Changes.
 * **[Feature]** Adds Diego support for Docker workloads using OCI images
 * **[Bug Fix]** Forwarder Agent does not attempt to forward logs and metrics to Loggregator Agent if both Firehose V1 and Firehose V2 are disabled
 * **[Bug Fix]** Prom Scraper does not attempt to scrape metrics from Loggregator Agent if both Firehose V1 and Firehose V2 are disabled
