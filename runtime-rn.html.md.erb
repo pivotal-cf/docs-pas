@@ -4408,6 +4408,24 @@ metric registrar.
 
 These are the breaking changes for <%= vars.app_runtime_full %> <%= vars.v_major_version %>.
 
+### Default Stacks No Longer Include cflinuxfs3
+
+New installations of TAS 6.0 will no longer default to include cflinuxfs3 in the list of stacks.
+Operators can [still configure TAS](https://docs.vmware.com/en/VMware-Tanzu-Application-Service/6.0/tas-for-vms/config-cloud-controller.html)
+to install cflinuxfs3, as desired.
+
+Upgrading existing TAS foundations to TAS 6.0 will NOT remove cflinuxfs3.
+Apps running on cflinuxfs3 will continue to operate, as normal.
+It will still be possible to push applications with cflinuxfs3 as the stack.
+However, if operators [remove cflinuxfs3](https://docs.vmware.com/en/VMware-Tanzu-Application-Service/6.0/tas-for-vms/stack-auditor.html)
+from an existing foundation,
+then cflinuxfs3 will no longer be installed when deploying TAS,
+unless the default stack list is configured to include cflinuxfs3 (see above).
+
+TAS 6.0 is anticipated to be the last TAS release that will include cflinuxfs3.
+If you have not already, please migrate all apps off of cflinuxfs3
+and remove the stack from your foundations.
+
 ## <a id='known-issues'></a> Known issues
 
 Here are the known issues for <%= vars.app_runtime_full %> <%= vars.v_major_version %>.
