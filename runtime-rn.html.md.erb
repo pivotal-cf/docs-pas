@@ -19060,7 +19060,7 @@ Traffic](../concepts/understand-cf-networking.html#securing-traffic) in _Contain
 * **[Security Fix]** Diego - Bump containerd to v1.5.9 to address ([CVE-2021-43816](https://nvd.nist.gov/vuln/detail/CVE-2021-43816))
 * **[Security Fix]** Bump routing release to 0.228.0 to address ([CVE-2021-44716](https://nvd.nist.gov/vuln/detail/CVE-2021-44716))
 * **[Feature]** Monit thresholds for the Cloud Controller worker are configurable
-* **[Feature]** Apps can be step-scaled up or down in Autoscaler. See [About App Autoscaler](https://docs.pivotal.io/application-service/2-11/appsman-services/autoscaler/about-app-autoscaler.html).
+* **[Feature]** Apps can be step-scaled up or down in Autoscaler. See [About App Autoscaler](https://docs.vmware.com/en/VMware-Tanzu-Application-Service/2.11/tas-for-vms/autoscaler-about-app-autoscaler.html).
 * **[Feature Improvement]** Golang v1.17 contains stricter IP parsing standards, so IP addresses with leading zeros in any octets cause a BOSH template failure. Operators can remove the leading zeros and try deploying again. This affects properties that feed into cf-networking-release, silk-release, loggregator-agent-release, and syslog-release. Syslog drains and metric registrar endpoints registered using user-provided services might also be affected.
 * **[Bug Fix]** Cloud Controller worker PruneExcessAppRevisions job is more memory efficient
 * **[Bug Fix]** Fixed race conditions that could cause Autoscaler to crash
@@ -20314,7 +20314,7 @@ earlier patch versions can result in an `Unknown Error` when pushing apps.
 * Some partner service tiles may be incompatible with <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>. VMware is working with partners to ensure
 that their tiles are updated to work with the latest versions of <%= vars.app_runtime_abbr %>. For information about which partner service releases are
 currently compatible with <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>, review the appropriate partners services release documentation at
-[https://docs.pivotal.io](https://docs.pivotal.io) or contact the partner organization that produces the tile.
+[https://network.pivotal.io/](https://network.pivotal.io/) or contact the partner organization that produces the tile.
 
 * In <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>, app containers use port `61002` for inbound SSH traffic. In PAS v2.7 and earlier, apps use port
 `2222` for inbound SSH traffic. If you are upgrading from PAS v2.7, you may need to adjust the NSX-T firewall rules for your apps.
