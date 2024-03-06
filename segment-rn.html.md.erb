@@ -17,6 +17,247 @@ Because VMware uses the Percona Distribution for MySQL, expect a time lag betwee
 
 ## <a id='releases'></a> Releases
 
+### <a id='5.0.9'></a> 5.0.9
+
+**Release Date:** 03/06/2024
+
+* **[Feature]** Add support for ESM updates on cflinuxfs4 stack
+* Bump cf-networking to version `3.43.0`
+* Bump cflinuxfs3 to version `0.386.0`
+* Bump cflinuxfs4 to version `1.81.0`
+* Bump cf-cli to version `1.60.0`
+* Bump diego to version `2.95.0`
+* Bump garden-runc to version `1.50.0`
+* Bump mapfs to version `1.2.59`
+* Bump nfs-volume to version `7.1.55`
+* Bump smb-volume to version `3.1.57`
+
+<table border="1" class="nice">
+  <thead>
+    <tr>
+      <th>Component</th>
+      <th>Version</th>
+      <th>Release Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>ubuntu-jammy stemcell</td><td>1.390</td><td></td></tr>
+    <tr><td>bpm</td><td>1.2.16</td><td></td></tr>
+    <tr><td>cf-networking</td><td>3.43.0</td>
+      <td>
+        <details>
+          <summary>v3.43.0</summary>
+          <pre style="max-width: 30em">
+  ## Changes
+  - Removes deprecated and unused/unworking istio code from the release.
+  - Go package dependency bumps
+  ## Bosh Job Spec changes:
+  ```diff
+  diff --git a/jobs/bosh-dns-adapter/spec b/jobs/bosh-dns-adapter/spec
+  index 8d73a6b4..fba2cdba 100644
+  --- a/jobs/bosh-dns-adapter/spec
+  +++ b/jobs/bosh-dns-adapter/spec
+  @@ -21,9 +21,6 @@ consumes:
+  - name: cloud_controller_container_networking_info
+  type: cloud_controller_container_networking_info
+  optional: true
+  -  - name: vip_resolver_conn
+  -    type: vip_resolver_conn
+  -    optional: true
+  properties:
+  cf_app_sd_disable:
+  ```
+  ## ✨  Built with go 1.21.7
+  **Full Changelog**: https://github.com/cloudfoundry/cf-networking-release/compare/v3.42.0...v3.43.0
+  ## Resources
+  - [Download release 3.43.0 from bosh.io](https://bosh.io/releases/github.com/cloudfoundry/cf-networking-release?version=3.43.0).
+          </pre>
+        </details>
+      </td>
+    </tr>
+    <tr><td>cflinuxfs3</td><td>0.386.0</td>
+      <td>
+        <details>
+          <summary>v0.386.0</summary>
+          <pre style="max-width: 30em">
+  This release ships with cflinuxfs3 version 0.386.0. For more information, see the [release notes](https://github.com/cloudfoundry/cflinuxfs3/releases/tag/0.386.0)
+          </pre>
+        </details>
+      </td>
+    </tr>
+    <tr><td>cflinuxfs4</td><td>1.81.0</td>
+      <td>
+        <details>
+          <summary>v1.81.0</summary>
+          <pre style="max-width: 30em">
+  This release ships with cflinuxfs4 version 1.81.0. For more information, see the [release notes](https://github.com/cloudfoundry/cflinuxfs4/releases/tag/1.81.0)
+          </pre>
+        </details>
+        <details>
+          <summary>v1.80.0</summary>
+          <pre style="max-width: 30em">
+  This release ships with cflinuxfs4 version 1.80.0. For more information, see the [release notes](https://github.com/cloudfoundry/cflinuxfs4/releases/tag/1.80.0)
+          </pre>
+        </details>
+        <details>
+          <summary>v1.79.0</summary>
+          <pre style="max-width: 30em">
+  This release ships with cflinuxfs4 version 1.79.0. For more information, see the [release notes](https://github.com/cloudfoundry/cflinuxfs4/releases/tag/1.79.0)
+          </pre>
+        </details>
+        <details>
+          <summary>v1.78.0</summary>
+          <pre style="max-width: 30em">
+  This release ships with cflinuxfs4 version 1.78.0. For more information, see the [release notes](https://github.com/cloudfoundry/cflinuxfs4/releases/tag/1.78.0)
+          </pre>
+        </details>
+        <details>
+          <summary>v1.77.0</summary>
+          <pre style="max-width: 30em">
+  This release ships with cflinuxfs4 version 1.77.0. For more information, see the [release notes](https://github.com/cloudfoundry/cflinuxfs4/releases/tag/1.77.0)
+          </pre>
+        </details>
+        <details>
+          <summary>v1.76.0</summary>
+          <pre style="max-width: 30em">
+  This release ships with cflinuxfs4 version 1.76.0. For more information, see the [release notes](https://github.com/cloudfoundry/cflinuxfs4/releases/tag/1.76.0)
+          </pre>
+        </details>
+        <details>
+          <summary>v1.75.0</summary>
+          <pre style="max-width: 30em">
+  This release ships with cflinuxfs4 version 1.75.0. For more information, see the [release notes](https://github.com/cloudfoundry/cflinuxfs4/releases/tag/1.75.0)
+          </pre>
+        </details>
+        <details>
+          <summary>v1.74.0</summary>
+          <pre style="max-width: 30em">
+  This release ships with cflinuxfs4 version 1.74.0. For more information, see the [release notes](https://github.com/cloudfoundry/cflinuxfs4/releases/tag/1.74.0)
+          </pre>
+        </details>
+      </td>
+    </tr>
+    <tr><td>cf-cli</td><td>1.60.0</td>
+      <td>
+        <details>
+          <summary>1.60.0</summary>
+          <pre style="max-width: 30em">
+  ### This release contains the following versions of the CF CLI
+  Major version | Prior version | Current version
+  -- | -- | --
+  v8 | 8.7.7 | [8.7.8](https://github.com/cloudfoundry/cli/releases/tag/v8.7.8)
+  v7 | 7.7.7 | [7.7.8](https://github.com/cloudfoundry/cli/releases/tag/v7.7.8)
+  v6 | 6.53.0 | [6.53.0](https://github.com/cloudfoundry/cli/releases/tag/v6.53.0)
+          </pre>
+        </details>
+      </td>
+    </tr>
+    <tr><td>count-cores-indicator</td><td>2.0.0</td><td></td></tr>
+    <tr><td>diego</td><td>2.95.0</td>
+      <td>
+        <details>
+          <summary>v2.95.0</summary>
+          <pre style="max-width: 30em">
+  ## Changes
+  - bbs: ([Issue](https://github.com/cloudfoundry/diego-release/issues/883)) Now uses `DesiredLRPSchedulingInfo` instead of the entire `DesiredLRP` when only the scheduling info is needed, resulting in a 95% decrease in time spent for relevant calls.  Thanks @klapkov!
+  ## ✨  Built with go 1.21.7
+  **Full Changelog**: https://github.com/cloudfoundry/diego-release/compare/v2.94.0...v2.95.0
+  ## Resources
+  - [Download release 2.95.0 from bosh.io](https://bosh.io/releases/github.com/cloudfoundry/diego-release?version=2.95.0).
+          </pre>
+        </details>
+      </td>
+    </tr>
+    <tr><td>garden-runc</td><td>1.50.0</td>
+      <td>
+        <details>
+          <summary>v1.50.0</summary>
+          <pre style="max-width: 30em">
+  ## Changes
+  - Adds `grootfs.routine_gc` property, which allows operators to configure garden to grootfs to clean up unused container image layers whenever new containers are created.
+  - Previously, to achieve this, operators had to set `grootfs.reserved_space_for_other_jobs_in_mb` to the same value as the ephemeral disk, which is not always easy to obtain programatically.
+  - Bump go dependencies
+  ## Bosh Job Spec changes:
+  ```diff
+  diff --git a/jobs/garden/spec b/jobs/garden/spec
+  index c84b5c43..027df351 100644
+  --- a/jobs/garden/spec
+  +++ b/jobs/garden/spec
+  @@ -292,6 +292,10 @@ properties:
+  grootfs.tls.ca_cert:
+  description: "PEM-encoded tls client CA certificate for asset upload/download"
+  +  grootfs.routine_gc:
+  +    description: "Set to true if you want grootfs to perform garbage collection on unused container image layers whenever a new container is created."
+  +    default: false
+  +
+  grootfs.reserved_space_for_other_jobs_in_mb:
+  description: "Amount of space that will be kept free for other jobs. The GrootFS store will be able to grow up to a maximum size of its disk minus this reserved space. Where the reserved space does not allow sufficient size for GrootFS to store container images and root filesystems (currently 15GB), the limit will be a soft limit, and garbage collection will attempt to keep disk space available for other jobs. -1 disables GC and allows GrootFS to potentially use the whole disk."
+  default: 15360
+  ```
+  ## ✨  Built with go 1.21.7
+  **Full Changelog**: https://github.com/cloudfoundry/garden-runc-release/compare/v1.49.0...v1.50.0
+  ## Resources
+  - [Download release 1.50.0 from bosh.io](https://bosh.io/releases/github.com/cloudfoundry/garden-runc-release?version=1.50.0).
+          </pre>
+        </details>
+      </td>
+    </tr>
+    <tr><td>loggregator-agent</td><td>8.0.1</td><td></td></tr>
+    <tr><td>mapfs</td><td>1.2.59</td>
+      <td>
+        <details>
+          <summary>v1.2.59</summary>
+          <pre style="max-width: 30em">
+  ## Dependencies
+  * **mapfs:** Updated to v`535cb52`.<br>For more information, see [mapfs](https://github.com/cloudfoundry/mapfs).
+          </pre>
+        </details>
+      </td>
+    </tr>
+    <tr><td>metrics-discovery</td><td>3.2.22</td><td></td></tr>
+    <tr><td>nfs-volume</td><td>7.1.55</td>
+      <td>
+        <details>
+          <summary>v7.1.55</summary>
+          <pre style="max-width: 30em">
+  ## Dependencies
+  * **nfsbroker:** Updated to v`1c94cbf`.<br>For more information, see [nfsbroker](https://github.com/cloudfoundry/nfsbroker).
+  * **nfsv3driver:** Updated to v`bf42615`.<br>For more information, see [nfsv3driver](https://github.com/cloudfoundry/nfsv3driver).
+          </pre>
+        </details>
+      </td>
+    </tr>
+    <tr><td>otel-collector</td><td>0.3.2</td><td></td></tr>
+    <tr><td>routing</td><td>0.292.0</td><td></td></tr>
+    <tr><td>silk</td><td>3.43.0</td><td></td></tr>
+    <tr><td>smb-volume</td><td>3.1.57</td>
+      <td>
+        <details>
+          <summary>v3.1.57</summary>
+          <pre style="max-width: 30em">
+  ## Dependencies
+  * **smbbroker:** Updated to v`e379cb9`.<br>For more information, see [smbbroker](https://github.com/cloudfoundry/smbbroker).
+  * **smbdriver:** Updated to v`1dd5594`.<br>For more information, see [smbdriver](https://github.com/cloudfoundry/smbdriver).
+          </pre>
+        </details>
+        <details>
+          <summary>v3.1.56</summary>
+          <pre style="max-width: 30em">
+  ## Dependencies
+  * **smbbroker:** Updated to v`1385bd7`.<br>For more information, see [smbbroker](https://github.com/cloudfoundry/smbbroker).
+  * **smbdriver:** Updated to v`1c35d30`.<br>For more information, see [smbdriver](https://github.com/cloudfoundry/smbdriver).
+          </pre>
+        </details>
+      </td>
+    </tr>
+    <tr><td>smoke-tests</td><td>4.8.5</td><td></td></tr>
+    <tr><td>syslog</td><td>12.2.2</td><td></td></tr>
+    <tr><td>tanzu-jammy-stack</td><td>1.0.0</td><td></td></tr>
+  </tbody>
+</table>
+
+
+
 ### <a id='5.0.8'></a> 5.0.8
 
 **Release Date:** 03/04/2024
