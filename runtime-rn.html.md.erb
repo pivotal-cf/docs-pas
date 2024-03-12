@@ -6458,6 +6458,14 @@ TAS 6.0 is anticipated to be the last TAS release that will include cflinuxfs3.
 If you have not already, please migrate all apps off of cflinuxfs3
 and remove the stack from your foundations.
 
+### Absolute CPU Entitlement metrics no longer available
+
+The `absolute_entitlement` and `absolute_usage` metrics are no longer emitted for each container and have been replaced by the `cpu_entitlement`
+metric. Operators should update any dashboards that reference these metrics to use the new metric.
+
+The experimental CPU Entitlement Plugin will no longer function due to the removal of these metrics. If you were using this plugin to view
+CPU entitlement usage you can instead view the `cpu_entitlement` metric, for example via the Log Cache cf CLI plugin.
+
 ## <a id='known-issues'></a> Known issues
 
 Here are the known issues for <%= vars.app_runtime_full %> <%= vars.v_major_version %>.
