@@ -6429,6 +6429,13 @@ must configure the same setting separately for both <%= vars.segment_runtime_ful
 If you had previously set a global log rate limit, this limit is re-applied following the upgrade to
 <%= vars.app_runtime_full %> <%= vars.v_major_version %>.
 
+### App Autoscaler supports scaling on CPU entitlement
+
+<%= vars.app_runtime_full %> <%= vars.v_major_version %> introduces support for autoscaling on CPU entitlement. This
+improves support within App Autoscaler for scaling on CPU. Previously App Autoscaler CPU rules could be brittle due to
+their dependency on the underlying Diego Cell configuration. With this feature applications can now autoscale on the CPU
+entitlement available, calculated appropriately based on the memory allocated.
+
 ## <a id='breaking-changes'></a> Breaking changes
 
 These are the breaking changes for <%= vars.app_runtime_full %> <%= vars.v_major_version %>.
