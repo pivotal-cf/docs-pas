@@ -6429,6 +6429,13 @@ must configure the same setting separately for both <%= vars.segment_runtime_ful
 If you had previously set a global log rate limit, this limit is re-applied following the upgrade to
 <%= vars.app_runtime_full %> <%= vars.v_major_version %>.
 
+### App Autoscaler supports scaling on CPU entitlement
+
+<%= vars.app_runtime_full %> <%= vars.v_major_version %> introduces support for autoscaling on CPU entitlement. This
+improves support within App Autoscaler for scaling on CPU. Previously App Autoscaler CPU rules could be brittle due to
+their dependency on the underlying Diego Cell configuration. With this feature applications can now autoscale on the CPU
+entitlement available, calculated appropriately based on the memory allocated.
+
 ## <a id='breaking-changes'></a> Breaking changes
 
 These are the breaking changes for <%= vars.app_runtime_full %> <%= vars.v_major_version %>.
@@ -6450,6 +6457,14 @@ unless the default stack list is configured to include cflinuxfs3 (see above).
 TAS 6.0 is anticipated to be the last TAS release that will include cflinuxfs3.
 If you have not already, please migrate all apps off of cflinuxfs3
 and remove the stack from your foundations.
+
+### Absolute CPU Entitlement metrics no longer available
+
+The `absolute_entitlement` and `absolute_usage` metrics are no longer emitted for each container and have been replaced by the `cpu_entitlement`
+metric. Operators should update any dashboards that reference these metrics to use the new metric.
+
+The experimental CPU Entitlement Plugin will no longer function due to the removal of these metrics. If you were using this plugin to view
+CPU entitlement usage you can instead view the `cpu_entitlement` metric, for example via the Log Cache cf CLI plugin.
 
 ## <a id='known-issues'></a> Known issues
 
