@@ -6432,8 +6432,8 @@ If you had previously set a global log rate limit, this limit is re-applied foll
 ### App Autoscaler supports scaling on CPU entitlement
 
 <%= vars.app_runtime_full %> <%= vars.v_major_version %> introduces support for autoscaling on CPU entitlement. This
-improves support within App Autoscaler for scaling on CPU. Previously App Autoscaler CPU rules could be brittle due to
-their dependency on the underlying Diego Cell configuration. With this feature applications can now autoscale on the CPU
+improves App Autoscaler support for scaling on CPU. Previously, App Autoscaler CPU rules could be brittle due to
+their dependency on the underlying Diego Cell configuration. With this feature, apps can autoscale on the CPU
 entitlement available, calculated appropriately based on the memory allocated.
 
 ## <a id='breaking-changes'></a> Breaking changes
@@ -6460,11 +6460,11 @@ and remove the stack from your foundations.
 
 ### Absolute CPU Entitlement metrics no longer available
 
-The `absolute_entitlement` and `absolute_usage` metrics are no longer emitted for each container and have been replaced by the `cpu_entitlement`
-metric. Operators should update any dashboards that reference these metrics to use the new metric.
+The `absolute_entitlement` and `absolute_usage` metrics are no longer emitted for each container. They are replaced by the `cpu_entitlement`
+metric. If you have any dashboards that reference the `absolute_entitlement` and `absolute_usage` metrics, update the dashboards to use the new metric.
 
-The experimental CPU Entitlement Plugin will no longer function due to the removal of these metrics. If you were using this plugin to view
-CPU entitlement usage you can instead view the `cpu_entitlement` metric, for example via the Log Cache cf CLI plugin.
+Due to the removal of these metrics, the experimental CPU Entitlement Plug-in no longer functions. If you use this plug-in to view
+CPU entitlement usage, you can instead view the `cpu_entitlement` metric, for example using the Log Cache cf CLI plug-in.
 
 ## <a id='known-issues'></a> Known issues
 
