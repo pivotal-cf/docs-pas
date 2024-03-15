@@ -6416,6 +6416,20 @@ down to zero. This can significantly reduce costs or free up resources that may 
 You may not be able to scale down to zero if you have integrations or other features that depend on the firehose, such as log and metric nozzles or
 metric registrar.
 
+### Reintroduction of global log rate limit
+
+TAS 3.0 introduced granular app log rate limits for fine-grained control over application log rates.
+
+In TAS 4.0 the older global log rate limit feature **App log rate limit (deprecated)** under **App Containers** was
+removed. This was problematic for operators who were jump upgrading to TAS 4.0 without going through TAS 3.0 as logs
+would not be rate limited until application-based log rate limits were applied.
+
+The global log rate limit is being re-added to enable operators to upgrade while retaining a log rate limit. Operators
+should configure the same setting separately for <%= vars.segment_runtime_full %> and <%= vars.windows_runtime_abbr %>.
+
+If you previously had a global log rate limit set then it will be re-applied following the upgrade to
+<%= vars.app_runtime_full %> <%= vars.v_major_version %>.
+
 ## <a id='breaking-changes'></a> Breaking changes
 
 These are the breaking changes for <%= vars.app_runtime_full %> <%= vars.v_major_version %>.
