@@ -991,7 +991,7 @@ use <%= vars.app_runtime_abbr %>
 
 **Release Date:** 02/05/2024
 
-* **[Known Issue]** routing-release 0.289.0 introduced a breaking change whereby the Gorouter uses port 7070 instead of a random available port for internal route service requests. This has been fixed in routing-release 0.291.0 / TAS 2.11.54.
+* **[Known Issue]** routing-release 0.289.0 introduced a breaking change: the Gorouter uses port 7070, instead of a random available port, for internal route service requests. This is fixed in routing-release 0.291.0 / TAS v2.11.54.
 * **[Rollback]** backup-and-restore-sdk rolled back to v1.18.116 to restore MySQL 5.7 support removed in [v1.18.117](https://github.com/cloudfoundry/backup-and-restore-sdk-release/releases/tag/v1.18.117)
 * **[Rollback]** mapfs rolled back to v1.2.52 for [upgrade bug](https://github.com/cloudfoundry/mapfs-release/pull/214)
 * Bump capi to version `1.109.34`
