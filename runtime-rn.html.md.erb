@@ -1375,6 +1375,7 @@ MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> containing that pa
 
 **Release Date:** 02/05/2024
 
+* **[Known Issue]** routing-release 0.289.0 introduced a breaking change whereby the Gorouter uses port 7070 instead of a random available port for internal route service requests. This has been fixed in routing-release 0.291.0 / TAS 4.0.18.
 * **[Rollback]** mapfs rolled back to v1.2.52 for [upgrade bug](https://github.com/cloudfoundry/mapfs-release/pull/214)
 * Bump cf-autoscaling to version `250.1.4`
 * Bump cf-networking to version `3.41.0`
