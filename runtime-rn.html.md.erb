@@ -422,7 +422,6 @@ MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> containing that pa
 * **[Feature]** Bump UAA major version to 77
 * **[Feature Improvement]** Allow UAA internal password policy to be independently configurable
 * **[Feature Improvement]** Apps using readiness health checks will now see audit.app.process.notready and audit.app.process.ready events reported to `cf events`
-* **[Breaking Change]** Change default internal route service port to 7070
 * **[Bug Fix]** Resolve cf-autoscaling issue where creation of scheduled limit changes could fail due to the database server not allowing zero dates.
 * **[Security Fix]** Bump docker to address [GHSA-jq35-85cj-fj4p](https://github.com/advisories/GHSA-jq35-85cj-fj4p)
 * **[Feature Improvement]** Garden now emits an `UnkillableContainers` metric to help identify cells that will be unable to redeploy successfully without operator intervention
