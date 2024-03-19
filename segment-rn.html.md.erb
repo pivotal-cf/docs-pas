@@ -16,7 +16,6 @@ Because VMware uses the Percona Distribution for MySQL, expect a time lag betwee
 
 **Release Date:** 03/04/2024
 
-* **[Breaking Change]** Change default internal route service port to 7070
 * **[Security Fix]** Bump docker to address [GHSA-jq35-85cj-fj4p](https://github.com/advisories/GHSA-jq35-85cj-fj4p)
 * **[Feature Improvement]** Garden now emits an `UnkillableContainers` metric to help identify cells that will be unable to redeploy successfully without operator intervention
 * **[Feature Improvement]** Adds opt-in support for NTLM + other challenge-response based authentication using `Authorization: Negotiate` flows by automatically enabling sticky sessions for those requests.
@@ -6729,9 +6728,9 @@ exceed the app log rate limit. For more information, see [Diego Drops App Logs T
           <summary>0.231.0</summary>
           <pre style="max-width: 30em">
   ## Bug Fixes
-  - Removed the x509ignoreCN property. Now that `gorouter` is built on golang 1.17, it no longer has any effect on gorouter behavior, and was only adding to confusion in the properties
-  - Resolve an issue with route-registrar using the same TTL as it's RegistrationInterval for tcp routes, leading to unnecessary churn of pruned + re-registered routes.
-  - Resolve an issue with Routing API where upserts to tcp routes were causing change events to be emitted when the only change was a bump in TTL. This led to an issue where tcp-router was constantly reloading haproxy with every route's heartbeat registration call.
+  - Removed the x509ignoreCN property. Now that `gorouter` is built on golang 1.17, it no longer has any effect on gorouter behavior, and was only adding to confusion in the properties
+  - Resolve an issue with route-registrar using the same TTL as it's RegistrationInterval for tcp routes, leading to unnecessary churn of pruned + re-registered routes.
+  - Resolve an issue with Routing API where upserts to tcp routes were causing change events to be emitted when the only change was a bump in TTL. This led to an issue where tcp-router was constantly reloading haproxy with every route's heartbeat registration call.
   ## Manifest Property Changes
   | Job | Property | 0.230.0 | 0.231.0 |
   | --- | --- | --- | --- |
