@@ -21,6 +21,1221 @@ use <%= vars.app_runtime_abbr %>
 
 ## <a id='releases'></a> Releases
 
+### <a id='2.11.55'></a> 2.11.55
+
+**Release Date:** 03/22/2024
+
+* **[Bug Fix]** Adds default value for internal_server_port when Route Services are disabled to prevent deployment error
+* **[Bug Fix]** Fix "routine" garden container disk cleanup option
+* Bump backup-and-restore-sdk to version `1.19.7`
+* Bump binary-offline-buildpack to version `1.1.10`
+* Bump bosh-system-metrics-forwarder to version `0.0.41`
+* Bump bpm to version `1.2.17`
+* Bump cf-autoscaling to version `250.2.1`
+* Bump cf-cli to version `1.60.0`
+* Bump cf-networking to version `3.44.0`
+* Bump cflinuxfs3 to version `0.387.0`
+* Bump credhub to version `2.12.66`
+* Bump diego to version `2.95.0`
+* Bump dotnet-core-offline-buildpack to version `2.4.26`
+* Bump garden-runc to version `1.50.0`
+* Bump go-offline-buildpack to version `1.10.17`
+* Bump java-offline-buildpack to version `4.67.0`
+* Bump log-cache to version `2.12.16`
+* Bump loggregator to version `106.7.17`
+* Bump loggregator-agent to version `6.5.18`
+* Bump mapfs to version `1.2.62`
+* Bump metric-registrar to version `1.1.33`
+* Bump metrics-discovery to version `3.2.23`
+* Bump nfs-volume to version `5.0.64`
+* Bump nginx-offline-buildpack to version `1.2.12`
+* Bump nodejs-offline-buildpack to version `1.8.23`
+* Bump php-offline-buildpack to version `4.6.17`
+* Bump push-apps-manager-release to version `674.0.19`
+* Bump push-usage-service-release to version `674.0.92`
+* Bump python-offline-buildpack to version `1.8.22`
+* Bump r-offline-buildpack to version `1.2.10`
+* Bump routing to version `0.293.0`
+* Bump ruby-offline-buildpack to version `1.10.11`
+* Bump silk to version `3.44.0`
+* Bump smb-volume to version `3.1.60`
+* Bump staticfile-offline-buildpack to version `1.6.11`
+* Bump statsd-injector to version `1.11.39`
+* Bump syslog to version `11.8.17`
+* Bump system-metrics-scraper to version `4.0.7`
+* Bump uaa to version `74.5.107`
+
+<table border="1" class="nice">
+  <thead>
+    <tr>
+      <th>Component</th>
+      <th>Version</th>
+      <th>Release Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>ubuntu-xenial stemcell</td><td>621.897</td><td></td></tr>
+    <tr><td>backup-and-restore-sdk</td><td>1.19.7</td>
+      <td>
+        <details>
+          <summary>v1.19.7</summary>
+          <pre style="max-width: 30em">
+  ## Dependencies
+  * **storage:** Updated to v1.39.1.<br>For more information, see [storage](https://github.com/googleapis/google-cloud-go).
+  * **bosh-backup-and-restore:** Updated to v1.9.61.<br>For more information, see [bosh-backup-and-restore](https://github.com/cloudfoundry-incubator/bosh-backup-and-restore).
+  * **api:** Updated to v0.170.0.<br>For more information, see [api](https://github.com/googleapis/google-api-go-client).
+          </pre>
+        </details>
+        <details>
+          <summary>v1.19.4</summary>
+          <pre style="max-width: 30em">
+  ## Changes
+  * Golang: Updated to v1.22.1. (#1573)
+  ## Dependencies
+  * **azblob:** Updated to v1.3.1.<br>For more information, see [azblob](https://github.com/Azure/azure-sdk-for-go).
+  * **credentials:** Updated to v1.17.7.<br>For more information, see [credentials](https://github.com/aws/aws-sdk-go-v2).
+  * **s3:** Updated to v1.51.4.<br>For more information, see [s3](https://github.com/aws/aws-sdk-go-v2).
+  * **mysql:** Updated to v1.8.0.<br>For more information, see [mysql](https://github.com/go-sql-driver/mysql).
+  * **v2:** Updated to v2.16.0.<br>For more information, see [v2](https://github.com/onsi/ginkgo).
+  * **oauth2:** Updated to v0.18.0.<br>For more information, see [oauth2](https://github.com/golang/oauth2).
+  * **api:** Updated to v0.168.0.<br>For more information, see [api](https://github.com/googleapis/google-api-go-client).
+          </pre>
+        </details>
+        <details>
+          <summary>v1.19.3</summary>
+          <pre style="max-width: 30em">
+  ## Changes
+  * Migrate to new azure sdk (#1555)
+  ## Dependencies
+  * **storage:** Updated to v1.39.0.<br>For more information, see [storage](https://github.com/googleapis/google-cloud-go).
+  * **credentials:** Updated to v1.17.4.<br>For more information, see [credentials](https://github.com/aws/aws-sdk-go-v2).
+          </pre>
+        </details>
+        <details>
+          <summary>v1.19.2</summary>
+          <pre style="max-width: 30em">
+  ## Changes
+  * Bump libpcre2 from 10.42 to 10.43 (#1528)
+  ## Dependencies
+  * **credentials:** Updated to v1.17.3.<br>For more information, see [credentials](https://github.com/aws/aws-sdk-go-v2).
+  * **s3:** Updated to v1.51.1.<br>For more information, see [s3](https://github.com/aws/aws-sdk-go-v2).
+  * **sts:** Updated to v1.28.0.<br>For more information, see [sts](https://github.com/aws/aws-sdk-go-v2).
+  * **bosh-backup-and-restore:** Updated to v1.9.60.<br>For more information, see [bosh-backup-and-restore](https://github.com/cloudfoundry-incubator/bosh-backup-and-restore).
+  * **api:** Updated to v0.166.0.<br>For more information, see [api](https://github.com/googleapis/google-api-go-client).
+          </pre>
+        </details>
+      </td>
+    </tr>
+    <tr><td>binary-offline-buildpack</td><td>1.1.10</td>
+      <td>
+        <details>
+          <summary>1.1.10</summary>
+          <pre style="max-width: 30em">
+  * Rebuild executables
+  * Uncached buildpack SHA256: 37096777ef417fc8cf8e2ef9e8caac944575813cb37a3dadedb631a575e36e66
+  * Uncached buildpack SHA256: 2c9547229d0b1ee7f073008d1b698047ad8eeccffaf9af13f8b8da9ad06060a4
+  * Uncached buildpack SHA256: 5f1d41d234486a067b19e341cd41b71b9963943142048ea12456a5256a711749
+  * Uncached buildpack SHA256: 0d461beae699aa5ae7e22adecaf112dc40912bcf037c6b534cead361b940197a
+          </pre>
+        </details>
+      </td>
+    </tr>
+    <tr><td>bosh-dns-aliases</td><td>0.0.3</td><td></td></tr>
+    <tr><td>bosh-system-metrics-forwarder</td><td>0.0.41</td>
+      <td>
+        <details>
+          <summary>v0.0.41</summary>
+          <pre style="max-width: 30em">
+  ## What's Changed
+  * Bump dependencies
+  * Bump to [go1.21.8](https://groups.google.com/g/golang-announce/c/5pwGVUPoMbg/m/46oA5yPABQAJ)
+  **Full Changelog**: https://github.com/cloudfoundry/bosh-system-metrics-forwarder-release/compare/v0.0.40...v0.0.41
+          </pre>
+        </details>
+      </td>
+    </tr>
+    <tr><td>bpm</td><td>1.2.17</td><td></td></tr>
+    <tr><td>capi</td><td>1.109.35</td><td></td></tr>
+    <tr><td>cf-autoscaling</td><td>250.2.1</td>
+      <td>
+        <details>
+          <summary>v250.2.1</summary>
+          <pre style="max-width: 30em">
+  * Bump dependencies
+  * Bump to [go1.21.8](https://groups.google.com/g/golang-announce/c/5pwGVUPoMbg/m/46oA5yPABQAJ)
+          </pre>
+        </details>
+      </td>
+    </tr>
+    <tr><td>cf-cli</td><td>1.60.0</td>
+      <td>
+        <details>
+          <summary>1.60.0</summary>
+          <pre style="max-width: 30em">
+  ### This release contains the following versions of the CF CLI
+  Major version | Prior version | Current version
+  -- | -- | --
+  v8 | 8.7.7 | [8.7.8](https://github.com/cloudfoundry/cli/releases/tag/v8.7.8)
+  v7 | 7.7.7 | [7.7.8](https://github.com/cloudfoundry/cli/releases/tag/v7.7.8)
+  v6 | 6.53.0 | [6.53.0](https://github.com/cloudfoundry/cli/releases/tag/v6.53.0)
+          </pre>
+        </details>
+      </td>
+    </tr>
+    <tr><td>cf-networking</td><td>3.44.0</td>
+      <td>
+        <details>
+          <summary>v3.44.0</summary>
+          <pre style="max-width: 30em">
+  ## Changes
+  - staticcheck improvements
+  ## ✨  Built with go 1.21.8
+  **Full Changelog**: https://github.com/cloudfoundry/cf-networking-release/compare/v3.43.0...v3.44.0
+  ## Resources
+  - [Download release 3.44.0 from bosh.io](https://bosh.io/releases/github.com/cloudfoundry/cf-networking-release?version=3.44.0).
+          </pre>
+        </details>
+        <details>
+          <summary>v3.43.0</summary>
+          <pre style="max-width: 30em">
+  ## Changes
+  - Removes deprecated and unused/unworking istio code from the release.
+  - Go package dependency bumps
+  ## Bosh Job Spec changes:
+  ```diff
+  diff --git a/jobs/bosh-dns-adapter/spec b/jobs/bosh-dns-adapter/spec
+  index 8d73a6b4..fba2cdba 100644
+  --- a/jobs/bosh-dns-adapter/spec
+  +++ b/jobs/bosh-dns-adapter/spec
+  @@ -21,9 +21,6 @@ consumes:
+  - name: cloud_controller_container_networking_info
+  type: cloud_controller_container_networking_info
+  optional: true
+  -  - name: vip_resolver_conn
+  -    type: vip_resolver_conn
+  -    optional: true
+  properties:
+  cf_app_sd_disable:
+  ```
+  ## ✨  Built with go 1.21.7
+  **Full Changelog**: https://github.com/cloudfoundry/cf-networking-release/compare/v3.42.0...v3.43.0
+  ## Resources
+  - [Download release 3.43.0 from bosh.io](https://bosh.io/releases/github.com/cloudfoundry/cf-networking-release?version=3.43.0).
+          </pre>
+        </details>
+      </td>
+    </tr>
+    <tr><td>cflinuxfs3</td><td>0.387.0</td>
+      <td>
+        <details>
+          <summary>v0.387.0</summary>
+          <pre style="max-width: 30em">
+  This release ships with cflinuxfs3 version 0.387.0. For more information, see the [release notes](https://github.com/cloudfoundry/cflinuxfs3/releases/tag/0.387.0)
+          </pre>
+        </details>
+        <details>
+          <summary>v0.386.0</summary>
+          <pre style="max-width: 30em">
+  This release ships with cflinuxfs3 version 0.386.0. For more information, see the [release notes](https://github.com/cloudfoundry/cflinuxfs3/releases/tag/0.386.0)
+          </pre>
+        </details>
+      </td>
+    </tr>
+    <tr><td>count-cores-indicator</td><td>2.0.0</td><td></td></tr>
+    <tr><td>credhub</td><td>2.12.66</td>
+      <td>
+        <details>
+          <summary>2.12.66</summary>
+          <pre style="max-width: 30em">
+  ## What's Changed
+  * Build(deps): Bump rubocop from 1.62.0 to 1.62.1 in /spec by @dependabot in https://github.com/pivotal/credhub-release/pull/199
+  * Build(deps): Bump rubocop-ast from 1.31.1 to 1.31.2 in /spec by @dependabot in https://github.com/pivotal/credhub-release/pull/198
+  * Build(deps): bump io.netty:netty-tcnative-boringssl-static
+  * Bump: gradlew to 8.6
+  **Full Changelog**: https://github.com/pivotal/credhub-release/compare/2.12.65...2.12.66
+          </pre>
+        </details>
+        <details>
+          <summary>2.12.65</summary>
+          <pre style="max-width: 30em">
+  ## What's Changed
+  - Bump various dependencies
+  **Full Changelog**: https://github.com/pivotal/credhub-release/compare/2.12.64...2.12.65
+          </pre>
+        </details>
+        <details>
+          <summary>2.12.64</summary>
+          <pre style="max-width: 30em">
+  ## What's Changed
+  - Bump various dependencies
+  **Full Changelog**: https://github.com/pivotal/credhub-release/compare/2.12.63...2.12.64
+          </pre>
+        </details>
+      </td>
+    </tr>
+    <tr><td>diego</td><td>2.95.0</td>
+      <td>
+        <details>
+          <summary>v2.95.0</summary>
+          <pre style="max-width: 30em">
+  ## Changes
+  - bbs: ([Issue](https://github.com/cloudfoundry/diego-release/issues/883)) Now uses `DesiredLRPSchedulingInfo` instead of the entire `DesiredLRP` when only the scheduling info is needed, resulting in a 95% decrease in time spent for relevant calls.  Thanks @klapkov!
+  ## ✨  Built with go 1.21.7
+  **Full Changelog**: https://github.com/cloudfoundry/diego-release/compare/v2.94.0...v2.95.0
+  ## Resources
+  - [Download release 2.95.0 from bosh.io](https://bosh.io/releases/github.com/cloudfoundry/diego-release?version=2.95.0).
+          </pre>
+        </details>
+      </td>
+    </tr>
+    <tr><td>dotnet-core-offline-buildpack</td><td>2.4.26</td>
+      <td>
+        <details>
+          <summary>2.4.26</summary>
+          <pre style="max-width: 30em">
+  * Add dotnet-sdk 8.0.203, remove dotnet-sdk 8.0.202 (#947)
+  * Add dotnet-aspnetcore 6.0.28, remove dotnet-aspnetcore 6.0.27
+  * Add dotnet-runtime 6.0.28, remove dotnet-runtime 6.0.27 (#940)
+  * Add dotnet-sdk 6.0.420, remove dotnet-sdk 6.0.419 (#939)
+  * Add dotnet-aspnetcore 7.0.17, remove dotnet-aspnetcore 7.0.16 (#942)
+  * Add dotnet-runtime 7.0.17, remove dotnet-runtime 7.0.16 (#945)
+  * Add dotnet-sdk 7.0.407, remove dotnet-sdk 7.0.406 (#941)
+  * Add dotnet-aspnetcore 8.0.3, remove dotnet-aspnetcore 8.0.2 (#937)
+  * Add dotnet-runtime 8.0.3, remove dotnet-runtime 8.0.2 (#943)
+  * Add dotnet-sdk 8.0.202, remove dotnet-sdk 8.0.201 (#938)
+  | name | version | cf_stacks |
+  |-|-|-|
+  | bower | 1.8.14 | cflinuxfs3, cflinuxfs4 |
+  | dotnet-aspnetcore | 6.0.28 | cflinuxfs3, cflinuxfs4 |
+  | dotnet-aspnetcore | 7.0.17 | cflinuxfs3, cflinuxfs4 |
+  | dotnet-aspnetcore | 8.0.3 | cflinuxfs3, cflinuxfs4 |
+  | dotnet-runtime | 6.0.28 | cflinuxfs3, cflinuxfs4 |
+  | dotnet-runtime | 7.0.17 | cflinuxfs3, cflinuxfs4 |
+  | dotnet-runtime | 8.0.3 | cflinuxfs3, cflinuxfs4 |
+  | dotnet-sdk | 6.0.420 | cflinuxfs3, cflinuxfs4 |
+  | dotnet-sdk | 7.0.407 | cflinuxfs3, cflinuxfs4 |
+  | dotnet-sdk | 8.0.203 | cflinuxfs3, cflinuxfs4 |
+  | libgdiplus | 6.1 | cflinuxfs3 |
+  | libgdiplus | 6.1 | cflinuxfs4 |
+  | libunwind | 1.8.1 | cflinuxfs3 |
+  | libunwind | 1.8.1 | cflinuxfs4 |
+  | node | 20.11.1 | cflinuxfs3 |
+  | node | 20.11.1 | cflinuxfs4 |
+  Default binary versions:
+  | name | version |
+  |-|-|
+  | dotnet-runtime | 6.0.x |
+  | dotnet-aspnetcore | 6.0.x |
+  | dotnet-sdk | 6.0.x |
+  | bower | 1.8.x |
+  * Uncached buildpack SHA256: e2bc48da530ea18ca0573ed2bcb68a9ee104a0d25c53fbe6525f96ff2befd214
+  * Uncached buildpack SHA256: 2caccdd40beedad3cd69f816c3b8b78f2a85293d68205c1cf8bb8550917bfc10
+          </pre>
+        </details>
+        <details>
+          <summary>2.4.25</summary>
+          <pre style="max-width: 30em">
+  * Add libunwind 1.8.1, remove libunwind 1.8.0 for stack(s) cflinuxfs3, cflinuxfs4 (#925)
+  | name | version | cf_stacks |
+  |-|-|-|
+  | bower | 1.8.14 | cflinuxfs3, cflinuxfs4 |
+  | dotnet-aspnetcore | 6.0.27 | cflinuxfs3, cflinuxfs4 |
+  | dotnet-aspnetcore | 7.0.16 | cflinuxfs3, cflinuxfs4 |
+  | dotnet-aspnetcore | 8.0.2 | cflinuxfs3, cflinuxfs4 |
+  | dotnet-runtime | 6.0.27 | cflinuxfs3, cflinuxfs4 |
+  | dotnet-runtime | 7.0.16 | cflinuxfs3, cflinuxfs4 |
+  | dotnet-runtime | 8.0.2 | cflinuxfs3, cflinuxfs4 |
+  | dotnet-sdk | 6.0.419 | cflinuxfs3, cflinuxfs4 |
+  | dotnet-sdk | 7.0.406 | cflinuxfs3, cflinuxfs4 |
+  | dotnet-sdk | 8.0.201 | cflinuxfs3, cflinuxfs4 |
+  | libgdiplus | 6.1 | cflinuxfs3 |
+  | libgdiplus | 6.1 | cflinuxfs4 |
+  | libunwind | 1.8.1 | cflinuxfs3 |
+  | libunwind | 1.8.1 | cflinuxfs4 |
+  | node | 20.11.1 | cflinuxfs3 |
+  | node | 20.11.1 | cflinuxfs4 |
+  Default binary versions:
+  | name | version |
+  |-|-|
+  | dotnet-runtime | 6.0.x |
+  | dotnet-aspnetcore | 6.0.x |
+  | dotnet-sdk | 6.0.x |
+  | bower | 1.8.x |
+  * Uncached buildpack SHA256: a6228697b8291ef00d5e3716143fdc5b2dc2b26d3cbe8e9c7e3e2d12ec6479a9
+  * Uncached buildpack SHA256: 8417b39be53d583b98d66ddf35d20fe1abc71ff1875a1d73b6b10c8e7f1e0faa
+          </pre>
+        </details>
+      </td>
+    </tr>
+    <tr><td>garden-runc</td><td>1.50.0</td>
+      <td>
+        <details>
+          <summary>v1.50.0</summary>
+          <pre style="max-width: 30em">
+  ## Changes
+  - Adds `grootfs.routine_gc` property, which allows operators to configure garden to grootfs to clean up unused container image layers whenever new containers are created.
+  - Previously, to achieve this, operators had to set `grootfs.reserved_space_for_other_jobs_in_mb` to the same value as the ephemeral disk, which is not always easy to obtain programatically.
+  - Bump go dependencies
+  ## Bosh Job Spec changes:
+  ```diff
+  diff --git a/jobs/garden/spec b/jobs/garden/spec
+  index c84b5c43..027df351 100644
+  --- a/jobs/garden/spec
+  +++ b/jobs/garden/spec
+  @@ -292,6 +292,10 @@ properties:
+  grootfs.tls.ca_cert:
+  description: "PEM-encoded tls client CA certificate for asset upload/download"
+  +  grootfs.routine_gc:
+  +    description: "Set to true if you want grootfs to perform garbage collection on unused container image layers whenever a new container is created."
+  +    default: false
+  +
+  grootfs.reserved_space_for_other_jobs_in_mb:
+  description: "Amount of space that will be kept free for other jobs. The GrootFS store will be able to grow up to a maximum size of its disk minus this reserved space. Where the reserved space does not allow sufficient size for GrootFS to store container images and root filesystems (currently 15GB), the limit will be a soft limit, and garbage collection will attempt to keep disk space available for other jobs. -1 disables GC and allows GrootFS to potentially use the whole disk."
+  default: 15360
+  ```
+  ## ✨  Built with go 1.21.7
+  **Full Changelog**: https://github.com/cloudfoundry/garden-runc-release/compare/v1.49.0...v1.50.0
+  ## Resources
+  - [Download release 1.50.0 from bosh.io](https://bosh.io/releases/github.com/cloudfoundry/garden-runc-release?version=1.50.0).
+          </pre>
+        </details>
+      </td>
+    </tr>
+    <tr><td>go-offline-buildpack</td><td>1.10.17</td>
+      <td>
+        <details>
+          <summary>1.10.17</summary>
+          <pre style="max-width: 30em">
+  * Add go 1.22.1, remove go 1.22.0 for stack(s) cflinuxfs4, cflinuxfs3
+  * Add go 1.21.8, remove go 1.21.7 for stack(s) cflinuxfs4, cflinuxfs3
+  * Deprecate Go 1.20.x (EOL) (#424)
+  | name | version | cf_stacks |
+  |-|-|-|
+  | dep | 0.5.4 | cflinuxfs3 |
+  | dep | 0.5.4 | cflinuxfs4 |
+  | glide | 0.13.3 | cflinuxfs3 |
+  | glide | 0.13.3 | cflinuxfs4 |
+  | go | 1.21.8 | cflinuxfs3 |
+  | go | 1.21.8 | cflinuxfs4 |
+  | go | 1.22.1 | cflinuxfs3 |
+  | go | 1.22.1 | cflinuxfs4 |
+  | godep | 80 | cflinuxfs3 |
+  | godep | 80 | cflinuxfs4 |
+  Default binary versions:
+  | name | version |
+  |-|-|
+  | go | 1.21.x |
+  * Uncached buildpack SHA256: 4fdacd447c3400171f5b976b0e6cdb05bb5ddb41b8b4e113a6df34aab5d372b8
+  * Uncached buildpack SHA256: 0044eae1e42504ae00c21b3f5ae5d7cbdda2a475b91a5d3e0e90d7700af025b5
+          </pre>
+        </details>
+      </td>
+    </tr>
+    <tr><td>haproxy</td><td>9.8.0</td><td></td></tr>
+    <tr><td>java-offline-buildpack</td><td>4.67.0</td><td></td></tr>
+    <tr><td>log-cache</td><td>2.12.16</td>
+      <td>
+        <details>
+          <summary>v2.12.16</summary>
+          <pre style="max-width: 30em">
+  ## What's Changed
+  * Bump dependencies
+  * Bump packaged Golang to go 1.21.8
+  **Full Changelog**: https://github.com/cloudfoundry/log-cache-release/compare/v2.12.15...v2.12.16
+          </pre>
+        </details>
+      </td>
+    </tr>
+    <tr><td>loggregator</td><td>106.7.17</td>
+      <td>
+        <details>
+          <summary>v106.7.17</summary>
+          <pre style="max-width: 30em">
+  ## What's Changed
+  * Bump dependencies
+  * Bump to [go1.21.8](https://groups.google.com/g/golang-announce/c/5pwGVUPoMbg/m/46oA5yPABQAJ)
+  **Full Changelog**: https://github.com/cloudfoundry/loggregator-release/compare/v106.7.16...v106.7.17
+          </pre>
+        </details>
+      </td>
+    </tr>
+    <tr><td>loggregator-agent</td><td>6.5.18</td>
+      <td>
+        <details>
+          <summary>v6.5.18</summary>
+          <pre style="max-width: 30em">
+  ## What's Changed
+  * Bump dependencies
+  * Bump to [go1.21.8](https://groups.google.com/g/golang-announce/c/5pwGVUPoMbg/m/46oA5yPABQAJ)
+  **Full Changelog**: https://github.com/cloudfoundry/loggregator-agent-release/compare/v6.5.17...v6.5.18
+          </pre>
+        </details>
+      </td>
+    </tr>
+    <tr><td>mapfs</td><td>1.2.62</td>
+      <td>
+        <details>
+          <summary>v1.2.62</summary>
+          <pre style="max-width: 30em">
+  ## Dependencies
+  * **mapfs:** Updated to v`599ec1c`.<br>For more information, see [mapfs](https://github.com/cloudfoundry/mapfs).
+          </pre>
+        </details>
+        <details>
+          <summary>v1.2.61</summary>
+          <pre style="max-width: 30em">
+  Maintenance release
+          </pre>
+        </details>
+        <details>
+          <summary>v1.2.59</summary>
+          <pre style="max-width: 30em">
+  ## Dependencies
+  * **mapfs:** Updated to v`535cb52`.<br>For more information, see [mapfs](https://github.com/cloudfoundry/mapfs).
+          </pre>
+        </details>
+      </td>
+    </tr>
+    <tr><td>metric-registrar</td><td>1.1.33</td>
+      <td>
+        <details>
+          <summary>v1.1.33</summary>
+          <pre style="max-width: 30em">
+  ## What's Changed
+  * Bump dependencies
+  * Bump to [go1.21.8](https://groups.google.com/g/golang-announce/c/5pwGVUPoMbg/m/46oA5yPABQAJ)
+  **Full Changelog**: https://github.com/pivotal-cf/metric-registrar-release/compare/v1.1.32...v1.1.33
+          </pre>
+        </details>
+      </td>
+    </tr>
+    <tr><td>metrics-discovery</td><td>3.2.23</td>
+      <td>
+        <details>
+          <summary>v3.2.23</summary>
+          <pre style="max-width: 30em">
+  ## What's Changed
+  - Bump dependencies
+  - Bump to [go1.21.8](https://groups.google.com/g/golang-announce/c/5pwGVUPoMbg/m/46oA5yPABQAJ)
+  **Full Changelog**: https://github.com/cloudfoundry/metrics-discovery-release/compare/v3.2.22...v3.2.23
+          </pre>
+        </details>
+      </td>
+    </tr>
+    <tr><td>mysql-monitoring</td><td>10.11.0</td><td></td></tr>
+    <tr><td>nats</td><td>56.15.0</td><td></td></tr>
+    <tr><td>nfs-volume</td><td>5.0.64</td>
+      <td>
+        <details>
+          <summary>v5.0.64</summary>
+          <pre style="max-width: 30em">
+  ## Changes
+  * Bump sqlite from 3.45.1 to 3.45.2 (#832)
+  ## Dependencies
+  * **nfsbroker:** Updated to v`9490802`.<br>For more information, see [nfsbroker](https://github.com/cloudfoundry/nfsbroker).
+  * **nfsv3driver:** Updated to v`01c5d25`.<br>For more information, see [nfsv3driver](https://github.com/cloudfoundry/nfsv3driver).
+  * **mapfs-release:** Updated to v`d531945`.<br>For more information, see [mapfs-release](https://github.com/cloudfoundry/mapfs-release).
+          </pre>
+        </details>
+        <details>
+          <summary>v5.0.63</summary>
+          <pre style="max-width: 30em">
+  ## Changes
+  * Golang: Updated to v1.22.1 (#816)
+  ## Dependencies
+  * **nfsbroker:** Updated to v`69c1fb5`.<br>For more information, see [nfsbroker](https://github.com/cloudfoundry/nfsbroker).
+  * **nfsv3driver:** Updated to v`c9e4a6d`.<br>For more information, see [nfsv3driver](https://github.com/cloudfoundry/nfsv3driver).
+  * **mapfs-release:** Updated to v`0f0f790`.<br>For more information, see [mapfs-release](https://github.com/cloudfoundry/mapfs-release).
+          </pre>
+        </details>
+        <details>
+          <summary>v5.0.61</summary>
+          <pre style="max-width: 30em">
+  ## Changes
+  * Bump tcl from  to 8.6.14 (#806)
+  ## Dependencies
+  * **mapfs-release:** Updated to v`a24e831`.<br>For more information, see [mapfs-release](https://github.com/cloudfoundry/mapfs-release).
+          </pre>
+        </details>
+        <details>
+          <summary>v5.0.60</summary>
+          <pre style="max-width: 30em">
+  ## Dependencies
+  * **nfsbroker:** Updated to v`a8e5b50`.<br>For more information, see [nfsbroker](https://github.com/cloudfoundry/nfsbroker).
+  * **nfsv3driver:** Updated to v`be32d7e`.<br>For more information, see [nfsv3driver](https://github.com/cloudfoundry/nfsv3driver).
+  * **mapfs-release:** Updated to v`605d773`.<br>For more information, see [mapfs-release](https://github.com/cloudfoundry/mapfs-release).
+          </pre>
+        </details>
+      </td>
+    </tr>
+    <tr><td>nginx-offline-buildpack</td><td>1.2.12</td>
+      <td>
+        <details>
+          <summary>1.2.12</summary>
+          <pre style="max-width: 30em">
+  * Add nginx 1.25.4, remove nginx 1.25.3 (#267)
+  for stack(s) cflinuxfs4, cflinuxfs3
+  (https://www.pivotaltracker.com/story/show/187047474)
+  | name | version | cf_stacks |
+  |-|-|-|
+  | nginx | 1.24.0 | cflinuxfs3 |
+  | nginx | 1.24.0 | cflinuxfs4 |
+  | nginx | 1.25.4 | cflinuxfs3 |
+  | nginx | 1.25.4 | cflinuxfs4 |
+  | openresty | 1.21.4.2 | cflinuxfs3 |
+  | openresty | 1.21.4.2 | cflinuxfs4 |
+  | openresty | 1.25.3.1 | cflinuxfs3 |
+  | openresty | 1.25.3.1 | cflinuxfs4 |
+  Default binary versions:
+  | name | version |
+  |-|-|
+  | nginx | 1.25.x |
+  * Uncached buildpack SHA256: feb4097b1656590664b907df0d511cb114e97f15c299a3caf694a9a747ff6f01
+  * Uncached buildpack SHA256: 2396546d0154a023e13e2b43fc8ddeb8d652ad53d725fc63f7de0497bef9f8a3
+          </pre>
+        </details>
+      </td>
+    </tr>
+    <tr><td>nodejs-offline-buildpack</td><td>1.8.23</td>
+      <td>
+        <details>
+          <summary>1.8.23</summary>
+          <pre style="max-width: 30em">
+  * Add node 20.11.1, remove node 20.10.0 for stack(s) cflinuxfs4, cflinuxfs3 (#699)
+  * Add node 18.19.1, remove node 18.18.2 for stack(s) cflinuxfs3, cflinuxfs4 (#697)
+  | name | version | cf_stacks |
+  |-|-|-|
+  | node | 18.19.0 | cflinuxfs3 |
+  | node | 18.19.0 | cflinuxfs4 |
+  | node | 18.19.1 | cflinuxfs3 |
+  | node | 18.19.1 | cflinuxfs4 |
+  | node | 20.11.0 | cflinuxfs3 |
+  | node | 20.11.0 | cflinuxfs4 |
+  | node | 20.11.1 | cflinuxfs3 |
+  | node | 20.11.1 | cflinuxfs4 |
+  | python | 3.11.8 | cflinuxfs3 |
+  | python | 3.11.8 | cflinuxfs4 |
+  | yarn | 1.22.19 | cflinuxfs3, cflinuxfs4 |
+  Default binary versions:
+  | name | version |
+  |-|-|
+  | node | 18.x |
+  | python | 3.11.x |
+  * Uncached buildpack SHA256: 8906f8630672f0952112239dfbd0988d2c4fd346c227e7c16101f5309faecc77
+  * Uncached buildpack SHA256: 92ce03b865cdbd92dd81d55617317bda42e856d2064431e41a176e54d4f6a70d
+          </pre>
+        </details>
+      </td>
+    </tr>
+    <tr><td>notifications</td><td>69.0.0</td><td></td></tr>
+    <tr><td>notifications-ui</td><td>47.0.0</td><td></td></tr>
+    <tr><td>php-offline-buildpack</td><td>4.6.17</td>
+      <td>
+        <details>
+          <summary>4.6.17</summary>
+          <pre style="max-width: 30em">
+  * Add php 8.3.4, remove php 8.3.1 for stack(s) cflinuxfs4, cflinuxfs3
+  * Add php 8.2.17, remove php 8.2.15 for stack(s) cflinuxfs4, cflinuxfs3
+  * Add composer 2.7.2, remove composer 2.7.1 for stack(s) cflinuxfs4, cflinuxfs3
+  | name | version | cf_stacks | modules |
+  |-|-|-|-|
+  | appdynamics | 23.11.0-839 | cflinuxfs3, cflinuxfs4 |  |
+  | composer | 2.7.2 | cflinuxfs3, cflinuxfs4 |  |
+  | httpd | 2.4.58 | cflinuxfs3 |  |
+  | httpd | 2.4.58 | cflinuxfs4 |  |
+  | newrelic | 10.11.0.3 | cflinuxfs3, cflinuxfs4 |  |
+  | nginx | 1.24.0 | cflinuxfs3 |  |
+  | nginx | 1.24.0 | cflinuxfs4 |  |
+  | nginx | 1.25.4 | cflinuxfs3 |  |
+  | nginx | 1.25.4 | cflinuxfs4 |  |
+  | php | 8.1.26 | cflinuxfs3 | amqp, apcu, bz2, curl, dba, enchant, exif, fileinfo, ftp, gd, gettext, gmp, igbinary, imagick, imap, ioncube, ldap, lzf, mailparse, maxminddb, mbstring, memcached, mongodb, msgpack, mysqli, oauth, opcache, openssl, pcntl, pdo, pdo_firebird, pdo_mysql, pdo_odbc, pdo_pgsql, pdo_sqlite, pdo_sqlsrv, pgsql, phalcon, phpiredis, pspell, psr, rdkafka, readline, redis, shmop, snmp, soap, sockets, sodium, solr, sqlsrv, ssh2, stomp, sysvmsg, sysvsem, sysvshm, tideways_xhprof, tidy, xdebug, xsl, yaf, yaml, zip, zlib |
+  | php | 8.1.26 | cflinuxfs4 | amqp, apcu, bz2, curl, dba, enchant, exif, fileinfo, ftp, gd, gettext, gmp, igbinary, imagick, imap, ioncube, ldap, lzf, mailparse, maxminddb, mbstring, memcached, mongodb, msgpack, mysqli, oauth, opcache, openssl, pcntl, pdo, pdo_firebird, pdo_mysql, pdo_odbc, pdo_pgsql, pdo_sqlite, pdo_sqlsrv, pgsql, phalcon, phpiredis, pspell, psr, rdkafka, readline, redis, shmop, snmp, soap, sockets, sodium, solr, sqlsrv, ssh2, stomp, sysvmsg, sysvsem, sysvshm, tideways_xhprof, tidy, xdebug, xsl, yaf, yaml, zip, zlib |
+  | php | 8.1.27 | cflinuxfs3 | amqp, apcu, bz2, curl, dba, enchant, exif, fileinfo, ftp, gd, gettext, gmp, igbinary, imagick, imap, ioncube, ldap, lzf, mailparse, maxminddb, mbstring, memcached, mongodb, msgpack, mysqli, oauth, opcache, openssl, pcntl, pdo, pdo_firebird, pdo_mysql, pdo_odbc, pdo_pgsql, pdo_sqlite, pdo_sqlsrv, pgsql, phalcon, phpiredis, pspell, psr, rdkafka, readline, redis, shmop, snmp, soap, sockets, sodium, solr, sqlsrv, ssh2, stomp, sysvmsg, sysvsem, sysvshm, tideways_xhprof, tidy, xdebug, xsl, yaf, yaml, zip, zlib |
+  | php | 8.1.27 | cflinuxfs4 | amqp, apcu, bz2, curl, dba, enchant, exif, fileinfo, ftp, gd, gettext, gmp, igbinary, imagick, imap, ioncube, ldap, lzf, mailparse, maxminddb, mbstring, memcached, mongodb, msgpack, mysqli, oauth, opcache, openssl, pcntl, pdo, pdo_firebird, pdo_mysql, pdo_odbc, pdo_pgsql, pdo_sqlite, pdo_sqlsrv, pgsql, phalcon, phpiredis, pspell, psr, rdkafka, readline, redis, shmop, snmp, soap, sockets, sodium, solr, sqlsrv, ssh2, stomp, sysvmsg, sysvsem, sysvshm, tideways_xhprof, tidy, xdebug, xsl, yaf, yaml, zip, zlib |
+  | php | 8.2.16 | cflinuxfs3 | amqp, apcu, bz2, curl, dba, enchant, exif, fileinfo, ftp, gd, gettext, gmp, igbinary, imagick, imap, ioncube, ldap, lzf, mailparse, maxminddb, mbstring, memcached, mongodb, msgpack, mysqli, oauth, opcache, openssl, pcntl, pdo, pdo_firebird, pdo_mysql, pdo_odbc, pdo_pgsql, pdo_sqlite, pdo_sqlsrv, pgsql, phalcon, phpiredis, pspell, psr, rdkafka, readline, redis, shmop, snmp, soap, sockets, sodium, solr, sqlsrv, ssh2, stomp, sysvmsg, sysvsem, sysvshm, tideways_xhprof, tidy, xdebug, xsl, yaml, zip, zlib |
+  | php | 8.2.16 | cflinuxfs4 | amqp, apcu, bz2, curl, dba, enchant, exif, fileinfo, ftp, gd, gettext, gmp, igbinary, imagick, imap, ioncube, ldap, lzf, mailparse, maxminddb, mbstring, memcached, mongodb, msgpack, mysqli, oauth, opcache, openssl, pcntl, pdo, pdo_firebird, pdo_mysql, pdo_odbc, pdo_pgsql, pdo_sqlite, pdo_sqlsrv, pgsql, phalcon, phpiredis, pspell, psr, rdkafka, readline, redis, shmop, snmp, soap, sockets, sodium, solr, sqlsrv, ssh2, stomp, sysvmsg, sysvsem, sysvshm, tideways_xhprof, tidy, xdebug, xsl, yaml, zip, zlib |
+  | php | 8.2.17 | cflinuxfs3 | amqp, apcu, bz2, curl, dba, enchant, exif, fileinfo, ftp, gd, gettext, gmp, igbinary, imagick, imap, ioncube, ldap, lzf, mailparse, maxminddb, mbstring, memcached, mongodb, msgpack, mysqli, oauth, opcache, openssl, pcntl, pdo, pdo_firebird, pdo_mysql, pdo_odbc, pdo_pgsql, pdo_sqlite, pdo_sqlsrv, pgsql, phalcon, phpiredis, pspell, psr, rdkafka, readline, redis, shmop, snmp, soap, sockets, sodium, solr, sqlsrv, ssh2, stomp, sysvmsg, sysvsem, sysvshm, tideways_xhprof, tidy, xdebug, xsl, yaml, zip, zlib |
+  | php | 8.2.17 | cflinuxfs4 | amqp, apcu, bz2, curl, dba, enchant, exif, fileinfo, ftp, gd, gettext, gmp, igbinary, imagick, imap, ioncube, ldap, lzf, mailparse, maxminddb, mbstring, memcached, mongodb, msgpack, mysqli, oauth, opcache, openssl, pcntl, pdo, pdo_firebird, pdo_mysql, pdo_odbc, pdo_pgsql, pdo_sqlite, pdo_sqlsrv, pgsql, phalcon, phpiredis, pspell, psr, rdkafka, readline, redis, shmop, snmp, soap, sockets, sodium, solr, sqlsrv, ssh2, stomp, sysvmsg, sysvsem, sysvshm, tideways_xhprof, tidy, xdebug, xsl, yaml, zip, zlib |
+  | php | 8.3.3 | cflinuxfs3 | amqp, apcu, bz2, curl, dba, enchant, exif, fileinfo, ftp, gd, gettext, gmp, igbinary, imagick, imap, ldap, lzf, mailparse, maxminddb, mbstring, memcached, mongodb, msgpack, mysqli, oauth, opcache, openssl, pcntl, pdo, pdo_firebird, pdo_mysql, pdo_odbc, pdo_pgsql, pdo_sqlite, pdo_sqlsrv, pgsql, phalcon, phpiredis, pspell, psr, rdkafka, readline, redis, shmop, snmp, soap, sockets, sodium, solr, sqlsrv, ssh2, stomp, sysvmsg, sysvsem, sysvshm, tideways_xhprof, tidy, xdebug, xsl, yaml, zip, zlib |
+  | php | 8.3.3 | cflinuxfs4 | amqp, apcu, bz2, curl, dba, enchant, exif, fileinfo, ftp, gd, gettext, gmp, igbinary, imagick, imap, ldap, lzf, mailparse, maxminddb, mbstring, memcached, mongodb, msgpack, mysqli, oauth, opcache, openssl, pcntl, pdo, pdo_firebird, pdo_mysql, pdo_odbc, pdo_pgsql, pdo_sqlite, pdo_sqlsrv, pgsql, phalcon, phpiredis, pspell, psr, rdkafka, readline, redis, shmop, snmp, soap, sockets, sodium, solr, sqlsrv, ssh2, stomp, sysvmsg, sysvsem, sysvshm, tideways_xhprof, tidy, xdebug, xsl, yaml, zip, zlib |
+  | php | 8.3.4 | cflinuxfs3 | amqp, apcu, bz2, curl, dba, enchant, exif, fileinfo, ftp, gd, gettext, gmp, igbinary, imagick, imap, ldap, lzf, mailparse, maxminddb, mbstring, memcached, mongodb, msgpack, mysqli, oauth, opcache, openssl, pcntl, pdo, pdo_firebird, pdo_mysql, pdo_odbc, pdo_pgsql, pdo_sqlite, pdo_sqlsrv, pgsql, phalcon, phpiredis, pspell, psr, rdkafka, readline, redis, shmop, snmp, soap, sockets, sodium, solr, sqlsrv, ssh2, stomp, sysvmsg, sysvsem, sysvshm, tideways_xhprof, tidy, xdebug, xsl, yaml, zip, zlib |
+  | php | 8.3.4 | cflinuxfs4 | amqp, apcu, bz2, curl, dba, enchant, exif, fileinfo, ftp, gd, gettext, gmp, igbinary, imagick, imap, ldap, lzf, mailparse, maxminddb, mbstring, memcached, mongodb, msgpack, mysqli, oauth, opcache, openssl, pcntl, pdo, pdo_firebird, pdo_mysql, pdo_odbc, pdo_pgsql, pdo_sqlite, pdo_sqlsrv, pgsql, phalcon, phpiredis, pspell, psr, rdkafka, readline, redis, shmop, snmp, soap, sockets, sodium, solr, sqlsrv, ssh2, stomp, sysvmsg, sysvsem, sysvshm, tideways_xhprof, tidy, xdebug, xsl, yaml, zip, zlib |
+  | python | 2.7.18 | cflinuxfs4 |  |
+  | ruby | 3.0.5 | cflinuxfs4 |  |
+  Default binary versions:
+  | name | version |
+  |-|-|
+  | php | 8.1.27 |
+  | httpd | 2.4.58 |
+  | newrelic | 10.11.0.3 |
+  | nginx | 1.25.4 |
+  | composer | 2.7.2 |
+  * Uncached buildpack SHA256: 2e107dc20c1513e1dce4cd720d7035cfa315e103d98861030aaed6a79272c65b
+  * Uncached buildpack SHA256: 4e02b065fe8f9e55ceb566e0d799be4a2b53d801017f1ff09db7202ceef365ed
+          </pre>
+        </details>
+        <details>
+          <summary>4.6.16</summary>
+          <pre style="max-width: 30em">
+  * Add php 8.2.16, remove php 8.2.14 for stack(s) cflinuxfs4, cflinuxfs3
+  | name | version | cf_stacks | modules |
+  |-|-|-|-|
+  | appdynamics | 23.11.0-839 | cflinuxfs3, cflinuxfs4 |  |
+  | composer | 2.7.1 | cflinuxfs3, cflinuxfs4 |  |
+  | httpd | 2.4.58 | cflinuxfs3 |  |
+  | httpd | 2.4.58 | cflinuxfs4 |  |
+  | newrelic | 10.11.0.3 | cflinuxfs3, cflinuxfs4 |  |
+  | nginx | 1.24.0 | cflinuxfs3 |  |
+  | nginx | 1.24.0 | cflinuxfs4 |  |
+  | nginx | 1.25.4 | cflinuxfs3 |  |
+  | nginx | 1.25.4 | cflinuxfs4 |  |
+  | php | 8.1.26 | cflinuxfs3 | amqp, apcu, bz2, curl, dba, enchant, exif, fileinfo, ftp, gd, gettext, gmp, igbinary, imagick, imap, ioncube, ldap, lzf, mailparse, maxminddb, mbstring, memcached, mongodb, msgpack, mysqli, oauth, opcache, openssl, pcntl, pdo, pdo_firebird, pdo_mysql, pdo_odbc, pdo_pgsql, pdo_sqlite, pdo_sqlsrv, pgsql, phalcon, phpiredis, pspell, psr, rdkafka, readline, redis, shmop, snmp, soap, sockets, sodium, solr, sqlsrv, ssh2, stomp, sysvmsg, sysvsem, sysvshm, tideways_xhprof, tidy, xdebug, xsl, yaf, yaml, zip, zlib |
+  | php | 8.1.26 | cflinuxfs4 | amqp, apcu, bz2, curl, dba, enchant, exif, fileinfo, ftp, gd, gettext, gmp, igbinary, imagick, imap, ioncube, ldap, lzf, mailparse, maxminddb, mbstring, memcached, mongodb, msgpack, mysqli, oauth, opcache, openssl, pcntl, pdo, pdo_firebird, pdo_mysql, pdo_odbc, pdo_pgsql, pdo_sqlite, pdo_sqlsrv, pgsql, phalcon, phpiredis, pspell, psr, rdkafka, readline, redis, shmop, snmp, soap, sockets, sodium, solr, sqlsrv, ssh2, stomp, sysvmsg, sysvsem, sysvshm, tideways_xhprof, tidy, xdebug, xsl, yaf, yaml, zip, zlib |
+  | php | 8.1.27 | cflinuxfs3 | amqp, apcu, bz2, curl, dba, enchant, exif, fileinfo, ftp, gd, gettext, gmp, igbinary, imagick, imap, ioncube, ldap, lzf, mailparse, maxminddb, mbstring, memcached, mongodb, msgpack, mysqli, oauth, opcache, openssl, pcntl, pdo, pdo_firebird, pdo_mysql, pdo_odbc, pdo_pgsql, pdo_sqlite, pdo_sqlsrv, pgsql, phalcon, phpiredis, pspell, psr, rdkafka, readline, redis, shmop, snmp, soap, sockets, sodium, solr, sqlsrv, ssh2, stomp, sysvmsg, sysvsem, sysvshm, tideways_xhprof, tidy, xdebug, xsl, yaf, yaml, zip, zlib |
+  | php | 8.1.27 | cflinuxfs4 | amqp, apcu, bz2, curl, dba, enchant, exif, fileinfo, ftp, gd, gettext, gmp, igbinary, imagick, imap, ioncube, ldap, lzf, mailparse, maxminddb, mbstring, memcached, mongodb, msgpack, mysqli, oauth, opcache, openssl, pcntl, pdo, pdo_firebird, pdo_mysql, pdo_odbc, pdo_pgsql, pdo_sqlite, pdo_sqlsrv, pgsql, phalcon, phpiredis, pspell, psr, rdkafka, readline, redis, shmop, snmp, soap, sockets, sodium, solr, sqlsrv, ssh2, stomp, sysvmsg, sysvsem, sysvshm, tideways_xhprof, tidy, xdebug, xsl, yaf, yaml, zip, zlib |
+  | php | 8.2.15 | cflinuxfs3 | amqp, apcu, bz2, curl, dba, enchant, exif, fileinfo, ftp, gd, gettext, gmp, igbinary, imagick, imap, ioncube, ldap, lzf, mailparse, maxminddb, mbstring, memcached, mongodb, msgpack, mysqli, oauth, opcache, openssl, pcntl, pdo, pdo_firebird, pdo_mysql, pdo_odbc, pdo_pgsql, pdo_sqlite, pdo_sqlsrv, pgsql, phalcon, phpiredis, pspell, psr, rdkafka, readline, redis, shmop, snmp, soap, sockets, sodium, solr, sqlsrv, ssh2, stomp, sysvmsg, sysvsem, sysvshm, tideways_xhprof, tidy, xdebug, xsl, yaml, zip, zlib |
+  | php | 8.2.15 | cflinuxfs4 | amqp, apcu, bz2, curl, dba, enchant, exif, fileinfo, ftp, gd, gettext, gmp, igbinary, imagick, imap, ioncube, ldap, lzf, mailparse, maxminddb, mbstring, memcached, mongodb, msgpack, mysqli, oauth, opcache, openssl, pcntl, pdo, pdo_firebird, pdo_mysql, pdo_odbc, pdo_pgsql, pdo_sqlite, pdo_sqlsrv, pgsql, phalcon, phpiredis, pspell, psr, rdkafka, readline, redis, shmop, snmp, soap, sockets, sodium, solr, sqlsrv, ssh2, stomp, sysvmsg, sysvsem, sysvshm, tideways_xhprof, tidy, xdebug, xsl, yaml, zip, zlib |
+  | php | 8.2.16 | cflinuxfs3 | amqp, apcu, bz2, curl, dba, enchant, exif, fileinfo, ftp, gd, gettext, gmp, igbinary, imagick, imap, ioncube, ldap, lzf, mailparse, maxminddb, mbstring, memcached, mongodb, msgpack, mysqli, oauth, opcache, openssl, pcntl, pdo, pdo_firebird, pdo_mysql, pdo_odbc, pdo_pgsql, pdo_sqlite, pdo_sqlsrv, pgsql, phalcon, phpiredis, pspell, psr, rdkafka, readline, redis, shmop, snmp, soap, sockets, sodium, solr, sqlsrv, ssh2, stomp, sysvmsg, sysvsem, sysvshm, tideways_xhprof, tidy, xdebug, xsl, yaml, zip, zlib |
+  | php | 8.2.16 | cflinuxfs4 | amqp, apcu, bz2, curl, dba, enchant, exif, fileinfo, ftp, gd, gettext, gmp, igbinary, imagick, imap, ioncube, ldap, lzf, mailparse, maxminddb, mbstring, memcached, mongodb, msgpack, mysqli, oauth, opcache, openssl, pcntl, pdo, pdo_firebird, pdo_mysql, pdo_odbc, pdo_pgsql, pdo_sqlite, pdo_sqlsrv, pgsql, phalcon, phpiredis, pspell, psr, rdkafka, readline, redis, shmop, snmp, soap, sockets, sodium, solr, sqlsrv, ssh2, stomp, sysvmsg, sysvsem, sysvshm, tideways_xhprof, tidy, xdebug, xsl, yaml, zip, zlib |
+  | php | 8.3.1 | cflinuxfs3 | amqp, apcu, bz2, curl, dba, enchant, exif, fileinfo, ftp, gd, gettext, gmp, igbinary, imagick, imap, ldap, lzf, mailparse, maxminddb, mbstring, memcached, mongodb, msgpack, mysqli, oauth, opcache, openssl, pcntl, pdo, pdo_firebird, pdo_mysql, pdo_odbc, pdo_pgsql, pdo_sqlite, pdo_sqlsrv, pgsql, phalcon, phpiredis, pspell, psr, rdkafka, readline, redis, shmop, snmp, soap, sockets, sodium, solr, sqlsrv, ssh2, stomp, sysvmsg, sysvsem, sysvshm, tideways_xhprof, tidy, xdebug, xsl, yaml, zip, zlib |
+  | php | 8.3.1 | cflinuxfs4 | amqp, apcu, bz2, curl, dba, enchant, exif, fileinfo, ftp, gd, gettext, gmp, igbinary, imagick, imap, ldap, lzf, mailparse, maxminddb, mbstring, memcached, mongodb, msgpack, mysqli, oauth, opcache, openssl, pcntl, pdo, pdo_firebird, pdo_mysql, pdo_odbc, pdo_pgsql, pdo_sqlite, pdo_sqlsrv, pgsql, phalcon, phpiredis, pspell, psr, rdkafka, readline, redis, shmop, snmp, soap, sockets, sodium, solr, sqlsrv, ssh2, stomp, sysvmsg, sysvsem, sysvshm, tideways_xhprof, tidy, xdebug, xsl, yaml, zip, zlib |
+  | php | 8.3.3 | cflinuxfs3 | amqp, apcu, bz2, curl, dba, enchant, exif, fileinfo, ftp, gd, gettext, gmp, igbinary, imagick, imap, ldap, lzf, mailparse, maxminddb, mbstring, memcached, mongodb, msgpack, mysqli, oauth, opcache, openssl, pcntl, pdo, pdo_firebird, pdo_mysql, pdo_odbc, pdo_pgsql, pdo_sqlite, pdo_sqlsrv, pgsql, phalcon, phpiredis, pspell, psr, rdkafka, readline, redis, shmop, snmp, soap, sockets, sodium, solr, sqlsrv, ssh2, stomp, sysvmsg, sysvsem, sysvshm, tideways_xhprof, tidy, xdebug, xsl, yaml, zip, zlib |
+  | php | 8.3.3 | cflinuxfs4 | amqp, apcu, bz2, curl, dba, enchant, exif, fileinfo, ftp, gd, gettext, gmp, igbinary, imagick, imap, ldap, lzf, mailparse, maxminddb, mbstring, memcached, mongodb, msgpack, mysqli, oauth, opcache, openssl, pcntl, pdo, pdo_firebird, pdo_mysql, pdo_odbc, pdo_pgsql, pdo_sqlite, pdo_sqlsrv, pgsql, phalcon, phpiredis, pspell, psr, rdkafka, readline, redis, shmop, snmp, soap, sockets, sodium, solr, sqlsrv, ssh2, stomp, sysvmsg, sysvsem, sysvshm, tideways_xhprof, tidy, xdebug, xsl, yaml, zip, zlib |
+  | python | 2.7.18 | cflinuxfs4 |  |
+  | ruby | 3.0.5 | cflinuxfs4 |  |
+  Default binary versions:
+  | name | version |
+  |-|-|
+  | php | 8.1.27 |
+  | httpd | 2.4.58 |
+  | newrelic | 10.11.0.3 |
+  | nginx | 1.25.4 |
+  | composer | 2.7.1 |
+  * Uncached buildpack SHA256: 1f2d24636e08e98398463e62a64734eecd571991774d35f656ce759af29c5277
+  * Uncached buildpack SHA256: d520657b5b5a890967497e7e17b0fbc2702fa7f64decc8014e4d5609c38c5e41
+          </pre>
+        </details>
+      </td>
+    </tr>
+    <tr><td>push-apps-manager-release</td><td>674.0.19</td>
+      <td>
+        <details>
+          <summary>674.0.19</summary>
+          <pre style="max-width: 30em">
+  * set a warning if trying to leave page while app is restaging.
+          </pre>
+        </details>
+      </td>
+    </tr>
+    <tr><td>push-usage-service-release</td><td>674.0.92</td>
+      <td>
+        <details>
+          <summary>v674.0.92</summary>
+          <pre style="max-width: 30em">
+  ## Dependencies
+  * **app-usage-service:** Updated to v`38d03a4`.<br>For more information, see [app-usage-service](https://github.com/pivotal-cf/app-usage-service).
+          </pre>
+        </details>
+        <details>
+          <summary>v674.0.91</summary>
+          <pre style="max-width: 30em">
+  ## Dependencies
+  * **app-usage-service:** Updated to v`54e1738`.<br>For more information, see [app-usage-service](https://github.com/pivotal-cf/app-usage-service).
+          </pre>
+        </details>
+        <details>
+          <summary>v674.0.90</summary>
+          <pre style="max-width: 30em">
+  ## Dependencies
+  * **app-usage-service:** Updated to v`4526342`.<br>For more information, see [app-usage-service](https://github.com/pivotal-cf/app-usage-service).
+          </pre>
+        </details>
+      </td>
+    </tr>
+    <tr><td>pxc</td><td>0.61.0</td><td></td></tr>
+    <tr><td>python-offline-buildpack</td><td>1.8.22</td>
+      <td>
+        <details>
+          <summary>1.8.22</summary>
+          <pre style="max-width: 30em">
+  * Add setuptools 69.2.0, remove setuptools 69.1.1 for stack(s) cflinuxfs4, cflinuxfs3
+  | name | version | cf_stacks |
+  |-|-|-|
+  | libffi | 3.2.1 | cflinuxfs3, cflinuxfs4 |
+  | libmemcache | 1.0.18 | cflinuxfs3, cflinuxfs4 |
+  | miniconda3-py39 | 24.1.2 | cflinuxfs3, cflinuxfs4 |
+  | pip | 24.0 | cflinuxfs3, cflinuxfs4 |
+  | pipenv | 2023.12.1 | cflinuxfs3 |
+  | pipenv | 2023.12.1 | cflinuxfs4 |
+  | python | 3.8.18 | cflinuxfs3 |
+  | python | 3.8.18 | cflinuxfs4 |
+  | python | 3.9.18 | cflinuxfs3 |
+  | python | 3.9.18 | cflinuxfs4 |
+  | python | 3.10.13 | cflinuxfs3 |
+  | python | 3.10.13 | cflinuxfs4 |
+  | python | 3.11.8 | cflinuxfs3 |
+  | python | 3.11.8 | cflinuxfs4 |
+  | python | 3.12.2 | cflinuxfs3 |
+  | python | 3.12.2 | cflinuxfs4 |
+  | setuptools | 69.2.0 | cflinuxfs3, cflinuxfs4 |
+  Default binary versions:
+  | name | version |
+  |-|-|
+  | python | 3.10.x |
+  * Uncached buildpack SHA256: 7c6b86a80d6e078c58271e3f7c308c9e8376d128c85f3f6d4486a15aab9f04f1
+  * Uncached buildpack SHA256: cc71449c03802052e53785b799a826f7530ff7f1a3da7158d825e3e6aa0cb66c
+          </pre>
+        </details>
+        <details>
+          <summary>1.8.21</summary>
+          <pre style="max-width: 30em">
+  * Add setuptools 69.1.1, remove setuptools 69.1.0 for stack(s) cflinuxfs4, cflinuxfs3
+  * Add miniconda3-py39 24.1.2, remove miniconda3-py39 23.11.0 for stack(s) cflinuxfs4, cflinuxfs3
+  | name | version | cf_stacks |
+  |-|-|-|
+  | libffi | 3.2.1 | cflinuxfs3, cflinuxfs4 |
+  | libmemcache | 1.0.18 | cflinuxfs3, cflinuxfs4 |
+  | miniconda3-py39 | 24.1.2 | cflinuxfs3, cflinuxfs4 |
+  | pip | 24.0 | cflinuxfs3, cflinuxfs4 |
+  | pipenv | 2023.12.1 | cflinuxfs3 |
+  | pipenv | 2023.12.1 | cflinuxfs4 |
+  | python | 3.8.18 | cflinuxfs3 |
+  | python | 3.8.18 | cflinuxfs4 |
+  | python | 3.9.18 | cflinuxfs3 |
+  | python | 3.9.18 | cflinuxfs4 |
+  | python | 3.10.13 | cflinuxfs3 |
+  | python | 3.10.13 | cflinuxfs4 |
+  | python | 3.11.8 | cflinuxfs3 |
+  | python | 3.11.8 | cflinuxfs4 |
+  | python | 3.12.2 | cflinuxfs3 |
+  | python | 3.12.2 | cflinuxfs4 |
+  | setuptools | 69.1.1 | cflinuxfs3, cflinuxfs4 |
+  Default binary versions:
+  | name | version |
+  |-|-|
+  | python | 3.10.x |
+  * Uncached buildpack SHA256: ca1069fbc5ec4983a9a6f1c474e5b5ba7040df574e1096f2c9105c9a05a23091
+  * Uncached buildpack SHA256: 1bf685784695141e096cd8933d3dc4ce72046f78dc4b0ae156157d4788d6cd2f
+          </pre>
+        </details>
+        <details>
+          <summary>1.8.20</summary>
+          <pre style="max-width: 30em">
+  * Add python 3.11.8, remove python 3.11.7 for stack(s) cflinuxfs4, cflinuxfs3
+  * Add python 3.12.2, remove python 3.12.1 for stack(s) cflinuxfs4, cflinuxfs3
+  * Add pip 24.0, remove pip 23.3.2 for stack(s) cflinuxfs4, cflinuxfs3
+  * Add pipenv 2023.12.1, remove pipenv 2023.11.15 for stack(s) cflinuxfs4, cflinuxfs3
+  * Add setuptools 69.1.0, remove setuptools 69.0.3 for stack(s) cflinuxfs4, cflinuxfs3
+  | name | version | cf_stacks |
+  |-|-|-|
+  | libffi | 3.2.1 | cflinuxfs3, cflinuxfs4 |
+  | libmemcache | 1.0.18 | cflinuxfs3, cflinuxfs4 |
+  | miniconda3-py39 | 23.11.0 | cflinuxfs3, cflinuxfs4 |
+  | pip | 24.0 | cflinuxfs3, cflinuxfs4 |
+  | pipenv | 2023.12.1 | cflinuxfs3 |
+  | pipenv | 2023.12.1 | cflinuxfs4 |
+  | python | 3.8.18 | cflinuxfs3 |
+  | python | 3.8.18 | cflinuxfs4 |
+  | python | 3.9.18 | cflinuxfs3 |
+  | python | 3.9.18 | cflinuxfs4 |
+  | python | 3.10.13 | cflinuxfs3 |
+  | python | 3.10.13 | cflinuxfs4 |
+  | python | 3.11.8 | cflinuxfs3 |
+  | python | 3.11.8 | cflinuxfs4 |
+  | python | 3.12.2 | cflinuxfs3 |
+  | python | 3.12.2 | cflinuxfs4 |
+  | setuptools | 69.1.0 | cflinuxfs3, cflinuxfs4 |
+  Default binary versions:
+  | name | version |
+  |-|-|
+  | python | 3.10.x |
+  * Uncached buildpack SHA256: 10f42336e908d35ee50d97784070836450eb3f8223cdd180344a24c12267b57a
+  * Uncached buildpack SHA256: e962445617664aae9c29e597b6954bf6823f59425d82423692c344894fa31b4e
+          </pre>
+        </details>
+      </td>
+    </tr>
+    <tr><td>r-offline-buildpack</td><td>1.2.10</td>
+      <td>
+        <details>
+          <summary>1.2.10</summary>
+          <pre style="max-width: 30em">
+  * Update r 4.2.3 dependencies for stack(s) cflinuxfs3, cflinuxfs4:
+  * forecast from 8.21.1 to 8.22.0
+  | name | version | cf_stacks | modules |
+  |-|-|-|-|
+  | r | 3.6.3 | cflinuxfs3 | forecast, plumber, rserve, shiny |
+  | r | 4.2.3 | cflinuxfs3 | forecast, plumber, rserve, shiny |
+  | r | 4.2.3 | cflinuxfs4 | forecast, plumber, rserve, shiny |
+  | r | 4.3.2 | cflinuxfs3 | forecast, plumber, rserve, shiny |
+  | r | 4.3.2 | cflinuxfs4 | forecast, plumber, rserve, shiny |
+  * Uncached buildpack SHA256: 7490f99a30928dbae9bd9b1e512234a866aa5bc007e19426c7b7f3113655970b
+  * Uncached buildpack SHA256: b8b7e66e4fc7a02d896ec58913482ea666527f07569d2a983b093a77c346138b
+          </pre>
+        </details>
+        <details>
+          <summary>1.2.9</summary>
+          <pre style="max-width: 30em">
+  * Rebuild executables
+  | name | version | cf_stacks | modules |
+  |-|-|-|-|
+  | r | 3.6.3 | cflinuxfs3 | forecast, plumber, rserve, shiny |
+  | r | 4.2.3 | cflinuxfs3 | forecast, plumber, rserve, shiny |
+  | r | 4.2.3 | cflinuxfs4 | forecast, plumber, rserve, shiny |
+  | r | 4.3.2 | cflinuxfs3 | forecast, plumber, rserve, shiny |
+  | r | 4.3.2 | cflinuxfs4 | forecast, plumber, rserve, shiny |
+  * Uncached buildpack SHA256: 7eceb6104d89f4d92610af38ac8429400278071460faaa41f004e72485e13017
+  * Uncached buildpack SHA256: 7e29bc01b13fd643eaeca2050cc418e8731de8a0994587adc599a7cb657a4379
+          </pre>
+        </details>
+      </td>
+    </tr>
+    <tr><td>routing</td><td>0.293.0</td>
+      <td>
+        <details>
+          <summary>v0.293.0</summary>
+          <pre style="max-width: 30em">
+  ## Changes
+  * [Add toggle to allow empty Content-Length headers](https://github.com/cloudfoundry/routing-release/commit/7f8762673e3b7dd564dc368855d053bd3703f895)
+  * [fix: Enable syslog forwarding for gorouter](https://github.com/cloudfoundry/routing-release/commit/550c9b2271154c620b43f65037d6558a0437ae9f)
+  * [fix: Don't retry more often than endpoints available](https://github.com/cloudfoundry/routing-release/commit/112f971405f85990f79509812afacec67771a5a2)
+  * [Add an option to enable concurrent reads and responses in HTTP/1](https://github.com/cloudfoundry/routing-release/commit/be5ea2fb059574f213b8d0739b0ce0f78be68bdb)
+  ## Bosh Job Spec changes:
+  ```diff
+  diff --git a/jobs/gorouter/spec b/jobs/gorouter/spec
+  index e7c33d66..712a761f 100644
+  --- a/jobs/gorouter/spec
+  +++ b/jobs/gorouter/spec
+  @@ -161,6 +161,9 @@ properties:
+  router.enable_http2:
+  description: Enables support for HTTP/2 ingress traffic to the Gorouter. Also enables the option to use the HTTP/2 protocol for traffic to specified backends.
+  default: true
+  +  router.enable_http1_concurrent_read_write:
+  +    description: Enables concurrent request reads and response writes for HTTP/1 requests
+  +    default: false
+  router.min_tls_version:
+  description: Minimum accepted version of TLS protocol. All versions above this, up to the max_tls_version, will also be accepted. Valid values are TLSv1.0, TLSv1.1, TLSv1.2, and TLSv1.3.
+  default: TLSv1.2
+  @@ -194,8 +197,9 @@ properties:
+  router.backends.max_attempts:
+  description: |
+  Maximum number of attempts on failing requests against backend routes.
+  +      The number of attempts per request is limited by the number of endpoints on the route, regardless of this setting.
+  This includes CF apps and route-registrar endpoints.
+  -      A value of 0 implies indefinite retries, i.e. retry until success or endpoint list is exhausted.
+  +      The minimum value for this setting is 1. This prevents gorouter from getting blocked by indefinite retries.
+  default: 3
+  router.backends.ca:
+  description: Certificate authority that was used to sign certificates for TLS-registered backends. In PEM format.
+  @@ -274,6 +278,15 @@ properties:
+  router.enable_log_attempts_details:
+  description: "Log additional fields in the access log that provide more details on the specific timings and attempts performed towards endpoints."
+  default: false
+  +  router.logging.syslog_tag:
+  +    description: "Tag to use when writing syslog messages"
+  +    default: "vcap.gorouter"
+  +  router.logging.syslog_addr:
+  +    description: "Address of a syslog server to send access logs"
+  +    default: "localhost:514"
+  +  router.logging.syslog_network:
+  +    description: "Network protocol to use when connecting to the syslog server. Valid values are 'tcp', 'udp', <empty>. When choosing an empty string value, the local syslog daemon is used."
+  +    default: "udp"
+  router.logging.format.timestamp:
+  description: |
+  Format for timestamp in component logs. Valid values are 'rfc3339', 'deprecated', and 'unix-epoch'."
+  @@ -492,6 +505,9 @@ properties:
+  router.write_access_logs_locally:
+  description: "Enables writing access log to local disk."
+  default: true
+  +  router.enable_access_log_streaming:
+  +    description: "Enables streaming access log to syslog server."
+  +    default: false
+  router.suspend_pruning_if_nats_unavailable:
+  description: |
+  Suspend pruning of routes when NATs is unavailable and maintain the
+  @@ -583,6 +599,14 @@ properties:
+  street_address: []
+  postal_code: []
+  default: []
+  +
+  healthchecker.failure_counter_file:
+  description: "File used by the healthchecker to monitor consecutive failures."
+  default: /var/vcap/data/gorouter/counters/consecutive_healthchecker_failures.count
+  +
+  +  go.httplaxcontentlength:
+  +    description: |
+  +        Environment Flag to temporarily allow requests containing an invalid, empty `Content-Length` header for backwards compatibility.
+  +        This toggle allows operators to add the `GODEBUG` field `httplaxcontentlength=1`, as allowable per the [go 1.22 release documentation](https://tip.golang.org/doc/go1.22#minor_library_changes).
+  +        Defaults to `false` as the default behavior in go 1.22+ is to reject these requests.
+  +    default: false
+  ```
+  ## ✨  Built with go 1.21.8
+  **Full Changelog**: https://github.com/cloudfoundry/routing-release/compare/v0.292.0...v0.293.0
+  ## Resources
+  - [Download release 0.293.0 from bosh.io](https://bosh.io/releases/github.com/cloudfoundry/routing-release?version=0.293.0).
+          </pre>
+        </details>
+      </td>
+    </tr>
+    <tr><td>ruby-offline-buildpack</td><td>1.10.11</td>
+      <td>
+        <details>
+          <summary>1.10.11</summary>
+          <pre style="max-width: 30em">
+  * Add yarn 1.22.22, remove yarn 1.22.21 (#913)
+  for stack(s) cflinuxfs4, cflinuxfs3
+  | name | version | cf_stacks |
+  |-|-|-|
+  | bundler | 2.5.6 | cflinuxfs3, cflinuxfs4 |
+  | jruby | 9.4.6.0 | cflinuxfs3 |
+  | jruby | 9.4.6.0 | cflinuxfs4 |
+  | node | 20.11.1 | cflinuxfs3 |
+  | node | 20.11.1 | cflinuxfs4 |
+  | openjdk1.8-latest | 1.8.0 | cflinuxfs3, cflinuxfs4 |
+  | ruby | 3.0.5 | cflinuxfs3 |
+  | ruby | 3.0.6 | cflinuxfs3 |
+  | ruby | 3.1.3 | cflinuxfs3 |
+  | ruby | 3.1.3 | cflinuxfs4 |
+  | ruby | 3.1.4 | cflinuxfs3 |
+  | ruby | 3.1.4 | cflinuxfs4 |
+  | ruby | 3.2.2 | cflinuxfs3 |
+  | ruby | 3.2.2 | cflinuxfs4 |
+  | ruby | 3.2.3 | cflinuxfs3 |
+  | ruby | 3.2.3 | cflinuxfs4 |
+  | ruby | 3.3.0 | cflinuxfs3 |
+  | ruby | 3.3.0 | cflinuxfs4 |
+  | rubygems | 3.5.6 | cflinuxfs3, cflinuxfs4 |
+  | yarn | 1.22.22 | cflinuxfs3, cflinuxfs4 |
+  Default binary versions:
+  | name | version |
+  |-|-|
+  | ruby | 3.2.x |
+  * Uncached buildpack SHA256: dee5085e36c0a8e206523b6b6e00c86799997ebc2a1b36b7acafdfde249da8d2
+  * Uncached buildpack SHA256: b1d01a6463853ed53b18a2a1f104652feebc27f41ba5a8c21ea7b16d6b032ce6
+          </pre>
+        </details>
+        <details>
+          <summary>1.10.10</summary>
+          <pre style="max-width: 30em">
+  * Add jruby 9.4.6.0, remove jruby 9.4.5.0 (#906)
+  for stack(s) cflinuxfs3, cflinuxfs4
+  (https://www.pivotaltracker.com/story/show/187082819)
+  * Add node 20.11.1, remove node 20.11.0 (#905)
+  for stack(s) cflinuxfs3, cflinuxfs4
+  (https://www.pivotaltracker.com/story/show/187048168)
+  | name | version | cf_stacks |
+  |-|-|-|
+  | bundler | 2.5.6 | cflinuxfs3, cflinuxfs4 |
+  | jruby | 9.4.6.0 | cflinuxfs3 |
+  | jruby | 9.4.6.0 | cflinuxfs4 |
+  | node | 20.11.1 | cflinuxfs3 |
+  | node | 20.11.1 | cflinuxfs4 |
+  | openjdk1.8-latest | 1.8.0 | cflinuxfs3, cflinuxfs4 |
+  | ruby | 3.0.5 | cflinuxfs3 |
+  | ruby | 3.0.6 | cflinuxfs3 |
+  | ruby | 3.1.3 | cflinuxfs3 |
+  | ruby | 3.1.3 | cflinuxfs4 |
+  | ruby | 3.1.4 | cflinuxfs3 |
+  | ruby | 3.1.4 | cflinuxfs4 |
+  | ruby | 3.2.2 | cflinuxfs3 |
+  | ruby | 3.2.2 | cflinuxfs4 |
+  | ruby | 3.2.3 | cflinuxfs3 |
+  | ruby | 3.2.3 | cflinuxfs4 |
+  | ruby | 3.3.0 | cflinuxfs3 |
+  | ruby | 3.3.0 | cflinuxfs4 |
+  | rubygems | 3.5.6 | cflinuxfs3, cflinuxfs4 |
+  | yarn | 1.22.21 | cflinuxfs3, cflinuxfs4 |
+  Default binary versions:
+  | name | version |
+  |-|-|
+  | ruby | 3.2.x |
+  * Uncached buildpack SHA256: e5b3d55460f810c3a6a35be000f4b6cc7ab13c21b0d74131ef4977388ba19b8f
+  * Uncached buildpack SHA256: f8bca8eb454116bd5e58f5201c85f3264d47a4020f7e788c94c16f427f35f556
+          </pre>
+        </details>
+      </td>
+    </tr>
+    <tr><td>silk</td><td>3.44.0</td>
+      <td>
+        <details>
+          <summary>v3.44.0</summary>
+          <pre style="max-width: 30em">
+  ## Changes
+  - [Add property for check-timeout](https://github.com/cloudfoundry/silk-release/commit/1e44df842be2ff6832df5c2a6a5d23fd4db07987)
+  ## Bosh Job Spec changes:
+  ```diff
+  diff --git a/jobs/silk-daemon/spec b/jobs/silk-daemon/spec
+  index 70be43f2..7a1525b3 100644
+  --- a/jobs/silk-daemon/spec
+  +++ b/jobs/silk-daemon/spec
+  @@ -36,6 +36,10 @@ properties:
+  description: "Host port used for receiving VXLAN packets"
+  default: 4789
+  +  container_metadata_file_check_timeout:
+  +    description: "Timeout in seconds for checking the container metadata file during drain"
+  +    default: 600
+  +
+  partition_tolerance_hours:
+  description: "When silk controller is unavailable, silk daemon will remain healthy and allow creation of new containers for this number of hours.  Should be no larger than cf_networking.subnet_lease_expiration_hours."
+  default: 168
+  ```
+  ## ✨  Built with go 1.21.8
+  **Full Changelog**: https://github.com/cloudfoundry/silk-release/compare/v3.43.0...v3.44.0
+  ## Resources
+  - [Download release 3.44.0 from bosh.io](https://bosh.io/releases/github.com/cloudfoundry/silk-release?version=3.44.0).
+          </pre>
+        </details>
+      </td>
+    </tr>
+    <tr><td>smb-volume</td><td>3.1.60</td>
+      <td>
+        <details>
+          <summary>v3.1.60</summary>
+          <pre style="max-width: 30em">
+  ## Dependencies
+  * **smbbroker:** Updated to v`7d3a9db`.<br>For more information, see [smbbroker](https://github.com/cloudfoundry/smbbroker).
+          </pre>
+        </details>
+        <details>
+          <summary>v3.1.59</summary>
+          <pre style="max-width: 30em">
+  ## Changes
+  * fix regression for DFS exposed SMB Shares (#366)
+  ## Dependencies
+  * **smbbroker:** Updated to v`281c0d3`.<br>For more information, see [smbbroker](https://github.com/cloudfoundry/smbbroker).
+  * **smbdriver:** Updated to v`803264c`.<br>For more information, see [smbdriver](https://github.com/cloudfoundry/smbdriver).
+          </pre>
+        </details>
+        <details>
+          <summary>v3.1.58</summary>
+          <pre style="max-width: 30em">
+  ## Changes
+  * +Golang: Updated to v1.22.1 (#360)
+  ## Dependencies
+  * **ginkgo/v2:** Updated to v2.16.0.<br>For more information, see [v2](https://github.com/onsi/ginkgo).
+  * **smbbroker:** Updated to v`d3987c2`.<br>For more information, see [smbbroker](https://github.com/cloudfoundry/smbbroker).
+  * **smbdriver:** Updated to v`151a764`.<br>For more information, see [smbdriver](https://github.com/cloudfoundry/smbdriver).
+          </pre>
+        </details>
+        <details>
+          <summary>v3.1.57</summary>
+          <pre style="max-width: 30em">
+  ## Dependencies
+  * **smbbroker:** Updated to v`e379cb9`.<br>For more information, see [smbbroker](https://github.com/cloudfoundry/smbbroker).
+  * **smbdriver:** Updated to v`1dd5594`.<br>For more information, see [smbdriver](https://github.com/cloudfoundry/smbdriver).
+          </pre>
+        </details>
+        <details>
+          <summary>v3.1.56</summary>
+          <pre style="max-width: 30em">
+  ## Dependencies
+  * **smbbroker:** Updated to v`1385bd7`.<br>For more information, see [smbbroker](https://github.com/cloudfoundry/smbbroker).
+  * **smbdriver:** Updated to v`1c35d30`.<br>For more information, see [smbdriver](https://github.com/cloudfoundry/smbdriver).
+          </pre>
+        </details>
+      </td>
+    </tr>
+    <tr><td>smoke-tests</td><td>4.8.5</td><td></td></tr>
+    <tr><td>staticfile-offline-buildpack</td><td>1.6.11</td>
+      <td>
+        <details>
+          <summary>1.6.11</summary>
+          <pre style="max-width: 30em">
+  * Add nginx 1.25.4, remove nginx 1.25.3 (#408)
+  for stack(s) cflinuxfs4, cflinuxfs3
+  (https://www.pivotaltracker.com/story/show/187047410)
+  | name | version | cf_stacks |
+  |-|-|-|
+  | nginx | 1.24.0 | cflinuxfs3 |
+  | nginx | 1.24.0 | cflinuxfs4 |
+  | nginx | 1.25.4 | cflinuxfs3 |
+  | nginx | 1.25.4 | cflinuxfs4 |
+  Default binary versions:
+  | name | version |
+  |-|-|
+  | nginx | 1.25.x |
+  * Uncached buildpack SHA256: 5c24ac517c5c79be2f2e8b48933c5dbeff664b1024f34df5110af9bc0ec3273d
+  * Uncached buildpack SHA256: e3fd545e050acd97c290e863ba81ef26233811c58f8a1b7ebcf0b631b5781a8c
+          </pre>
+        </details>
+      </td>
+    </tr>
+    <tr><td>statsd-injector</td><td>1.11.39</td>
+      <td>
+        <details>
+          <summary>v1.11.39</summary>
+          <pre style="max-width: 30em">
+  ## What's Changed
+  * Bump dependencies
+  * Bump to [go1.21.8](https://groups.google.com/g/golang-announce/c/5pwGVUPoMbg/m/46oA5yPABQAJ)
+  **Full Changelog**: https://github.com/cloudfoundry/statsd-injector-release/compare/v1.11.38...v1.11.39
+          </pre>
+        </details>
+      </td>
+    </tr>
+    <tr><td>syslog</td><td>11.8.17</td>
+      <td>
+        <details>
+          <summary>v11.8.17</summary>
+          <pre style="max-width: 30em">
+  ## What's Changed
+  * Bump dependencies
+  * Bump packaged Golang to go1.21.8
+  **Full Changelog**: https://github.com/cloudfoundry/syslog-release/compare/v11.8.16...v11.8.17
+          </pre>
+        </details>
+      </td>
+    </tr>
+    <tr><td>system-metrics-scraper</td><td>4.0.7</td>
+      <td>
+        <details>
+          <summary>v4.0.7</summary>
+          <pre style="max-width: 30em">
+  ## What's Changed
+  * Bump dependencies
+  * Bump to [go1.21.8](https://groups.google.com/g/golang-announce/c/5pwGVUPoMbg/m/46oA5yPABQAJ)
+  **Full Changelog**: https://github.com/cloudfoundry/system-metrics-scraper-release/compare/v4.0.6...v4.0.7
+          </pre>
+        </details>
+      </td>
+    </tr>
+    <tr><td>uaa</td><td>74.5.107</td>
+      <td>
+        <details>
+          <summary>v74.5.107</summary>
+          <pre style="max-width: 30em">
+  ## What's Changed
+  * Bump i18n from 1.14.1 to 1.14.4 by @dependabot in https://github.com/cloudfoundry/uaa-release/pull/822
+  * Bump github.com/cloudfoundry/bosh-utils from 0.0.447 to 0.0.450 in /src/acceptance_tests by @dependabot in https://github.com/cloudfoundry/uaa-release/pull/821
+  * [build(deps): bump org.eclipse.jgit:org.eclipse.jgit](https://github.com/cloudfoundry/uaa/commit/99d9c3f832306749809640963e52fd0288197768)
+  **Full Changelog**: https://github.com/cloudfoundry/uaa-release/compare/v74.5.106...v74.5.107
+          </pre>
+        </details>
+        <details>
+          <summary>v74.5.106</summary>
+          <pre style="max-width: 30em">
+  ## What's Changed
+  - Various dependency bumps
+  **Full Changelog**: https://github.com/cloudfoundry/uaa-release/compare/v74.5.105...v74.5.106
+          </pre>
+        </details>
+        <details>
+          <summary>v74.5.105</summary>
+          <pre style="max-width: 30em">
+  ## What's Changed
+  * Bump Spring Framework version from 5.3.31 to 5.3.32 for CVE-2024-22243
+  * Bump postgresql version from 42.3.8 to 42.3.9 for CVE-2024-1597
+  * Bump other various dependencies
+  **Full Changelog**: https://github.com/cloudfoundry/uaa-release/compare/v74.5.104...v74.5.105
+          </pre>
+        </details>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+
+
 ### <a id='2.11.54'></a> 2.11.54
 
 **Release Date:** 03/04/2024
