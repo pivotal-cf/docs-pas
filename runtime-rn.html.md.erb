@@ -25,7 +25,7 @@ use <%= vars.app_runtime_abbr %>
 
 **Release Date:** 03/22/2024
 
-* **[Known Issue]]** A bug in gorouter can cause an incorrect certificate to be presented to clients depending on the order they were specified in the TAS configs. This has been fixed in routing-release 0.295.0
+* **[Known Issue]** A Gorouter bug can cause an incorrect certificate to be presented to clients, depending on the order in which the clients were specified in TAS configuration. This is fixed in routing-release version 0.295.0
 * **[Bug Fix]** Adds default value for internal_server_port when Route Services are disabled to prevent deployment error
 * **[Bug Fix]** Fix "routine" garden container disk cleanup option
 * Bump backup-and-restore-sdk to version `1.19.7`
