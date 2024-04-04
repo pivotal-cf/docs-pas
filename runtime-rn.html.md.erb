@@ -21,6 +21,7 @@ Because VMware uses the Percona Distribution for MySQL, expect a time lag betwee
 
 **Release Date:** 03/22/2024
 
+* **[Known Issue]]** A bug in gorouter can cause an incorrect certificate to be presented to clients depending on the order they were specified in the TAS configs. This has been fixed in routing-release 0.295.0
 * **[Feature Improvement]** Reintroduce global log rate limit
 * **[Bug Fix]** Adds default value for internal_server_port when Route Services are disabled to prevent deployment error
 * **[Bug Fix]** Fix "routine" garden container disk cleanup option
