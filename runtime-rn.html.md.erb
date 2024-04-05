@@ -567,10 +567,10 @@ These are the new features for <%= vars.app_runtime_full %> <%= vars.v_major_ver
 
 ### Reduced logging and metric infrastructure requirements
 
-For customers that do not use the legacy V1 and V2 Loggregator Firehoses it is now possible to scale Doppler and Traffic Controller VMs
-down to zero. This can significantly reduce costs or free up resources that may instead be used to run additional workloads on the platform.
-You may not be able to scale down to zero if you have integrations or other features that depend on the firehose, such as log and metric nozzles or
-metric registrar.
+If you do not use the legacy V1 and V2 Loggregator Firehoses, you now can scale Doppler and Traffic Controller VMs down to zero. This can
+significantly reduce costs or free up resources for running additional workloads on the platform.
+You might not be able to scale down to zero if you use integrations or other features that depend on the Firehose, such as log and metric nozzles or
+Metric Registrar.
 
 ### Reintroduction of global log rate limit
 
@@ -598,21 +598,19 @@ These are the breaking changes for <%= vars.app_runtime_full %> <%= vars.v_major
 
 ### Default Stacks No Longer Include cflinuxfs3
 
-New installations of TAS 6.0 will no longer default to include cflinuxfs3 in the list of stacks.
-Operators can [still configure TAS](https://docs.vmware.com/en/VMware-Tanzu-Application-Service/6.0/tas-for-vms/config-cloud-controller.html)
-to install cflinuxfs3, as desired.
+New installations of <%= vars.app_runtime_abbr %> <%= vars.v_major_version %> no longer default to include cflinuxfs3 in the list of stacks.
+Operators can continue to [configure <%= vars.app_runtime_abbr %>](https://docs.vmware.com/en/VMware-Tanzu-Application-Service/<%= vars.current_major_version %>/tas-for-vms/config-cloud-controller.html)
+to install cflinuxfs3, if desired.
 
-Upgrading existing TAS foundations to TAS 6.0 will NOT remove cflinuxfs3.
-Apps running on cflinuxfs3 will continue to operate, as normal.
-It will still be possible to push applications with cflinuxfs3 as the stack.
-However, if operators [remove cflinuxfs3](https://docs.vmware.com/en/VMware-Tanzu-Application-Service/6.0/tas-for-vms/stack-auditor.html)
+Upgrading an existing foundation to <%= vars.app_runtime_abbr %> <%= vars.v_major_version %> does not remove cflinuxfs3.
+Apps running on cflinuxfs3 continue to run as normal, and developers can continue to push applications using the cflinuxfs3 stack.
+However, if operators [remove cflinuxfs3](https://docs.vmware.com/en/VMware-Tanzu-Application-Service/<%= vars.current_major_version %>/tas-for-vms/stack-auditor.html)
 from an existing foundation,
-then cflinuxfs3 will no longer be installed when deploying TAS,
+then cflinuxfs3 is no longer installed when deploying <%= vars.app_runtime_abbr %>,
 unless the default stack list is configured to include cflinuxfs3 (see above).
 
-TAS 6.0 is anticipated to be the last TAS release that will include cflinuxfs3.
-If you have not already, please migrate all apps off of cflinuxfs3
-and remove the stack from your foundations.
+Support for the cflinuxfs3 stack is deprecated and will be removed in a future release of <%= vars.app_runtime_abbr %>.
+If you have not already, migrate all applications off of cflinuxfs3 and remove the stack from your foundations.
 
 ### Absolute CPU Entitlement metrics no longer available
 
@@ -626,10 +624,10 @@ CPU entitlement usage, you can instead view the `cpu_entitlement` metric, for ex
 
 Here are the known issues for <%= vars.app_runtime_full %> <%= vars.v_major_version %>.
 
-### Loggregator Agents in other products may log failure when dopplers are scaled to zero
+### Loggregator Agents in other products may log failure when Dopplers are scaled to zero
 
-Service tile products may make use of Loggregator Agent to egress metrics for service instances. If the doppler instance group is scaled to zero
-then Loggregator Agent jobs deployed by these products may repeatedly log a failure to connect to doppler:
+Service tile products can use Loggregator Agent to egress metrics for service instances. If the Doppler instance group is scaled to zero,
+then Loggregator Agent jobs deployed by these products may repeatedly log a failure to connect to Doppler:
 
 ```
 failed to connect: unable to lookup a log consumer
