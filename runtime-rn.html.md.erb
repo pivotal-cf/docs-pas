@@ -8845,6 +8845,22 @@ The Tanzu stacks use slightly different base images for building and running app
 
 These are the breaking changes for <%= vars.segment_runtime_full %> <%= vars.v_major_version %>.
 
+### Default stacks no longer include cflinuxfs3
+
+New installations of <%= vars.app_runtime_abbr %> <%= vars.v_major_version %> no longer default to include cflinuxfs3 in the list of stacks.
+Operators can continue to [Cloud Controller](https://docs.vmware.com/en/VMware-Tanzu-Application-Service/<%= vars.current_major_version %>/tas-for-vms/config-cloud-controller.html)
+to install cflinuxfs3, if desired.
+
+Upgrading an existing foundation to <%= vars.app_runtime_abbr %> <%= vars.v_major_version %> does not remove cflinuxfs3.
+Apps running on cflinuxfs3 continue to run as normal, and developers can continue to push applications using the cflinuxfs3 stack.
+However, if operators [remove cflinuxfs3](https://docs.vmware.com/en/VMware-Tanzu-Application-Service/<%= vars.current_major_version %>/tas-for-vms/stack-auditor.html)
+from an existing foundation,
+then cflinuxfs3 is no longer installed when deploying <%= vars.app_runtime_abbr %>,
+unless the default stack list is configured to include cflinuxfs3 (see above).
+
+Support for the cflinuxfs3 stack is deprecated and will be removed in a future release of <%= vars.app_runtime_abbr %>.
+If you have not already, migrate all applications off of cflinuxfs3 and remove the stack from your foundations.
+
 ### <a id='jbp-462-removes-autoreconfig'></a> Java Buildpack 4.62.0 removes Spring AutoReconfiguration library for Spring Boot 3 applications
 
 From v4.62.0, the Java Buildpack will no longer install the Spring AutoReconfiguration (SAR) library for Spring Boot 3 applications.
