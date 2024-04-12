@@ -17,6 +17,1952 @@ Because VMware uses the Percona Distribution for MySQL, expect a time lag betwee
 
 ## <a id='releases'></a> Releases
 
+### <a id='5.0.10'></a> 5.0.10
+
+**Release Date:** 03/22/2024
+
+* **[Known Issue]** A Gorouter bug can cause an incorrect certificate to be presented to clients, depending on the order in which the clients were specified in TAS configuration. This is fixed in routing-release version 0.295.0
+* **[Feature Improvement]** Reintroduce global log rate limit
+* **[Bug Fix]** Fix "routine" garden container disk cleanup option
+* Bump bpm to version `1.2.17`
+* Bump cf-networking to version `3.44.0`
+* Bump cflinuxfs3 to version `0.387.0`
+* Bump cflinuxfs4 to version `1.82.0`
+* Bump loggregator-agent to version `8.0.2`
+* Bump mapfs to version `1.2.62`
+* Bump metrics-discovery to version `3.2.23`
+* Bump nfs-volume to version `7.1.57`
+* Bump otel-collector to version `0.4.0`
+* Bump routing to version `0.293.0`
+* Bump silk to version `3.44.0`
+* Bump smb-volume to version `3.1.60`
+* Bump syslog to version `12.2.3`
+* Bump tanzu-jammy-stack to version `1.0.1`
+
+<table border="1" class="nice">
+  <thead>
+    <tr>
+      <th>Component</th>
+      <th>Version</th>
+      <th>Release Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>ubuntu-jammy stemcell</td><td>1.406</td><td></td></tr>
+    <tr><td>bpm</td><td>1.2.17</td><td></td></tr>
+    <tr><td>cf-networking</td><td>3.44.0</td>
+      <td>
+        <details>
+          <summary>v3.44.0</summary>
+          <pre style="max-width: 30em">
+  ## Changes
+  - staticcheck improvements
+  ## ✨  Built with go 1.21.8
+  **Full Changelog**: https://github.com/cloudfoundry/cf-networking-release/compare/v3.43.0...v3.44.0
+  ## Resources
+  - [Download release 3.44.0 from bosh.io](https://bosh.io/releases/github.com/cloudfoundry/cf-networking-release?version=3.44.0).
+          </pre>
+        </details>
+      </td>
+    </tr>
+    <tr><td>cflinuxfs3</td><td>0.387.0</td>
+      <td>
+        <details>
+          <summary>v0.387.0</summary>
+          <pre style="max-width: 30em">
+  This release ships with cflinuxfs3 version 0.387.0. For more information, see the [release notes](https://github.com/cloudfoundry/cflinuxfs3/releases/tag/0.387.0)
+          </pre>
+        </details>
+      </td>
+    </tr>
+    <tr><td>cflinuxfs4</td><td>1.82.0</td>
+      <td>
+        <details>
+          <summary>v1.82.0</summary>
+          <pre style="max-width: 30em">
+  This release ships with cflinuxfs4 version 1.82.0. For more information, see the [release notes](https://github.com/cloudfoundry/cflinuxfs4/releases/tag/1.82.0)
+          </pre>
+        </details>
+      </td>
+    </tr>
+    <tr><td>cf-cli</td><td>1.60.0</td><td></td></tr>
+    <tr><td>count-cores-indicator</td><td>2.0.0</td><td></td></tr>
+    <tr><td>diego</td><td>2.95.0</td><td></td></tr>
+    <tr><td>garden-runc</td><td>1.50.0</td><td></td></tr>
+    <tr><td>loggregator-agent</td><td>8.0.2</td>
+      <td>
+        <details>
+          <summary>v8.0.2</summary>
+          <pre style="max-width: 30em">
+  ## What's Changed
+  * Bump dependencies
+  * Bump to [go1.21.8](https://groups.google.com/g/golang-announce/c/5pwGVUPoMbg/m/46oA5yPABQAJ)
+  **Full Changelog**: https://github.com/cloudfoundry/loggregator-agent-release/compare/v8.0.1...v8.0.2
+          </pre>
+        </details>
+      </td>
+    </tr>
+    <tr><td>mapfs</td><td>1.2.62</td>
+      <td>
+        <details>
+          <summary>v1.2.62</summary>
+          <pre style="max-width: 30em">
+  ## Dependencies
+  * **mapfs:** Updated to v`599ec1c`.<br>For more information, see [mapfs](https://github.com/cloudfoundry/mapfs).
+          </pre>
+        </details>
+        <details>
+          <summary>v1.2.61</summary>
+          <pre style="max-width: 30em">
+  Maintenance release
+          </pre>
+        </details>
+      </td>
+    </tr>
+    <tr><td>metrics-discovery</td><td>3.2.23</td>
+      <td>
+        <details>
+          <summary>v3.2.23</summary>
+          <pre style="max-width: 30em">
+  ## What's Changed
+  - Bump dependencies
+  - Bump to [go1.21.8](https://groups.google.com/g/golang-announce/c/5pwGVUPoMbg/m/46oA5yPABQAJ)
+  **Full Changelog**: https://github.com/cloudfoundry/metrics-discovery-release/compare/v3.2.22...v3.2.23
+          </pre>
+        </details>
+      </td>
+    </tr>
+    <tr><td>nfs-volume</td><td>7.1.57</td>
+      <td>
+        <details>
+          <summary>v7.1.57</summary>
+          <pre style="max-width: 30em">
+  ## Changes
+  * Bump sqlite from 3.45.1 to 3.45.2 (#829)
+  ## Dependencies
+  * **nfsbroker:** Updated to v`422ac7a`.<br>For more information, see [nfsbroker](https://github.com/cloudfoundry/nfsbroker).
+  * **nfsv3driver:** Updated to v`b4451c3`.<br>For more information, see [nfsv3driver](https://github.com/cloudfoundry/nfsv3driver).
+          </pre>
+        </details>
+        <details>
+          <summary>v7.1.56</summary>
+          <pre style="max-width: 30em">
+  ## Changes
+  * Golang: Updated to v1.22.1 (#815)
+  * Bump tcl from nfs-debs/tcl8.6.13-src.tar.gz to 8.6.14 (#809)
+  ## Dependencies
+  * **nfsbroker:** Updated to v`99e18a3`.<br>For more information, see [nfsbroker](https://github.com/cloudfoundry/nfsbroker).
+  * **nfsv3driver:** Updated to v`0768dc3`.<br>For more information, see [nfsv3driver](https://github.com/cloudfoundry/nfsv3driver).
+          </pre>
+        </details>
+      </td>
+    </tr>
+    <tr><td>otel-collector</td><td>0.4.0</td>
+      <td>
+        <details>
+          <summary>v0.4.0</summary>
+          <pre style="max-width: 30em">
+  * Add spec property `ingress.grpc.address` to allow the listen address of the otel collector to be configured.
+  * Add spec property `trace_exporters` to allow exporters to be configured to handle traces. It is not currently possible to register the same exporter name in both metric and trace pipelines.
+  * Bump dependencies
+  * Bump to [go1.21.8](https://groups.google.com/g/golang-announce/c/5pwGVUPoMbg/m/46oA5yPABQAJ)
+          </pre>
+        </details>
+      </td>
+    </tr>
+    <tr><td>routing</td><td>0.293.0</td>
+      <td>
+        <details>
+          <summary>v0.293.0</summary>
+          <pre style="max-width: 30em">
+  ## Changes
+  * [Add toggle to allow empty Content-Length headers](https://github.com/cloudfoundry/routing-release/commit/7f8762673e3b7dd564dc368855d053bd3703f895)
+  * [fix: Enable syslog forwarding for gorouter](https://github.com/cloudfoundry/routing-release/commit/550c9b2271154c620b43f65037d6558a0437ae9f)
+  * [fix: Don't retry more often than endpoints available](https://github.com/cloudfoundry/routing-release/commit/112f971405f85990f79509812afacec67771a5a2)
+  * [Add an option to enable concurrent reads and responses in HTTP/1](https://github.com/cloudfoundry/routing-release/commit/be5ea2fb059574f213b8d0739b0ce0f78be68bdb)
+  ## Bosh Job Spec changes:
+  ```diff
+  diff --git a/jobs/gorouter/spec b/jobs/gorouter/spec
+  index e7c33d66..712a761f 100644
+  --- a/jobs/gorouter/spec
+  +++ b/jobs/gorouter/spec
+  @@ -161,6 +161,9 @@ properties:
+  router.enable_http2:
+  description: Enables support for HTTP/2 ingress traffic to the Gorouter. Also enables the option to use the HTTP/2 protocol for traffic to specified backends.
+  default: true
+  +  router.enable_http1_concurrent_read_write:
+  +    description: Enables concurrent request reads and response writes for HTTP/1 requests
+  +    default: false
+  router.min_tls_version:
+  description: Minimum accepted version of TLS protocol. All versions above this, up to the max_tls_version, will also be accepted. Valid values are TLSv1.0, TLSv1.1, TLSv1.2, and TLSv1.3.
+  default: TLSv1.2
+  @@ -194,8 +197,9 @@ properties:
+  router.backends.max_attempts:
+  description: |
+  Maximum number of attempts on failing requests against backend routes.
+  +      The number of attempts per request is limited by the number of endpoints on the route, regardless of this setting.
+  This includes CF apps and route-registrar endpoints.
+  -      A value of 0 implies indefinite retries, i.e. retry until success or endpoint list is exhausted.
+  +      The minimum value for this setting is 1. This prevents gorouter from getting blocked by indefinite retries.
+  default: 3
+  router.backends.ca:
+  description: Certificate authority that was used to sign certificates for TLS-registered backends. In PEM format.
+  @@ -274,6 +278,15 @@ properties:
+  router.enable_log_attempts_details:
+  description: "Log additional fields in the access log that provide more details on the specific timings and attempts performed towards endpoints."
+  default: false
+  +  router.logging.syslog_tag:
+  +    description: "Tag to use when writing syslog messages"
+  +    default: "vcap.gorouter"
+  +  router.logging.syslog_addr:
+  +    description: "Address of a syslog server to send access logs"
+  +    default: "localhost:514"
+  +  router.logging.syslog_network:
+  +    description: "Network protocol to use when connecting to the syslog server. Valid values are 'tcp', 'udp', <empty>. When choosing an empty string value, the local syslog daemon is used."
+  +    default: "udp"
+  router.logging.format.timestamp:
+  description: |
+  Format for timestamp in component logs. Valid values are 'rfc3339', 'deprecated', and 'unix-epoch'."
+  @@ -492,6 +505,9 @@ properties:
+  router.write_access_logs_locally:
+  description: "Enables writing access log to local disk."
+  default: true
+  +  router.enable_access_log_streaming:
+  +    description: "Enables streaming access log to syslog server."
+  +    default: false
+  router.suspend_pruning_if_nats_unavailable:
+  description: |
+  Suspend pruning of routes when NATs is unavailable and maintain the
+  @@ -583,6 +599,14 @@ properties:
+  street_address: []
+  postal_code: []
+  default: []
+  +
+  healthchecker.failure_counter_file:
+  description: "File used by the healthchecker to monitor consecutive failures."
+  default: /var/vcap/data/gorouter/counters/consecutive_healthchecker_failures.count
+  +
+  +  go.httplaxcontentlength:
+  +    description: |
+  +        Environment Flag to temporarily allow requests containing an invalid, empty `Content-Length` header for backwards compatibility.
+  +        This toggle allows operators to add the `GODEBUG` field `httplaxcontentlength=1`, as allowable per the [go 1.22 release documentation](https://tip.golang.org/doc/go1.22#minor_library_changes).
+  +        Defaults to `false` as the default behavior in go 1.22+ is to reject these requests.
+  +    default: false
+  ```
+  ## ✨  Built with go 1.21.8
+  **Full Changelog**: https://github.com/cloudfoundry/routing-release/compare/v0.292.0...v0.293.0
+  ## Resources
+  - [Download release 0.293.0 from bosh.io](https://bosh.io/releases/github.com/cloudfoundry/routing-release?version=0.293.0).
+          </pre>
+        </details>
+      </td>
+    </tr>
+    <tr><td>silk</td><td>3.44.0</td>
+      <td>
+        <details>
+          <summary>v3.44.0</summary>
+          <pre style="max-width: 30em">
+  ## Changes
+  - [Add property for check-timeout](https://github.com/cloudfoundry/silk-release/commit/1e44df842be2ff6832df5c2a6a5d23fd4db07987)
+  ## Bosh Job Spec changes:
+  ```diff
+  diff --git a/jobs/silk-daemon/spec b/jobs/silk-daemon/spec
+  index 70be43f2..7a1525b3 100644
+  --- a/jobs/silk-daemon/spec
+  +++ b/jobs/silk-daemon/spec
+  @@ -36,6 +36,10 @@ properties:
+  description: "Host port used for receiving VXLAN packets"
+  default: 4789
+  +  container_metadata_file_check_timeout:
+  +    description: "Timeout in seconds for checking the container metadata file during drain"
+  +    default: 600
+  +
+  partition_tolerance_hours:
+  description: "When silk controller is unavailable, silk daemon will remain healthy and allow creation of new containers for this number of hours.  Should be no larger than cf_networking.subnet_lease_expiration_hours."
+  default: 168
+  ```
+  ## ✨  Built with go 1.21.8
+  **Full Changelog**: https://github.com/cloudfoundry/silk-release/compare/v3.43.0...v3.44.0
+  ## Resources
+  - [Download release 3.44.0 from bosh.io](https://bosh.io/releases/github.com/cloudfoundry/silk-release?version=3.44.0).
+          </pre>
+        </details>
+      </td>
+    </tr>
+    <tr><td>smb-volume</td><td>3.1.60</td>
+      <td>
+        <details>
+          <summary>v3.1.60</summary>
+          <pre style="max-width: 30em">
+  ## Dependencies
+  * **smbbroker:** Updated to v`7d3a9db`.<br>For more information, see [smbbroker](https://github.com/cloudfoundry/smbbroker).
+          </pre>
+        </details>
+        <details>
+          <summary>v3.1.59</summary>
+          <pre style="max-width: 30em">
+  ## Changes
+  * fix regression for DFS exposed SMB Shares (#366)
+  ## Dependencies
+  * **smbbroker:** Updated to v`281c0d3`.<br>For more information, see [smbbroker](https://github.com/cloudfoundry/smbbroker).
+  * **smbdriver:** Updated to v`803264c`.<br>For more information, see [smbdriver](https://github.com/cloudfoundry/smbdriver).
+          </pre>
+        </details>
+        <details>
+          <summary>v3.1.58</summary>
+          <pre style="max-width: 30em">
+  ## Changes
+  * +Golang: Updated to v1.22.1 (#360)
+  ## Dependencies
+  * **ginkgo/v2:** Updated to v2.16.0.<br>For more information, see [v2](https://github.com/onsi/ginkgo).
+  * **smbbroker:** Updated to v`d3987c2`.<br>For more information, see [smbbroker](https://github.com/cloudfoundry/smbbroker).
+  * **smbdriver:** Updated to v`151a764`.<br>For more information, see [smbdriver](https://github.com/cloudfoundry/smbdriver).
+          </pre>
+        </details>
+      </td>
+    </tr>
+    <tr><td>smoke-tests</td><td>4.8.5</td><td></td></tr>
+    <tr><td>syslog</td><td>12.2.3</td>
+      <td>
+        <details>
+          <summary>v12.2.3</summary>
+          <pre style="max-width: 30em">
+  ## What's Changed
+  * Bump dependencies
+  * Bump packaged Golang to go1.21.8
+  **Full Changelog**: https://github.com/cloudfoundry/syslog-release/compare/v12.2.2...v12.2.3
+          </pre>
+        </details>
+      </td>
+    </tr>
+    <tr><td>tanzu-jammy-stack</td><td>1.0.1</td>
+      <td>
+        <details>
+          <summary>v1.0.1</summary>
+          <pre style="max-width: 30em">
+  # 1.0.1`tanzu-jammy-stack` bosh release
+  ## Dependency image versions:
+  - [tanzu-jammy-base-stack-0.1.85](https://github.com/pivotal-cf/tanzu-jammy-base-stack/releases/tag/v0.1.85)
+  - [tanzu-jammy-full-stack-0.1.144](https://github.com/pivotal-cf/tanzu-jammy-full-stack/releases/tag/v0.1.144)
+          </pre>
+        </details>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+
+
+### <a id='5.0.9'></a> 5.0.9
+
+**Release Date:** 03/06/2024
+
+* **[Feature]** Add support for ESM updates on cflinuxfs4 stack
+* Bump cf-networking to version `3.43.0`
+* Bump cflinuxfs3 to version `0.386.0`
+* Bump cflinuxfs4 to version `1.81.0`
+* Bump cf-cli to version `1.60.0`
+* Bump diego to version `2.95.0`
+* Bump garden-runc to version `1.50.0`
+* Bump mapfs to version `1.2.59`
+* Bump nfs-volume to version `7.1.55`
+* Bump smb-volume to version `3.1.57`
+
+<table border="1" class="nice">
+  <thead>
+    <tr>
+      <th>Component</th>
+      <th>Version</th>
+      <th>Release Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>ubuntu-jammy stemcell</td><td>1.390</td><td></td></tr>
+    <tr><td>bpm</td><td>1.2.16</td><td></td></tr>
+    <tr><td>cf-networking</td><td>3.43.0</td>
+      <td>
+        <details>
+          <summary>v3.43.0</summary>
+          <pre style="max-width: 30em">
+  ## Changes
+  - Removes deprecated and unused/unworking istio code from the release.
+  - Go package dependency bumps
+  ## Bosh Job Spec changes:
+  ```diff
+  diff --git a/jobs/bosh-dns-adapter/spec b/jobs/bosh-dns-adapter/spec
+  index 8d73a6b4..fba2cdba 100644
+  --- a/jobs/bosh-dns-adapter/spec
+  +++ b/jobs/bosh-dns-adapter/spec
+  @@ -21,9 +21,6 @@ consumes:
+  - name: cloud_controller_container_networking_info
+  type: cloud_controller_container_networking_info
+  optional: true
+  -  - name: vip_resolver_conn
+  -    type: vip_resolver_conn
+  -    optional: true
+  properties:
+  cf_app_sd_disable:
+  ```
+  ## ✨  Built with go 1.21.7
+  **Full Changelog**: https://github.com/cloudfoundry/cf-networking-release/compare/v3.42.0...v3.43.0
+  ## Resources
+  - [Download release 3.43.0 from bosh.io](https://bosh.io/releases/github.com/cloudfoundry/cf-networking-release?version=3.43.0).
+          </pre>
+        </details>
+      </td>
+    </tr>
+    <tr><td>cflinuxfs3</td><td>0.386.0</td>
+      <td>
+        <details>
+          <summary>v0.386.0</summary>
+          <pre style="max-width: 30em">
+  This release ships with cflinuxfs3 version 0.386.0. For more information, see the [release notes](https://github.com/cloudfoundry/cflinuxfs3/releases/tag/0.386.0)
+          </pre>
+        </details>
+      </td>
+    </tr>
+    <tr><td>cflinuxfs4</td><td>1.81.0</td>
+      <td>
+        <details>
+          <summary>v1.81.0</summary>
+          <pre style="max-width: 30em">
+  This release ships with cflinuxfs4 version 1.81.0. For more information, see the [release notes](https://github.com/cloudfoundry/cflinuxfs4/releases/tag/1.81.0)
+          </pre>
+        </details>
+        <details>
+          <summary>v1.80.0</summary>
+          <pre style="max-width: 30em">
+  This release ships with cflinuxfs4 version 1.80.0. For more information, see the [release notes](https://github.com/cloudfoundry/cflinuxfs4/releases/tag/1.80.0)
+          </pre>
+        </details>
+        <details>
+          <summary>v1.79.0</summary>
+          <pre style="max-width: 30em">
+  This release ships with cflinuxfs4 version 1.79.0. For more information, see the [release notes](https://github.com/cloudfoundry/cflinuxfs4/releases/tag/1.79.0)
+          </pre>
+        </details>
+        <details>
+          <summary>v1.78.0</summary>
+          <pre style="max-width: 30em">
+  This release ships with cflinuxfs4 version 1.78.0. For more information, see the [release notes](https://github.com/cloudfoundry/cflinuxfs4/releases/tag/1.78.0)
+          </pre>
+        </details>
+        <details>
+          <summary>v1.77.0</summary>
+          <pre style="max-width: 30em">
+  This release ships with cflinuxfs4 version 1.77.0. For more information, see the [release notes](https://github.com/cloudfoundry/cflinuxfs4/releases/tag/1.77.0)
+          </pre>
+        </details>
+        <details>
+          <summary>v1.76.0</summary>
+          <pre style="max-width: 30em">
+  This release ships with cflinuxfs4 version 1.76.0. For more information, see the [release notes](https://github.com/cloudfoundry/cflinuxfs4/releases/tag/1.76.0)
+          </pre>
+        </details>
+        <details>
+          <summary>v1.75.0</summary>
+          <pre style="max-width: 30em">
+  This release ships with cflinuxfs4 version 1.75.0. For more information, see the [release notes](https://github.com/cloudfoundry/cflinuxfs4/releases/tag/1.75.0)
+          </pre>
+        </details>
+        <details>
+          <summary>v1.74.0</summary>
+          <pre style="max-width: 30em">
+  This release ships with cflinuxfs4 version 1.74.0. For more information, see the [release notes](https://github.com/cloudfoundry/cflinuxfs4/releases/tag/1.74.0)
+          </pre>
+        </details>
+      </td>
+    </tr>
+    <tr><td>cf-cli</td><td>1.60.0</td>
+      <td>
+        <details>
+          <summary>1.60.0</summary>
+          <pre style="max-width: 30em">
+  ### This release contains the following versions of the CF CLI
+  Major version | Prior version | Current version
+  -- | -- | --
+  v8 | 8.7.7 | [8.7.8](https://github.com/cloudfoundry/cli/releases/tag/v8.7.8)
+  v7 | 7.7.7 | [7.7.8](https://github.com/cloudfoundry/cli/releases/tag/v7.7.8)
+  v6 | 6.53.0 | [6.53.0](https://github.com/cloudfoundry/cli/releases/tag/v6.53.0)
+          </pre>
+        </details>
+      </td>
+    </tr>
+    <tr><td>count-cores-indicator</td><td>2.0.0</td><td></td></tr>
+    <tr><td>diego</td><td>2.95.0</td>
+      <td>
+        <details>
+          <summary>v2.95.0</summary>
+          <pre style="max-width: 30em">
+  ## Changes
+  - bbs: ([Issue](https://github.com/cloudfoundry/diego-release/issues/883)) Now uses `DesiredLRPSchedulingInfo` instead of the entire `DesiredLRP` when only the scheduling info is needed, resulting in a 95% decrease in time spent for relevant calls.  Thanks @klapkov!
+  ## ✨  Built with go 1.21.7
+  **Full Changelog**: https://github.com/cloudfoundry/diego-release/compare/v2.94.0...v2.95.0
+  ## Resources
+  - [Download release 2.95.0 from bosh.io](https://bosh.io/releases/github.com/cloudfoundry/diego-release?version=2.95.0).
+          </pre>
+        </details>
+      </td>
+    </tr>
+    <tr><td>garden-runc</td><td>1.50.0</td>
+      <td>
+        <details>
+          <summary>v1.50.0</summary>
+          <pre style="max-width: 30em">
+  ## Changes
+  - Adds `grootfs.routine_gc` property, which allows operators to configure garden to grootfs to clean up unused container image layers whenever new containers are created.
+  - Previously, to achieve this, operators had to set `grootfs.reserved_space_for_other_jobs_in_mb` to the same value as the ephemeral disk, which is not always easy to obtain programatically.
+  - Bump go dependencies
+  ## Bosh Job Spec changes:
+  ```diff
+  diff --git a/jobs/garden/spec b/jobs/garden/spec
+  index c84b5c43..027df351 100644
+  --- a/jobs/garden/spec
+  +++ b/jobs/garden/spec
+  @@ -292,6 +292,10 @@ properties:
+  grootfs.tls.ca_cert:
+  description: "PEM-encoded tls client CA certificate for asset upload/download"
+  +  grootfs.routine_gc:
+  +    description: "Set to true if you want grootfs to perform garbage collection on unused container image layers whenever a new container is created."
+  +    default: false
+  +
+  grootfs.reserved_space_for_other_jobs_in_mb:
+  description: "Amount of space that will be kept free for other jobs. The GrootFS store will be able to grow up to a maximum size of its disk minus this reserved space. Where the reserved space does not allow sufficient size for GrootFS to store container images and root filesystems (currently 15GB), the limit will be a soft limit, and garbage collection will attempt to keep disk space available for other jobs. -1 disables GC and allows GrootFS to potentially use the whole disk."
+  default: 15360
+  ```
+  ## ✨  Built with go 1.21.7
+  **Full Changelog**: https://github.com/cloudfoundry/garden-runc-release/compare/v1.49.0...v1.50.0
+  ## Resources
+  - [Download release 1.50.0 from bosh.io](https://bosh.io/releases/github.com/cloudfoundry/garden-runc-release?version=1.50.0).
+          </pre>
+        </details>
+      </td>
+    </tr>
+    <tr><td>loggregator-agent</td><td>8.0.1</td><td></td></tr>
+    <tr><td>mapfs</td><td>1.2.59</td>
+      <td>
+        <details>
+          <summary>v1.2.59</summary>
+          <pre style="max-width: 30em">
+  ## Dependencies
+  * **mapfs:** Updated to v`535cb52`.<br>For more information, see [mapfs](https://github.com/cloudfoundry/mapfs).
+          </pre>
+        </details>
+      </td>
+    </tr>
+    <tr><td>metrics-discovery</td><td>3.2.22</td><td></td></tr>
+    <tr><td>nfs-volume</td><td>7.1.55</td>
+      <td>
+        <details>
+          <summary>v7.1.55</summary>
+          <pre style="max-width: 30em">
+  ## Dependencies
+  * **nfsbroker:** Updated to v`1c94cbf`.<br>For more information, see [nfsbroker](https://github.com/cloudfoundry/nfsbroker).
+  * **nfsv3driver:** Updated to v`bf42615`.<br>For more information, see [nfsv3driver](https://github.com/cloudfoundry/nfsv3driver).
+          </pre>
+        </details>
+      </td>
+    </tr>
+    <tr><td>otel-collector</td><td>0.3.2</td><td></td></tr>
+    <tr><td>routing</td><td>0.292.0</td><td></td></tr>
+    <tr><td>silk</td><td>3.43.0</td><td></td></tr>
+    <tr><td>smb-volume</td><td>3.1.57</td>
+      <td>
+        <details>
+          <summary>v3.1.57</summary>
+          <pre style="max-width: 30em">
+  ## Dependencies
+  * **smbbroker:** Updated to v`e379cb9`.<br>For more information, see [smbbroker](https://github.com/cloudfoundry/smbbroker).
+  * **smbdriver:** Updated to v`1dd5594`.<br>For more information, see [smbdriver](https://github.com/cloudfoundry/smbdriver).
+          </pre>
+        </details>
+        <details>
+          <summary>v3.1.56</summary>
+          <pre style="max-width: 30em">
+  ## Dependencies
+  * **smbbroker:** Updated to v`1385bd7`.<br>For more information, see [smbbroker](https://github.com/cloudfoundry/smbbroker).
+  * **smbdriver:** Updated to v`1c35d30`.<br>For more information, see [smbdriver](https://github.com/cloudfoundry/smbdriver).
+          </pre>
+        </details>
+      </td>
+    </tr>
+    <tr><td>smoke-tests</td><td>4.8.5</td><td></td></tr>
+    <tr><td>syslog</td><td>12.2.2</td><td></td></tr>
+    <tr><td>tanzu-jammy-stack</td><td>1.0.0</td><td></td></tr>
+  </tbody>
+</table>
+
+
+
+### <a id='5.0.8'></a> 5.0.8
+
+**Release Date:** 03/04/2024
+
+* **[Feature]** Add support for NTLM authentication in Gorouter
+* **[Feature Improvement]** Apps using readiness health checks will now see audit.app.process.notready and audit.app.process.ready events reported to `cf events`
+* **[Security Fix]** Bump docker to address [GHSA-jq35-85cj-fj4p](https://github.com/advisories/GHSA-jq35-85cj-fj4p)
+* **[Feature Improvement]** Garden now emits an `UnkillableContainers` metric to help identify cells that will be unable to redeploy successfully without operator intervention
+* **[Feature Improvement]** Adds opt-in support for NTLM + other challenge-response based authentication using `Authorization: Negotiate` flows by automatically enabling sticky sessions for those requests.
+* **[Feature Improvement]** Adds support for `Partitioned` cookies to allow for sticky sessions in embedded contexts. 
+* Bump bpm to version `1.2.16`
+* Bump cf-networking to version `3.42.0`
+* Bump cflinuxfs3 to version `0.385.0`
+* Bump cflinuxfs4 to version `1.72.0`
+* Bump diego to version `2.94.0`
+* Bump garden-runc to version `1.49.0`
+* Bump mapfs to version `1.2.58`
+* Bump nfs-volume to version `7.1.54`
+* Bump routing to version `0.292.0`
+* Bump silk to version `3.43.0`
+* Bump smb-volume to version `3.1.55`
+
+<table border="1" class="nice">
+  <thead>
+    <tr>
+      <th>Component</th>
+      <th>Version</th>
+      <th>Release Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>ubuntu-jammy stemcell</td><td>1.379</td><td></td></tr>
+    <tr><td>bpm</td><td>1.2.16</td><td></td></tr>
+    <tr><td>cf-networking</td><td>3.42.0</td>
+      <td>
+        <details>
+          <summary>v3.42.0</summary>
+          <pre style="max-width: 30em">
+  ## Changes
+  - Bump healthchecker package
+  ## ✨  Built with go 1.21.7
+  **Full Changelog**: https://github.com/cloudfoundry/cf-networking-release/compare/v3.41.0...v3.42.0
+  ## Resources
+  - [Download release 3.42.0 from bosh.io](https://bosh.io/releases/github.com/cloudfoundry/cf-networking-release?version=3.42.0).
+          </pre>
+        </details>
+      </td>
+    </tr>
+    <tr><td>cflinuxfs3</td><td>0.385.0</td>
+      <td>
+        <details>
+          <summary>v0.385.0</summary>
+          <pre style="max-width: 30em">
+  This release ships with cflinuxfs3 version 0.385.0. For more information, see the [release notes](https://github.com/cloudfoundry/cflinuxfs3/releases/tag/0.385.0)
+          </pre>
+        </details>
+      </td>
+    </tr>
+    <tr><td>cflinuxfs4</td><td>1.72.0</td><td></td></tr>
+    <tr><td>cf-cli</td><td>1.59.0</td><td></td></tr>
+    <tr><td>count-cores-indicator</td><td>2.0.0</td><td></td></tr>
+    <tr><td>diego</td><td>2.94.0</td>
+      <td>
+        <details>
+          <summary>v2.94.0</summary>
+          <pre style="max-width: 30em">
+  ## Changes
+  - Fix bosh job spec description for `container_max_cpu_shares`
+  - dockerapplifecycle: Add OCI image spec index type to Accept header
+  - vizzini: Remove CPUWeight test
+  - bbs: Remove cpu_weight limits
+  - guardian: Add tests for unkillable containers
+  ## Bosh Job Spec changes:
+  ```diff
+  diff --git a/jobs/rep/spec b/jobs/rep/spec
+  index 24ce303d4..405f90f46 100644
+  --- a/jobs/rep/spec
+  +++ b/jobs/rep/spec
+  @@ -120,7 +120,7 @@ properties:
+  description: "the max concurrent download steps that can be active"
+  default: 5
+  diego.executor.container_max_cpu_shares:
+  -    description: "the maximum number of cpu shares for a container."
+  +    description: "number of CPU shares per 100 CPU weight"
+  default: 1024
+  diego.executor.container_inode_limit:
+  description: "the inode limit enforced on each garden container."
+  diff --git a/jobs/rep_windows/spec b/jobs/rep_windows/spec
+  index bd5e1db9f..0521d1061 100644
+  --- a/jobs/rep_windows/spec
+  +++ b/jobs/rep_windows/spec
+  @@ -116,7 +116,7 @@ properties:
+  description: "the max concurrent download steps that can be active"
+  default: 5
+  diego.executor.container_max_cpu_shares:
+  -    description: "the maximum number of cpu shares for a container."
+  +    description: "number of CPU shares per 100 CPU weight"
+  default: 10000
+  diego.executor.container_inode_limit:
+  description: "the inode limit enforced on each garden container."
+  ```
+  ## ✨  Built with go 1.21.7
+  **Full Changelog**: https://github.com/cloudfoundry/diego-release/compare/v2.93.0...v2.94.0
+  ## Resources
+  - [Download release 2.94.0 from bosh.io](https://bosh.io/releases/github.com/cloudfoundry/diego-release?version=2.94.0).
+          </pre>
+        </details>
+        <details>
+          <summary>v2.93.0</summary>
+          <pre style="max-width: 30em">
+  ## Changes
+  -  Add CPU Entitlement gauge metric & Deprecate CPU Entitlement counter metric #897
+  -  Bump docker to 20.10.27 to address GHSA-jq35-85cj-fj4p #906
+  - [golang-1.21-linux (1.21.7)](https://github.com/cloudfoundry/diego-release/commit/36f42cd578ecc742e9d9ad63af599ded1d939f81)
+  ## Bosh Job Spec changes:
+  ```diff
+  diff --git a/jobs/rep/spec b/jobs/rep/spec
+  index 8fb49517a..24ce303d4 100644
+  --- a/jobs/rep/spec
+  +++ b/jobs/rep/spec
+  @@ -79,6 +79,10 @@ properties:
+  description: "Cert used to communicate with local metron agent over gRPC"
+  loggregator.key:
+  description: "Key used to communicate with local metron agent over gRPC"
+  +  loggregator.app_metric_exclusion_filter:
+  +    description: "Array of application metrics to not emit"
+  +    default:
+  +    - cpu_entitlement
+  diego.rep.listen_addr_admin:
+  description: "serve (insecure) ping and evacuate requests on this address and port"
+  diff --git a/jobs/rep_windows/spec b/jobs/rep_windows/spec
+  index 023d76f18..bd5e1db9f 100644
+  --- a/jobs/rep_windows/spec
+  +++ b/jobs/rep_windows/spec
+  @@ -75,6 +75,10 @@ properties:
+  description: "Cert used to communicate with local metron agent over gRPC"
+  loggregator.key:
+  description: "Key used to communicate with local metron agent over gRPC"
+  +  loggregator.app_metric_exclusion_filter:
+  +    description: "Array of application metrics to not emit"
+  +    default:
+  +    - cpu_entitlement
+  diego.rep.advertise_domain:
+  description: "base domain at which the rep should advertise its secure API"
+  ```
+  ## ✨  Built with go 1.21.7
+  **Full Changelog**: https://github.com/cloudfoundry/diego-release/compare/v2.92.0...v2.93.0
+  ## Resources
+  - [Download release 2.93.0 from bosh.io](https://bosh.io/releases/github.com/cloudfoundry/diego-release?version=2.93.0).
+          </pre>
+        </details>
+      </td>
+    </tr>
+    <tr><td>garden-runc</td><td>1.49.0</td>
+      <td>
+        <details>
+          <summary>v1.49.0</summary>
+          <pre style="max-width: 30em">
+  ## Changes
+  - ✨guardian is a little more helpful when logging messages about containers that could not be killed, even after sending multiple SIGKILLs. In situations such as this, the only recourse is to reboot the VM, if the container processes are stuck in an unkillable state in the kernel. In addition to making this error stand out more, we've added a new metric for `UnkillableContainers` that guardian emits. When nonzero, there is a container that cannot be killed. See the [CloudFoundrydocs for Component metrics](https://docs.cloudfoundry.org/running/all_metrics.html#garden-linux) for more info.
+  - Golang package dependency bumps
+  - Bumped to Golang 1.21.7
+  ## ✨  Built with go 1.21.7
+  **Full Changelog**: https://github.com/cloudfoundry/garden-runc-release/compare/v1.48.0...v1.49.0
+  ## Resources
+  - [Download release 1.49.0 from bosh.io](https://bosh.io/releases/github.com/cloudfoundry/garden-runc-release?version=1.49.0).
+          </pre>
+        </details>
+      </td>
+    </tr>
+    <tr><td>loggregator-agent</td><td>8.0.1</td><td></td></tr>
+    <tr><td>mapfs</td><td>1.2.58</td>
+      <td>
+        <details>
+          <summary>v1.2.58</summary>
+          <pre style="max-width: 30em">
+  ## Dependencies
+  * **mapfs:** Updated to v`31dcbd6`.<br>For more information, see [mapfs](https://github.com/cloudfoundry/mapfs).
+          </pre>
+        </details>
+        <details>
+          <summary>v1.2.57</summary>
+          <pre style="max-width: 30em">
+  ## Changes
+  * Golang: Updated to v1.22.0. (#219)
+  ## Dependencies
+  * **mapfs:** Updated to v`4f9c679`.<br>For more information, see [mapfs](https://github.com/cloudfoundry/mapfs).
+          </pre>
+        </details>
+        <details>
+          <summary>v1.2.56</summary>
+          <pre style="max-width: 30em">
+  ## Changes
+  * Golang: Updated to v1.21.7 (#215)
+          </pre>
+        </details>
+        <details>
+          <summary>v1.2.55</summary>
+          <pre style="max-width: 30em">
+  ## Changes
+  * Add final release 1.2.54 [ci skip]
+  * fix bug introduced in 964e4a7 (#214)
+          </pre>
+        </details>
+        <details>
+          <summary>v1.2.53</summary>
+          <pre style="max-width: 30em">
+  ## Changes
+  * Golang: Updated to v1.21.6. (#202)
+  ## Dependencies
+  * **v2:** Updated to v2.15.0.<br>For more information, see [v2](https://github.com/onsi/ginkgo).
+  * **gomega:** Updated to v1.31.0.<br>For more information, see [gomega](https://github.com/onsi/gomega).
+  * **mapfs:** Updated to v`c46a740`.<br>For more information, see [mapfs](https://github.com/cloudfoundry/mapfs).
+          </pre>
+        </details>
+      </td>
+    </tr>
+    <tr><td>metrics-discovery</td><td>3.2.22</td><td></td></tr>
+    <tr><td>nfs-volume</td><td>7.1.54</td>
+      <td>
+        <details>
+          <summary>v7.1.54</summary>
+          <pre style="max-width: 30em">
+  ## Dependencies
+  * **nfsbroker:** Updated to v`f3d20d4`.<br>For more information, see [nfsbroker](https://github.com/cloudfoundry/nfsbroker).
+  * **nfsv3driver:** Updated to v`380678d`.<br>For more information, see [nfsv3driver](https://github.com/cloudfoundry/nfsv3driver).
+          </pre>
+        </details>
+        <details>
+          <summary>v7.1.53</summary>
+          <pre style="max-width: 30em">
+  ## Changes
+  * Golang: Updated to v1.22.0 (#780)
+  ## Dependencies
+  * **nfsbroker:** Updated to v`539f3a9`.<br>For more information, see [nfsbroker](https://github.com/cloudfoundry/nfsbroker).
+  * **nfsv3driver:** Updated to v`57c687c`.<br>For more information, see [nfsv3driver](https://github.com/cloudfoundry/nfsv3driver).
+          </pre>
+        </details>
+        <details>
+          <summary>v7.1.52</summary>
+          <pre style="max-width: 30em">
+  ## Changes
+  * +Golang: Updated to v1.21.7 (#778)
+          </pre>
+        </details>
+        <details>
+          <summary>v7.1.48</summary>
+          <pre style="max-width: 30em">
+  ## Changes
+  * +Golang: Updated to v1.21.7 (#777)
+  * Add final release 7.1.47 [ci skip]
+  ## Dependencies
+  * **rspec:** Updated to v3.13.0.<br>For more information, see [rspec](https://github.com/rspec/rspec-metagem).
+  * **nfsv3driver:** Updated to v`c4f5c80`.<br>For more information, see [nfsv3driver](https://github.com/cloudfoundry/nfsv3driver).
+          </pre>
+        </details>
+      </td>
+    </tr>
+    <tr><td>otel-collector</td><td>0.3.2</td><td></td></tr>
+    <tr><td>routing</td><td>0.292.0</td>
+      <td>
+        <details>
+          <summary>v0.292.0</summary>
+          <pre style="max-width: 30em">
+  ## Changes
+  - Dependency updates
+  - ✨ Adds support for `Partitioned` cookies to gorouter to allow for sticky sessions in embedded contexts. [More information on 3rd-party cookie deprecation.](https://developers.google.com/privacy-sandbox/3pcd)
+  ## ✨  Built with go 1.21.7
+  **Full Changelog**: https://github.com/cloudfoundry/routing-release/compare/v0.291.0...v0.292.0
+  ## Resources
+  - [Download release 0.292.0 from bosh.io](https://bosh.io/releases/github.com/cloudfoundry/routing-release?version=0.292.0).
+          </pre>
+        </details>
+        <details>
+          <summary>v0.291.0</summary>
+          <pre style="max-width: 30em">
+  ## Changes
+  - Bugfix: Mitigates issue when operators set `router.route_service_internal_server_port`. Previously, this configuration parameter was not passed through to the Gorouter configuration.
+  ## ✨  Built with go 1.21.7
+  **Full Changelog**: https://github.com/cloudfoundry/routing-release/compare/v0.290.0...v0.291.0
+  ## Resources
+  - [Download release 0.291.0 from bosh.io](https://bosh.io/releases/github.com/cloudfoundry/routing-release?version=0.291.0).
+          </pre>
+        </details>
+        <details>
+          <summary>v0.290.0</summary>
+          <pre style="max-width: 30em">
+  ## Changes
+  - ✨Adds opt-in support for NTLM + other challenge-response based authentication using `Authorization: Negotiate` flows by automatically enabling sticky sessions for those requests.
+  - Golang bump to 1.21.7
+  - Go package dependency bumps
+  ## Bosh Job Spec changes:
+  ```diff
+  diff --git a/jobs/gorouter/spec b/jobs/gorouter/spec
+  index c291be45..e7c33d66 100644
+  --- a/jobs/gorouter/spec
+  +++ b/jobs/gorouter/spec
+  @@ -123,6 +123,9 @@ properties:
+  router.sticky_session_cookie_names:
+  description: "The names of the cookies to use for handling sticky sessions"
+  default: [ "JSESSIONID" ]
+  +  router.sticky_sessions_for_auth_negotiate:
+  +    description: "Controls whether or not gorouter will apply sticky sessions to request/response flows using 'Authorization: Negotiate'"
+  +    default: false
+  router.drain_wait:
+  description: |
+  Delay in seconds after shut down is initiated before server stops listening.
+  ```
+  ## ✨  Built with go 1.21.7
+  **Full Changelog**: https://github.com/cloudfoundry/routing-release/compare/v0.289.0...v0.290.0
+  ## Resources
+  - [Download release 0.290.0 from bosh.io](https://bosh.io/releases/github.com/cloudfoundry/routing-release?version=0.290.0).
+          </pre>
+        </details>
+      </td>
+    </tr>
+    <tr><td>silk</td><td>3.43.0</td>
+      <td>
+        <details>
+          <summary>v3.43.0</summary>
+          <pre style="max-width: 30em">
+  ## Changes
+  - Go package dependency bumps
+  ## ✨  Built with go 1.21.7
+  **Full Changelog**: https://github.com/cloudfoundry/silk-release/compare/v3.42.0...v3.43.0
+  ## Resources
+  - [Download release 3.43.0 from bosh.io](https://bosh.io/releases/github.com/cloudfoundry/silk-release?version=3.43.0).
+          </pre>
+        </details>
+        <details>
+          <summary>v3.42.0</summary>
+          <pre style="max-width: 30em">
+  ## Changes
+  - Bump healthchecker package
+  ## ✨  Built with go 1.21.7
+  **Full Changelog**: https://github.com/cloudfoundry/silk-release/compare/v3.41.0...v3.42.0
+  ## Resources
+  - [Download release 3.42.0 from bosh.io](https://bosh.io/releases/github.com/cloudfoundry/silk-release?version=3.42.0).
+          </pre>
+        </details>
+        <details>
+          <summary>v3.41.0</summary>
+          <pre style="max-width: 30em">
+  ## Changes
+  - Go package dependency bumps
+  ## ✨  Built with go 1.21.6
+  **Full Changelog**: https://github.com/cloudfoundry/silk-release/compare/v3.40.0...v3.41.0
+  ## Resources
+  - [Download release 3.41.0 from bosh.io](https://bosh.io/releases/github.com/cloudfoundry/silk-release?version=3.41.0).
+          </pre>
+        </details>
+      </td>
+    </tr>
+    <tr><td>smb-volume</td><td>3.1.55</td>
+      <td>
+        <details>
+          <summary>v3.1.55</summary>
+          <pre style="max-width: 30em">
+  ## Dependencies
+  * **smbbroker:** Updated to v`635d659`.<br>For more information, see [smbbroker](https://github.com/cloudfoundry/smbbroker).
+  * **smbdriver:** Updated to v`a3f69fd`.<br>For more information, see [smbdriver](https://github.com/cloudfoundry/smbdriver).
+          </pre>
+        </details>
+        <details>
+          <summary>v3.1.54</summary>
+          <pre style="max-width: 30em">
+  ## Changes
+  * +Golang: Updated to v1.22.0 (#343)
+  ## Dependencies
+  * **rspec:** Updated to v3.13.0.<br>For more information, see [rspec](https://github.com/rspec/rspec-metagem).
+  * **smbbroker:** Updated to v`50360ca`.<br>For more information, see [smbbroker](https://github.com/cloudfoundry/smbbroker).
+  * **smbdriver:** Updated to v`45257a1`.<br>For more information, see [smbdriver](https://github.com/cloudfoundry/smbdriver).
+          </pre>
+        </details>
+        <details>
+          <summary>v3.1.53</summary>
+          <pre style="max-width: 30em">
+  ## Changes
+  * Bump talloc from 2.4.1 to 2.4.2 (#338)
+  ## Dependencies
+  * **smbbroker:** Updated to v`21d0744`.<br>For more information, see [smbbroker](https://github.com/cloudfoundry/smbbroker).
+          </pre>
+        </details>
+      </td>
+    </tr>
+    <tr><td>smoke-tests</td><td>4.8.5</td><td></td></tr>
+    <tr><td>syslog</td><td>12.2.2</td><td></td></tr>
+    <tr><td>tanzu-jammy-stack</td><td>1.0.0</td><td></td></tr>
+  </tbody>
+</table>
+
+
+
+### <a id='5.0.7'></a> 5.0.7
+
+**Release Date:** 02/05/2024
+
+* **[Rollback]** mapfs rolled back to v1.2.52 for [upgrade bug](https://github.com/cloudfoundry/mapfs-release/pull/214)
+* Bump cf-networking to version `3.41.0`
+* Bump garden-runc to version `1.48.0`
+* Bump metrics-discovery to version `3.2.22`
+* Bump nfs-volume to version `7.1.47`
+* Bump routing to version `0.289.0`
+* Bump smb-volume to version `3.1.52`
+* Bump syslog to version `12.2.2`
+
+<table border="1" class="nice">
+  <thead>
+    <tr>
+      <th>Component</th>
+      <th>Version</th>
+      <th>Release Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>ubuntu-jammy stemcell</td><td>1.351</td><td></td></tr>
+    <tr><td>bpm</td><td>1.2.13</td><td></td></tr>
+    <tr><td>cf-networking</td><td>3.41.0</td>
+      <td>
+        <details>
+          <summary>v3.41.0</summary>
+          <pre style="max-width: 30em">
+  ## Changes
+  - Add GOVERSION env var to example apps
+  ## ✨  Built with go 1.21.6
+  **Full Changelog**: https://github.com/cloudfoundry/cf-networking-release/compare/v3.40.0...v3.41.0
+  ## Resources
+  - [Download release 3.41.0 from bosh.io](https://bosh.io/releases/github.com/cloudfoundry/cf-networking-release?version=3.41.0).
+          </pre>
+        </details>
+      </td>
+    </tr>
+    <tr><td>cflinuxfs3</td><td>0.384.0</td><td></td></tr>
+    <tr><td>cflinuxfs4</td><td>1.68.0</td><td></td></tr>
+    <tr><td>cf-cli</td><td>1.59.0</td><td></td></tr>
+    <tr><td>count-cores-indicator</td><td>2.0.0</td><td></td></tr>
+    <tr><td>diego</td><td>2.92.0</td><td></td></tr>
+    <tr><td>garden-runc</td><td>1.48.0</td>
+      <td>
+        <details>
+          <summary>v1.48.0</summary>
+          <pre style="max-width: 30em">
+  ## Changes
+  - 🔒[runc](https://github.com/opencontainers/runc) + [container](https://github.com/containerd/containerd) have been bumped to address [CVE-2024-21626](https://github.com/advisories/GHSA-xr7r-f8xq-vfvv)
+  - ✈️Many updates to get garden-runc-release's CI configuration working in the [wg-app-platform-runtime-ci](https://github.com/cloudfoundry/wg-app-platform-runtime-ci) repo Thank you @winkingturtle-vmw @ebroberson @MarcPaquette !!!
+  - Docs updates - Thank you @MarcPaquette !!!
+  - Many golang package dependency bumps
+  ## ✨  Built with go 1.21.6
+  **Full Changelog**: https://github.com/cloudfoundry/garden-runc-release/compare/v1.47.0...v1.48.0
+  ## Resources
+  - [Download release 1.48.0 from bosh.io](https://bosh.io/releases/github.com/cloudfoundry/garden-runc-release?version=1.48.0).
+          </pre>
+        </details>
+      </td>
+    </tr>
+    <tr><td>loggregator-agent</td><td>8.0.1</td><td></td></tr>
+    <tr><td>mapfs</td><td>1.2.52</td><td></td></tr>
+    <tr><td>metrics-discovery</td><td>3.2.22</td>
+      <td>
+        <details>
+          <summary>v3.2.22</summary>
+          <pre style="max-width: 30em">
+  ## What's Changed
+  * Bump dependencies
+  * Bump packaged Golang to go1.21.6
+  **Full Changelog**: https://github.com/cloudfoundry/metrics-discovery-release/compare/v3.2.21...v3.2.22
+          </pre>
+        </details>
+      </td>
+    </tr>
+    <tr><td>nfs-volume</td><td>7.1.47</td>
+      <td>
+        <details>
+          <summary>v7.1.47</summary>
+          <pre style="max-width: 30em">
+  ## Dependencies
+  * **nfsbroker:** Updated to v`364dcca`.<br>For more information, see [nfsbroker](https://github.com/cloudfoundry/nfsbroker).
+          </pre>
+        </details>
+      </td>
+    </tr>
+    <tr><td>otel-collector</td><td>0.3.2</td><td></td></tr>
+    <tr><td>routing</td><td>0.289.0</td>
+      <td>
+        <details>
+          <summary>v0.289.0</summary>
+          <pre style="max-width: 30em">
+  ## ❗**BREAKING CHANGES** ❗
+  -  A new reserved port 7070 had been added - Thanks @domdom82!
+  - Before deploying, please double-check your [reserved ports settings](https://github.com/cloudfoundry/routing-release/blob/develop/jobs/gorouter/templates/pre-start.erb) for any clashes with port 7070, especially the `router.prometheus.port` property.
+  ## Changes
+  - (Feature) [Add route_services_internal_server_port property](https://github.com/cloudfoundry/routing-release/pull/382)
+  - (Bug) [Add cipher-suites for TLS 1.3](https://github.com/cloudfoundry/gorouter/pull/390) and [auto-generate the list from now on](https://github.com/cloudfoundry/gorouter/pull/391)
+  ## Bosh Job Spec changes:
+  ```diff
+  diff --git a/jobs/gorouter/spec b/jobs/gorouter/spec
+  index 30f535b8..c291be45 100644
+  --- a/jobs/gorouter/spec
+  +++ b/jobs/gorouter/spec
+  @@ -207,7 +207,7 @@ properties:
+  description:
+  An ordered, colon-delimited list of golang supported TLS cipher suites in OpenSSL or RFC format.
+  The selected cipher suite will be negotiated according to the order of this list during a TLS handshake.
+  -      See https://github.com/golang/go/blob/release-branch.go1.9/src/crypto/tls/cipher_suites.go#L369-L390 for golang supported cipher suites.
+  +      See https://github.com/golang/go/blob/release-branch.go1.21/src/crypto/tls/cipher_suites.go#L663-L690 for golang supported cipher suites.
+  The first four of these are supported for TLSv1.0/1.1 only.
+  See https://www.openssl.org/docs/man1.1.0/apps/ciphers.html for a mapping of OpenSSL and RFC suite names.
+  default: "ECDHE-RSA-AES128-GCM-SHA256:TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384"
+  @@ -243,6 +243,9 @@ properties:
+  router.route_services_internal_lookup_allowlist:
+  description: "a list of host names for route services that should be resolved internally. Each entry can be a fully qualified domain name or DNS wildcard (i.e. wildcard on 1 segment of a subdomain). If the list is empty, it is not in effect and internal lookup will be attempted for all host names, which can lead to CVE-2019-3789. Please turn on internal lookup only with an allowlist."
+  default: []
+  +  router.route_services_internal_server_port:
+  +    description: "Gorouter will use this port for internal route services."
+  +    default: 7070
+  router.route_services_secret_decrypt_only:
+  description: "To rotate keys, add your new key here and deploy. Then swap this key with the value of route_services_secret and deploy again."
+  default: ""
+  ```
+  ## ✨  Built with go 1.21.6
+  **Full Changelog**: https://github.com/cloudfoundry/routing-release/compare/v0.288.0...v0.289.0
+  ## Resources
+  - [Download release 0.289.0 from bosh.io](https://bosh.io/releases/github.com/cloudfoundry/routing-release?version=0.289.0).
+          </pre>
+        </details>
+      </td>
+    </tr>
+    <tr><td>silk</td><td>3.40.0</td><td></td></tr>
+    <tr><td>smb-volume</td><td>3.1.52</td>
+      <td>
+        <details>
+          <summary>v3.1.52</summary>
+          <pre style="max-width: 30em">
+  ## Dependencies
+  * **gomega:** Updated to v1.31.1.<br>For more information, see [gomega](https://github.com/onsi/gomega).
+  * **smbbroker:** Updated to v`832a8cf`.<br>For more information, see [smbbroker](https://github.com/cloudfoundry/smbbroker).
+  * **smbdriver:** Updated to v`12dc1ba`.<br>For more information, see [smbdriver](https://github.com/cloudfoundry/smbdriver).
+          </pre>
+        </details>
+      </td>
+    </tr>
+    <tr><td>smoke-tests</td><td>4.8.5</td><td></td></tr>
+    <tr><td>syslog</td><td>12.2.2</td>
+      <td>
+        <details>
+          <summary>v12.2.2</summary>
+          <pre style="max-width: 30em">
+  ## What's Changed
+  * Bump dependencies
+  * Bump packaged Golang to go1.21.6
+  **Full Changelog**: https://github.com/cloudfoundry/syslog-release/compare/v12.2.1...v12.2.2
+          </pre>
+        </details>
+      </td>
+    </tr>
+    <tr><td>tanzu-jammy-stack</td><td>1.0.0</td><td></td></tr>
+  </tbody>
+</table>
+
+
+
+### <a id='5.0.6'></a> 5.0.6
+
+**Release Date:** 01/31/2024
+
+* **[Known Issue]** We recommend upgrading from this version alongside a stemcell upgrade due to an issue in our mapfs release, causing possible failures in pre-start during an Apply Changes.
+* **[Feature]** Adds Diego support for Docker workloads using OCI images
+* **[Bug Fix]** Forwarder Agent does not attempt to forward logs and metrics to Loggregator Agent if both Firehose V1 and Firehose V2 are disabled
+* **[Bug Fix]** Prom Scraper does not attempt to scrape metrics from Loggregator Agent if both Firehose V1 and Firehose V2 are disabled
+* **[Feature Improvement]** OTel Collector marks OTLP Sums as monotonic if they originate from a Loggregator counter
+* Bump cflinuxfs3 to version `0.384.0`
+* Bump cflinuxfs4 to version `1.68.0`
+* Bump diego to version `2.92.0`
+* Bump loggregator-agent to version `8.0.1`
+* Bump mapfs to version `1.2.53`
+* Bump nfs-volume to version `7.1.46`
+* Bump otel-collector to version `0.3.2`
+* Bump routing to version `0.288.0`
+* Bump smb-volume to version `3.1.51`
+
+<table border="1" class="nice">
+  <thead>
+    <tr>
+      <th>Component</th>
+      <th>Version</th>
+      <th>Release Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>ubuntu-jammy stemcell</td><td>1.351</td><td></td></tr>
+    <tr><td>bpm</td><td>1.2.13</td><td></td></tr>
+    <tr><td>cf-networking</td><td>3.40.0</td><td></td></tr>
+    <tr><td>cflinuxfs3</td><td>0.384.0</td>
+      <td>
+        <details>
+          <summary>v0.384.0</summary>
+          <pre style="max-width: 30em">
+  This release ships with cflinuxfs3 version 0.384.0. For more information, see the [release notes](https://github.com/cloudfoundry/cflinuxfs3/releases/tag/0.384.0)
+          </pre>
+        </details>
+      </td>
+    </tr>
+    <tr><td>cflinuxfs4</td><td>1.68.0</td><td></td></tr>
+    <tr><td>cf-cli</td><td>1.59.0</td><td></td></tr>
+    <tr><td>count-cores-indicator</td><td>2.0.0</td><td></td></tr>
+    <tr><td>diego</td><td>2.92.0</td>
+      <td>
+        <details>
+          <summary>v2.92.0</summary>
+          <pre style="max-width: 30em">
+  ## Changes
+  - Buildpack path cache hash has 16 bytes
+  ## ✨  Built with go 1.21.6
+  **Full Changelog**: https://github.com/cloudfoundry/diego-release/compare/v2.91.0...v2.92.0
+  ## Resources
+  - [Download release 2.92.0 from bosh.io](https://bosh.io/releases/github.com/cloudfoundry/diego-release?version=2.92.0).
+          </pre>
+        </details>
+        <details>
+          <summary>v2.91.0</summary>
+          <pre style="max-width: 30em">
+  ## Changes
+  ✨  The `dockerapplifecycle` now supports workloads using the OCI image format. Thanks @jrussett and @ebroberson!
+  ## Bosh Job Spec changes:
+  ```diff
+  diff --git a/jobs/vizzini/spec b/jobs/vizzini/spec
+  index a3bbc5fb2..7eb920159 100644
+  --- a/jobs/vizzini/spec
+  +++ b/jobs/vizzini/spec
+  @@ -85,3 +85,7 @@ properties:
+  grace_busybox_image_url:
+  description: "grace test asset busybox container image"
+  default: "docker:///cloudfoundry/grace"
+  +
+  +  diego_docker_oci_image_url:
+  +    description: "diego docker app in OCI image format"
+  +    default: "docker:///cloudfoundry/diego-docker-app:oci"
+  ```
+  ## ✨  Built with go 1.21.6
+  **Full Changelog**: https://github.com/cloudfoundry/diego-release/compare/v2.90.0...v2.91.0
+  ## Resources
+  - [Download release 2.91.0 from bosh.io](https://bosh.io/releases/github.com/cloudfoundry/diego-release?version=2.91.0).
+          </pre>
+        </details>
+        <details>
+          <summary>v2.90.0</summary>
+          <pre style="max-width: 30em">
+  ## Changes
+  - Set Content-Digest header when uploading droplets to support environment that don't have md5 available
+  ## ✨  Built with go 1.21.6
+  **Full Changelog**: https://github.com/cloudfoundry/diego-release/compare/v2.89.0...v2.90.0
+  ## Resources
+  - [Download release 2.90.0 from bosh.io](https://bosh.io/releases/github.com/cloudfoundry/diego-release?version=2.90.0).
+          </pre>
+        </details>
+        <details>
+          <summary>v2.89.0</summary>
+          <pre style="max-width: 30em">
+  ## Changes
+  - Fix BBS Port issues(https://github.com/cloudfoundry/diego-release/pull/878 & https://github.com/cloudfoundry/diego-release/pull/879)
+  - Make `max_containers` configurable (https://github.com/cloudfoundry/diego-release/pull/876)
+  - Add xxhash as a dependency (https://github.com/cloudfoundry/diego-release/pull/885)
+  - Use major/minor versions of Go, instead of specific versions (https://github.com/cloudfoundry/diego-release/pull/891)
+  - Make jitter interval configurable. Add new config parameter: JitterFactor  (https://github.com/cloudfoundry/route-emitter/pull/31)
+  ## Bosh Job Spec changes:
+  ```diff
+  diff --git a/jobs/rep/spec b/jobs/rep/spec
+  index 1383b67c0..8fb49517a 100644
+  --- a/jobs/rep/spec
+  +++ b/jobs/rep/spec
+  @@ -224,6 +224,10 @@ properties:
+  description: "Timeout in seconds to receive a response to the keepalive ping. If a response is not received within this time, the locket client will reconnect to another server."
+  default: 22
+  +  diego.rep.max_containers:
+  +    description: "Maximum container capacity per rep"
+  +    default: 250
+  +
+  enable_declarative_healthcheck:
+  description: "When set, enables the rep to prefer the LRP CheckDefinition to healthcheck instances over the Monitor action. Requires Garden-Runc v1.10.0+"
+  default: false
+  diff --git a/jobs/route_emitter/spec b/jobs/route_emitter/spec
+  index faac3b0c5..11dae3aec 100644
+  --- a/jobs/route_emitter/spec
+  +++ b/jobs/route_emitter/spec
+  @@ -93,6 +93,10 @@ properties:
+  diego.route_emitter.bbs.max_idle_conns_per_host:
+  description: "maximum number of idle http connections"
+  +  diego.route_emitter.jitter_factor:
+  +    description: "The jitter factor is the percentage of register interval used in determining the jitter interval (the time for which the emitter sleeps)"
+  +    default: 0.2
+  +
+  diego.route_emitter.job_name:
+  description: "The name of the Diego job referenced by this spec (DO NOT override)"
+  default: "route_emitter"
+  diff --git a/jobs/route_emitter_windows/spec b/jobs/route_emitter_windows/spec
+  index 404c9f518..cec39c995 100644
+  --- a/jobs/route_emitter_windows/spec
+  +++ b/jobs/route_emitter_windows/spec
+  @@ -83,6 +83,10 @@ properties:
+  diego.route_emitter.bbs.max_idle_conns_per_host:
+  description: "maximum number of idle http connections"
+  +  diego.route_emitter.jitter_factor:
+  +    description: "The jitter factor is the percentage of register interval used in determining the jitter interval (the time for which the emitter sleeps)"
+  +    default: 0.2
+  +
+  diego.route_emitter.job_name:
+  description: "The name of the Diego job referenced by this spec (DO NOT override)"
+  default: "route_emitter_windows"
+  ```
+  ## ✨  Built with go 1.21.6
+  **Full Changelog**: https://github.com/cloudfoundry/diego-release/compare/v2.88.0...v2.89.0
+  ## Resources
+  - [Download release 2.89.0 from bosh.io](https://bosh.io/releases/github.com/cloudfoundry/diego-release?version=2.89.0).
+          </pre>
+        </details>
+      </td>
+    </tr>
+    <tr><td>garden-runc</td><td>1.47.0</td><td></td></tr>
+    <tr><td>loggregator-agent</td><td>8.0.1</td>
+      <td>
+        <details>
+          <summary>v8.0.1</summary>
+          <pre style="max-width: 30em">
+  ## What's Changed
+  ### Fixes
+  * Bump packaged Golang to go1.21.6
+  **Full Changelog**: https://github.com/cloudfoundry/loggregator-agent-release/compare/v8.0.0...v8.0.1
+          </pre>
+        </details>
+        <details>
+          <summary>v8.0.0</summary>
+          <pre style="max-width: 30em">
+  ## What's Changed
+  ### Breaking Changes
+  * Extract otel-collector jobs to [otel-collector-release](https://github.com/cloudfoundry/otel-collector-release) in https://github.com/cloudfoundry/loggregator-agent-release/pull/446
+  * Remove legacy syslog binding functionality in https://github.com/cloudfoundry/loggregator-agent-release/pull/438
+  * syslog-binding-cache no longer exposes v1 endpoints
+  * syslog-agent no longer falls back to v1 endpoints of syslog-binding-cache
+  ### Fixes
+  * Forwarder Agent: otelcolclient specifies that loggregator counters are monotonic in OTLP translation in https://github.com/cloudfoundry/loggregator-agent-release/pull/442
+  * Bump dependencies
+  * Bump packaged Golang to go1.20.13
+  * Loggregator Agent: if disabled, do not register ingress for Forwarder Agent or scraping with Prom Scraper in https://github.com/cloudfoundry/loggregator-agent-release/pull/456
+  **Full Changelog**: https://github.com/cloudfoundry/loggregator-agent-release/compare/v7.7.3...v8.0.0
+          </pre>
+        </details>
+        <details>
+          <summary>v7.7.4</summary>
+          <pre style="max-width: 30em">
+  ## What's Changed
+  ### Fixes
+  * Bump packaged Golang to go1.21.6
+  * Bump dependencies
+  * Forwarder Agent: otelcolclient specifies that loggregator counters are monotonic in OTLP translation in https://github.com/cloudfoundry/loggregator-agent-release/pull/442
+  * Loggregator Agent: if disabled, do not register ingress for Forwarder Agent or scraping with Prom Scraper in https://github.com/cloudfoundry/loggregator-agent-release/pull/456
+  **Full Changelog**: https://github.com/cloudfoundry/loggregator-agent-release/compare/v7.7.3...v7.7.4
+          </pre>
+        </details>
+      </td>
+    </tr>
+    <tr><td>mapfs</td><td>1.2.53</td>
+      <td>
+        <details>
+          <summary>v1.2.53</summary>
+          <pre style="max-width: 30em">
+  ## Changes
+  * Golang: Updated to v1.21.6. (#202)
+  ## Dependencies
+  * **v2:** Updated to v2.15.0.<br>For more information, see [v2](https://github.com/onsi/ginkgo).
+  * **gomega:** Updated to v1.31.0.<br>For more information, see [gomega](https://github.com/onsi/gomega).
+  * **mapfs:** Updated to v`c46a740`.<br>For more information, see [mapfs](https://github.com/cloudfoundry/mapfs).
+          </pre>
+        </details>
+      </td>
+    </tr>
+    <tr><td>metrics-discovery</td><td>3.2.21</td><td></td></tr>
+    <tr><td>nfs-volume</td><td>7.1.46</td>
+      <td>
+        <details>
+          <summary>v7.1.46</summary>
+          <pre style="max-width: 30em">
+  ## Dependencies
+  * **gomega:** Updated to v1.31.1.<br>For more information, see [gomega](https://github.com/onsi/gomega).
+  * **nfsbroker:** Updated to v`6a5502a`.<br>For more information, see [nfsbroker](https://github.com/cloudfoundry/nfsbroker).
+  * **nfsv3driver:** Updated to v`68cd846`.<br>For more information, see [nfsv3driver](https://github.com/cloudfoundry/nfsv3driver).
+          </pre>
+        </details>
+        <details>
+          <summary>v7.1.45</summary>
+          <pre style="max-width: 30em">
+  ## Changes
+  * +Golang: Updated to v1.21.6 (#732)
+  * Bump Tcl to v8.6.13 (#707)
+  * Bump openssl- from 3.1.4 to 3.2.0 (#694)
+  * Bump sqlite from 3.44.0 to 3.44.2 (#702)
+  * Bump sqlite from 3.44.2 to 3.45.0 (#742)
+  * Bump util-linux from 2.39 to 2.39.3 (#736)
+  ## Dependencies
+  * **nfsbroker:** Updated to v`b71f08d`.<br>For more information, see [nfsbroker](https://github.com/cloudfoundry/nfsbroker).
+  * **nfsv3driver:** Updated to v`12df0a5`.<br>For more information, see [nfsv3driver](https://github.com/cloudfoundry/nfsv3driver).
+          </pre>
+        </details>
+      </td>
+    </tr>
+    <tr><td>otel-collector</td><td>0.3.2</td>
+      <td>
+        <details>
+          <summary>v0.3.2</summary>
+          <pre style="max-width: 30em">
+  ## What's Changed
+  * Bump packaged Golang to go1.21.6
+  **Full Changelog**: https://github.com/cloudfoundry/otel-collector-release/compare/v0.3.1...v0.3.2
+          </pre>
+        </details>
+      </td>
+    </tr>
+    <tr><td>routing</td><td>0.288.0</td>
+      <td>
+        <details>
+          <summary>v0.288.0</summary>
+          <pre style="max-width: 30em">
+  ## Changes
+  - ✨ **[Feature]** Operators can now configure to prefer AZ-local backends before proxying to backends in other availability zones (https://github.com/cloudfoundry/routing-release/issues/356)
+  - Protect against data race when ReverseProxy modifies response headers
+  - Fix ability to start gorouter with the default config (cloudfoundry/gorouter#387)
+  ## Bosh Job Spec changes:
+  ```diff
+  diff --git a/jobs/gorouter/spec b/jobs/gorouter/spec
+  index 8fc23a78..30f535b8 100644
+  --- a/jobs/gorouter/spec
+  +++ b/jobs/gorouter/spec
+  @@ -101,6 +101,16 @@ properties:
+  router.balancing_algorithm:
+  description: "Algorithm used to distribute requests for a route across backends. Supported values are round-robin and least-connection"
+  default: round-robin
+  +  router.balancing_algorithm_az_preference:
+  +    description: |
+  +      Configuration option used in conjunction with the `router.balancing_algorithm` to decide from which
+  +      availability zone to pick a suitable backend. Defaults to "None".
+  +      "none" - There is no preference regarding availability zones. The router uses the
+  +        `router.balancing_algorithm` across all possible backends in all existing AZs.
+  +      "locally-optimistic" - On the initial attempt to pick a backend, the router will use
+  +        `router.balancing_algorithm` across all backends in the same AZ as the router itself. Subsequent
+  +        retries, in the case of failure or unavailability, will use _all_ available AZs.
+  +    default: "none"
+  router.number_of_cpus:
+  description: "Number of CPUs to utilize, the default (-1) will equal the number of available CPUs"
+  default: -1
+  ```
+  ## ✨  Built with go 1.21.6
+  **Full Changelog**: https://github.com/cloudfoundry/routing-release/compare/v0.287.0...v0.288.0
+  ## Resources
+  - [Download release 0.288.0 from bosh.io](https://bosh.io/releases/github.com/cloudfoundry/routing-release?version=0.288.0).
+          </pre>
+        </details>
+        <details>
+          <summary>v0.287.0</summary>
+          <pre style="max-width: 30em">
+  ## Changes
+  - Route-Registrar now supports specifying a nats server CA via the `nats.tls.ca_cert` property if it is not present via a BOSH link. (https://github.com/cloudfoundry/routing-release/pull/379) Thanks @benjaminguttmann-avtq!!
+  ## Bosh Job Spec changes:
+  ```diff
+  diff --git a/jobs/route_registrar/spec b/jobs/route_registrar/spec
+  index be708025..c51dbb9f 100644
+  --- a/jobs/route_registrar/spec
+  +++ b/jobs/route_registrar/spec
+  @@ -53,6 +53,8 @@ properties:
+  description: "PEM-encoded certificate for the route-registrar to present to NATS for verification when connecting via TLS."
+  nats.tls.client_key:
+  description: "PEM-encoded private key for the route-registrar to present to NATS for verification when connecting via TLS."
+  +  nats.tls.ca_cert:
+  +    description: "The certificate authority certificate used for the route registrar"
+  nats.fail_if_using_nats_without_tls:
+  description: |
+  Connecting to nats (instead of nats-tls) is deprecated. The nats
+  ```
+  ## ✨  Built with go 1.21.6
+  **Full Changelog**: https://github.com/cloudfoundry/routing-release/compare/v0.286.0...v0.287.0
+  ## Resources
+  - [Download release 0.287.0 from bosh.io](https://bosh.io/releases/github.com/cloudfoundry/routing-release?version=0.287.0).
+          </pre>
+        </details>
+      </td>
+    </tr>
+    <tr><td>silk</td><td>3.40.0</td><td></td></tr>
+    <tr><td>smb-volume</td><td>3.1.51</td>
+      <td>
+        <details>
+          <summary>v3.1.51</summary>
+          <pre style="max-width: 30em">
+  ## Dependencies
+  * **v2:** Updated to v2.15.0.<br>For more information, see [v2](https://github.com/onsi/ginkgo).
+  * **gomega:** Updated to v1.31.0.<br>For more information, see [gomega](https://github.com/onsi/gomega).
+  * **smbbroker:** Updated to v`633ba64`.<br>For more information, see [smbbroker](https://github.com/cloudfoundry/smbbroker).
+  * **smbdriver:** Updated to v`34861d5`.<br>For more information, see [smbdriver](https://github.com/cloudfoundry/smbdriver).
+          </pre>
+        </details>
+      </td>
+    </tr>
+    <tr><td>smoke-tests</td><td>4.8.5</td><td></td></tr>
+    <tr><td>syslog</td><td>12.2.1</td><td></td></tr>
+    <tr><td>tanzu-jammy-stack</td><td>1.0.0</td><td></td></tr>
+  </tbody>
+</table>
+
+
+
+### <a id='5.0.5'></a> 5.0.5
+
+**Release Date:** 01/25/2024
+
+* **[Bug Fix]** SMB volumes can be forced to mount with the nodfs flag
+* Bump bpm to version `1.2.13`
+* Bump cf-networking to version `3.40.0`
+* Bump cflinuxfs3 to version `0.383.0`
+* Bump cflinuxfs4 to version `1.65.0`
+* Bump cf-cli to version `1.59.0`
+* Bump diego to version `2.88.0`
+* Bump garden-runc to version `1.47.0`
+* Bump otel-collector to version `0.3.1`
+* Bump routing to version `0.286.0`
+* Bump silk to version `3.40.0`
+* Bump smb-volume to version `3.1.50`
+* Bump smoke-tests to version `4.8.5`
+
+<table border="1" class="nice">
+  <thead>
+    <tr>
+      <th>Component</th>
+      <th>Version</th>
+      <th>Release Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>ubuntu-jammy stemcell</td><td>1.340</td><td></td></tr>
+    <tr><td>bpm</td><td>1.2.13</td><td></td></tr>
+    <tr><td>cf-networking</td><td>3.40.0</td>
+      <td>
+        <details>
+          <summary>v3.40.0</summary>
+          <pre style="max-width: 30em">
+  ## Changes
+  - nothing significant
+  ## ✨  Built with go 1.21.5
+  **Full Changelog**: https://github.com/cloudfoundry/cf-networking-release/compare/v3.39.0...v3.40.0
+  ## Resources
+  - [Download release 3.40.0 from bosh.io](https://bosh.io/releases/github.com/cloudfoundry/cf-networking-release?version=3.40.0).
+          </pre>
+        </details>
+        <details>
+          <summary>v3.39.0</summary>
+          <pre style="max-width: 30em">
+  ## Changes
+  - Bump to go 1.21.5
+  ## ✨  Built with go 1.21.5
+  **Full Changelog**: https://github.com/cloudfoundry/cf-networking-release/compare/v3.38.0...v3.39.0
+  ## Resources
+  - [Download release 3.39.0 from bosh.io](https://bosh.io/releases/github.com/cloudfoundry/cf-networking-release?version=3.39.0).
+          </pre>
+        </details>
+      </td>
+    </tr>
+    <tr><td>cflinuxfs3</td><td>0.383.0</td>
+      <td>
+        <details>
+          <summary>v0.383.0</summary>
+          <pre style="max-width: 30em">
+  This release ships with cflinuxfs3 version 0.383.0. For more information, see the [release notes](https://github.com/cloudfoundry/cflinuxfs3/releases/tag/0.383.0)
+          </pre>
+        </details>
+        <details>
+          <summary>v0.382.0</summary>
+          <pre style="max-width: 30em">
+  This release ships with cflinuxfs3 version 0.382.0. For more information, see the [release notes](https://github.com/cloudfoundry/cflinuxfs3/releases/tag/0.382.0)
+          </pre>
+        </details>
+        <details>
+          <summary>v0.381.0</summary>
+          <pre style="max-width: 30em">
+  This release ships with cflinuxfs3 version 0.381.0. For more information, see the [release notes](https://github.com/cloudfoundry/cflinuxfs3/releases/tag/0.381.0)
+          </pre>
+        </details>
+      </td>
+    </tr>
+    <tr><td>cflinuxfs4</td><td>1.65.0</td><td></td></tr>
+    <tr><td>cf-cli</td><td>1.59.0</td>
+      <td>
+        <details>
+          <summary>v1.59.0</summary>
+          <pre style="max-width: 30em">
+  ### This release contains the following versions of the CF CLI
+  Major version | Prior version | Current version
+  -- | -- | --
+  v8 | 8.7.6 | [8.7.7](https://github.com/cloudfoundry/cli/releases/tag/v8.7.7)
+  v7 | 7.7.6 | [7.7.7](https://github.com/cloudfoundry/cli/releases/tag/v7.7.7)
+  v6 | 6.53.0 | [6.53.0](https://github.com/cloudfoundry/cli/releases/tag/v6.53.0)
+          </pre>
+        </details>
+        <details>
+          <summary>v1.56.0</summary>
+          <pre style="max-width: 30em">
+  ### This release contains the following versions of the CF CLI
+  Major version | Prior version | Current version
+  -- | -- | --
+  v8 | 8.7.5 | [8.7.6](https://github.com/cloudfoundry/cli/releases/tag/v8.7.6)
+  v7 | 7.7.5 | [7.7.6](https://github.com/cloudfoundry/cli/releases/tag/v7.7.6)
+  v6 | 6.53.0 | [6.53.0](https://github.com/cloudfoundry/cli/releases/tag/v6.53.0)
+          </pre>
+        </details>
+      </td>
+    </tr>
+    <tr><td>count-cores-indicator</td><td>2.0.0</td><td></td></tr>
+    <tr><td>diego</td><td>2.88.0</td>
+      <td>
+        <details>
+          <summary>v2.88.0</summary>
+          <pre style="max-width: 30em">
+  ## Changes
+  -Bumps golang.org/x/crypto/ssh to v0.17.0 to address CVE-2023-48795.
+  ## ✨  Built with go 1.21.5
+  **Full Changelog**: https://github.com/cloudfoundry/diego-release/compare/v2.87.0...v2.88.0
+  ## Resources
+  - [Download release 2.88.0 from bosh.io](https://bosh.io/releases/github.com/cloudfoundry/diego-release?version=2.88.0).
+          </pre>
+        </details>
+        <details>
+          <summary>v2.87.0</summary>
+          <pre style="max-width: 30em">
+  ## Changes
+  Reverted max_containers changes https://github.com/cloudfoundry/diego-release/pull/873
+  ## Bosh Job Spec changes:
+  ```diff
+  diff --git a/jobs/rep/spec b/jobs/rep/spec
+  index 5c0ec9576..1383b67c0 100644
+  --- a/jobs/rep/spec
+  +++ b/jobs/rep/spec
+  @@ -30,11 +30,6 @@ packages:
+  - proxy
+  - certsplitter
+  -consumes:
+  -- name: max_containers
+  -  type: max_containers
+  -  optional: true
+  -
+  properties:
+  bpm.enabled:
+  description: "use the BOSH Process Manager to manage the cell rep process."
+  ```
+  ## ✨  Built with go 1.21.5
+  **Full Changelog**: https://github.com/cloudfoundry/diego-release/compare/v2.86.0...v2.87.0
+  ## Resources
+  - [Download release 2.87.0 from bosh.io](https://bosh.io/releases/github.com/cloudfoundry/diego-release?version=2.87.0).
+          </pre>
+        </details>
+        <details>
+          <summary>v2.86.0</summary>
+          <pre style="max-width: 30em">
+  ## Changes
+  - BBS [Run migration and save migration version in single transaction](https://github.com/cloudfoundry/bbs/pull/76)
+  - Rep [Make max_containers configurable](https://github.com/cloudfoundry/diego-release/pull/868)
+  - Executor [Ignore EntryNotFound and AlreadyClosed errors when cleaning up cache](https://github.com/cloudfoundry/executor/pull/89)
+  - Route-emitter [Add AZ to registry message](https://github.com/cloudfoundry/route-emitter/pull/29)
+  - Rep [Send AZ in StartActualLRP/EvacuateRunningActualLRP requests to BBS](https://github.com/cloudfoundry/rep/pull/48)
+  ## Bosh Job Spec changes:
+  ```diff
+  diff --git a/jobs/rep/spec b/jobs/rep/spec
+  index 1383b67c0..5c0ec9576 100644
+  --- a/jobs/rep/spec
+  +++ b/jobs/rep/spec
+  @@ -30,6 +30,11 @@ packages:
+  - proxy
+  - certsplitter
+  +consumes:
+  +- name: max_containers
+  +  type: max_containers
+  +  optional: true
+  +
+  properties:
+  bpm.enabled:
+  description: "use the BOSH Process Manager to manage the cell rep process."
+  ```
+  ## ✨  Built with go 1.21.5
+  **Full Changelog**: https://github.com/cloudfoundry/diego-release/compare/v2.85.0...v2.86.0
+  ## Resources
+  - [Download release 2.86.0 from bosh.io](https://bosh.io/releases/github.com/cloudfoundry/diego-release?version=2.86.0).
+          </pre>
+        </details>
+      </td>
+    </tr>
+    <tr><td>garden-runc</td><td>1.47.0</td>
+      <td>
+        <details>
+          <summary>v1.47.0</summary>
+          <pre style="max-width: 30em">
+  ## Changes
+  - [Revert "Add max_containers bosh link](https://github.com/cloudfoundry/garden-runc-release/pull/327)
+  ## Bosh Job Spec changes:
+  ```diff
+  diff --git a/jobs/garden/spec b/jobs/garden/spec
+  index abf22f8a..c84b5c43 100644
+  --- a/jobs/garden/spec
+  +++ b/jobs/garden/spec
+  @@ -45,11 +45,6 @@ provides:
+  type: iptables
+  properties:
+  - garden.iptables_bin_dir
+  -
+  -- name: max_containers
+  -  type: max_containers
+  -  properties:
+  -  - garden.max_containers
+  properties:
+  garden.listen_network:
+  ```
+  ## ✨  Built with go 1.21.5
+  **Full Changelog**: https://github.com/cloudfoundry/garden-runc-release/compare/v1.46.0...v1.47.0
+  ## Resources
+  - [Download release 1.47.0 from bosh.io](https://bosh.io/releases/github.com/cloudfoundry/garden-runc-release?version=1.47.0).
+          </pre>
+        </details>
+        <details>
+          <summary>v1.46.0</summary>
+          <pre style="max-width: 30em">
+  ## Changes
+  - https://github.com/cloudfoundry/garden-runc-release/pull/314 - Add `max_containers` property. It is provided in a link so it is used in rep as well. Now you can increase containers past 250! Thanks @klapkov!
+  - https://github.com/cloudfoundry/garden-runc-release/pull/323 - Lots of refactoring by @winkingturtle-vmw, including the ability to run the test suite in parallel! Thank you!
+  ## Bosh Job Spec changes:
+  ```diff
+  diff --git a/jobs/garden/spec b/jobs/garden/spec
+  index c84b5c43..abf22f8a 100644
+  --- a/jobs/garden/spec
+  +++ b/jobs/garden/spec
+  @@ -45,6 +45,11 @@ provides:
+  type: iptables
+  properties:
+  - garden.iptables_bin_dir
+  +
+  +- name: max_containers
+  +  type: max_containers
+  +  properties:
+  +  - garden.max_containers
+  properties:
+  garden.listen_network:
+  diff --git a/jobs/gats/spec b/jobs/gats/spec
+  index 4f59d675..916a35eb 100644
+  --- a/jobs/gats/spec
+  +++ b/jobs/gats/spec
+  @@ -19,6 +19,9 @@ properties:
+  garden_port:
+  description: Port Garden is listening on
+  default: 7777
+  +  garden_test_rootfs:
+  +    description: Test rootfs to use
+  +    default: 'docker:///cloudfoundry/garden-rootfs'
+  containerd_for_processes:
+  description: Run GATS with CONTAINERD_FOR_PROCESSES_ENABLED
+  default: false
+  @@ -28,6 +31,9 @@ properties:
+  cpu_throttling:
+  description: Run GATS with CPU_THROTTLING_ENABLED
+  default: false
+  +  limits_test_uri:
+  +    description: Limists Test rootfs to use
+  +    default: 'docker:///busybox'
+  windows_rootfs:
+  description: URL to pull the windows rootfs from
+  default: ""
+  ```
+  ## ✨  Built with go 1.21.5
+  **Full Changelog**: https://github.com/cloudfoundry/garden-runc-release/compare/v1.45.0...v1.46.0
+  ## Resources
+  - [Download release 1.46.0 from bosh.io](https://bosh.io/releases/github.com/cloudfoundry/garden-runc-release?version=1.46.0).
+          </pre>
+        </details>
+      </td>
+    </tr>
+    <tr><td>loggregator-agent</td><td>7.7.3</td><td></td></tr>
+    <tr><td>mapfs</td><td>1.2.52</td><td></td></tr>
+    <tr><td>metrics-discovery</td><td>3.2.21</td><td></td></tr>
+    <tr><td>nfs-volume</td><td>7.1.44</td><td></td></tr>
+    <tr><td>otel-collector</td><td>0.3.1</td><td></td></tr>
+    <tr><td>routing</td><td>0.286.0</td>
+      <td>
+        <details>
+          <summary>v0.286.0</summary>
+          <pre style="max-width: 30em">
+  ## ❗**BREAKING CHANGES** ❗
+  -  The deprecated `/varz` and `/healthz` endpoints for gorouter on port 8080 have been removed - Thanks @ameowlia and @geofffranks!
+  -  The `/routes` endpoint on gorouter's port 8080 has been moved to port 8082, and is available only on localhost - Thanks @ameowlia and @geofffranks!
+  - TLS certificates for gorouter + tcp_router's health endpoints are now required to deploy. Fortunately this is provided automatically in cf-deployment - Thanks @ameowlia and @geofffranks!
+  ## Changes
+  - 🐛 Fix a nil panic in gorouter https://github.com/cloudfoundry/gorouter/pull/372 - Thanks @maxmoehl + @domdom82!
+  - ✨ Adds availability zone info to endpoint data in gorouter https://github.com/cloudfoundry/gorouter/pull/381 - Thanks @ameowlia!
+  - ✨ Speed up gorouter's route registry https://github.com/cloudfoundry/gorouter/pull/379 - Thanks @peanball and @domdom82 !
+  - ✨ Also more performance improvements to gorouter's route registry https://github.com/cloudfoundry/gorouter/pull/378 - Thanks @peanball and @domdom82!
+  - ✨ Adds an always-on TLS capable healthcheck endpoint for gorouter on port 8443 - Thanks @marc and @geofffranks!
+  - ✨ Adds an always-on TLS capable healthcheck endpoint for tcp_router on port 443  - Thanks @ameowlia and @geofffranks!
+  - ✨ Operators can now toggle off the non-tls healthcheck endpoint for gorouter via `router.status.enable_nontls_health_checks` - Thanks @ameowlia and @geofffranks!
+  - ✨ Operators can now toggle off the non-tls healthcheck endpoint for tcp_router via `tcp_router.enable_nontls_health_checks` - Thanks @ameowlia  and @geofffranks!
+  ## Bosh Job Spec changes:
+  ```diff
+  diff --git a/jobs/gorouter/spec b/jobs/gorouter/spec
+  index 35576742..8fc23a78 100644
+  --- a/jobs/gorouter/spec
+  +++ b/jobs/gorouter/spec
+  @@ -57,11 +57,21 @@ properties:
+  default: router-status
+  router.status.password:
+  description: "Password for HTTP basic auth to the /varz and /routes endpoints."
+  +  router.status.enable_nontls_health_checks:
+  +    description: "Toggles whether or not gorouter will listen on a non-tls endpoint for load balancer health checks."
+  +    default: true
+  +  router.status.enable_deprecated_varz_healthz_endpoints:
+  +    description: |
+  +      Toggles whether or not gorouter will respond to the deprecated /healthz,
+  +      /varz, and /routes endpoints on its non-tls load balancer status port.
+  +      Requires 'router.status.enable_nontls_health_checks' to be true.
+  +    default: false
+  router.status.routes.port:
+  description: "Port used for the /routes endpoint (available on localhost-only)"
+  default: 8082
+  router.status.tls.port:
+  description: "Port used for the TLS listener of the LB healthcheck endpoint"
+  +    default: 8443
+  router.status.tls.certificate:
+  description: "TLS Certificate used for the TLS listener of the LB healthcheck endpoint"
+  router.status.tls.key:
+  diff --git a/jobs/tcp_router/spec b/jobs/tcp_router/spec
+  index dd3b8a4e..44fbb41a 100644
+  --- a/jobs/tcp_router/spec
+  +++ b/jobs/tcp_router/spec
+  @@ -10,6 +10,7 @@ templates:
+  routing_api_client_certificate.crt.erb: config/certs/routing-api/client.crt
+  routing_api_client_private.key.erb: config/keys/routing-api/client.key
+  routing_api_ca_certificate.crt.erb: config/certs/routing-api/ca_cert.crt
+  +  tcp_router_health_check_certificate.pem.erb: config/certs/health.pem
+  haproxy.conf.erb: config/haproxy.conf
+  haproxy.conf.template.erb: config/haproxy.conf.template
+  bpm.yml.erb: config/bpm.yml
+  @@ -66,9 +67,20 @@ properties:
+  tcp_router.request_timeout_in_seconds:
+  description: "Server and client timeouts in seconds"
+  default: 300
+  +
+  +  tcp_router.enable_nontls_health_checks:
+  +    description: "Toggles on/off whether or not to listen for load balancer health check requests on the non-tls `tcp_router.health_check_port` port"
+  +    default: true
+  tcp_router.health_check_port:
+  description: "Load balancer in front of TCP Routers should be configured to check the health of TCP Router instances by establishing a TCP connection on this port"
+  default: 80
+  +  tcp_router.tls_health_check_port:
+  +    description: "Load balancer in front of TCP Routers should be configured to check the health of TCP Router instances by establishing a TLS connection on this port"
+  +    default: 443
+  +  tcp_router.tls_health_check_cert:
+  +    description: "TLS certificate to use on the TCP Router's TLS health check port"
+  +  tcp_router.tls_health_check_key:
+  +    description: "TLS private key to use on the TCP Router's TLS health check port"
+  tcp_router.fail_on_router_port_conflicts:
+  description: "Fail the tcp router if routing_api.reserved_system_component_ports conflict with ports in existing router groups."
+  ```
+  ## ✨  Built with go 1.21.6
+  **Full Changelog**: https://github.com/cloudfoundry/routing-release/compare/v0.285.0...v0.286.0
+  ## Resources
+  - [Download release 0.286.0 from bosh.io](https://bosh.io/releases/github.com/cloudfoundry/routing-release?version=0.286.0).
+          </pre>
+        </details>
+      </td>
+    </tr>
+    <tr><td>silk</td><td>3.40.0</td>
+      <td>
+        <details>
+          <summary>v3.40.0</summary>
+          <pre style="max-width: 30em">
+  ## Changes
+  - Bug fix: silk-datastore-syncer: fix assignment to entry in nil map in Metadata field. https://github.com/cloudfoundry/silk-release/pull/105.  Thank you @gmllt!
+  - Bug fix: Deduplicate Iptables Rules with Dynamic ASG's. https://github.com/cloudfoundry/silk-release/issues/102 https://github.com/cloudfoundry/silk-release/pull/101. Thanks @klapkov!
+  ## ✨  Built with go 1.21.5
+  **Full Changelog**: https://github.com/cloudfoundry/silk-release/compare/v3.39.0...v3.40.0
+  ## Resources
+  - [Download release 3.40.0 from bosh.io](https://bosh.io/releases/github.com/cloudfoundry/silk-release?version=3.40.0).
+          </pre>
+        </details>
+        <details>
+          <summary>v3.39.0</summary>
+          <pre style="max-width: 30em">
+  ## Changes
+  - Bump to go 1.21.5
+  ## ✨  Built with go 1.21.5
+  **Full Changelog**: https://github.com/cloudfoundry/silk-release/compare/v3.38.0...v3.39.0
+  ## Resources
+  - [Download release 3.39.0 from bosh.io](https://bosh.io/releases/github.com/cloudfoundry/silk-release?version=3.39.0).
+          </pre>
+        </details>
+      </td>
+    </tr>
+    <tr><td>smb-volume</td><td>3.1.50</td>
+      <td>
+        <details>
+          <summary>v3.1.50</summary>
+          <pre style="max-width: 30em">
+  ## Dependencies
+  * **smbbroker:** Updated to v`76db942`.<br>For more information, see [smbbroker](https://github.com/cloudfoundry/smbbroker).
+  * **smbdriver:** Updated to v`9cfc27f`.<br>For more information, see [smbdriver](https://github.com/cloudfoundry/smbdriver).
+          </pre>
+        </details>
+        <details>
+          <summary>v3.1.49</summary>
+          <pre style="max-width: 30em">
+  ## Changes
+  * Golang: Updated to v1.21.6 (#320)
+  * Bump autoconf from 2.71 to 2.72 (#319)
+          </pre>
+        </details>
+        <details>
+          <summary>v3.1.48</summary>
+          <pre style="max-width: 30em">
+  ## Dependencies
+  * **smbbroker:** Updated to v`a270727`.<br>For more information, see [smbbroker](https://github.com/cloudfoundry/smbbroker).
+          </pre>
+        </details>
+        <details>
+          <summary>v3.1.47</summary>
+          <pre style="max-width: 30em">
+  ## Dependencies
+  * **smbbroker:** Updated to v`e8e4f6b`.<br>For more information, see [smbbroker](https://github.com/cloudfoundry/smbbroker).
+  * **smbdriver:** Updated to v`5a80eb0`.<br>For more information, see [smbdriver](https://github.com/cloudfoundry/smbdriver).
+          </pre>
+        </details>
+        <details>
+          <summary>v3.1.46</summary>
+          <pre style="max-width: 30em">
+  ## Dependencies
+  * **smbbroker:** Updated to v`3110e8f`.<br>For more information, see [smbbroker](https://github.com/cloudfoundry/smbbroker).
+  * **smbdriver:** Updated to v`a6bc3af`.<br>For more information, see [smbdriver](https://github.com/cloudfoundry/smbdriver).
+          </pre>
+        </details>
+        <details>
+          <summary>v3.1.45</summary>
+          <pre style="max-width: 30em">
+  ## Changes
+  * +Golang: Updated to v1.21.5 (#306)
+  ## Dependencies
+  * **smbbroker:** Updated to v`6b485cb`.<br>For more information, see [smbbroker](https://github.com/cloudfoundry/smbbroker).
+  * **smbdriver:** Updated to v`a11c976`.<br>For more information, see [smbdriver](https://github.com/cloudfoundry/smbdriver).
+          </pre>
+        </details>
+      </td>
+    </tr>
+    <tr><td>smoke-tests</td><td>4.8.5</td>
+      <td>
+        <details>
+          <summary>4.8.5</summary>
+          <pre style="max-width: 30em">
+  Create bosh final release 4.8.5
+  ## What's Changed
+  * Upgrade Golang by @tas-operability-bot in https://github.com/pivotal/smoke-tests/pull/126
+  * Upgrade Golang by @tas-operability-bot in https://github.com/pivotal/smoke-tests/pull/127
+  **Full Changelog**: https://github.com/pivotal/smoke-tests/compare/4.8.4...4.8.5
+          </pre>
+        </details>
+      </td>
+    </tr>
+    <tr><td>syslog</td><td>12.2.1</td><td></td></tr>
+    <tr><td>tanzu-jammy-stack</td><td>1.0.0</td><td></td></tr>
+  </tbody>
+</table>
+
+
+
 ### <a id='5.0.4'></a> 5.0.4
 
 **Release Date:** 12/08/2023
