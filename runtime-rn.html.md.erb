@@ -514,6 +514,30 @@ metric. If you have any dashboards that reference the `absolute_entitlement` and
 Due to the removal of these metrics, the experimental CPU Entitlement Plug-in no longer functions. If you use this plug-in to view
 CPU entitlement usage, you can instead view the `cpu_entitlement` metric, for example using the Log Cache cf CLI plug-in.
 
+
+
+## Breaking changes for TAS for VMs Ecosystem tiles (including ISV Partner tiles)
+
+If your team is building a tile (integration) to be used with a compatible TAS version, you need to be aware of the following key changes in
+TAS 6.0 that might affect these tiles. Depending on the nature of the offering, not all of the changes might be applicable.
+
+Partners who have a pre-release binary agreement on file can test the compatibility of their offering by claiming a TAS 6.0 environment. 
+We encourage ecosystem and partner teams to test and declare compatibility with TAS 6.0 in a timely manner so that our mutual customers can have a smooth upgrade experience.
+
+### Gorouter uses port 7070 by default for internal route services instead of a random available port
+
+**Check if your foundation is affected:**
+
+1. SSH into a router VM.
+2. Run `lsof -Pi` to find out if port 7070 is being used.
+3. Next, check any routers deployed by IST, to find out if they are affected.
+
+If your foundation is affected, use Tanzu Operations Manager to configure use of a different port.
+
+For TAS for VMs, go to the **Networking** tab and scroll down to the **Route Services** section. If route services are enabled, you will see a text box labeled **The port used for internal route services requests**. Set the value to a known available port, or set the value to 0 to allow the operating system to choose an available port at deploy time.
+
+For IST, go to the **Networking** tab and scroll down to the text box labeled **The port used for internal route services requests**. Set the value to a known available port, or set the value to 0 to allow the operating system to choose an available port at deploy time.
+
 ## <a id='known-issues'></a> Known issues
 
 Here are the known issues for <%= vars.app_runtime_full %> <%= vars.v_major_version %>.
