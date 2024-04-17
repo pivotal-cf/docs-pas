@@ -17,6 +17,476 @@ Because VMware uses the Percona Distribution for MySQL, expect a time lag betwee
 
 ## <a id='releases'></a> Releases
 
+### <a id='6.0.1'></a> 6.0.1
+
+**Release Date:** 04/17/2024
+
+* **[Feature]** Add option to enable concurrent read/writes for HTTP/1
+* **[Feature Improvement]** Remove requirement for manually enabling log cache syslog ingestion when upgrading
+* **[Bug Fix]** Fix pre-start hang in internal MySQL
+* Bump backup-and-restore-sdk to version `1.19.10`
+* Bump bpm to version `1.2.18`
+* Bump capi to version `1.177.0`
+* Bump diego to version `2.97.0`
+* Bump java-native-image-cnb-buildpack to version `0.10.2`
+* Bump log-cache to version `3.0.12`
+* Bump loggregator to version `107.0.14`
+* Bump loggregator-agent to version `8.0.3`
+* Bump mapfs to version `1.2.66`
+* Bump metric-registrar to version `3.0.3`
+* Bump mysql-monitoring to version `10.13.0`
+* Bump nats to version `56.18.0`
+* Bump nfs-volume to version `7.1.61`
+* Bump otel-collector to version `0.4.1`
+* Bump push-apps-manager-release to version `677.0.42`
+* Bump push-usage-service-release to version `674.0.96`
+* Bump pxc to version `1.0.26`
+* Bump web-servers-cnb-buildpack to version `0.11.1`
+* Bump smb-volume to version `3.1.64`
+* Bump smoke-tests to version `4.10.0`
+* Bump statsd-injector to version `1.11.40`
+* Bump syslog to version `12.2.4`
+* Bump system-metrics-scraper to version `4.0.8`
+* Bump uaa to version `77.5.0`
+
+<table border="1" class="nice">
+  <thead>
+    <tr>
+      <th>Component</th>
+      <th>Version</th>
+      <th>Release Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>ubuntu-jammy stemcell</td><td>1.423</td><td></td></tr>
+    <tr><td>backup-and-restore-sdk</td><td>1.19.10</td>
+      <td>
+        <details>
+          <summary>v1.19.10</summary>
+          <pre style="max-width: 30em">
+  ## Changes
+  * Golang: Updated to v1.22.2. (#1621)
+  ## Dependencies
+  * **net:** Updated to v0.24.0.<br>For more information, see [net](https://github.com/golang/net).
+  * **oauth2:** Updated to v0.19.0.<br>For more information, see [oauth2](https://github.com/golang/oauth2).
+          </pre>
+        </details>
+        <details>
+          <summary>v1.19.9</summary>
+          <pre style="max-width: 30em">
+  ## Dependencies
+  * **storage:** Updated to v1.40.0.<br>For more information, see [storage](https://github.com/googleapis/google-cloud-go).
+  * **bosh-backup-and-restore:** Updated to v1.9.62.<br>For more information, see [bosh-backup-and-restore](https://github.com/cloudfoundry-incubator/bosh-backup-and-restore).
+  * **mysql:** Updated to v1.8.1.<br>For more information, see [mysql](https://github.com/go-sql-driver/mysql).
+  * **v2:** Updated to v2.17.1.<br>For more information, see [v2](https://github.com/onsi/ginkgo).
+  * **gomega:** Updated to v1.32.0.<br>For more information, see [gomega](https://github.com/onsi/gomega).
+  * **api:** Updated to v0.172.0.<br>For more information, see [api](https://github.com/googleapis/google-api-go-client).
+          </pre>
+        </details>
+      </td>
+    </tr>
+    <tr><td>binary-offline-buildpack</td><td>1.1.10</td><td></td></tr>
+    <tr><td>bosh-dns-aliases</td><td>0.0.4</td><td></td></tr>
+    <tr><td>bpm</td><td>1.2.18</td><td></td></tr>
+    <tr><td>capi</td><td>1.177.0</td><td></td></tr>
+    <tr><td>cf-autoscaling</td><td>250.2.2</td><td></td></tr>
+    <tr><td>cf-cli</td><td>1.60.0</td><td></td></tr>
+    <tr><td>cf-networking</td><td>3.45.0</td><td></td></tr>
+    <tr><td>cflinuxfs3</td><td>0.387.0</td><td></td></tr>
+    <tr><td>cflinuxfs4</td><td>1.82.0</td><td></td></tr>
+    <tr><td>count-cores-indicator</td><td>2.0.0</td><td></td></tr>
+    <tr><td>credhub</td><td>2.12.66</td><td></td></tr>
+    <tr><td>diego</td><td>2.97.0</td>
+      <td>
+        <details>
+          <summary>v2.97.0</summary>
+          <pre style="max-width: 30em">
+  ## Changes
+  - Adds support for comma-delimited destinations in ASGs
+  - See: https://github.com/cloudfoundry/executor/pull/96 and https://github.com/cloudfoundry/bbs/pull/94
+  - Bump bosh package blobs
+  - Bumps `jq` to `1.7.1`
+  - Bumps `tar`
+  - Bump go.mod dependencies
+  ## ✨  Built with go 1.21.8
+  **Full Changelog**: https://github.com/cloudfoundry/diego-release/compare/v2.96.0...v2.97.0
+  ## Resources
+  - [Download release 2.97.0 from bosh.io](https://bosh.io/releases/github.com/cloudfoundry/diego-release?version=2.97.0).
+          </pre>
+        </details>
+      </td>
+    </tr>
+    <tr><td>dotnet-core-offline-buildpack</td><td>2.4.26</td><td></td></tr>
+    <tr><td>garden-runc</td><td>1.51.0</td><td></td></tr>
+    <tr><td>go-offline-buildpack</td><td>1.10.17</td><td></td></tr>
+    <tr><td>java-offline-buildpack</td><td>4.67.1</td><td></td></tr>
+    <tr><td>java-native-image-cnb-buildpack</td><td>0.10.2</td>
+      <td>
+        <details>
+          <summary>0.10.2</summary>
+          <pre style="max-width: 30em">
+  Components:
+  * [buildpack v0.12.2](https://github.com/pivotal-cf/java-native-image-cnb-buildpack/releases/tag/v0.12.2)
+          </pre>
+        </details>
+        <details>
+          <summary>0.10.1</summary>
+          <pre style="max-width: 30em">
+  Components:
+  * [buildpack v0.12.1](https://github.com/pivotal-cf/java-native-image-cnb-buildpack/releases/tag/v0.12.1)
+          </pre>
+        </details>
+      </td>
+    </tr>
+    <tr><td>log-cache</td><td>3.0.12</td>
+      <td>
+        <details>
+          <summary>v3.0.12</summary>
+          <pre style="max-width: 30em">
+  ## What's Changed
+  * Bump dependencies
+  * Bump packaged Golang to go1.21.9
+  **Full Changelog**: https://github.com/cloudfoundry/log-cache-release/compare/v3.0.11...v3.0.12
+          </pre>
+        </details>
+      </td>
+    </tr>
+    <tr><td>loggregator</td><td>107.0.14</td>
+      <td>
+        <details>
+          <summary>v107.0.14</summary>
+          <pre style="max-width: 30em">
+  ## What's Changed
+  * Bump dependencies
+  * Bump to [go1.21.9](https://groups.google.com/g/golang-announce/c/YgW0sx8mN3M/m/khALNYGdAAAJ)
+  **Full Changelog**: https://github.com/cloudfoundry/loggregator-release/compare/v107.0.13...v107.0.14
+          </pre>
+        </details>
+      </td>
+    </tr>
+    <tr><td>loggregator-agent</td><td>8.0.3</td>
+      <td>
+        <details>
+          <summary>v8.0.3</summary>
+          <pre style="max-width: 30em">
+  ## What's Changed
+  * Bump dependencies
+  * Bump to [go1.21.9](https://groups.google.com/g/golang-announce/c/YgW0sx8mN3M/m/khALNYGdAAAJ)
+  **Full Changelog**: https://github.com/cloudfoundry/loggregator-agent-release/compare/v8.0.2...v8.0.3
+          </pre>
+        </details>
+      </td>
+    </tr>
+    <tr><td>mapfs</td><td>1.2.66</td>
+      <td>
+        <details>
+          <summary>v1.2.66</summary>
+          <pre style="max-width: 30em">
+  ## Dependencies
+  * **mapfs:** Updated to v`b0b6bfa`.<br>For more information, see [mapfs](https://github.com/cloudfoundry/mapfs).
+          </pre>
+        </details>
+        <details>
+          <summary>v1.2.65</summary>
+          <pre style="max-width: 30em">
+  ## Changes
+  * Golang: Updated to v1.22.2. (#241)
+  ## Dependencies
+  * **mapfs:** Updated to v`a80b833`.<br>For more information, see [mapfs](https://github.com/cloudfoundry/mapfs).
+          </pre>
+        </details>
+        <details>
+          <summary>v1.2.64</summary>
+          <pre style="max-width: 30em">
+  ## Dependencies
+  * **v2:** Updated to v2.17.1.<br>For more information, see [v2](https://github.com/onsi/ginkgo).
+  * **mapfs:** Updated to v`cd8e7e6`.<br>For more information, see [mapfs](https://github.com/cloudfoundry/mapfs).
+          </pre>
+        </details>
+      </td>
+    </tr>
+    <tr><td>metric-registrar</td><td>3.0.3</td>
+      <td>
+        <details>
+          <summary>v3.0.3</summary>
+          <pre style="max-width: 30em">
+  ## What's Changed
+  * Bump dependencies
+  * Bump to [go1.21.9](https://groups.google.com/g/golang-announce/c/YgW0sx8mN3M/m/khALNYGdAAAJ)
+  **Full Changelog**: https://github.com/pivotal-cf/metric-registrar-release/compare/v3.0.2...v3.0.3
+          </pre>
+        </details>
+      </td>
+    </tr>
+    <tr><td>mysql-monitoring</td><td>10.13.0</td>
+      <td>
+        <details>
+          <summary>v10.13.0</summary>
+          <pre style="max-width: 30em">
+  - Updates golang to 1.22.2
+  - Updates dependencies
+          </pre>
+        </details>
+      </td>
+    </tr>
+    <tr><td>nats</td><td>56.18.0</td>
+      <td>
+        <details>
+          <summary>v56.18.0</summary>
+          <pre style="max-width: 30em">
+  ## Changes
+  - Bump golang package dependencies
+  ## ✨  Built with go 1.21.9
+  **Full Changelog**: https://github.com/cloudfoundry/nats-release/compare/v56.17.0...v56.18.0
+  ## Resources
+  - [Download release 56.18.0 from bosh.io](https://bosh.io/releases/github.com/cloudfoundry/nats-release?version=56.18.0).
+          </pre>
+        </details>
+        <details>
+          <summary>v56.17.0</summary>
+          <pre style="max-width: 30em">
+  ## Changes
+  - Bump dependencies
+  ## ✨  Built with go 1.21.9
+  **Full Changelog**: https://github.com/cloudfoundry/nats-release/compare/v56.16.0...v56.17.0
+  ## Resources
+  - [Download release 56.17.0 from bosh.io](https://bosh.io/releases/github.com/cloudfoundry/nats-release?version=56.17.0).
+          </pre>
+        </details>
+        <details>
+          <summary>v56.16.0</summary>
+          <pre style="max-width: 30em">
+  ## Changes
+  * Add staticcheck config by @geofffranks in https://github.com/cloudfoundry/nats-release/pull/75
+  * Bump dependancies
+  ## ✨  Built with go 1.21.8
+  **Full Changelog**: https://github.com/cloudfoundry/nats-release/compare/v56.15.0...v56.16.0
+  ## Resources
+  - [Download release 56.16.0 from bosh.io](https://bosh.io/releases/github.com/cloudfoundry/nats-release?version=56.16.0).
+          </pre>
+        </details>
+      </td>
+    </tr>
+    <tr><td>nfs-volume</td><td>7.1.61</td>
+      <td>
+        <details>
+          <summary>v7.1.61</summary>
+          <pre style="max-width: 30em">
+  ## Changes
+  * Golang: Updated to v1.22.2 (#860)
+  * Bump openssl- from 3.2.1 to 3.3.0 (#871)
+  ## Dependencies
+  * **nfsbroker:** Updated to v`1a70719`.<br>For more information, see [nfsbroker](https://github.com/cloudfoundry/nfsbroker).
+  * **nfsv3driver:** Updated to v`35b8c6f`.<br>For more information, see [nfsv3driver](https://github.com/cloudfoundry/nfsv3driver).
+          </pre>
+        </details>
+        <details>
+          <summary>v7.1.60</summary>
+          <pre style="max-width: 30em">
+  ## Dependencies
+  * **nfsbroker:** Updated to v`8aec99d`.<br>For more information, see [nfsbroker](https://github.com/cloudfoundry/nfsbroker).
+  * **nfsv3driver:** Updated to v`fb67285`.<br>For more information, see [nfsv3driver](https://github.com/cloudfoundry/nfsv3driver).
+          </pre>
+        </details>
+      </td>
+    </tr>
+    <tr><td>nginx-offline-buildpack</td><td>1.2.12</td><td></td></tr>
+    <tr><td>nodejs-offline-buildpack</td><td>1.8.23</td><td></td></tr>
+    <tr><td>notifications</td><td>69.0.0</td><td></td></tr>
+    <tr><td>notifications-ui</td><td>47.0.0</td><td></td></tr>
+    <tr><td>otel-collector</td><td>0.4.1</td>
+      <td>
+        <details>
+          <summary>v0.4.1</summary>
+          <pre style="max-width: 30em">
+  ## What's Changed
+  * Bump dependencies
+  * Bump to [go1.21.9](https://groups.google.com/g/golang-announce/c/YgW0sx8mN3M/m/khALNYGdAAAJ)
+  **Full Changelog**: https://github.com/cloudfoundry/otel-collector-release/compare/v0.4.0...v0.4.1
+          </pre>
+        </details>
+      </td>
+    </tr>
+    <tr><td>php-offline-buildpack</td><td>4.6.17</td><td></td></tr>
+    <tr><td>push-apps-manager-release</td><td>677.0.42</td>
+      <td>
+        <details>
+          <summary>677.0.42</summary>
+          <pre style="max-width: 30em">
+  * improve performance of the search-server in making capi queries
+  * New autoscaler rule editing workflow
+          </pre>
+        </details>
+      </td>
+    </tr>
+    <tr><td>push-offline-docs-release</td><td>6.0.169</td><td></td></tr>
+    <tr><td>push-usage-service-release</td><td>674.0.96</td>
+      <td>
+        <details>
+          <summary>v674.0.96</summary>
+          <pre style="max-width: 30em">
+  ## Dependencies
+  * **app-usage-service:** Updated to v`f2c8a3c`.<br>For more information, see [app-usage-service](https://github.com/pivotal-cf/app-usage-service).
+          </pre>
+        </details>
+        <details>
+          <summary>v674.0.95</summary>
+          <pre style="max-width: 30em">
+  ## Dependencies
+  * **app-usage-service:** Updated to v`193129e`.<br>For more information, see [app-usage-service](https://github.com/pivotal-cf/app-usage-service).
+          </pre>
+        </details>
+      </td>
+    </tr>
+    <tr><td>pxc</td><td>1.0.26</td>
+      <td>
+        <details>
+          <summary>v1.0.26</summary>
+          <pre style="max-width: 30em">
+  **Dependency bumps**
+  - Updates golang to 1.22.2
+  - Bumps Percona XtraDB Cluster to v8.0.36-28
+  **Bugs fixed**
+  - `engine_config.binlog.enabled = false` now correctly disables binary logs for MySQL 8.0
+          </pre>
+        </details>
+      </td>
+    </tr>
+    <tr><td>python-offline-buildpack</td><td>1.8.22</td><td></td></tr>
+    <tr><td>r-offline-buildpack</td><td>1.2.10</td><td></td></tr>
+    <tr><td>routing</td><td>0.295.0</td><td></td></tr>
+    <tr><td>ruby-offline-buildpack</td><td>1.10.11</td><td></td></tr>
+    <tr><td>web-servers-cnb-buildpack</td><td>0.11.1</td>
+      <td>
+        <details>
+          <summary>0.11.1</summary>
+          <pre style="max-width: 30em">
+  Components:
+  * [buildpack v0.14.1](https://github.com/pivotal-cf/web-servers-cnb-buildpack/releases/tag/v0.14.1)
+          </pre>
+        </details>
+      </td>
+    </tr>
+    <tr><td>silk</td><td>3.45.0</td><td></td></tr>
+    <tr><td>smb-volume</td><td>3.1.64</td>
+      <td>
+        <details>
+          <summary>v3.1.64</summary>
+          <pre style="max-width: 30em">
+  ## Dependencies
+  * **smbbroker:** Updated to v`02f340b`.<br>For more information, see [smbbroker](https://github.com/cloudfoundry/smbbroker).
+  * **smbdriver:** Updated to v`fb88dd0`.<br>For more information, see [smbdriver](https://github.com/cloudfoundry/smbdriver).
+          </pre>
+        </details>
+        <details>
+          <summary>v3.1.63</summary>
+          <pre style="max-width: 30em">
+  ## Changes
+  * Golang: Updated to v1.22.2 (#381)
+  ## Dependencies
+  * **smbbroker:** Updated to v`b380e77`.<br>For more information, see [smbbroker](https://github.com/cloudfoundry/smbbroker).
+  * **smbdriver:** Updated to v`0c36c10`.<br>For more information, see [smbdriver](https://github.com/cloudfoundry/smbdriver).
+          </pre>
+        </details>
+        <details>
+          <summary>v3.1.62</summary>
+          <pre style="max-width: 30em">
+  ## Dependencies
+  * **v2:** Updated to v2.17.1.<br>For more information, see [v2](https://github.com/onsi/ginkgo).
+  * **smbbroker:** Updated to v`f176916`.<br>For more information, see [smbbroker](https://github.com/cloudfoundry/smbbroker).
+  * **smbdriver:** Updated to v`5ee16dc`.<br>For more information, see [smbdriver](https://github.com/cloudfoundry/smbdriver).
+          </pre>
+        </details>
+      </td>
+    </tr>
+    <tr><td>smoke-tests</td><td>4.10.0</td>
+      <td>
+        <details>
+          <summary>4.10.0</summary>
+          <pre style="max-width: 30em">
+  Create bosh final release 4.10.0
+          </pre>
+        </details>
+        <details>
+          <summary>4.9.5</summary>
+          <pre style="max-width: 30em">
+  Create bosh final release 4.9.5
+  ## What's Changed
+  * Upgrade Golang to 1.22 by @tas-operability-bot in https://github.com/pivotal/smoke-tests/pull/138
+  **Full Changelog**: https://github.com/pivotal/smoke-tests/compare/4.9.5...4.9.5
+          </pre>
+        </details>
+      </td>
+    </tr>
+    <tr><td>staticfile-offline-buildpack</td><td>1.6.11</td><td></td></tr>
+    <tr><td>statsd-injector</td><td>1.11.40</td>
+      <td>
+        <details>
+          <summary>v1.11.40</summary>
+          <pre style="max-width: 30em">
+  ## What's Changed
+  * Bump dependencies
+  * Bump to [go1.21.9](https://groups.google.com/g/golang-announce/c/YgW0sx8mN3M/m/khALNYGdAAAJ)
+  **Full Changelog**: https://github.com/cloudfoundry/statsd-injector-release/compare/v1.11.39...v1.11.40
+          </pre>
+        </details>
+      </td>
+    </tr>
+    <tr><td>syslog</td><td>12.2.4</td>
+      <td>
+        <details>
+          <summary>v12.2.4</summary>
+          <pre style="max-width: 30em">
+  ## What's Changed
+  * Bump dependencies
+  * Bump packaged Golang to go1.21.9
+  **Full Changelog**: https://github.com/cloudfoundry/syslog-release/compare/v12.2.3...v12.2.4
+          </pre>
+        </details>
+      </td>
+    </tr>
+    <tr><td>system-metrics-scraper</td><td>4.0.8</td>
+      <td>
+        <details>
+          <summary>v4.0.8</summary>
+          <pre style="max-width: 30em">
+  ## What's Changed
+  * Bump dependencies
+  * Bump to [go1.21.9](https://groups.google.com/g/golang-announce/c/YgW0sx8mN3M/m/khALNYGdAAAJ)
+  **Full Changelog**: https://github.com/cloudfoundry/system-metrics-scraper-release/compare/v4.0.7...v4.0.8
+          </pre>
+        </details>
+      </td>
+    </tr>
+    <tr><td>uaa</td><td>77.5.0</td>
+      <td>
+        <details>
+          <summary>v77.5.0</summary>
+          <pre style="max-width: 30em">
+  ## What's Changed
+  ### New UAA
+  * Bump to [UAA v77.5.0](https://github.com/cloudfoundry/uaa/releases/tag/v77.5.0)
+  * Spring Framework update from 5.3.33 to 5.3.34 by @dependabot in https://github.com/cloudfoundry/uaa/pull/2822, solves https://spring.io/security/cve-2024-22262
+  ### Misc
+  * Improve doc on proxy-related spec fields by @peterhaochen47 in https://github.com/cloudfoundry/uaa-release/pull/835
+  ### Dependency Bumps
+  * Bump github.com/cloudfoundry/bosh-utils from 0.0.453 to 0.0.454 in /src/acceptance_tests by @dependabot in https://github.com/cloudfoundry/uaa-release/pull/836
+  * Bump rake from 13.1.0 to 13.2.0 by @dependabot in https://github.com/cloudfoundry/uaa-release/pull/837
+  * Bump github.com/cloudfoundry/bosh-utils from 0.0.454 to 0.0.455 in /src/acceptance_tests by @dependabot in https://github.com/cloudfoundry/uaa-release/pull/838
+  * Bump rake from 13.2.0 to 13.2.1 by @dependabot in https://github.com/cloudfoundry/uaa-release/pull/839
+  * Bump github.com/cloudfoundry/bosh-utils from 0.0.455 to 0.0.456 in /src/acceptance_tests by @dependabot in https://github.com/cloudfoundry/uaa-release/pull/840
+  * Bump nokogiri from 1.16.3 to 1.16.4 by @dependabot in https://github.com/cloudfoundry/uaa-release/pull/843
+  **Full Changelog**: https://github.com/cloudfoundry/uaa-release/compare/v77.4.0...v77.5.0
+          </pre>
+        </details>
+      </td>
+    </tr>
+    <tr><td>tanzu-jammy-stack</td><td>1.0.1</td><td></td></tr>
+  </tbody>
+</table>
+
+
+
 ### <a id='6.0.0'></a> 6.0.0
 
 **Release Date:** 04/09/2024
