@@ -1017,7 +1017,7 @@ The Spring AutoReconfiguration library supplied by the buildpack is deprecated, 
 
 Apps may be affected if they have already been migrated to Spring Boot 3 and are relying on Spring Autoreconfiguration; that is:
 
-1. You have not set the variable JBP_CONFIG_SPRING_AUTO_RECONFIGURATION '{enabled: false}'
+1. You have not set the variable `JBP_CONFIG_SPRING_AUTO_RECONFIGURATION '{enabled: false}'`.
 1. The app is bound to a service of one of these types:
     * Cassandra
     * Relational Database
@@ -1025,7 +1025,7 @@ Apps may be affected if they have already been migrated to Spring Boot 3 and are
     * Mongo DB
     * Redis
     * SMTP
-1. The startup logs for the app will show a log entry such as 'dataSource' bean of type with 'javax.sql.DataSource' reconfigured with 'mysql' bean.
+1. The startup logs for the app will show a log entry such as `dataSource` bean of type with `javax.sql.DataSource` reconfigured with `mysql` bean.
 
 Apps using Spring Boot 2.x will continue to receive the Spring AutoReconfiguration library and should not be affected by this change.
 
@@ -1058,6 +1058,106 @@ To prevent problems, you can instead configure the password policies for local U
 ### Gorouter uses port 7070 by default for internal route services
 
 See [this section](#gorouter-uses-port-7070-by-default-for-internal-route-services-instead-of-a-random-available-port) for details.
+
+
+## Breaking changes if you are starting from TAS 4.0
+
+If you are upgrading from TAS 4.0 to TAS 6.0, review the following breaking changes to ensure a smooth upgrade.
+
+### MySQL 5.7 external system database support removed
+
+Your TAS for VMs deployment will fail or become insecure if you are using MySQL 5.7 as TAS's external system database because MySQL 5.7 has reached its End-Of-Life (31 Oct 2023).
+
+If you have configured a MySQL 5.7 database instance as the external system database for your TAS deployment, this change will affect you. You can check your current system database settings by going to the **Databases** pane in the TAS for VMs tile. 
+Check the **System databases location** section. If the **External database server** option is selected and the configured database server is based on MySQL 5.7, you 
+will have to upgrade your external system database to a supported MySQL version (such as MySQL 8.0).
+
+This change was triggered by the fact that MySQL 5.7 has reached its official End-Of-Life date (31 Oct 2023), and many TAS components and the database client libraries they depend on will follow suit by removing support and testing for MySQL 5.7.  
+
+### NATS intentionally fails deployment in post-start in v1
+
+Operators can ensure successful deployment of NATS servers, which propagate routes from services and apps to Gorouter, by confirming that their nats-release instances have successfully migrated to NATS v2.
+ 
+If your TAS environment is already on v2.11.26 or greater, make sure that your NATS instances have successfully migrated by checking that NATS 2.0 is running. See [How to confirm your nats servers are running NATs v2](https://community.pivotal.io/s/article/How-to-confirm-your-nats-servers-are-running-NATs-v2?language=en_US).
+
+If your deployment fails, check the NATS instance logs. Migration details, including any possible error messages, can be found under `/var/vcap/sys/log/nats-tls/nats-tls-wrapper.stdout.log`.
+
+In TAS v2.11.26, nats-release upgraded its underlying software package from NATS 1.0 (package name `gnatsd`) to NATS 2.0 (package name `nats-server`). The nats-release contains NATS 1.0, which will start as a fallback in case the migration to NATS 2.0 fails. In preparation for the future removal of NATS 1.0, nats-release will fail in post-start if it detects that NATS 1.0 is running instead of NATS 2.0.
+
+### App Autoscaler API no longer accepts trailing slashes
+
+Existing clients of the App Autoscaler API may break if they make resource requests that
+include trailing slashes.
+
+If you have written code that makes requests to the App Autoscaler API with trailing slashes or if you have documentation that describes making requests with trailing slashes you will be affected.
+
+Requests that specify trailing slashes will now receive a 404 response.
+This does not affect users who are using the Autoscaler cf CLI plug-in.
+
+This is a Spring Framework default change to [improve security posture](https://github.com/spring-projects/spring-framework/issues/28552).
+
+To prevent or solve this problem, modify your client or documentation to no longer make requests with trailing slashes.
+
+See also the TAS for VMs 5.0 [release notes](https://docs.vmware.com/en/VMware-Tanzu-Application-Service/5.0/tas-for-vms/runtime-rn.html).
+
+### Logging timestamp format changed for some TAS for VMs [Windows] jobs
+
+Existing automation that parses logs from TAS for VMs [Windows] components may break if it is still expecting timestamps formatted as epoch time. Specifically, logs from groot and garden_windows have been converted to RFC 3339 timestamps.
+
+This will affect you if you have log parsing for TAS for VMs [Windows]'s groot and garden_windows jobs that rely on timestamps being in epoch format.
+
+If it was necessary to adjust log parsing for TAS and TAS for VMs [Windows] 4.0 to account for the change in timestamp format, update log parsing in the same manner, but for the TAS for VMs [Windows] groot and garden_windows jobs.
+
+The logging timestamp format was changed for some TAS for VMs [Windows] jobs because non-standardized and non-human readable timestamps in logs make debugging TAS more difficult. Starting in TAS/TASW 4.0, timestamps have been logged using RFC 3339 format in all cases but groot and garden_windows.
+
+See also the TAS for VMs 5.0 [release notes](https://docs.vmware.com/en/VMware-Tanzu-Application-Service/5.0/tas-for-vms/runtime-rn.html).
+
+### Logging timestamp format property removed
+
+Existing automation that configures a log timestamp format will break if product config is not updated.
+
+You are affected if you set the logging_timestamp_format product config property.
+
+This property has had no effect since TAS 4.0. Update your configuration to no longer specify the property.
+
+The logging timestamp format property was removed because non-standardized and non-human readable timestamps in logs make debugging TAS more difficult.
+
+See also the TAS for VMs 5.0 [release notes](https://docs.vmware.com/en/VMware-Tanzu-Application-Service/5.0/tas-for-vms/runtime-rn.html).
+
+### Syslog Aggregate Drains property changes
+
+You will be affected by this change if you have configured aggregate syslog drains with the `syslog_agent_aggregate_drains` property.
+Existing automation that configures aggregate syslog drains will break if the product config is not updated. 
+
+References to the old property should be updated to refer to the `new mtls_syslog_agent_aggregate_drains` property.
+This property is used to define aggregate syslog drains with keys and certificates for Mutual TLS, and to define aggregate drains that are not using Mutual TLS.
+From TAS 5.0, operators can configure aggregate drains that support Mutual TLS for improved security. This necessitated changing the structure of the syslog aggregate drains property to allow these new fields to be specified.
+
+Comma-separated strings are no longer accepted, instead pass an array of aggregate drains:
+
+```
+.properties.mtls_syslog_agent_aggregate_drains:
+  value:
+  - url: syslog-tls://HOSTNAME:PORT
+  - url: syslog-tls://ANOTHER-HOSTNAME:PORT
+```
+
+Additionally, consider if your syslog aggregate drains should be updated to use Mutual TLS.
+
+See also the TAS for VMs 5.0 [release notes](https://docs.vmware.com/en/VMware-Tanzu-Application-Service/5.0/tas-for-vms/runtime-rn.html).
+
+### Metrics Agent deprecated and defaults to off
+
+The behavior of any custom integration using Prometheus to scrape the Metrics Agent will change. The Metrics Agent is protected by mutual TLS, and for access, it would require using a certificate issued by TAS. We do not know of any products or integrations that use this agent. 
+
+You will see this change if you have built a custom integration that scrapes all VMs usingPprometheus on port 14726.
+See the TAS for VMs 5.0 [release notes](https://docs.vmware.com/en/VMware-Tanzu-Application-Service/5.0/tas-for-vms/runtime-rn.html) for more information.
+
+The Metrics Agent was designed as a way for Healthwatch and other components to retrieve metrics without using the Loggregator Firehose. No components ended up adopting it, and with the introduction of the OpenTelemetry Collector, there are now much more flexible options for egressing metrics. For this reason, we are slating it for removal rather than driving adoption towards it.
+
+If you are using the Metrics Agent, it is possible in TAS 5.0 to reenable it by unselecting the check box in the **System Logging configuration** page. A better solution is to switch to using the Prometheus Exporter in the OpenTelemetry Collector. If you
+are unable to migrate to the Prometheus Exporter, contact [Support](https://tanzu.vmware.com/support); the Metrics Agent is slated for removal in TAS 6.0.
+
 
 ## Breaking changes for TAS for VMs Ecosystem tiles (including ISV Partner tiles)
 
