@@ -486,19 +486,19 @@ Because VMware uses the Percona Distribution for MySQL, expect a time lag betwee
 </table>
 
 
-
 ### <a id='6.0.0'></a> 6.0.0
 
 **Release Date:** 04/09/2024
 
-* **[Breaking Change]** Remove Portal from TAS
+* **[Breaking Change]** Remove Developer Portal from TAS
 * **[Breaking Change]** Change default internal route service port to 7070
 * **[Breaking Change]** No longer install cflinuxfs3 by default
 * **[Breaking Change]** Replace cpu entitlement counters with cpu_entitlement percentage gauge
 * **[Breaking Change]** Remove (deprecated) Metrics Agent and Metrics Discovery Release
-* **[Breaking Change]**: Move and adapt UAA password complexity policies 
+* **[Breaking Change]**: Move and adapt UAA password complexity policies
 * **[Breaking Change]**: Remove ability of UAA to serve as a native SAML identity provider (operators can continue to configure UAA to connect to an external SAML identity provider, using the **Authentication and Enterprise SSO** pane of the <%= vars.app_runtime_abbr %> tile configuration)
 * **[Breaking Change]** Gorouter's deprecated /varz and /healthz endpoints on port 8080 have been removed
+* **[Breaking Change]** Absolute CPU Entitlement metrics no longer available. See [details](#absolute-cpu-entitlement-metrics-no-longer-available).
 * **[Feature]** New form option and migration to opt-into allowing Small Footprint TAS to 'full' TAS upgrade.
 * **[Feature]** Add support for NTLM authentication in Gorouter
 * **[Feature]** CAPI Enable legacy MD5 buildpack paths
@@ -984,7 +984,80 @@ metric. If you have any dashboards that reference the `absolute_entitlement` and
 Due to the removal of these metrics, the experimental CPU Entitlement Plug-in no longer functions. If you use this plug-in to view
 CPU entitlement usage, you can instead view the `cpu_entitlement` metric, for example using the Log Cache cf CLI plug-in.
 
+## Breaking changes if you are starting from TAS 5.0
 
+If you are upgrading from TAS 5.0 to TAS 6.0, review the following breaking changes to ensure a smooth upgrade.
+
+### App Autoscaler requires JRE 17
+
+If you have customized the Java offline buildback to use a JRE other than OpenJDK and the default JRE version in the buildpack or defined by an environment variable group is not JRE 17, then you might see errors when deploying the App Autoscaler API.
+For example:
+
+```console
+ERR     java.lang.UnsupportedClassVersionError: org/springframework/boot/loader/JarLauncher has been compiled by a more recent version of the Java Runtime (class file version 61.0), this version of the Java Runtime only recognizes class file versions up to 55.0
+```
+
+Ensure that JRE 17 us available in your Java Offline Buildpack.
+If the Java Runtime you are using is the Oracle JRE, then upgrade to a version of TAS that ships with cf-autoscaling version 249.2.6. As of that version of cf-autoscaling, the autoscale-api application configures `JBP_CONFIG_ORACLE_JRE` to self-select Oracle JRE 17.
+Alternatively, you can temporarily override your buildpack defaults to run the deploy-autoscaler errand:
+
+1. Set an environment variable group that changes the default version of Java to 17 across all applications in a foundation. For example: 
+
+    ```
+    $ cf set-staging-environment-variable-group '{"JBP_DEFAULT_OPEN_JDK_JRE":"{jre: {version: 17.+ }}"}'
+    ```
+
+1. Generate the correct parameters for your java runtime by viewing the options available in the java buildpack. Also be careful to merge your new parameters with any parameters already set in the environment variable group.
+1. Trigger the deploy-autoscaler errand and see it succeed.
+1. Remove the parameters that you added to the environment variable group and re-set the remaining parameters to undo your changes.
+
+### Spring AutoReconfiguration library supplied by the buildpack is deprecated
+
+The Spring AutoReconfiguration library supplied by the buildpack is deprecated, as well as the Spring Cloud Connectors project. It is recommended that you use the [java-cfenv](https://github.com/pivotal-cf/java-cfenv/) library instead for accessing bound services in Spring Boot apps. To make it easier to migrate to this library, the Java Buildpack will now install the Java CfEnv library for Spring Boot 3 apps only, and the Spring AutoReconfiguration library will no longer be installed for these apps.
+
+Apps may be affected if they have already been migrated to Spring Boot 3 and are relying on Spring Autoreconfiguration; that is:
+
+1. You have not set the variable JBP_CONFIG_SPRING_AUTO_RECONFIGURATION '{enabled: false}'
+1. The app is bound to a service of one of these types:
+    * Cassandra
+    * Relational Database
+    * RabbitMQ
+    * Mongo DB
+    * Redis
+    * SMTP
+1. The startup logs for the app will show a log entry such as 'dataSource' bean of type with 'javax.sql.DataSource' reconfigured with 'mysql' bean.
+
+Apps using Spring Boot 2.x will continue to receive the Spring AutoReconfiguration library and should not be affected by this change.
+
+In most cases, the Java CfEnv library should replace the functionality of the Spring Autoreconfiguration library for Spring Boot 3 apps. The Java CfEnv library examines bound services of the above types (except SMTP) and sets well-known Spring Boot properties so that Spring Boot's Autoconfiguration can kick-in.
+
+### The UAA SAML IdP functionality has been removed
+
+UAA's ability to act as a SAML identity provider has been removed in preparation for replacing its dependency on Spring SAML Extension with Spring Security SAML 2 support. You can no longer use UAA as your SAML IdP.
+
+Spring SAML Extension has reached the end of support. UAA is replacing it with Spring Security SAML 2 support to keep the SAML feature compatible with latest Spring versions. Since Spring Security does not provide Identity Provider support, UAA is dropping its SAML IdP functionality.
+
+Note that UAA’s ability to integrate with an upstream SAML identity provider as a SAML service provider is unaffected by this change.
+
+If you use UAA as a SAML IdP, you will be affected. If you are unsure, get the list of registered SAML service providers from UAA’s `/saml/service-providers` endpoint. (See [https://docs.cloudfoundry.org/api/uaa/version/76.31.0/#list](https://docs.cloudfoundry.org/api/uaa/version/76.31.0/#list).) If you get a non-empty list in response, then you are using UAA as a SAML IdP.
+
+Note that `/saml/service-providers` endpoint has been also removed from the latest UAA version as part of the SAML IdP functionality removal.
+
+UAA now supports acting as an identity provider over OIDC. If the system that acts as a SAML service provider can also integrate with OIDC identity providers, switch to use that protocol instead.
+
+### Local UAA password policy configuration changed
+
+If you have customized the password policy settings for local UAA users, these settings will be restored to the default policy unless you take action.
+
+In previous TAS versions, the local UAA password policies could be configured only if you selected the **Internal user store** option in the Authentication and Enterprise SSO pane. The local UAA password policy configuration option is now moved to the UAA pane, where you can customize the settings regardless of the Authentication and Enterprise SSO option you chose.
+
+If you currently have configured the local UAA user password policy by setting the fields under the **Internal user store** option in the Authentication and Enterprise SSO pane, then your existing settings will be affected.
+
+To prevent problems, you can instead configure the password policies for local UAA users in a new section on the UAA pane of the TAS tile. This configuration section is available in TAS 4.0 and 5.0 and will be preserved in the upgrade to 6.0. 
+
+### Gorouter uses port 7070 by default for internal route services
+
+See [this section](#gorouter-uses-port-7070-by-default-for-internal-route-services-instead-of-a-random-available-port) for details.
 
 ## Breaking changes for TAS for VMs Ecosystem tiles (including ISV Partner tiles)
 
