@@ -1159,6 +1159,153 @@ If you are using the Metrics Agent, it is possible in TAS 5.0 to reenable it by 
 are unable to migrate to the Prometheus Exporter, contact [Support](https://tanzu.vmware.com/support); the Metrics Agent is slated for removal in TAS 6.0.
 
 
+## Breaking changes if you are starting from TAS for VMs 2.13
+
+If you are upgrading from TAS 4.0 to TAS 6.0, review the following breaking changes to ensure a smooth upgrade.
+
+### App logs that exceed rate limit are dropped immediately
+
+The behavior of line-based application log rate limiting has changed. Previously application logs would be buffered to some extent and then released at the configured rate. Now application logs that exceed the rate limit are dropped immediately. For more information, see the TAS for VMs 2.13 [release notes](https://docs.vmware.com/en/VMware-Tanzu-Application-Service/2.13/tas-for-vms/runtime-rn.html#v21310-30).
+
+You will encounter this behavior if you have configured the deprecated line-based application log rate limiting and have applications that emit logs in excess of the configured limit. 
+This is expected behavior and helps ensure that logs that are output are timely. VMware recommends use of quota-based log rate limits for fine-grained control over application log rates.
+
+This behavior was modified as part of changes to Diego to support granular log rate limits on orgs, spaces and individual apps in TAS for VMs 3.0.
+
+### Syslog Drains reject SHA-1 certificates
+
+Logging components provided by loggregator-agent-release have been upgraded to Go 1.18. From Go 1.18 the treatment of certificates is stricter and certificates signed with the SHA-1 hash function will be rejected. Go stopped accepting certificates signed with the SHA-1 hash function because of security concerns.
+
+Review your configured application syslog drains. If you have a certificate for a syslog drain configured with a SHA-1 hash, your deployment will be affected.
+
+If older SHA-1 hash funtion certificates are used, regenerate the old certificates so that they don't use the SHA-1 hash function.
+
+For more information, see the TAS for VMs 2.12 [release notes](https://docs.vmware.com/en/VMware-Tanzu-Application-Service/2.12/tas-for-vms.pdf) for v2.2.12, and [https://go.dev/doc/go1.18#sha1](https://go.dev/doc/go1.18#sha1).
+
+### Application log rate limit default
+
+Applications pushed to TAS 3.0+ will inherit a default operator-configurable log rate limit if one is not specified. The ability to set the log rate limit in a granular way is intended to allow operators to protect both the logging system within TAS and external integrations that receive logs. Setting a platform default limit for new applications makes it more likely that applications will have a log rate limit set allowing quotas to be imposed.
+
+If you are upgrading to TAS 3.0+ and are pushing applications to the platform, applications that already exist on the platform prior to upgrade will default to not being log rate limited.
+
+Determine if the default log rate for new applications (16 K/s) is appropriate for your needs. If you have applications with verbose logs exceeding the default limit and do not want their logs to be dropped for exceeding the limit, then consider:
+
+* pushing your applications with a specified app log rate limit
+* modifying the platform default log rate limit
+
+The default log rate limit for new applications is configurable in the **App Developer Controls** tab in the TAS for VMs product configuration. The corresponding property is `.properties.cloud_controller_default_log_rate_limit_app`.
+
+See also the TAS for VMs 3.0 [release notes](https://docs.vmware.com/en/VMware-Tanzu-Application-Service/3.0/tas-for-vms.pdf). 
+
+### Autoscaler service bindings duplicate index
+
+Upgrading to a version of TAS that introduces a new database index for App Autoscaler on the service bindings table may result in errors if you have previously manually created the same index.
+
+If you have previously manually added a database index following the instructions in the knowledge base article "Autoscale application fails with MySQL Deadlock errors" and you are upgrading to TAS for VMs 2.13.5 or 2.13.6, you need to upgrade to a newer patch release of TAS that does not have this limitation.
+
+See also: 
+
+* [TAS for VMs 2.13 release notes - 2.13.5](https://docs.vmware.com/en/VMware-Tanzu-Application-Service/2.13/tas-for-vms/runtime-rn.html#v2135-35)
+* [TAS for VMs 2.13 release notes - 2.13.7](https://docs.vmware.com/en/VMware-Tanzu-Application-Service/2.13/tas-for-vms/runtime-rn.html#v2137-33)
+* [Autoscale application fails with MySQL Deadlock errors KB article](https://community.pivotal.io/s/article/Autoscale-application-errors-with-MySQL-Deadlock)
+
+### BOSH System Metrics Forwarder Removed
+
+The BOSH System Metrics Forwarder is removed from TAS for VMs in favor of System Metrics server and scraper.
+
+If you have been using the deprecated BOSH System Metrics Server and Forwarder, you will be affected by this change. You are using the BOSH System Metrics Server if you selected the **Enable BOSH System Metrics Server (deprecated)** option in the Ops Manager Director product configuration.
+ 
+To continue receiving system metrics, you must select the **Enable System Metrics** check box in the Director Config pane of the BOSH Director tile.
+
+To avoid deployment, platform automation, or data collection failures, you must update any queries that reference `bosh-system-metrics-forwarder` as the `source_id` for metrics to reference `system_metrics_agent` instead.
+
+Additionally, metric names now include underscores instead of periods. For example, the metric named `system.cpu.sys` in previous versions of TAS for VMs is named `system_cpu_sys` in TAS for VMs v3.0+.
+
+See also:
+
+* [TAS for VMs 3.0 release notes](https://docs.vmware.com/en/VMware-Tanzu-Application-Service/3.0/tas-for-vms.pdf)
+* [Tanzu Operations Manager release notes](https://docs.vmware.com/en/VMware-Tanzu-Operations-Manager/3.0/vmware-tanzu-ops-manager/release-notes.html#bosh-system-metrics-server-is-removed)
+
+### HAProxy removed
+
+If your environment is running an HAProxy instance group, you must reconfigure your networking configurations. Otherwise, you will get a deployment error when upgrading to TAS 3.0. 
+HAProxy was previously supported as an instance group in front of Gorouter to support features not offered by Gorouter. Now that Gorouter supports TLS termination, HAProxy is no longer needed.
+ 
+To check if you are running HAProxy, open the **Networking** tab in Tanzu Operations Manager. Under the field **Routing TLS Termination**, if you see **HAProxy**, you must change your networking and resource configurations to point directly to Gorouter.
+
+See also the TAS for VMs 3.0 [documentation](https://docs.vmware.com/en/VMware-Tanzu-Application-Service/3.0/tas-for-vms.pdf).
+
+### Log Cache nozzle ingess removed
+
+Starting from TAS for VMs 3.0.0, Log Cache uses syslog ingress, and the option to use nozzle ingress has been removed. This is because Log Cache ingestion using the Reverse Log Proxy (RLP) has been removed.
+ 
+If you have not selected the **Enable Log Cache syslog ingestion** option, or set the corresponding `.properties.enable_log_cache_syslog_ingestion` product property to `false`, you are affected. From TAS 3.0.0, this is no longer a supported configuration.
+In addition, Diego Cells with high logging volume might experience higher CPU usage than they did prior to this change.
+ 
+Confirm that your instances, including those within isolation segments, are permitted to establish connections to Log Cache nodes on port 6067. You may need to update firewall rules to allow logs to flow directly from your instances to the Log Cache syslog server.
+
+Consider scaling your Diego Cells if you have applications with high logging volume due to the increased load from the syslog agent on the Diego Cell.
+
+See also the TAS for VMs 3.0 [release notes](https://docs.vmware.com/en/VMware-Tanzu-Application-Service/3.0/tas-for-vms.pdf).
+
+### ActiveLocks removed from Key Performance Indicators
+
+If you are monitoring ActiveLocks on your environment, upgrading to TAS 3.0.0 will increase your metric by 1 if your environment Key Performance Indicators includes Locket ActiveLocks.
+
+For a successful upgrade, you must remove this metric from any KPI monitoring you maintain.
+
+ActiveLocks is a metric emitted by Locket, a distributed locking service used by multiple services in CloudFoundry. With the introduction of a new, opt-in service that uses Locket, the expected number of active locks increased by 1. Our community noted that a feature-dependent was a smell of a bad performance indicator; while the information is useful in debugging, it is not useful as a performance indicator and we no longer recommend monitoring it as an environment health metric.
+
+### cflinuxfs4 as default stack may cause failures to push apps
+
+cflinuxfs3 (backed by Ubuntu Bionic) has been deprecated in favor of cflinuxfs4 (backed by Ubuntu Jammy). If apps are configured to use the latest stack, upgrading TAS for VMs will upgrade the app stacks and may cause a push failure.
+
+You can see what stack your apps are configured to use by running:
+
+```
+cf audit-stack
+```
+
+If the apps are followed by cflinuxfs3, they are running an outdated stack. You should re-stage your app to use cflinuxfs4 before upgrading TAS for VMs. This may entail updating the buildpack that your app uses. If fixing app staging is not possible before the TAS upgrade, you can configure apps to run on cflinuxfs3 as a temporary workaround. Resolve any push errors before doing the upgrade.
+
+```
+cf push <APP_NAME> -s cflinuxfs4
+```
+
+"Stacks" are the pre-built root file system that Cloud Foundry uses to create app containers. Keeping these up-to-date with operating system updates is key to updating security vulerabilities and other issues.
+
+See also:
+* [Managing apps and their stacks](https://docs.vmware.com/en/VMware-Tanzu-Application-Service/4.0/tas-for-vms/managing-apps-stacks-index.html)
+* [TAS cflinuxfs4 Migration Proposal](https://community.pivotal.io/s/article/TAS-cflinuxfs4-Migration?language=en_US) discusses stack change behaviors for each TAS for VMs release
+
+### Diego and Routing Components More Strict With TLS Protocols
+
+Diego and Routing components have been updated to be stricter with TLS protocols. External services and databases, end users, and services making requests to Gorouter should be using TLS 1.2 and have certificates signed with a hash that is newer and more secure than SHA-1, or else they will experience TLS errors.
+ 
+For services communicating with Diego components, if your environment is affected, they will not be able to successfully make a connection to Diego. For external user services talking to Gorouter, you should see TLS errors in your access logs.
+
+If you are using an external database, Diego will throw errors trying to start processes like Locket and BBS.
+
+You can check the Signature Algorithm of your external database and external services with the following command:
+
+```
+echo '' | openssl s_client -connect <HOSTNAME>:<PORT> -servername <HOSTNAME> 2>/dev/null | openssl x509 -noout -text | grep 'Signature Algorithm'
+```
+
+You can check that TLS 1.2 is supported with the following command:
+
+```
+echo openssl s_client -connect google.com:443 -servername google.com -tls1_2 || echo "TLS 1.2 unsupported"
+```
+
+If you see no output, TLS 1.2 is supported. If you see the TLS 1.2 unsupported message, it is unsupported and will need to be updated.
+
+Make sure that services talking to your Diego components and services talking to gorouter are not using TLS 1.0 or 1.1, or using SHA-1 certificates.
+
+Diego and Routing components, including gorouter, use an up-to-date version of Golang. As of Golang 1.18, TLS requirements have been made more strict in two major ways. First, TLS 1.0 and 1.1 disabled in favor of TLS 1.2. Second, crypto/x509 will now reject certificates signed with the SHA-1 hash function. See Golang release notes for details.
+
+See also [https://tip.golang.org/doc/go1.18](https://tip.golang.org/doc/go1.18).
+
 ## Breaking changes for TAS for VMs Ecosystem tiles (including ISV Partner tiles)
 
 If your team is building a tile (integration) to be used with a compatible TAS version, you need to be aware of the following key changes in
