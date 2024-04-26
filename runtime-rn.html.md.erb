@@ -1306,6 +1306,68 @@ Diego and Routing components, including gorouter, use an up-to-date version of G
 
 See also [https://tip.golang.org/doc/go1.18](https://tip.golang.org/doc/go1.18).
 
+
+## Breaking changes if you are starting from TAS for VMs 2.11
+
+### Log Cache aggregate drain metadata missing
+
+TAS 2.11.16 moved aggregate drain configuration to the syslog binding cache to improve deploy speed. Depending on your configuration, this could cause the Smoke Test errand to fail.
+
+If **Enable Log Cache syslog ingestion** is selected and **Default loggregator drain metadata** is unselected, and you attempt to upgrade to a version of TAS for VMs from 2.11.16 to 2.11.21, this will affect you.
+
+The corresponding product properties are:
+* `.properties.enable_log_cache_syslog_ingestion`
+* `.properties.default_loggregator_drain_metadata`
+
+To avoid this problem, upgrade to TAS 2.11.22 or greater.
+
+Operators may configure aggregate drains to send all application logs to a syslog destination. The same mechanism may be used within TAS for VMs to populate Log Cache. If metadata is not enabled for the Log Cache aggregate drain, then Log Cache will not have the metadata expected to function correctly.
+
+See also the TAS for VMs 2.11 release notes:
+
+* [2.11.16](https://docs.vmware.com/en/VMware-Tanzu-Application-Service/2.11/tas-for-vms/runtime-rn.html#v21116)
+* [2.11.22](https://docs.vmware.com/en/VMware-Tanzu-Application-Service/2.11/tas-for-vms/runtime-rn.html#v21122)
+
+### Minimize user downtime when upgrading from 2.11 to 2.12
+
+To minimize downtime for developers pushing apps, upgrade from TAS for VMs v2.11.9 or later. Upgrading from earlier patch versions can result in an Unknown Error when pushing apps. With Cloud Controller in affected versions, there is a possibility that app `lifecycle_type` could be nil when determining app lifecycle.
+ 
+If your current version of TAS is 2.11.0 through 2.11.8 and you are upgrading to TAS for VMs 2.12 or higher, this could cause a problem for you.
+To prevent problems, upgrade to TAS 2.11.9 or higher before upgrading to 2.12 or higher.
+
+For more information, see the Upgrade section in the TAS for VMs 2.12 [release notes](https://docs.vmware.com/en/VMware-Tanzu-Application-Service/2.12/tas-for-vms.pdf).
+
+### Envoy advertises HTTP2 support over ALPN
+
+If applications do not support HTTP/2 when using Container-to-Container (C2C) communication through the Envoy proxy (ports 61001 or 61443), requests between these apps will fail.
+
+You may be affected if you are using container-to-container networking, and you have network policies that allow apps to talk to other apps on ports 61001 or 61443.
+Use the cf network-policies command to list the policies, and look for those ports.
+
+To find out if you have this situation, investigate the destination applications for these policies to determine if they support HTTP/2 requests. If not, the client applications must be updated to negotiate down to HTTP/1.1 when making their requests.
+
+Background details:
+* ALPN is the Application-Layer Protocol Negotiation that allows HTTP connections to negotiate what protocols are supported.
+* Envoy is a proxy sitting alongside each application container to facilitate TLS termination.
+
+### Zipkin Trace-ID is now 16 Bytes
+
+There is a possibility that your apps are not capable of processing the longer 8-byte Trace-ID header. If so, you may receive 400-level errors after Gorouter forwards requests to your app.
+ 
+Foundations that do not enable Zipkin are not affected. To see if Zipkin is enabled, look at the **Networking** tab of the TAS tile in Tanzu Operations Manager, and see if **Enable Zipkin** is selected.
+
+If Zipkin is enabled, applications incompatible with this change will throw errors related to Zipkin header length in their application or access logs.
+
+The header size was increased from 8-bytes to 16-byes in accordance to the W3 standard; to resolve this, you must update your app to be able to handle 16-byte request headers.
+
+Zipkin is a library that allows users to trace a request through mutliple componenets, with the help of a Trace-ID that is the same for the lifecycle of one request. Having a longer Trace-ID is in compliance with W3 standards and also decreases the chance of generating duplicate IDs.
+
+For more information, see:
+* [https://zipkin.io/pages/instrumenting.html](https://zipkin.io/pages/instrumenting.html)
+* [https://www.w3.org/TR/trace-context/#trace-id](https://www.w3.org/TR/trace-context/#trace-id) 
+* [https://docs.cloudfoundry.org/adminguide/zipkin_tracing.html](https://docs.cloudfoundry.org/adminguide/zipkin_tracing.html) 
+
+
 ## Breaking changes for TAS for VMs Ecosystem tiles (including ISV Partner tiles)
 
 If your team is building a tile (integration) to be used with a compatible TAS version, you need to be aware of the following key changes in
