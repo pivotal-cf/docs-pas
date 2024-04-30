@@ -1001,7 +1001,7 @@ Ensure that JRE 17 us available in your Java Offline Buildpack.
 If the Java Runtime you are using is the Oracle JRE, then upgrade to a version of TAS that ships with cf-autoscaling version 249.2.6. As of that version of cf-autoscaling, the autoscale-api application configures `JBP_CONFIG_ORACLE_JRE` to self-select Oracle JRE 17.
 Alternatively, you can temporarily override your buildpack defaults to run the deploy-autoscaler errand:
 
-1. Set an environment variable group that changes the default version of Java to 17 across all applications in a foundation. For example: 
+1. Set an environment variable group that changes the default version of Java to 17 across all applications in a foundation. For example:
 
     ```
     $ cf set-staging-environment-variable-group '{"JBP_DEFAULT_OPEN_JDK_JRE":"{jre: {version: 17.+ }}"}'
@@ -1053,7 +1053,7 @@ In previous TAS versions, the local UAA password policies could be configured on
 
 If you currently have configured the local UAA user password policy by setting the fields under the **Internal user store** option in the Authentication and Enterprise SSO pane, then your existing settings will be affected.
 
-To prevent problems, you can instead configure the password policies for local UAA users in a new section on the UAA pane of the TAS tile. This configuration section is available in TAS 4.0 and 5.0 and will be preserved in the upgrade to 6.0. 
+To prevent problems, you can instead configure the password policies for local UAA users in a new section on the UAA pane of the TAS tile. This configuration section is available in TAS 4.0 and 5.0 and will be preserved in the upgrade to 6.0.
 
 ### Gorouter uses port 7070 by default for internal route services
 
@@ -1068,16 +1068,16 @@ If you are upgrading from TAS 4.0 to TAS 6.0, review the following breaking chan
 
 Your TAS for VMs deployment will fail or become insecure if you are using MySQL 5.7 as TAS's external system database because MySQL 5.7 has reached its End-Of-Life (31 Oct 2023).
 
-If you have configured a MySQL 5.7 database instance as the external system database for your TAS deployment, this change will affect you. You can check your current system database settings by going to the **Databases** pane in the TAS for VMs tile. 
-Check the **System databases location** section. If the **External database server** option is selected and the configured database server is based on MySQL 5.7, you 
+If you have configured a MySQL 5.7 database instance as the external system database for your TAS deployment, this change will affect you. You can check your current system database settings by going to the **Databases** pane in the TAS for VMs tile.
+Check the **System databases location** section. If the **External database server** option is selected and the configured database server is based on MySQL 5.7, you
 will have to upgrade your external system database to a supported MySQL version (such as MySQL 8.0).
 
-This change was triggered by the fact that MySQL 5.7 has reached its official End-Of-Life date (31 Oct 2023), and many TAS components and the database client libraries they depend on will follow suit by removing support and testing for MySQL 5.7.  
+This change was triggered by the fact that MySQL 5.7 has reached its official End-Of-Life date (31 Oct 2023), and many TAS components and the database client libraries they depend on will follow suit by removing support and testing for MySQL 5.7.
 
 ### NATS intentionally fails deployment in post-start in v1
 
 Operators can ensure successful deployment of NATS servers, which propagate routes from services and apps to Gorouter, by confirming that their nats-release instances have successfully migrated to NATS v2.
- 
+
 If your TAS environment is already on v2.11.26 or greater, make sure that your NATS instances have successfully migrated by checking that NATS 2.0 is running. See [How to confirm your nats servers are running NATs v2](https://community.pivotal.io/s/article/How-to-confirm-your-nats-servers-are-running-NATs-v2?language=en_US).
 
 If your deployment fails, check the NATS instance logs. Migration details, including any possible error messages, can be found under `/var/vcap/sys/log/nats-tls/nats-tls-wrapper.stdout.log`.
@@ -1127,7 +1127,7 @@ See also the TAS for VMs 5.0 [release notes](https://docs.vmware.com/en/VMware-T
 ### Syslog Aggregate Drains property changes
 
 You will be affected by this change if you have configured aggregate syslog drains with the `syslog_agent_aggregate_drains` property.
-Existing automation that configures aggregate syslog drains will break if the product config is not updated. 
+Existing automation that configures aggregate syslog drains will break if the product config is not updated.
 
 References to the old property should be updated to refer to the `new mtls_syslog_agent_aggregate_drains` property.
 This property is used to define aggregate syslog drains with keys and certificates for Mutual TLS, and to define aggregate drains that are not using Mutual TLS.
@@ -1148,7 +1148,7 @@ See also the TAS for VMs 5.0 [release notes](https://docs.vmware.com/en/VMware-T
 
 ### Metrics Agent deprecated and defaults to off
 
-The behavior of any custom integration using Prometheus to scrape the Metrics Agent will change. The Metrics Agent is protected by mutual TLS, and for access, it would require using a certificate issued by TAS. We do not know of any products or integrations that use this agent. 
+The behavior of any custom integration using Prometheus to scrape the Metrics Agent will change. The Metrics Agent is protected by mutual TLS, and for access, it would require using a certificate issued by TAS. We do not know of any products or integrations that use this agent.
 
 You will see this change if you have built a custom integration that scrapes all VMs usingPprometheus on port 14726.
 See the TAS for VMs 5.0 [release notes](https://docs.vmware.com/en/VMware-Tanzu-Application-Service/5.0/tas-for-vms/runtime-rn.html) for more information.
@@ -1167,7 +1167,7 @@ If you are upgrading from TAS 4.0 to TAS 6.0, review the following breaking chan
 
 The behavior of line-based application log rate limiting has changed. Previously application logs would be buffered to some extent and then released at the configured rate. Now application logs that exceed the rate limit are dropped immediately. For more information, see the TAS for VMs 2.13 [release notes](https://docs.vmware.com/en/VMware-Tanzu-Application-Service/2.13/tas-for-vms/runtime-rn.html#v21310-30).
 
-You will encounter this behavior if you have configured the deprecated line-based application log rate limiting and have applications that emit logs in excess of the configured limit. 
+You will encounter this behavior if you have configured the deprecated line-based application log rate limiting and have applications that emit logs in excess of the configured limit.
 This is expected behavior and helps ensure that logs that are output are timely. VMware recommends use of quota-based log rate limits for fine-grained control over application log rates.
 
 This behavior was modified as part of changes to Diego to support granular log rate limits on orgs, spaces and individual apps in TAS for VMs 3.0.
@@ -1195,7 +1195,7 @@ Determine if the default log rate for new applications (16 K/s) is appropriate f
 
 The default log rate limit for new applications is configurable in the **App Developer Controls** tab in the TAS for VMs product configuration. The corresponding property is `.properties.cloud_controller_default_log_rate_limit_app`.
 
-See also the TAS for VMs 3.0 [release notes](https://docs.vmware.com/en/VMware-Tanzu-Application-Service/3.0/tas-for-vms.pdf). 
+See also the TAS for VMs 3.0 [release notes](https://docs.vmware.com/en/VMware-Tanzu-Application-Service/3.0/tas-for-vms.pdf).
 
 ### Autoscaler service bindings duplicate index
 
@@ -1203,7 +1203,7 @@ Upgrading to a version of TAS that introduces a new database index for App Autos
 
 If you have previously manually added a database index following the instructions in the knowledge base article "Autoscale application fails with MySQL Deadlock errors" and you are upgrading to TAS for VMs 2.13.5 or 2.13.6, you need to upgrade to a newer patch release of TAS that does not have this limitation.
 
-See also: 
+See also:
 
 * [TAS for VMs 2.13 release notes - 2.13.5](https://docs.vmware.com/en/VMware-Tanzu-Application-Service/2.13/tas-for-vms/runtime-rn.html#v2135-35)
 * [TAS for VMs 2.13 release notes - 2.13.7](https://docs.vmware.com/en/VMware-Tanzu-Application-Service/2.13/tas-for-vms/runtime-rn.html#v2137-33)
@@ -1214,7 +1214,7 @@ See also:
 The BOSH System Metrics Forwarder is removed from TAS for VMs in favor of System Metrics server and scraper.
 
 If you have been using the deprecated BOSH System Metrics Server and Forwarder, you will be affected by this change. You are using the BOSH System Metrics Server if you selected the **Enable BOSH System Metrics Server (deprecated)** option in the Ops Manager Director product configuration.
- 
+
 To continue receiving system metrics, you must select the **Enable System Metrics** check box in the Director Config pane of the BOSH Director tile.
 
 To avoid deployment, platform automation, or data collection failures, you must update any queries that reference `bosh-system-metrics-forwarder` as the `source_id` for metrics to reference `system_metrics_agent` instead.
@@ -1228,9 +1228,9 @@ See also:
 
 ### HAProxy removed
 
-If your environment is running an HAProxy instance group, you must reconfigure your networking configurations. Otherwise, you will get a deployment error when upgrading to TAS 3.0. 
+If your environment is running an HAProxy instance group, you must reconfigure your networking configurations. Otherwise, you will get a deployment error when upgrading to TAS 3.0.
 HAProxy was previously supported as an instance group in front of Gorouter to support features not offered by Gorouter. Now that Gorouter supports TLS termination, HAProxy is no longer needed.
- 
+
 To check if you are running HAProxy, open the **Networking** tab in Tanzu Operations Manager. Under the field **Routing TLS Termination**, if you see **HAProxy**, you must change your networking and resource configurations to point directly to Gorouter.
 
 See also the TAS for VMs 3.0 [documentation](https://docs.vmware.com/en/VMware-Tanzu-Application-Service/3.0/tas-for-vms.pdf).
@@ -1238,10 +1238,10 @@ See also the TAS for VMs 3.0 [documentation](https://docs.vmware.com/en/VMware-T
 ### Log Cache nozzle ingess removed
 
 Starting from TAS for VMs 3.0.0, Log Cache uses syslog ingress, and the option to use nozzle ingress has been removed. This is because Log Cache ingestion using the Reverse Log Proxy (RLP) has been removed.
- 
+
 If you have not selected the **Enable Log Cache syslog ingestion** option, or set the corresponding `.properties.enable_log_cache_syslog_ingestion` product property to `false`, you are affected. From TAS 3.0.0, this is no longer a supported configuration.
 In addition, Diego Cells with high logging volume might experience higher CPU usage than they did prior to this change.
- 
+
 Confirm that your instances, including those within isolation segments, are permitted to establish connections to Log Cache nodes on port 6067. You may need to update firewall rules to allow logs to flow directly from your instances to the Log Cache syslog server.
 
 Consider scaling your Diego Cells if you have applications with high logging volume due to the increased load from the syslog agent on the Diego Cell.
@@ -1281,7 +1281,7 @@ See also:
 ### Diego and Routing Components More Strict With TLS Protocols
 
 Diego and Routing components have been updated to be stricter with TLS protocols. External services and databases, end users, and services making requests to Gorouter should be using TLS 1.2 and have certificates signed with a hash that is newer and more secure than SHA-1, or else they will experience TLS errors.
- 
+
 For services communicating with Diego components, if your environment is affected, they will not be able to successfully make a connection to Diego. For external user services talking to Gorouter, you should see TLS errors in your access logs.
 
 If you are using an external database, Diego will throw errors trying to start processes like Locket and BBS.
@@ -1331,7 +1331,7 @@ See also the TAS for VMs 2.11 release notes:
 ### Minimize user downtime when upgrading from 2.11 to 2.12
 
 To minimize downtime for developers pushing apps, upgrade from TAS for VMs v2.11.9 or later. Upgrading from earlier patch versions can result in an Unknown Error when pushing apps. With Cloud Controller in affected versions, there is a possibility that app `lifecycle_type` could be nil when determining app lifecycle.
- 
+
 If your current version of TAS is 2.11.0 through 2.11.8 and you are upgrading to TAS for VMs 2.12 or higher, this could cause a problem for you.
 To prevent problems, upgrade to TAS 2.11.9 or higher before upgrading to 2.12 or higher.
 
@@ -1353,7 +1353,7 @@ Background details:
 ### Zipkin Trace-ID is now 16 Bytes
 
 There is a possibility that your apps are not capable of processing the longer 8-byte Trace-ID header. If so, you may receive 400-level errors after Gorouter forwards requests to your app.
- 
+
 Foundations that do not enable Zipkin are not affected. To see if Zipkin is enabled, look at the **Networking** tab of the TAS tile in Tanzu Operations Manager, and see if **Enable Zipkin** is selected.
 
 If Zipkin is enabled, applications incompatible with this change will throw errors related to Zipkin header length in their application or access logs.
@@ -1364,8 +1364,8 @@ Zipkin is a library that allows users to trace a request through mutliple compon
 
 For more information, see:
 * [https://zipkin.io/pages/instrumenting.html](https://zipkin.io/pages/instrumenting.html)
-* [https://www.w3.org/TR/trace-context/#trace-id](https://www.w3.org/TR/trace-context/#trace-id) 
-* [https://docs.cloudfoundry.org/adminguide/zipkin_tracing.html](https://docs.cloudfoundry.org/adminguide/zipkin_tracing.html) 
+* [https://www.w3.org/TR/trace-context/#trace-id](https://www.w3.org/TR/trace-context/#trace-id)
+* [https://docs.cloudfoundry.org/adminguide/zipkin_tracing.html](https://docs.cloudfoundry.org/adminguide/zipkin_tracing.html)
 
 
 ## Breaking changes for TAS for VMs Ecosystem tiles (including ISV Partner tiles)
@@ -1373,7 +1373,7 @@ For more information, see:
 If your team is building a tile (integration) to be used with a compatible TAS version, you need to be aware of the following key changes in
 TAS 6.0 that might affect these tiles. Depending on the nature of the offering, not all of the changes might be applicable.
 
-Partners who have a pre-release binary agreement on file can test the compatibility of their offering by claiming a TAS 6.0 environment. 
+Partners who have a pre-release binary agreement on file can test the compatibility of their offering by claiming a TAS 6.0 environment.
 We encourage ecosystem and partner teams to test and declare compatibility with TAS 6.0 in a timely manner so that our mutual customers can have a smooth upgrade experience.
 
 ### Gorouter uses port 7070 by default for internal route services instead of a random available port
@@ -1402,3 +1402,10 @@ then Loggregator Agent jobs deployed by these products may repeatedly log a fail
 ```
 failed to connect: unable to lookup a log consumer
 ```
+
+### UAA causes database overload
+
+The UAA can cause and experience slowness in its database when
+attempting to hit its `/Users` endpoint. The issue is especially
+noticeable when the UAA contains a large number of users; for example, in the
+millions. This only happens when using a MySQL database.
