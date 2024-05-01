@@ -17209,22 +17209,16 @@ vars.segment_runtime_full %> Gorouters. They reflect the new application names e
 
 These are the breaking changes for VMware Tanzu Application Service for VMs v4.0.
 
-### Default stacks no longer include cflinuxfs3
+### Default stack is changed to cfslinuxfs4
 
-New installations of <%= vars.app_runtime_abbr %> <%= vars.v_major_version %> no longer default to include cflinuxfs3 in the list of stacks.
-Operators can continue to [Configure TAS for VMs](https://docs.vmware.com/en/VMware-Tanzu-Application-Service/<%= vars.current_major_version %>/tas-for-vms/configure-pas.html#configure-cloud-controller)
-to install cflinuxfs3, if desired.
+You can still use the cfslinuxfs3 stack, but the default is now cfslinuxfs4.
 
-Upgrading an existing foundation to <%= vars.app_runtime_abbr %> <%= vars.v_major_version %> does not remove cflinuxfs3.
-Apps running on cflinuxfs3 continue to run as normal, and developers can continue to push applications using the cflinuxfs3 stack.
-However, if operators 
-[remove cflinuxfs3](https://docs.vmware.com/en/VMware-Tanzu-Application-Service/<%= vars.current_major_version %>/tas-for-vms/stack-auditor.html)
-from an existing foundation,
-then cflinuxfs3 is no longer installed when deploying <%= vars.app_runtime_abbr %>,
-unless the default stack list is configured to include cflinuxfs3 (see above).
+Newly pushed apps will usee cflinuxfs4. Existing applications will continue to run using cflinuxfs3 stack. See [Changing Stacks](https://docs.vmware.com/en/VMware-Tanzu-Application-Service/4.0/tas-for-vms/deploy-apps-stacks.html) for migrating to the new stack. The default stack can be [configured](https://docs.vmware.com/en/VMware-Tanzu-Application-Service/4.0/tas-for-vms/configure-pas.html#configure-cloud-controller). You can turn off cflinuxfs3. 
 
-Support for the cflinuxfs3 stack is deprecated and will be removed in a future release of <%= vars.app_runtime_abbr %>.
-If you have not already, migrate all applications off of cflinuxfs3 and remove the stack from your foundations.
+All system apps that are packaged with TAS for VMs now use cflinuxfs4. The [Stack Auditor](https://docs.vmware.com/en/VMware-Tanzu-Application-Service/4.0/tas-for-vms/stack-auditor.html) has been updated and is available to identify apps still running on the cflinuxfs3 stack.
+
+Support for the cflinuxfs3 stack will be removed in a future release of <%= vars.app_runtime_abbr %>.
+We recommend that migrate all applications to cflinuxf4 soon.
 
 ### <a id='jbp-462-removes-autoreconfig'></a> Java Buildpack 4.62.0 removes Spring AutoReconfiguration library for Spring Boot 3 applications
 
