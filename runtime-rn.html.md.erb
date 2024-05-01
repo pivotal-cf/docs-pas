@@ -16578,3 +16578,10 @@ To work around this issue, configure TAS for VMs to accept HTTP traffic on port 
 
 This issue affects those who are leveraging the TAS for VMs internal MySQL cluster and attempting a BBR
 Restore after upgrading to TAS 4.0.2 or earlier version. If you are using an external database and are facing this issue, open a ticket with VMware Tanzu Support and refer to the [TAS for VMs documentation](https://community.pivotal.io/s/article/BBR-Restore-after-upgrading-to-TAS-3-0?language=en_US).
+
+### UAA causes database overload (for <%= vars.app_runtime_full %> 4.0.20 and 4.0.21)
+
+The UAA can cause and experience slowness in its database when
+attempting to hit its `/Users` endpoint. The issue is especially
+noticeable when the UAA contains a large number of users; for example,
+in the millions. This only happens when using a MySQL database.
