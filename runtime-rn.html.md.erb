@@ -9766,3 +9766,10 @@ accelerator:
 The creation of software packages from Accelerator Templates works only with in-memory or non-clustered databases. Currently the TAS Portal defaults to the in-memory database.
 
 Risk: This means that app restarts will cause a loss of components in the component list, and all components will need to be re-registered.
+
+### UAA causes database overload (for <%= vars.app_runtime_full %> 5.0.10 and 5.0.11)
+
+The UAA can cause and experience slowness in its database when
+attempting to hit its `/Users` endpoint. The issue is especially
+noticeable when the UAA contains a large number of users; for example,
+in the millions. This only happens when using a MySQL database.
