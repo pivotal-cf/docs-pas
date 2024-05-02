@@ -1357,6 +1357,7 @@ Because VMware uses the Percona Distribution for MySQL, expect a time lag betwee
 * **[Breaking Change]**: Remove ability of UAA to serve as a native SAML identity provider (operators can continue to configure UAA to connect to an external SAML identity provider, using the **Authentication and Enterprise SSO** pane of the <%= vars.app_runtime_abbr %> tile configuration)
 * **[Breaking Change]** Gorouter's deprecated /varz and /healthz endpoints on port 8080 have been removed
 * **[Breaking Change]** Absolute CPU Entitlement metrics no longer available. See [details](#absolute-cpu-entitlement-metrics-no-longer-available).
+* **[Breaking Change]** App Autoscaler introduces incompatibility with load balancers that reject POST requests without a Content-Length header.
 * **[Feature]** New form option and migration to opt-into allowing Small Footprint TAS to 'full' TAS upgrade.
 * **[Feature]** Add support for NTLM authentication in Gorouter
 * **[Feature]** CAPI Enable legacy MD5 buildpack paths
