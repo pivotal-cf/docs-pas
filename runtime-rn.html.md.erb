@@ -21,7 +21,7 @@ MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> containing that pa
 
 **Release Date:** 05/03/2024
 
-<%= partial "/pcf/tas/known-issues/expect-100-continue-status-codes" %>
+<%= partial "/pcf/tas/known-issues/expect-100-continue-status-codes-tas-4-0" %>
 
 * **[Feature Improvement]**  TAS Portal Errand not enabled by default
 * **[Bug Fix]** Reduce load on Cloud Controller from syslog drain fetching in Syslog Binding Cache and Metric Registrar. In certain instances Cloud Controllers may become unresponsive without this bug fix if they can not handle the load
@@ -242,7 +242,7 @@ MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> containing that pa
 
 **Release Date:** 05/01/2024
 
-<%= partial "/pcf/tas/known-issues/expect-100-continue-status-codes" %>
+<%= partial "/pcf/tas/known-issues/expect-100-continue-status-codes-tas-4-0" %>
 
 * **[Bug fix]** Fixed a database performance problem for UAA using MySQL with a large number of users
 * Bump backup-and-restore-sdk to version `1.19.12`
@@ -1070,7 +1070,7 @@ MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> containing that pa
 
 **Release Date:** 04/17/2024
 
-<%= partial "/pcf/tas/known-issues/expect-100-continue-status-codes" %>
+<%= partial "/pcf/tas/known-issues/expect-100-continue-status-codes-tas-4-0" %>
 
 * **[Feature]** Add option to enable concurrent read/writes for HTTP/1
 * **[Feature Improvement]** Emit cpu_entitlement metric
@@ -1831,7 +1831,7 @@ MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> containing that pa
 
 **Release Date:** 03/22/2024
 
-<%= partial "/pcf/tas/known-issues/expect-100-continue-status-codes" %>
+<%= partial "/pcf/tas/known-issues/expect-100-continue-status-codes-tas-4-0" %>
 
 * **[Known Issue]** A Gorouter bug can cause an incorrect certificate to be presented to clients, depending on the order in which the clients were specified in TAS configuration. This is fixed in routing-release version 0.295.0
 * **[Feature Improvement]** Reintroduce global log rate limit
