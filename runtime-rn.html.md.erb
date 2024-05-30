@@ -18379,11 +18379,7 @@ If you rename your apps, you can see emitted logs and metrics that are tagged wi
 application name without starting the application again. This is useful in blue or green
 deployments.
 
-<p class='note'><strong>Note:</strong> This feature does not extend to the updated <code>VCAP_APPLICATION</code>
-environment variable that is provided to containers by the platform. If you need this environment variable to contain
-the new name of the application, you must still restart those applications after you rename them.<br /><br />
-If you have co-located agents (for example AppDynamics) within application containers that are aware of the application
-name these will also need the application to be restarted for the rename to take effect.</p>
+<p class='note'><strong>Note:</strong> This feature does not update the <code>VCAP_APPLICATION</code> environment variable that the platform sets in the container, which may be used by agents co-located in the container such as AppDynamics. To update this environment variable and propagate the change to agents in the container, manually restart the application.</p>
 
 Depending on your configuration, app name caching can be used  outside of <%=
 vars.app_runtime_abbr %> by other products such as Splunk Nozzle.
