@@ -2981,6 +2981,152 @@ Because VMware uses the Percona Distribution for MySQL, expect a time lag betwee
 
 These are the new features for <%= vars.app_runtime_full %> <%= vars.v_major_version %>.
 
+### Updates to GenAI for Tanzu Application Service (beta)
+
+- **Improved vSphere Support:** Platform engineers can now deploy large
+  language models on larger GPUs, such as the Nvidia A100, on VMware
+  vSphere-backed deployments. This allows for larger models to be
+  deployed and for improved inferencing times
+
+- **Azure Support:** GenAI for Tanzu Application Service, has been
+  validated to work with Azure as a support IaaS destination in addition
+  to AWS, GCP, and vSphere, providing customers with more choices across
+  cloud providers
+
+- **Multi-Model Support:** GenAI for Tanzu Application Service now
+  supports multiple worker models running simultaneously, which expands
+  the types of applications that can use this service. This enables
+  platform engineers to deploy multiple types of LLMs optimized for
+  different use cases. For instance, a platform engineer can deploy a
+  model optimized for chatbots and models optimized for code completion
+
+- **Improved inferencing speeds with vLLM support:** In addition to the
+  [fastchat](https://github.com/lm-sys/FastChat) deployment option,
+  platform engineers can serve LLMs via
+  [vLLM](https://github.com/vllm-project/vllm), optimized for inference
+  throughput. This improves overall model response times and preparation
+  for running models in production
+
+### Improved Autoscaling based on Application CPU Usage
+
+- **Managing CPU-based autoscaling** rules for their apps with less
+  tuning and fewer errors:App Autoscaler has been updated to use CPU
+  entitlement metrics, which greatly improves the overall autoscaling of
+  applications based on CPU usage. App Autoscaler provides a new rule
+  that monitors an app’s average usage of its CPU entitlement and scales
+  the app up or down accordingly.
+
+  - Unlike with the previous CPU processor utilization rule, the scaling
+    thresholds for this rule do not need to change when developers
+    adjust the memory allocation for the app or when the platform
+    engineers adjust the size of the underlying Diego cell
+    container-host VMs. When configured through the improved autoscaling
+    UI in Apps Manager, developers get sensible default values of 30%
+    and 80% for the low and high scaling thresholds, which should be a
+    good starting point for most apps. Developers should have an easier
+    and more intuitive experience configuring this new autoscaling rule
+    for their apps.
+
+### Improved Platform Footprint and Enhanced Operations
+
+- **Small footprint** now supports an in-place upgrade to a full Tanzu
+  Application Service Installation: [Small footprint for Tanzu
+  Application
+  Service](https://docs.vmware.com/en/VMware-Tanzu-Application-Service/5.0/tas-for-vms/small-footprint.html)
+  now supports customers that want to upgrade to a “full” Tanzu
+  Application Service installation. Small footprint Tanzu Application
+  Service was generally considered to be used for proof of concept or
+  sandbox environments, but this upgrade path will allow platform
+  engineers to migrate to full installation without having to reinstall
+  the platform. This should allow organizations to start with an overall
+  smaller footprint (~4-6 virtual machines) at a lower cost and gives
+  them the option to grow their platform footprint in their own time.
+  The small footprint for Tanzu Application Service is also fully
+  supported for production use and can be utilized in locations with
+  limited infrastructure footprint, such as an edge location.
+
+- **Availability Zone Aware routing for Gorouter:** The Gorouter has a
+  new, opt-in feature to prefer local routing within an Availability
+  Zone. When this option is enabled, the Gorouters will attempt to route
+  all application traffic to application instances running on Diego
+  cells within their local availability zone. This will improve the
+  overall network traffic path and reduce overall round-trip latency to
+  improve application performance. Gorouters will prefer not to send
+  traffic to traffic to application instances running on other
+  Availability Zones, but will in the event that no application
+  instances are running in their zone.
+
+- **Scale your dopplers and traffic controllers all the way to 0:** For
+  Tanzu Application Service installations using aggregate syslog drains
+  to send app logs and metrics via the syslog protocol, platform
+  engineers can now completely turn off the doppler and traffic
+  controller VMs at the core of the loggregator subsystem. This
+  optimization represents another step forward in the transition towards
+  the new, more efficient “shared-nothing” observability architecture
+  that is incrementally replacing earlier generations of observability
+  subsystems, and helps platform engineers further reduce their
+  infrastructure costs. Note: To completely scale down to 0, platform
+  engineers must stop the use of firehose nozzles and other tiles that
+  utilize nozzles, such as Healthwatch and App Metrics.
+
+- **Human-readable foundation names in the platform log stream:**
+  Platform engineers can configure a human-readable foundation tag in
+  their outgoing platform log stream. This will improve the overall
+  experience when sending multiple foundation log streams to a log
+  aggregation platform, as platform engineers will be able to identify
+  what foundation is sending logs, ultimately avoiding mistakes and
+  eliminating the need to re-work.
+
+- **Certificate Rotation Dashboard for internal certificate
+  management:** Tanzu Operations Manager has been updated to include a
+  Certificate Rotation Dashboard to continuously improve the internal
+  platform certification rotation and management process. The dashboard
+  allows platform engineers to track certification rotation status to
+  easily understand the next step for the certificate rotation process
+  within their Tanzu Application Service environments.
+
+- **Configurable App File descriptor limits:** Tanzu Application Service
+  allows platform engineers to change the default unfix file descriptor
+  limits for applications running on the platform. This feature enables
+  applications to move to the platform that requires larger than normal
+  numbers of Unix file descriptors. This allows for more application
+  types to be migrated onto the Tanzu Application Service platform.
+
+### Enhancements to Enable Improved Platform Security Postures
+
+- **Early access to FIPS-compliant stemcells:** Tanzu Application
+  Service now supports the use of
+  [FIPS-compliant](https://www.nist.gov/standardsgov/compliance-faqs-federal-information-processing-standards-fips#1)
+  Jammy stemcells through early access to federal customers for their
+  TAS foundations. Please reach out to the Tanzu team if interested in
+  testing out this feature.
+
+- **Manage local [User Account and
+  Authentication](https://docs.oudfoundry.org/concepts/architecture/uaa.html)
+  (UAA) Password policies when external identity providers are
+  configured:** Local UAA password policies can be set and maintained in
+  conjunction with an external identity provider. This change enables
+  better security posture for platform engineers who are managing local
+  platform accounts.
+
+### Tanzu Application Service Ecosystem Optimizations
+
+#### Enhancements to the AWS Cloud Service Broker
+
+- **Support for the AWS Simple Queue Service (SQS):** Platform engineers
+  can now add production-ready plans for the AWS SQS service to their
+  Tanzu Application Service marketplace offerings. Developers can easily
+  deploy and use the AWS SQS service to expand upon their application
+  use cases just like any other service supported by the Cloud Service
+  Broker.
+
+- **Support for AWS GovCloud Regions:** The Cloud Service Broker for AWS
+  is now supported for use in AWS GovCloud Regions. Customers who wish
+  to use these regions can now begin to migrate off the legacy AWS
+  service broker and take advantage of all the new features and
+  functionality of the Cloud Service Broker, allowing them with more
+  options across cloud providers.
+
 ### Reduced logging and metric infrastructure requirements
 
 If you do not use the legacy V1 and V2 Loggregator Firehoses, you now can scale Doppler and Traffic Controller VMs down to zero. This can
