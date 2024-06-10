@@ -24147,4 +24147,1104 @@ VMware recommends upgrading <%= vars.app_runtime_abbr %> as soon as possible to 
 <sup>*</sup> The `cf-cli` version corresponds to the commercial distribution on <%= vars.product_network %>.
 
 
+**Release Date:** 11/23/2021
+
+* **[Bug Fix]** Fix log cache nozzle metrics
+* **[Breaking change]** All Gorouter certificates require a SubjectAltName extension. If any Gorouter certificates lack a SubjectAltName, deployment fails. If you need to complete a deployment before configuring new Gorouter certificates, select **Enable temporary workaround for certs without SANs** in the **Networking** pane of the <%= vars.app_runtime_abbr %> tile. For more information about updating certificates, see [Routing and Golang 1.15 X.509 CommonName deprecation](https://community.pivotal.io/s/article/Routing-and-golang-1-15-X-509-CommonName-deprecation) in the Knowledge Base.
+* **[Bug Fix]** Cloud Controller - Ensure app lifecycle_type is not nil when determining app lifecycle
+* Bump backup-and-restore-sdk to version `1.18.26`
+* Bump bpm to version `1.1.15`
+* Bump cf-autoscaling to version `242`
+* Bump cf-networking to version `2.40.0`
+* Bump cflinuxfs3 to version `0.264.0`
+* Bump dotnet-core-offline-buildpack to version `2.3.36`
+* Bump go-offline-buildpack to version `1.9.37`
+* Bump loggregator to version `106.6.1`
+* Bump nodejs-offline-buildpack to version `1.7.63`
+* Bump php-offline-buildpack to version `4.4.48`
+* Bump push-usage-service-release to version `674.0.23`
+* Bump python-offline-buildpack to version `1.7.47`
+* Bump r-offline-buildpack to version `1.1.23`
+* Bump routing to version `0.226.0`
+* Bump ruby-offline-buildpack to version `1.8.48`
+* Bump silk to version `2.40.0`
+* Bump staticfile-offline-buildpack to version `1.5.26`
+
+<table border="1" class="nice">
+  <thead>
+    <tr>
+      <th>Component</th>
+      <th>Version</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>ubuntu-xenial stemcell</td><td>621.0</td></tr>
+    <tr><td>backup-and-restore-sdk</td><td>1.18.26</td></tr>
+    <tr><td>binary-offline-buildpack</td><td>1.0.40</td></tr>
+    <tr><td>bosh-dns-aliases</td><td>0.0.3</td></tr>
+    <tr><td>bosh-system-metrics-forwarder</td><td>0.0.20</td></tr>
+    <tr><td>bpm</td><td>1.1.15</td></tr>
+    <tr><td>capi</td><td>1.109.4</td></tr>
+    <tr><td>cf-autoscaling</td><td>242</td></tr>
+    <tr><td>cf-cli (v7/v8)<sup>*</sup></td><td>1.32.0</td></tr>
+    <tr><td>cf-networking</td><td>2.40.0</td></tr>
+    <tr><td>cflinuxfs3</td><td>0.264.0</td></tr>
+    <tr><td>credhub</td><td>2.9.4</td></tr>
+    <tr><td>diego</td><td>2.53.0</td></tr>
+    <tr><td>dotnet-core-offline-buildpack</td><td>2.3.36</td></tr>
+    <tr><td>garden-runc</td><td>1.19.30</td></tr>
+    <tr><td>go-offline-buildpack</td><td>1.9.37</td></tr>
+    <tr><td>haproxy</td><td>9.8.0</td></tr>
+    <tr><td>java-offline-buildpack</td><td>4.42</td></tr>
+    <tr><td>log-cache</td><td>2.11.4</td></tr>
+    <tr><td>loggregator-agent</td><td>6.3.4</td></tr>
+    <tr><td>loggregator</td><td>106.6.1</td></tr>
+    <tr><td>mapfs</td><td>1.2.6</td></tr>
+    <tr><td>metric-registrar</td><td>1.1.9</td></tr>
+    <tr><td>metrics-discovery</td><td>3.0.6</td></tr>
+    <tr><td>mysql-monitoring</td><td>9.15.0</td></tr>
+    <tr><td>nats</td><td>40</td></tr>
+    <tr><td>nfs-volume</td><td>5.0.12</td></tr>
+    <tr><td>nginx-offline-buildpack</td><td>1.1.32</td></tr>
+    <tr><td>nodejs-offline-buildpack</td><td>1.7.63</td></tr>
+    <tr><td>notifications-ui</td><td>40</td></tr>
+    <tr><td>notifications</td><td>62</td></tr>
+    <tr><td>php-offline-buildpack</td><td>4.4.48</td></tr>
+    <tr><td>push-apps-manager-release</td><td>674.0.6</td></tr>
+    <tr><td>push-usage-service-release</td><td>674.0.23</td></tr>
+    <tr><td>pxc</td><td>0.39.0</td></tr>
+    <tr><td>python-offline-buildpack</td><td>1.7.47</td></tr>
+    <tr><td>r-offline-buildpack</td><td>1.1.23</td></tr>
+    <tr><td>routing</td><td>0.226.0</td></tr>
+    <tr><td>ruby-offline-buildpack</td><td>1.8.48</td></tr>
+    <tr><td>silk</td><td>2.40.0</td></tr>
+    <tr><td>smb-volume</td><td>3.1.0</td></tr>
+    <tr><td>smoke-tests</td><td>4.3.0</td></tr>
+    <tr><td>staticfile-offline-buildpack</td><td>1.5.26</td></tr>
+    <tr><td>statsd-injector</td><td>1.11.16</td></tr>
+    <tr><td>syslog</td><td>11.7.5</td></tr>
+    <tr><td>system-metrics-scraper</td><td>3.2.3</td></tr>
+    <tr><td>uaa</td><td>74.5.26</td></tr>
+  </tbody>
+</table>
+<sup>*</sup> The `cf-cli` version corresponds to the commercial distribution on <%= vars.product_network %>.
+
+### <a id='2-11-8'></a> v2.11.8
+
+**Release Date:** 10/19/2021
+
+* **[Security Fix]** CAPI - Addressed service broker SSRF [CVE-2021-22099](https://www.cloudfoundry.org/blog/cve-2021-22099-server-side-request-forgery-in-cloud-controller/)
+* **[Security Fix]** CAPI - Cap label selectors at 50 in queries and improve label selector performance to mitigate DOS vulnerability [CVE-2021-22101](https://www.cloudfoundry.org/blog/cve-2021-22101-cloud-controller-is-vulnerable-to-unauthenticated-denial-of-service/)
+* **[Feature Improvement]** Set default for System metrics scrape interval to 15s
+* **[Bug Fix]** Fixed certificate rotation by fixing CredHub's import of concatenated certificates
+* **[Bug Fix]** Fixed "System metrics scrape interval" configuration in manifest
+* Bump backup-and-restore-sdk to version `1.18.21`
+* Bump bpm to version `1.1.14`
+* Bump capi to version `1.109.4`
+* Bump cf-networking to version `2.39.0`
+* Bump cflinuxfs3 to version `0.262.0`
+* Bump credhub to version `2.9.4`
+* Bump log-cache to version `2.11.4`
+* Bump nginx-offline-buildpack to version `1.1.32`
+* Bump nodejs-offline-buildpack to version `1.7.62`
+* Bump php-offline-buildpack to version `4.4.46`
+* Bump push-usage-service-release to version `674.0.22`
+* Bump pxc to version `0.39.0`
+* Bump python-offline-buildpack to version `1.7.46`
+* Bump silk to version `2.39.0`
+
+<table border="1" class="nice">
+  <thead>
+    <tr>
+      <th>Component</th>
+      <th>Version</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>ubuntu-xenial stemcell</td><td>621.0</td></tr>
+    <tr><td>backup-and-restore-sdk</td><td>1.18.21</td></tr>
+    <tr><td>binary-offline-buildpack</td><td>1.0.40</td></tr>
+    <tr><td>bosh-dns-aliases</td><td>0.0.3</td></tr>
+    <tr><td>bosh-system-metrics-forwarder</td><td>0.0.20</td></tr>
+    <tr><td>bpm</td><td>1.1.14</td></tr>
+    <tr><td>capi</td><td>1.109.4</td></tr>
+    <tr><td>cf-autoscaling</td><td>239</td></tr>
+    <tr><td>cf-cli (v7/v8)<sup>*</sup></td><td>1.32.0</td></tr>
+    <tr><td>cf-networking</td><td>2.39.0</td></tr>
+    <tr><td>cflinuxfs3</td><td>0.262.0</td></tr>
+    <tr><td>credhub</td><td>2.9.4</td></tr>
+    <tr><td>diego</td><td>2.53.0</td></tr>
+    <tr><td>dotnet-core-offline-buildpack</td><td>2.3.34</td></tr>
+    <tr><td>garden-runc</td><td>1.19.30</td></tr>
+    <tr><td>go-offline-buildpack</td><td>1.9.34</td></tr>
+    <tr><td>haproxy</td><td>9.8.0</td></tr>
+    <tr><td>java-offline-buildpack</td><td>4.42</td></tr>
+    <tr><td>log-cache</td><td>2.11.4</td></tr>
+    <tr><td>loggregator-agent</td><td>6.3.4</td></tr>
+    <tr><td>loggregator</td><td>106.6.0</td></tr>
+    <tr><td>mapfs</td><td>1.2.6</td></tr>
+    <tr><td>metric-registrar</td><td>1.1.9</td></tr>
+    <tr><td>metrics-discovery</td><td>3.0.6</td></tr>
+    <tr><td>mysql-monitoring</td><td>9.15.0</td></tr>
+    <tr><td>nats</td><td>40</td></tr>
+    <tr><td>nfs-volume</td><td>5.0.12</td></tr>
+    <tr><td>nginx-offline-buildpack</td><td>1.1.32</td></tr>
+    <tr><td>nodejs-offline-buildpack</td><td>1.7.62</td></tr>
+    <tr><td>notifications-ui</td><td>40</td></tr>
+    <tr><td>notifications</td><td>62</td></tr>
+    <tr><td>php-offline-buildpack</td><td>4.4.46</td></tr>
+    <tr><td>push-apps-manager-release</td><td>674.0.6</td></tr>
+    <tr><td>push-usage-service-release</td><td>674.0.22</td></tr>
+    <tr><td>pxc</td><td>0.39.0</td></tr>
+    <tr><td>python-offline-buildpack</td><td>1.7.46</td></tr>
+    <tr><td>r-offline-buildpack</td><td>1.1.21</td></tr>
+    <tr><td>routing</td><td>0.224.0</td></tr>
+    <tr><td>ruby-offline-buildpack</td><td>1.8.46</td></tr>
+    <tr><td>silk</td><td>2.39.0</td></tr>
+    <tr><td>smb-volume</td><td>3.1.0</td></tr>
+    <tr><td>smoke-tests</td><td>4.3.0</td></tr>
+    <tr><td>staticfile-offline-buildpack</td><td>1.5.24</td></tr>
+    <tr><td>statsd-injector</td><td>1.11.16</td></tr>
+    <tr><td>syslog</td><td>11.7.5</td></tr>
+    <tr><td>system-metrics-scraper</td><td>3.2.3</td></tr>
+    <tr><td>uaa</td><td>74.5.26</td></tr>
+  </tbody>
+</table>
+<sup>*</sup> The `cf-cli` version corresponds to the commercial distribution on <%= vars.product_network %>.
+
+### <a id='2-11-7'></a> v2.11.7
+
+**Release Date:** 09/30/2021
+
+* **[Security Fix]** Fixed an issue where BBS socket connections could be kept alive unnecessarily
+* **[Feature Improvement]** Deactivated Diego container proxy ALPN
+* Bump backup-and-restore-sdk to version `1.18.19`
+* Bump binary-offline-buildpack to version `1.0.40`
+* Bump cflinuxfs3 to version `0.259.0`
+* Bump diego to version `2.53.0`
+* Bump dotnet-core-offline-buildpack to version `2.3.34`
+* Bump java-offline-buildpack to version `4.42`
+* Bump nginx-offline-buildpack to version `1.1.31`
+* Bump nodejs-offline-buildpack to version `1.7.61`
+* Bump php-offline-buildpack to version `4.4.45`
+* Bump python-offline-buildpack to version `1.7.45`
+* Bump r-offline-buildpack to version `1.1.21`
+* Bump ruby-offline-buildpack to version `1.8.46`
+* Bump uaa to version `74.5.26`
+
+<table border="1" class="nice">
+  <thead>
+    <tr>
+      <th>Component</th>
+      <th>Version</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>ubuntu-xenial stemcell</td><td>621.0</td></tr>
+    <tr><td>backup-and-restore-sdk</td><td>1.18.19</td></tr>
+    <tr><td>binary-offline-buildpack</td><td>1.0.40</td></tr>
+    <tr><td>bosh-dns-aliases</td><td>0.0.3</td></tr>
+    <tr><td>bosh-system-metrics-forwarder</td><td>0.0.20</td></tr>
+    <tr><td>bpm</td><td>1.1.13</td></tr>
+    <tr><td>capi</td><td>1.109.1</td></tr>
+    <tr><td>cf-autoscaling</td><td>239</td></tr>
+    <tr><td>cf-cli (v7/v8)<sup>*</sup></td><td>1.32.0</td></tr>
+    <tr><td>cf-networking</td><td>2.38.0</td></tr>
+    <tr><td>cflinuxfs3</td><td>0.259.0</td></tr>
+    <tr><td>credhub</td><td>2.9.1</td></tr>
+    <tr><td>diego</td><td>2.53.0</td></tr>
+    <tr><td>dotnet-core-offline-buildpack</td><td>2.3.34</td></tr>
+    <tr><td>garden-runc</td><td>1.19.30</td></tr>
+    <tr><td>go-offline-buildpack</td><td>1.9.34</td></tr>
+    <tr><td>haproxy</td><td>9.8.0</td></tr>
+    <tr><td>java-offline-buildpack</td><td>4.42</td></tr>
+    <tr><td>log-cache</td><td>2.11.2</td></tr>
+    <tr><td>loggregator-agent</td><td>6.3.4</td></tr>
+    <tr><td>loggregator</td><td>106.6.0</td></tr>
+    <tr><td>mapfs</td><td>1.2.6</td></tr>
+    <tr><td>metric-registrar</td><td>1.1.9</td></tr>
+    <tr><td>metrics-discovery</td><td>3.0.6</td></tr>
+    <tr><td>mysql-monitoring</td><td>9.15.0</td></tr>
+    <tr><td>nats</td><td>40</td></tr>
+    <tr><td>nfs-volume</td><td>5.0.12</td></tr>
+    <tr><td>nginx-offline-buildpack</td><td>1.1.31</td></tr>
+    <tr><td>nodejs-offline-buildpack</td><td>1.7.61</td></tr>
+    <tr><td>notifications-ui</td><td>40</td></tr>
+    <tr><td>notifications</td><td>62</td></tr>
+    <tr><td>php-offline-buildpack</td><td>4.4.45</td></tr>
+    <tr><td>push-apps-manager-release</td><td>674.0.6</td></tr>
+    <tr><td>push-usage-service-release</td><td>674.0.20</td></tr>
+    <tr><td>pxc</td><td>0.37.0</td></tr>
+    <tr><td>python-offline-buildpack</td><td>1.7.45</td></tr>
+    <tr><td>r-offline-buildpack</td><td>1.1.21</td></tr>
+    <tr><td>routing</td><td>0.224.0</td></tr>
+    <tr><td>ruby-offline-buildpack</td><td>1.8.46</td></tr>
+    <tr><td>silk</td><td>2.38.0</td></tr>
+    <tr><td>smb-volume</td><td>3.1.0</td></tr>
+    <tr><td>smoke-tests</td><td>4.3.0</td></tr>
+    <tr><td>staticfile-offline-buildpack</td><td>1.5.24</td></tr>
+    <tr><td>statsd-injector</td><td>1.11.16</td></tr>
+    <tr><td>syslog</td><td>11.7.5</td></tr>
+    <tr><td>system-metrics-scraper</td><td>3.2.3</td></tr>
+    <tr><td>uaa</td><td>74.5.26</td></tr>
+  </tbody>
+</table>
+<sup>*</sup> The `cf-cli` version corresponds to the commercial distribution on <%= vars.product_network %>.
+
+### <a id='2-11-6'></a> v2.11.6
+
+**Release Date:** 09/16/2021
+
+* **[Security Fix]** Usage Service - Bump rails dependency to address [CVE-2021-22942](https://github.com/advisories/GHSA-2rqw-v265-jf8c)
+* **[Bug Fix]** garden-runc - Fix handling reserved space on ext4 and generating bundle mounts when SMB volumes are present
+* Bump backup-and-restore-sdk to version `1.18.18`
+* Bump cf-autoscaling to version `239`
+* Bump cflinuxfs3 to version `0.256.0`
+* Bump garden-runc to version `1.19.30`
+* Bump log-cache to version `2.11.2`
+* Bump push-usage-service-release to version `674.0.20`
+* Bump routing to version `0.224.0`
+* Bump uaa to version `74.5.25`
+
+<table border="1" class="nice">
+  <thead>
+    <tr>
+      <th>Component</th>
+      <th>Version</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>ubuntu-xenial stemcell</td><td>621.0</td></tr>
+    <tr><td>backup-and-restore-sdk</td><td>1.18.18</td></tr>
+    <tr><td>binary-offline-buildpack</td><td>1.0.39</td></tr>
+    <tr><td>bosh-dns-aliases</td><td>0.0.3</td></tr>
+    <tr><td>bosh-system-metrics-forwarder</td><td>0.0.20</td></tr>
+    <tr><td>bpm</td><td>1.1.13</td></tr>
+    <tr><td>capi</td><td>1.109.1</td></tr>
+    <tr><td>cf-autoscaling</td><td>239</td></tr>
+    <tr><td>cf-cli (v7/v8)<sup>*</sup></td><td>1.32.0</td></tr>
+    <tr><td>cf-networking</td><td>2.38.0</td></tr>
+    <tr><td>cflinuxfs3</td><td>0.256.0</td></tr>
+    <tr><td>credhub</td><td>2.9.1</td></tr>
+    <tr><td>diego</td><td>2.50.0</td></tr>
+    <tr><td>dotnet-core-offline-buildpack</td><td>2.3.32</td></tr>
+    <tr><td>garden-runc</td><td>1.19.30</td></tr>
+    <tr><td>go-offline-buildpack</td><td>1.9.34</td></tr>
+    <tr><td>haproxy</td><td>9.8.0</td></tr>
+    <tr><td>java-offline-buildpack</td><td>4.40</td></tr>
+    <tr><td>log-cache</td><td>2.11.2</td></tr>
+    <tr><td>loggregator-agent</td><td>6.3.4</td></tr>
+    <tr><td>loggregator</td><td>106.6.0</td></tr>
+    <tr><td>mapfs</td><td>1.2.6</td></tr>
+    <tr><td>metric-registrar</td><td>1.1.9</td></tr>
+    <tr><td>metrics-discovery</td><td>3.0.6</td></tr>
+    <tr><td>mysql-monitoring</td><td>9.15.0</td></tr>
+    <tr><td>nats</td><td>40</td></tr>
+    <tr><td>nfs-volume</td><td>5.0.12</td></tr>
+    <tr><td>nginx-offline-buildpack</td><td>1.1.30</td></tr>
+    <tr><td>nodejs-offline-buildpack</td><td>1.7.57</td></tr>
+    <tr><td>notifications-ui</td><td>40</td></tr>
+    <tr><td>notifications</td><td>62</td></tr>
+    <tr><td>php-offline-buildpack</td><td>4.4.44</td></tr>
+    <tr><td>push-apps-manager-release</td><td>674.0.6</td></tr>
+    <tr><td>push-usage-service-release</td><td>674.0.20</td></tr>
+    <tr><td>pxc</td><td>0.37.0</td></tr>
+    <tr><td>python-offline-buildpack</td><td>1.7.43</td></tr>
+    <tr><td>r-offline-buildpack</td><td>1.1.20</td></tr>
+    <tr><td>routing</td><td>0.224.0</td></tr>
+    <tr><td>ruby-offline-buildpack</td><td>1.8.42</td></tr>
+    <tr><td>silk</td><td>2.38.0</td></tr>
+    <tr><td>smb-volume</td><td>3.1.0</td></tr>
+    <tr><td>smoke-tests</td><td>4.3.0</td></tr>
+    <tr><td>staticfile-offline-buildpack</td><td>1.5.24</td></tr>
+    <tr><td>statsd-injector</td><td>1.11.16</td></tr>
+    <tr><td>syslog</td><td>11.7.5</td></tr>
+    <tr><td>system-metrics-scraper</td><td>3.2.3</td></tr>
+    <tr><td>uaa</td><td>74.5.25</td></tr>
+  </tbody>
+</table>
+<sup>*</sup> The `cf-cli` version corresponds to the commercial distribution on <%= vars.product_network %>.
+
+### <a id='2-11-5'></a> v2.11.5
+
+**Release Date:** 09/09/2021
+
+* **[Security Fix]** Gorouter built with Go 1.16.7 to address [CVE-2021-36221](https://nvd.nist.gov/vuln/detail/CVE-2021-36221)
+* **[Bug Fix]** CAPI - Some metrics for CAPI were not being properly emitted
+* **[Bug Fix]** Usage Service - Address performance of `/system_report/task_usages` endpoint on large foundations
+* Bump backup-and-restore-sdk to version `1.18.15`
+* Bump bpm to version `1.1.13`
+* Bump cflinuxfs3 to version `0.252.0`
+* Bump credhub to version `2.9.1`
+* Bump go-offline-buildpack to version `1.9.34`
+* Bump java-offline-buildpack to version `4.40`
+* Bump log-cache to version `2.11.1`
+* Bump loggregator-agent to version `6.3.4`
+* Bump push-usage-service-release to version `674.0.18`
+* Bump pxc to version `0.37.0`
+* Bump routing to version `0.221.0`
+
+<table border="1" class="nice">
+  <thead>
+    <tr>
+      <th>Component</th>
+      <th>Version</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>ubuntu-xenial stemcell</td><td>621.0</td></tr>
+    <tr><td>backup-and-restore-sdk</td><td>1.18.15</td></tr>
+    <tr><td>binary-offline-buildpack</td><td>1.0.39</td></tr>
+    <tr><td>bosh-dns-aliases</td><td>0.0.3</td></tr>
+    <tr><td>bosh-system-metrics-forwarder</td><td>0.0.20</td></tr>
+    <tr><td>bpm</td><td>1.1.13</td></tr>
+    <tr><td>capi</td><td>1.109.1</td></tr>
+    <tr><td>cf-autoscaling</td><td>238</td></tr>
+    <tr><td>cf-cli (v7/v8)<sup>*</sup></td><td>1.32.0</td></tr>
+    <tr><td>cf-networking</td><td>2.38.0</td></tr>
+    <tr><td>cflinuxfs3</td><td>0.252.0</td></tr>
+    <tr><td>credhub</td><td>2.9.1</td></tr>
+    <tr><td>diego</td><td>2.50.0</td></tr>
+    <tr><td>dotnet-core-offline-buildpack</td><td>2.3.32</td></tr>
+    <tr><td>garden-runc</td><td>1.19.29</td></tr>
+    <tr><td>go-offline-buildpack</td><td>1.9.34</td></tr>
+    <tr><td>haproxy</td><td>9.8.0</td></tr>
+    <tr><td>java-offline-buildpack</td><td>4.40</td></tr>
+    <tr><td>log-cache</td><td>2.11.1</td></tr>
+    <tr><td>loggregator-agent</td><td>6.3.4</td></tr>
+    <tr><td>loggregator</td><td>106.6.0</td></tr>
+    <tr><td>mapfs</td><td>1.2.6</td></tr>
+    <tr><td>metric-registrar</td><td>1.1.9</td></tr>
+    <tr><td>metrics-discovery</td><td>3.0.6</td></tr>
+    <tr><td>mysql-monitoring</td><td>9.15.0</td></tr>
+    <tr><td>nats</td><td>40</td></tr>
+    <tr><td>nfs-volume</td><td>5.0.12</td></tr>
+    <tr><td>nginx-offline-buildpack</td><td>1.1.30</td></tr>
+    <tr><td>nodejs-offline-buildpack</td><td>1.7.57</td></tr>
+    <tr><td>notifications-ui</td><td>40</td></tr>
+    <tr><td>notifications</td><td>62</td></tr>
+    <tr><td>php-offline-buildpack</td><td>4.4.44</td></tr>
+    <tr><td>push-apps-manager-release</td><td>674.0.6</td></tr>
+    <tr><td>push-usage-service-release</td><td>674.0.18</td></tr>
+    <tr><td>pxc</td><td>0.37.0</td></tr>
+    <tr><td>python-offline-buildpack</td><td>1.7.43</td></tr>
+    <tr><td>r-offline-buildpack</td><td>1.1.20</td></tr>
+    <tr><td>routing</td><td>0.221.0</td></tr>
+    <tr><td>ruby-offline-buildpack</td><td>1.8.42</td></tr>
+    <tr><td>silk</td><td>2.38.0</td></tr>
+    <tr><td>smb-volume</td><td>3.1.0</td></tr>
+    <tr><td>smoke-tests</td><td>4.3.0</td></tr>
+    <tr><td>staticfile-offline-buildpack</td><td>1.5.24</td></tr>
+    <tr><td>statsd-injector</td><td>1.11.16</td></tr>
+    <tr><td>syslog</td><td>11.7.5</td></tr>
+    <tr><td>system-metrics-scraper</td><td>3.2.3</td></tr>
+    <tr><td>uaa</td><td>74.5.24</td></tr>
+  </tbody>
+</table>
+<sup>*</sup> The `cf-cli` version corresponds to the commercial distribution on <%= vars.product_network %>.
+
+### <a id='2-11-4'></a> v2.11.4
+
+**Release Date:** 07/20/2021
+
+* **[Bug Fix]** Ensured Cloud Controller organization and space quota validations include limit for tasks run against an app that has been exceeded
+* **[Bug Fix]** Garden recovers after a machine restarts
+* Bump capi to version `1.109.1`
+* Bump dotnet-core-offline-buildpack to version `2.3.32`
+* Bump garden-runc to version `1.19.29`
+* Bump nginx-offline-buildpack to version `1.1.30`
+* Bump nodejs-offline-buildpack to version `1.7.57`
+* Bump php-offline-buildpack to version `4.4.44`
+* Bump python-offline-buildpack to version `1.7.43`
+* Bump r-offline-buildpack to version `1.1.20`
+* Bump staticfile-offline-buildpack to version `1.5.24`
+
+<table border="1" class="nice">
+  <thead>
+    <tr>
+      <th>Component</th>
+      <th>Version</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>ubuntu-xenial stemcell</td><td>621.0</td></tr>
+    <tr><td>backup-and-restore-sdk</td><td>1.18.2</td></tr>
+    <tr><td>binary-offline-buildpack</td><td>1.0.39</td></tr>
+    <tr><td>bosh-dns-aliases</td><td>0.0.3</td></tr>
+    <tr><td>bosh-system-metrics-forwarder</td><td>0.0.20</td></tr>
+    <tr><td>bpm</td><td>1.1.12</td></tr>
+    <tr><td>capi</td><td>1.109.1</td></tr>
+    <tr><td>cf-autoscaling</td><td>238</td></tr>
+    <tr><td>cf-cli (v7/v8)<sup>*</sup></td><td>1.32.0</td></tr>
+    <tr><td>cf-networking</td><td>2.38.0</td></tr>
+    <tr><td>cflinuxfs3</td><td>0.249.0</td></tr>
+    <tr><td>credhub</td><td>2.9.0</td></tr>
+    <tr><td>diego</td><td>2.50.0</td></tr>
+    <tr><td>dotnet-core-offline-buildpack</td><td>2.3.32</td></tr>
+    <tr><td>garden-runc</td><td>1.19.29</td></tr>
+    <tr><td>go-offline-buildpack</td><td>1.9.33</td></tr>
+    <tr><td>haproxy</td><td>9.8.0</td></tr>
+    <tr><td>java-offline-buildpack</td><td>4.39</td></tr>
+    <tr><td>log-cache</td><td>2.11.0</td></tr>
+    <tr><td>loggregator-agent</td><td>6.3.3</td></tr>
+    <tr><td>loggregator</td><td>106.6.0</td></tr>
+    <tr><td>mapfs</td><td>1.2.6</td></tr>
+    <tr><td>metric-registrar</td><td>1.1.9</td></tr>
+    <tr><td>metrics-discovery</td><td>3.0.6</td></tr>
+    <tr><td>mysql-monitoring</td><td>9.15.0</td></tr>
+    <tr><td>nats</td><td>40</td></tr>
+    <tr><td>nfs-volume</td><td>5.0.12</td></tr>
+    <tr><td>nginx-offline-buildpack</td><td>1.1.30</td></tr>
+    <tr><td>nodejs-offline-buildpack</td><td>1.7.57</td></tr>
+    <tr><td>notifications-ui</td><td>40</td></tr>
+    <tr><td>notifications</td><td>62</td></tr>
+    <tr><td>php-offline-buildpack</td><td>4.4.44</td></tr>
+    <tr><td>push-apps-manager-release</td><td>674.0.6</td></tr>
+    <tr><td>push-usage-service-release</td><td>674.0.13</td></tr>
+    <tr><td>pxc</td><td>0.36.0</td></tr>
+    <tr><td>python-offline-buildpack</td><td>1.7.43</td></tr>
+    <tr><td>r-offline-buildpack</td><td>1.1.20</td></tr>
+    <tr><td>routing</td><td>0.216.0</td></tr>
+    <tr><td>ruby-offline-buildpack</td><td>1.8.42</td></tr>
+    <tr><td>silk</td><td>2.38.0</td></tr>
+    <tr><td>smb-volume</td><td>3.1.0</td></tr>
+    <tr><td>smoke-tests</td><td>4.3.0</td></tr>
+    <tr><td>staticfile-offline-buildpack</td><td>1.5.24</td></tr>
+    <tr><td>statsd-injector</td><td>1.11.16</td></tr>
+    <tr><td>syslog</td><td>11.7.5</td></tr>
+    <tr><td>system-metrics-scraper</td><td>3.2.3</td></tr>
+    <tr><td>uaa</td><td>74.5.24</td></tr>
+  </tbody>
+</table>
+<sup>*</sup> The `cf-cli` version corresponds to the commercial distribution on <%= vars.product_network %>.
+
+### <a id='2-11-3'></a> v2.11.3
+
+**Release Date:** 07/15/2021
+
+* **[Security Fix]** Fixed context path 404 vulnerability
+* **[Security Fix]** UAA - Bump dependencies and address CVEs
+* **[Bug Fix]** Prevented TCP routes from using system component ports. For more information, see [TCP Routes Stop Working](https://community.pivotal.io/s/article/Known-Issue-TCP-Routes-Stop-Working?language=en_US) in the Knowledge Base. If you try to create or update a router group to include system component ports, the Routing API returns an error. Current invalid router groups that include system component ports are not changed, but a warning is logged. In <%= vars.app_runtime_abbr %> v2.12.0, invalid router groups cause a deploy failure. For more information, see [Check and fix invalid router groups before TAS 2.12](https://community.pivotal.io/s/article/Check-and-fix-invalid-router-groups-before-TAS-2-12?language=en_US) in the Knowledge Base.
+* **[Bug Fix]** Fixed metric-registrar crashing when non-url formatted drains exist
+* **[Bug Fix]** Added an option to remove extra metadata from syslog drains
+* **[Breaking change]** Gorouter sends all responses with transfer-encoded chunks. Some responses that were not chunked in previous versions now use transfer-encoded chunks. For more information, see [Clients receive responses with no Content-Length header and a chunked encoded body after upgrading Tanzu Application Service for VMs](https://community.pivotal.io/s/article/Clients-receive-responses-with-no-Content-Length-header-and-a-chunked-encoded-body-after-upgrading-Tanzu-Application-Service-for-VMs) in the Knowledge Base. _(edited 20 Oct 2021)_
+* Bump binary-offline-buildpack to version `1.0.39`
+* Bump cf-networking to version `2.38.0`
+* Bump cflinuxfs3 to version `0.249.0`
+* Bump dotnet-core-offline-buildpack to version `2.3.31`
+* Bump garden-runc to version `1.19.28`
+* Bump go-offline-buildpack to version `1.9.33`
+* Bump metric-registrar to version `1.1.9`
+* Bump metrics-discovery to version `3.0.6`
+* Bump nginx-offline-buildpack to version `1.1.29`
+* Bump nodejs-offline-buildpack to version `1.7.56`
+* Bump php-offline-buildpack to version `4.4.43`
+* Bump push-apps-manager-release to version `674.0.6`
+* Bump pxc to version `0.36.0`
+* Bump python-offline-buildpack to version `1.7.42`
+* Bump r-offline-buildpack to version `1.1.19`
+* Bump routing to version `0.216.0`
+* Bump ruby-offline-buildpack to version `1.8.42`
+* Bump silk to version `2.38.0`
+* Bump staticfile-offline-buildpack to version `1.5.23`
+* Bump syslog to version `11.7.5`
+* Bump system-metrics-scraper to version `3.2.3`
+* Bump uaa to version `74.5.24`
+
+<table border="1" class="nice">
+  <thead>
+    <tr>
+      <th>Component</th>
+      <th>Version</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>ubuntu-xenial stemcell</td><td>621.0</td></tr>
+    <tr><td>backup-and-restore-sdk</td><td>1.18.2</td></tr>
+    <tr><td>binary-offline-buildpack</td><td>1.0.39</td></tr>
+    <tr><td>bosh-dns-aliases</td><td>0.0.3</td></tr>
+    <tr><td>bosh-system-metrics-forwarder</td><td>0.0.20</td></tr>
+    <tr><td>bpm</td><td>1.1.12</td></tr>
+    <tr><td>capi</td><td>1.109.0</td></tr>
+    <tr><td>cf-autoscaling</td><td>238</td></tr>
+    <tr><td>cf-cli (v7/v8)<sup>*</sup></td><td>1.32.0</td></tr>
+    <tr><td>cf-networking</td><td>2.38.0</td></tr>
+    <tr><td>cflinuxfs3</td><td>0.249.0</td></tr>
+    <tr><td>credhub</td><td>2.9.0</td></tr>
+    <tr><td>diego</td><td>2.50.0</td></tr>
+    <tr><td>dotnet-core-offline-buildpack</td><td>2.3.31</td></tr>
+    <tr><td>garden-runc</td><td>1.19.28</td></tr>
+    <tr><td>go-offline-buildpack</td><td>1.9.33</td></tr>
+    <tr><td>haproxy</td><td>9.8.0</td></tr>
+    <tr><td>java-offline-buildpack</td><td>4.39</td></tr>
+    <tr><td>log-cache</td><td>2.11.0</td></tr>
+    <tr><td>loggregator-agent</td><td>6.3.3</td></tr>
+    <tr><td>loggregator</td><td>106.6.0</td></tr>
+    <tr><td>mapfs</td><td>1.2.6</td></tr>
+    <tr><td>metric-registrar</td><td>1.1.9</td></tr>
+    <tr><td>metrics-discovery</td><td>3.0.6</td></tr>
+    <tr><td>mysql-monitoring</td><td>9.15.0</td></tr>
+    <tr><td>nats</td><td>40</td></tr>
+    <tr><td>nfs-volume</td><td>5.0.12</td></tr>
+    <tr><td>nginx-offline-buildpack</td><td>1.1.29</td></tr>
+    <tr><td>nodejs-offline-buildpack</td><td>1.7.56</td></tr>
+    <tr><td>notifications-ui</td><td>40</td></tr>
+    <tr><td>notifications</td><td>62</td></tr>
+    <tr><td>php-offline-buildpack</td><td>4.4.43</td></tr>
+    <tr><td>push-apps-manager-release</td><td>674.0.6</td></tr>
+    <tr><td>push-usage-service-release</td><td>674.0.13</td></tr>
+    <tr><td>pxc</td><td>0.36.0</td></tr>
+    <tr><td>python-offline-buildpack</td><td>1.7.42</td></tr>
+    <tr><td>r-offline-buildpack</td><td>1.1.19</td></tr>
+    <tr><td>routing</td><td>0.216.0</td></tr>
+    <tr><td>ruby-offline-buildpack</td><td>1.8.42</td></tr>
+    <tr><td>silk</td><td>2.38.0</td></tr>
+    <tr><td>smb-volume</td><td>3.1.0</td></tr>
+    <tr><td>smoke-tests</td><td>4.3.0</td></tr>
+    <tr><td>staticfile-offline-buildpack</td><td>1.5.23</td></tr>
+    <tr><td>statsd-injector</td><td>1.11.16</td></tr>
+    <tr><td>syslog</td><td>11.7.5</td></tr>
+    <tr><td>system-metrics-scraper</td><td>3.2.3</td></tr>
+    <tr><td>uaa</td><td>74.5.24</td></tr>
+  </tbody>
+</table>
+<sup>*</sup> The `cf-cli` version corresponds to the commercial distribution on <%= vars.product_network %>.
+
+### <a id='2-11-2'></a> v2.11.2
+
+**Release Date:** 06/22/2021
+
+* **[Security Fix]** Bumped some dependencies to resolve security vulnerabilities
+* Bump bpm to version `1.1.12`
+* Bump cf-autoscaling to version `238`
+* Bump cf-networking to version `2.37.0`
+* Bump cflinuxfs3 to version `0.239.0`
+* Bump java-offline-buildpack to version `4.39`
+* Bump loggregator-agent to version `6.3.3`
+* Bump metric-registrar to version `1.1.6`
+* Bump metrics-discovery to version `3.0.5`
+* Bump nats to version `40`
+* Bump nodejs-offline-buildpack to version `1.7.52`
+* Bump php-offline-buildpack to version `4.4.40`
+* Bump push-apps-manager-release to version `674.0.5`
+* Bump silk to version `2.37.0`
+* Bump statsd-injector to version `1.11.16`
+
+<table border="1" class="nice">
+  <thead>
+    <tr>
+      <th>Component</th>
+      <th>Version</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>ubuntu-xenial stemcell</td><td>621.0</td></tr>
+    <tr><td>backup-and-restore-sdk</td><td>1.18.2</td></tr>
+    <tr><td>binary-offline-buildpack</td><td>1.0.38</td></tr>
+    <tr><td>bosh-dns-aliases</td><td>0.0.3</td></tr>
+    <tr><td>bosh-system-metrics-forwarder</td><td>0.0.20</td></tr>
+    <tr><td>bpm</td><td>1.1.12</td></tr>
+    <tr><td>capi</td><td>1.109.0</td></tr>
+    <tr><td>cf-autoscaling</td><td>238</td></tr>
+    <tr><td>cf-cli (v7/v8)<sup>*</sup></td><td>1.32.0</td></tr>
+    <tr><td>cf-networking</td><td>2.37.0</td></tr>
+    <tr><td>cflinuxfs3</td><td>0.239.0</td></tr>
+    <tr><td>credhub</td><td>2.9.0</td></tr>
+    <tr><td>diego</td><td>2.50.0</td></tr>
+    <tr><td>dotnet-core-offline-buildpack</td><td>2.3.28</td></tr>
+    <tr><td>garden-runc</td><td>1.19.25</td></tr>
+    <tr><td>go-offline-buildpack</td><td>1.9.31</td></tr>
+    <tr><td>haproxy</td><td>9.8.0</td></tr>
+    <tr><td>java-offline-buildpack</td><td>4.39</td></tr>
+    <tr><td>log-cache</td><td>2.11.0</td></tr>
+    <tr><td>loggregator-agent</td><td>6.3.3</td></tr>
+    <tr><td>loggregator</td><td>106.6.0</td></tr>
+    <tr><td>mapfs</td><td>1.2.6</td></tr>
+    <tr><td>metric-registrar</td><td>1.1.6</td></tr>
+    <tr><td>metrics-discovery</td><td>3.0.5</td></tr>
+    <tr><td>mysql-monitoring</td><td>9.15.0</td></tr>
+    <tr><td>nats</td><td>40</td></tr>
+    <tr><td>nfs-volume</td><td>5.0.12</td></tr>
+    <tr><td>nginx-offline-buildpack</td><td>1.1.26</td></tr>
+    <tr><td>nodejs-offline-buildpack</td><td>1.7.52</td></tr>
+    <tr><td>notifications-ui</td><td>40</td></tr>
+    <tr><td>notifications</td><td>62</td></tr>
+    <tr><td>php-offline-buildpack</td><td>4.4.40</td></tr>
+    <tr><td>push-apps-manager-release</td><td>674.0.5</td></tr>
+    <tr><td>push-usage-service-release</td><td>674.0.13</td></tr>
+    <tr><td>pxc</td><td>0.35.0</td></tr>
+    <tr><td>python-offline-buildpack</td><td>1.7.39</td></tr>
+    <tr><td>r-offline-buildpack</td><td>1.1.17</td></tr>
+    <tr><td>routing</td><td>0.213.0</td></tr>
+    <tr><td>ruby-offline-buildpack</td><td>1.8.39</td></tr>
+    <tr><td>silk</td><td>2.37.0</td></tr>
+    <tr><td>smb-volume</td><td>3.1.0</td></tr>
+    <tr><td>smoke-tests</td><td>4.3.0</td></tr>
+    <tr><td>staticfile-offline-buildpack</td><td>1.5.21</td></tr>
+    <tr><td>statsd-injector</td><td>1.11.16</td></tr>
+    <tr><td>syslog</td><td>11.7.0</td></tr>
+    <tr><td>system-metrics-scraper</td><td>3.2.2</td></tr>
+    <tr><td>uaa</td><td>74.5.22</td></tr>
+  </tbody>
+</table>
+<sup>*</sup> The `cf-cli` version corresponds to the commercial distribution on <%= vars.product_network %>.
+
+### <a id='2-11-1'></a> v2.11.1
+
+**Release Date:** 05/27/2021
+
+* **[Security Fix]** Usage Service - Upgraded Rails gem to address [CVE-2021-22880](https://nvd.nist.gov/vuln/detail/CVE-2021-22880)
+* **[Feature Improvement]** Patched versions can be upgraded without a stemcell upgrade. See [Looser Stemcell Version Requirements when Upgrading <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>.1 and Later](#stemcell-upgrade).
+* **[Feature Improvement]** MySQL binlogs volume is capped at 33% of available disk storage
+* **[Feature Improvement]** Improved metric-registrar to handle unreachable CC more gracefully, delete smoke-test app in the case of failure, and integrate CUPS caching
+* **[Feature Improvement]** Added support for SNI routes
+* **[Feature Improvement]** Added per request metrics reporting, which makes metric frequency proportional to request frequency
+* **[Bug Fix]** Smoke Test allows the operator to provide the apps_domain property when deploying <%= vars.app_runtime_abbr %> and also properly configures user provided space when deploying an isolation segment
+* **[Bug Fix]** Fixed race condition and prevent network policy MySQL database from being able to get into an invalid state.
+* Bump binary-offline-buildpack to version `1.0.38`
+* Bump bpm to version `1.1.11`
+* Bump cf-autoscaling to version `237`
+* Bump cf-networking to version `2.36.0`
+* Bump cflinuxfs3 to version `0.238.0`
+* Bump diego to version `2.50.0`
+* Bump dotnet-core-offline-buildpack to version `2.3.28`
+* Bump garden-runc to version `1.19.25`
+* Bump go-offline-buildpack to version `1.9.31`
+* Bump log-cache to version `2.11.0`
+* Bump loggregator to version `106.6.0`
+* Bump nginx-offline-buildpack to version `1.1.26`
+* Bump nodejs-offline-buildpack to version `1.7.51`
+* Bump notifications to version `62`
+* Bump php-offline-buildpack to version `4.4.39`
+* Bump push-usage-service-release to version `674.0.13`
+* Bump pxc to version `0.35.0`
+* Bump python-offline-buildpack to version `1.7.39`
+* Bump r-offline-buildpack to version `1.1.17`
+* Bump routing to version `0.213.0`
+* Bump ruby-offline-buildpack to version `1.8.39`
+* Bump silk to version `2.36.0`
+* Bump smoke-tests to version `4.3.0`
+* Bump staticfile-offline-buildpack to version `1.5.21`
+
+<table border="1" class="nice">
+  <thead>
+    <tr>
+      <th>Component</th>
+      <th>Version</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>ubuntu-xenial stemcell</td><td>621.0</td></tr>
+    <tr><td>backup-and-restore-sdk</td><td>1.18.2</td></tr>
+    <tr><td>binary-offline-buildpack</td><td>1.0.38</td></tr>
+    <tr><td>bosh-dns-aliases</td><td>0.0.3</td></tr>
+    <tr><td>bosh-system-metrics-forwarder</td><td>0.0.20</td></tr>
+    <tr><td>bpm</td><td>1.1.11</td></tr>
+    <tr><td>capi</td><td>1.109.0</td></tr>
+    <tr><td>cf-autoscaling</td><td>237</td></tr>
+    <tr><td>cf-cli (v7/v8)<sup>*</sup></td><td>1.32.0</td></tr>
+    <tr><td>cf-networking</td><td>2.36.0</td></tr>
+    <tr><td>cflinuxfs3</td><td>0.238.0</td></tr>
+    <tr><td>credhub</td><td>2.9.0</td></tr>
+    <tr><td>diego</td><td>2.50.0</td></tr>
+    <tr><td>dotnet-core-offline-buildpack</td><td>2.3.28</td></tr>
+    <tr><td>garden-runc</td><td>1.19.25</td></tr>
+    <tr><td>go-offline-buildpack</td><td>1.9.31</td></tr>
+    <tr><td>haproxy</td><td>9.8.0</td></tr>
+    <tr><td>java-offline-buildpack</td><td>4.36</td></tr>
+    <tr><td>log-cache</td><td>2.11.0</td></tr>
+    <tr><td>loggregator-agent</td><td>6.2.0</td></tr>
+    <tr><td>loggregator</td><td>106.6.0</td></tr>
+    <tr><td>mapfs</td><td>1.2.6</td></tr>
+    <tr><td>metric-registrar</td><td>1.1.1</td></tr>
+    <tr><td>metrics-discovery</td><td>3.0.3</td></tr>
+    <tr><td>mysql-monitoring</td><td>9.15.0</td></tr>
+    <tr><td>nats</td><td>39</td></tr>
+    <tr><td>nfs-volume</td><td>5.0.12</td></tr>
+    <tr><td>nginx-offline-buildpack</td><td>1.1.26</td></tr>
+    <tr><td>nodejs-offline-buildpack</td><td>1.7.51</td></tr>
+    <tr><td>notifications-ui</td><td>40</td></tr>
+    <tr><td>notifications</td><td>62</td></tr>
+    <tr><td>php-offline-buildpack</td><td>4.4.39</td></tr>
+    <tr><td>push-apps-manager-release</td><td>674.0.2</td></tr>
+    <tr><td>push-usage-service-release</td><td>674.0.13</td></tr>
+    <tr><td>pxc</td><td>0.35.0</td></tr>
+    <tr><td>python-offline-buildpack</td><td>1.7.39</td></tr>
+    <tr><td>r-offline-buildpack</td><td>1.1.17</td></tr>
+    <tr><td>routing</td><td>0.213.0</td></tr>
+    <tr><td>ruby-offline-buildpack</td><td>1.8.39</td></tr>
+    <tr><td>silk</td><td>2.36.0</td></tr>
+    <tr><td>smb-volume</td><td>3.1.0</td></tr>
+    <tr><td>smoke-tests</td><td>4.3.0</td></tr>
+    <tr><td>staticfile-offline-buildpack</td><td>1.5.21</td></tr>
+    <tr><td>statsd-injector</td><td>1.11.15</td></tr>
+    <tr><td>syslog</td><td>11.7.0</td></tr>
+    <tr><td>system-metrics-scraper</td><td>3.2.2</td></tr>
+    <tr><td>uaa</td><td>74.5.22</td></tr>
+  </tbody>
+</table>
+<sup>*</sup> The `cf-cli` version corresponds to the commercial distribution on <%= vars.product_network %>.
+
+### <a id='2-11-0'></a> v2.11.0
+
+**Release Date:** March 30, 2021
+
+- See [New features in <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>](#new-features)
+- See [Resolved Issues](#resolved-issues)
+- See [Breaking changes](#breaking-changes)
+
+<table border="1" class="nice">
+  <thead>
+    <tr>
+      <th>Component</th>
+      <th>Version</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>ubuntu-xenial stemcell</td><td>621.117</td></tr>
+    <tr><td>backup-and-restore-sdk</td><td>1.18.2</td></tr>
+    <tr><td>binary-offline-buildpack</td><td>1.0.36</td></tr>
+    <tr><td>bosh-dns-aliases</td><td>0.0.3</td></tr>
+    <tr><td>bosh-system-metrics-forwarder</td><td>0.0.20</td></tr>
+    <tr><td>bpm</td><td>1.1.7</td></tr>
+    <tr><td>capi</td><td>1.109.0</td></tr>
+    <tr><td>cf-autoscaling</td><td>235</td></tr>
+    <tr><td>cf-cli (v7/v8)<sup>*</sup></td><td>1.32.0</td></tr>
+    <tr><td>cf-networking</td><td>2.35.0</td></tr>
+    <tr><td>cflinuxfs3</td><td>0.231.0</td></tr>
+    <tr><td>credhub</td><td>2.9.0</td></tr>
+    <tr><td>diego</td><td>2.49.0</td></tr>
+    <tr><td>dotnet-core-offline-buildpack</td><td>2.3.24</td></tr>
+    <tr><td>garden-runc</td><td>1.19.18</td></tr>
+    <tr><td>go-offline-buildpack</td><td>1.9.26</td></tr>
+    <tr><td>haproxy</td><td>9.8.0</td></tr>
+    <tr><td>java-offline-buildpack</td><td>4.36</td></tr>
+    <tr><td>log-cache</td><td>2.10.0</td></tr>
+    <tr><td>loggregator-agent</td><td>6.2.0</td></tr>
+    <tr><td>loggregator</td><td>106.4.0</td></tr>
+    <tr><td>mapfs</td><td>1.2.6</td></tr>
+    <tr><td>metric-registrar</td><td>1.1.1</td></tr>
+    <tr><td>metrics-discovery</td><td>3.0.3</td></tr>
+    <tr><td>mysql-monitoring</td><td>9.15.0</td></tr>
+    <tr><td>nats</td><td>39</td></tr>
+    <tr><td>nfs-volume</td><td>5.0.12</td></tr>
+    <tr><td>nginx-offline-buildpack</td><td>1.1.20</td></tr>
+    <tr><td>nodejs-offline-buildpack</td><td>1.7.42</td></tr>
+    <tr><td>notifications-ui</td><td>40</td></tr>
+    <tr><td>notifications</td><td>61</td></tr>
+    <tr><td>php-offline-buildpack</td><td>4.4.31</td></tr>
+    <tr><td>push-apps-manager-release</td><td>674.0.2</td></tr>
+    <tr><td>push-usage-service-release</td><td>674.0.11</td></tr>
+    <tr><td>pxc</td><td>0.32.0</td></tr>
+    <tr><td>python-offline-buildpack</td><td>1.7.30</td></tr>
+    <tr><td>r-offline-buildpack</td><td>1.1.12</td></tr>
+    <tr><td>routing</td><td>0.211.0</td></tr>
+    <tr><td>ruby-offline-buildpack</td><td>1.8.31</td></tr>
+    <tr><td>silk</td><td>2.35.0</td></tr>
+    <tr><td>smb-volume</td><td>3.1.0</td></tr>
+    <tr><td>smoke-tests</td><td>4.2.0</td></tr>
+    <tr><td>staticfile-offline-buildpack</td><td>1.5.15</td></tr>
+    <tr><td>statsd-injector</td><td>1.11.15</td></tr>
+    <tr><td>syslog</td><td>11.7.0</td></tr>
+    <tr><td>system-metrics-scraper</td><td>3.2.2</td></tr>
+    <tr><td>uaa</td><td>74.5.22</td></tr>
+  </tbody>
+</table>
+<sup>*</sup> The `cf-cli` version corresponds to the commercial distribution on <%= vars.product_network %>.
+
+
+
+## <a id='upgrade'></a> How to Upgrade
+
+To upgrade to <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>, see [Configuring <%= vars.app_runtime_abbr %> for
+Upgrades](../operating/configuring.html).
+
+When upgrading to <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>, be aware of the following upgrade considerations:
+
+* <%= vars.app_runtime_abbr %> <%= vars.v_major_version %> is compatible with <%= vars.ops_manager %> v2.10. If you are using a previous version of
+<%= vars.ops_manager %>, you must upgrade to <%= vars.ops_manager %> v2.10 before you upgrade to <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>.
+
+* Upgrade the cf CLI to either the latest cf CLI v7 release or the commercial cf CLI distribution available on
+[<%= vars.product_network %>](https://network.pivotal.io/products/elastic-runtime/).
+
+* If you are upgrading from Pivotal Application Service (PAS) v2.7 or <%= vars.app_runtime_abbr %> v2.9 and later, you can upgrade directly to
+<%= vars.app_runtime_abbr %> <%= vars.v_major_version %>. <%= vars.app_runtime_abbr %> <%= vars.v_major_version %> is a long-term support (LTS) version of
+<%= vars.app_runtime_abbr %>. For more information, see [Long-Term Support for <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>](#lts) below.
+
+* To minimize downtime for developers pushing apps, upgrade from PAS v2.7.41 or later or <%= vars.app_runtime_abbr %> v2.10.21 or later. Upgrading from
+earlier patch versions can result in an `Unknown Error` when pushing apps.
+
+* If you are upgrading from PAS v2.6 or earlier, you must upgrade to PAS v2.7 before you upgrade to <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>.
+
+* Some partner service tiles may be incompatible with <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>. VMware is working with partners to ensure
+that their tiles are updated to work with the latest versions of <%= vars.app_runtime_abbr %>. For information about which partner service releases are
+currently compatible with <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>, review the appropriate partners services release documentation at
+[https://network.pivotal.io/](https://network.pivotal.io/) or contact the partner organization that produces the tile.
+
+* In <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>, app containers use port `61002` for inbound SSH traffic. In PAS v2.7 and earlier, apps use port
+`2222` for inbound SSH traffic. If you are upgrading from PAS v2.7, you may need to adjust the NSX-T firewall rules for your apps.
+
+
+## <a id='new-features'></a> New features in <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>
+
+<%= vars.app_runtime_abbr %> <%= vars.v_major_version %> includes the following major features:
+
+### <a id='lts'></a> Long-Term Support for <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>
+
+<%= vars.app_runtime_abbr %> <%= vars.v_major_version %> is a long-term support (LTS) version of <%= vars.app_runtime_abbr %>. <%= vars.app_runtime_abbr %>
+<%= vars.v_major_version %> is to be supported through April 2024.
+
+Over the lifecycle of <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>, <%= vars.company_name %> will release security patches that occasionally
+include feature enhancements and maintenance updates. <%= vars.company_name %> will also continue to release new versions of <%= vars.app_runtime_abbr %>.
+
+You can jump upgrade directly from previous versions of <%= vars.app_runtime_abbr %> to the LTS version of <%= vars.app_runtime_abbr %>. For more information,
+see [Jump Upgrading to <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>](../operating/jump-upgrades.html).
+
+### <a id='vcf-compatibility'></a> Deployment on VMware Cloud Foundation
+
+<%= vars.app_runtime_abbr %> <%= vars.v_major_version %> can be deployed on VMware Cloud Foundation (VCF) v4.1. For instructions and more information, see
+[Deploying <%= vars.app_runtime_abbr %> to VCF](../operating/vmc.html).
+
+### <a id='vmc-compatibility'></a> Deployment on VMware Cloud on Amazon Web Services
+
+<%= vars.app_runtime_abbr %> <%= vars.v_major_version %> can be deployed to VMware Cloud (VMC) on Amazon Web Services (AWS). For instructions and more
+information, see [Deploying <%= vars.app_runtime_abbr %> to VMC](../operating/vcf.html).
+
+### <a id='timestamps'></a> Timestamp Format for Component Logs Replaces Timestamp Format for Diego Logs
+
+<%= vars.app_runtime_abbr %> <%= vars.v_major_version %> introduces RFC3339 log format support for several <%= vars.app_runtime_abbr %> components. You can
+configure these components to produce logs with human-readable RFC3339 timestamps with the **Timestamp format for component logs** configuration option in the
+**System Logging** pane of the <%= vars.app_runtime_abbr %> tile. Logs that use human-readable timestamps are often easier to debug.
+
+RFC3339-formatted timestamps follow the RFC3339 spec, include nine points of precision where possible, and are in UTC. For example:
+
+* 2019-11-21T22:16:18.750673404Z
+
+* 2019-11-21T22:16:18.750000000Z
+
+For more information about configuring the **Timestamp format for component logs** field, see [(Optional) Configure System
+Logging](../operating/configure-pas.html#sys-logging) in _Configuring <%= vars.app_runtime_abbr %>_.
+
+In <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>, if you select the **Converge to human-readable RFC3339 format** option under **Timestamp format
+for component logs**, then the following components and related jobs use RFC3339 timestamps:
+
+| Component | Jobs |
+| ------------ | ----- |
+| `Logging` | `log-cache-nozzle`, `loggregator_agent`, `loggr-forwarder-agent`, `loggr-syslog-agent`, `prom_scraper`, `doppler`, `loggregator_trafficcontroller`, `reverse_log_proxy`, `reverse_log_proxy_gateway`, `log-cache-cf-auth-proxy`, `log-cache-gateway`, `log-cache-syslog-server`, `log-cache`, `loggr-syslog-binding-cache`, `loggr-upd-forwarder`, `syslog_forwarder` |
+| `CAPI` | `cc_deployment_updater`, `cc_uploader`, `cloud_controller_clock`, `cloud_controller_ng`, `cloud_controller_worker`, `rotate_cc_database_key`, `tps` |
+| `UAA` | `uaa` |
+
+This new feature is related to a breaking change. For more information, see [Timestamps for Component Logs in Diego Logs When
+Upgrading](#timestamps-breaking-change) below.
+
+### <a id='cloud-foundry-v3-api-availability'></a> Cloud Foundry V3 APIs Availability
+
+<%= vars.app_runtime_abbr %> <%= vars.v_major_version %> supports Cloud Foundry V3 APIs. This feature improves response time when working with services. Use
+the Cloud Foundry V3 API endpoints when listing, creating, or modifying any service that works with <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>
+and later.
+
+### <a id='stemcell-upgrade'></a> Stemcell Version Requirements Less Strict When Upgrading <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>.1 and Later
+
+<%= vars.app_runtime_abbr %> <%= vars.v_major_version %>.1 and later have fewer minor version restrictions for stemcells. This allows you to upgrade to a
+newer <%= vars.app_runtime_abbr %> patch without upgrading the stemcell.
+
+When you stage <%= vars.app_runtime_abbr %> for deployment, <%= vars.ops_manager %> installs <%= vars.app_runtime_abbr %> using the latest stemcell by
+default.
+
+In <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>.0 and earlier, if the latest stemcell was different from the stemcell that was used when
+installing <%= vars.app_runtime_abbr %> previously, then <%= vars.ops_manager %> re-created all of the VMs in your <%= vars.app_runtime_abbr %> deployment
+during an upgrade.
+
+In <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>.1 and later, you can upgrade to later patches of <%= vars.app_runtime_abbr %> without upgrading
+the stemcell or re-creating all VMs.
+
+
+## <a id='breaking-changes'></a> Breaking changes
+
+### <a id='jbp-462-removes-autoreconfig'></a> Java Buildpack 4.62.0 removes Spring AutoReconfiguration library for Spring Boot 3 applications
+
+From v4.62.0, the Java Buildpack will no longer install the Spring AutoReconfiguration (SAR) library for Spring Boot 3 applications. 
+This library was deprecated in May 2022 and overwrites your configured Spring Beans to connect to bound services. 
+This is not recommended for use in production environments. The recommended replacement is the Java CfEnv library.
+
+Applications should not be affected by this change if:
+
+* They are using Spring Boot 2.x - SAR will be installed and supported for the life of Spring Boot 2, although it is recommended to migrate to Java CfEnv as soon as possible.
+* They are using Spring Boot 3 and 
+  * have already migrated from SAR to Java CfEnv** or
+  * have already migrated from Spring Cloud Connectors to Java CfEnv** 
+
+** The buildpack will not install Java CfEnv if it is already detected as an app dependency.
+
+Your applications might be affected by the following two scenarios:
+
+* The app uses Spring Boot 3 and _does not_ have Spring Cloud Connectors as a dependency.
+* The app uses Spring Boot 3 and _does_ have Spring Cloud Connectors as a dependency.
+
+If your application is affected by this change see this KB article for troubleshooting: [Spring AutoReconfiguration Removed for Spring Boot 3 Applications](https://community.pivotal.io/s/article/Spring-AutoReconfiguration-no-longer-installed-for-Spring-Boot-3-applications-since-JBP-v4-62-0)
+
+### <a id='disable-ssl-certificate-verification-removed'></a> Option Removed: Disable SSL Certificate Verification for this Environment
+
+In <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>, the **Disable SSL certificate verification for this environment** check box is removed.
+
+Before you upgrade to <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>, you must deactivate the **Disable SSL certificate verification for this
+environment** check box in the **Networking** pane of the <%= vars.app_runtime_abbr %> tile. For more information, see _Configure Networking_ in [Configuring
+<%= vars.app_runtime_abbr %>](../operating/configure-pas.html#networking).
+
+If the **Disable SSL certificate verification for this environment** check box is activated when you try to upgrade to <%= vars.app_runtime_abbr %>, the
+upgrade fails with the following error:
+
+<pre class="terminal">
+attempt to upgrade to PAS 2.11+ with Skip SSL Verification enabled, please disable
+Skip SSL Verification prior to upgrade by un-checking "Disable SSL certificate
+verification for this environment" under "Networking"
+</pre>
+
+If you plan to automate the installation of <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>, you must remove references to the corresponding property
+`.ha_proxy.skip_cert_verify`.
+
+### <a id='dropped-app-logs'></a> Diego drops App Logs that exceed the App Log Rate limit
+
+As of <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>.26, if you have configured an app log rate limit that measures app log rates in lines per
+second, Diego immediately drops app logs that exceed the app log rate limit.
+
+In <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>.25 and earlier, Diego buffers and releases approximately 5&nbsp;MB to 10&nbsp;MB of app logs
+that exceed the app log rate limit. This behavior has changed in <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>.26 because Diego has been upgraded
+to a newer version.
+
+If this change in behavior causes parts of your deployment to fail, <%= vars.company_name %> recommends that you either modify any automated scripts that rely
+on app log output or increase the app log rate limit.
+
+For more information about app log rate limits, see [App Log Rate Limiting](../loggregator/app-log-rate-limits.html).
+
+### <a id='transfer-encoding-stricter'></a> Gorouter Update to Golang v1.15 Introduces Stricter Transfer-Encoding Header Standards
+
+In <%= vars.app_runtime_abbr %> <%= vars.v_major_version %> and later, stricter header standards break Spring apps that incorrectly set the header.
+
+To avoid this breaking change, see [Applications on TAS for VMs get 502 chunked response
+error](https://community.pivotal.io/s/article/Application-Chunked-Error?language=en_US) in the Knowledge Base. You must complete the resolution procedure
+described in this Knowledge Base article before you upgrade to <%= vars.app_runtime_abbr %> <%= vars.v_major_version %> or later.
+
+<p> This breaking change is also present in PAS v2.7.30, PAS v2.8.24, <%= vars.app_runtime_abbr %> v2.9.18, and
+  <%= vars.app_runtime_abbr %> v2.10.10. If you are using any of these versions or earlier, you must upgrade to PAS v2.7.31, PAS v2.8.25,
+  <%= vars.app_runtime_abbr %> v2.9.21, or <%= vars.app_runtime_abbr %> v2.10.11 before upgrading or jump upgrading to <%= vars.app_runtime_abbr %>
+  <%= vars.v_major_version %>. For more information, see
+  <a href="https://community.pivotal.io/s/article/Application-Chunked-Error?language=en_US">Applications on TAS for VMs get 502 chunked response error</a> in
+  the Knowledge Base.</p>
+
+### <a id='timestamps-breaking-change'></a> Timestamps for Component Logs in Diego Logs when you are upgrading
+
+The **Timestamp format for component logs** feature replaces the **Format of timestamps in Diego logs** feature in the **App Containers** pane of the
+<%= vars.app_runtime_abbr %> tile. However, when you upgrade to <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>, the option that was selected under
+**Format of timestamps in Diego logs** in your previous deployment is applied to **Timestamp format for component logs**.
+
+For more information, see [Timestamp Format for Component Logs Replaces Timestamp Format for Diego Logs](#timestamps) above.
+
+### <a id='dynamic-egress'></a> Dynamic Egress Policies Are Removed
+
+You cannot upgrade to <%= vars.app_runtime_abbr %> <%= vars.v_major_version %> if you are using dynamic egress policies.
+
+To see if you have dynamic egress policies, see [List Egress Policies](https://docs.pivotal.io/application-service/2-10/devguide/egress-policies.html#list-egress-policies) in the <%= vars.app_runtime_abbr %> v2.10
+documentation.
+
+To delete each of your policies, see [Delete an Egress Policy](https://docs.pivotal.io/application-service/2-10/devguide/egress-policies.html#delete-egress-policies) in the <%= vars.app_runtime_abbr %> v2.10
+documentation.
+
+### <a id='cloud-controller-service-bindings'></a> Cloud Controller enforces uniqueness of Service Bindings
+
+When you upgrade to <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>, Cloud Controller introduces a database migration that forces service bindings
+between service instances and apps to be unique. If duplicate service bindings exist when you upgrade, the migration fails.
+
+To work around this issue, you must delete any duplicate bindings before you upgrade.
+
+
+## <a id='known-issues'></a> Known issues
+
+<%= vars.app_runtime_abbr %> <%= vars.v_major_version %> includes the following known issues:
+
+### <a id='potential-data-loss'></a> Potential data loss for service usage data after upgrading TAS
+
+Release 2.11.45 introduced a bug that could result in the loss of Service Usage data. To avoid data loss, customers that depend on usage data should follow the workaround in [this KB article](https://community.pivotal.io/s/article/Potential-data-loss-for-service-usage-data-after-upgrading-TAS?language=en_US) or upgrade to a later version of VMware Tanzu Application Service for VMs within 30 days of upgrading to this version.
+
+### <a id='rolling-timeout'></a> Rolling App Deployment Does Not Timeout
+
+<%= partial "/pcf/tas/known-issues/rolling-timeout" %>
+
+### <a id='stored-procedure'></a> Pre-Start Scripts Fail on the policy-server Job
+
+When upgrading to <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>.9, the `policy-server` pre-start script runs a database migration that drops a
+stored procedure that is no longer needed. If your `networkpolicyserver` database does not have the stored procedure, you might see the following error in
+`diego_database` `policy-server` stdout logs:
+
+```console
+PROCEDURE networkpolicyserver.drop_destination_index does not exist handling 66
+```
+
+To work around this error, add the migration to your `networkpolicyserver.gorp_migrations` table and skip the migration.
+
+For more information, see ["pre-start scripts failed. Failed Jobs: policy-server" error Upgrading to CF Networking Release 2.40.0 in Tanzu Application Service
+for VMs](https://community.pivotal.io/s/article/TAS-upgrade-to-version-including-cf-networking-release-2-40-0-may-fail-policy-server-job-pre-start-job?language=en_US)
+in the Knowledge Base.
+
+### <a id='gorouter-incorrect-span-id'></a> Gorouter sets an Invalid X-B3-SpanID Header
+
+<%= partial "/pcf/tas/known-issues/gorouter-spanid" %>
+
+### <a id='auto-reconfig-disallowed'></a> java-offline-buildpack v4.52 Disallows Spring Auto Reconfiguration by Default
+
+<%= vars.app_runtime_abbr %> <%= vars.v_major_version %>.28 includes `java-offline-buildpack` v4.52, which disallows Spring Auto Reconfiguration by default.
+This change creates the following issues:
+
+* <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>.28 is incompatible with some service tiles, including Spring Cloud Data Flow (SCDF).
+
+* <%= vars.app_runtime_abbr %> cannot bind apps that use `java-offline-buildpack` v4.52 to service instances.
+
+This known issue does not affect apps until you re-stage them.
+
+Because the effects of this change are so disruptive, a patch release to fix this known issue is currently in development.
+
+To temporarily restore the previous functionality of Spring Auto Reconfiguration for your apps:
+
+1. Set the `JBP_CONFIG_SPRING_AUTO_RECONFIGURATION` environment variable for your apps by running one of the following commands:
+  * To restore the previous functionality of Spring Auto Reconfiguration on a per-app basis, run:
+
+      ```
+      cf set-env APP-NAME JBP_CONFIG_SPRING_AUTO_RECONFIGURATION '{enabled: true}'
+      ```
+      Where `APP-NAME` is the name of your app.
+  * To restore the previous functionality of Spring Auto Reconfiguration for all apps in your <%= vars.app_runtime_abbr %> deployment, run:
+
+      ```
+      cf set-staging-environment-variable-group '{"JBP_CONFIG_SPRING_AUTO_RECONFIGURATION ":"{enabled: true}"}'
+      ```
+
+For more information about the deprecation of Spring Cloud Connectors and Spring Auto Reconfiguration in `java-offline-buildpack` v4.52, see [Java Buildpack -
+Deprecation of Spring Cloud Connectors & Spring Auto
+Reconfiguration](https://community.pivotal.io/s/article/Java-Buildpack-Deprecation-of-Spring-Cloud-Connectors-Spring-Auto-Reconfiguration) in the VMware Tanzu
+Knowledge Base.
+
+
+## <a id='resolved-issues'></a> Resolved issues
+
+<%= vars.app_runtime_abbr %> <%= vars.v_major_version %> includes the following resolved issues:
+
+### <a id='credhub-encryption-key'></a> CredHub Primary Encryption Key Verification
+
+When you configure the CredHub server for <%= vars.app_runtime_abbr %>, you must select a primary encryption key. In <%= vars.app_runtime_abbr %>
+<%= vars.v_major_version %>, if you do not select a primary encryption key, or if you mark more than one key as the primary encryption key, deployment fails
+more quickly than in previous releases of <%= vars.app_runtime_abbr %>.
+
+For more information, see [Configure CredHub](../operating/configure-pas.html#credhub) in _Configuring <%= vars.app_runtime_abbr %>_.
+
+### <a id='capi-v2'></a> Apps Manager uses CAPI V2 Endpoint
+
+For greater stability, Apps Manager uses the Cloud Controller API (CAPI) V2 endpoint instead of the experimental V3 endpoint.
+
+### <a id='appsman-services'></a> Improved handling for deactivated Service Plans in Apps Manager
+
+In <%= vars.app_runtime_abbr %>, disabled service plans are handled gracefully in the Apps Manager UI.
+
+### <a id='autoscaler-rabbitmq'></a> Improved App Autoscaler handling of RabbitMQ-Based Autoscaling rules
+
+In <%= vars.app_runtime_abbr %> <%= vars.v_major_version %>, App Autoscaler uses fewer resource-intensive RabbitMQ endpoints when possible, in order to reduce load on RabbitMQ.
 
