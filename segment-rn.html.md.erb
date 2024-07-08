@@ -26,6 +26,368 @@ v8](../cf-cli/v8.html).
 
 ## <a id='releases'></a> Releases
 
+### <a id='6.0.5'></a> 6.0.5
+
+**Release Date:** 07/08/2024
+
+* **[Bug Fix]** Route Registrar only sends 5 unregistration messages in a row when a route becomes unhealthy. This prevents Gorouter's logs from filling up with unnecessary, repetitive log messages.
+* Bump bpm to version `1.2.22`
+* Bump cflinuxfs3 to version `0.390.0`
+* Bump cflinuxfs4 to version `1.103.0`
+* Bump cf-cli to version `1.64.0`
+* Bump diego to version `2.100.0`
+* Bump mapfs to version `1.2.79`
+* Bump nfs-volume to version `7.1.74`
+* Bump otel-collector to version `0.5.0`
+* Bump routing to version `0.301.0`
+* Bump smb-volume to version `3.1.73`
+* Bump syslog to version `12.3.0`
+
+<table border="1" class="nice">
+  <thead>
+    <tr>
+      <th>Component</th>
+      <th>Version</th>
+      <th>Release Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>ubuntu-jammy stemcell</td><td>1.486</td><td></td></tr>
+    <tr><td>bpm</td><td>1.2.22</td><td></td></tr>
+    <tr><td>cf-networking</td><td>3.46.0</td><td></td></tr>
+    <tr><td>cflinuxfs3</td><td>0.390.0</td>
+      <td>
+        <details>
+          <summary>v0.390.0</summary>
+          <pre style="max-width: 30em">
+  This release ships with cflinuxfs3 version 0.390.0. For more information, see the [release notes](https://github.com/cloudfoundry/cflinuxfs3/releases/tag/0.390.0)
+          </pre>
+        </details>
+        <details>
+          <summary>v0.389.0</summary>
+          <pre style="max-width: 30em">
+  This release ships with cflinuxfs3 version 0.389.0. For more information, see the [release notes](https://github.com/cloudfoundry/cflinuxfs3/releases/tag/0.389.0)
+          </pre>
+        </details>
+        <details>
+          <summary>v0.388.0</summary>
+          <pre style="max-width: 30em">
+  This release ships with cflinuxfs3 version 0.388.0. For more information, see the [release notes](https://github.com/cloudfoundry/cflinuxfs3/releases/tag/0.388.0)
+          </pre>
+        </details>
+      </td>
+    </tr>
+    <tr><td>cflinuxfs4</td><td>1.103.0</td>
+      <td>
+        <details>
+          <summary>v1.103.0</summary>
+          <pre style="max-width: 30em">
+  This release ships with cflinuxfs4 version 1.103.0. For more information, see the [release notes](https://github.com/cloudfoundry/cflinuxfs4/releases/tag/1.103.0)
+          </pre>
+        </details>
+        <details>
+          <summary>v1.102.0</summary>
+          <pre style="max-width: 30em">
+  This release ships with cflinuxfs4 version 1.102.0. For more information, see the [release notes](https://github.com/cloudfoundry/cflinuxfs4/releases/tag/1.102.0)
+          </pre>
+        </details>
+        <details>
+          <summary>v1.101.0</summary>
+          <pre style="max-width: 30em">
+  This release ships with cflinuxfs4 version 1.101.0. For more information, see the [release notes](https://github.com/cloudfoundry/cflinuxfs4/releases/tag/1.101.0)
+          </pre>
+        </details>
+        <details>
+          <summary>v1.100.0</summary>
+          <pre style="max-width: 30em">
+  This release ships with cflinuxfs4 version 1.100.0. For more information, see the [release notes](https://github.com/cloudfoundry/cflinuxfs4/releases/tag/1.100.0)
+          </pre>
+        </details>
+        <details>
+          <summary>v1.99.0</summary>
+          <pre style="max-width: 30em">
+  This release ships with cflinuxfs4 version 1.99.0. For more information, see the [release notes](https://github.com/cloudfoundry/cflinuxfs4/releases/tag/1.99.0)
+          </pre>
+        </details>
+        <details>
+          <summary>v1.98.0</summary>
+          <pre style="max-width: 30em">
+  This release ships with cflinuxfs4 version 1.98.0. For more information, see the [release notes](https://github.com/cloudfoundry/cflinuxfs4/releases/tag/1.98.0)
+          </pre>
+        </details>
+        <details>
+          <summary>v1.97.0</summary>
+          <pre style="max-width: 30em">
+  This release ships with cflinuxfs4 version 1.97.0. For more information, see the [release notes](https://github.com/cloudfoundry/cflinuxfs4/releases/tag/1.97.0)
+          </pre>
+        </details>
+        <details>
+          <summary>v1.96.0</summary>
+          <pre style="max-width: 30em">
+  This release ships with cflinuxfs4 version 1.96.0. For more information, see the [release notes](https://github.com/cloudfoundry/cflinuxfs4/releases/tag/1.96.0)
+          </pre>
+        </details>
+        <details>
+          <summary>v1.95.0</summary>
+          <pre style="max-width: 30em">
+  This release ships with cflinuxfs4 version 1.95.0. For more information, see the [release notes](https://github.com/cloudfoundry/cflinuxfs4/releases/tag/1.95.0)
+          </pre>
+        </details>
+        <details>
+          <summary>v1.94.0</summary>
+          <pre style="max-width: 30em">
+  This release ships with cflinuxfs4 version 1.94.0. For more information, see the [release notes](https://github.com/cloudfoundry/cflinuxfs4/releases/tag/1.94.0)
+          </pre>
+        </details>
+        <details>
+          <summary>v1.93.0</summary>
+          <pre style="max-width: 30em">
+  This release ships with cflinuxfs4 version 1.93.0. For more information, see the [release notes](https://github.com/cloudfoundry/cflinuxfs4/releases/tag/1.93.0)
+          </pre>
+        </details>
+        <details>
+          <summary>v1.92.0</summary>
+          <pre style="max-width: 30em">
+  This release ships with cflinuxfs4 version 1.92.0. For more information, see the [release notes](https://github.com/cloudfoundry/cflinuxfs4/releases/tag/1.92.0)
+          </pre>
+        </details>
+      </td>
+    </tr>
+    <tr><td>cf-cli</td><td>1.64.0</td>
+      <td>
+        <details>
+          <summary>v1.64.0</summary>
+          <pre style="max-width: 30em">
+  ### Included CF CLI versions:
+  7.7.10
+  8.7.10
+          </pre>
+        </details>
+      </td>
+    </tr>
+    <tr><td>count-cores-indicator</td><td>2.0.0</td><td></td></tr>
+    <tr><td>diego</td><td>2.100.0</td>
+      <td>
+        <details>
+          <summary>v2.100.0</summary>
+          <pre style="max-width: 30em">
+  ## Changes
+  - Bumped loggregator usage to loggregator v9 - Thanks @Birdrock!
+  - Bumped cfhttp usage to cfhttp v2 - Thanks @jrussett !
+  - Bumped go dependency bumps
+  ## ✨  Built with go 1.22.3
+  **Full Changelog**: https://github.com/cloudfoundry/diego-release/compare/v2.99.0...v2.100.0
+  ## Resources
+  - [Download release 2.100.0 from bosh.io](https://bosh.io/releases/github.com/cloudfoundry/diego-release?version=2.100.0).
+          </pre>
+        </details>
+      </td>
+    </tr>
+    <tr><td>garden-runc</td><td>1.53.0</td><td></td></tr>
+    <tr><td>loggregator-agent</td><td>8.1.1</td><td></td></tr>
+    <tr><td>mapfs</td><td>1.2.79</td>
+      <td>
+        <details>
+          <summary>v1.2.79</summary>
+          <pre style="max-width: 30em">
+  ## Changes
+  * Add final release 1.2.72 [ci skip]
+  * Golang: Updated to v1.22.4 (#269)
+  * bump mapfs
+  ## Dependencies
+  * **v2:** Updated to v2.19.0.<br>For more information, see [v2](https://github.com/onsi/ginkgo).
+  * **mapfs:** Updated to v`756bafb`.<br>For more information, see [mapfs](https://github.com/cloudfoundry/mapfs).
+          </pre>
+        </details>
+        <details>
+          <summary>v1.2.72</summary>
+          <pre style="max-width: 30em">
+  ## Changes
+  * Add final release 1.2.71 [ci skip]
+  * Bump mapfs (#263)
+  ## Dependencies
+  * **mapfs:** Updated to v`ac01341`.<br>For more information, see [mapfs](https://github.com/cloudfoundry/mapfs).
+          </pre>
+        </details>
+      </td>
+    </tr>
+    <tr><td>nfs-volume</td><td>7.1.74</td>
+      <td>
+        <details>
+          <summary>v7.1.74</summary>
+          <pre style="max-width: 30em">
+  ## Changes
+  * Golang: Updated to v1.22.4 (#963)
+          </pre>
+        </details>
+        <details>
+          <summary>v7.1.73</summary>
+          <pre style="max-width: 30em">
+  ## Changes
+  * Add final release 7.1.72 [ci skip]
+  * Use cf create|update-service-broker to register the service (#972)
+  * Bump openssl- from 3.3.0 to 3.3.1 (https://github.com/cloudfoundry/nfs-volume-release/pull/959)
+  * Golang: Updated to v1.22.4 (https://github.com/cloudfoundry/nfs-volume-release/pull/962)
+          </pre>
+        </details>
+        <details>
+          <summary>v7.1.72</summary>
+          <pre style="max-width: 30em">
+  ## Changes
+  * Add final release 7.1.71 [ci skip]
+  * Bump openssl- from 3.3.0 to 3.3.1 (#959)
+  * Golang: Updated to v1.22.4 (#962)
+          </pre>
+        </details>
+        <details>
+          <summary>v7.1.71</summary>
+          <pre style="max-width: 30em">
+  ## Changes
+  ## Dependencies
+  * **nfsbroker:** Updated to v`b8a1e4c`.<br>For more information, see [nfsbroker](https://github.com/cloudfoundry/nfsbroker).
+          </pre>
+        </details>
+        <details>
+          <summary>v7.1.68</summary>
+          <pre style="max-width: 30em">
+  ## Changes
+  * Add final release 7.1.66 [ci skip]
+  * Bump submodules (#938)
+  ## Dependencies
+  * **nfsbroker:** Updated to v`e1d14e4`.<br>For more information, see [nfsbroker](https://github.com/cloudfoundry/nfsbroker).
+          </pre>
+        </details>
+      </td>
+    </tr>
+    <tr><td>otel-collector</td><td>0.5.0</td>
+      <td>
+        <details>
+          <summary>v0.5.0</summary>
+          <pre style="max-width: 30em">
+  ## What's Changed
+  * Bump otel-collector to v0.103.0 in https://github.com/cloudfoundry/otel-collector-release/pull/28.
+  * If you have configured exporters to use persistent queues note that [re-enqueuing of failed batches has been removed](https://github.com/open-telemetry/opentelemetry-collector/releases/tag/v0.92.0).
+  * Bump to [go1.21.11](https://groups.google.com/g/golang-announce/c/XbxouI9gY7k/m/TuoGEhxIEwAJ).
+  **Full Changelog**: https://github.com/cloudfoundry/otel-collector-release/compare/v0.4.1...v0.5.0
+          </pre>
+        </details>
+      </td>
+    </tr>
+    <tr><td>routing</td><td>0.301.0</td>
+      <td>
+        <details>
+          <summary>v0.301.0</summary>
+          <pre style="max-width: 30em">
+  ## Changes
+  - 🐛Fixes a bug introduced in [v0.298.0](https://github.com/cloudfoundry/routing-release/releases/tag/v0.298.0) where the `X-Forwarded-Host` header was incorrectly set for requests containing an `Expect: 100-continue` header. Thanks @maxmoehl !
+  ## ✨  Built with go 1.22.4
+  **Full Changelog**: https://github.com/cloudfoundry/routing-release/compare/v0.300.0...v0.301.0
+  ## Resources
+  - [Download release 0.301.0 from bosh.io](https://bosh.io/releases/github.com/cloudfoundry/routing-release?version=0.301.0).
+          </pre>
+        </details>
+        <details>
+          <summary>v0.300.0</summary>
+          <pre style="max-width: 30em">
+  ## Changes
+  - Update route registrar to only send 5 unregistration messages for an unhealthy route - https://github.com/cloudfoundry/route-registrar/pull/46 . Thanks @andy-a-d-nguyen for your first contribution to CF!
+  ## ✨  Built with go 1.22.4
+  ## Resources
+  - [Download release 0.300.0 from bosh.io](https://bosh.io/releases/github.com/cloudfoundry/routing-release?version=0.300.0).
+  **Full Changelog**: https://github.com/cloudfoundry/routing-release/compare/v0.299.0...v0.300.0
+          </pre>
+        </details>
+        <details>
+          <summary>v0.299.0</summary>
+          <pre style="max-width: 30em">
+  ## Changes
+  - Bumped to Golang 1.22.4
+  - Added ability to enforce strict validation of route service signature. Thanks @maxmoehl, @b1tamara and @plowin !
+  ## Bosh Job Spec changes:
+  ```diff
+  diff --git a/jobs/gorouter/spec b/jobs/gorouter/spec
+  index 8269440b..60c7b520 100644
+  --- a/jobs/gorouter/spec
+  +++ b/jobs/gorouter/spec
+  @@ -262,6 +262,9 @@ properties:
+  router.route_services_timeout:
+  description: "Expiry time of a route service signature in seconds"
+  default: 60
+  +  router.route_services_strict_signature_validation:
+  +      description: "Enforce strict validation of a route service signature"
+  +      default: false
+  router.max_header_kb:
+  description: |
+  This value controls the maximum number of bytes (in KB) the gorouter will read
+  ```
+  ## ✨  Built with go 1.22.4
+  **Full Changelog**: https://github.com/cloudfoundry/routing-release/compare/v0.298.0...v0.299.0
+  ## Resources
+  - [Download release 0.299.0 from bosh.io](https://bosh.io/releases/github.com/cloudfoundry/routing-release?version=0.299.0).
+          </pre>
+        </details>
+      </td>
+    </tr>
+    <tr><td>silk</td><td>3.46.0</td><td></td></tr>
+    <tr><td>smb-volume</td><td>3.1.73</td>
+      <td>
+        <details>
+          <summary>v3.1.73</summary>
+          <pre style="max-width: 30em">
+  ## Changes
+  ## Dependencies
+  * **smbdriver:** Updated to v`9ec4dc3`.<br>For more information, see [smbdriver](https://github.com/cloudfoundry/smbdriver).
+          </pre>
+        </details>
+        <details>
+          <summary>v3.1.72</summary>
+          <pre style="max-width: 30em">
+  ## Changes
+  * Bump smbdriver (#414)
+  * Golang: Updated to v1.22.4 (#422)
+  * Use cf create|update-service-broker to register the service (#424)
+  ## Dependencies
+  * **v2:** Updated to v2.19.0.<br>For more information, see [v2](https://github.com/onsi/ginkgo).
+  * **smbdriver:** Updated to v`4b6cce2`.<br>For more information, see [smbdriver](https://github.com/cloudfoundry/smbdriver).
+          </pre>
+        </details>
+        <details>
+          <summary>v3.1.69</summary>
+          <pre style="max-width: 30em">
+  ## Changes
+  * Add final release 3.1.68 [ci skip]
+  ## Dependencies
+  * **smbbroker:** Updated to v`da19354`.<br>For more information, see [smbbroker](https://github.com/cloudfoundry/smbbroker).
+  * **smbdriver:** Updated to v`6a0de14`.<br>For more information, see [smbdriver](https://github.com/cloudfoundry/smbdriver).
+          </pre>
+        </details>
+      </td>
+    </tr>
+    <tr><td>smoke-tests</td><td>4.10.0</td><td></td></tr>
+    <tr><td>syslog</td><td>12.3.0</td>
+      <td>
+        <details>
+          <summary>v12.3.0</summary>
+          <pre style="max-width: 30em">
+  ## What's Changed
+  ### Features
+  * Use service command to restart rsyslog, enabling BOSH Lite deployment by @ohkyle in https://github.com/cloudfoundry/syslog-release/pull/178
+  ### Maintenance
+  * Bump blackbox dependencies
+  * Bump packaged Golang to go1.21.11
+  ## New Contributors
+  * @ohkyle made their first contribution in https://github.com/cloudfoundry/syslog-release/pull/178
+  **Full Changelog**: https://github.com/cloudfoundry/syslog-release/compare/v12.2.5...v12.3.0
+          </pre>
+        </details>
+      </td>
+    </tr>
+    <tr><td>tanzu-jammy-stack</td><td>1.0.1</td><td></td></tr>
+  </tbody>
+</table>
+
+
+
 ### <a id='6.0.4'></a> 6.0.4
 
 **Release Date:** 05/29/2024
