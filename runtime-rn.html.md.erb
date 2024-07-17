@@ -26,6 +26,7 @@ Because VMware uses the Percona Distribution for MySQL, expect a time lag betwee
 
 **Release Date:** 07/08/2024
 
+* **[Known Issue]** Running `cf push --docker-image` may fail if specifying the image with SHA256 digests. This will be fixed in a future patch release. Workaround this by using the image tag instead of the digest.
 * **[Feature Improvement]** Configure JWKS cache in UAA
 * **[Feature Improvement]** Expose proxy metrics for internal MySQL
 * **[Bug Fix]** Re-enables parallel applier threads for internal MySQL cluster
