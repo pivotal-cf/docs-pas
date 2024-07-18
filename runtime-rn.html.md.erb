@@ -33,6 +33,7 @@ v8](../cf-cli/v8.html).
 
 * **[Bug Fix]** Remove replication-canary
 * **[Bug Fix]** App Autoscaler resolves incompatibility with load balancers that reject POST requests without a Content-Length header.
+* **[Bug fix]** Automatically restart Route Emitter after multiple failed attempts to greet Gorouter. This fixes a [rare bug](https://knowledge.broadcom.com/external/article/298143/route-emitter-condition-causes-routes-to.html) that prevented Route Emitter from being able to register routes.
 * Bump backup-and-restore-sdk to version `1.19.16`
 * Bump binary-offline-buildpack to version `1.1.12`
 * Bump bpm to version `1.2.19`
