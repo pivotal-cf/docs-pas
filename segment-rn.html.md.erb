@@ -364,6 +364,7 @@ Because VMware uses the Percona Distribution for MySQL, expect a time lag betwee
 **Release Date:** 05/29/2024
 
 * **[Bug Fix]** Remove replication-canary
+* **[Bug fix]** Automatically restart Route Emitter after multiple failed attempts to greet Gorouter. This fixes a [rare bug](https://knowledge.broadcom.com/external/article/298143/route-emitter-condition-causes-routes-to.html) that prevented Route Emitter from being able to register routes.
 * Bump bpm to version `1.2.19`
 * Bump cflinuxfs4 to version `1.91.0`
 * Bump diego to version `2.99.0`
