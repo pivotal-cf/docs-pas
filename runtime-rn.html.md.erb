@@ -29,6 +29,7 @@ Because VMware uses the Percona Distribution for MySQL, expect a time lag betwee
 * **[Bug Fix]** Apps-manager large route list display failure
 * **[Breaking Change]** Remove replication-canary
 * **[Breaking Change]** Requests with empty Content-Length headers are rejected by Gorouter
+* **[Breaking Change]** End of support for cflinuxfs3, all AI's require migration to cflinuxfs4
 * **[Bug Fix]** App Autoscaler resolves incompatibility with load balancers that reject POST requests without a Content-Length header.
 * Bump backup-and-restore-sdk to version `1.19.16`
 * Bump binary-offline-buildpack to version `1.1.12`
@@ -1960,10 +1961,18 @@ These are the new features for <%= vars.app_runtime_full %> <%= vars.v_major_ver
 ### TBD
 
 ## <a id='breaking-changes'></a> Breaking changes
-
 These are the breaking changes for <%= vars.app_runtime_full %> <%= vars.v_major_version %>.
 
-### TBD
+### <a id="cflinuxfs3-unsupported"></a> cflinuxfs3 is Unsupported
+
+Operators cannot upgrade the platform from TAS v6.0 or later to TAS v7.0 until all app instances (AIs) are using cflinuxfs4.
+If you are running TAS v6.0 or a later v6.0 patch, you must migrate all AIs to cflinuxfs4.
+
+During upgrade, you must check a box to verify that all AIs have been migrated. If you check the box and the AIs have not been migrated, the upgrade causes all AIs to fail.
+
+<%= vars.recommended_by %> recommends that you communicate the change of stack to your development teams and have them migrate to cflinuxfs4 before upgrading to TAS v7.0.
+
+For more information about this change, see [TAS Only Supports cflinuxfs3](https://knowledge.broadcom.com/external/article/298126/tas-cflinuxfs4-migration-proposal.html) in __TAS Application Service v2.5 Release Notes_.
 
 ## <a id='known-issues'></a> Known issues
 
