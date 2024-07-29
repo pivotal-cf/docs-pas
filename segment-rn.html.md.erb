@@ -26,6 +26,188 @@ v8](../cf-cli/v8.html).
 
 ## <a id='releases'></a> Releases
 
+### <a id='6.0.6'></a> 6.0.6
+
+**Release Date:** 07/29/2024
+
+* **[Bug Fix]** Resolves a rare issue leading to pre-start script failures in the garden-cni + vxlan-policy-agent jobs on diego-cells
+* **[Bug Fix]** Adds 2 minute caching for failed dns lookups in syslog agent to avoid dns load for malformed drain urls.
+* **[Feature]** Adds `PrometheusRemoteWrite` exporter and `batch` processor.
+* Bump bpm to version `1.2.23`
+* Bump cf-networking to version `3.47.0`
+* Bump cflinuxfs4 to version `1.107.0`
+* Bump cf-cli to version `1.65.0`
+* Bump loggregator-agent to version `8.1.3`
+* Bump nfs-volume to version `7.1.75`
+* Bump otel-collector to version `0.6.0`
+* Bump silk to version `3.47.0`
+* Bump smb-volume to version `3.1.74`
+
+<table border="1" class="nice">
+  <thead>
+    <tr>
+      <th>Component</th>
+      <th>Version</th>
+      <th>Release Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>ubuntu-jammy stemcell</td><td>1.486</td><td></td></tr>
+    <tr><td>bpm</td><td>1.2.23</td><td></td></tr>
+    <tr><td>cf-networking</td><td>3.47.0</td>
+      <td>
+        <details>
+          <summary>v3.47.0</summary>
+          <pre style="max-width: 30em">
+  ## <a id="3-47-0"></a> 3.47.0
+  **Release Date**: July 19, 2024
+  ## Changes
+  - 🐛Fixed a bug in the pre-start script of garden-cni that deleted the iptables.lock file + directory unnecessarily, causing issues with the vxlan-policy-agent pre-start script
+  - Refactored polling logic in policy-server
+  - Bump to go 1.22.5
+  ## ✨  Built with go 1.22.5
+  **Full Changelog**: https://github.com/cloudfoundry/cf-networking-release/compare/v3.46.0...v3.47.0
+  ## Resources
+  - [Download release 3.47.0 from bosh.io](https://bosh.io/releases/github.com/cloudfoundry/cf-networking-release?version=3.47.0).
+          </pre>
+        </details>
+      </td>
+    </tr>
+    <tr><td>cflinuxfs3</td><td>0.390.0</td><td></td></tr>
+    <tr><td>cflinuxfs4</td><td>1.107.0</td>
+      <td>
+        <details>
+          <summary>v1.107.0</summary>
+          <pre style="max-width: 30em">
+  This release ships with cflinuxfs4 version 1.107.0. For more information, see the [release notes](https://github.com/cloudfoundry/cflinuxfs4/releases/tag/1.107.0)
+          </pre>
+        </details>
+        <details>
+          <summary>v1.106.0</summary>
+          <pre style="max-width: 30em">
+  This release ships with cflinuxfs4 version 1.106.0. For more information, see the [release notes](https://github.com/cloudfoundry/cflinuxfs4/releases/tag/1.106.0)
+          </pre>
+        </details>
+        <details>
+          <summary>v1.105.0</summary>
+          <pre style="max-width: 30em">
+  This release ships with cflinuxfs4 version 1.105.0. For more information, see the [release notes](https://github.com/cloudfoundry/cflinuxfs4/releases/tag/1.105.0)
+          </pre>
+        </details>
+        <details>
+          <summary>v1.104.0</summary>
+          <pre style="max-width: 30em">
+  This release ships with cflinuxfs4 version 1.104.0. For more information, see the [release notes](https://github.com/cloudfoundry/cflinuxfs4/releases/tag/1.104.0)
+          </pre>
+        </details>
+      </td>
+    </tr>
+    <tr><td>cf-cli</td><td>1.65.0</td>
+      <td>
+        <details>
+          <summary>v1.65.0</summary>
+          <pre style="max-width: 30em">
+  ### Included CF CLI versions:
+  7.7.11
+  8.7.11
+          </pre>
+        </details>
+      </td>
+    </tr>
+    <tr><td>count-cores-indicator</td><td>2.0.0</td><td></td></tr>
+    <tr><td>diego</td><td>2.100.0</td><td></td></tr>
+    <tr><td>garden-runc</td><td>1.53.0</td><td></td></tr>
+    <tr><td>loggregator-agent</td><td>8.1.3</td>
+      <td>
+        <details>
+          <summary>v8.1.3</summary>
+          <pre style="max-width: 30em">
+  ## What's Changed
+  * Cache failed dns lookups for 120 seconds which reduced load on DNS system when invalid drains are present by @acosta11 in https://github.com/cloudfoundry/loggregator-agent-release/pull/596
+  **Full Changelog**: https://github.com/cloudfoundry/loggregator-agent-release/compare/v8.1.2...v8.1.3
+          </pre>
+        </details>
+        <details>
+          <summary>v8.1.2</summary>
+          <pre style="max-width: 30em">
+  ## What's Changed
+  * Bump dependencies
+  * Bump packaged Golang to go1.21.12
+  **Full Changelog**: https://github.com/cloudfoundry/loggregator-agent-release/compare/v8.1.1...v8.1.2
+          </pre>
+        </details>
+      </td>
+    </tr>
+    <tr><td>mapfs</td><td>1.2.79</td><td></td></tr>
+    <tr><td>nfs-volume</td><td>7.1.75</td>
+      <td>
+        <details>
+          <summary>v7.1.75</summary>
+          <pre style="max-width: 30em">
+  ## Changes
+  ## Dependencies
+  * **nfsv3driver:** Updated to v`44424a7`.<br>For more information, see [nfsv3driver](https://github.com/cloudfoundry/nfsv3driver).
+          </pre>
+        </details>
+      </td>
+    </tr>
+    <tr><td>otel-collector</td><td>0.6.0</td>
+      <td>
+        <details>
+          <summary>v0.6.0</summary>
+          <pre style="max-width: 30em">
+  ## What's Changed
+  * Expose wider collector configuration by @acrmp in https://github.com/cloudfoundry/otel-collector-release/pull/31. This allows for configuring processors, pipelines & exporters which provides a lot more flexibility to platform engineers.
+  * Add PrometheusRemoteWrite Exporter by @benjaminguttmann-avtq in https://github.com/cloudfoundry/otel-collector-release/pull/26
+  * Add batch processor by @acrmp in https://github.com/cloudfoundry/otel-collector-release/pull/32
+  * Bump go.opentelemetry.io/collector/cmd/builder from 0.103.0 to 0.104.0 in /src/otel-collector-builder by @dependabot in https://github.com/cloudfoundry/otel-collector-release/pull/30
+  ## New Contributors
+  * @benjaminguttmann-avtq made their first contribution in https://github.com/cloudfoundry/otel-collector-release/pull/26
+  **Full Changelog**: https://github.com/cloudfoundry/otel-collector-release/compare/v0.5.0...v0.6.0
+          </pre>
+        </details>
+      </td>
+    </tr>
+    <tr><td>routing</td><td>0.301.0</td><td></td></tr>
+    <tr><td>silk</td><td>3.47.0</td>
+      <td>
+        <details>
+          <summary>v3.47.0</summary>
+          <pre style="max-width: 30em">
+  ## <a id="3-47-0"></a> 3.47.0
+  **Release Date**: July 19, 2024
+  ## Changes
+  - 🐛 Fixed a race condition in the pre-start script of vxlan-policy-agent that would cause failures if the iptables.lock file's directory was deleted by another process while the pre-start was obtaining a lock.
+  - Updated go-loggregator usage to v9
+  - Refactored polling logic of vxlan-policy-agent and silk-daemon
+  - Bump to go 1.22.5
+  ## ✨  Built with go 1.22.5
+  **Full Changelog**: https://github.com/cloudfoundry/silk-release/compare/v3.46.0...v3.47.0
+  ## Resources
+  - [Download release 3.47.0 from bosh.io](https://bosh.io/releases/github.com/cloudfoundry/silk-release?version=3.47.0).
+          </pre>
+        </details>
+      </td>
+    </tr>
+    <tr><td>smb-volume</td><td>3.1.74</td>
+      <td>
+        <details>
+          <summary>v3.1.74</summary>
+          <pre style="max-width: 30em">
+  ## Changes
+  * Golang: Updated to v1.22.5 (#428)
+          </pre>
+        </details>
+      </td>
+    </tr>
+    <tr><td>smoke-tests</td><td>4.10.0</td><td></td></tr>
+    <tr><td>syslog</td><td>12.3.0</td><td></td></tr>
+    <tr><td>tanzu-jammy-stack</td><td>1.0.1</td><td></td></tr>
+  </tbody>
+</table>
+
+
+
 ### <a id='6.0.5'></a> 6.0.5
 
 **Release Date:** 07/08/2024
