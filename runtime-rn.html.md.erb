@@ -983,7 +983,7 @@ MySQL patch and VMware releasing <%= vars.app_runtime_abbr %> containing that pa
 * **[Known Issue]** Running `cf push --docker-image` may fail if specifying the image with SHA256 digests. This will be fixed in a future patch release. Workaround this by using the image tag instead of the digest.
 * **[Feature Improvement]** Configure JWKS cache in UAA
 * **[Feature Improvement]** Expose proxy metrics for internal MySQL
-* **[Bug Fix]** Increase disk size of the Cloud Controller instance VM to handle increased package size
+* **[Bug Fix]** Increase disk size of the Cloud Controller instance VM to handle increased package size. The VM disk size must be updated to a minimum of `40960` MB
 * **[Bug Fix]** Re-enables parallel applier threads for internal MySQL cluster
 * **[Bug Fix]** Route Registrar only sends 5 unregistration messages in a row when a route becomes unhealthy. This prevents Gorouter's logs from filling up with unnecessary, repetitive log messages.
 * Bump backup-and-restore-sdk to version `1.19.22`
