@@ -1,7 +1,7 @@
-# Contributing to Tanzu for Cloud Foundry Release Notes
+# Contributing to Tanzu Platform for Cloud Foundry Release Notes
 
-The Tanzu for Cloud Foundry Release Notes project team welcomes contributions from the community. Before you start working with
-the Tanzu for Cloud Foundry Release Notes, please
+The Tanzu Platform for Cloud Foundry Release Notes project team welcomes contributions from the community. Before you start working with
+the Tanzu Platform for Cloud Foundry Release Notes, please
 read our [Developer Certificate of Origin](https://cla.vmware.com/dco). All contributions to this repository must be
 signed as described on that page. Your signature certifies that you wrote the patch or have the right to pass it on
 as an open-source patch.

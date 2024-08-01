@@ -1,5 +1,5 @@
 ---
-title: Tanzu for Cloud Foundry v6.0 Release notes
+title: Tanzu Platform for Cloud Foundry v6.0 Release notes
 owner: Release Engineering
 ---
 
@@ -5360,9 +5360,9 @@ If you are upgrading from TAS 4.0 to TAS 6.0, review the following breaking chan
 
 ### MySQL 5.7 external system database support removed
 
-Your Tanzu for Cloud Foundry deployment will fail or become insecure if you are using MySQL 5.7 as Tanzu CF's external system database because MySQL 5.7 has reached its End-Of-Life (31 Oct 2023).
+Your Tanzu Platform for Cloud Foundry deployment will fail or become insecure if you are using MySQL 5.7 as Tanzu CF's external system database because MySQL 5.7 has reached its End-Of-Life (31 Oct 2023).
 
-If you have configured a MySQL 5.7 database instance as the external system database for your TAS deployment, this change will affect you. You can check your current system database settings by going to the **Databases** pane in the Tanzu for Cloud Foundry tile.
+If you have configured a MySQL 5.7 database instance as the external system database for your TAS deployment, this change will affect you. You can check your current system database settings by going to the **Databases** pane in the Tanzu Platform for Cloud Foundry tile.
 Check the **System databases location** section. If the **External database server** option is selected and the configured database server is based on MySQL 5.7, you
 will have to upgrade your external system database to a supported MySQL version (such as MySQL 8.0).
 
@@ -5394,15 +5394,15 @@ To prevent or solve this problem, modify your client or documentation to no long
 
 See also the TAS for VMs v5.0 [release notes](https://docs.vmware.com/en/VMware-Tanzu-Application-Service/5.0/tas-for-vms/runtime-rn.html).
 
-### Logging timestamp format changed for some Tanzu for Cloud Foundry [Windows] jobs
+### Logging timestamp format changed for some Tanzu Platform for Cloud Foundry [Windows] jobs
 
-Existing automation that parses logs from Tanzu for Cloud Foundry [Windows] components may break if it is still expecting timestamps formatted as epoch time. Specifically, logs from groot and garden_windows have been converted to RFC 3339 timestamps.
+Existing automation that parses logs from Tanzu Platform for Cloud Foundry [Windows] components may break if it is still expecting timestamps formatted as epoch time. Specifically, logs from groot and garden_windows have been converted to RFC 3339 timestamps.
 
-This will affect you if you have log parsing for Tanzu for Cloud Foundry [Windows]'s groot and garden_windows jobs that rely on timestamps being in epoch format.
+This will affect you if you have log parsing for Tanzu Platform for Cloud Foundry [Windows]'s groot and garden_windows jobs that rely on timestamps being in epoch format.
 
-If it was necessary to adjust log parsing for TAS and Tanzu for Cloud Foundry [Windows] 4.0 to account for the change in timestamp format, update log parsing in the same manner, but for the Tanzu for Cloud Foundry [Windows] groot and garden_windows jobs.
+If it was necessary to adjust log parsing for TAS and Tanzu Platform for Cloud Foundry [Windows] 4.0 to account for the change in timestamp format, update log parsing in the same manner, but for the Tanzu Platform for Cloud Foundry [Windows] groot and garden_windows jobs.
 
-The logging timestamp format was changed for some Tanzu for Cloud Foundry [Windows] jobs because non-standardized and non-human readable timestamps in logs make debugging TAS more difficult. Starting in Tanzu CF/TANZU-CF-WIN 4.0, timestamps have been logged using RFC 3339 format in all cases but groot and garden_windows.
+The logging timestamp format was changed for some Tanzu Platform for Cloud Foundry [Windows] jobs because non-standardized and non-human readable timestamps in logs make debugging TAS more difficult. Starting in Tanzu CF/TANZU-CF-WIN 4.0, timestamps have been logged using RFC 3339 format in all cases but groot and garden_windows.
 
 See also the TAS for VMs v5.0 [release notes](https://docs.vmware.com/en/VMware-Tanzu-Application-Service/5.0/tas-for-vms/runtime-rn.html).
 
@@ -5487,7 +5487,7 @@ Determine if the default log rate for new applications (16 K/s) is appropriate f
 * pushing your applications with a specified app log rate limit
 * modifying the platform default log rate limit
 
-The default log rate limit for new applications is configurable in the **App Developer Controls** tab in the Tanzu for Cloud Foundry product configuration. The corresponding property is `.properties.cloud_controller_default_log_rate_limit_app`.
+The default log rate limit for new applications is configurable in the **App Developer Controls** tab in the Tanzu Platform for Cloud Foundry product configuration. The corresponding property is `.properties.cloud_controller_default_log_rate_limit_app`.
 
 See also the TAS for VMs v3.0 [release notes](https://docs.vmware.com/en/VMware-Tanzu-Application-Service/3.0/tas-for-vms.pdf).
 
@@ -5505,7 +5505,7 @@ See also:
 
 ### BOSH System Metrics Forwarder Removed
 
-The BOSH System Metrics Forwarder is removed from Tanzu for Cloud Foundry in favor of System Metrics server and scraper.
+The BOSH System Metrics Forwarder is removed from Tanzu Platform for Cloud Foundry in favor of System Metrics server and scraper.
 
 If you have been using the deprecated BOSH System Metrics Server and Forwarder, you will be affected by this change. You are using the BOSH System Metrics Server if you selected the **Enable BOSH System Metrics Server (deprecated)** option in the Ops Manager Director product configuration.
 
@@ -5513,7 +5513,7 @@ To continue receiving system metrics, you must select the **Enable System Metric
 
 To avoid deployment, platform automation, or data collection failures, you must update any queries that reference `bosh-system-metrics-forwarder` as the `source_id` for metrics to reference `system_metrics_agent` instead.
 
-Additionally, metric names now include underscores instead of periods. For example, the metric named `system.cpu.sys` in previous versions of Tanzu for Cloud Foundry is named `system_cpu_sys` in Tanzu for Cloud Foundry v3.0+.
+Additionally, metric names now include underscores instead of periods. For example, the metric named `system.cpu.sys` in previous versions of Tanzu Platform for Cloud Foundry is named `system_cpu_sys` in Tanzu Platform for Cloud Foundry v3.0+.
 
 See also:
 
@@ -5552,7 +5552,7 @@ ActiveLocks is a metric emitted by Locket, a distributed locking service used by
 
 ### cflinuxfs4 as default stack may cause failures to push apps
 
-cflinuxfs3 (backed by Ubuntu Bionic) has been deprecated in favor of cflinuxfs4 (backed by Ubuntu Jammy). If apps are configured to use the latest stack, upgrading Tanzu for Cloud Foundry will upgrade the app stacks and may cause a push failure.
+cflinuxfs3 (backed by Ubuntu Bionic) has been deprecated in favor of cflinuxfs4 (backed by Ubuntu Jammy). If apps are configured to use the latest stack, upgrading Tanzu Platform for Cloud Foundry will upgrade the app stacks and may cause a push failure.
 
 You can see what stack your apps are configured to use by running:
 
@@ -5560,7 +5560,7 @@ You can see what stack your apps are configured to use by running:
 cf audit-stack
 ```
 
-If the apps are followed by cflinuxfs3, they are running an outdated stack. You should re-stage your app to use cflinuxfs4 before upgrading Tanzu for Cloud Foundry. This may entail updating the buildpack that your app uses. If fixing app staging is not possible before the TAS upgrade, you can configure apps to run on cflinuxfs3 as a temporary workaround. Resolve any push errors before doing the upgrade.
+If the apps are followed by cflinuxfs3, they are running an outdated stack. You should re-stage your app to use cflinuxfs4 before upgrading Tanzu Platform for Cloud Foundry. This may entail updating the buildpack that your app uses. If fixing app staging is not possible before the TAS upgrade, you can configure apps to run on cflinuxfs3 as a temporary workaround. Resolve any push errors before doing the upgrade.
 
 ```
 cf push <APP_NAME> -s cflinuxfs4
@@ -5570,7 +5570,7 @@ cf push <APP_NAME> -s cflinuxfs4
 
 See also:
 * [Managing apps and their stacks](https://docs.vmware.com/en/VMware-Tanzu-Application-Service/4.0/tas-for-vms/managing-apps-stacks-index.html)
-* [TAS cflinuxfs4 Migration Proposal](https://community.pivotal.io/s/article/TAS-cflinuxfs4-Migration?language=en_US) discusses stack change behaviors for each Tanzu for Cloud Foundry release
+* [TAS cflinuxfs4 Migration Proposal](https://community.pivotal.io/s/article/TAS-cflinuxfs4-Migration?language=en_US) discusses stack change behaviors for each Tanzu Platform for Cloud Foundry release
 
 ### Diego and Routing Components More Strict With TLS Protocols
 
@@ -5607,7 +5607,7 @@ See also [https://tip.golang.org/doc/go1.18](https://tip.golang.org/doc/go1.18).
 
 TAS 2.11.16 moved aggregate drain configuration to the syslog binding cache to improve deploy speed. Depending on your configuration, this could cause the Smoke Test errand to fail.
 
-If **Enable Log Cache syslog ingestion** is selected and **Default loggregator drain metadata** is unselected, and you attempt to upgrade to a version of Tanzu for Cloud Foundry from 2.11.16 to 2.11.21, this will affect you.
+If **Enable Log Cache syslog ingestion** is selected and **Default loggregator drain metadata** is unselected, and you attempt to upgrade to a version of Tanzu Platform for Cloud Foundry from 2.11.16 to 2.11.21, this will affect you.
 
 The corresponding product properties are:
 * `.properties.enable_log_cache_syslog_ingestion`
@@ -5615,7 +5615,7 @@ The corresponding product properties are:
 
 To avoid this problem, upgrade to TAS v2.11.22 or greater.
 
-Operators may configure aggregate drains to send all application logs to a syslog destination. The same mechanism may be used within Tanzu for Cloud Foundry to populate Log Cache. If metadata is not enabled for the Log Cache aggregate drain, then Log Cache will not have the metadata expected to function correctly.
+Operators may configure aggregate drains to send all application logs to a syslog destination. The same mechanism may be used within Tanzu Platform for Cloud Foundry to populate Log Cache. If metadata is not enabled for the Log Cache aggregate drain, then Log Cache will not have the metadata expected to function correctly.
 
 See also the TAS for VMs v2.11 release notes:
 
@@ -5662,7 +5662,7 @@ For more information, see:
 * [https://docs.cloudfoundry.org/adminguide/zipkin_tracing.html](https://docs.cloudfoundry.org/adminguide/zipkin_tracing.html)
 
 
-## Breaking changes for Tanzu for Cloud Foundry Ecosystem tiles (including ISV Partner tiles)
+## Breaking changes for Tanzu Platform for Cloud Foundry Ecosystem tiles (including ISV Partner tiles)
 
 If your team is building a tile (integration) to be used with a compatible TAS version, you need to be aware of the following key changes in
 TAS v6.0 that might affect these tiles. Depending on the nature of the offering, not all of the changes might be applicable.
@@ -5680,7 +5680,7 @@ We encourage ecosystem and partner teams to test and declare compatibility with 
 
 If your foundation is affected, use Tanzu Operations Manager to configure use of a different port.
 
-For Tanzu for Cloud Foundry, go to the **Networking** tab and scroll down to the **Route Services** section. If route services are enabled, you will see a text box labeled **The port used for internal route services requests**. Set the value to a known available port, or set the value to 0 to allow the operating system to choose an available port at deploy time.
+For Tanzu Platform for Cloud Foundry, go to the **Networking** tab and scroll down to the **Route Services** section. If route services are enabled, you will see a text box labeled **The port used for internal route services requests**. Set the value to a known available port, or set the value to 0 to allow the operating system to choose an available port at deploy time.
 
 For IST, go to the **Networking** tab and scroll down to the text box labeled **The port used for internal route services requests**. Set the value to a known available port, or set the value to 0 to allow the operating system to choose an available port at deploy time.
 
