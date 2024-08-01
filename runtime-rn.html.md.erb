@@ -1,5 +1,5 @@
 ---
-title: TAS for VMs v6.0 Release notes
+title: Tanzu for Cloud Foundry v6.0 Release notes
 owner: Release Engineering
 ---
 
@@ -4637,7 +4637,7 @@ v8](../cf-cli/v8.html).
 <%= partial "/pcf/tas/known-issues/expect-100-continue-status-codes" %>
 
 * **[Known Issue]** A UAA performance regression causes slow user queries with MySQL when there is a large number of users (fixed in TAS 6.0.2).
-* **[Breaking Change]** Remove Developer Portal from TAS
+* **[Breaking Change]** Remove Developer Portal from Tanzu CF
 * **[Breaking Change]** Change default internal route service port to 7070
 * **[Breaking Change]** No longer install cflinuxfs3 by default
 * **[Breaking Change]** Replace cpu entitlement counters with cpu_entitlement percentage gauge
@@ -4647,7 +4647,7 @@ v8](../cf-cli/v8.html).
 * **[Breaking Change]** Gorouter's deprecated /varz and /healthz endpoints on port 8080 have been removed
 * **[Breaking Change]** Absolute CPU Entitlement metrics no longer available. See [details](#absolute-cpu-entitlement-metrics-no-longer-available).
 * **[Breaking Change]** App Autoscaler introduces incompatibility with load balancers that reject POST requests without a Content-Length header.
-* **[Feature]** New form option and migration to opt-into allowing Small Footprint TAS to 'full' TAS upgrade.
+* **[Feature]** New form option and migration to opt-into allowing Small Footprint Tanzu Platform for CF to 'full' TAS upgrade.
 * **[Feature]** Add support for NTLM authentication in Gorouter
 * **[Feature]** CAPI Enable legacy MD5 buildpack paths
 * **[Feature]** Adds Diego support for Docker workloads using OCI images
@@ -4662,7 +4662,7 @@ v8](../cf-cli/v8.html).
 * **[Feature Improvement]** Make database "encrypt key" setting more intentional, to avoid password-manager autofilling of the field
 * **[Feature Improvement]** Reintroduce global log rate limit
 * **[Feature Improvement]** OTel Collector marks OTLP Sums as monotonic if they originate from a Loggregator counter
-* **[Feature Improvement]** Stop logging out of external OIDC provider when logging out of TAS
+* **[Feature Improvement]** Stop logging out of external OIDC provider when logging out of Tanzu CF
 * **[Feature Improvement]** Operators can select which protocols Routing API will accept via the "Routing API Endpoint Protocol" property in the Networking tab. This property defaults to the backwards compatible option "both" that works with all tile integrations.
 * **[Feature Improvement]**  Allow to configure w3c tracing headers in router
 * **[Feature Improvement]** [Cloud Controller] Add option to configure Instance File Descriptor Limit
@@ -5077,19 +5077,19 @@ v8](../cf-cli/v8.html).
 
 These are the new features for <%= vars.app_runtime_full %> <%= vars.v_major_version %>.
 
-### Updates to GenAI for Tanzu Application Service (beta)
+### Updates to GenAI for Tanzu Platform for Cloud Foundry (beta)
 
 - **Improved vSphere Support:** Platform engineers can now deploy large
   language models on larger GPUs, such as the Nvidia A100, on VMware
   vSphere-backed deployments. This allows for larger models to be
   deployed and for improved inferencing times
 
-- **Azure Support:** GenAI for Tanzu Application Service, has been
+- **Azure Support:** GenAI for Tanzu Platform for Cloud Foundry, has been
   validated to work with Azure as a support IaaS destination in addition
   to AWS, GCP, and vSphere, providing customers with more choices across
   cloud providers
 
-- **Multi-Model Support:** GenAI for Tanzu Application Service now
+- **Multi-Model Support:** GenAI for Tanzu Platform for Cloud Foundry now
   supports multiple worker models running simultaneously, which expands
   the types of applications that can use this service. This enables
   platform engineers to deploy multiple types of LLMs optimized for
@@ -5137,7 +5137,7 @@ These are the new features for <%= vars.app_runtime_full %> <%= vars.v_major_ver
   the platform. This should allow organizations to start with an overall
   smaller footprint (~4-6 virtual machines) at a lower cost and gives
   them the option to grow their platform footprint in their own time.
-  The small footprint for Tanzu Application Service is also fully
+  The small footprint for Tanzu Platform for Cloud Foundry is also fully
   supported for production use and can be utilized in locations with
   limited infrastructure footprint, such as an edge location.
 
@@ -5153,7 +5153,7 @@ These are the new features for <%= vars.app_runtime_full %> <%= vars.v_major_ver
   instances are running in their zone.
 
 - **Scale your dopplers and traffic controllers all the way to 0:** For
-  Tanzu Application Service installations using aggregate syslog drains
+  Tanzu Platform for Cloud Foundry installations using aggregate syslog drains
   to send app logs and metrics via the syslog protocol, platform
   engineers can now completely turn off the doppler and traffic
   controller VMs at the core of the loggregator subsystem. This
@@ -5179,14 +5179,14 @@ These are the new features for <%= vars.app_runtime_full %> <%= vars.v_major_ver
   platform certification rotation and management process. The dashboard
   allows platform engineers to track certification rotation status to
   easily understand the next step for the certificate rotation process
-  within their Tanzu Application Service environments.
+  within their Tanzu Platform for Cloud Foundry environments.
 
-- **Configurable App File descriptor limits:** Tanzu Application Service
+- **Configurable App File descriptor limits:** Tanzu Platform for Cloud Foundry
   allows platform engineers to change the default Linux file descriptor
   limits for applications running on the platform. This feature enables
   applications to move to the platform that requires larger than normal
   numbers of Unix file descriptors. This allows for more application
-  types to be migrated onto the Tanzu Application Service platform.
+  types to be migrated onto the Tanzu Platform for Cloud Foundry platform.
 
 ### Enhancements to Enable Improved Platform Security Postures
 
@@ -5205,13 +5205,13 @@ These are the new features for <%= vars.app_runtime_full %> <%= vars.v_major_ver
   better security posture for platform engineers who are managing local
   platform accounts.
 
-### Tanzu Application Service Ecosystem Optimizations
+### Tanzu Platform for Cloud Foundry Ecosystem Optimizations
 
 #### Enhancements to the AWS Cloud Service Broker
 
 - **Support for the AWS Simple Queue Service (SQS):** Platform engineers
   can now add production-ready plans for the AWS SQS service to their
-  Tanzu Application Service marketplace offerings. Developers can easily
+  Tanzu Platform for Cloud Foundry marketplace offerings. Developers can easily
   deploy and use the AWS SQS service to expand upon their application
   use cases just like any other service supported by the Cloud Service
   Broker.
@@ -5360,9 +5360,9 @@ If you are upgrading from TAS 4.0 to TAS 6.0, review the following breaking chan
 
 ### MySQL 5.7 external system database support removed
 
-Your TAS for VMs deployment will fail or become insecure if you are using MySQL 5.7 as TAS's external system database because MySQL 5.7 has reached its End-Of-Life (31 Oct 2023).
+Your Tanzu for Cloud Foundry deployment will fail or become insecure if you are using MySQL 5.7 as Tanzu CF's external system database because MySQL 5.7 has reached its End-Of-Life (31 Oct 2023).
 
-If you have configured a MySQL 5.7 database instance as the external system database for your TAS deployment, this change will affect you. You can check your current system database settings by going to the **Databases** pane in the TAS for VMs tile.
+If you have configured a MySQL 5.7 database instance as the external system database for your TAS deployment, this change will affect you. You can check your current system database settings by going to the **Databases** pane in the Tanzu for Cloud Foundry tile.
 Check the **System databases location** section. If the **External database server** option is selected and the configured database server is based on MySQL 5.7, you
 will have to upgrade your external system database to a supported MySQL version (such as MySQL 8.0).
 
@@ -5372,7 +5372,7 @@ This change was triggered by the fact that MySQL 5.7 has reached its official En
 
 Operators can ensure successful deployment of NATS servers, which propagate routes from services and apps to Gorouter, by confirming that their nats-release instances have successfully migrated to NATS v2.
 
-If your TAS environment is already on v2.11.26 or greater, make sure that your NATS instances have successfully migrated by checking that NATS 2.0 is running. See [How to confirm your nats servers are running NATs v2](https://community.pivotal.io/s/article/How-to-confirm-your-nats-servers-are-running-NATs-v2?language=en_US).
+If your TAS or Tanzu CF environment is on v2.11.26 or greater, make sure that your NATS instances have successfully migrated by checking that NATS 2.0 is running. See [How to confirm your nats servers are running NATs v2](https://community.pivotal.io/s/article/How-to-confirm-your-nats-servers-are-running-NATs-v2?language=en_US).
 
 If your deployment fails, check the NATS instance logs. Migration details, including any possible error messages, can be found under `/var/vcap/sys/log/nats-tls/nats-tls-wrapper.stdout.log`.
 
@@ -5392,19 +5392,19 @@ This is a Spring Framework default change to [improve security posture](https://
 
 To prevent or solve this problem, modify your client or documentation to no longer make requests with trailing slashes.
 
-See also the TAS for VMs 5.0 [release notes](https://docs.vmware.com/en/VMware-Tanzu-Application-Service/5.0/tas-for-vms/runtime-rn.html).
+See also the TAS for VMs v5.0 [release notes](https://docs.vmware.com/en/VMware-Tanzu-Application-Service/5.0/tas-for-vms/runtime-rn.html).
 
-### Logging timestamp format changed for some TAS for VMs [Windows] jobs
+### Logging timestamp format changed for some Tanzu for Cloud Foundry [Windows] jobs
 
-Existing automation that parses logs from TAS for VMs [Windows] components may break if it is still expecting timestamps formatted as epoch time. Specifically, logs from groot and garden_windows have been converted to RFC 3339 timestamps.
+Existing automation that parses logs from Tanzu for Cloud Foundry [Windows] components may break if it is still expecting timestamps formatted as epoch time. Specifically, logs from groot and garden_windows have been converted to RFC 3339 timestamps.
 
-This will affect you if you have log parsing for TAS for VMs [Windows]'s groot and garden_windows jobs that rely on timestamps being in epoch format.
+This will affect you if you have log parsing for Tanzu for Cloud Foundry [Windows]'s groot and garden_windows jobs that rely on timestamps being in epoch format.
 
-If it was necessary to adjust log parsing for TAS and TAS for VMs [Windows] 4.0 to account for the change in timestamp format, update log parsing in the same manner, but for the TAS for VMs [Windows] groot and garden_windows jobs.
+If it was necessary to adjust log parsing for TAS and Tanzu for Cloud Foundry [Windows] 4.0 to account for the change in timestamp format, update log parsing in the same manner, but for the Tanzu for Cloud Foundry [Windows] groot and garden_windows jobs.
 
-The logging timestamp format was changed for some TAS for VMs [Windows] jobs because non-standardized and non-human readable timestamps in logs make debugging TAS more difficult. Starting in TAS/TASW 4.0, timestamps have been logged using RFC 3339 format in all cases but groot and garden_windows.
+The logging timestamp format was changed for some Tanzu for Cloud Foundry [Windows] jobs because non-standardized and non-human readable timestamps in logs make debugging TAS more difficult. Starting in Tanzu CF/TANZU-CF-WIN 4.0, timestamps have been logged using RFC 3339 format in all cases but groot and garden_windows.
 
-See also the TAS for VMs 5.0 [release notes](https://docs.vmware.com/en/VMware-Tanzu-Application-Service/5.0/tas-for-vms/runtime-rn.html).
+See also the TAS for VMs v5.0 [release notes](https://docs.vmware.com/en/VMware-Tanzu-Application-Service/5.0/tas-for-vms/runtime-rn.html).
 
 ### Logging timestamp format property removed
 
@@ -5412,11 +5412,11 @@ Existing automation that configures a log timestamp format will break if product
 
 You are affected if you set the logging_timestamp_format product config property.
 
-This property has had no effect since TAS 4.0. Update your configuration to no longer specify the property.
+This property has had no effect since TAS v4.0. Update your configuration to no longer specify the property.
 
 The logging timestamp format property was removed because non-standardized and non-human readable timestamps in logs make debugging TAS more difficult.
 
-See also the TAS for VMs 5.0 [release notes](https://docs.vmware.com/en/VMware-Tanzu-Application-Service/5.0/tas-for-vms/runtime-rn.html).
+See also the TAS for VMs v5.0 [release notes](https://docs.vmware.com/en/VMware-Tanzu-Application-Service/5.0/tas-for-vms/runtime-rn.html).
 
 ### Syslog Aggregate Drains property changes
 
@@ -5425,7 +5425,7 @@ Existing automation that configures aggregate syslog drains will break if the pr
 
 References to the old property should be updated to refer to the `new mtls_syslog_agent_aggregate_drains` property.
 This property is used to define aggregate syslog drains with keys and certificates for Mutual TLS, and to define aggregate drains that are not using Mutual TLS.
-From TAS 5.0, operators can configure aggregate drains that support Mutual TLS for improved security. This necessitated changing the structure of the syslog aggregate drains property to allow these new fields to be specified.
+From TAS v5.0, operators can configure aggregate drains that support Mutual TLS for improved security. This necessitated changing the structure of the syslog aggregate drains property to allow these new fields to be specified.
 
 Comma-separated strings are no longer accepted, instead pass an array of aggregate drains:
 
@@ -5438,33 +5438,33 @@ Comma-separated strings are no longer accepted, instead pass an array of aggrega
 
 Additionally, consider if your syslog aggregate drains should be updated to use Mutual TLS.
 
-See also the TAS for VMs 5.0 [release notes](https://docs.vmware.com/en/VMware-Tanzu-Application-Service/5.0/tas-for-vms/runtime-rn.html).
+See also the TAS for VMs v5.0 [release notes](https://docs.vmware.com/en/VMware-Tanzu-Application-Service/5.0/tas-for-vms/runtime-rn.html).
 
 ### Metrics Agent deprecated and defaults to off
 
-The behavior of any custom integration using Prometheus to scrape the Metrics Agent will change. The Metrics Agent is protected by mutual TLS, and for access, it would require using a certificate issued by TAS. We do not know of any products or integrations that use this agent.
+The behavior of any custom integration using Prometheus to scrape the Metrics Agent will change. The Metrics Agent is protected by mutual TLS, and for access, it would require using a certificate issued by Tanzu CF. We do not know of any products or integrations that use this agent.
 
 You will see this change if you have built a custom integration that scrapes all VMs usingPprometheus on port 14726.
-See the TAS for VMs 5.0 [release notes](https://docs.vmware.com/en/VMware-Tanzu-Application-Service/5.0/tas-for-vms/runtime-rn.html) for more information.
+See the TAS for VMs v5.0 [release notes](https://docs.vmware.com/en/VMware-Tanzu-Application-Service/5.0/tas-for-vms/runtime-rn.html) for more information.
 
 The Metrics Agent was designed as a way for Healthwatch and other components to retrieve metrics without using the Loggregator Firehose. No components ended up adopting it, and with the introduction of the OpenTelemetry Collector, there are now much more flexible options for egressing metrics. For this reason, we are slating it for removal rather than driving adoption towards it.
 
-If you are using the Metrics Agent, it is possible in TAS 5.0 to reenable it by unselecting the check box in the **System Logging configuration** page. A better solution is to switch to using the Prometheus Exporter in the OpenTelemetry Collector. If you
-are unable to migrate to the Prometheus Exporter, contact [Support](https://tanzu.vmware.com/support); the Metrics Agent is slated for removal in TAS 6.0.
+If you are using the Metrics Agent, it is possible in TAS v5.0 to reenable it by unselecting the check box in the **System Logging configuration** page. A better solution is to switch to using the Prometheus Exporter in the OpenTelemetry Collector. If you
+are unable to migrate to the Prometheus Exporter, contact [Support](https://tanzu.vmware.com/support); the Metrics Agent is slated for removal in TAS v6.0.
 
 
-## Breaking changes if you are starting from TAS for VMs 2.13
+## Breaking changes if you are starting from TAS for VMs v2.13
 
-If you are upgrading from TAS 4.0 to TAS 6.0, review the following breaking changes to ensure a smooth upgrade.
+If you are upgrading from TAS v4.0 to TAS v6.0, review the following breaking changes to ensure a smooth upgrade.
 
 ### App logs that exceed rate limit are dropped immediately
 
-The behavior of line-based application log rate limiting has changed. Previously application logs would be buffered to some extent and then released at the configured rate. Now application logs that exceed the rate limit are dropped immediately. For more information, see the TAS for VMs 2.13 [release notes](https://docs.vmware.com/en/VMware-Tanzu-Application-Service/2.13/tas-for-vms/runtime-rn.html#v21310-30).
+The behavior of line-based application log rate limiting has changed. Previously application logs would be buffered to some extent and then released at the configured rate. Now application logs that exceed the rate limit are dropped immediately. For more information, see the TAS for VMs v2.13 [release notes](https://docs.vmware.com/en/VMware-Tanzu-Application-Service/2.13/tas-for-vms/runtime-rn.html#v21310-30).
 
 You will encounter this behavior if you have configured the deprecated line-based application log rate limiting and have applications that emit logs in excess of the configured limit.
 This is expected behavior and helps ensure that logs that are output are timely. VMware recommends use of quota-based log rate limits for fine-grained control over application log rates.
 
-This behavior was modified as part of changes to Diego to support granular log rate limits on orgs, spaces and individual apps in TAS for VMs 3.0.
+This behavior was modified as part of changes to Diego to support granular log rate limits on orgs, spaces and individual apps in TAS for VMs v3.0.
 
 ### Syslog Drains reject SHA-1 certificates
 
@@ -5474,22 +5474,22 @@ Review your configured application syslog drains. If you have a certificate for 
 
 If older SHA-1 hash funtion certificates are used, regenerate the old certificates so that they don't use the SHA-1 hash function.
 
-For more information, see the TAS for VMs 2.12 [release notes](https://docs.vmware.com/en/VMware-Tanzu-Application-Service/2.12/tas-for-vms.pdf) for v2.2.12, and [https://go.dev/doc/go1.18#sha1](https://go.dev/doc/go1.18#sha1).
+For more information, see the TAS for VMs v2.12 [release notes](https://docs.vmware.com/en/VMware-Tanzu-Application-Service/2.12/tas-for-vms.pdf) for v2.2.12, and [https://go.dev/doc/go1.18#sha1](https://go.dev/doc/go1.18#sha1).
 
 ### Application log rate limit default
 
 Applications pushed to TAS 3.0+ will inherit a default operator-configurable log rate limit if one is not specified. The ability to set the log rate limit in a granular way is intended to allow operators to protect both the logging system within TAS and external integrations that receive logs. Setting a platform default limit for new applications makes it more likely that applications will have a log rate limit set allowing quotas to be imposed.
 
-If you are upgrading to TAS 3.0+ and are pushing applications to the platform, applications that already exist on the platform prior to upgrade will default to not being log rate limited.
+If you are upgrading to TAS v3.0+ and are pushing applications to the platform, applications that already exist on the platform prior to upgrade will default to not being log rate limited.
 
 Determine if the default log rate for new applications (16 K/s) is appropriate for your needs. If you have applications with verbose logs exceeding the default limit and do not want their logs to be dropped for exceeding the limit, then consider:
 
 * pushing your applications with a specified app log rate limit
 * modifying the platform default log rate limit
 
-The default log rate limit for new applications is configurable in the **App Developer Controls** tab in the TAS for VMs product configuration. The corresponding property is `.properties.cloud_controller_default_log_rate_limit_app`.
+The default log rate limit for new applications is configurable in the **App Developer Controls** tab in the Tanzu for Cloud Foundry product configuration. The corresponding property is `.properties.cloud_controller_default_log_rate_limit_app`.
 
-See also the TAS for VMs 3.0 [release notes](https://docs.vmware.com/en/VMware-Tanzu-Application-Service/3.0/tas-for-vms.pdf).
+See also the TAS for VMs v3.0 [release notes](https://docs.vmware.com/en/VMware-Tanzu-Application-Service/3.0/tas-for-vms.pdf).
 
 ### Autoscaler service bindings duplicate index
 
@@ -5499,13 +5499,13 @@ If you have previously manually added a database index following the instruction
 
 See also:
 
-* [TAS for VMs 2.13 release notes - 2.13.5](https://docs.vmware.com/en/VMware-Tanzu-Application-Service/2.13/tas-for-vms/runtime-rn.html#v2135-35)
-* [TAS for VMs 2.13 release notes - 2.13.7](https://docs.vmware.com/en/VMware-Tanzu-Application-Service/2.13/tas-for-vms/runtime-rn.html#v2137-33)
+* [TAS for VMs v2.13 release notes - 2.13.5](https://docs.vmware.com/en/VMware-Tanzu-Application-Service/2.13/tas-for-vms/runtime-rn.html#v2135-35)
+* [TAS for VMs v2.13 release notes - 2.13.7](https://docs.vmware.com/en/VMware-Tanzu-Application-Service/2.13/tas-for-vms/runtime-rn.html#v2137-33)
 * [Autoscale application fails with MySQL Deadlock errors KB article](https://community.pivotal.io/s/article/Autoscale-application-errors-with-MySQL-Deadlock)
 
 ### BOSH System Metrics Forwarder Removed
 
-The BOSH System Metrics Forwarder is removed from TAS for VMs in favor of System Metrics server and scraper.
+The BOSH System Metrics Forwarder is removed from Tanzu for Cloud Foundry in favor of System Metrics server and scraper.
 
 If you have been using the deprecated BOSH System Metrics Server and Forwarder, you will be affected by this change. You are using the BOSH System Metrics Server if you selected the **Enable BOSH System Metrics Server (deprecated)** option in the Ops Manager Director product configuration.
 
@@ -5513,34 +5513,34 @@ To continue receiving system metrics, you must select the **Enable System Metric
 
 To avoid deployment, platform automation, or data collection failures, you must update any queries that reference `bosh-system-metrics-forwarder` as the `source_id` for metrics to reference `system_metrics_agent` instead.
 
-Additionally, metric names now include underscores instead of periods. For example, the metric named `system.cpu.sys` in previous versions of TAS for VMs is named `system_cpu_sys` in TAS for VMs v3.0+.
+Additionally, metric names now include underscores instead of periods. For example, the metric named `system.cpu.sys` in previous versions of Tanzu for Cloud Foundry is named `system_cpu_sys` in Tanzu for Cloud Foundry v3.0+.
 
 See also:
 
-* [TAS for VMs 3.0 release notes](https://docs.vmware.com/en/VMware-Tanzu-Application-Service/3.0/tas-for-vms.pdf)
+* [TAS for VMs v3.0 release notes](https://docs.vmware.com/en/VMware-Tanzu-Application-Service/3.0/tas-for-vms.pdf)
 * [Tanzu Operations Manager release notes](https://docs.vmware.com/en/VMware-Tanzu-Operations-Manager/3.0/vmware-tanzu-ops-manager/release-notes.html#bosh-system-metrics-server-is-removed)
 
 ### HAProxy removed
 
-If your environment is running an HAProxy instance group, you must reconfigure your networking configurations. Otherwise, you will get a deployment error when upgrading to TAS 3.0.
+If your environment is running an HAProxy instance group, you must reconfigure your networking configurations. Otherwise, you will get a deployment error when upgrading to TAS v3.0.
 HAProxy was previously supported as an instance group in front of Gorouter to support features not offered by Gorouter. Now that Gorouter supports TLS termination, HAProxy is no longer needed.
 
 To check if you are running HAProxy, open the **Networking** tab in Tanzu Operations Manager. Under the field **Routing TLS Termination**, if you see **HAProxy**, you must change your networking and resource configurations to point directly to Gorouter.
 
-See also the TAS for VMs 3.0 [documentation](https://docs.vmware.com/en/VMware-Tanzu-Application-Service/3.0/tas-for-vms.pdf).
+See also the TAS for VMs v3.0 [documentation](https://docs.vmware.com/en/VMware-Tanzu-Application-Service/3.0/tas-for-vms.pdf).
 
 ### Log Cache nozzle ingess removed
 
-Starting from TAS for VMs 3.0.0, Log Cache uses syslog ingress, and the option to use nozzle ingress has been removed. This is because Log Cache ingestion using the Reverse Log Proxy (RLP) has been removed.
+Starting from TAS for VMs v3.0.0, Log Cache uses syslog ingress, and the option to use nozzle ingress has been removed. This is because Log Cache ingestion using the Reverse Log Proxy (RLP) has been removed.
 
-If you have not selected the **Enable Log Cache syslog ingestion** option, or set the corresponding `.properties.enable_log_cache_syslog_ingestion` product property to `false`, you are affected. From TAS 3.0.0, this is no longer a supported configuration.
+If you have not selected the **Enable Log Cache syslog ingestion** option, or set the corresponding `.properties.enable_log_cache_syslog_ingestion` product property to `false`, you are affected. From TAS v3.0.0, this is no longer a supported configuration.
 In addition, Diego Cells with high logging volume might experience higher CPU usage than they did prior to this change.
 
 Confirm that your instances, including those within isolation segments, are permitted to establish connections to Log Cache nodes on port 6067. You may need to update firewall rules to allow logs to flow directly from your instances to the Log Cache syslog server.
 
 Consider scaling your Diego Cells if you have applications with high logging volume due to the increased load from the syslog agent on the Diego Cell.
 
-See also the TAS for VMs 3.0 [release notes](https://docs.vmware.com/en/VMware-Tanzu-Application-Service/3.0/tas-for-vms.pdf).
+See also the TAS for VMs v3.0 [release notes](https://docs.vmware.com/en/VMware-Tanzu-Application-Service/3.0/tas-for-vms.pdf).
 
 ### ActiveLocks removed from Key Performance Indicators
 
@@ -5552,7 +5552,7 @@ ActiveLocks is a metric emitted by Locket, a distributed locking service used by
 
 ### cflinuxfs4 as default stack may cause failures to push apps
 
-cflinuxfs3 (backed by Ubuntu Bionic) has been deprecated in favor of cflinuxfs4 (backed by Ubuntu Jammy). If apps are configured to use the latest stack, upgrading TAS for VMs will upgrade the app stacks and may cause a push failure.
+cflinuxfs3 (backed by Ubuntu Bionic) has been deprecated in favor of cflinuxfs4 (backed by Ubuntu Jammy). If apps are configured to use the latest stack, upgrading Tanzu for Cloud Foundry will upgrade the app stacks and may cause a push failure.
 
 You can see what stack your apps are configured to use by running:
 
@@ -5560,7 +5560,7 @@ You can see what stack your apps are configured to use by running:
 cf audit-stack
 ```
 
-If the apps are followed by cflinuxfs3, they are running an outdated stack. You should re-stage your app to use cflinuxfs4 before upgrading TAS for VMs. This may entail updating the buildpack that your app uses. If fixing app staging is not possible before the TAS upgrade, you can configure apps to run on cflinuxfs3 as a temporary workaround. Resolve any push errors before doing the upgrade.
+If the apps are followed by cflinuxfs3, they are running an outdated stack. You should re-stage your app to use cflinuxfs4 before upgrading Tanzu for Cloud Foundry. This may entail updating the buildpack that your app uses. If fixing app staging is not possible before the TAS upgrade, you can configure apps to run on cflinuxfs3 as a temporary workaround. Resolve any push errors before doing the upgrade.
 
 ```
 cf push <APP_NAME> -s cflinuxfs4
@@ -5570,7 +5570,7 @@ cf push <APP_NAME> -s cflinuxfs4
 
 See also:
 * [Managing apps and their stacks](https://docs.vmware.com/en/VMware-Tanzu-Application-Service/4.0/tas-for-vms/managing-apps-stacks-index.html)
-* [TAS cflinuxfs4 Migration Proposal](https://community.pivotal.io/s/article/TAS-cflinuxfs4-Migration?language=en_US) discusses stack change behaviors for each TAS for VMs release
+* [TAS cflinuxfs4 Migration Proposal](https://community.pivotal.io/s/article/TAS-cflinuxfs4-Migration?language=en_US) discusses stack change behaviors for each Tanzu for Cloud Foundry release
 
 ### Diego and Routing Components More Strict With TLS Protocols
 
@@ -5601,23 +5601,23 @@ Diego and Routing components, including gorouter, use an up-to-date version of G
 See also [https://tip.golang.org/doc/go1.18](https://tip.golang.org/doc/go1.18).
 
 
-## Breaking changes if you are starting from TAS for VMs 2.11
+## Breaking changes if you are starting from TAS for VMs v2.11
 
 ### Log Cache aggregate drain metadata missing
 
 TAS 2.11.16 moved aggregate drain configuration to the syslog binding cache to improve deploy speed. Depending on your configuration, this could cause the Smoke Test errand to fail.
 
-If **Enable Log Cache syslog ingestion** is selected and **Default loggregator drain metadata** is unselected, and you attempt to upgrade to a version of TAS for VMs from 2.11.16 to 2.11.21, this will affect you.
+If **Enable Log Cache syslog ingestion** is selected and **Default loggregator drain metadata** is unselected, and you attempt to upgrade to a version of Tanzu for Cloud Foundry from 2.11.16 to 2.11.21, this will affect you.
 
 The corresponding product properties are:
 * `.properties.enable_log_cache_syslog_ingestion`
 * `.properties.default_loggregator_drain_metadata`
 
-To avoid this problem, upgrade to TAS 2.11.22 or greater.
+To avoid this problem, upgrade to TAS v2.11.22 or greater.
 
-Operators may configure aggregate drains to send all application logs to a syslog destination. The same mechanism may be used within TAS for VMs to populate Log Cache. If metadata is not enabled for the Log Cache aggregate drain, then Log Cache will not have the metadata expected to function correctly.
+Operators may configure aggregate drains to send all application logs to a syslog destination. The same mechanism may be used within Tanzu for Cloud Foundry to populate Log Cache. If metadata is not enabled for the Log Cache aggregate drain, then Log Cache will not have the metadata expected to function correctly.
 
-See also the TAS for VMs 2.11 release notes:
+See also the TAS for VMs v2.11 release notes:
 
 * [2.11.16](https://docs.vmware.com/en/VMware-Tanzu-Application-Service/2.11/tas-for-vms/runtime-rn.html#v21116)
 * [2.11.22](https://docs.vmware.com/en/VMware-Tanzu-Application-Service/2.11/tas-for-vms/runtime-rn.html#v21122)
@@ -5626,10 +5626,10 @@ See also the TAS for VMs 2.11 release notes:
 
 To minimize downtime for developers pushing apps, upgrade from TAS for VMs v2.11.9 or later. Upgrading from earlier patch versions can result in an Unknown Error when pushing apps. With Cloud Controller in affected versions, there is a possibility that app `lifecycle_type` could be nil when determining app lifecycle.
 
-If your current version of TAS is 2.11.0 through 2.11.8 and you are upgrading to TAS for VMs 2.12 or higher, this could cause a problem for you.
-To prevent problems, upgrade to TAS 2.11.9 or higher before upgrading to 2.12 or higher.
+If your current version of TAS is v2.11.0 through v2.11.8 and you are upgrading to TAS for VMs v2.12 or higher, this could cause a problem for you.
+To prevent problems, upgrade to TAS v2.11.9 or higher before upgrading to v2.12 or higher.
 
-For more information, see the Upgrade section in the TAS for VMs 2.12 [release notes](https://docs.vmware.com/en/VMware-Tanzu-Application-Service/2.12/tas-for-vms.pdf).
+For more information, see the Upgrade section in the TAS for VMs v2.12 [release notes](https://docs.vmware.com/en/VMware-Tanzu-Application-Service/2.12/tas-for-vms.pdf).
 
 ### Envoy advertises HTTP2 support over ALPN
 
@@ -5662,13 +5662,13 @@ For more information, see:
 * [https://docs.cloudfoundry.org/adminguide/zipkin_tracing.html](https://docs.cloudfoundry.org/adminguide/zipkin_tracing.html)
 
 
-## Breaking changes for TAS for VMs Ecosystem tiles (including ISV Partner tiles)
+## Breaking changes for Tanzu for Cloud Foundry Ecosystem tiles (including ISV Partner tiles)
 
 If your team is building a tile (integration) to be used with a compatible TAS version, you need to be aware of the following key changes in
-TAS 6.0 that might affect these tiles. Depending on the nature of the offering, not all of the changes might be applicable.
+TAS v6.0 that might affect these tiles. Depending on the nature of the offering, not all of the changes might be applicable.
 
-Partners who have a pre-release binary agreement on file can test the compatibility of their offering by claiming a TAS 6.0 environment.
-We encourage ecosystem and partner teams to test and declare compatibility with TAS 6.0 in a timely manner so that our mutual customers can have a smooth upgrade experience.
+Partners who have a pre-release binary agreement on file can test the compatibility of their offering by claiming a TAS v6.0 environment.
+We encourage ecosystem and partner teams to test and declare compatibility with TAS v6.0 in a timely manner so that our mutual customers can have a smooth upgrade experience.
 
 ### Gorouter uses port 7070 by default for internal route services instead of a random available port
 
@@ -5680,7 +5680,7 @@ We encourage ecosystem and partner teams to test and declare compatibility with 
 
 If your foundation is affected, use Tanzu Operations Manager to configure use of a different port.
 
-For TAS for VMs, go to the **Networking** tab and scroll down to the **Route Services** section. If route services are enabled, you will see a text box labeled **The port used for internal route services requests**. Set the value to a known available port, or set the value to 0 to allow the operating system to choose an available port at deploy time.
+For Tanzu for Cloud Foundry, go to the **Networking** tab and scroll down to the **Route Services** section. If route services are enabled, you will see a text box labeled **The port used for internal route services requests**. Set the value to a known available port, or set the value to 0 to allow the operating system to choose an available port at deploy time.
 
 For IST, go to the **Networking** tab and scroll down to the text box labeled **The port used for internal route services requests**. Set the value to a known available port, or set the value to 0 to allow the operating system to choose an available port at deploy time.
 
