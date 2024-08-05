@@ -29,6 +29,8 @@ v8](../cf-cli/v8.html).
 
 **Release Date:** 07/29/2024
 
+<%= partial "/pcf/tas/known-issues/tcp_routes_and_postgres" %>
+
 * **[Bug Fix]** Fixes a regression where pushing docker apps with SHA256 digests fails
 * **[Bug Fix]** Resolves a rare issue leading to pre-start script failures in the garden-cni + vxlan-policy-agent jobs on diego-cells
 * **[Bug Fix]** Scaling factors should be declarative in the autoscaler manifest
@@ -999,6 +1001,8 @@ v8](../cf-cli/v8.html).
 ### <a id='6.0.5'></a> 6.0.5
 
 **Release Date:** 07/08/2024
+
+<%= partial "/pcf/tas/known-issues/tcp_routes_and_postgres" %>
 
 * **[Known Issue]** Running `cf push --docker-image` may fail if specifying the image with SHA256 digests. This will be fixed in a future patch release. Workaround this by using the image tag instead of the digest.
 * **[Feature Improvement]** Configure JWKS cache in UAA
