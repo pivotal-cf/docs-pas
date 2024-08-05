@@ -27,6 +27,8 @@ Because VMware uses the Percona Distribution for MySQL, expect a time lag betwee
 
 **Release Date:** 07/29/2024
 
+<%= partial "/pcf/tas/known-issues/tcp_routes_and_postgres" %>
+
 * **[Bug Fix]** Resolves a rare issue leading to pre-start script failures in the garden-cni + vxlan-policy-agent jobs on diego-cells
 * **[Bug Fix]** Adds 2 minute caching for failed dns lookups in syslog agent to avoid dns load for malformed drain urls.
 * **[Feature]** Adds `PrometheusRemoteWrite` exporter and `batch` processor.
@@ -223,6 +225,8 @@ Because VMware uses the Percona Distribution for MySQL, expect a time lag betwee
 ### <a id='5.0.15'></a> 5.0.15
 
 **Release Date:** 07/08/2024
+
+<%= partial "/pcf/tas/known-issues/tcp_routes_and_postgres" %>
 
 * **[Bug Fix]** Route Registrar only sends 5 unregistration messages in a row when a route becomes unhealthy. This prevents Gorouter's logs from filling up with unnecessary, repetitive log messages.
 * Bump bpm to version `1.2.21`
